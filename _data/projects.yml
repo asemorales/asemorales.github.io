@@ -77,3 +77,9 @@ projects:
     - name: CSS
     - name: Javascript
     - name: MySQL
+  - name: Phlourish Website Mockup & Assets
+    field: Web Development
+    year: 2023
+    description: Web design materials for a mental health non-profit based in the Philippines
+    tools:
+    -  name: Figma
