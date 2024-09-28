@@ -1,44 +1,4 @@
 projects:
-  - name: Predicting Personality from Tweets
-    field: Data Science
-    year: 2019-2020
-    description: Gold in Poster Presentation, DLSU Senior High Research Congress
-    tools:
-    - name: Python
-      subtype: Pandas, NumPy, Matplotlib, Scikit-learn
-  - name: Exploratory Data Analysis of Philippine Poverty
-    field: Data Science
-    year: 2023
-    description: Analyzing, predicting, & visualizing Philippine poverty
-    tools:
-    - name: Python
-      subtype: Pandas, NumPy, Matplotlib, Scikit-learn
-    - name: Tableau
-  - name: DEAN Chatbot
-    field: Data Science
-    year: 2021-2022
-    description: Facebook chatbot for users to use Google Search for free, supporting education for the underprivileged
-    tools:
-    - name: Python
-      subtype: Django
-    - name: HTML
-    - name: CSS
-    - name: Javascript
-    - name: SQL
-  - name: B2VB Tableau Visualizations
-    field: Data Science
-    year: 2023
-    description: Data visualizations to learn the basics of Tableau for data storytelling
-    tools:
-    - name: Tableau
-  - name: Simon & Garfunkel Lyric Generator
-    field: Machine Learning
-    year: 2023
-    description: MLP neural network that generates lyrics from American rock duo Simon & Garfunkel
-    tools:
-    - name: Python
-      subtype: PyTorch, NLTK, NumPy
-    - name: Jupyter
   - name: Cancer Detection in Bone Scans
     field: Machine Learning
     year: 2023-2024
@@ -47,6 +7,20 @@ projects:
     - name: Python
       subtype: PyTorch, Pandas, NumPy, Matplotlib, Scikit-learn
     - name: Jupyter
+  - name: Phlourish Website Mockup & Assets
+    field: Web Development
+    year: 2023
+    description: Web design materials for a mental health non-profit based in the Philippines
+    tools:
+    -  name: Figma
+  - name: Exploratory Data Analysis of Philippine Poverty
+    field: Data Science
+    year: 2023
+    description: Analyzing, predicting, & visualizing Philippine poverty
+    tools:
+    - name: Python
+      subtype: Pandas, NumPy, Matplotlib, Scikit-learn
+    - name: Tableau
   - name: Name Generator
     field: Machine Learning
     year: 2023
@@ -66,6 +40,20 @@ projects:
     - name: CSS
     - name: Javascript
     - name: PostgreSQL
+  - name: Simon & Garfunkel Lyric Generator
+    field: Machine Learning
+    year: 2023
+    description: MLP neural network that generates lyrics from American rock duo Simon & Garfunkel
+    tools:
+    - name: Python
+      subtype: PyTorch, NLTK, NumPy
+    - name: Jupyter
+  - name: B2VB Tableau Visualizations
+    field: Data Science
+    year: 2023
+    description: Data visualizations to learn the basics of Tableau for data storytelling
+    tools:
+    - name: Tableau
   - name: Silid Aralan Learner's Database
     field: Web Development
     year: 2023
@@ -77,9 +65,21 @@ projects:
     - name: CSS
     - name: Javascript
     - name: MySQL
-  - name: Phlourish Website Mockup & Assets
-    field: Web Development
-    year: 2023
-    description: Web design materials for a mental health non-profit based in the Philippines
+  - name: DEAN Chatbot
+    field: Data Science
+    year: 2021-2022
+    description: Facebook chatbot for users to use Google Search for free, supporting education for the underprivileged
     tools:
-    -  name: Figma
+    - name: Python
+      subtype: Django
+    - name: HTML
+    - name: CSS
+    - name: Javascript
+    - name: SQL
+  - name: Predicting Personality from Tweets
+    field: Data Science
+    year: 2019-2020
+    description: Gold in Poster Presentation, DLSU Senior High Research Congress
+    tools:
+    - name: Python
+      subtype: Pandas, NumPy, Matplotlib, Scikit-learn
