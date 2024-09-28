@@ -10,6 +10,9 @@ _site/
 # Additional Ruby/bundler ignore for when you run: bundle install
 /vendor
 
+# Additional ignore for npm install
+node_modules/
+
 # Specific ignore for GitHub Pages
 # GitHub Pages will always use its own deployed version of pages-gem 
 # This means GitHub Pages will NOT use your Gemfile.lock and therefore it is
