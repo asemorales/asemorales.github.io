@@ -1,6 +1,15 @@
 <div class="project">
-    <span>{{ project.name }} | Year</span>
-    <h5>Project Name</h5>
-    <p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
-    <span>Tools</span>
+    <span>{{ project.field }} | {{ project.year }}</span>
+    <h5>{{ project.name }}</h5>
+    <p>{{ project.description }}</p>
+    <div class="tools">
+        {% for tool in project.tools %}
+            <span>
+                {{ tool.name }}
+                {% if tool.subtype %}
+                    > {{ tool.subtype }}
+                {% endif %}
+            </span>
+        {% endfor %}
+    </div>
 </div>

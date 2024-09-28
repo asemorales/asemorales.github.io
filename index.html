@@ -1,14 +1,11 @@
 ---
 layout: default
-
-projects:
-    - name: project1
-    - name: project2
 ---
 
 <!-- import content for sections -->
 {% assign experience = site.data.experience %}
 {% assign awards = site.data.awards %}
+{% assign projects = site.data.projects %}
 
 <main>
     <div id="about">
@@ -35,7 +32,7 @@ projects:
     <div id="projects">
         <h3>Projects</h3>
         <div id="projects-wrapper">
-            {% for project in page.projects %}
+            {% for project in projects.projects %}
                 {% include project.html %}
             {% endfor %}
         </div>
