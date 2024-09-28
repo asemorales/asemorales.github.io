@@ -4,7 +4,7 @@
     "tailwindcss": "^3.4.13"
   },
   "scripts": {
-    "jekyll": "bundle exec jekyll serve",
+    "jekyll": "bundle exec jekyll serve --livereload",
     "tailwind": "tailwindcss -i ./assets/css/main.css -o ./assets/compiled.css --watch",
     "start": "TAILWIND_MODE=watch NODE_ENV=development npm-run-all --parallel jekyll tailwind"
   }
