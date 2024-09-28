@@ -1,6 +1,18 @@
 ---
 layout: default
 title: ase@create-with-<3
+
+positions:
+  - name: position1
+  - name: position2
+
+awards:
+    - name: award1
+    - name: award2
+
+projects:
+    - name: project1
+    - name: project2
 ---
 
 <main>
@@ -12,39 +24,25 @@ title: ase@create-with-<3
     <div id="experience">
         <h3>Experience</span>
         <div id="positions-wrapper">
-            <div class="position">
-                <h5>Position | Company</h5>
-                <span>Month XXXX - Month YYYY | Type</span>
-                <ul>
-                    <item></item>
-                    <item></item>
-                </ul>
-                <span>Tools</span>
-            </div>
+            {% for position in page.positions %}
+                {% include position.html %}
+            {% endfor %}
         </div>
     </div>
     <div id="awards">
         <h3>Awards</h3>
         <div class="awards-wrapper">
-            <div class="award">
-                <img>
-                <h5>Award | Year</h5>
-                <ul>
-                    <item></item>
-                    <item></item>
-                </ul>
-            </div>
+            {% for award in page.awards %}
+                {% include award.html %}
+            {% endfor %}
         </div>
     </div>
     <div id="projects">
         <h3>Projects</h3>
         <div id="projects-wrapper">
-            <div class="project">
-                <span>Field | Year</span>
-                <h5>Project Name</h5>
-                <p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
-                <span>Tools</span>
-            </div>
+            {% for project in page.projects %}
+                {% include project.html %}
+            {% endfor %}
         </div>
     </div>
 </main>
