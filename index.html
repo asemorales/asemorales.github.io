@@ -1,10 +1,6 @@
 ---
 layout: default
 
-awards:
-    - name: award1
-    - name: award2
-
 projects:
     - name: project1
     - name: project2
@@ -12,6 +8,7 @@ projects:
 
 <!-- import content for sections -->
 {% assign experience = site.data.experience %}
+{% assign awards = site.data.awards %}
 
 <main>
     <div id="about">
@@ -30,7 +27,7 @@ projects:
     <div id="awards">
         <h3>Awards</h3>
         <div class="awards-wrapper">
-            {% for award in page.awards %}
+            {% for award in awards.awards %}
                 {% include award.html %}
             {% endfor %}
         </div>

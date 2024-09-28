@@ -1,8 +1,9 @@
 <div class="award">
     <img>
-    <h5>{{ award.name }} | Year</h5>
+    <h5>{{ award.name }} | {{ award.competition }}</h5>
     <ul>
-        <item></item>
-        <item></item>
+        {% for item in award.description %}
+            <item>{{ item.text }}</item>
+        {% endfor %}
     </ul>
 </div>
