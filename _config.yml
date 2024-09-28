@@ -26,6 +26,12 @@ baseurl: ""
 url: ""
 keywords: "portfolio, freelance, for hire, open to work, web developer, mobile developer, machine learning, AI, illustrator, photographer, creative"
 
+# GitHub Pages ignores Gemfile plugins, so make sure any plugins added there are also
+# added to the plugins here:
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
