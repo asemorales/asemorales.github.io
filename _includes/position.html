@@ -1,9 +1,19 @@
 <div class="position">
-    <h5>{{ position.name }} | Company</h5>
-    <span>Month XXXX - Month YYYY | Type</span>
+    <h5>{{ position.name }} | {{ position.organization }}</h5>
+    <span>{{ position.date }} | {{ position.type }}</span>
     <ul>
-        <item></item>
-        <item></item>
+        {% for item in position.description %}
+            <item>{{ item.text }}</item>
+        {% endfor %}
     </ul>
-    <span>Tools</span>
+    <div class="tools">
+        {% for tool in position.tools %}
+            <span>
+                {{ tool.name }}
+                {% if tool.subtype %}
+                    > {{ tool.subtype }}
+                {% endif %}
+            </span>
+        {% endfor %}
+    </div>
 </div>
