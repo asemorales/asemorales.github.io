@@ -3,14 +3,16 @@ layout: default
 ---
 
 <!-- import content for sections -->
+{% assign about = site.data.about %}
 {% assign experience = site.data.experience %}
 {% assign awards = site.data.awards %}
 {% assign projects = site.data.projects %}
+{% assign footer = site.data.footer %}
 
 <main>
     <div id="about">
-        <h1>Irish "Ase" Morales</h1>
-        <h5>Lorem ipsum dolor sit amet</h5>
+        <h1>"{{ about.nickname }}" {{ about.last-name }}</h1>
+        <h5>{{ about.tagline }}</h5>
         <div id="contact"></div>
     </div>
     <div id="experience">
@@ -41,7 +43,7 @@ layout: default
 <footer>
     <img>
     <div id="footer-text">
-        <p>Created with <3 by me & my bear, Polar</p>
-        <p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
+        <p>{{ footer.created-by }}</p>
+        <p>{{ footer.message }}</p>
     </div>
 </footer>
