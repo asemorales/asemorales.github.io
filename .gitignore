@@ -10,8 +10,9 @@ _site/
 # Additional Ruby/bundler ignore for when you run: bundle install
 /vendor
 
-# Additional ignore for npm install
+# Additional ignore for npm install & TailwindCSS
 node_modules/
+assets/compiled.css
 
 # Specific ignore for GitHub Pages
 # GitHub Pages will always use its own deployed version of pages-gem 
