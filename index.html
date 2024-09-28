@@ -9,41 +9,41 @@ layout: default
 {% assign projects = site.data.projects %}
 {% assign footer = site.data.footer %}
 
+<header id="about" class=" px-5">
+    <h1 class="text-6xl dark:text-musubi-100 block mt-36 mb-5">"{{ about.nickname }}" {{ about.last-name }}</h1>
+    <h5 class="text-2xl dark:text-musubi-200 mb-10">{{ about.tagline }}</h5>
+    <div id="contact" class="mb-7"></div>
+</header>
 <main>
-    <div id="about">
-        <h1>"{{ about.nickname }}" {{ about.last-name }}</h1>
-        <h5>{{ about.tagline }}</h5>
-        <div id="contact"></div>
-    </div>
-    <div id="experience">
-        <h3>Experience</span>
+    <div id="experience" class="mt-24 mb-24 px-5">
+        <h3 class="text-sm dark:text-musubi-300 font-semibold tracking-wider mb-7">{{ "Experience" | upcase }}</h3>
         <div id="positions-wrapper">
             {% for position in experience.positions %}
                 {% include position.html %}
             {% endfor %}
         </div>
     </div>
-    <div id="awards">
-        <h3>Awards</h3>
+    <div id="awards" class="mb-20 px-5">
+        <h3 class="text-sm dark:text-musubi-300 font-semibold tracking-wider mb-5">{{ "Awards" | upcase }}</h3>
         <div class="awards-wrapper">
             {% for award in awards.awards %}
                 {% include award.html %}
             {% endfor %}
         </div>
     </div>
-    <div id="projects">
-        <h3>Projects</h3>
-        <div id="projects-wrapper">
+    <div id="projects" class="mb-32 px-5">
+        <h3 class="text-sm dark:text-musubi-300 font-semibold tracking-wider mb-5">{{ "Projects" | upcase }}</h3>
+        <div class="projects-wrapper">
             {% for project in projects.projects %}
                 {% include project.html %}
             {% endfor %}
         </div>
     </div>
 </main>
-<footer>
+<footer class="flex py-16 px-5">
     <img>
     <div id="footer-text">
-        <p>{{ footer.created-by }}</p>
-        <p>{{ footer.message }}</p>
+        <p class="text-base dark:text-musubi-100 mb-5">{{ footer.created-by }}</p>
+        <p class="text-base dark:text-musubi-300">{{ footer.message }}</p>
     </div>
 </footer>

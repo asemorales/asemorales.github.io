@@ -1,9 +1,11 @@
-<div class="award">
+<div class="award flex mb-10">
     <img>
-    <h5>{{ award.name }} | {{ award.competition }}</h5>
-    <ul>
-        {% for item in award.description %}
-            <item>{{ item.text }}</item>
-        {% endfor %}
-    </ul>
+    <div class="award-text-wrapper">
+        <h5 class="text-2xl dark:text-musubi-100 mb-2">{{ award.name }} | {{ award.competition }}</h5>
+        <ul class="block text-base list-disc dark:text-musubi-200 m-3 ms-5">
+            {% for item in award.description %}
+                <li>{{ item.text }}</item>
+            {% endfor %}
+        </ul>
+    </div>
 </div>

@@ -1,17 +1,17 @@
-<div class="position">
-    <h5>{{ position.name }} | {{ position.organization }}</h5>
-    <span>{{ position.date }} | {{ position.type }}</span>
-    <ul>
+<div class="position mb-10">
+    <h5 class="text-2xl dark:text-musubi-100 mb-2">{{ position.name }} | {{ position.organization }}</h5>
+    <span class="text-sm dark:text-musubi-300 font-semibold tracking-wider">{{ position.date | upcase }} | {{ position.type | upcase }}</span>
+    <ul class="block text-base list-disc dark:text-musubi-200 my-3 ms-5">
         {% for item in position.description %}
-            <item>{{ item.text }}</item>
+            <li>{{ item.text }}</li>
         {% endfor %}
     </ul>
-    <div class="tools">
+    <div class="tools text-sm dark:text-musubi-300 font-semibold tracking-wider">
         {% for tool in position.tools %}
             <span>
-                {{ tool.name }}
+                {{ tool.name | upcase }}
                 {% if tool.subtype %}
-                    > {{ tool.subtype }}
+                    > {{ tool.subtype | upcase }}
                 {% endif %}
             </span>
         {% endfor %}

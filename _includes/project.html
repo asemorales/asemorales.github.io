@@ -1,13 +1,13 @@
-<div class="project">
-    <span>{{ project.field }} | {{ project.year }}</span>
-    <h5>{{ project.name }}</h5>
-    <p>{{ project.description }}</p>
-    <div class="tools">
+<div class="project mb-10">
+    <span class="text-base dark:text-sky-300 block mb-2">{{ project.field }} | {{ project.year }}</span>
+    <h5 class="text-2xl dark:text-musubi-100 mb-5">{{ project.name }}</h5>
+    <p class="text-base dark:text-musubi-200 mb-3">{{ project.description }}</p>
+    <div class="tools text-sm dark:text-musubi-300 font-semibold tracking-wider">
         {% for tool in project.tools %}
             <span>
-                {{ tool.name }}
+                {{ tool.name | upcase }}
                 {% if tool.subtype %}
-                    > {{ tool.subtype }}
+                    > {{ tool.subtype | upcase }}
                 {% endif %}
             </span>
         {% endfor %}
