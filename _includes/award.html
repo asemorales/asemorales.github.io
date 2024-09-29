@@ -1,10 +1,10 @@
-<div class="award flex flex-wrap mb-10">
+<div class="award flex flex-wrap items-center space-x-4 mb-10">
     {% include svg/award.svg %}
     <div class="award-text-wrapper">
-        <h2 class="text-base md:text-2xl dark:text-musubi-100 flex flex-wrap divide-x dark:divide-musubi-100 mb-2"><span class="pe-2">{{ award.name }}</span><span class="ps-2">{{ award.competition }}</span></h2>
-        <ul class="block text-sm md:text-base list-disc list-inside dark:text-musubi-200 my-3 md:ms-3">
+        <h2 class="text-base dark:text-musubi-100 flex flex-wrap divide-x dark:divide-musubi-100 mb-2"><span class="pe-2">{{ award.name }}</span><span class="ps-2">{{ award.competition }}</span></h2>
+        <ul class="block text-sm list-disc list-inside dark:text-musubi-200 my-3">
             {% for item in award.description %}
-                <li class="mb-3">{{ item.text }}</item>
+                <li class="mb-3 md:mb-1">{{ item.text }}</item>
             {% endfor %}
         </ul>
     </div>
