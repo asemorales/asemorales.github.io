@@ -1,5 +1,5 @@
-<div class="project flex flex-col bg-gradient-to-r from-musubi-500 to-musubi-600 rounded-md min-w-48 snap-start border-y-2 border-s-2 dark:border-musubi-600 hover:dark:border-sky-300 ease-in-out transition motion-reduce:transition-none p-5 mb-5">
-    <h6 class="text-sm dark:text-sky-300 block flex flex-wrap divide-x dark:divide-sky-300 mb-2">
+<div class="project flex flex-col bg-gradient-to-r from-musubi-500 to-musubi-600 rounded-md min-w-48 snap-start border-y-2 border-s-2 dark:border-musubi-600 {{ project.border-color-class }} ease-in-out transition motion-reduce:transition-none p-5 mb-5">
+    <h6 class="text-sm {{ project.text-color-class }} block flex flex-wrap divide-x {{ project.divide-color-class }} mb-2">
         <span class="pe-2">{{ project.field }}</span>
         <span class="ps-2">{{ project.year }}</span>
     </h6>
