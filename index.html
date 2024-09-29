@@ -11,11 +11,11 @@ layout: default
 {% assign footer = site.data.footer %}
 
 <header id="about" class=" px-5">
-    <h1 class="text-6xl block mt-36 mb-5">
-        <span class="font-bold text-transparent bg-clip-text light-gradient">"{{ about.nickname }}"</span>
+    <h1 class="text-3xl md:text-6xl block mt-36 mb-5">
+        <span class="font-base md:font-bold text-transparent bg-clip-text light-gradient">"{{ about.nickname }}"</span>
         <span class="font-light dark:text-musubi-100">{{ about.last-name }}</span>
     </h1>
-    <h5 class="text-2xl font-light dark:text-musubi-200 mb-10">{{ about.tagline | newline_to_br }}</h5>
+    <h5 class="text-sm md:text-2xl font-light dark:text-musubi-200 mb-10">{{ about.tagline | newline_to_br }}</h5>
     <div id="contact" class="flex space-x-4 mb-7">
         {% for social-icon in contact.social-icons %}
             {% include social-icon.html %}
@@ -24,7 +24,7 @@ layout: default
 </header>
 <main>
     <div id="experience" class="mt-24 mb-24 px-5">
-        <h3 class="text-sm dark:text-musubi-300 font-semibold tracking-wider mb-7">{{ "Experience" | upcase }}</h3>
+        <h3 class="text-xsm md:text-sm dark:text-musubi-300 font-semibold tracking-wider mb-7">{{ "Experience" | upcase }}</h3>
         <div id="positions-wrapper">
             {% for position in experience.positions %}
                 {% include position.html %}
@@ -32,7 +32,7 @@ layout: default
         </div>
     </div>
     <div id="awards" class="mb-20 px-5">
-        <h3 class="text-sm dark:text-musubi-300 font-semibold tracking-wider mb-5">{{ "Awards" | upcase }}</h3>
+        <h3 class="text-xsm md:text-sm dark:text-musubi-300 font-semibold tracking-wider mb-5">{{ "Awards" | upcase }}</h3>
         <div class="awards-wrapper">
             {% for award in awards.awards %}
                 {% include award.html %}
@@ -40,7 +40,7 @@ layout: default
         </div>
     </div>
     <div id="projects" class="mb-32 px-5">
-        <h3 class="text-sm dark:text-musubi-300 font-semibold tracking-wider mb-5">{{ "Projects" | upcase }}</h3>
+        <h3 class="text-xsm md:text-sm dark:text-musubi-300 font-semibold tracking-wider mb-5">{{ "Projects" | upcase }}</h3>
         <div class="projects-wrapper">
             {% for project in projects.projects %}
                 {% include project.html %}
@@ -48,10 +48,10 @@ layout: default
         </div>
     </div>
 </main>
-<footer class="flex py-16 px-5">
+<footer class="flex flex-wrap py-16 px-5">
     <img>
     <div id="footer-text">
-        <p class="text-base dark:text-musubi-100 mb-5">{{ footer.created-by }}</p>
-        <p class="text-base dark:text-musubi-300">{{ footer.message }}</p>
+        <p class="text-sm dark:text-musubi-100 mb-5">{{ footer.created-by }}</p>
+        <p class="text-sm dark:text-musubi-300">{{ footer.message }}</p>
     </div>
 </footer>

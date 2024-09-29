@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        xsm: '0.7rem'
+      },
       colors: {
         'musubi': {
           100: '#E1E6FF',

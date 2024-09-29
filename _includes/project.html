@@ -1,9 +1,9 @@
 <div class="project mb-10">
-    <span class="text-base dark:text-sky-300 block mb-2">{{ project.field }} | {{ project.year }}</span>
-    <h5 class="text-2xl dark:text-musubi-100 mb-5">{{ project.name }}</h5>
-    <p class="text-base dark:text-musubi-200 mb-3">{{ project.description }}</p>
-    <div class="tools text-sm dark:text-musubi-300 font-semibold tracking-wider">
-        <ul class="flex list-inside">
+    <span class="text-sm md:text-base dark:text-sky-300 block mb-2">{{ project.field }} | {{ project.year }}</span>
+    <h5 class="text-base md:text-2xl dark:text-musubi-100 mb-5">{{ project.name }}</h5>
+    <p class="text-sm md:text-base dark:text-musubi-200 mb-3">{{ project.description }}</p>
+    <div class="tools text-xsm md:text-sm dark:text-musubi-300 font-semibold tracking-wider">
+        <ul class="flex flex-wrap list-inside">
             {% for tool in project.tools %}
                 <li class="[&:not(:first-child)]:list-disc me-3">
                     {{ tool.name | upcase }}

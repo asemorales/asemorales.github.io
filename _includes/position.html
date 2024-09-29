@@ -1,13 +1,13 @@
-<div class="position mb-10">
-    <h5 class="text-2xl dark:text-musubi-100 mb-2">{{ position.name }} | {{ position.organization }}</h5>
-    <span class="text-sm dark:text-musubi-300 font-semibold tracking-wider">{{ position.date | upcase }} | {{ position.type | upcase }}</span>
-    <ul class="block text-base list-disc list-inside dark:text-musubi-200 my-3 ms-3">
+<div class="position mb-20">
+    <h5 class="text-base md:text-2xl dark:text-musubi-100 flex flex-wrap divide-x mb-2"><span class="pe-2">{{ position.name }}</span><span class="ps-2">{{ position.organization }}</span></h5>
+    <span class="text-xsm md:text-sm dark:text-musubi-300 font-semibold tracking-wider">{{ position.date | upcase }} | {{ position.type | upcase }}</span>
+    <ul class="block text-sm md:text-base list-disc list-inside dark:text-musubi-200 my-6 md:ms-3">
         {% for item in position.description %}
-            <li>{{ item.text }}</li>
+            <li class="mb-3">{{ item.text }}</li>
         {% endfor %}
     </ul>
-    <div class="tools text-sm dark:text-musubi-300 font-semibold tracking-wider">
-        <ul class="flex list-inside">
+    <div class="tools text-xsm md:text-sm dark:text-musubi-300 font-semibold tracking-wider">
+        <ul class="flex flex-wrap list-inside">
             {% for tool in position.tools %}
                 <li class="[&:not(:first-child)]:list-disc me-3">
                     {{ tool.name | upcase }}
