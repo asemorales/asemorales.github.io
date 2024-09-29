@@ -104,7 +104,7 @@ projects:
     - name: CSS
     - name: Javascript
     - name: SQL
-  - name: Pyellowicting Personality from Tweets
+  - name: Predicting Personality from Tweets
     field: Data Science
     year: 2019-2020
     text-color-class: text-sky-300
