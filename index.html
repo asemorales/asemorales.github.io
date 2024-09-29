@@ -52,6 +52,6 @@ layout: default
     <img>
     <div id="footer-text">
         <p class="text-sm dark:text-musubi-100 mb-5">{{ footer.created-by }}</p>
-        <p class="text-sm dark:text-musubi-300">{{ footer.message }}</p>
+        <p class="text-sm dark:text-musubi-300">{{ footer.message | newline_to_br }}</p>
     </div>
 </footer>
