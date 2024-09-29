@@ -15,7 +15,7 @@ layout: default
         <span class="font-base md:font-bold text-transparent bg-clip-text light-gradient">"{{ about.nickname }}"</span>
         <span class="font-light dark:text-musubi-100">{{ about.last-name }}</span>
     </h1>
-    <h5 class="text-sm md:text-2xl font-light dark:text-musubi-200 mb-10">{{ about.tagline | newline_to_br }}</h5>
+    <h2 class="text-sm md:text-2xl font-light dark:text-musubi-200 mb-10">{{ about.tagline | newline_to_br }}</h2>
     <div id="contact" class="flex space-x-4 mb-7">
         {% for social-icon in contact.social-icons %}
             {% include social-icon.html %}
