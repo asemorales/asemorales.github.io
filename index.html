@@ -12,7 +12,7 @@ layout: default
 
 <header id="about" class=" px-5">
     <h1 class="text-6xl dark:text-musubi-100 block mt-36 mb-5">"{{ about.nickname }}" {{ about.last-name }}</h1>
-    <h5 class="text-2xl dark:text-musubi-200 mb-10">{{ about.tagline }}</h5>
+    <h5 class="text-2xl font-light dark:text-musubi-200 mb-10">{{ about.tagline | newline_to_br }}</h5>
     <div id="contact" class="flex space-x-4 mb-7">
         {% for social-icon in contact.social-icons %}
             {% include social-icon.html %}
