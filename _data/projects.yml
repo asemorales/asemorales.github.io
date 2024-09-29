@@ -45,8 +45,8 @@ projects:
   - name: Dormitory Scholar Service Hours Tracker
     field: Web Development
     year: 2023
-    text-color-class: text-violet-300
-    divide-color-class: divide-violet-300
+    text-color-class: text-indigo-300
+    divide-color-class: divide-indigo-300
     border-color-class: hover:border-violet-300
     description: Website for tracking & enlistment of service hours for scholars of Ateneo de Manila University
     tools:
@@ -59,8 +59,8 @@ projects:
   - name: Simon & Garfunkel Lyric Generator
     field: Machine Learning
     year: 2023
-    text-color-class: text-blue-300
-    divide-color-class: divide-blue-300
+    text-color-class: text-sky-300
+    divide-color-class: divide-sky-300
     border-color-class: hover:border-blue-300
     description: MLP neural network that generates lyrics from American rock duo Simon & Garfunkel
     tools:
@@ -70,9 +70,9 @@ projects:
   - name: B2VB Tableau Visualizations
     field: Data Science
     year: 2023
-    text-color-class: text-orange-300
-    divide-color-class: divide-orange-300
-    border-color-class: hover:border-orange-300
+    text-color-class: text-lime-300
+    divide-color-class: divide-lime-300
+    border-color-class: hover:border-lime-300
     description: Data visualizations to learn the basics of Tableau for data storytelling
     tools:
     - name: Tableau
