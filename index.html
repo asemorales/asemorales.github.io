@@ -10,7 +10,7 @@ layout: default
 {% assign projects = site.data.projects %}
 {% assign footer = site.data.footer %}
 
-<header id="about" class=" px-7">
+<header id="about" class="px-7">
     <h1 class="text-3xl md:text-6xl block mt-36 mb-5">
         <span class="font-light dark:text-musubi-100 hidden lg:inline-block">{{ about.first-name }}</span>
         <span class="font-base md:font-bold text-transparent bg-clip-text light-gradient">"{{ about.nickname }}"</span>
@@ -24,29 +24,33 @@ layout: default
     </div>
 </header>
 <main>
-    <div id="experience" class="mt-24 mb-24 px-7">
-        <h3 class="text-xsm dark:text-musubi-300 font-semibold tracking-wider mb-7">{{ "Experience" | upcase }}</h3>
-        <div id="positions-wrapper">
-            {% for position in experience.positions %}
-                {% include position.html %}
-            {% endfor %}
+    <div class="xl:flex xl:flex-row px-7 pt-24">
+        <div id="experience" class="flex-auto basis-auto pe-20">
+            <h3 class="text-xsm dark:text-musubi-300 font-semibold tracking-wider mb-7">{{ "Experience" | upcase }}</h3>
+            <div id="positions-wrapper">
+                {% for position in experience.positions %}
+                    {% include position.html %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <div id="awards" class="mb-20 px-7">
-        <h3 class="text-xsm dark:text-musubi-300 font-semibold tracking-wider mb-2">{{ "Awards" | upcase }}</h3>
-        <div class="awards-wrapper">
-            {% for award in awards.awards %}
-                {% include award.html %}
-            {% endfor %}
-        </div>
-    </div>
-    <div id="projects" class="mb-32 px-7">
-        <h3 class="text-xsm dark:text-musubi-300 font-semibold tracking-wider mb-2">{{ "Projects" | upcase }}</h3>
-        <p class="text-sm italic dark:text-musubi-200 mb-10">⟷ Scroll left/right below to see more projects</p>
-        <div class="projects-wrapper flex snap-x snap-mandatory overflow-scroll overflow-y-visible">
-            {% for project in projects.projects %}
-                {% include project.html %}
-            {% endfor %}
+        <div class="flex-initial basis-2/5 overflow-hidden">
+            <div id="awards" class="mb-20">
+                <h3 class="text-xsm dark:text-musubi-300 font-semibold tracking-wider mb-2">{{ "Awards" | upcase }}</h3>
+                <div class="awards-wrapper">
+                    {% for award in awards.awards %}
+                        {% include award.html %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="projects" class="mb-32">
+                <h3 class="text-xsm dark:text-musubi-300 font-semibold tracking-wider mb-2">{{ "Projects" | upcase }}</h3>
+                <p class="text-sm italic dark:text-musubi-200 mb-10">⟷ Scroll left/right below to see more projects</p>
+                <div class="projects-wrapper flex snap-x snap-mandatory overflow-scroll overflow-y-visible">
+                    {% for project in projects.projects %}
+                        {% include project.html %}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 </main>
