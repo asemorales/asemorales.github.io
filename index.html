@@ -4,6 +4,7 @@ layout: default
 
 <!-- import content for sections -->
 {% assign about = site.data.about %}
+{% assign contact = site.data.contact %}
 {% assign experience = site.data.experience %}
 {% assign awards = site.data.awards %}
 {% assign projects = site.data.projects %}
@@ -12,7 +13,11 @@ layout: default
 <header id="about" class=" px-5">
     <h1 class="text-6xl dark:text-musubi-100 block mt-36 mb-5">"{{ about.nickname }}" {{ about.last-name }}</h1>
     <h5 class="text-2xl dark:text-musubi-200 mb-10">{{ about.tagline }}</h5>
-    <div id="contact" class="mb-7"></div>
+    <div id="contact" class="flex space-x-4 mb-7">
+        {% for social-icon in contact.social-icons %}
+            {% include social-icon.html %}
+        {% endfor %}
+    </div>
 </header>
 <main>
     <div id="experience" class="mt-24 mb-24 px-5">
