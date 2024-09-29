@@ -3,13 +3,15 @@
     <h5 class="text-2xl dark:text-musubi-100 mb-5">{{ project.name }}</h5>
     <p class="text-base dark:text-musubi-200 mb-3">{{ project.description }}</p>
     <div class="tools text-sm dark:text-musubi-300 font-semibold tracking-wider">
-        {% for tool in project.tools %}
-            <span>
-                {{ tool.name | upcase }}
-                {% if tool.subtype %}
-                    > {{ tool.subtype | upcase }}
-                {% endif %}
-            </span>
-        {% endfor %}
+        <ul class="flex list-inside">
+            {% for tool in project.tools %}
+                <li class="[&:not(:first-child)]:list-disc me-3">
+                    {{ tool.name | upcase }}
+                    {% if tool.subtype %}
+                        > {{ tool.subtype | upcase }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>

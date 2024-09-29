@@ -7,13 +7,15 @@
         {% endfor %}
     </ul>
     <div class="tools text-sm dark:text-musubi-300 font-semibold tracking-wider">
-        {% for tool in position.tools %}
-            <span>
-                {{ tool.name | upcase }}
-                {% if tool.subtype %}
+        <ul class="flex list-inside">
+            {% for tool in position.tools %}
+                <li class="[&:not(:first-child)]:list-disc me-3">
+                    {{ tool.name | upcase }}
+                    {% if tool.subtype %}
                     > {{ tool.subtype | upcase }}
-                {% endif %}
-            </span>
-        {% endfor %}
+                    {% endif %}    
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
