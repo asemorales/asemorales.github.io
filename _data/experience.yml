@@ -1,19 +1,20 @@
-positions:
-    - name: Mobile Developer
-      organization: Ateneo Laboratory for the Learning Sciences
-      url: https://alls.ateneo.edu/
-      date: Mar 2023 - Present
-      type: Freelance
-      description:
-      - text: Solely developed & deployed a web analytics dashboard & mobile app for research data collection on iOS & Android
-      - text: Implemented various security, performance, & maintainability considerations for long-term project support
-      - text: Handled all phases, including client discussions, feature planning, architecture design, development, exploratory testing, & long-term backend maintenance
-      - text: Learned the complete tech stack from scratch throughout the position
-      tools:
-      - name: Dart
-        subtype: Flutter
-      - name: Firebase
+alls:
+  - name: Mobile Developer
+    organization: Ateneo Laboratory for the Learning Sciences
+    url: https://alls.ateneo.edu/
+    date: Mar 2023 - Present
+    type: Freelance
+    description:
+    - text: Solely developed & deployed a web analytics dashboard & mobile app for research data collection on iOS & Android
+    - text: Implemented various security, performance, & maintainability considerations for long-term project support
+    - text: Handled all phases, including client discussions, feature planning, architecture design, development, exploratory testing, & long-term backend maintenance
+    - text: Learned the complete tech stack from scratch throughout the position
+    tools:
+    - name: Dart
+      subtype: Flutter
+    - name: Firebase
 
+hkz-2024:
     - name: Full Stack Developer
       organization: Hackazouk
       url: https://hackazouk.com
@@ -35,6 +36,7 @@ positions:
         subtype: Bootstrap
       - name: Docker
 
+cloudband-2024:
     - name: Full Stack Developer
       organization: Cloudband Solutions
       url: https://cloudbandsolutions.com/
@@ -52,6 +54,7 @@ positions:
       - name: Javascript
         subtype: React
 
+cloudband-2023:
     - name: Full Stack Developer
       organization: Cloudband Solutions
       url: https://cloudbandsolutions.com/
@@ -70,6 +73,7 @@ positions:
       - name: Javascript
         subtype: React
 
+hkz-2023:
     - name: Web Development Intern
       organization: Hackazouk
       url: https://hackazouk.com
