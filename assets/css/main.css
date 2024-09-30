@@ -58,7 +58,8 @@
     -ms-transform: translate(-11px, -10px); /* IE 9 */
     -webkit-transform: translate(-11px, -10px); /* Safari */
 
-    border: 2px solid #E1E6FF; /* border width is value from Tailwind's default for class="border-2" */
+    border-width: 2px;
+    border-color: #E1E6FF; /* border width is value from Tailwind's default for class="border-2" */
     border-radius: 100%;
     background-color: #0D1017; /* value from custom Tailwind color musubi-600 in tailwind.config.js */
 }
@@ -74,7 +75,8 @@
     -ms-transform: translate(-11px, 10px); /* IE 9 */
     -webkit-transform: translate(-11px, 10px); /* Safari */
 
-    border: 2px solid #E1E6FF; /* border width is value from Tailwind's default for class="border-2" */
+    border-width: 2px;
+    border-color: #E1E6FF; /* border width is value from Tailwind's default for class="border-2" */
     border-radius: 100%;
     background-color: #0D1017; /* value from custom Tailwind color musubi-600 in tailwind.config.js */
 }
