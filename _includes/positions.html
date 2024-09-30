@@ -1,0 +1,216 @@
+<table class="table-fixed w-full">
+  <thead>
+    <tr>
+      <th style="width: 30px"></th>
+      <!-- <th style="width: 30px;"></th> -->
+      <th style="width: auto;"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <tr >
+      <td class="border-s-2 border-musubi-100">
+        <span class="invisible">TEST</span>
+      </td>
+      <!-- <td class="border-s-2 border-musubi-400"> -->
+      <!-- commit graph styles go here -->
+      <!-- </td> -->
+
+      <td rowspan="2" class="border-y-2 border-e-2 border-musubi-400">
+        <div class="position relative -top-3.5 ps-5">
+          <h2
+            class="text-base dark:text-musubi-100 flex flex-wrap divide-x dark:divide-musubi-100 mb-2"
+          >
+            <span class="pe-2">TEST position.name</span
+            ><span class="ps-2">
+              <a
+                href="position.url"
+                target="_blank"
+                class="dark:text-sky-300 dark:hover:text-indigo-300 ease-in-out transition motion-reduce:transition-none underline underline-offset-4"
+                >position.organization</a
+              >
+            </span>
+          </h2>
+
+          <h6
+            class="text-xsm dark:text-musubi-300 font-semibold tracking-wider flex flex-wrap divide-x dark:divide-musubi-300"
+          >
+            <span class="pe-2">position.date | upcase</span>
+
+            <span class="ps-2">position.type | upcase</span>
+          </h6>
+
+          <ul
+            class="block text-sm list-disc list-inside dark:text-musubi-200 my-6"
+          >
+            {% for item in position.description %}
+
+            <li class="mb-3 md:mb-1">item.text</li>
+
+            {% endfor %}
+          </ul>
+
+          <div
+            class="tools text-xsm dark:text-musubi-300 font-semibold tracking-wider"
+          >
+            <ul class="flex flex-wrap list-inside">
+              {% for tool in position.tools %}
+
+              <li class="[&:not(:first-child)]:list-disc me-3">
+                tool.name | upcase {% if tool.subtype %} > tool.subtype | upcase
+                {% endif %}
+              </li>
+
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+    
+    <tr >
+      <td class="border-t-2 border-x-2 border-musubi-100">
+        <span class="invisible">TEST</span>
+      </td>
+      <!-- <td class="border-s-2 border-musubi-400"> -->
+      <!-- commit graph styles go here -->
+      <!-- </td> -->
+
+      <!-- <td class="border-y-2 border-musubi-400">
+        <span class="invisible">TEST</span>
+      </td> -->
+    </tr>
+    
+    <tr >
+      <td class="border-x-2 border-musubi-100">
+        <span class="invisible">TEST</span>
+      </td>
+      <!-- <td class="border-s-2 border-musubi-400"> -->
+      <!-- commit graph styles go here -->
+      <!-- </td> -->
+
+      <td class="border-y-2 border-musubi-400">
+        <div class="position relative -top-3.5 ps-5">
+          <h2
+            class="text-base dark:text-musubi-100 flex flex-wrap divide-x dark:divide-musubi-100 mb-2"
+          >
+            <span class="pe-2">TEST position.name</span
+            ><span class="ps-2">
+              <a
+                href="position.url"
+                target="_blank"
+                class="dark:text-sky-300 dark:hover:text-indigo-300 ease-in-out transition motion-reduce:transition-none underline underline-offset-4"
+                >position.organization</a
+              >
+            </span>
+          </h2>
+
+          <h6
+            class="text-xsm dark:text-musubi-300 font-semibold tracking-wider flex flex-wrap divide-x dark:divide-musubi-300"
+          >
+            <span class="pe-2">position.date | upcase</span>
+
+            <span class="ps-2">position.type | upcase</span>
+          </h6>
+
+          <ul
+            class="block text-sm list-disc list-inside dark:text-musubi-200 my-6"
+          >
+            {% for item in position.description %}
+
+            <li class="mb-3 md:mb-1">item.text</li>
+
+            {% endfor %}
+          </ul>
+
+          <div
+            class="tools text-xsm dark:text-musubi-300 font-semibold tracking-wider"
+          >
+            <ul class="flex flex-wrap list-inside">
+              {% for tool in position.tools %}
+
+              <li class="[&:not(:first-child)]:list-disc me-3">
+                tool.name | upcase {% if tool.subtype %} > tool.subtype | upcase
+                {% endif %}
+              </li>
+
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+    
+    <tr >
+      <td class="border-x-2 border-b-2 border-musubi-100">
+        <span class="invisible">TEST</span>
+      </td>
+      <!-- <td class="border-s-2 border-musubi-400"> -->
+      <!-- commit graph styles go here -->
+      <!-- </td> -->
+      <td rowspan="2" class="border-y-2 border-musubi-400">
+        <div class="position relative -top-3.5 ps-5">
+          <h2
+            class="text-base dark:text-musubi-100 flex flex-wrap divide-x dark:divide-musubi-100 mb-2"
+          >
+            <span class="pe-2">TEST position.name</span
+            ><span class="ps-2">
+              <a
+                href="position.url"
+                target="_blank"
+                class="dark:text-sky-300 dark:hover:text-indigo-300 ease-in-out transition motion-reduce:transition-none underline underline-offset-4"
+                >position.organization</a
+              >
+            </span>
+          </h2>
+
+          <h6
+            class="text-xsm dark:text-musubi-300 font-semibold tracking-wider flex flex-wrap divide-x dark:divide-musubi-300"
+          >
+            <span class="pe-2">position.date | upcase</span>
+
+            <span class="ps-2">position.type | upcase</span>
+          </h6>
+
+          <ul
+            class="block text-sm list-disc list-inside dark:text-musubi-200 my-6"
+          >
+            {% for item in position.description %}
+
+            <li class="mb-3 md:mb-1">item.text</li>
+
+            {% endfor %}
+          </ul>
+
+          <div
+            class="tools text-xsm dark:text-musubi-300 font-semibold tracking-wider"
+          >
+            <ul class="flex flex-wrap list-inside">
+              {% for tool in position.tools %}
+
+              <li class="[&:not(:first-child)]:list-disc me-3">
+                tool.name | upcase {% if tool.subtype %} > tool.subtype | upcase
+                {% endif %}
+              </li>
+
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="border-s-2 border-musubi-100">
+        <span class="invisible">TEST</span>
+      </td>
+      <!-- <td class="border-s-2 border-musubi-400"> -->
+      <!-- commit graph styles go here -->
+      <!-- </td> -->
+
+
+    </tr>
+
+  </tbody>
+</table>
