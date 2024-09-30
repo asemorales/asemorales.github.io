@@ -1,3 +1,5 @@
+{% assign positions = site.data.experience.positions %}
+
 <table class="table-fixed">
   <thead>
     <tr>
@@ -18,7 +20,7 @@
       <!-- </td> -->
 
       <td rowspan="2" class="border-y-2 border-e-2 border-musubi-400">
-        {% assign alls = site.data.experience.alls | first %}
+        {% assign alls = positions | where: "id", "alls" | first %}
         {% include position.html position=alls %}
       </td>
     </tr>
@@ -45,7 +47,7 @@
       <!-- </td> -->
 
       <td class="border-y-2 border-musubi-400">
-        {% assign alls = site.data.experience.alls | first %}
+        {% assign alls = positions | where: "id", "alls" | first %}
         {% include position.html position=alls %}
       </td>
     </tr>
@@ -58,7 +60,7 @@
       <!-- commit graph styles go here -->
       <!-- </td> -->
       <td rowspan="2" class="border-y-2 border-musubi-400">
-        {% assign alls = site.data.experience.alls | first %}
+        {% assign alls = positions | where: "id", "alls" | first %}
         {% include position.html position=alls %}
       </td>
     </tr>
