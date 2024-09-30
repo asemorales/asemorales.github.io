@@ -1,80 +1,114 @@
 {% assign positions = site.data.experience.positions %}
 
-<table class="table-fixed">
+<table class="table-fixed mb-20">
   <thead>
     <tr>
-      <th style="width: 30px"></th>
-      <!-- <th style="width: 30px;"></th> -->
+      <th style="width: 30px;"></th>
+      <th style="width: 30px;"></th>
       <th style="width: auto;"></th>
     </tr>
   </thead>
 
   <tbody>
+
+    <tr class="relative">
+      <td class="border-s-2 border-musubi-100">
+      </td>
+      <td>
+      </td>
+      <td>
+        <div class="ps-5 pb-8">Open to full-time work for Jan 2025 onwards</div>
+      </td>
+    </tr>
+
+    <tr class="relative">
+      <td class="border-s-2 border-musubi-100">
+      </td>
+      <td class="border-s-2 border-musubi-100">
+      </td>
+      <td>
+        {% assign alls = positions | where: "id", "alls" | first %}
+        {% include position.html position=alls %}
+      </td>
+    </tr>
+
+    <tr class="relative">
+      <td class="border-s-2 border-musubi-100">
+      </td>
+      <td class="border-s-2 border-musubi-100">
+      </td>
+      <td>
+        {% assign hkz-2024 = positions | where: "id", "hkz-2024" | first %}
+        {% include position.html position=hkz-2024 %}
+      </td>
+    </tr>
     
     <tr class="relative">
-      <td class="border-s-2 border-musubi-100 circle-upper-left">
-        <span class="invisible">TEST</span>
-      </td>
-      <!-- <td class="border-s-2 border-musubi-400"> -->
-      <!-- commit graph styles go here -->
-      <!-- </td> -->
-
-      <td rowspan="2" class="border-y-2 border-e-2 border-musubi-400">
-        {% assign alls = positions | where: "id", "alls" | first %}
-        {% include position.html position=alls %}
-      </td>
-    </tr>
-    
-    <tr>
-      <td class="border-t-2 border-x-2 border-musubi-100">
-        <span class="invisible">TEST</span>
-      </td>
-      <!-- <td class="border-s-2 border-musubi-400"> -->
-      <!-- commit graph styles go here -->
-      <!-- </td> -->
-
-      <!-- <td class="border-y-2 border-musubi-400">
-        <span class="invisible">TEST</span>
-      </td> -->
-    </tr>
-    
-    <tr>
-      <td class="border-x-2 border-musubi-100">
-        <span class="invisible">TEST</span>
-      </td>
-      <!-- <td class="border-s-2 border-musubi-400"> -->
-      <!-- commit graph styles go here -->
-      <!-- </td> -->
-
-      <td class="border-y-2 border-musubi-400">
-        {% assign alls = positions | where: "id", "alls" | first %}
-        {% include position.html position=alls %}
-      </td>
-    </tr>
-    
-    <tr>
-      <td class="border-x-2 border-b-2 border-musubi-100">
-        <span class="invisible">TEST</span>
-      </td>
-      <!-- <td class="border-s-2 border-musubi-400"> -->
-      <!-- commit graph styles go here -->
-      <!-- </td> -->
-      <td rowspan="2" class="border-y-2 border-musubi-400">
-        {% assign alls = positions | where: "id", "alls" | first %}
-        {% include position.html position=alls %}
-      </td>
-    </tr>
-    
-    <tr>
       <td class="border-s-2 border-musubi-100">
-        <span class="invisible">TEST</span>
       </td>
-      <!-- <td class="border-s-2 border-musubi-400"> -->
-      <!-- commit graph styles go here -->
-      <!-- </td> -->
-
-
+      <td class="border-s-2 border-musubi-100">
+      </td>
+      <td rowspan="2">
+        <p class="ps-5">I graduated! :)</p>
+      </td>
+    </tr>
+    
+    <tr class="relative">
+      <td class="border-t-2 border-x-2 border-musubi-100">
+      </td>
+      <td class="border-t-2 border-x-2 border-musubi-100">
+      </td>
+    </tr>
+    
+    <tr class="relative">
+      <td class="border-s-2 border-x-2 border-musubi-100">
+      </td>
+      <td class="border-x-2 border-musubi-100">
+      </td>
+      <td c>
+        {% assign cloudband-2024 = positions | where: "id", "cloudband-2024" | first %}
+        {% include position.html position=cloudband-2024 %}
+      </td>
+    </tr>
+    
+    <tr class="relative">
+      <td class="border-x-2 border-b-2 border-musubi-100">
+      </td>
+      <td class="border-x-2 border-b-2 border-musubi-100">
+      </td>
+      <td rowspan="2">
+        {% assign cloudband-2023 = positions | where: "id", "cloudband-2023" | first %}
+        {% include position.html position=cloudband-2023 %}
+      </td>
+    </tr>
+    
+    <tr class="relative">
+      <td class="border-s-2 border-x-2 border-musubi-100">
+      </td>
+      <td class="border-s-2 border-musubi-100">
+      </td>
     </tr>
 
+    <tr class="relative">
+      <td class="border-s-2 border-musubi-100">
+      </td>
+      <td class="border-s-2 border-musubi-100">
+      </td>
+      <td>
+        {% assign hkz-2023 = positions | where: "id", "hkz-2023" | first %}
+        {% include position.html position=hkz-2023 %}
+      </td>
+    </tr>
+
+    <tr class="relative">
+      <td class="border-s-2 border-b-2 border-musubi-100">
+      </td>
+      <td class="border-s-2 border-musubi-100">
+      </td>
+      <td>
+        <div class="ps-5">See my resume or full CV</div>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
