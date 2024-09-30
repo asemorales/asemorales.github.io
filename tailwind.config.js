@@ -26,6 +26,9 @@ module.exports = {
       listStyleType: {
         // TODO: Fix
         // square: 'sqaure'
+      },
+      borderWidth: {
+        '1rem': '1rem',
       }
     },
   },
