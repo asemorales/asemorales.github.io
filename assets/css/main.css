@@ -48,14 +48,31 @@
 }
 
 /* parent element must have a non-static position (ex. position: relative) for this to work */
-.circle-upper-left:before {
-    content: "";
+.circle-upper-left {
     width: 1.2rem;      /* set slightly higher than Tailwind's default for class="text-base" */
     height: 1.2rem;     /* set slightly higher than Tailwind's default for class="text-base" */
-
+    
     position: absolute;
-    left: -9.5px;       /* TODO: Check if this aligns with table border when root size is different */
-    top: -0.6rem;       /* value from Tailwind's default for class="-top-3.5" */
+    top: 0;
+    transform: translate(-11px, -10px);
+    -ms-transform: translate(-11px, -10px); /* IE 9 */
+    -webkit-transform: translate(-11px, -10px); /* Safari */
+
+    border: 2px solid #E1E6FF; /* border width is value from Tailwind's default for class="border-2" */
+    border-radius: 100%;
+    background-color: #0D1017; /* value from custom Tailwind color musubi-600 in tailwind.config.js */
+}
+
+/* parent element must have a non-static position (ex. position: relative) for this to work */
+.circle-bottom-left {
+    width: 1.2rem;      /* set slightly higher than Tailwind's default for class="text-base" */
+    height: 1.2rem;     /* set slightly higher than Tailwind's default for class="text-base" */
+    
+    position: absolute;
+    bottom: 0;
+    transform: translate(-11px, 10px);
+    -ms-transform: translate(-11px, 10px); /* IE 9 */
+    -webkit-transform: translate(-11px, 10px); /* Safari */
 
     border: 2px solid #E1E6FF; /* border width is value from Tailwind's default for class="border-2" */
     border-radius: 100%;
