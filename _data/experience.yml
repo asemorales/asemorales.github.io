@@ -3,6 +3,7 @@ positions:
     name: Mobile Developer
     organization: Ateneo Laboratory for the Learning Sciences
     url: https://alls.ateneo.edu/
+    text-color-class: text-orange-300
     date: Mar 2023 - Present
     type: Freelance
     description:
@@ -18,6 +19,7 @@ positions:
     name: Full Stack Developer
     organization: Hackazouk
     url: https://hackazouk.com
+    text-color-class: text-sky-300
     date: Aug 2023 - Dec 2024
     type: Part-time
     description:
@@ -39,6 +41,7 @@ positions:
     name: Full Stack Developer
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
+    text-color-class: text-pink-300
     date: Jun - Jul 2024
     type: Freelance
     description:
@@ -56,6 +59,7 @@ positions:
     name: Full Stack Developer
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
+    text-color-class: text-pink-300
     date: Jun - Aug 2023
     type: Freelance
     description:
@@ -74,6 +78,7 @@ positions:
     name: Web Development Intern
     organization: Hackazouk
     url: https://hackazouk.com
+    text-color-class: text-sky-300
     date: Jun 2023 - Jul 2023
     type: Part-time
     description:

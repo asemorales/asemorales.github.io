@@ -3,9 +3,9 @@
       <span class="pe-2">{{ include.position.name }}</span>
       <span class="ps-2">
         <a
-          href="include.position.url"
+          href="{{ include.position.url }}"
           target="_blank"
-          class="dark:text-sky-300 dark:hover:text-teal-200 ease-in-out transition motion-reduce:transition-none underline underline-offset-4"
+          class="{{ include.position.text-color-class }} dark:hover:text-musubi-100 ease-in-out transition motion-reduce:transition-none underline underline-offset-4"
           >{{ include.position.organization }}</a
         >
       </span>
