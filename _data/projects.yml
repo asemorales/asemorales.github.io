@@ -14,9 +14,9 @@ projects:
   - name: Phlourish Website Mockup & Assets
     field: Web Development
     year: 2023
-    text-color-class: text-teal-300
-    divide-color-class: divide-teal-300
-    border-color-class: hover:border-teal-300
+    text-color-class: text-pink-300
+    divide-color-class: divide-pink-300
+    border-color-class: hover:border-pink-300
     description: Web design materials for a mental health non-profit based in the Philippines
     tools:
     -  name: Figma
@@ -34,9 +34,9 @@ projects:
   - name: Name Generator
     field: Machine Learning
     year: 2023
-    text-color-class: text-amber-300
-    divide-color-class: divide-amber-300
-    border-color-class: hover:border-amber-300
+    text-color-class: text-teal-200
+    divide-color-class: divide-teal-200
+    border-color-class: hover:border-teal-200
     description: MLP neural network that generates names on a per-character & per-bigram basis
     tools:
     - name: Python
