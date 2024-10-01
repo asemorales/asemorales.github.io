@@ -70,9 +70,9 @@
     
     position: absolute;
     bottom: 0;
-    transform: translate(-11px, 10px);
-    -ms-transform: translate(-11px, 10px); /* IE 9 */
-    -webkit-transform: translate(-11px, 10px); /* Safari */
+    transform: translate(-11px, 2px);
+    -ms-transform: translate(-11px, 2px); /* IE 9 */
+    -webkit-transform: translate(-11px, 2px); /* Safari */
 
     border-width: 2px;
     border-radius: 100%;
