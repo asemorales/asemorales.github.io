@@ -29,6 +29,9 @@ module.exports = {
       },
       borderWidth: {
         '1rem': '1rem',
+      },
+      translate: {
+        '11px': '11px'
       }
     },
   },

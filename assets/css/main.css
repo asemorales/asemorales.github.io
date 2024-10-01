@@ -51,7 +51,8 @@
 .circle-upper-left {
     width: 1.2rem;      /* set slightly higher than Tailwind's default for class="text-base" */
     height: 1.2rem;     /* set slightly higher than Tailwind's default for class="text-base" */
-    
+    z-index: 40;
+
     position: absolute;
     top: 0;
     transform: translate(-11px, -1px);
@@ -67,12 +68,10 @@
 .circle-bottom-left {
     width: 1.2rem;      /* set slightly higher than Tailwind's default for class="text-base" */
     height: 1.2rem;     /* set slightly higher than Tailwind's default for class="text-base" */
-    
+    z-index: 40;
+
     position: absolute;
     bottom: 0;
-    transform: translate(-11px, 2px);
-    -ms-transform: translate(-11px, 2px); /* IE 9 */
-    -webkit-transform: translate(-11px, 2px); /* Safari */
 
     border-width: 2px;
     border-radius: 100%;
