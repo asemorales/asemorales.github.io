@@ -41,22 +41,9 @@
       </td>
       <td class="border-s-2 border-s-orange-300 border-t-1rem border-t-sky-900 hidden md:table-cell">
       </td>
-      <td>
+      <td rowspan="2">
         {% assign hkz-2024 = positions | where: "id", "hkz-2024" | first %}
         {% include position.html position=hkz-2024 %}
-      </td>
-    </tr>
-    
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
-      <td class="border-s-2 border-s-sky-300 border-t-1rem border-t-sky-900 hidden md:table-cell">
-        <div class="circle-upper-left border-sky-300"></div>
-      </td>
-      <td class="border-s-2 border-s-orange-300 border-t-1rem border-t-sky-900 hidden md:table-cell">
-      </td>
-      <td rowspan="2">
-        <p class="relative -top-2 ps-6 pb-16">
-          I graduated! :)
-        </p>
       </td>
     </tr>
     
@@ -111,10 +98,10 @@
     </tr>
 
     <tr class="relative border-s-2 border-s-sky-300 md:border-none">
-      <td class="rounded-br-lg border-s-2 border-s-sky-300 border-e-2 border-e-orange-300  border-b-1rem border-b-sky-900 hidden md:table-cell">
+      <td class="border-s-2 border-s-sky-300 border-b-1rem border-b-sky-900 hidden md:table-cell">
         <div class="circle-bottom-left border-sky-300"></div>
       </td>
-      <td class="border-b-1rem border-b-sky-900 hidden md:table-cell">
+      <td class="border-b-1rem border-b-sky-900 border-s-2 border-s-orange-300 hidden md:table-cell">
       </td>
       <td>
         <div class="relative -bottom-3.5 ps-6">See my resume or full CV</div>
