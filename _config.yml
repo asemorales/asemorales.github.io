@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until next config
   Hi, I'm Ase! I'm a web developer, mobile developer, ML/AI researcher, and creative. See my portfolio here.
 baseurl: ""
 url: ""
-keywords: "portfolio, freelance, for hire, open to work, web developer, mobile developer, machine learning, AI, illustrator, photographer, creative"
+keywords: "portfolio, freelance, full-stack, web developer, mobile developer, creative"
 
 # GitHub Pages ignores Gemfile plugins, so make sure any plugins added there are also
 # added to the plugins here:
