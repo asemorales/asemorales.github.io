@@ -8,7 +8,7 @@ positions:
     description:
     - text: Solely designed, developed, & deployed a web analytics dashboard & mobile app for research data collection on iOS & Android
     - text: Implemented various security, performance, & maintainability considerations for long-term project support
-    - text: Spearheaded all phases, including client discussions, feature planning, architecture design, development, large-scale pilot testing, & long-term system design considerations
+    - text: Spearheaded all phases, including client discussions, feature planning, development, pilot testing, & system design
     tools:
     - name: Dart
       subtype: Flutter
