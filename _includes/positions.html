@@ -1,17 +1,21 @@
 {% assign positions = site.data.experience.positions %}
 
-<table class="table-fixed border-separate border-spacing-0 mb-20">
+<table class="table-fixed border-separate border-spacing-0 ms-2 mb-20">
   <thead>
     <tr>
-      <th style="width: 25px;" class="hidden md:table-cell" ></th>
-      <th style="width: 25px;" class="hidden md:table-cell"></th>
-      <th style="width: auto;"></th>
+      <th class="w-0 table-cell md:hidden"></th>                           <!-- Simplified git tree -->
+      <th class="w-[25px] hidden md:table-cell"></th> <!-- Commit branches 1-2 of full git tree -->
+      <th class="w-[25px] hidden md:table-cell"></th> <!-- Commit branches 2-3 of full git tree -->
+      <th class="w-auto"></th>                        <!-- Text content -->
     </tr>
   </thead>
 
   <tbody>
 
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
+    <tr class="relative">
+      <td class="border-s-2 border-s-sky-300 border-dashed table-cell md:hidden">
+        <div class="circle-component circle-upper-left border-dashed border-sky-300"></div>
+      </td>
       <td class="border-s-2 border-s-sky-300 border-dashed hidden md:table-cell">
         <div class="circle-component circle-upper-left border-dashed border-sky-300"></div>
       </td>
@@ -23,7 +27,10 @@
       </td>
     </tr>
 
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
+    <tr class="relative">
+      <td class="border-s-2 border-s-orange-300 table-cell md:hidden">
+        <div class="circle-component circle-upper-left border-dashed border-orange-300"></div>
+      </td>
       <td class="border-s-2 border-s-sky-300 border-dashed hidden md:table-cell">
       </td>
       <td class="border-s-2 border-s-orange-300 border-t-[1rem] border-t-orange-900 hidden md:table-cell">
@@ -35,7 +42,10 @@
       </td>
     </tr>
 
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
+    <tr class="relative">
+      <td class="border-s-2 border-s-sky-300 table-cell md:hidden">
+        <div class="circle-component circle-upper-left border-sky-300"></div>
+      </td>
       <td class="border-s-2 border-s-sky-300 border-t-[1rem] border-t-sky-900 hidden md:table-cell">
         <div class="circle-component circle-upper-left border-sky-300"></div>
       </td>
@@ -47,7 +57,9 @@
       </td>
     </tr>
     
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
+    <tr class="relative">
+      <td class="border-s-2 border-s-sky-300 table-cell md:hidden">
+      </td>
       <td class="border-t-2 border-t-pink-300 border-s-2 border-s-sky-300 hidden md:table-cell">
         <div class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-9px] border-sky-300"></div>
       </td>
@@ -55,31 +67,39 @@
       </td>
     </tr>
     
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
+    <tr class="relative">
+      <td class="border-s-2 border-s-pink-300 table-cell md:hidden">
+        <div class="circle-component circle-upper-left border-pink-300"></div>
+      </td>
       <td class="border-s-2 border-s-sky-300 hidden md:table-cell">
       </td>
       <td class="border-s-2 border-s-orange-300 border-e-2 border-e-pink-300 hidden md:table-cell">
+        <div class="circle-component circle-upper-right border-pink-300"></div>
       </td>
       <td>
-        <div class="circle-component circle-upper-left border-pink-300"></div>
         {% assign cloudband-2024 = positions | where: "id", "cloudband-2024" | first %}
         {% include position.html position=cloudband-2024 %}
       </td>
     </tr>
     
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
+    <tr class="relative">
+      <td class="border-s-2 border-s-pink-300 table-cell md:hidden">
+        <div class="circle-component circle-upper-left border-pink-300"></div>
+      </td>
       <td class="border-s-2 border-s-sky-300 border-b-2 border-b-pink-300 hidden md:table-cell">
       </td>
       <td class="rounded-br-lg border-s-2 border-s-orange-300 border-b-2 border-b-pink-300 border-e-2 border-e-pink-300 hidden md:table-cell">
+        <div class="circle-component circle-upper-right border-pink-300"></div>
       </td>
       <td rowspan="2">
-        <div class="circle-component circle-upper-left border-pink-300"></div>
         {% assign cloudband-2023 = positions | where: "id", "cloudband-2023" | first %}
         {% include position.html position=cloudband-2023 %}
       </td>
     </tr>
     
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
+    <tr class="relative">
+      <td class="border-s-2 border-s-pink-300 table-cell md:hidden">
+      </td>
       <td class="border-s-2 border-s-sky-300 hidden md:table-cell">
         <div class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-11px] border-sky-300"></div>
       </td>
@@ -87,7 +107,10 @@
       </td>
     </tr>
 
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
+    <tr class="relative">
+      <td class="border-s-2 border-s-sky-300 table-cell md:hidden">
+        <div class="circle-component circle-upper-left border-sky-300"></div>
+      </td>
       <td class="border-s-2 border-s-sky-300 border-t-[1rem] border-t-sky-900 hidden md:table-cell">
         <div class="circle-component circle-upper-left border-sky-300"></div>
       </td>
@@ -99,7 +122,10 @@
       </td>
     </tr>
 
-    <tr class="relative border-s-2 border-s-sky-300 md:border-none">
+    <tr class="relative">
+      <td class="border-s-2 border-s-sky-300 table-cell md:hidden">
+        <div class="circle-component circle-bottom-left border-sky-300"></div>
+      </td>
       <td class="border-s-2 border-s-sky-300 border-b-[1rem] border-b-sky-900 hidden md:table-cell">
         <div class="circle-component circle-bottom-left border-sky-300"></div>
       </td>

@@ -60,4 +60,8 @@
     .circle-bottom-left {
         @apply bottom-0 translate-x-[-11px] translate-y-[1px];
     }
+
+    .circle-upper-right {
+        @apply top-0 translate-x-[12px] translate-y-[-1px];
+    }
 }
