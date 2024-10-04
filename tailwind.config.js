@@ -22,16 +22,6 @@ module.exports = {
           500: '#14192B',
           600: '#0D1017',
         }
-      },
-      listStyleType: {
-        // TODO: Fix
-        // square: 'sqaure'
-      },
-      borderWidth: {
-        '1rem': '1rem',
-      },
-      translate: {
-        '11px': '11px'
       }
     },
   },

@@ -47,33 +47,17 @@
     }
 }
 
-/* parent element must have a non-static position (ex. position: relative) for this to work */
-.circle-upper-left {
-    width: 1.2rem;      /* set slightly higher than Tailwind's default for class="text-base" */
-    height: 1.2rem;     /* set slightly higher than Tailwind's default for class="text-base" */
-    z-index: 40;
+@layer components{
+    /* parent element must have a non-static position (ex. position: relative) for this to work */
+    .circle-component {
+        @apply absolute w-[1.2rem] h-[1.2rem] border-2 rounded-full bg-musubi-600 z-40;
+    }
 
-    position: absolute;
-    top: 0;
-    transform: translate(-11px, -1px);
-    -ms-transform: translate(-11px, -1px); /* IE 9 */
-    -webkit-transform: translate(-11px, -1px); /* Safari */
+    .circle-upper-left {
+        @apply top-0 translate-x-[-11px] translate-y-[-1px];
+    }
 
-    border-width: 2px;
-    border-radius: 100%;
-    background-color: #0D1017; /* value from custom Tailwind color musubi-600 in tailwind.config.js */
-}
-
-/* parent element must have a non-static position (ex. position: relative) for this to work */
-.circle-bottom-left {
-    width: 1.2rem;      /* set slightly higher than Tailwind's default for class="text-base" */
-    height: 1.2rem;     /* set slightly higher than Tailwind's default for class="text-base" */
-    z-index: 40;
-
-    position: absolute;
-    bottom: 0;
-
-    border-width: 2px;
-    border-radius: 100%;
-    background-color: #0D1017; /* value from custom Tailwind color musubi-600 in tailwind.config.js */
+    .circle-bottom-left {
+        @apply bottom-0 translate-x-[-11px] translate-y-[1px];
+    }
 }
