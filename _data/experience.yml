@@ -20,18 +20,18 @@ positions:
     text-color-class: text-sky-300
     date: Aug 2023 - Dec 2024
     description:
-    - text: Developed 9 mid- to large-scale web applications across finance, admin dashboards, internal frameworks, and customer platforms; with roles ranging from creating new systems to expanding legacy projects with Agile development practices
+    - text: Developed 9 mid- to large-scale web applications across finance, admin dashboards, internal frameworks, and customer platforms for new and legacy systems with Agile development practices
     - text: Architected & implemented REST APIs, payment gateways, query optimizations, security improvements, & UIs
     - text: Demonstrated initiative by solely creating a reusable internal library and assisting in intern/junior developer hiring & training
     tools:
     - name: PHP
       subtype: Laravel
     - name: MySQL
-    - name: Javascript
-      subtype: jQuery
     - name: HTML
-    - name: CSS & SASS
-      subtype: Bootstrap
+    - name: CSS
+      subtype: SASS & Bootstrap
+    - name: Javascript
+      subtype: jQuery & AJAX
     - name: Docker
   - id: cloudband-2024
     name: Full-stack Developer (Freelance)
@@ -41,13 +41,14 @@ positions:
     date: Jun - Jul 2024
     description:
     - text: Developed a mid-scale web application for embedded analytics alongside a senior developer
-    - text: Implemented unit tests, modular features, auditing, UI/UX improvements, charts for analytics, and restructuring existing systems to fit new business rules
+    - text: Implemented unit tests, modular features, auditing, UI/UX improvements, charts for analytics, and restructuring existing systems
     tools:
     - name: Ruby
       subtype: Rails
+    - name: MySQL
     - name: HTML
-    - name: CSS & SASS
-      subtype: Bootstrap
+    - name: CSS
+      subtype: SASS & Bootstrap
     - name: Javascript
       subtype: React
   - id: cloudband-2023
@@ -62,9 +63,10 @@ positions:
     tools:
     - name: Ruby
       subtype: Rails
+    - name: MySQL
     - name: HTML
-    - name: CSS & SASS
-      subtype: Bootstrap
+    - name: CSS
+      subtype: SASS & Bootstrap
     - name: Javascript
       subtype: React
   - id: hkz-2023
@@ -80,9 +82,9 @@ positions:
     - name: PHP
       subtype: Laravel
     - name: MySQL
-    - name: Javascript
-      subtype: jQuery
     - name: HTML
-    - name: CSS & SASS
-      subtype: Bootstrap
+    - name: CSS
+      subtype: SASS & Bootstrap
+    - name: Javascript
+      subtype: jQuery & AJAX
     - name: Docker
