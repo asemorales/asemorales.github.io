@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // darkMode: 'class',
+  darkMode: 'selector',
   content: [
     './_data/**/*.yml',
     './_includes/**/*.html',
@@ -15,6 +15,7 @@ module.exports = {
       },
       colors: {
         'musubi': {
+          50: '#F8FAFC',
           100: '#E1E6FF',
           200: '#9AA5CE',
           300: '#565F89',

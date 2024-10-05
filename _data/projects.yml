@@ -4,9 +4,9 @@ projects:
     year: 2023-2024
     url: https://github.com/IrishMorales/lightweight-cnn-for-bone-metastasis
     # tailwind color classes (do not build the class names below dynamically or TailwindCSS will not recognize these)
-    text-color-class: text-sky-300
-    divide-color-class: divide-sky-300
-    border-color-class: hover:border-sky-300
+    text-color-class: text-sky-500 dark:text-sky-300
+    divide-color-class: divide-sky-500 dark:divide-sky-300
+    border-color-class: hover:border-sky-500 dark:hover:border-sky-300
     description: Lightweight neural network for cancer detection in underfunded hospitals. Scopus publication & oral presentation at CVIPPR 2024 
     tools:
     - name: Python
@@ -66,8 +66,8 @@ projects:
     field: Machine Learning
     year: 2023
     url: "https://github.com/IrishMorales/lyric-generator"
-    text-color-class: text-sky-300
-    divide-color-class: divide-sky-300
+    text-color-class: text-sky-500 dark:text-sky-300
+    divide-color-class: divide-sky-500 dark:divide-sky-300
     border-color-class: hover:border-blue-300
     description: MLP neural network that generates lyrics from American rock duo Simon & Garfunkel
     tools:
@@ -118,9 +118,9 @@ projects:
     field: Data Science
     year: 2019-2020
     url: "https://github.com/IrishMorales/modelling-personality-from-twts"
-    text-color-class: text-sky-300
-    divide-color-class: divide-sky-300
-    border-color-class: hover:border-sky-300
+    text-color-class: text-sky-500 dark:text-sky-300
+    divide-color-class: divide-sky-500 dark:divide-sky-300
+    border-color-class: hover:border-sky-500 dark:hover:border-sky-300
     description: Gold in Poster Presentation, DLSU Senior High Research Congress
     tools:
     - name: Python

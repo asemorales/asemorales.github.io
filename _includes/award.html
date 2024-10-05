@@ -1,17 +1,17 @@
-<div class="award award-shadow light-gradient ease-in-out transition motion-reduce:transition-none rounded-lg p-1 mx-7 xl:mx-2 mb-10">
-    {% include svg/sparkle.svg classes="dark:fill-orange-300 absolute w-10 h-10 z-40 top-0 translate-x-[5px]" %}
-    {% include svg/sparkle.svg classes="dark:fill-orange-300 absolute w-10 h-10 z-40 top-0 left-0 translate-y-[30px]" %}
-    {% include svg/sparkle.svg classes="dark:fill-orange-300 absolute w-10 h-10 z-40 bottom-0 right-0 translate-y-[40px]" %}
-    <div class="flex flex-wrap items-center bg-gradient-to-b from-musubi-500 to-musubi-600 rounded-lg p-5">
+<div class="award award-shadow dark:light-gradient ease-in-out transition motion-reduce:transition-none rounded-lg p-1 mx-7 xl:mx-2 mb-10">
+    {% include svg/sparkle.svg classes="fill-orange-200 dark:fill-orange-100 absolute w-10 h-10 z-40 top-0 translate-x-[5px]" %}
+    {% include svg/sparkle.svg classes="fill-orange-200 dark:fill-orange-100 absolute w-10 h-10 z-40 top-0 left-0 translate-y-[30px]" %}
+    {% include svg/sparkle.svg classes="fill-orange-200 dark:fill-orange-100 absolute w-10 h-10 z-40 bottom-0 right-0 translate-y-[40px]" %}
+    <div class="flex flex-wrap items-center bg-white dark:bg-gradient-to-b dark:from-musubi-500 dark:to-musubi-600 rounded-lg p-5">
         {% include svg/award.svg %}
         <div class="award-text-wrapper">
-            <h2 class="text-base dark:text-musubi-100 flex flex-wrap divide-x dark:divide-musubi-100 mb-2">
+            <h2 class="text-base font-semibold text-musubi-600 dark:text-musubi-100 flex flex-wrap divide-x divide-musubi-100 dark:divide-musubi-100 mb-2">
                 <span class="pe-2">{{ award.name }}</span>
                 <span class="ps-2">
-                    <a href="{{ award.url }}" target="_blank" class="dark:text-sky-300 dark:hover:text-musubi-100 ease-in-out transition motion-reduce:transition-none underline underline-offset-4">{{ award.competition }}</a>
+                    <a href="{{ award.url }}" target="_blank" class="text-sky-500 dark:text-sky-300 dark:hover:text-musubi-100 ease-in-out transition motion-reduce:transition-none underline underline-offset-4">{{ award.competition }}</a>
                 </span>
             </h2>
-            <ul class="block text-sm list-disc list-inside dark:text-musubi-200 my-3">
+            <ul class="block text-sm list-disc list-inside text-musubi-300 dark:text-musubi-200 my-3">
                 {% for item in award.description %}
                     <li class="mb-3 md:mb-1">{{ item.text }}</item>
                 {% endfor %}

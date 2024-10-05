@@ -3,7 +3,7 @@ positions:
     name: Mobile Developer (Freelance)
     organization: Ateneo Laboratory for the Learning Sciences
     url: https://alls.ateneo.edu/
-    text-color-class: text-orange-300
+    text-color-class: text-indigo-500 dark:text-orange-300
     date: Mar 2023 - Present
     description:
     - text: Solely designed, developed, & deployed a web analytics dashboard & mobile app for research data collection on iOS & Android
@@ -17,7 +17,7 @@ positions:
     name: Full-stack Developer
     organization: Hackazouk
     url: https://hackazouk.com
-    text-color-class: text-sky-300
+    text-color-class: text-sky-500 dark:text-sky-300
     date: Aug 2023 - Dec 2024
     description:
     - text: Developed 9 mid- to large-scale web applications across finance, admin dashboards, internal frameworks, and customer platforms for new and legacy systems with Agile development practices
@@ -37,7 +37,7 @@ positions:
     name: Full-stack Developer (Freelance)
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
-    text-color-class: text-pink-300
+    text-color-class: text-teal-500 dark:text-pink-300
     date: Jun - Jul 2024
     description:
     - text: Developed a mid-scale web application for embedded analytics alongside a senior developer
@@ -55,7 +55,7 @@ positions:
     name: Full-stack Developer (Freelance)
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
-    text-color-class: text-pink-300
+    text-color-class: text-teal-500 dark:text-pink-300
     date: Jun - Aug 2023
     description:
     - text: Developed 2 small to mid-scale web applications for inventory management & geospatial applications alongside a small team of developers
@@ -73,7 +73,7 @@ positions:
     name: Full-stack Developer Intern
     organization: Hackazouk
     url: https://hackazouk.com
-    text-color-class: text-sky-300
+    text-color-class: text-sky-500 dark:text-sky-300
     date: Jun 2023 - Jul 2023
     description:
     - text: Developed a mid-scale web application for event management with both an admin dashboard & customer-facing platform
