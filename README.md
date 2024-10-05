@@ -15,3 +15,4 @@ Assets used:
 - Font: Inter
 - Award by Cuputo from <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank" title="Award Icons">Noun Project</a> (CC BY 3.0)
 - Sparkle by Oksana Latysheva from <a href="https://thenounproject.com/browse/icons/term/sparkle/" target="_blank" title="sparkle Icons">Noun Project</a> (CC BY 3.0)
+- Sun & Moon by Artur Lopato from <a href="https://thenounproject.com/browse/icons/term/sun/" target="_blank" title="sun Icons">Noun Project</a> (CC BY 3.0)
