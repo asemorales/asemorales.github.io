@@ -6,11 +6,13 @@
         <meta name="keywords" content={{ site.keywords }}>
         <title>{{ site.title }}</title>
         <link rel="stylesheet" href="assets/compiled.css">
-        <script type="text/javascript" src="../assets/js/index.js"></script>
+        <script type="text/javascript" src="../assets/js/default.js"></script>
         {% seo %}
     </head>
-    <body class="dark:bg-musubi-600 dark:text-musubi-100 divide-y-2 dark:divide-musubi-500">
+    <body class="dark:bg-musubi-600 dark:text-musubi-100">
         {% include navigation.html %}
-        {{ content }}
+        <div class="divide-y-2 dark:divide-musubi-500">
+            {{ content }}
+        </div>
     </body>
 </html>

@@ -1,3 +1,6 @@
-<nav>
-    <!-- TODO: Accessibility controls -->
+<nav class="sticky top-0 flex justify-end dark:bg-musubi-600/75 backdrop-blur-sm z-50 border-b-2 border-musubi-500 py-2 px-5 md:px-20">
+    <button id="toggle-theme" title="Toggle light/dark mode" class="relative w-10 h-10">
+        {% include svg/moon.svg id="moon" classes="absolute top-0 invisible dark:fill-musubi-300 dark:hover:fill-musubi-100 ease-in-out transition motion-reduce:transition-none w-10 h-10" %}
+        {% include svg/sun.svg id="sun" classes="absolute top-0 invisible dark:fill-musubi-300 dark:hover:fill-musubi-100 ease-in-out transition motion-reduce:transition-none w-10 h-10" %}    
+    </button>
 </nav>
