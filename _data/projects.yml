@@ -2,6 +2,7 @@ projects:
   - name: Cancer Detection in Bone Scans
     field: Machine Learning
     year: 2023-2024
+    url: https://github.com/IrishMorales/lightweight-cnn-for-bone-metastasis
     # tailwind color classes (do not build the class names below dynamically or TailwindCSS will not recognize these)
     text-color-class: text-sky-300
     divide-color-class: divide-sky-300
@@ -14,15 +15,18 @@ projects:
   - name: Phlourish Website Mockup & Assets
     field: Web Development
     year: 2023
+    url: "https://www.figma.com/design/qpYo0qEYlccQrNz3xCteFk/PHlourish-v2?node-id=303-627&t=QtxnAQXb6XTtMbT6-1"
     text-color-class: text-pink-300
     divide-color-class: divide-pink-300
     border-color-class: hover:border-pink-300
-    description: Web design materials for a mental health non-profit based in the Philippines
+    description: Design assets & website mockups for a mental health non-profit based in the Philippines
     tools:
-    -  name: Figma
+    - name: Figma
+    - name: Photoshop
   - name: Exploratory Data Analysis of Philippine Poverty
     field: Data Science
     year: 2023
+    url: "https://github.com/IrishMorales/ph-poverty-statistics"
     text-color-class: text-orange-300
     divide-color-class: divide-orange-300
     border-color-class: hover:border-orange-300
@@ -34,6 +38,7 @@ projects:
   - name: Name Generator
     field: Machine Learning
     year: 2023
+    url: "https://github.com/IrishMorales/name-generator"
     text-color-class: text-teal-200
     divide-color-class: divide-teal-200
     border-color-class: hover:border-teal-200
@@ -45,6 +50,7 @@ projects:
   - name: Dormitory Scholar Service Hours Tracker
     field: Web Development
     year: 2023
+    url: "https://github.com/IrishMorales/dorm-service-tracker"
     text-color-class: text-indigo-300
     divide-color-class: divide-indigo-300
     border-color-class: hover:border-violet-300
@@ -59,6 +65,7 @@ projects:
   - name: Simon & Garfunkel Lyric Generator
     field: Machine Learning
     year: 2023
+    url: "https://github.com/IrishMorales/lyric-generator"
     text-color-class: text-sky-300
     divide-color-class: divide-sky-300
     border-color-class: hover:border-blue-300
@@ -70,6 +77,7 @@ projects:
   - name: B2VB Tableau Visualizations
     field: Data Science
     year: 2023
+    url: "https://github.com/IrishMorales/b2vb-tableau-visualizations"
     text-color-class: text-lime-300
     divide-color-class: divide-lime-300
     border-color-class: hover:border-lime-300
@@ -79,6 +87,7 @@ projects:
   - name: Silid Aralan Learner's Database
     field: Web Development
     year: 2023
+    url: "https://github.com/IrishMorales/silid-aralan-database"
     text-color-class: text-amber-300
     divide-color-class: divide-amber-300
     border-color-class: hover:border-amber-300
@@ -93,6 +102,7 @@ projects:
   - name: DEAN Chatbot
     field: Data Science
     year: 2021-2022
+    url: "https://www.facebook.com/dean.gdscloyola"
     text-color-class: text-lime-300
     divide-color-class: divide-lime-300
     border-color-class: hover:border-lime-300
@@ -107,6 +117,7 @@ projects:
   - name: Predicting Personality from Tweets
     field: Data Science
     year: 2019-2020
+    url: "https://github.com/IrishMorales/modelling-personality-from-twts"
     text-color-class: text-sky-300
     divide-color-class: divide-sky-300
     border-color-class: hover:border-sky-300
