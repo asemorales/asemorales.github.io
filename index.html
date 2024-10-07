@@ -11,9 +11,9 @@ layout: default
 
 <header id="about" class="dark:bg-none px-7 md:px-20">
     <h1 class="text-3xl md:text-6xl block mt-36 mb-5">
-        <span class="font-semibold text-musubi-400 dark:text-musubi-100 hidden lg:inline-block">{{ about.first-name }}</span>
-        <span class="font-semibold text-transparent bg-clip-text dark-gradient dark:light-gradient">"{{ about.nickname }}"</span>
-        <span class="font-semibold text-musubi-400 dark:text-musubi-100">{{ about.last-name }}</span>
+        <span class="font-medium text-musubi-400 dark:text-musubi-100 hidden lg:inline-block">{{ about.first-name }}</span>
+        <span class="font-medium text-transparent bg-clip-text dark-gradient dark:light-gradient">"{{ about.nickname }}"</span>
+        <span class="font-medium text-musubi-400 dark:text-musubi-100">{{ about.last-name }}</span>
     </h1>
     <h2 class="text-sm md:text-2xl font-light text-musubi-300 dark:text-musubi-200 mb-10">{{ about.tagline | newline_to_br }}</h2>
     <div id="contact" class="flex space-x-4 mb-7">
@@ -25,7 +25,7 @@ layout: default
 <main class="mb-10">
     <div class="xl:flex xl:flex-row px-7 md:px-20 pt-24">
         <div id="experience" class="flex-initial basis-auto xl:pe-20">
-            <h3 class="text-xsm text-musubi-600 dark:text-musubi-300 font-semibold tracking-wider mb-7">{{ "Experience" | upcase }}</h3>
+            <h3 class="text-xsm text-musubi-600 dark:text-musubi-300 font-medium tracking-wider mb-7">{{ "Experience" | upcase }}</h3>
             <div class="positions-wrapper">
                 {% include positions.html %}
             </div>
@@ -39,7 +39,7 @@ layout: default
                 </div>
             </div>
             <div id="projects" class="mb-32">
-                <h3 class="text-xsm text-musubi-600 dark:text-musubi-300 font-semibold tracking-wider mb-2">{{ "Projects" | upcase }}</h3>
+                <h3 class="text-xsm text-musubi-600 dark:text-musubi-300 font-medium tracking-wider mb-2">{{ "Projects" | upcase }}</h3>
                 <p class="text-sm italic text-musubi-300 dark:text-musubi-200 mb-10">⟷ Scroll left/right below to see more. Click projects for details.</p>
                 <div
                     class="projects-wrapper flex scroll-pl-6 dark:scroll-p-0 snap-x snap-mandatory overflow-scroll overflow-y-visible">
