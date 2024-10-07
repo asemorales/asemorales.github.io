@@ -12,8 +12,7 @@
         <ul class="flex flex-wrap list-inside">
             {% for tool in project.tools %}
             <li class="[&:not(:first-child)]:list-disc me-3">
-                {{ tool.name | upcase }}
-                {% if tool.subtype %} > {{ tool.subtype | upcase }} {% endif %}
+                {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %}
             </li>
             {% endfor %}
         </ul>
