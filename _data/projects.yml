@@ -5,8 +5,8 @@ projects:
     url: https://github.com/IrishMorales/lightweight-cnn-for-bone-metastasis
     # tailwind color classes (do not build the class names below dynamically or TailwindCSS will not recognize these)
     text-color-class: text-sky-500 dark:text-sky-300
-    divide-color-class: divide-sky-500 dark:divide-sky-300
-    border-color-class: hover:border-sky-500 dark:hover:border-sky-300
+    divide-color-class: divide-sky-300 dark:divide-sky-300
+    border-color-class: hover:border-sky-300 dark:hover:border-sky-300
     description: Lightweight neural network for cancer detection in underfunded hospitals. Scopus publication & oral presentation at CVIPPR 2024 
     tools:
     - name: Python
@@ -16,9 +16,9 @@ projects:
     field: Web Development
     year: 2023
     url: "https://www.figma.com/design/qpYo0qEYlccQrNz3xCteFk/PHlourish-v2?node-id=303-627&t=QtxnAQXb6XTtMbT6-1"
-    text-color-class: text-pink-300
-    divide-color-class: divide-pink-300
-    border-color-class: hover:border-pink-300
+    text-color-class: text-teal-500 dark:text-pink-300
+    divide-color-class: divide-teal-300 dark:divide-pink-300
+    border-color-class: hover:border-teal-300 dark:hover:border-pink-300
     description: Design assets & website mockups for a mental health non-profit based in the Philippines
     tools:
     - name: Figma
@@ -27,9 +27,9 @@ projects:
     field: Data Science
     year: 2023
     url: "https://github.com/IrishMorales/ph-poverty-statistics"
-    text-color-class: text-orange-300
-    divide-color-class: divide-orange-300
-    border-color-class: hover:border-orange-300
+    text-color-class: text-indigo-500 dark:text-orange-300
+    divide-color-class: divide-indigo-300 dark:divide-orange-300
+    border-color-class: hover:border-indigo-300 dark:hover:border-orange-300
     description: Analyzing, predicting, & visualizing Philippine poverty
     tools:
     - name: Python
@@ -39,9 +39,9 @@ projects:
     field: Machine Learning
     year: 2023
     url: "https://github.com/IrishMorales/name-generator"
-    text-color-class: text-teal-200
-    divide-color-class: divide-teal-200
-    border-color-class: hover:border-teal-200
+    text-color-class: text-pink-500 dark:text-teal-200
+    divide-color-class: divide-pink-300 dark:divide-teal-200
+    border-color-class: hover:border-pink-300 dark:hover:border-teal-200
     description: MLP neural network that generates names on a per-character & per-bigram basis
     tools:
     - name: Python
@@ -51,8 +51,8 @@ projects:
     field: Web Development
     year: 2023
     url: "https://github.com/IrishMorales/dorm-service-tracker"
-    text-color-class: text-indigo-300
-    divide-color-class: divide-indigo-300
+    text-color-class: text-violet-500 dark:text-violet-300
+    divide-color-class: divide-violet-300
     border-color-class: hover:border-violet-300
     description: Website for tracking & enlistment of service hours for scholars of Ateneo de Manila University
     tools:
@@ -67,8 +67,8 @@ projects:
     year: 2023
     url: "https://github.com/IrishMorales/lyric-generator"
     text-color-class: text-sky-500 dark:text-sky-300
-    divide-color-class: divide-sky-500 dark:divide-sky-300
-    border-color-class: hover:border-blue-300
+    divide-color-class: divide-sky-300 dark:divide-sky-300
+    border-color-class: hover:border-sky-300 dark:hover:border-sky-300
     description: MLP neural network that generates lyrics from American rock duo Simon & Garfunkel
     tools:
     - name: Python
@@ -78,9 +78,9 @@ projects:
     field: Data Science
     year: 2023
     url: "https://github.com/IrishMorales/b2vb-tableau-visualizations"
-    text-color-class: text-lime-300
-    divide-color-class: divide-lime-300
-    border-color-class: hover:border-lime-300
+    text-color-class: text-teal-500 dark:text-pink-300
+    divide-color-class: divide-teal-300 dark:divide-pink-300
+    border-color-class: hover:border-teal-300 dark:hover:border-pink-300
     description: Data visualizations to learn the basics of Tableau for data storytelling
     tools:
     - name: Tableau
@@ -88,9 +88,9 @@ projects:
     field: Web Development
     year: 2023
     url: "https://github.com/IrishMorales/silid-aralan-database"
-    text-color-class: text-amber-300
-    divide-color-class: divide-amber-300
-    border-color-class: hover:border-amber-300
+    text-color-class: text-pink-500 dark:text-teal-200
+    divide-color-class: divide-pink-300 dark:divide-teal-200
+    border-color-class: hover:border-pink-300 dark:hover:border-teal-200
     description: Learner’s database for Silid Aralan Inc. used internally to track student information, attendance, and performance
     tools:
     - name: Python
@@ -103,9 +103,9 @@ projects:
     field: Data Science
     year: 2021-2022
     url: "https://www.facebook.com/dean.gdscloyola"
-    text-color-class: text-lime-300
-    divide-color-class: divide-lime-300
-    border-color-class: hover:border-lime-300
+    text-color-class: text-teal-500 dark:text-pink-300
+    divide-color-class: divide-teal-300 dark:divide-pink-300
+    border-color-class: hover:border-teal-300 dark:hover:border-pink-300
     description: Facebook chatbot for users to use Google Search for free, supporting education for the underprivileged
     tools:
     - name: Python
@@ -119,8 +119,8 @@ projects:
     year: 2019-2020
     url: "https://github.com/IrishMorales/modelling-personality-from-twts"
     text-color-class: text-sky-500 dark:text-sky-300
-    divide-color-class: divide-sky-500 dark:divide-sky-300
-    border-color-class: hover:border-sky-500 dark:hover:border-sky-300
+    divide-color-class: divide-sky-300 dark:divide-sky-300
+    border-color-class: hover:border-sky-300 dark:hover:border-sky-300
     description: Gold in Poster Presentation, DLSU Senior High Research Congress
     tools:
     - name: Python

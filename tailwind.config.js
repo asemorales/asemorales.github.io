@@ -15,7 +15,7 @@ module.exports = {
       },
       colors: {
         'musubi': {
-          50: '#F8FAFC',
+          50: '#F1F5F9',
           100: '#E1E6FF',
           200: '#9AA5CE',
           300: '#565F89',
