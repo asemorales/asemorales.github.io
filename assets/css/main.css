@@ -117,10 +117,6 @@
         @apply dark-gradient dark:light-gradient;
         @apply content-[''] z-[-1] absolute top-2 left-0 right-0 h-full w-full blur-xl scale-x-75 transition-opacity;
     }
-
-    .award-shadow:hover::after {
-        @apply opacity-0;
-    }
     
     /* parent element must have a non-static position (ex. position: relative) for this to work */
     .circle-component {
