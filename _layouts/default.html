@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content={{ site.description }}>
-        <meta name="keywords" content={{ site.keywords }}>
-        <title>{{ site.title }}</title>
-        <link rel="stylesheet" href="assets/compiled.css">
-        <script type="text/javascript" src="../assets/js/default.js"></script>
-        {% seo %}
-    </head>
-    <body class="bg-musubi-50 dark:bg-musubi-600 text-musubi-600 dark:text-musubi-100">
-        {% include navigation.html %}
-        <div class="divide-y-2 divide-musubi-100 dark:divide-musubi-500">
-            {{ content }}
-        </div>
-    </body>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="keywords" content="{{ site.keywords }}">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="assets/compiled.css">
+    <script type="text/javascript" src="../assets/js/default.js"></script>
+    {% seo %}
+</head>
+
+<body class="bg-musubi-50 dark:bg-musubi-600 text-musubi-600 dark:text-musubi-100">
+    {% include navigation.html %}
+    <div class="divide-y-2 divide-musubi-100 dark:divide-musubi-500">
+        {{ content }}
+    </div>
+</body>
+
 </html>

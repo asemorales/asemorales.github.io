@@ -3,6 +3,6 @@ awards:
     competition: Google Code-in 2018
     url: https://codein.withgoogle.com/archive/
     description:
-    - text: 1st Filipino Grand Prize winner in the 9 years since competition launch
-    - text: Accomplished 35+ all-around tasks in open source software development, including code, design, documentation, QA, outreach, & research
-    - text: Featured on national news & awarded a fully paid trip to Googleplex, California
+      - text: 1st Filipino Grand Prize winner in the 9 years since competition launch
+      - text: Accomplished 35+ all-around tasks in open source software development, including code, design, documentation, QA, outreach, & research
+      - text: Featured on national news & awarded a fully paid trip to Googleplex, California

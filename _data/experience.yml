@@ -6,13 +6,13 @@ positions:
     text-color-class: text-indigo-500 dark:text-orange-300
     date: Mar 2023 - Present
     description:
-    - text: Solely designed, developed, & deployed a web analytics dashboard & mobile app for research data collection on iOS & Android
-    - text: Implemented various security, performance, & maintainability considerations for long-term project support
-    - text: Spearheaded all phases, including client discussions, feature planning, development, pilot testing, & system design
+      - text: Solely designed, developed, & deployed a web analytics dashboard & mobile app for research data collection on iOS & Android
+      - text: Implemented various security, performance, & maintainability considerations for long-term project support
+      - text: Spearheaded all phases, including client discussions, feature planning, development, pilot testing, & system design
     tools:
-    - name: Dart
-      subtype: Flutter
-    - name: Firebase
+      - name: Dart
+        subtype: Flutter
+      - name: Firebase
   - id: hkz-2024
     name: Full-stack Developer
     organization: Hackazouk
@@ -20,19 +20,19 @@ positions:
     text-color-class: text-sky-500 dark:text-sky-300
     date: Aug 2023 - Dec 2024
     description:
-    - text: Developed 9 mid- to large-scale web applications across finance, admin dashboards, internal frameworks, and customer platforms for new and legacy systems with Agile development practices
-    - text: Architected & implemented REST APIs, payment gateways, query optimizations, security improvements, & UIs
-    - text: Demonstrated initiative by solely creating a reusable internal library and assisting in intern/junior developer hiring & training
+      - text: Developed 9 mid- to large-scale web applications across finance, admin dashboards, internal frameworks, and customer platforms for new and legacy systems with Agile development practices
+      - text: Architected & implemented REST APIs, payment gateways, query optimizations, security improvements, & UIs
+      - text: Demonstrated initiative by solely creating a reusable internal library and assisting in intern/junior developer hiring & training
     tools:
-    - name: PHP
-      subtype: Laravel
-    - name: MySQL
-    - name: HTML
-    - name: CSS
-      subtype: SASS & Bootstrap
-    - name: Javascript
-      subtype: jQuery & AJAX
-    - name: Docker
+      - name: PHP
+        subtype: Laravel
+      - name: MySQL
+      - name: HTML
+      - name: CSS
+        subtype: SASS & Bootstrap
+      - name: Javascript
+        subtype: jQuery & AJAX
+      - name: Docker
   - id: cloudband-2024
     name: Full-stack Developer (Freelance)
     organization: Cloudband Solutions
@@ -40,17 +40,17 @@ positions:
     text-color-class: text-teal-500 dark:text-pink-300
     date: Jun - Jul 2024
     description:
-    - text: Developed a mid-scale web application for embedded analytics alongside a senior developer
-    - text: Implemented unit tests, modular features, auditing, UI/UX improvements, charts for analytics, and restructuring existing systems
+      - text: Developed a mid-scale web application for embedded analytics alongside a senior developer
+      - text: Implemented unit tests, modular features, auditing, UI/UX improvements, charts for analytics, and restructuring existing systems
     tools:
-    - name: Ruby
-      subtype: Rails
-    - name: MySQL
-    - name: HTML
-    - name: CSS
-      subtype: SASS & Bootstrap
-    - name: Javascript
-      subtype: React
+      - name: Ruby
+        subtype: Rails
+      - name: MySQL
+      - name: HTML
+      - name: CSS
+        subtype: SASS & Bootstrap
+      - name: Javascript
+        subtype: React
   - id: cloudband-2023
     name: Full-stack Developer (Freelance)
     organization: Cloudband Solutions
@@ -58,17 +58,17 @@ positions:
     text-color-class: text-teal-500 dark:text-pink-300
     date: Jun - Aug 2023
     description:
-    - text: Developed 2 small to mid-scale web applications for inventory management & geospatial applications alongside a small team of developers
-    - text: Implemented unit tests, modular features, visual improvements, form validation, & charts for embedded analytics
+      - text: Developed 2 small to mid-scale web applications for inventory management & geospatial applications alongside a small team of developers
+      - text: Implemented unit tests, modular features, visual improvements, form validation, & charts for embedded analytics
     tools:
-    - name: Ruby
-      subtype: Rails
-    - name: MySQL
-    - name: HTML
-    - name: CSS
-      subtype: SASS & Bootstrap
-    - name: Javascript
-      subtype: React
+      - name: Ruby
+        subtype: Rails
+      - name: MySQL
+      - name: HTML
+      - name: CSS
+        subtype: SASS & Bootstrap
+      - name: Javascript
+        subtype: React
   - id: hkz-2023
     name: Full-stack Developer Intern
     organization: Hackazouk
@@ -76,15 +76,15 @@ positions:
     text-color-class: text-sky-500 dark:text-sky-300
     date: Jun 2023 - Jul 2023
     description:
-    - text: Developed a mid-scale web application for event management with both an admin dashboard & customer-facing platform
-    - text: Streamlined critical processes by automating data migration and schema creation to expedite remaking of legacy projects
+      - text: Developed a mid-scale web application for event management with both an admin dashboard & customer-facing platform
+      - text: Streamlined critical processes by automating data migration and schema creation to expedite remaking of legacy projects
     tools:
-    - name: PHP
-      subtype: Laravel
-    - name: MySQL
-    - name: HTML
-    - name: CSS
-      subtype: SASS & Bootstrap
-    - name: Javascript
-      subtype: jQuery & AJAX
-    - name: Docker
+      - name: PHP
+        subtype: Laravel
+      - name: MySQL
+      - name: HTML
+      - name: CSS
+        subtype: SASS & Bootstrap
+      - name: Javascript
+        subtype: jQuery & AJAX
+      - name: Docker

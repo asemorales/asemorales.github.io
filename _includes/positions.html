@@ -3,10 +3,10 @@
 <table class="table-fixed border-separate border-spacing-0 ms-2 mb-20">
   <thead>
     <tr>
-      <th class="w-0 table-cell md:hidden"></th>                           <!-- Simplified git tree -->
+      <th class="w-0 table-cell md:hidden"></th> <!-- Simplified git tree -->
       <th class="w-[25px] hidden md:table-cell"></th> <!-- Commit branches 1-2 of full git tree -->
       <th class="w-[25px] hidden md:table-cell"></th> <!-- Commit branches 2-3 of full git tree -->
-      <th class="w-auto"></th>                        <!-- Text content -->
+      <th class="w-auto"></th> <!-- Text content -->
     </tr>
   </thead>
 
@@ -33,7 +33,8 @@
       </td>
       <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-dashed hidden md:table-cell">
       </td>
-      <td class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-t-[1rem] border-t-indigo-100 dark:border-t-orange-900 hidden md:table-cell">
+      <td
+        class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-t-[1rem] border-t-indigo-100 dark:border-t-orange-900 hidden md:table-cell">
         <div class="circle-component circle-upper-left border-dashed border-indigo-300 dark:border-orange-300"></div>
       </td>
       <td>
@@ -46,34 +47,41 @@
       <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 table-cell md:hidden">
         <div class="circle-component circle-upper-left border-sky-300 dark:border-sky-300"></div>
       </td>
-      <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
+      <td
+        class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
         <div class="circle-component circle-upper-left border-sky-300 dark:border-sky-300"></div>
       </td>
-      <td class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
+      <td
+        class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
       </td>
       <td rowspan="2">
         {% assign hkz-2024 = positions | where: "id", "hkz-2024" | first %}
         {% include position.html position=hkz-2024 %}
       </td>
     </tr>
-    
+
     <tr class="relative">
       <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 table-cell md:hidden">
       </td>
-      <td class="border-t-2 border-t-teal-300 dark:border-t-pink-300 border-s-2 border-s-sky-300 dark:border-s-sky-300 hidden md:table-cell">
-        <div class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-9px] border-sky-300 dark:border-sky-300"></div>
+      <td
+        class="border-t-2 border-t-teal-300 dark:border-t-pink-300 border-s-2 border-s-sky-300 dark:border-s-sky-300 hidden md:table-cell">
+        <div
+          class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-9px] border-sky-300 dark:border-sky-300">
+        </div>
       </td>
-      <td class="rounded-tr-lg border-t-2 border-t-teal-300 dark:border-t-pink-300 border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-e-2 border-e-teal-300 dark:border-e-pink-300 hidden md:table-cell">
+      <td
+        class="rounded-tr-lg border-t-2 border-t-teal-300 dark:border-t-pink-300 border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-e-2 border-e-teal-300 dark:border-e-pink-300 hidden md:table-cell">
       </td>
     </tr>
-    
+
     <tr class="relative">
       <td class="border-s-2 border-s-teal-300 dark:border-s-pink-300 table-cell md:hidden">
         <div class="circle-component circle-upper-left border-teal-300 dark:border-pink-300"></div>
       </td>
       <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 hidden md:table-cell">
       </td>
-      <td class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-e-2 border-e-teal-300 dark:border-e-pink-300 hidden md:table-cell">
+      <td
+        class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-e-2 border-e-teal-300 dark:border-e-pink-300 hidden md:table-cell">
         <div class="circle-component circle-upper-right border-teal-300 dark:border-pink-300"></div>
       </td>
       <td>
@@ -81,14 +89,16 @@
         {% include position.html position=cloudband-2024 %}
       </td>
     </tr>
-    
+
     <tr class="relative">
       <td class="border-s-2 border-s-teal-300 dark:border-s-pink-300 table-cell md:hidden">
         <div class="circle-component circle-upper-left border-teal-300 dark:border-pink-300"></div>
       </td>
-      <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-b-2 border-b-teal-300 dark:border-b-pink-300 hidden md:table-cell">
+      <td
+        class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-b-2 border-b-teal-300 dark:border-b-pink-300 hidden md:table-cell">
       </td>
-      <td class="rounded-br-lg border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-b-2 border-b-teal-300 dark:border-b-pink-300 border-e-2 border-e-teal-300 dark:border-e-pink-300 hidden md:table-cell">
+      <td
+        class="rounded-br-lg border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-b-2 border-b-teal-300 dark:border-b-pink-300 border-e-2 border-e-teal-300 dark:border-e-pink-300 hidden md:table-cell">
         <div class="circle-component circle-upper-right border-teal-300 dark:border-pink-300"></div>
       </td>
       <td rowspan="2">
@@ -96,12 +106,14 @@
         {% include position.html position=cloudband-2023 %}
       </td>
     </tr>
-    
+
     <tr class="relative">
       <td class="border-s-2 border-s-teal-300 dark:border-s-pink-300 table-cell md:hidden">
       </td>
       <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 hidden md:table-cell">
-        <div class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-11px] border-sky-300 dark:border-sky-300"></div>
+        <div
+          class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-11px] border-sky-300 dark:border-sky-300">
+        </div>
       </td>
       <td class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 hidden md:table-cell">
       </td>
@@ -111,10 +123,12 @@
       <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 table-cell md:hidden">
         <div class="circle-component circle-upper-left border-sky-300 dark:border-sky-300"></div>
       </td>
-      <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
+      <td
+        class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
         <div class="circle-component circle-upper-left border-sky-300 dark:border-sky-300"></div>
       </td>
-      <td class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
+      <td
+        class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
       </td>
       <td>
         {% assign hkz-2023 = positions | where: "id", "hkz-2023" | first %}
@@ -126,23 +140,22 @@
       <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 table-cell md:hidden">
         <div class="circle-component circle-bottom-left border-sky-300 dark:border-sky-300"></div>
       </td>
-      <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-b-[1rem] border-b-sky-100 dark:border-b-sky-900 hidden md:table-cell">
+      <td
+        class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-b-[1rem] border-b-sky-100 dark:border-b-sky-900 hidden md:table-cell">
         <div class="circle-component circle-bottom-left border-sky-300 dark:border-sky-300"></div>
       </td>
-      <td class="border-b-[1rem] border-b-sky-100 dark:border-b-sky-900 border-s-2 border-s-indigo-300 dark:border-s-orange-300 hidden md:table-cell">
+      <td
+        class="border-b-[1rem] border-b-sky-100 dark:border-b-sky-900 border-s-2 border-s-indigo-300 dark:border-s-orange-300 hidden md:table-cell">
       </td>
       <td>
         <div class="relative -bottom-1.5 ps-6">
-          <a
-            target="_blank"
-            href="../assets/attachments/resume.pdf"
-            title="View/download resume in new tab"
+          <a target="_blank" href="../assets/attachments/resume.pdf" title="View/download resume in new tab"
             class="font-semibold text-sky-500 dark:text-sky-300 dark:hover:text-musubi-100 ease-in-out transition motion-reduce:transition-none underline underline-offset-4">
             View/download my resume here
           </a>
         </div>
       </td>
     </tr>
-    
+
   </tbody>
 </table>
