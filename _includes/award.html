@@ -8,7 +8,12 @@
             <h2 class="text-base font-semibold text-musubi-600 dark:text-musubi-100 flex flex-wrap divide-x divide-musubi-100 dark:divide-musubi-300 mb-2">
                 <span class="pe-2">{{ award.name }}</span>
                 <span class="ps-2">
-                    <a href="{{ award.url }}" target="_blank" class="text-sky-500 dark:text-sky-300 dark:hover:text-musubi-100 ease-in-out transition motion-reduce:transition-none underline underline-offset-4">{{ award.competition }}</a>
+                    <a
+                        href="{{ award.url }}"
+                        target="_blank"
+                        title="View {{ award.competition }} website in new tab"
+                        class="text-sky-500 dark:text-sky-300 dark:hover:text-musubi-100 ease-in-out transition motion-reduce:transition-none underline underline-offset-4">{{ award.competition }}
+                    </a>
                 </span>
             </h2>
             <ul class="block text-sm list-disc list-inside text-musubi-300 dark:text-musubi-200 my-3">
