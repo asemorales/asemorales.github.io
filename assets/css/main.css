@@ -5,29 +5,67 @@
 @media (prefers-reduced-motion: no-preference) {    
     @keyframes move-background {
         0% {
-            background-position: 0% 50%;
+            background-position: 0% 0%;
+        }
+
+        25% {
+            background-position: 100% 0%;
         }
         
         50% {
-            background-position: 100% 50%;
+            background-position: 100% 100%;
         }
         
+        75% {
+            background-position: 0% 100%;
+        }
+
         100% {
-            background-position: 0% 50%;
+            background-position: 0% 0%;
         }
     }
     
     @-webkit-keyframes move-background {
         0% {
-            background-position: 0% 50%;
+            background-position: 0% 0%;
+        }
+
+        25% {
+            background-position: 100% 0%;
         }
         
         50% {
-            background-position: 100% 50%;
+            background-position: 100% 100%;
         }
         
+        75% {
+            background-position: 0% 100%;
+        }
+
         100% {
-            background-position: 0% 50%;
+            background-position: 0% 0%;
+        }
+    }
+
+    @-moz-keyframes move-background {
+        0% {
+            background-position: 0% 0%;
+        }
+
+        25% {
+            background-position: 100% 0%;
+        }
+        
+        50% {
+            background-position: 100% 100%;
+        }
+        
+        75% {
+            background-position: 0% 100%;
+        }
+
+        100% {
+            background-position: 0% 0%;
         }
     }
 }
@@ -52,14 +90,31 @@
         radial-gradient(at 42% 72%, hsla(310, 61%, 76%, 1) 0px, transparent 50%),
         radial-gradient(at 60% 10%, hsla(17, 100%, 77%, 1) 0px, transparent 50%);
         
-        background-size: 400% 400%;
+        background-size: 200% 200%;
         animation: move-background 7s ease infinite;
+        -moz-animation: move-background 7s ease infinite;
+        -webkit-animation: move-background 7s ease infinite;
+    }
+
+    .dark-gradient {        
+        background-color:hsla(186,91%,69%,1);
+        background-image:
+        radial-gradient(at 99% 98%, hsla(213,93%,67%,1) 0px, transparent 50%),
+        radial-gradient(at 33% 23%, hsla(186,91%,69%,1) 0px, transparent 50%),
+        radial-gradient(at 42% 41%, hsla(191,83%,56%,1) 0px, transparent 50%),
+        radial-gradient(at 83% 30%, hsla(167,83%,75%,1) 0px, transparent 50%),
+        radial-gradient(at 25% 65%, hsla(167,84%,75%,1) 0px, transparent 50%),
+        radial-gradient(at 60% 44%, hsla(186,92%,69%,1) 0px, transparent 50%);
+
+        background-size: 200% 200%;
+        animation: move-background 7s ease infinite;
+        -moz-animation: move-background 7s ease infinite;
         -webkit-animation: move-background 7s ease infinite;
     }
 
     /* parent element must have a non-static position (ex. position: relative) for this to work */
     .award-shadow::after {
-        @apply light-gradient;
+        @apply dark-gradient dark:light-gradient;
         @apply content-[''] z-[-1] absolute top-2 left-0 right-0 h-full w-full blur-xl scale-x-75 transition-opacity;
     }
 
