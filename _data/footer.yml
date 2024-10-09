@@ -1,12 +1,60 @@
 created-by: |
   Created with <3
   by me & my bear, Polar :)
-attribution: |
+attribution:
   Built with Jekyll + Tailwind CSS.
-  
-  Icons by Oksana Latysheva, Artur Lopato, & Cuputo from the Noun Project. Full details & links to creators here.
-
-  A visual homage to several tools & works I love: Tokyo Night, Anytype, CSS Tricks, Git, & the works of Brittany Chiang.
+  <br>
+  <br>
+  Icons by
+  <a
+    href="https://thenounproject.com/creator/latyshevaoksana/"
+    target="_blank"
+    class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
+  Oksana Latysheva,</a>&nbsp;
+  <a
+    href="https://thenounproject.com/creator/lopato/"
+    target="_blank"
+    class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
+  Artur Lopato,</a>&nbsp;&
+  <a
+    href="https://thenounproject.com/creator/imron46/"
+    target="_blank"
+    class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
+  Cuputo</a> from the Noun Project. Full details 
+  <a
+    href="https://github.com/IrishMorales/irishmorales.github.io"
+    target="_blank"
+    class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
+  here.
+  </a>
+  <br>
+  <br>
+  A visual homage to several tools & works I love -
+  <a
+    href="https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night"
+    target="_blank"
+    class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
+  Tokyo Night,</a>&nbsp;
+  <a
+    href="https://anytype.io/"
+    target="_blank"
+    class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
+  Anytype,</a>&nbsp;
+  <a
+    href="https://css-tricks.com/"
+    target="_blank"
+    class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
+  CSS Tricks,</a>&nbsp;
+  <a
+    href="https://www.gitkraken.com/gitlens"
+    target="_blank"
+    class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
+  GitLens,</a>&nbsp;and the works of
+  <a
+    href="https://brittanychiang.com/"
+    target="_blank"
+    class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
+  Brittany Chiang.</a>
 licensing: |
   This site is open source! You can use, modify, or distribute this site's code for your own site as long as your own site is also made open source (See AGPL 3.0).
   
