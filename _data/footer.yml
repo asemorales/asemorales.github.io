@@ -1,7 +1,13 @@
 created-by: |
   Created with <3
   by me & my bear, Polar :)
-message: |
-  Designed in Figma & built with Jekyll. Icons by Oksana Latysheva & Cuputo from the Noun Project.
+attribution: |
+  Built with Jekyll + Tailwind CSS.
+  
+  Icons by Oksana Latysheva, Artur Lopato, & Cuputo from the Noun Project. Full details & links to creators here.
 
-  This site is open source! You can use or modify this code for your own site with attribution (please). I am where I am today because of people, resources, & opportunities that helped me along the way. To give back, I believe in & contribute to open source & open knowledge. If you’re using this code, please be a cool dude and do that too. :)
+  A visual homage to several tools & works I love: Tokyo Night, Anytype, CSS Tricks, Git, & the works of Brittany Chiang.
+licensing: |
+  This site is open source! You can use, modify, or distribute this site's code for your own site as long as your own site is also made open source (See AGPL 3.0).
+  
+  I am where I am today because of countless people, resources, & opportunities that have helped me along the way. I have made this site open source because I deeply believe in open knowledge and social collaboration. If you’re using this site's code, please be a cool dude and respect this site's licensing (and consider contributing to open source). :)

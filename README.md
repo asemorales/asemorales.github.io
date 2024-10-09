@@ -20,3 +20,11 @@ Assets used:
 - Award by Cuputo from <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank" title="Award Icons">Noun Project</a> (CC BY 3.0)
 - Sparkle by Oksana Latysheva from <a href="https://thenounproject.com/browse/icons/term/sparkle/" target="_blank" title="sparkle Icons">Noun Project</a> (CC BY 3.0)
 - Sun & Moon by Artur Lopato from <a href="https://thenounproject.com/browse/icons/term/sun/" target="_blank" title="sun Icons">Noun Project</a> (CC BY 3.0)
+
+### Licensing
+
+© 2024 Ase Morales licensed under AGPL 3.0
+
+This site is open source! You can use, modify, or distribute this site's code for your own site as long as your own site is also made open source (See AGPL 3.0).
+  
+I am where I am today because of countless people, resources, & opportunities that have helped me along the way. I have made this site open source because I deeply believe in open knowledge and social collaboration. If you’re using this site's code, please be a cool dude and respect this site's licensing (and consider contributing to open source). :)

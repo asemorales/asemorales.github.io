@@ -53,24 +53,29 @@ layout: default
 </main>
 <footer class="flex flex-wrap pt-24 pb-20 px-7 md:px-20">
     <div class="divide-y-2 divide-musubi-100 dark:divide-musubi-500">
-        <div class="xl:flex xl:flex-row justify-between pb-8">
-            <div class="flex-initial basis-auto xl:pe-20">
-                <img src="assets/images/footer.png" alt="Ase & Polar" class="size-32 rounded-full mb-5">
+        <div class="xl:flex xl:flex-row gap-10 justify-between pb-8">
+            <div class="basis-1/4 mb-10">
+                <img src="assets/images/footer.png" alt="Ase & Polar" class="size-32 rounded-full mb-2">
                 <p class="text-base font-medium text-musubi-400 dark:text-musubi-100 mb-5">{{ footer.created-by | newline_to_br }}</p>
             </div>
-            <div class="flex-initial basis-2/5">
-                <p class="text-sm text-musubi-200 dark:text-musubi-300">{{ footer.message | newline_to_br }}</p>
+            <div class="basis-1/4 mb-10">
+                <h3 class="text-xsm text-musubi-600 dark:text-musubi-300 font-medium tracking-wider mb-2">{{ "Attribution" | upcase }}</h3>
+                <p class="text-sm text-musubi-200 dark:text-musubi-300">{{ footer.attribution | newline_to_br }}</p>
+            </div>
+            <div class="basis-1/2">
+                <h3 class="text-xsm text-musubi-600 dark:text-musubi-300 font-medium tracking-wider mb-2">{{ "Licensing" | upcase }}</h3>
+                <p class="text-sm text-musubi-200 dark:text-musubi-300">{{ footer.licensing | newline_to_br }}</p>
             </div>
         </div>
         <div class="xl:flex xl:flex-row justify-between pt-5">
             <p class="inline-block text-xsm text-musubi-200 dark:text-musubi-300 pb-5" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-                © 2024 by <span property="cc:attributionName">Ase Morales</span> licensed under 
+                © 2024 <span property="cc:attributionName">Ase Morales</span> licensed under 
                 <a
-                    href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1"
+                    href="https://opensource.org/license/agpl-v3"
                     target="_blank"
                     rel="license noopener noreferrer"
                     class="underline underline-offset-4 text-musubi-200 hover:text-musubi-300 dark:text-musubi-300 dark:hover:text-musubi-100">
-                    CC BY-SA 4.0
+                    AGPL 3.0
                 </a>
             </p>
             <div class="flex space-x-4 mb-7">
