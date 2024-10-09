@@ -1,0 +1,15 @@
+<header id="about" class="dark:bg-none px-7 md:px-20">
+    {% assign about = site.data.about %}
+    <h1 class="text-3xl md:text-6xl block mt-36 mb-5">
+        <span class="font-medium text-musubi-400 dark:text-musubi-100 hidden lg:inline-block">{{ about.first-name }}</span>
+        <span class="font-medium text-transparent bg-clip-text dark-gradient dark:light-gradient">"{{ about.nickname }}"</span>
+        <span class="font-medium text-musubi-400 dark:text-musubi-100">{{ about.last-name }}</span>
+    </h1>
+    <h2 class="text-sm md:text-2xl font-light text-musubi-300 dark:text-musubi-200 mb-10">{{ about.tagline | newline_to_br }}</h2>
+    {% assign contact = site.data.contact %}
+    <div id="contact" class="flex space-x-4 mb-7">
+        {% for social-icon in contact.social-icons %}
+        {% include social-icon.html %}
+        {% endfor %}
+    </div>
+</header>
