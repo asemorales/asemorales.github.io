@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   darkMode: 'selector',
   content: [
@@ -6,12 +8,12 @@ module.exports = {
     './_includes/**/*.html',
     './_includes/**/*.svg',
     './_layouts/**/*.html',
-    '*.html'
+    '*.html',
   ],
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Inter"', ...defaultTheme.fontFamily.sans],
+        'sans': ['Inter', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
         xsm: '0.7rem'
