@@ -1,6 +1,6 @@
 <div class="position relative -top-1 ps-6 pb-16">
   <h2
-    class="text-base font-medium text-musubi-400 dark:text-musubi-100 flex flex-wrap divide-x divide-musubi-200 dark:divide-musubi-300 mb-2">
+    class="text-base font-medium text-musubi-400 dark:text-musubi-100 flex flex-wrap divide-x divide-musubi-100 dark:divide-musubi-300 mb-2">
     <span class="pe-2">{{ include.position.name }}</span>
     <span class="ps-2">
       <a href="{{ include.position.url }}" target="_blank"
@@ -10,7 +10,7 @@
     </span>
   </h2>
 
-  <h6 class="text-xsm text-musubi-200 dark:text-musubi-300 font-medium tracking-wider flex flex-wrap">
+  <h6 class="text-xsm text-musubi-200 dark:text-musubi-300 font-bold tracking-wider flex flex-wrap">
     <span class="pe-2">{{ include.position.date | upcase }}</span>
   </h6>
 
@@ -20,7 +20,7 @@
     {% endfor %}
   </ul>
 
-  <div class="tools text-xsm text-musubi-200 dark:text-musubi-300 font-medium tracking-wider">
+  <div class="tools text-xsm text-musubi-200 dark:text-musubi-300 font-bold tracking-wider">
     <ul class="flex flex-wrap list-inside">
       {% for tool in include.position.tools %}
       <li class="[&:not(:first-child)]:list-disc me-3">
