@@ -12,7 +12,7 @@
             </div>
             <div class="basis-2/5">
                 <h3 class="text-xsm text-musubi-200 dark:text-musubi-300 font-bold tracking-wider mb-2">{{ "Licensing" | upcase }}</h3>
-                <p class="text-sm text-musubi-200 dark:text-musubi-300">{{ footer.licensing | newline_to_br }}</p>
+                <p class="text-sm text-musubi-200 dark:text-musubi-300">{{ footer.licensing }}</p>
             </div>
         </div>
         <div class="xl:flex xl:flex-row justify-between pt-5">
@@ -21,7 +21,7 @@
                 <a
                   href="mailto:{{ site.email }}"
                   target="_blank"
-                  rel="license noopener noreferrer"
+                  title="Send me an email"
                   class="underline underline-offset-4 text-musubi-200 hover:text-sky-500 dark:text-musubi-300 dark:hover:text-musubi-100">
                   {{ footer.name }}</a>
                 {{ footer.additional }}
