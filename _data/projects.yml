@@ -12,17 +12,6 @@ projects:
       - name: Python
         subtype: PyTorch, Pandas, NumPy, Matplotlib, Scikit-learn
       - name: Jupyter
-  - name: Phlourish Website Mockup & Assets
-    field: Web Development
-    year: 2023
-    url: "https://www.figma.com/design/qpYo0qEYlccQrNz3xCteFk/PHlourish-v2?node-id=303-627&t=QtxnAQXb6XTtMbT6-1"
-    text-color-class: text-teal-500 dark:text-pink-300
-    divide-color-class: divide-teal-300 dark:divide-pink-300
-    border-color-class: hover:border-teal-300 dark:hover:border-pink-300
-    description: Design assets & website mockups for a mental health non-profit based in the Philippines
-    tools:
-      - name: Figma
-      - name: Photoshop
   - name: Exploratory Data Analysis of Philippine Poverty
     field: Data Science
     year: 2023
@@ -35,18 +24,6 @@ projects:
       - name: Python
         subtype: Pandas, NumPy, Matplotlib, Scikit-learn
       - name: Tableau
-  - name: Name Generator
-    field: Machine Learning
-    year: 2023
-    url: "https://github.com/IrishMorales/name-generator"
-    text-color-class: text-pink-500 dark:text-teal-200
-    divide-color-class: divide-pink-300 dark:divide-teal-200
-    border-color-class: hover:border-pink-300 dark:hover:border-teal-200
-    description: MLP neural network that generates names on a per-character & per-bigram basis
-    tools:
-      - name: Python
-        subtype: PyTorch, NLTK, NumPy
-      - name: Jupyter
   - name: Dormitory Scholar Service Hours Tracker
     field: Web Development
     year: 2023
@@ -62,18 +39,6 @@ projects:
       - name: CSS
       - name: Javascript
       - name: PostgreSQL
-  - name: Simon & Garfunkel Lyric Generator
-    field: Machine Learning
-    year: 2023
-    url: "https://github.com/IrishMorales/lyric-generator"
-    text-color-class: text-sky-500 dark:text-sky-300
-    divide-color-class: divide-sky-300 dark:divide-sky-300
-    border-color-class: hover:border-sky-300 dark:hover:border-sky-300
-    description: MLP neural network that generates lyrics from American rock duo Simon & Garfunkel
-    tools:
-      - name: Python
-        subtype: PyTorch, NLTK, NumPy
-      - name: Jupyter
   - name: B2VB Tableau Visualizations
     field: Data Science
     year: 2023
