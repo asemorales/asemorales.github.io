@@ -61,7 +61,17 @@ licensing: |
   
   I am where I am today because of countless people, resources, & opportunities that have helped me along the way. I have made this site open source because I deeply believe in open knowledge and social collaboration. If you’re using this site's code, please be a cool dude and respect this site's licensing (and consider contributing to open source). :)
 copyright:
-  © 2024 Irish Danielle "Ase" Morales under 
+  © 2024
+  <a
+    href="mailto:{{ site.email }}"
+    target="_blank"
+    rel="license noopener noreferrer"
+    class="underline underline-offset-4 text-musubi-200 hover:text-sky-500 dark:text-musubi-300 dark:hover:text-musubi-100">
+    Irish Danielle "Ase" Morales</a>
+year: 2024
+name: Irish Danielle "Ase" Morales
+additional:
+  under
   <a
     href="https://opensource.org/license/agpl-v3"
     target="_blank"

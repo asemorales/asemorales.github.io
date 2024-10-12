@@ -11,5 +11,11 @@
         {% for social-icon in contact.social-icons %}
         {% include social-icon.html %}
         {% endfor %}
+        <a
+        href="mailto:{{ site.email }}"
+        target="_blank"
+        class="text-sm text-musubi-200 hover:text-sky-500 dark:text-musubi-300 dark:hover:text-musubi-100">
+            {{ site.email }}
+        </a>
     </div>
 </header>

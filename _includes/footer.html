@@ -16,7 +16,16 @@
             </div>
         </div>
         <div class="xl:flex xl:flex-row justify-between pt-5">
-            <p class="inline-block text-xsm text-musubi-200 dark:text-musubi-300 pb-5">{{ footer.copyright }}</p>
+            <p class="inline-block text-xsm text-musubi-200 dark:text-musubi-300 pb-5">
+                © {{ footer.year }}
+                <a
+                  href="mailto:{{ site.email }}"
+                  target="_blank"
+                  rel="license noopener noreferrer"
+                  class="underline underline-offset-4 text-musubi-200 hover:text-sky-500 dark:text-musubi-300 dark:hover:text-musubi-100">
+                  {{ footer.name }}</a>
+                {{ footer.additional }}
+            </p>
             <div class="flex space-x-4 mb-7">
                 {% for social-icon in contact.social-icons %}
                     {% include social-icon.html %}
