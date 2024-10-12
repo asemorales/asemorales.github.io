@@ -7,7 +7,7 @@ projects:
     text-color-class: text-sky-500 dark:text-sky-300
     divide-color-class: divide-sky-300 dark:divide-sky-300
     border-color-class: hover:border-sky-300 dark:hover:border-sky-300
-    description: Lightweight neural network for cancer detection in underfunded hospitals. Scopus publication & oral presentation at CVIPPR 2024
+    description: Lightweight neural network for cancer detection in underfunded hospitals
     tools:
       - name: Python
         subtype: PyTorch, Pandas, NumPy, Matplotlib, Scikit-learn
@@ -31,7 +31,7 @@ projects:
     text-color-class: text-violet-500 dark:text-violet-300
     divide-color-class: divide-violet-300
     border-color-class: hover:border-violet-300
-    description: Website for tracking & enlistment of service hours for scholars of Ateneo de Manila University
+    description: Website for service hours enlistment for scholars of Ateneo de Manila University
     tools:
       - name: Python
         subtype: Django
@@ -39,16 +39,6 @@ projects:
       - name: CSS
       - name: Javascript
       - name: PostgreSQL
-  - name: B2VB Tableau Visualizations
-    field: Data Science
-    year: 2023
-    url: "https://github.com/IrishMorales/b2vb-tableau-visualizations"
-    text-color-class: text-teal-500 dark:text-pink-300
-    divide-color-class: divide-teal-300 dark:divide-pink-300
-    border-color-class: hover:border-teal-300 dark:hover:border-pink-300
-    description: Data visualizations to learn the basics of Tableau for data storytelling
-    tools:
-      - name: Tableau
   - name: Silid Aralan Learner's Database
     field: Web Development
     year: 2023
@@ -56,7 +46,7 @@ projects:
     text-color-class: text-pink-500 dark:text-teal-200
     divide-color-class: divide-pink-300 dark:divide-teal-200
     border-color-class: hover:border-pink-300 dark:hover:border-teal-200
-    description: Learner’s database for Silid Aralan Inc. used internally to track student information, attendance, and performance
+    description: Database for Silid Aralan Inc. used internally to track student information, empowering low-performing students
     tools:
       - name: Python
         subtype: Django
@@ -71,7 +61,7 @@ projects:
     text-color-class: text-teal-500 dark:text-pink-300
     divide-color-class: divide-teal-300 dark:divide-pink-300
     border-color-class: hover:border-teal-300 dark:hover:border-pink-300
-    description: Facebook chatbot for users to use Google Search for free, supporting education for the underprivileged
+    description: Facebook chatbot for users to search Google using free Facebook data, supporting education for those with limited internet access
     tools:
       - name: Python
         subtype: Django
@@ -86,7 +76,7 @@ projects:
     text-color-class: text-sky-500 dark:text-sky-300
     divide-color-class: divide-sky-300 dark:divide-sky-300
     border-color-class: hover:border-sky-300 dark:hover:border-sky-300
-    description: Gold in Poster Presentation, DLSU Senior High Research Congress
+    description: Machine learning models to predict personality traits based on Twitter tweets
     tools:
       - name: Python
         subtype: Pandas, NumPy, Matplotlib, Scikit-learn
