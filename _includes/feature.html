@@ -1,0 +1,20 @@
+<a
+    href="{{ feature.url }}"
+    target="_blank"
+    class="feature flex flex-col bg-white dark:bg-musubi-500 rounded-md min-w-48 snap-start border-2 border-transparent shadow-musubi-100 shadow-lg dark:shadow-none {{ feature.border-color-class }} ease-in-out transition motion-reduce:transition-none p-5 mb-5 mx-2">
+    <h6 class="text-sm {{ feature.text-color-class }} block flex flex-wrap divide-x {{ feature.divide-color-class }} mb-2">
+        <span class="pe-2">{{ feature.field }}</span>
+        <span class="ps-2">{{ feature.year }}</span>
+    </h6>
+    <h2 class="text-base font-medium text-musubi-400 dark:text-musubi-100 mb-5">{{ feature.name }}</h2>
+    <p class="grow text-sm text-musubi-300 dark:text-musubi-200 mb-3">{{ feature.description }}</p>
+    <div class="tools text-xsm text-musubi-200 dark:text-musubi-300 font-bold tracking-wider">
+        <ul class="flex flex-wrap list-inside">
+            {% for tool in feature.tools %}
+            <li class="[&:not(:first-child)]:list-disc me-3">
+                {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</a>

@@ -20,6 +20,16 @@ layout: default
                     {% endfor %}
                 </div>
             </div>
+            {% assign featured = site.data.featured %}
+            <div id="featured" class="mb-20">
+                <h3 class="text-xsm text-musubi-200 dark:text-musubi-300 font-bold tracking-wider mb-2">{{ "Featured Projects" | upcase }}</h3>
+                <div
+                    class="">
+                    {% for feature in featured.featured %}
+                    {% include feature.html %}
+                    {% endfor %}
+                </div>
+            </div>
             {% assign projects = site.data.projects %}
             <div id="projects" class="mb-32">
                 <h3 class="text-xsm text-musubi-200 dark:text-musubi-300 font-bold tracking-wider mb-2">{{ "All Projects" | upcase }}</h3>
