@@ -21,7 +21,7 @@ Run the following:
 
 Run `npm run dev` or `npm run start`
 
-This is configured in `package.json` to simultaneously 1.) build using Jekyll into files under `_site`; and 2.) compile styles using TailwindCSS into `assets/compiled.css`. Both are configured so that the page should refresh on any saved changes. However, [live reloading both Jekyll & TailwindCSS may sometimes cause issues](https://github.com/tailwindlabs/tailwindcss/discussions/8470); if changes aren't appearing, try manually serving the page instead or clearing the cache with `bundle exec jekyll clean` before serving.
+This is configured in `package.json` to simultaneously 1.) build using Jekyll into files under `_site`; and 2.) compile styles using TailwindCSS into `compiled.css`. Both are configured so that the page should refresh on any saved changes. However, [live reloading both Jekyll & TailwindCSS may sometimes cause issues](https://github.com/tailwindlabs/tailwindcss/discussions/8470); if changes aren't appearing, try manually serving the page instead or clearing the cache with `bundle exec jekyll clean` before serving.
 
 #### Building for production
 
