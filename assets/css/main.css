@@ -117,14 +117,14 @@
     }
 
     .dark-gradient {
-        background-color: hsla(186, 91%, 69%, 1);
+        background-color: #38bdf8;
         background-image:
-            radial-gradient(at 99% 98%, hsla(213, 93%, 67%, 1) 0px, transparent 50%),
-            radial-gradient(at 33% 23%, hsla(186, 91%, 69%, 1) 0px, transparent 50%),
-            radial-gradient(at 42% 41%, hsla(191, 83%, 56%, 1) 0px, transparent 50%),
-            radial-gradient(at 83% 30%, hsla(167, 83%, 75%, 1) 0px, transparent 50%),
-            radial-gradient(at 25% 65%, hsla(167, 84%, 75%, 1) 0px, transparent 50%),
-            radial-gradient(at 60% 44%, hsla(186, 92%, 69%, 1) 0px, transparent 50%);
+            radial-gradient(at 99% 98%, #818cf8 0px, transparent 50%),
+            radial-gradient(at 42% 41%, #67e8f9 0px, transparent 50%),
+            radial-gradient(at 60% 44%, #2dd4bf 0px, transparent 50%),
+            radial-gradient(at 99% 98%, #818cf8 0px, transparent 50%),
+            radial-gradient(at 42% 41%, #38bdf8 0px, transparent 50%),
+            radial-gradient(at 60% 44%, #2dd4bf 0px, transparent 50%);
 
         background-size: 200% 200%;
         animation: move-background 7s ease infinite;
