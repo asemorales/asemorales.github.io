@@ -3,6 +3,7 @@
     <h1>ase@create-with-<3</h1>
     <p>Personal portfolio site designed in Figma & built with Jekyll + Tailwind CSS</p>
     <p>Live @ <a href="https://irishmorales.github.io" target="_blank" title="Open in new tab">irishmorales.github.io</a></p>
+    [![Deploy Jekyll + Tailwind CSS with GitHub Pages](https://github.com/IrishMorales/irishmorales.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/IrishMorales/irishmorales.github.io/actions/workflows/deploy.yml)
 </div>
 
 ### Setup
