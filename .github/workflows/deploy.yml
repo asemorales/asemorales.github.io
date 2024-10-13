@@ -42,8 +42,6 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.4
         with:
-          # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
-          node-version: '>=9.2.0'
           # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
           node-version-file: package.json
           # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
