@@ -12,7 +12,7 @@ _site/
 
 # Additional ignore for npm install & TailwindCSS
 node_modules/
-assets/compiled.css
+assets/css/compiled.css
 
 # Specific ignore for GitHub Pages
 # GitHub Pages will always use its own deployed version of pages-gem 
