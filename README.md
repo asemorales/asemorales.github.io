@@ -1,5 +1,9 @@
-<h1 align="center">irishmorales.github.io</h1>
-<p align="center">Personal portfolio site designed in Figma & built with Jekyll + Tailwind CSS</p>
+<div align="center">
+    <img src="assets/favicon.ico?" alt="ase@create-with-<3 logo">
+    <h1>ase@create-with-<3</h1>
+    <p>Personal portfolio site designed in Figma & built with Jekyll + Tailwind CSS</p>
+    <p>Live @ <a href="https://irishmorales.github.io" target="_blank" title="Open in new tab">irishmorales.github.io</a></p>
+</div>
 
 ### Setup
 
@@ -25,11 +29,13 @@ For production, remember to serve the generated `_site` files rather than the en
 ### Attribution
 
 Assets used:
+
 - Sparkle by <a href="https://thenounproject.com/creator/latyshevaoksana/" target="_blank">Oksana Latysheva</a> from <a href="https://thenounproject.com/browse/icons/term/sparkle/" target="_blank">Noun Project</a> (CC BY 3.0)
 - Sun & Moon by <a href="https://thenounproject.com/creator/lopato/" target="_blank">Artur Lopato</a> from <a href="https://thenounproject.com/browse/icons/term/sun/" target="_blank">Noun Project</a> (CC BY 3.0)
 - Award by <a href="https://thenounproject.com/creator/imron46/" target="_blank">Cuputo</a> from <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank">Noun Project</a> (CC BY 3.0)
 
 A visual homage to several tools & works I love:
+
 - <a href="https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night" target="_blank">Tokyo Night</a>
 - <a href="https://anytype.io/" target="_blank">Anytype</a>
 - <a href="https://css-tricks.com/" target="_blank">CSS Tricks</a>
@@ -39,7 +45,7 @@ A visual homage to several tools & works I love:
 ### Licensing
 
 This site is open source! You can use, modify, or distribute this site's code for your own site as long as your own site is also made open source (See AGPL 3.0).
-  
+
 I am where I am today because of countless people, resources, & opportunities that have helped me along the way. I have made this site open source because I deeply believe in open knowledge and social collaboration. If you’re using this site's code, please be a cool dude and respect this site's licensing (and consider contributing to open source). :)
 
 © 2024 Irish Danielle "Ase" Morales licensed under AGPL 3.0
