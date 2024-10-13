@@ -5,17 +5,20 @@
     <p>Live @ <a href="https://irishmorales.github.io" target="_blank" title="Open in new tab">irishmorales.github.io</a></p>
 </div>
 
-### Status
+## Status
+
 [![Deploy Jekyll + Tailwind CSS with GitHub Pages](https://github.com/IrishMorales/irishmorales.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/IrishMorales/irishmorales.github.io/actions/workflows/deploy.yml)
 
-### Setup
+## Setup
 
 Run the following:
 
 1. `bundle install`
 2. `npm install`
 
-### Scripts
+## Scripts
+
+Since Jekyll requires some additional setup to work with Tailwind CSS, I configured scripts for building the site in `package.json` and created a custom deployment workflow for GitHub Actions. 
 
 #### Building for development
 
@@ -27,9 +30,11 @@ This is configured in `package.json` to simultaneously 1.) build using Jekyll in
 
 Run `npm run prod`
 
-For production, remember to serve the generated `_site` files rather than the entire project.
+#### Deployment
 
-### Attribution
+See `deploy.yml` for the deployment workflow.
+
+## Attribution
 
 Assets used:
 
@@ -45,7 +50,7 @@ A visual homage to several tools & works I love:
 - <a href="https://www.gitkraken.com/gitlens" target="_blank">GitLens</a>
 - <a href="https://brittanychiang.com/" target="_blank">the works of Brittany Chiang</a>
 
-### Licensing
+## Licensing
 
 This site is open source! You can use, modify, or distribute this site's code for your own site as long as your own site is also made open source (See AGPL 3.0).
 
