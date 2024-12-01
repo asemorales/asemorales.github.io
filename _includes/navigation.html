@@ -6,9 +6,9 @@
                 <span class="text-transparent bg-clip-text dark-gradient dark:light-gradient">ase</span>@create-with-<3
             </h1>
             <div class="flex space-x-4">
-                <button id="toggle-theme" title="Toggle light/dark mode" class="inline-block relative size-[24px]">
-                    {% include svg/moon.svg id="moon" classes="absolute top-0 size-[24px] inactive-theme-icon fill-musubi-200 dark:fill-musubi-300 ease-in-out transition motion-reduce:transition-none" %}
-                    {% include svg/sun.svg  id="sun"  classes="absolute top-0 size-[24px] inactive-theme-icon fill-musubi-200 dark:fill-musubi-300 ease-in-out transition motion-reduce:transition-none" %}
+                <button id="toggle-theme" title="Toggle light/dark mode" class="inline-block relative size-5">
+                    {% include svg/moon.svg id="moon" classes="absolute top-0 size-5 inactive-theme-icon fill-musubi-200 dark:fill-musubi-300 ease-in-out transition motion-reduce:transition-none" %}
+                    {% include svg/sun.svg  id="sun"  classes="absolute top-0 size-5 inactive-theme-icon fill-musubi-200 dark:fill-musubi-300 ease-in-out transition motion-reduce:transition-none" %}
                 </button>
                 {% assign contact = site.data.contact %}
                 {% for social-icon in contact.social-icons %}
