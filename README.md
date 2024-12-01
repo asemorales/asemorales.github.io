@@ -38,17 +38,17 @@ See `deploy.yml` for the deployment workflow.
 
 Assets used:
 
-- Sparkle by <a href="https://thenounproject.com/creator/latyshevaoksana/" target="_blank">Oksana Latysheva</a> from <a href="https://thenounproject.com/browse/icons/term/sparkle/" target="_blank">Noun Project</a> (CC BY 3.0)
-- Sun & Moon by <a href="https://thenounproject.com/creator/lopato/" target="_blank">Artur Lopato</a> from <a href="https://thenounproject.com/browse/icons/term/sun/" target="_blank">Noun Project</a> (CC BY 3.0)
-- Award by <a href="https://thenounproject.com/creator/imron46/" target="_blank">Cuputo</a> from <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank">Noun Project</a> (CC BY 3.0)
+- Sparkle by <a href="https://thenounproject.com/creator/latyshevaoksana/" target="_blank" rel="noopener noreferrer">Oksana Latysheva</a> from <a href="https://thenounproject.com/browse/icons/term/sparkle/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
+- Sun & Moon by <a href="https://thenounproject.com/creator/lopato/" target="_blank" rel="noopener noreferrer">Artur Lopato</a> from <a href="https://thenounproject.com/browse/icons/term/sun/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
+- Award by <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer">Cuputo</a> from <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
 
 A visual homage to several tools & works I love:
 
-- <a href="https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night" target="_blank">Tokyo Night</a>
-- <a href="https://anytype.io/" target="_blank">Anytype</a>
-- <a href="https://css-tricks.com/" target="_blank">CSS Tricks</a>
+- <a href="https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night" target="_blank" rel="noopener noreferrer">Tokyo Night</a>
+- <a href="https://anytype.io/" target="_blank" rel="noopener noreferrer">Anytype</a>
+- <a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer">CSS Tricks</a>
 - <a href="https://www.gitkraken.com/gitlens" target="_blank">GitLens</a>
-- <a href="https://brittanychiang.com/" target="_blank">the works of Brittany Chiang</a>
+- <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer">the works of Brittany Chiang</a>
 
 ## Licensing
 

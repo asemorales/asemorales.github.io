@@ -1,3 +1,3 @@
-<a title="View {{ social-icon.title }} in new tab" target="_blank" href="{{ social-icon.url }}">
+<a title="View {{ social-icon.title }} in new tab" target="_blank" rel="noopener noreferrer" href="{{ social-icon.url }}">
     {% include svg/{{ social-icon.filename | append: ".svg" }} classes="size-[24px] fill-musubi-200 hover:fill-sky-300 dark:fill-musubi-300 dark:hover:fill-musubi-100 ease-in-out transition motion-reduce:transition-none" %}
 </a>
