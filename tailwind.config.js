@@ -59,10 +59,10 @@ module.exports = {
           "warning-content": "#E1E6FF",
           "error": "#f87171",
           "error-content": "#E1E6FF",
-          // extended color classes
-          "--neutral-100": "#565F89",
-          "--neutral-200": "#565F89",
-          "--neutral-300": "#9AA5CE",
+          // extended color classes in oklch() values
+          "--neutral-100": "49.55% 0.0682 274.37", // #565F89
+          "--neutral-200": "49.55% 0.0682 274.37", // #565F89
+          "--neutral-300": "72.76% 0.0609 273.09", // #9AA5CE
         }
       },
       {
@@ -87,10 +87,10 @@ module.exports = {
           "warning-content": "#E1E6FF",
           "error": "#f87171",
           "error-content": "#E1E6FF",
-          // extended color classes
-          "--neutral-100": "#E1E6FF",
-          "--neutral-200": "#9AA5CE",
-          "--neutral-300": "#565F89",
+          // extended color classes in oklch() values
+          "--neutral-100": "92.87% 0.0343 276.72", // #E1E6FF
+          "--neutral-200": "72.76% 0.0609 273.09", // #9AA5CE
+          "--neutral-300": "49.55% 0.0682 274.37", // #565F89
         },
       },
     ],
