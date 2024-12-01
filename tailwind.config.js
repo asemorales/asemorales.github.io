@@ -27,7 +27,11 @@ module.exports = {
           400: '#181E36',
           500: '#14192B',
           600: '#0D1017',
-        }
+        },
+        // extend DaisyUI color classes
+        'neutral-100': "oklch(var(--neutral-100) / <alpha-value>)",
+        'neutral-200': "oklch(var(--neutral-200) / <alpha-value>)",
+        'neutral-300': "oklch(var(--neutral-300) / <alpha-value>)",
       }
     },
   },
@@ -55,6 +59,10 @@ module.exports = {
           "warning-content": "#E1E6FF",
           "error": "#f87171",
           "error-content": "#E1E6FF",
+          // extended color classes
+          "--neutral-100": "#565F89",
+          "--neutral-200": "#565F89",
+          "--neutral-300": "#9AA5CE",
         }
       },
       {
@@ -79,6 +87,10 @@ module.exports = {
           "warning-content": "#E1E6FF",
           "error": "#f87171",
           "error-content": "#E1E6FF",
+          // extended color classes
+          "--neutral-100": "#E1E6FF",
+          "--neutral-200": "#9AA5CE",
+          "--neutral-300": "#565F89",
         },
       },
     ],
