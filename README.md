@@ -11,7 +11,7 @@
 
 ## Setup
 
-Run the following:
+Your system must have at least Ruby 3.1.x. Run the following:
 
 1. `bundle install`
 2. `npm install`
