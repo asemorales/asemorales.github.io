@@ -3,15 +3,14 @@
     "jekyll-watch": "bundle exec jekyll serve --livereload",
     "tailwind-watch": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --watch",
     "dev": "cross-env NODE_ENV=development npm-run-all --parallel jekyll-watch tailwind-watch",
-    
     "jekyll-prod": "JEKYLL_ENV=production bundle exec jekyll build",
     "tailwind-prod": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --minify",
     "prod": "cross-env NODE_ENV=production npm-run-all tailwind-prod jekyll-prod",
-
     "start": "npm run dev"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "daisyui": "^4.12.14",
     "npm-run-all": "^4.1.5",
     "tailwindcss": "^3.4.13"
   },
