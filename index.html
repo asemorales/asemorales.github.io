@@ -6,7 +6,7 @@ layout: default
 <main class="mb-10">
     <div class="xl:flex xl:flex-row px-7 md:px-20 pt-24">
         <div id="experience" class="flex-initial basis-auto xl:pe-20">
-            <h3 class="text-xsm text-musubi-200 dark:text-musubi-300 font-bold tracking-wider mb-7">{{ "Professional Experience" | upcase }}</h3>
+            <h3 class="text-xsm text-neutral-300 font-bold tracking-wider mb-7">{{ "Professional Experience" | upcase }}</h3>
             <div class="positions-wrapper">
                 {% include positions.html %}
             </div>
@@ -22,7 +22,7 @@ layout: default
             </div>
             {% assign featured = site.data.featured %}
             <div id="featured" class="mb-20">
-                <h3 class="text-xsm text-musubi-200 dark:text-musubi-300 font-bold tracking-wider mb-7">{{ "Featured Projects" | upcase }}</h3>
+                <h3 class="text-xsm text-neutral-300 font-bold tracking-wider mb-7">{{ "Featured Projects" | upcase }}</h3>
                 <div class="featured-wrapper">
                     {% for feature in featured.featured %}
                     {% include feature.html %}
@@ -31,8 +31,8 @@ layout: default
             </div>
             {% assign projects = site.data.projects %}
             <div id="projects" class="mb-32">
-                <h3 class="text-xsm text-musubi-200 dark:text-musubi-300 font-bold tracking-wider mb-2">{{ "Other Projects" | upcase }}</h3>
-                <p class="text-sm italic text-musubi-200 dark:text-musubi-300 mb-7">⟷ Scroll left/right below to see more.<br>Click projects for details.</p>
+                <h3 class="text-xsm text-neutral-300 font-bold tracking-wider mb-2">{{ "Other Projects" | upcase }}</h3>
+                <p class="text-sm italic text-neutral-300 mb-7">⟷ Scroll left/right below to see more.<br>Click projects for details.</p>
                 <div
                     class="projects-wrapper flex snap-x snap-mandatory scroll-pl-2 overflow-scroll overflow-y-visible">
                     {% for project in projects.projects %}

@@ -4,7 +4,7 @@ projects:
     year: 2023-2024
     url: https://github.com/IrishMorales/lightweight-cnn-for-bone-metastasis
     # tailwind color classes (do not build the class names below dynamically or TailwindCSS will not recognize these)
-    text-color-class: text-sky-500 dark:text-sky-300
+    text-color-class: text-primary
     divide-color-class: divide-sky-300 dark:divide-sky-300
     border-color-class: hover:border-sky-300 dark:hover:border-sky-300
     description: Lightweight neural network for cancer detection in underfunded hospitals
@@ -17,7 +17,7 @@ projects:
     field: Data Science
     year: 2023
     url: "https://github.com/IrishMorales/ph-poverty-statistics"
-    text-color-class: text-indigo-500 dark:text-orange-300
+    text-color-class: text-secondary
     divide-color-class: divide-indigo-300 dark:divide-orange-300
     border-color-class: hover:border-indigo-300 dark:hover:border-orange-300
     description: Analyzing, predicting, & visualizing Philippine poverty
@@ -42,7 +42,7 @@ projects:
     field: Data Science
     year: 2021-2022
     url: "https://www.facebook.com/dean.gdscloyola"
-    text-color-class: text-teal-500 dark:text-pink-300
+    text-color-class: text-accent
     divide-color-class: divide-teal-300 dark:divide-pink-300
     border-color-class: hover:border-teal-300 dark:hover:border-pink-300
     description: Facebook chatbot for users to search Google using free Facebook data, supporting education for those with limited internet access
@@ -52,7 +52,7 @@ projects:
     field: Data Science
     year: 2019-2020
     url: "https://github.com/IrishMorales/modelling-personality-from-twts"
-    text-color-class: text-sky-500 dark:text-sky-300
+    text-color-class: text-primary
     divide-color-class: divide-sky-300 dark:divide-sky-300
     border-color-class: hover:border-sky-300 dark:hover:border-sky-300
     description: Machine learning models to predict personality traits based on Twitter tweets

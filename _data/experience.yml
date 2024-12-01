@@ -3,7 +3,7 @@ positions:
     name: Mobile Developer (Freelance)
     organization: Ateneo Laboratory for the Learning Sciences
     url: https://alls.ateneo.edu/
-    text-color-class: text-indigo-500 dark:text-orange-300
+    text-color-class: text-secondary
     date: Mar 2023 - Present
     description:
       - text: Solely designed, developed, & deployed a web analytics dashboard & mobile app for research data collection on iOS & Android
@@ -16,7 +16,7 @@ positions:
     name: Full-stack Developer
     organization: Hackazouk
     url: https://hackazouk.com
-    text-color-class: text-sky-500 dark:text-sky-300
+    text-color-class: text-primary
     date: Aug 2023 - Dec 2024
     description:
       - text: Designed and implemented a syncing mechanism across 3 microservices using RESTful APIs and queued cron jobs, ensuring fault-tolerant data consistency across ~150 tables between enterprise systems with high concurrent access
@@ -37,7 +37,7 @@ positions:
     name: Full-stack Developer (Freelance)
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
-    text-color-class: text-teal-500 dark:text-pink-300
+    text-color-class: text-accent
     date: Jun - Aug 2023, Jun - Jul 2024, Oct - Nov 2024
     description:
       - text: Executed a major system restructure involving API endpoint rewrites, unit test updates, and UX flow overhaul
@@ -54,7 +54,7 @@ positions:
     name: Full-stack Developer Intern
     organization: Hackazouk
     url: https://hackazouk.com
-    text-color-class: text-sky-500 dark:text-sky-300
+    text-color-class: text-primary
     date: Jun - Jul 2023
     description:
       - text: Cut task time from 40 hours to 6 by identifying a need for and writing scripts to generate Laravel migrations from SQL files, automating the generation of 76 tables for the redevelopment of an 8-year-old enterprise web app
@@ -70,7 +70,7 @@ positions:
     name: Backend Developer (Volunteer)
     organization: Silid Aralan
     url: https://facebook.com/silidaralaninc/
-    text-color-class: text-sky-500 dark:text-sky-300
+    text-color-class: text-primary
     date: Jan - Jun 2023
     description:
       - text: Sole developer of an admin dashboard to track demographic metrics and generate operational reports for a non-profit
