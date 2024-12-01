@@ -10,7 +10,8 @@ projects:
     description: Lightweight neural network for cancer detection in underfunded hospitals
     tools:
       - name: Python
-        subtype: PyTorch, Pandas, NumPy, Matplotlib, Scikit-learn
+      - name: PyTorch
+      - name: Pandas, NumPy, Matplotlib, Scikit-learn
       - name: Jupyter
   - name: Exploratory Data Analysis of Philippine Poverty
     field: Data Science
@@ -22,7 +23,7 @@ projects:
     description: Analyzing, predicting, & visualizing Philippine poverty
     tools:
       - name: Python
-        subtype: Pandas, NumPy, Matplotlib, Scikit-learn
+      - name: Pandas, NumPy, Matplotlib, Scikit-learn
       - name: Tableau
   - name: Dormitory Scholar Service Hours Tracker
     field: Web Development
@@ -33,27 +34,10 @@ projects:
     border-color-class: hover:border-violet-300
     description: Website for service hours enlistment for scholars of Ateneo de Manila University
     tools:
-      - name: Python
-        subtype: Django
-      - name: HTML
+      - name: Django
       - name: CSS
       - name: Javascript
       - name: PostgreSQL
-  - name: Silid Aralan Learner's Database
-    field: Web Development
-    year: 2023
-    url: "https://github.com/IrishMorales/silid-aralan-database"
-    text-color-class: text-pink-500 dark:text-teal-200
-    divide-color-class: divide-pink-300 dark:divide-teal-200
-    border-color-class: hover:border-pink-300 dark:hover:border-teal-200
-    description: Database for Silid Aralan Inc. used internally to track student information, empowering low-performing students
-    tools:
-      - name: Python
-        subtype: Django
-      - name: HTML
-      - name: CSS
-      - name: Javascript
-      - name: MySQL
   - name: DEAN Chatbot
     field: Data Science
     year: 2021-2022
@@ -64,11 +48,6 @@ projects:
     description: Facebook chatbot for users to search Google using free Facebook data, supporting education for those with limited internet access
     tools:
       - name: Python
-        subtype: Django
-      - name: HTML
-      - name: CSS
-      - name: Javascript
-      - name: SQL
   - name: Predicting Personality from Tweets
     field: Data Science
     year: 2019-2020
@@ -79,4 +58,4 @@ projects:
     description: Machine learning models to predict personality traits based on Twitter tweets
     tools:
       - name: Python
-        subtype: Pandas, NumPy, Matplotlib, Scikit-learn
+      - name: Pandas, NumPy, Matplotlib, Scikit-learn
