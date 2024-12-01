@@ -1,23 +1,14 @@
-<header id="about" class="dark:bg-none px-7 md:px-20">
+<header id="about" class="dark:bg-none px-7 md:px-20 py-36">
     {% assign about = site.data.about %}
-    <h1 class="text-3xl md:text-6xl block mt-36 mb-5">
-        <span class="font-medium text-musubi-400 dark:text-musubi-100 hidden lg:inline-block">{{ about.first-name }}</span>
-        <span class="font-medium text-transparent bg-clip-text dark-gradient dark:light-gradient">"{{ about.nickname }}"</span>
-        <span class="font-medium text-musubi-400 dark:text-musubi-100">{{ about.last-name }}</span>
-    </h1>
-    <h2 class="text-sm md:text-2xl font-light text-musubi-300 dark:text-musubi-200 mb-10">{{ about.tagline | newline_to_br }}</h2>
-    {% assign contact = site.data.contact %}
-    <div id="contact" class="flex space-x-4 mb-7">
-        {% for social-icon in contact.social-icons %}
-        {% include social-icon.html %}
-        {% endfor %}
-        <a
+    <h1 class="text-3xl md:text-6xl block mb-5">{{ about.title }}</h1>
+    <h2 class="md:text-xl font-light text-musubi-300 dark:text-musubi-200 mb-10">{{ about.tagline }}</h2>
+    <a 
         href="mailto:{{ site.email }}"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="license noopener noreferrer"
         title="Send me an email"
-        class="text-sm text-musubi-200 hover:text-sky-500 dark:text-musubi-300 dark:hover:text-musubi-100">
-            {{ site.email }}
-        </a>
-    </div>
+        class="cursor-pointer bg-musubi-500 border-musubi-400 border-2 rounded-full text-musubi-100 px-6 py-3">
+        {% include svg/sparkle.svg classes="fill-musubi-100 size-5 inline" %}
+        Create your next idea with me
+    </a>
 </header>
