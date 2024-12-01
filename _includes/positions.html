@@ -78,22 +78,6 @@
       <td class="border-s-2 border-s-teal-300 dark:border-s-pink-300 table-cell md:hidden">
         <div class="circle-component circle-upper-left border-teal-300 dark:border-pink-300"></div>
       </td>
-      <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 hidden md:table-cell">
-      </td>
-      <td
-        class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-e-2 border-e-teal-300 dark:border-e-pink-300 hidden md:table-cell">
-        <div class="circle-component circle-upper-right border-teal-300 dark:border-pink-300"></div>
-      </td>
-      <td>
-        {% assign cloudband-2024 = positions | where: "id", "cloudband-2024" | first %}
-        {% include position.html position=cloudband-2024 %}
-      </td>
-    </tr>
-
-    <tr class="relative">
-      <td class="border-s-2 border-s-teal-300 dark:border-s-pink-300 table-cell md:hidden">
-        <div class="circle-component circle-upper-left border-teal-300 dark:border-pink-300"></div>
-      </td>
       <td
         class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-b-2 border-b-teal-300 dark:border-b-pink-300 hidden md:table-cell">
       </td>
@@ -102,8 +86,8 @@
         <div class="circle-component circle-upper-right border-teal-300 dark:border-pink-300"></div>
       </td>
       <td rowspan="2">
-        {% assign cloudband-2023 = positions | where: "id", "cloudband-2023" | first %}
-        {% include position.html position=cloudband-2023 %}
+        {% assign cloudband = positions | where: "id", "cloudband" | first %}
+        {% include position.html position=cloudband %}
       </td>
     </tr>
 
@@ -133,6 +117,23 @@
       <td>
         {% assign hkz-2023 = positions | where: "id", "hkz-2023" | first %}
         {% include position.html position=hkz-2023 %}
+      </td>
+    </tr>
+
+    <tr class="relative">
+      <td class="border-s-2 border-s-sky-300 dark:border-s-sky-300 table-cell md:hidden">
+        <div class="circle-component circle-upper-left border-sky-300 dark:border-sky-300"></div>
+      </td>
+      <td
+        class="border-s-2 border-s-sky-300 dark:border-s-sky-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
+        <div class="circle-component circle-upper-left border-sky-300 dark:border-sky-300"></div>
+      </td>
+      <td
+        class="border-s-2 border-s-indigo-300 dark:border-s-orange-300 border-t-[1rem] border-t-sky-100 dark:border-t-sky-900 hidden md:table-cell">
+      </td>
+      <td>
+        {% assign silid-aralan = positions | where: "id", "silid-aralan" | first %}
+        {% include position.html position=silid-aralan %}
       </td>
     </tr>
 

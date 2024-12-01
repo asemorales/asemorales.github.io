@@ -7,11 +7,10 @@ positions:
     date: Mar 2023 - Present
     description:
       - text: Solely designed, developed, & deployed a web analytics dashboard & mobile app for research data collection on iOS & Android
-      - text: Implemented various security, performance, & maintainability considerations for long-term project support
+      - text: Implemented long-term security, performance, & maintainability considerations
       - text: Spearheaded all phases, including client discussions, feature planning, development, pilot testing, & system design
     tools:
-      - name: Dart
-        subtype: Flutter
+      - name: Flutter
       - name: Firebase
   - id: hkz-2024
     name: Full-stack Developer
@@ -20,71 +19,64 @@ positions:
     text-color-class: text-sky-500 dark:text-sky-300
     date: Aug 2023 - Dec 2024
     description:
-      - text: Developed 9 mid- to large-scale web applications across finance, admin dashboards, internal frameworks, and customer platforms for new and legacy systems with Agile development practices
-      - text: Architected & implemented REST APIs, payment gateways, query optimizations, security improvements, & UIs
-      - text: Demonstrated initiative by solely creating a reusable internal library and assisting in intern/junior developer hiring & training
+      - text: Designed and implemented a syncing mechanism across 3 microservices using RESTful APIs and queued cron jobs, ensuring fault-tolerant data consistency across ~150 tables between enterprise systems with high concurrent access
+      - text: Led a project team of 5 developers, training best practices through code reviews and delegating tasks based on individual strengths, career goals, and areas for growth
+      - text: Earned recognition as the go-to developer for communicating to middle management how technical decisions impact product differentiation, timelines, and pricing
+      - text: Delivered an MVP in 10 days with minimal (<5) bugs while achieving all stretch goals and mentoring a developer intern on batched jobs handling storage and file processing, including considerations for idempotency and security
+      - text: Developed an internal component library after thorough research found no existing packages met client requirements
+      - text: Optimized SQL queries by analyzing query plans, applying database indexes, and rewriting queries to resolve bottlenecks
+      - text: Developed 5 projects from the ground up over 6 months and made incremental improvements to 4 other legacy projects
     tools:
-      - name: PHP
-        subtype: Laravel
+      - name: Laravel
+      - name: Bootstrap
+      - name: SASS/SCSS
+      - name: jQuery
+      - name: AJAX
       - name: MySQL
-      - name: HTML
-      - name: CSS
-        subtype: SASS & Bootstrap
-      - name: Javascript
-        subtype: jQuery & AJAX
-      - name: Docker
-  - id: cloudband-2024
+  - id: cloudband
     name: Full-stack Developer (Freelance)
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
     text-color-class: text-teal-500 dark:text-pink-300
-    date: Jun - Jul 2024
+    date: Jun - Aug 2023, Jun - Jul 2024, Oct - Nov 2024
     description:
-      - text: Developed a mid-scale web application for embedded analytics alongside a senior developer
-      - text: Implemented unit tests, modular features, auditing, UI/UX improvements, charts for analytics, and restructuring existing systems
+      - text: Executed a major system restructure involving API endpoint rewrites, unit test updates, and UX flow overhaul
+      - text: Revamped 4 SPAs to be fully responsive, improve cross-browser support, and meet Web Content Accessibility Guidelines
+      - text: Optimized efficiency by designing and developing an admin dashboard template that was later used across multiple projects
+      - text: Improved page speed through lazy loading, debugging unnecessary re-renders, and monitoring performance metrics
     tools:
-      - name: Ruby
-        subtype: Rails
+      - name: Ruby on Rails
+      - name: React
+      - name: Bootstrap
+      - name: SASS/SCSS
       - name: MySQL
-      - name: HTML
-      - name: CSS
-        subtype: SASS & Bootstrap
-      - name: Javascript
-        subtype: React
-  - id: cloudband-2023
-    name: Full-stack Developer (Freelance)
-    organization: Cloudband Solutions
-    url: https://cloudbandsolutions.com/
-    text-color-class: text-teal-500 dark:text-pink-300
-    date: Jun - Aug 2023
-    description:
-      - text: Developed 2 small to mid-scale web applications for inventory management & geospatial applications alongside a small team of developers
-      - text: Implemented unit tests, modular features, visual improvements, form validation, & charts for embedded analytics
-    tools:
-      - name: Ruby
-        subtype: Rails
-      - name: MySQL
-      - name: HTML
-      - name: CSS
-        subtype: SASS & Bootstrap
-      - name: Javascript
-        subtype: React
   - id: hkz-2023
     name: Full-stack Developer Intern
     organization: Hackazouk
     url: https://hackazouk.com
     text-color-class: text-sky-500 dark:text-sky-300
-    date: Jun 2023 - Jul 2023
+    date: Jun - Jul 2023
     description:
-      - text: Developed a mid-scale web application for event management with both an admin dashboard & customer-facing platform
-      - text: Streamlined critical processes by automating data migration and schema creation to expedite remaking of legacy projects
+      - text: Cut task time from 40 hours to 6 by identifying a need for and writing scripts to generate Laravel migrations from SQL files, automating the generation of 76 tables for the redevelopment of an 8-year-old enterprise web app
+      - text: Developed a multi-tenant web application with an admin dashboard and customer-facing site with guidance from mentors
     tools:
-      - name: PHP
-        subtype: Laravel
+      - name: Laravel
+      - name: Bootstrap
+      - name: SASS/SCSS
+      - name: jQuery
+      - name: AJAX
       - name: MySQL
-      - name: HTML
+  - id: silid-aralan
+    name: Backend Developer (Volunteer)
+    organization: Silid Aralan
+    url: https://facebook.com/silidaralaninc/
+    text-color-class: text-sky-500 dark:text-sky-300
+    date: Jan - Jun 2023
+    description:
+      - text: Sole developer of an admin dashboard to track demographic metrics and generate operational reports for a non-profit
+    tools:
+      - name: Django
       - name: CSS
-        subtype: SASS & Bootstrap
-      - name: Javascript
-        subtype: jQuery & AJAX
-      - name: Docker
+      - name: JavaScript
+      - name: MySQL
+
