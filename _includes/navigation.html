@@ -1,14 +1,20 @@
 <nav
-    class="sticky top-0 bg-white/75 dark:bg-musubi-600/75 backdrop-blur-sm z-50 border-b-2 border-musubi-100 dark:border-musubi-500 py-2">
+    class="sticky top-0 bg-white/75 dark:bg-musubi-600/75 backdrop-blur-sm z-50 border-b-2 border-musubi-100 dark:border-musubi-500 py-5">
     <div class="max-w-screen-2xl mx-auto">
         <div class="flex items-center justify-between px-7 md:px-20">
             <h1 id="nav-title" class="opacity-0 ease-in-out transition motion-reduce:transition-none text-base font-medium text-musubi-300 dark:text-musubi-100">
-                <span class="text-transparent bg-clip-text dark-gradient dark:light-gradient">ase</span>@create-with-<3<span class="hidden text-musubi-200 dark:text-musubi-300">:~/portfolio$</span>
+                <span class="text-transparent bg-clip-text dark-gradient dark:light-gradient">ase</span>@create-with-<3
             </h1>
-            <button id="toggle-theme" title="Toggle light/dark mode" class="inline-block relative size-10">
-                {% include svg/moon.svg id="moon" classes="absolute top-0 size-10 inactive-theme-icon fill-musubi-200 dark:fill-musubi-300 ease-in-out transition motion-reduce:transition-none" %}
-                {% include svg/sun.svg  id="sun"  classes="absolute top-0 size-10 inactive-theme-icon fill-musubi-200 dark:fill-musubi-300 ease-in-out transition motion-reduce:transition-none" %}
-            </button>
+            <div class="flex space-x-4">
+                <button id="toggle-theme" title="Toggle light/dark mode" class="inline-block relative size-[24px]">
+                    {% include svg/moon.svg id="moon" classes="absolute top-0 size-[24px] inactive-theme-icon fill-musubi-200 dark:fill-musubi-300 ease-in-out transition motion-reduce:transition-none" %}
+                    {% include svg/sun.svg  id="sun"  classes="absolute top-0 size-[24px] inactive-theme-icon fill-musubi-200 dark:fill-musubi-300 ease-in-out transition motion-reduce:transition-none" %}
+                </button>
+                {% assign contact = site.data.contact %}
+                {% for social-icon in contact.social-icons %}
+                {% include social-icon.html %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </nav>
