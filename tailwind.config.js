@@ -2,13 +2,15 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  darkMode: 'selector',
   content: [
     './_data/**/*.yml',
     './_includes/**/*.html',
     './_includes/**/*.svg',
     './_layouts/**/*.html',
     '*.html',
+  ],
+  plugins: [
+    require('daisyui'),
   ],
   theme: {
     extend: {
@@ -113,8 +115,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    require('daisyui'),
-  ],
+  // darkMode: ['class', '[data-theme="dark"]'],
 }
 
