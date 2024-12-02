@@ -132,15 +132,19 @@
         -webkit-animation: move-background 7s ease infinite;
     }
 
+    .theme-gradient {
+        @apply dark-gradient dark:light-gradient;
+    }
+
     /* parent element must have a non-static position (ex. position: relative) for this to work */
     .award-shadow::after {
-        @apply dark-gradient dark:light-gradient;
+        @apply theme-gradient;
         @apply content-[''] z-[-1] absolute top-2 left-0 right-0 h-full w-full blur-xl scale-x-75 transition-opacity;
     }
 
     /* parent element must have a non-static position (ex. position: relative) for this to work */
     .circle-component {
-        @apply absolute w-[1.2rem] h-[1.2rem] border-2 rounded-full bg-white dark:bg-musubi-600 z-40;
+        @apply absolute w-[1.2rem] h-[1.2rem] border-2 rounded-full bg-base-100 z-40;
     }
 
     /* use the classes below together with .circle-component */

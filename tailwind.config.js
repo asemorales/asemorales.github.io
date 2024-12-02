@@ -39,11 +39,11 @@ module.exports = {
     themes: [
       {
         light: {
-          "primary": "#7dd3fc",
+          "primary": "#7dd3fc", // sky-300
           "primary-content": "#0D1017",
-          "secondary": "#c4b5fd",
+          "secondary": "#a5b4fc", // indigo-300
           "secondary-content": "#0D1017",
-          "accent": "#a5b4fc",
+          "accent": "#5eead4", // teal-300
           "accent-content": "#0D1017",
           "neutral": "#FFFFFF",
           "neutral-content": "#0D1017",
@@ -51,13 +51,13 @@ module.exports = {
           "base-200": "#FFFFFF",
           "base-300": "#FFFFFF",
           "base-content": "#0D1017",
-          "info": "#a5f3fc",
+          "info": "#a5f3fc", // cyan-200
           "info-content": "#0D1017",
-          "success": "#bef264",
+          "success": "#bef264", // lime-300
           "success-content": "#0D1017",
-          "warning": "#fcd34d",
+          "warning": "#fcd34d", // amber-300
           "warning-content": "#0D1017",
-          "error": "#f87171",
+          "error": "#f87171", // red-400
           "error-content": "#0D1017",
           // extended color classes in oklch() values
           "--neutral-100": "49.55% 0.0682 274.37", // #565F89
@@ -67,11 +67,11 @@ module.exports = {
       },
       {
         dark: {
-          "primary": "#7dd3fc",
+          "primary": "#7dd3fc", // sky-300
           "primary-content": "#E1E6FF",
-          "secondary": "#fdba74",
+          "secondary": "#fdba74", // orange-300
           "secondary-content": "#E1E6FF",
-          "accent": "#6ee7b7",
+          "accent": "#6ee7b7", // emerald-300
           "accent-content": "#E1E6FF",
           "neutral": "#0D1017",          
           "neutral-content": "#E1E6FF",
@@ -79,13 +79,13 @@ module.exports = {
           "base-200": "#14192B",
           "base-300": "#181E36",
           "base-content": "#E1E6FF",
-          "info": "#67e8f9",
+          "info": "#67e8f9", // cyan-300
           "info-content": "#E1E6FF",
-          "success": "#bef264",
+          "success": "#bef264", // lime-300
           "success-content": "#E1E6FF",
-          "warning": "#fcd34d",
+          "warning": "#fcd34d", // amber-300
           "warning-content": "#E1E6FF",
-          "error": "#f87171",
+          "error": "#f87171", // red-400
           "error-content": "#E1E6FF",
           // extended color classes in oklch() values
           "--neutral-100": "92.87% 0.0343 276.72", // #E1E6FF

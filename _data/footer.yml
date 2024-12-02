@@ -1,5 +1,5 @@
 created-by:
-  Created with <span class="text-transparent bg-clip-text dark-gradient dark:light-gradient"><3</span>
+  Created with <span class="text-transparent bg-clip-text theme-gradient"><3</span>
   <br>
   by me & my bear, Polar :)
 attribution:
@@ -12,28 +12,28 @@ attribution:
     target="_blank"
     rel="noopener noreferrer"
     title="View in new tab"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
   Oksana Latysheva,</a>&nbsp;
   <a
     href="https://thenounproject.com/creator/lopato/"
     target="_blank"
     rel="noopener noreferrer"
     title="View in new tab"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
   Artur Lopato,</a>&nbsp;&
   <a
     href="https://thenounproject.com/creator/imron46/"
     target="_blank"
     rel="noopener noreferrer"
     title="View in new tab"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
   Cuputo</a> from the Noun Project. Full details 
   <a
     href="https://github.com/IrishMorales/irishmorales.github.io"
     target="_blank"
     rel="noopener noreferrer"
     title="View in new tab"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
   here.
   </a>
   <br>
@@ -44,35 +44,35 @@ attribution:
     target="_blank"
     rel="noopener noreferrer"
     title="View in new tab"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
   Tokyo Night,</a>&nbsp;
   <a
     href="https://anytype.io/"
     target="_blank"
     rel="noopener noreferrer"
     title="View in new tab"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
   Anytype,</a>&nbsp;
   <a
     href="https://css-tricks.com/"
     target="_blank"
     rel="noopener noreferrer"
     title="View in new tab"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
   CSS Tricks,</a>&nbsp;
   <a
     href="https://www.gitkraken.com/gitlens"
     target="_blank"
     rel="noopener noreferrer"
     title="View in new tab"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
   GitLens,</a>&nbsp;and the works of
   <a
     href="https://brittanychiang.com/"
     target="_blank"
     rel="noopener noreferrer"
     title="View in new tab"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
   Brittany Chiang.</a>
 licensing:
   This site is open source! You can use, modify, or distribute this site's code for your own site as long as your own site is also made open source (See
@@ -81,7 +81,7 @@ licensing:
     target="_blank"
     title="View full license"
     rel="license noopener noreferrer"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
     AGPL 3.0</a>).
   <br>
   <br>
@@ -92,7 +92,7 @@ copyright:
     href="mailto:{{ site.email }}"
     target="_blank"
     rel="license noopener noreferrer"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
     Irish Danielle "Ase" Morales</a>
 year: 2024
 name: Irish Danielle "Ase" Morales
@@ -103,6 +103,6 @@ additional:
     target="_blank"
     title="View full license in new tab"
     rel="license noopener noreferrer"
-    class="underline underline-offset-4 hover:text-sky-500 text-neutral-300 dark:hover:text-musubi-100">
+    class="underline underline-offset-4 hover:text-primary text-neutral-300">
     AGPL 3.0
   </a>
