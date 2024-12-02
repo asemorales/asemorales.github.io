@@ -29,6 +29,12 @@ module.exports = {
           600: '#0D1017',
         },
         // extend DaisyUI color classes
+        'primary-low-contrast': "oklch(var(--primary-low-contrast) / <alpha-value>)",
+        'primary-high-contrast': "oklch(var(--primary-high-contrast) / <alpha-value>)",
+        'secondary-low-contrast': "oklch(var(--secondary-low-contrast) / <alpha-value>)",
+        'secondary-high-contrast': "oklch(var(--secondary-high-contrast) / <alpha-value>)",
+        'accent-low-contrast': "oklch(var(--accent-low-contrast) / <alpha-value>)",
+        'accent-high-contrast': "oklch(var(--accent-high-contrast) / <alpha-value>)",
         'neutral-100': "oklch(var(--neutral-100) / <alpha-value>)",
         'neutral-200': "oklch(var(--neutral-200) / <alpha-value>)",
         'neutral-300': "oklch(var(--neutral-300) / <alpha-value>)",
@@ -41,10 +47,16 @@ module.exports = {
         light: {
           "primary": "#7dd3fc", // sky-300
           "primary-content": "#0D1017",
+          "--primary-low-contrast": "95.14% 0.025 236.82", // sky-100
+          "--primary-high-contrast": "68.47% 0.1479 237.32", // sky-500
           "secondary": "#a5b4fc", // indigo-300
           "secondary-content": "#0D1017",
+          "--secondary-low-contrast": "92.99% 0.0334 272.79", // indigo-100
+          "--secondary-high-contrast": "58.54% 0.2041 277.12", // indigo-500
           "accent": "#c4b5fd", // violet-300
           "accent-content": "#0D1017",
+          "--accent-low-contrast": "94.33% 0.0284 294.59", // violet-100
+          "--accent-high-contrast": "71.44% 0.1517 293.57",
           "neutral": "#FFFFFF",
           "neutral-content": "#0D1017",
           "base-100": "#F6F7FF",
@@ -69,10 +81,16 @@ module.exports = {
         dark: {
           "primary": "#7dd3fc", // sky-300
           "primary-content": "#E1E6FF",
+          "--primary-low-contrast": "39.12% 0.0845 240.88", // sky-900
+          "--primary-high-contrast": "68.47% 0.1479 237.32", // sky-500
           "secondary": "#fdba74", // orange-300
           "secondary-content": "#E1E6FF",
+          "--secondary-low-contrast": "40.84% 0.1165 38.17", // orange-900
+          "--secondary-high-contrast": "70.49% 0.1867 47.6", // orange-500
           "accent": "#6ee7b7", // emerald-300
           "accent-content": "#E1E6FF",
+          "--accent-low-contrast": "37.8% 0.073 168.94", // emerald-900
+          "--accent-high-contrast": "69.59% 0.1491 162.48", // emerald-500
           "neutral": "#0D1017",          
           "neutral-content": "#E1E6FF",
           "base-100": "#0D1017",

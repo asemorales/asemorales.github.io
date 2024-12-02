@@ -3,7 +3,7 @@ featured:
     field: Web Development
     year: 2023
     url: "https://github.com/IrishMorales/irishmorales.github.io"
-    text-color-class: text-primary
+    text-color-class: text-primary-high-contrast
     border-color-class: hover:border-primary
     description: Built with performance, scalability, responsiveness, cross-browser support, & accessibility in mind from start to finish
     tools:
@@ -14,7 +14,7 @@ featured:
     field: Web Development
     year: 2023
     url: "https://www.figma.com/design/qpYo0qEYlccQrNz3xCteFk/PHlourish-v2?node-id=303-627&t=QtxnAQXb6XTtMbT6-1"
-    text-color-class: text-secondary
+    text-color-class: text-secondary-high-contrast
     border-color-class: hover:border-secondary
     description: Design assets & website mockups for a mental health non-profit in the Philippines
     tools:

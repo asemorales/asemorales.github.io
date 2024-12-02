@@ -4,7 +4,7 @@ projects:
     year: 2023-2024
     url: https://github.com/IrishMorales/lightweight-cnn-for-bone-metastasis
     # tailwind color classes (do not build the class names below dynamically or TailwindCSS will not recognize these)
-    text-color-class: text-primary
+    text-color-class: text-primary-high-contrast
     border-color-class: hover:border-primary
     description: Lightweight neural network for cancer detection in underfunded hospitals
     tools:
@@ -16,7 +16,7 @@ projects:
     field: Data Science
     year: 2023
     url: "https://github.com/IrishMorales/ph-poverty-statistics"
-    text-color-class: text-secondary
+    text-color-class: text-secondary-high-contrast
     border-color-class: hover:border-secondary
     description: Analyzing, predicting, & visualizing Philippine poverty
     tools:
@@ -27,7 +27,7 @@ projects:
     field: Web Development
     year: 2023
     url: "https://github.com/IrishMorales/dorm-service-tracker"
-    text-color-class: text-accent
+    text-color-class: text-accent-high-contrast
     border-color-class: hover:border-accent
     description: Website for service hours enlistment for scholars of Ateneo de Manila University
     tools:
@@ -39,7 +39,7 @@ projects:
     field: Data Science
     year: 2021-2022
     url: "https://www.facebook.com/dean.gdscloyola"
-    text-color-class: text-accent
+    text-color-class: text-accent-high-contrast
     border-color-class: hover:border-accent
     description: Facebook chatbot for users to search Google using free Facebook data, supporting education for those with limited internet access
     tools:
@@ -48,7 +48,7 @@ projects:
     field: Data Science
     year: 2019-2020
     url: "https://github.com/IrishMorales/modelling-personality-from-twts"
-    text-color-class: text-primary
+    text-color-class: text-primary-high-contrast
     border-color-class: hover:border-primary
     description: Machine learning models to predict personality traits based on Twitter tweets
     tools:
