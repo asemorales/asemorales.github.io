@@ -3,7 +3,6 @@ projects:
     field: Machine Learning
     year: 2023-2024
     url: https://github.com/IrishMorales/lightweight-cnn-for-bone-metastasis
-    # tailwind color classes (do not build the class names below dynamically or TailwindCSS will not recognize these)
     text-color-class: text-primary-high-contrast
     border-color-class: hover:border-primary
     description: Lightweight neural network for cancer detection in underfunded hospitals
@@ -39,8 +38,8 @@ projects:
     field: Data Science
     year: 2021-2022
     url: "https://www.facebook.com/dean.gdscloyola"
-    text-color-class: text-accent-high-contrast
-    border-color-class: hover:border-accent
+    text-color-class: text-secondary-high-contrast
+    border-color-class: hover:border-secondary
     description: Facebook chatbot for users to search Google using free Facebook data, supporting education for those with limited internet access
     tools:
       - name: Python
