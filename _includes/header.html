@@ -1,14 +1,69 @@
-<header id="about" class="px-7 md:px-20 py-36">
+<header id="about" class="text-center px-2 md:px-20 py-36 ">
     {% assign about = site.data.about %}
     <h1 class="text-3xl md:text-6xl text-base-content block mb-5">{{ about.title }}</h1>
     <h2 class="md:text-xl font-light text-neutral-200 mb-10">{{ about.tagline }}</h2>
-    <a 
-        href="mailto:{{ site.email }}"
-        target="_blank"
-        rel="license noopener noreferrer"
-        title="Send me an email"
-        class="cursor-pointer bg-musubi-500 border-musubi-400 border-2 rounded-full text-musubi-100 px-6 py-3">
-        {% include svg/sparkle.svg classes="fill-musubi-100 size-5 inline" %}
-        Create your next idea with me
-    </a>
+    <div class="mb-16">
+        <div class="indicator">
+            <span class="indicator-item indicator-top indicator-start badge badge-statistic">
+                Globally award-winning developer
+            </span>
+            <div class="tooltip -rotate-3" data-tip="Phlourish">
+                <div class="card bg-[#10C3C3] size-64 shadow-xl mt-2">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicator">
+            <span class="indicator-item indicator-bottom indicator-start badge badge-statistic">
+                15+ enterprise web apps
+            </span>
+            <div class="tooltip" data-tip="TODO">
+                <div class="card bg-musubi-400 size-64 shadow-xl mt-2">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicator">
+            <span class="indicator-item indicator-middle indicator-end badge badge-statistic">
+                16+ clients served
+            </span>
+            <div class="tooltip rotate-1" data-tip="TODO">
+                <div class="card bg-sky-100 size-64 shadow-xl mt-2">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicator">
+            <span class="indicator-item indicator-bottom indicator-end badge badge-statistic">
+                Web, mobile, & DS/ML/AI
+            </span>
+            <div class="tooltip rotate-3" data-tip="TODO">
+                <div class="card bg-musubi-400 size-64 shadow-xl mt-2">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex items-center justify-center">
+        <div class="relative group">
+            <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer"
+                class="cursor-pointer relative inline-block p-px font-semibold leading-6 text-musubi-100 bg-musubi-400 rounded-xl transition-transform ease-in-out motion-reduce:transition-none hover:scale-105 active:scale-95">
+                <span
+                    class="absolute inset-0 rounded-xl theme-gradient p-[2px] opacity-0 motion-reduce:transition-none transition-opacity duration-500 group-hover:opacity-100"></span>
+                <span class="relative z-10 block px-6 py-3 rounded-xl bg-musubi-600">
+                    <div class="relative z-10 flex items-center space-x-2">
+                        <span class="transition-all duration-500 group-hover:translate-x-1">
+                            Create your next idea with me
+                        </span>
+                        <svg class="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" data-slot="icon"
+                            aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd"
+                                d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                                fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </span>
+            </a>
+        </div>
+    </div>
 </header>
