@@ -4,7 +4,6 @@ featured:
     year: 2023
     url: "https://github.com/IrishMorales/irishmorales.github.io"
     text-color-class: text-sky-500 dark:text-pink-300
-    divide-color-class: divide-sky-300 dark:divide-pink-300
     border-color-class: hover:border-sky-300 dark:hover:border-pink-300
     description: Built with performance, scalability, responsiveness, cross-browser support, & accessibility in mind from start to finish
     tools:
@@ -16,7 +15,6 @@ featured:
     year: 2023
     url: "https://www.figma.com/design/qpYo0qEYlccQrNz3xCteFk/PHlourish-v2?node-id=303-627&t=QtxnAQXb6XTtMbT6-1"
     text-color-class: text-teal-500 dark:text-teal-200
-    divide-color-class: divide-teal-300 dark:divide-teal-200
     border-color-class: hover:border-teal-300 dark:hover:border-teal-200
     description: Design assets & website mockups for a mental health non-profit in the Philippines
     tools:
