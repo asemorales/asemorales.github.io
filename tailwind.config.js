@@ -43,7 +43,7 @@ module.exports = {
           "primary-content": "#0D1017",
           "secondary": "#a5b4fc", // indigo-300
           "secondary-content": "#0D1017",
-          "accent": "#5eead4", // teal-300
+          "accent": "#c4b5fd", // violet-300
           "accent-content": "#0D1017",
           "neutral": "#FFFFFF",
           "neutral-content": "#0D1017",
