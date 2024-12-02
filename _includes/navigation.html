@@ -6,7 +6,7 @@
                 <span class="text-transparent bg-clip-text theme-gradient">ase</span>@create-with-<3
             </h1>
             <div class="flex space-x-4">
-                <button id="toggle-theme" title="Toggle light/dark mode" class="inline-block relative size-5">
+                <button id="toggle-theme" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS" title="Toggle light/dark mode" class="inline-block relative size-5">
                     {% include svg/moon.svg id="moon" classes="absolute top-0 size-5 inactive-theme-icon fill-neutral-300 ease-in-out transition motion-reduce:transition-none" %}
                     {% include svg/sun.svg  id="sun"  classes="absolute top-0 size-5 inactive-theme-icon fill-neutral-300 ease-in-out transition motion-reduce:transition-none" %}
                 </button>
