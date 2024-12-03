@@ -82,15 +82,15 @@ module.exports = {
       {
         dark: {
           "primary": "#7dd3fc", // sky-300
-          "primary-content": "#E1E6FF",
+          "primary-content": "#0D1017",
           "--primary-low-contrast": "39.12% 0.0845 240.88", // sky-900
           "--primary-high-contrast": "82.76% 0.1013 230.32", // sky-100
           "secondary": "#fdba74", // orange-300
-          "secondary-content": "#E1E6FF",
+          "secondary-content": "#0D1017",
           "--secondary-low-contrast": "40.84% 0.1165 38.17", // orange-900
           "--secondary-high-contrast": "83.66% 0.1165 66.29", // orange-100
           "accent": "#f9a8d4", // pink-300
-          "accent-content": "#E1E6FF",
+          "accent-content": "#0D1017",
           "--accent-low-contrast": "29.32% 0.1309 325.66", // pink-900
           "--accent-high-contrast": "82.28% 0.1095 346.02", // pink-200
           "neutral": "#0D1017",

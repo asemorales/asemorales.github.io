@@ -1,8 +1,13 @@
-<header id="about" class="text-center px-7 md:px-20 py-20 md:py-36">
+<header id="about" class="justify-start px-7 md:px-20 py-20 md:py-36">
     {% assign about = site.data.about %}
     <h1 class="text-4xl sm:text-6xl text-base-content block mb-3 sm:mb-5">{{ about.title }}</h1>
-    <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-10">{{ about.tagline }}</h2>
-    <div class="flex items-center justify-center mb-3 sm:mb-5">
+    <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-3">{{ about.tagline }}</h2>
+    <div class="mb-10">
+        <div class="badge badge-primary">Full-stack Web Developer</div>
+        <div class="badge badge-secondary">Mobile Developer</div>
+        <div class="badge badge-accent">DS/ML/AI</div>
+    </div>
+    <div class="flex items-center justify-start mb-3 sm:mb-5">
         <div class="relative group">
             <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer"
                 class="cursor-pointer relative inline-block p-px font-semibold leading-6 text-musubi-100 bg-musubi-400 rounded-xl transition-transform ease-in-out motion-reduce:transition-none hover:scale-105 active:scale-95">
@@ -24,7 +29,7 @@
             </a>
         </div>
     </div>
-    <div class="flex items-center justify-center">
+    <div class="flex items-center justify-start">
         <span class="relative flex size-3 me-3">
             <span class="animate-ping absolute inline-flex size-full rounded-full bg-primary opacity-75"></span>
             <span class="relative inline-flex rounded-full size-3 bg-primary"></span>
