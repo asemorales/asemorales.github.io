@@ -1,49 +1,164 @@
-<header id="about" class="text-center px-2 md:px-20 py-36 ">
+<header id="about" class="sm:text-center px-7 md:px-20 py-20 md:py-36 ">
     {% assign about = site.data.about %}
     <h1 class="text-3xl md:text-6xl text-base-content block mb-5">{{ about.title }}</h1>
-    <h2 class="md:text-xl font-light text-neutral-200 mb-10">{{ about.tagline }}</h2>
-    <div class="mb-16">
-        <div class="indicator">
-            <span class="indicator-item indicator-top indicator-start badge badge-statistic">
-                Globally award-winning developer
-            </span>
-            <div class="tooltip -rotate-3" data-tip="Phlourish">
-                <div class="card bg-[#10C3C3] size-64 shadow-xl mt-2">
-                    <div class="card-body"></div>
+    <h2 class="text-sm md:text-xl font-light text-neutral-200 mb-10">{{ about.tagline }}</h2>
+    <section class="mb-10">
+        <div class="marquee">
+          <ul class="marquee__content">
+            <li>
+                <div class="indicator">
+                    <span class="hidden md:indicator-item indicator-top indicator-start badge badge-statistic">
+                        Globally award-winning developer
+                    </span>
+                    <div class="tooltip md:-rotate-3" data-tip="Phlourish">
+                        <div class="card bg-[#10C3C3] size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="indicator">
+                    <span class="hidden md:indicator-item indicator-bottom indicator-start badge badge-statistic">
+                        15+ enterprise web apps
+                    </span>
+                    <div class="tooltip" data-tip="TODO">
+                        <div class="card bg-musubi-400 size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="indicator">
+                    <span class="hidden md:indicator-item indicator-middle indicator-end badge badge-statistic">
+                        16+ clients served
+                    </span>
+                    <div class="tooltip md:rotate-1" data-tip="TODO">
+                        <div class="card bg-sky-100 size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="indicator">
+                    <span class="hidden md:indicator-item indicator-bottom indicator-end badge badge-statistic">
+                        Web, mobile, & DS/ML/AI
+                    </span>
+                    <div class="tooltip md:rotate-3" data-tip="TODO">
+                        <div class="card bg-musubi-400 size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+          </ul>
+      
+          <ul aria-hidden="true" class="marquee__content">
+            <li>
+                <div class="indicator">
+                    <span class="hidden md:indicator-item indicator-top indicator-start badge badge-statistic">
+                        Globally award-winning developer
+                    </span>
+                    <div class="tooltip md:-rotate-3" data-tip="Phlourish">
+                        <div class="card bg-[#10C3C3] size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="indicator">
+                    <span class="hidden md:indicator-item indicator-bottom indicator-start badge badge-statistic">
+                        15+ enterprise web apps
+                    </span>
+                    <div class="tooltip" data-tip="TODO">
+                        <div class="card bg-musubi-400 size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="indicator">
+                    <span class="hidden md:indicator-item indicator-middle indicator-end badge badge-statistic">
+                        16+ clients served
+                    </span>
+                    <div class="tooltip md:rotate-1" data-tip="TODO">
+                        <div class="card bg-sky-100 size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="indicator">
+                    <span class="hidden md:indicator-item indicator-bottom indicator-end badge badge-statistic">
+                        Web, mobile, & DS/ML/AI
+                    </span>
+                    <div class="tooltip md:rotate-3" data-tip="TODO">
+                        <div class="card bg-musubi-400 size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    <!-- <div class="content mb-16">
+        <div class="benefits">
+            <div class="basic-marquee">
+                <div class="indicator">
+                    <span class="indicator-item indicator-top indicator-start badge badge-statistic">
+                        Globally award-winning developer
+                    </span>
+                    <div class="tooltip -rotate-3" data-tip="Phlourish">
+                        <div class="card bg-[#10C3C3] size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="indicator">
+                    <span class="indicator-item indicator-bottom indicator-start badge badge-statistic">
+                        15+ enterprise web apps
+                    </span>
+                    <div class="tooltip" data-tip="TODO">
+                        <div class="card bg-musubi-400 size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="indicator">
+                    <span class="indicator-item indicator-middle indicator-end badge badge-statistic">
+                        16+ clients served
+                    </span>
+                    <div class="tooltip rotate-1" data-tip="TODO">
+                        <div class="card bg-sky-100 size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="indicator">
+                    <span class="indicator-item indicator-bottom indicator-end badge badge-statistic">
+                        Web, mobile, & DS/ML/AI
+                    </span>
+                    <div class="tooltip rotate-3" data-tip="TODO">
+                        <div class="card bg-musubi-400 size-20 md:size-64 shadow-xl mt-2">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="indicator">
-            <span class="indicator-item indicator-bottom indicator-start badge badge-statistic">
-                15+ enterprise web apps
-            </span>
-            <div class="tooltip" data-tip="TODO">
-                <div class="card bg-musubi-400 size-64 shadow-xl mt-2">
-                    <div class="card-body"></div>
-                </div>
-            </div>
-        </div>
-        <div class="indicator">
-            <span class="indicator-item indicator-middle indicator-end badge badge-statistic">
-                16+ clients served
-            </span>
-            <div class="tooltip rotate-1" data-tip="TODO">
-                <div class="card bg-sky-100 size-64 shadow-xl mt-2">
-                    <div class="card-body"></div>
-                </div>
-            </div>
-        </div>
-        <div class="indicator">
-            <span class="indicator-item indicator-bottom indicator-end badge badge-statistic">
-                Web, mobile, & DS/ML/AI
-            </span>
-            <div class="tooltip rotate-3" data-tip="TODO">
-                <div class="card bg-musubi-400 size-64 shadow-xl mt-2">
-                    <div class="card-body"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div> -->
+
+
+    <!-- <div class="mb-16">
+
+    </div> -->
     <div class="flex items-center justify-center mb-5">
         <div class="relative group">
             <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer"
@@ -53,7 +168,7 @@
                 <span class="relative z-10 block px-6 py-3 rounded-xl bg-musubi-600">
                     <div class="relative z-10 flex items-center space-x-2">
                         <span class="transition-all duration-500 group-hover:translate-x-1">
-                            Create your next idea with me
+                            Create <span class="hidden md:inline">your next idea</span> with me
                         </span>
                         <svg class="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" data-slot="icon"
                             aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -71,6 +186,6 @@
             <span class="animate-ping absolute inline-flex size-full rounded-full bg-primary opacity-75"></span>
             <span class="relative inline-flex rounded-full size-3 bg-primary"></span>
         </span>
-        <span class="text-sm text-neutral-200">Open to remote global clients (Replies at UTC+8)</span>
+        <span class="text-xsm md:text-sm text-neutral-200">Open to remote clients (Replies at UTC+8)</span>
     </div>
 </header>
