@@ -38,9 +38,8 @@ See `deploy.yml` for the deployment workflow.
 
 Assets used:
 
-- Sparkle by <a href="https://thenounproject.com/creator/latyshevaoksana/" target="_blank" rel="noopener noreferrer">Oksana Latysheva</a> from <a href="https://thenounproject.com/browse/icons/term/sparkle/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
-- Sun & Moon by <a href="https://thenounproject.com/creator/lopato/" target="_blank" rel="noopener noreferrer">Artur Lopato</a> from <a href="https://thenounproject.com/browse/icons/term/sun/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
 - Award by <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer">Cuputo</a> from <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
+- All other icons by <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer">Remix Icon</a> (Apache License 2.0)
 
 A visual homage to several tools & works I love:
 
