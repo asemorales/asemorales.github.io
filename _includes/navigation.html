@@ -10,10 +10,12 @@
                     {% include svg/moon.svg id="moon" classes="absolute top-0 size-5 inactive-theme-icon fill-neutral-300 ease-in-out transition motion-reduce:transition-none" %}
                     {% include svg/sun.svg  id="sun"  classes="absolute top-0 size-5 inactive-theme-icon fill-neutral-300 ease-in-out transition motion-reduce:transition-none" %}
                 </button>
-                {% assign contact = site.data.contact %}
-                {% for social-icon in contact.social-icons %}
-                {% include social-icon.html %}
-                {% endfor %}
+                <div class="hidden sm:flex space-x-4">
+                    {% assign contact = site.data.contact %}
+                    {% for social-icon in contact.social-icons %}
+                    {% include social-icon.html %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
