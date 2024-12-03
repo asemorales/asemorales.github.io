@@ -1,6 +1,44 @@
 <header id="about" class="text-center px-7 md:px-20 py-20 md:py-36">
     <div class="ray"></div>
-    <div class="mb-10">
+    <div class="mb-16">
+        <div class="indicator">
+            <div class="tooltip rotate-2" data-tip="Phlourish">
+                <div class="card translate-x-12 bg-musubi-500 -translate-y-6 h-44 w-36 shadow-xl mt-2">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicator">
+            <div class="tooltip -rotate-6" data-tip="TODO">
+                <div class="card z-50 translate-x-4 translate-y-10 bg-musubi-400 h-48 w-40 shadow-xl mt-2">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicator">
+            <div class="tooltip" data-tip="TODO">
+                <div class="card z-100 bg-sky-200 h-56 w-48 shadow-xl mt-2">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicator">
+            <div class="tooltip rotate-6" data-tip="TODO">
+                <div class="card z-50 -translate-x-4 -translate-y-6 bg-musubi-400 h-48 w-40 shadow-xl mt-2">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicator">
+            <div class="tooltip -rotate-3" data-tip="TODO">
+                <div class="card -translate-x-6 bg-musubi-500 h-44 w-36 shadow-xl mt-2">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="mb-10">
         <div class="indicator">
             <span class="indicator-item indicator-top indicator-start badge badge-statistic">
                 Globally award-winning developer
@@ -41,9 +79,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     {% assign about = site.data.about %}
-    <h1 class="text-3xl sm:text-6xl text-base-content block mb-3 sm:mb-5">{{ about.title }}</h1>
+    <h1 class="text-4xl sm:text-6xl text-base-content block mb-3 sm:mb-5">{{ about.title }}</h1>
     <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-10">{{ about.tagline }}</h2>
     <div class="flex items-center justify-center mb-3 sm:mb-5">
         <div class="relative group">
