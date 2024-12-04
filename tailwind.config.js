@@ -40,6 +40,7 @@ module.exports = {
         'neutral-100': "oklch(var(--neutral-100) / <alpha-value>)",
         'neutral-200': "oklch(var(--neutral-200) / <alpha-value>)",
         'neutral-300': "oklch(var(--neutral-300) / <alpha-value>)",
+        'card-color': "oklch(var(--card-color) / <alpha-value>)",
       }
     },
   },
@@ -62,7 +63,7 @@ module.exports = {
           "neutral": "#FFFFFF",
           "neutral-content": "#0D1017",
           "base-100": "#F6F7FF",
-          "base-200": "#FFFFFF",
+          "base-200": "#E1E6FF",
           "base-300": "#FFFFFF",
           "base-content": "#0D1017",
           "info": "#a5f3fc", // cyan-200
@@ -77,6 +78,7 @@ module.exports = {
           "--neutral-100": "49.55% 0.0682 274.37", // #565F89
           "--neutral-200": "49.55% 0.0682 274.37", // #565F89
           "--neutral-300": "72.76% 0.0609 273.09", // #9AA5CE
+          "--card-color": "97.77% 0.0107 280.48", // #F6F7FF
         }
       },
       {
@@ -111,6 +113,7 @@ module.exports = {
           "--neutral-100": "92.87% 0.0343 276.72", // #E1E6FF
           "--neutral-200": "72.76% 0.0609 273.09", // #9AA5CE
           "--neutral-300": "49.55% 0.0682 274.37", // #565F89
+          "--card-color": "21.81% 0.0363 271.32", // #9AA5CE
         },
       },
     ],
