@@ -1,12 +1,7 @@
 <header id="about" class="justify-start px-7 md:px-20 py-20 md:py-36">
     {% assign about = site.data.about %}
     <h1 class="text-4xl sm:text-6xl text-base-content block mb-3 sm:mb-5">{{ about.title }}</h1>
-    <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-3">{{ about.tagline }}</h2>
-    <div class="mb-10">
-        <div class="badge badge-primary">Full-stack Web Developer</div>
-        <div class="badge badge-secondary">Mobile Developer</div>
-        <div class="badge badge-accent">DS/ML/AI</div>
-    </div>
+    <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-8 lg:mb-16">{{ about.tagline }}</h2>
     <div class="flex items-center justify-start mb-3 sm:mb-5">
         <div class="relative group">
             <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer"
@@ -29,11 +24,33 @@
             </a>
         </div>
     </div>
-    <div class="flex items-center justify-start">
+    <div class="flex items-center justify-start mb-20 lg:mb-40">
         <span class="relative flex size-3 me-3">
             <span class="animate-ping absolute inline-flex size-full rounded-full bg-primary opacity-75"></span>
             <span class="relative inline-flex rounded-full size-3 bg-primary"></span>
         </span>
         <span class="text-xsm md:text-sm text-neutral-200">Open to global clients (Replies at UTC+8)</span>
+    </div>
+    <div class="stats stats-vertical lg:stats-horizontal shadow">
+        <div class="stat">
+            <div class="stat-value font-normal mb-2">15+</div>
+            <div class="stat-title"><i class="ri-service-line me-2"></i>Clients Served</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value font-normal mb-2">10+</div>
+          <div class="stat-title"><i class="ri-verified-badge-line me-2"></i>Enterprise Web Apps</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value font-normal mb-2">1</div>
+            <div class="stat-title"><i class="ri-smartphone-line me-2"></i>Mobile App</div>
+          </div>
+        <div class="stat">
+            <div class="stat-value font-normal mb-2">2</div>
+            <div class="stat-title"><i class="ri-award-line me-2"></i>Years of Experience</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value font-normal mb-2"><span class="md:hidden">Award-winning</span><span class="hidden md:inline-block">Globally award-winning</span></div>
+            <div class="stat-title"><i class="ri-trophy-line me-2"></i>FAANG-recognized Developer</div>
+        </div>
     </div>
 </header>
