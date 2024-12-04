@@ -1,8 +1,8 @@
-<header id="about" class="justify-start px-7 md:px-20 py-20 md:py-36">
+<header id="about" class="relative justify-start px-7 md:px-20 py-20 md:py-36">
     {% assign about = site.data.about %}
-    <h1 class="text-4xl sm:text-6xl text-base-content block mb-3 sm:mb-5">{{ about.title }}</h1>
-    <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-8 lg:mb-16">{{ about.tagline }}</h2>
-    <div class="flex items-center justify-start mb-3 sm:mb-5">
+    <h1 class="text-4xl sm:text-6xl text-base-content block z-10 mb-3 sm:mb-5">{{ about.title }}</h1>
+    <h2 class="text-sm sm:text-xl font-light text-neutral-200 z-10 mb-8 lg:mb-16">{{ about.tagline }}</h2>
+    <div class="flex items-center justify-start z-10 mb-3 sm:mb-5">
         <div class="relative group">
             <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer"
                 class="cursor-pointer relative inline-block p-px font-semibold leading-6 text-musubi-100 bg-musubi-400 rounded-xl transition-transform ease-in-out motion-reduce:transition-none hover:scale-105 active:scale-95">
@@ -24,14 +24,14 @@
             </a>
         </div>
     </div>
-    <div class="flex items-center justify-start mb-20 lg:mb-40">
+    <div class="flex items-center justify-start z-10 mb-20 lg:mb-40">
         <span class="relative flex size-3 me-3">
             <span class="animate-ping absolute inline-flex size-full rounded-full bg-primary opacity-75"></span>
             <span class="relative inline-flex rounded-full size-3 bg-primary"></span>
         </span>
         <span class="text-xsm md:text-sm text-neutral-200">Open to global clients (Replies at UTC+8)</span>
     </div>
-    <div class="stats stats-vertical lg:stats-horizontal divide-base-200">
+    <div class="stats stats-vertical lg:stats-horizontal z-10 divide-base-200">
         <div class="stat">
             <div class="stat-value font-normal mb-2">15+</div>
             <div class="stat-title text-neutral-200"><i class="ri-service-line me-2"></i>Clients Served</div>
@@ -48,5 +48,22 @@
             <div class="stat-value font-normal mb-2">Award-winning</div>
             <div class="stat-title text-neutral-200"><i class="ri-trophy-line me-2"></i>FAANG-recognized Developer</div>
         </div>
+    </div>
+    <div class="absolute z-0 right-0 bottom-0 mb-12">
+        <!-- <div class="text-end pb-12">
+            {% include svg/debian.svg classes="inline-block fill-base-300 size-20 -translate-y-32 rotate-6" %}
+            {% include svg/laravel.svg classes="inline-block fill-base-300 size-44 rotate-6" %}
+            {% include svg/tailwindcss.svg classes="inline-block fill-base-300 size-32 translate-y-28 rotate-6" %}
+            {% include svg/php-line.svg classes="inline-block fill-base-300 size-24 rotate-6" %}
+            {% include svg/svelte.svg classes="inline-block fill-base-300 size-20 translate-y-24 rotate-6" %}
+        </div>
+        <div class="text-end pb-12">
+            {% include svg/git-pull-request-fill.svg classes="inline-block fill-base-300 size-40 rotate-6" %}
+            {% include svg/github-line.svg classes="inline-block fill-base-300 size-28 -translate-y-20 rotate-6" %}
+            {% include svg/instance-fill.svg classes="inline-block fill-base-300 size-28 translate-y-14 rotate-6" %}
+            {% include svg/flutter.svg classes="inline-block fill-base-300 size-32 -translate-y-8 rotate-6" %}
+            {% include svg/verified-badge-fill.svg classes="inline-block fill-base-300 translate-y-20 size-40" %}
+            {% include svg/react.svg classes="inline-block fill-base-300 size-28 -translate-y-8 rotate-6" %}
+        </div> -->
     </div>
 </header>
