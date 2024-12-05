@@ -1,4 +1,4 @@
-<header id="header" class="relative justify-start px-7 md:px-20 py-20 md:py-36">
+<header id="header" class="relative justify-start px-7 md:px-20 py-20 md:py-36 min-h-screen 2xl:min-h-fit">
     {% assign header = site.data.header %}
     <h1 class="text-4xl sm:text-6xl text-base-content block mb-3 sm:mb-5">{{ header.title }}</h1>
     <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-8 lg:mb-16">{{ header.tagline }}</h2>
@@ -41,6 +41,6 @@
         </div>
     </div>
     <div class="absolute -z-50 right-0 bottom-0">
-        {% include svg/icons.svg classes="fill-base-200 h-[75vh] w-auto mb-12" %}
+        {% include svg/icons.svg classes="fill-base-200 h-[75vh] max-h-[800px] w-auto mb-12" %}
     </div>
 </header>
