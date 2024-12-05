@@ -4,7 +4,7 @@ window.onload = function () {
 };
 
 window.onscroll = function() {
-    if (document.querySelector('#about').getBoundingClientRect().bottom <= 0) {
+    if (document.querySelector('#header').getBoundingClientRect().bottom <= 0) {
         document.querySelector('#nav-title').classList.remove('opacity-0');
     } else {
         document.querySelector('#nav-title').classList.add('opacity-0');
