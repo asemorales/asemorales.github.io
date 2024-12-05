@@ -1,8 +1,15 @@
 <header id="header" class="relative justify-start px-7 md:px-20 py-20 md:py-36 min-h-screen 2xl:min-h-fit">
     {% assign header = site.data.header %}
+    <div class="flex items-center justify-start mb-7">
+        <span class="relative flex size-3 ms-1 me-3">
+            <span class="animate-ping absolute inline-flex size-full rounded-full bg-primary opacity-75"></span>
+            <span class="relative inline-flex rounded-full size-3 bg-primary"></span>
+        </span>
+        <span class="text-xsm md:text-sm text-neutral-200">Open to global clients (Replies at UTC+8)</span>
+    </div>
     <h1 class="text-4xl sm:text-6xl text-base-content block mb-3 sm:mb-5">{{ header.title }}</h1>
-    <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-8">{{ header.tagline }}</h2>
-    <div class="flex items-center justify-start mb-3 sm:mb-5">
+    <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-12">{{ header.tagline }}</h2>
+    <div class="flex items-center justify-start mb-20 lg:mb-40">
         <div class="relative group">
             <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer"
                 class="cursor-pointer relative inline-block p-px font-semibold leading-6 text-musubi-100 bg-musubi-400 rounded-xl transition-transform ease-in-out motion-reduce:transition-none hover:scale-105 active:scale-95">
@@ -18,13 +25,6 @@
                 </span>
             </a>
         </div>
-    </div>
-    <div class="flex items-center justify-start mb-20 lg:mb-40">
-        <span class="relative flex size-3 ms-1 me-3">
-            <span class="animate-ping absolute inline-flex size-full rounded-full bg-primary opacity-75"></span>
-            <span class="relative inline-flex rounded-full size-3 bg-primary"></span>
-        </span>
-        <span class="text-xsm md:text-sm text-neutral-200">Open to global clients (Replies at UTC+8)</span>
     </div>
     <div class="stats stats-vertical lg:stats-horizontal divide-base-200 bg-transparent">
         <div class="stat">
