@@ -7,9 +7,9 @@ featured:
     border-color-class: hover:border-primary
     description: Built with performance, scalability, responsiveness, cross-browser support, & accessibility in mind from start to finish
     tools:
-      - name: Figma
       - name: Jekyll
       - name: Tailwind CSS
+      - name: Figma
   - name: Phlourish Website Mockup & Assets
     field: Web Development
     year: 2023
