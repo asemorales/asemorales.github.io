@@ -22,24 +22,12 @@ projects:
       - name: Python
       - name: Pandas, NumPy, Matplotlib, Scikit-learn
       - name: Tableau
-  - name: Dormitory Scholar Service Hours Tracker
-    field: Web Development
-    year: 2023
-    url: "https://github.com/IrishMorales/dorm-service-tracker"
-    text-color-class: text-accent-high-contrast
-    border-color-class: hover:border-accent
-    description: Website for service hours enlistment for scholars of Ateneo de Manila University
-    tools:
-      - name: Django
-      - name: CSS
-      - name: Javascript
-      - name: PostgreSQL
   - name: DEAN Chatbot
     field: Data Science
     year: 2021-2022
     url: "https://www.facebook.com/dean.gdscloyola"
-    text-color-class: text-secondary-high-contrast
-    border-color-class: hover:border-secondary
+    text-color-class: text-accent-high-contrast
+    border-color-class: hover:border-accent
     description: Facebook chatbot for users to search Google using free Facebook data, supporting education for those with limited internet access
     tools:
       - name: Python
