@@ -1,7 +1,7 @@
 services:
   - name: Web & Mobile Development
     icon-class: ri-device-fill
-    text: I'm a full-stack web developer doing mobile apps on the side, with experience spanning startup MVPs to enterprise microservices.
+    text: Full-stack web developer doing mobile apps on the side, with experience from startups to enterprise microservices.
   - name: Scalable, fast, secure systems
     icon-class: ri-flashlight-fill
     text: I focus on system design & security, and I'm most passionate about helping systems scale and thrive long-term.
@@ -10,4 +10,4 @@ services:
     text: I mainly do backend-heavy development professionally, frontend-heavy projects for freelance, & volunteer designs for nonprofits.
   - name: Open Source Enthusiast
     icon-class: ri-heart-3-fill
-    text: I believe in making knowledge open & accessible - I am where I am today because of countless people, resources, & opportunities that have helped me, and I hope to do the same :)
+    text: I believe in open & accessible knowledge — I am where I am today because of the people & opportunities that have helped me, and I hope to do the same :)
