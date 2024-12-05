@@ -1,0 +1,13 @@
+services:
+  - name: Full-stack Web Developer
+    icon: blabla1
+    text: blabla1
+  - name: Scalable, fast, secure systems
+    icon: blabla2
+    text: blabla2
+  - name: Full-stack Web Developer
+    icon: blabla1
+    text: blabla1
+  - name: Scalable, fast, secure systems
+    icon: blabla2
+    text: blabla2
