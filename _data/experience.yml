@@ -73,7 +73,7 @@ positions:
     text-color-class: text-primary-high-contrast
     date: Jan - Jun 2023
     description:
-      - text: Sole developer of an admin dashboard to track demographic metrics and generate operational reports for a non-profit
+      - text: Sole developer of an admin dashboard to track demographic metrics and generate operational reports for a nonprofit
     tools:
       - name: Django
       - name: CSS
