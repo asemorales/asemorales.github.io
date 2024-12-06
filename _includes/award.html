@@ -10,13 +10,14 @@
             <h2
                 class="text-base font-medium text-neutral-100 flex flex-wrap divide-x divide-neutral-300 mb-2">
                 <span class="pe-2">{{ award.name }}</span>
-                <span class="ps-2">
+                <span class="group inline-block ps-2">
                     <a href="{{ award.url }}"
                         target="_blank"
                         rel="noopener noreferrer"
                         title="View {{ award.competition }} website in new tab"
-                        class="text-secondary-high-contrast ease-in-out transition motion-reduce:transition-none underline underline-offset-4">
+                        class="text-secondary-high-contrast ease-in-out transition motion-reduce:transition-none">
                         {{ award.competition }}
+                        <i class="ri-arrow-right-up-line inline-block -translate-x-0.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ease-in-out transition motion-reduce:transition-none"></i>
                     </a>
                 </span>
             </h2>
