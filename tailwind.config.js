@@ -42,9 +42,9 @@ module.exports = {
         'neutral-300': "oklch(var(--neutral-300) / <alpha-value>)",
         'card-color': "oklch(var(--card-color) / <alpha-value>)",
         'header-ray': "oklch(var(--header-ray) / <alpha-value>)",
-        'header-btn-action': "oklch(var(--header-btn-action) / <alpha-value>)",
-        'header-btn-action-content': "oklch(var(--header-btn-action-content) / <alpha-value>)",
-        'header-icons': "oklch(var(--header-icons) / <alpha-value>)",
+        'btn-action': "oklch(var(--btn-action) / <alpha-value>)",
+        'btn-action-content': "oklch(var(--btn-action-content) / <alpha-value>)",
+        'logo-icons': "oklch(var(--logo-icons) / <alpha-value>)",
         'call-to-action': "oklch(var(--call-to-action) / <alpha-value>)",
         'call-to-action-outline': "oklch(var(--call-to-action-outline) / <alpha-value>)",
       }
@@ -86,9 +86,9 @@ module.exports = {
           "--neutral-300": "72.76% 0.0609 273.09", // #9AA5CE
           "--card-color": "97.77% 0.0107 280.48", // #F6F7FF
           "--header-ray": "97.77% 0.0107 280.48", // #F6F7FF
-          "--header-btn-action": "68.47% 0.1479 237.32", // sky-500
-          "--header-btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
-          "--header-icons": "95.14% 0.025 236.82", // sky-100
+          "--btn-action": "68.47% 0.1479 237.32", // sky-500
+          "--btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
+          "--logo-icons": "95.14% 0.025 236.82", // sky-100
           "--call-to-action": "68.47% 0.1479 237.32", // sky-500
           "--call-to-action-outline": "82.76% 0.1013 230.32",
         }
@@ -127,9 +127,9 @@ module.exports = {
           "--neutral-300": "49.55% 0.0682 274.37", // #565F89
           "--card-color": "21.81% 0.0363 271.32", // #9AA5CE
           "--header-ray": "49.55% 0.0682 274.37", // #565F89
-          "--header-btn-action": "17.33% 0.0154 266.68",
-          "--header-btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
-          "--header-icons": "21.81% 0.0363 271.32",
+          "--btn-action": "17.33% 0.0154 266.68",
+          "--btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
+          "--logo-icons": "21.81% 0.0363 271.32",
           "--call-to-action": "17.33% 0.0154 266.68",
           "--call-to-action-outline": "21.81% 0.0363 271.32",
         },
