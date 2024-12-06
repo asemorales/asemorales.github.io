@@ -41,6 +41,10 @@ module.exports = {
         'neutral-200': "oklch(var(--neutral-200) / <alpha-value>)",
         'neutral-300': "oklch(var(--neutral-300) / <alpha-value>)",
         'card-color': "oklch(var(--card-color) / <alpha-value>)",
+        'header-ray': "oklch(var(--header-ray) / <alpha-value>)",
+        'header-btn-action': "oklch(var(--header-btn-action) / <alpha-value>)",
+        'header-btn-action-content': "oklch(var(--header-btn-action-content) / <alpha-value>)",
+        'header-icons': "oklch(var(--header-icons) / <alpha-value>)",
       }
     },
   },
@@ -79,6 +83,10 @@ module.exports = {
           "--neutral-200": "49.55% 0.0682 274.37", // #565F89
           "--neutral-300": "72.76% 0.0609 273.09", // #9AA5CE
           "--card-color": "97.77% 0.0107 280.48", // #F6F7FF
+          "--header-ray": "97.77% 0.0107 280.48", // #F6F7FF
+          "--header-btn-action": "68.47% 0.1479 237.32", // sky-500
+          "--header-btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
+          "--header-icons": "95.14% 0.025 236.82", // sky-100
         }
       },
       {
@@ -114,6 +122,10 @@ module.exports = {
           "--neutral-200": "72.76% 0.0609 273.09", // #9AA5CE
           "--neutral-300": "49.55% 0.0682 274.37", // #565F89
           "--card-color": "21.81% 0.0363 271.32", // #9AA5CE
+          "--header-ray": "49.55% 0.0682 274.37", // #565F89
+          "--header-btn-action": "17.33% 0.0154 266.68",
+          "--header-btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
+          "--header-icons": "21.81% 0.0363 271.32",
         },
       },
     ],
