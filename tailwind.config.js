@@ -47,6 +47,10 @@ module.exports = {
         'logo-icons': "oklch(var(--logo-icons) / <alpha-value>)",
         'call-to-action': "oklch(var(--call-to-action) / <alpha-value>)",
         'call-to-action-outline': "oklch(var(--call-to-action-outline) / <alpha-value>)",
+        'service-icon': "oklch(var(--service-icon) / <alpha-value>)",
+        'service-icon-hover': "oklch(var(--service-icon-hover) / <alpha-value>)",
+        'service-icon-container': "oklch(var(--service-icon-container) / <alpha-value>)",
+        'service-icon-container-hover': "oklch(var(--service-icon-container-hover) / <alpha-value>)",
       }
     },
   },
@@ -91,6 +95,10 @@ module.exports = {
           "--logo-icons": "95.14% 0.025 236.82", // sky-100
           "--call-to-action": "68.47% 0.1479 237.32", // sky-500
           "--call-to-action-outline": "82.76% 0.1013 230.32",
+          "--service-icon": "68.47% 0.1479 237.32",
+          "--service-icon-hover": "97.77% 0.0107 280.48", // #F6F7FF
+          "--service-icon-container": "95.14% 0.025 236.82",
+          "--service-icon-container-hover": "82.76% 0.1013 230.32", // sky-300
         }
       },
       {
@@ -132,6 +140,10 @@ module.exports = {
           "--logo-icons": "21.81% 0.0363 271.32",
           "--call-to-action": "17.33% 0.0154 266.68",
           "--call-to-action-outline": "21.81% 0.0363 271.32",
+          "--service-icon": "97.77% 0.0107 280.48", // #F6F7FF
+          "--service-icon-hover": "97.77% 0.0107 280.48", // #F6F7FF
+          "--service-icon-container": "21.81% 0.0363 271.32",
+          "--service-icon-container-hover": "24.23% 0.0468 271.89", // ##181e36
         },
       },
     ],

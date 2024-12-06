@@ -1,5 +1,7 @@
 <div>
-    <div class="btn btn-square cursor-default mb-6"><i class="{{ service.icon-class }}"></i></div>
+    <div class="group btn btn-square bg-service-icon-container hover:bg-service-icon-container-hover border-0 cursor-default mb-6">
+        <i class="{{ service.icon-class }} text-service-icon group-hover:text-service-icon-hover"></i>
+    </div>
     <h2 class="text-base font-medium text-neutral-100 mb-2">{{ service.name }}</h2>
     <p class="font-light text-neutral-200">{{ service.text }}</p>
 </div>
