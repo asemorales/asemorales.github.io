@@ -1,10 +1,10 @@
 {
   "scripts": {
     "jekyll-watch": "bundle exec jekyll serve --livereload",
-    "tailwind-watch": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --watch",
+    "tailwind-watch": "postcss ./assets/css/main.css -o ./assets/css/compiled.css --watch",
     "dev": "cross-env NODE_ENV=development npm-run-all --parallel jekyll-watch tailwind-watch",
     "jekyll-prod": "JEKYLL_ENV=production bundle exec jekyll build",
-    "tailwind-prod": "tailwindcss -i ./assets/css/main.css -o ./assets/css/compiled.css --minify",
+    "tailwind-prod": "postcss ./assets/css/main.css -o ./assets/css/compiled.css",
     "prod": "cross-env NODE_ENV=production npm-run-all tailwind-prod jekyll-prod",
     "start": "npm run dev"
   },
@@ -13,6 +13,7 @@
     "daisyui": "^4.12.14",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
     "postcss-import": "^16.1.0",
     "postcss-url": "^10.1.3",
     "remixicon": "^4.5.0",
