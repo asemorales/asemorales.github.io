@@ -52,6 +52,7 @@ module.exports = {
         'service-icon-hover': "oklch(var(--service-icon-hover) / <alpha-value>)",
         'service-icon-container': "oklch(var(--service-icon-container) / <alpha-value>)",
         'service-icon-container-hover': "oklch(var(--service-icon-container-hover) / <alpha-value>)",
+        'award-icon': "oklch(var(--award-icon) / <alpha-value>)",
       }
     },
   },
@@ -101,6 +102,7 @@ module.exports = {
           "--service-icon-hover": "97.77% 0.0107 280.48", // #F6F7FF
           "--service-icon-container": "95.14% 0.025 236.82",
           "--service-icon-container-hover": "82.76% 0.1013 230.32", // sky-300
+          "--award-icon": "82.76% 0.1013 230.32", // sky-300
         }
       },
       {
@@ -147,6 +149,7 @@ module.exports = {
           "--service-icon-hover": "97.77% 0.0107 280.48", // #F6F7FF
           "--service-icon-container": "21.81% 0.0363 271.32",
           "--service-icon-container-hover": "24.23% 0.0468 271.89", // #181e36
+          "--award-icon": "83.66% 0.1165 66.29", // orange-100
         },
       },
     ],
