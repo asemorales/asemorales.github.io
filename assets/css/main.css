@@ -163,4 +163,10 @@
     .badge-statistic {
         @apply bg-base-200 shadow-md p-3;
     }
+
+    .bg-icons {
+        -webkit-mask-image: url('http://localhost:4000/assets/images/icons.svg');
+        mask-image: url('http://localhost:4000/assets/images/icons.svg');
+        @apply absolute -z-50 w-full h-full top-0 bg-contain bg-no-repeat bg-right bg-base-200;
+    }
 }
