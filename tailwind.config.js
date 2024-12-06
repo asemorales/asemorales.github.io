@@ -45,6 +45,8 @@ module.exports = {
         'header-btn-action': "oklch(var(--header-btn-action) / <alpha-value>)",
         'header-btn-action-content': "oklch(var(--header-btn-action-content) / <alpha-value>)",
         'header-icons': "oklch(var(--header-icons) / <alpha-value>)",
+        'call-to-action': "oklch(var(--call-to-action) / <alpha-value>)",
+        'call-to-action-outline': "oklch(var(--call-to-action-outline) / <alpha-value>)",
       }
     },
   },
@@ -87,6 +89,8 @@ module.exports = {
           "--header-btn-action": "68.47% 0.1479 237.32", // sky-500
           "--header-btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
           "--header-icons": "95.14% 0.025 236.82", // sky-100
+          "--call-to-action": "68.47% 0.1479 237.32", // sky-500
+          "--call-to-action-outline": "82.76% 0.1013 230.32",
         }
       },
       {
@@ -126,6 +130,8 @@ module.exports = {
           "--header-btn-action": "17.33% 0.0154 266.68",
           "--header-btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
           "--header-icons": "21.81% 0.0363 271.32",
+          "--call-to-action": "17.33% 0.0154 266.68",
+          "--call-to-action-outline": "21.81% 0.0363 271.32",
         },
       },
     ],

@@ -1,7 +1,7 @@
 <div class="px-7 md:px-20 pt-24 mb-40">
-    <div id="call-to-action" class="relative -z-50 sm:text-center rounded-xl bg-musubi-600 border-musubi-400 sm:border-2 border-dashed">
+    <div id="call-to-action" class="relative -z-50 sm:text-center rounded-xl border-call-to-action-outline sm:border-2 border-dashed">
         <div class="sm:px-8 py-36">
-            <h1 class="text-3xl sm:text-4xl text-musubi-100 block mb-8">Create your next idea with me</h1>
+            <h1 class="text-3xl sm:text-4xl text-base-content block mb-8">Create your next idea with me</h1>
             <div class="text-neutral-200 mb-14">
                 <p class="mb-4">For freelance projects, I provide sliding scale pricing based on your specific needs and scope of requests.</p>
                 <p>From a charity or open source project? I'm open to volunteering where possible. :)</p>
@@ -9,9 +9,9 @@
             <div class="flex justify-center">
                 <div class="relative group">
                     <a href="mailto:{{ site.email }}" title="Send me an email" target="_blank" rel="license noopener noreferrer"
-                        class="cursor-pointer relative inline-block p-px leading-6 text-musubi-100 bg-musubi-300 rounded-full transition-transform ease-in-out motion-reduce:transition-none hover:scale-105 active:scale-95">
+                        class="cursor-pointer relative inline-block p-px leading-6 text-header-btn-action-content bg-header-btn-action rounded-full transition-transform ease-in-out motion-reduce:transition-none hover:scale-105 active:scale-95">
                         <span class="absolute inset-0 rounded-full theme-gradient p-[2px] opacity-0 motion-reduce:transition-none transition-opacity duration-500 group-hover:opacity-100"></span>
-                        <span class="relative block px-6 py-3 rounded-full bg-musubi-500">
+                        <span class="relative block px-6 py-3 rounded-full bg-header-btn-action">
                             <div class="relative flex items-center space-x-2">
                                 <i class="ri-mail-ai-line transition-transform duration-500 group-hover:translate-x-1"></i>
                                 <span class="transition-all duration-500 group-hover:translate-x-1">{{ site.email }}</span>
@@ -21,6 +21,6 @@
                 </div>
             </div>
         </div>
-        <div class="bg-icons"></div>
+        <div class="-z-50 bg-icons bg-header-icons"></div>
     </div>
 </div>
