@@ -1,10 +1,10 @@
 {
   "scripts": {
     "jekyll-watch": "bundle exec jekyll serve --livereload",
-    "tailwind-watch": "postcss ./assets/css/main.css -o ./assets/css/compiled.css --watch",
+    "tailwind-watch": "postcss ./assets/css/index.css -o ./assets/css/compiled.css --watch",
     "dev": "cross-env NODE_ENV=development npm-run-all --parallel jekyll-watch tailwind-watch",
     "jekyll-prod": "JEKYLL_ENV=production bundle exec jekyll build",
-    "tailwind-prod": "postcss ./assets/css/main.css -o ./assets/css/compiled.css",
+    "tailwind-prod": "postcss ./assets/css/index.css -o ./assets/css/compiled.css",
     "prod": "cross-env NODE_ENV=production npm-run-all tailwind-prod jekyll-prod",
     "start": "npm run dev"
   },
