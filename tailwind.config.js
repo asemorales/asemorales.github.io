@@ -41,6 +41,7 @@ module.exports = {
         'neutral-200': "oklch(var(--neutral-200) / <alpha-value>)",
         'neutral-300': "oklch(var(--neutral-300) / <alpha-value>)",
         'card-color': "oklch(var(--card-color) / <alpha-value>)",
+        'card-shadow': "oklch(var(--card-shadow) / <alpha-value>)",
         'header-ray': "oklch(var(--header-ray) / <alpha-value>)",
         'btn-action': "oklch(var(--btn-action) / <alpha-value>)",
         'btn-action-outline': "oklch(var(--btn-action-outline) / <alpha-value>)",
@@ -91,6 +92,7 @@ module.exports = {
           "--neutral-200": "49.55% 0.0682 274.37", // #565F89
           "--neutral-300": "72.76% 0.0609 273.09", // #9AA5CE
           "--card-color": "97.77% 0.0107 280.48", // #F6F7FF
+          "--card-shadow": "92.87% 0.0343 276.72", // #E1E6FF
           "--header-ray": "97.77% 0.0107 280.48", // #F6F7FF
           "--btn-action": "68.47% 0.1479 237.32", // sky-500
           "--btn-action-outline": "68.47% 0.1479 237.32", // sky-500
@@ -138,6 +140,7 @@ module.exports = {
           "--neutral-200": "72.76% 0.0609 273.09", // #9AA5CE
           "--neutral-300": "49.55% 0.0682 274.37", // #565F89
           "--card-color": "21.81% 0.0363 271.32", // #9AA5CE
+          "--card-shadow": "17.33% 0.0154 266.68", // #E1E6FF
           "--header-ray": "49.55% 0.0682 274.37", // #565F89
           "--btn-action": "17.33% 0.0154 266.68",
           "--btn-action-outline": "49.55% 0.0682 274.37", // #565F89
