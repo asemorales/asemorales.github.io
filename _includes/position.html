@@ -1,15 +1,16 @@
 <div class="position relative -top-1 ps-6 pb-16">
-  <h2
-    class="text-base font-medium text-neutral-100 flex flex-wrap divide-x divide-neutral-300 mb-2">
+  <h2 class="text-base font-medium text-neutral-100 flex flex-wrap divide-x divide-neutral-300 mb-2">
     <span class="pe-2">{{ include.position.name }}</span>
     <span class="group inline-block ps-2">
-      <a href="{{ include.position.url }}"
+      <a
+        href="{{ include.position.url }}"
         target="_blank"
         rel="noopener noreferrer"
         title="View {{ include.position.organization }} website in new tab"
         class="{{ include.position.text-color-class }} ease-in-out transition motion-reduce:transition-none">
         {{ include.position.organization }}
-        <i class="ri-arrow-right-up-line inline-block -translate-x-0.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ease-in-out transition motion-reduce:transition-none"></i>
+        <i
+          class="ri-arrow-right-up-line inline-block -translate-x-0.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ease-in-out transition motion-reduce:transition-none"></i>
       </a>
     </span>
   </h2>
@@ -27,9 +28,7 @@
   <div class="tools text-xsm text-neutral-300 font-bold tracking-wider">
     <ul class="flex flex-wrap list-inside">
       {% for tool in include.position.tools %}
-      <li class="[&:not(:first-child)]:list-disc me-3">
-        {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %}
-      </li>
+      <li class="[&:not(:first-child)]:list-disc me-3"> {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %} </li>
       {% endfor %}
     </ul>
   </div>

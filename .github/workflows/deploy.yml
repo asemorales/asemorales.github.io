@@ -37,7 +37,7 @@ jobs:
           # https://github.com/ruby/setup-ruby/blob/master/action.yml for all below.
           # Used by ruby/setup-ruby. Ruby version.
           # A value of 'none' will bypass running ruby/setup-ruby.
-          ruby-version: '3.1'
+          ruby-version: "3.1"
           bundler-cache: true
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.4
@@ -45,7 +45,7 @@ jobs:
           # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
           node-version-file: package.json
           # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
-          cache: 'npm'
+          cache: "npm"
       - run: npm install
       - name: Setup Pages
         uses: actions/configure-pages@v5

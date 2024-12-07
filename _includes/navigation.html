@@ -1,22 +1,27 @@
-<nav
-    class="sticky top-0 bg-base-100/75 backdrop-blur-sm z-50 border-b-2 border-base-200 py-5">
-    <div class="max-w-screen-2xl mx-auto">
-        <div class="flex items-center justify-between px-7 md:px-20">
-            <h1 id="nav-title" class="opacity-0 ease-in-out transition motion-reduce:transition-none text-base font-medium text-neutral-100">
-                <span class="text-transparent bg-clip-text theme-gradient">ase</span>@create-with-<3
-            </h1>
-            <div class="flex space-x-6">
-                <button id="toggle-theme" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS" title="Toggle light/dark mode" class="group inline-block relative size-5">
-                    <i id="moon" class="ri-moon-fill absolute top-0 size-5 inactive-theme-icon text-neutral-300 group-hover:text-link-hover ease-in-out transition motion-reduce:transition-none"></i>
-                    <i id="sun" class="ri-sun-fill absolute top-0 size-5 inactive-theme-icon text-neutral-300 group-hover:text-link-hover ease-in-out transition motion-reduce:transition-none"></i>
-                </button>
-                <div class="hidden sm:flex space-x-3">
-                    {% assign contact = site.data.contact %}
-                    {% for social-icon in contact.social-icons %}
-                    {% include social-icon.html %}
-                    {% endfor %}
-                </div>
-            </div>
+<nav class="sticky top-0 bg-base-100/75 backdrop-blur-sm z-50 border-b-2 border-base-200 py-5">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="flex items-center justify-between px-7 md:px-20">
+      <h1 id="nav-title" class="opacity-0 ease-in-out transition motion-reduce:transition-none text-base font-medium text-neutral-100">
+        <span class="text-transparent bg-clip-text theme-gradient">ase</span>@create-with-<3
+      </h1>
+      <div class="flex space-x-6">
+        <button
+          id="toggle-theme"
+          data-toggle-theme="dark,light"
+          data-act-class="ACTIVECLASS"
+          title="Toggle light/dark mode"
+          class="group inline-block relative size-5">
+          <i
+            id="moon"
+            class="ri-moon-fill absolute top-0 size-5 inactive-theme-icon text-neutral-300 group-hover:text-link-hover ease-in-out transition motion-reduce:transition-none"></i>
+          <i
+            id="sun"
+            class="ri-sun-fill absolute top-0 size-5 inactive-theme-icon text-neutral-300 group-hover:text-link-hover ease-in-out transition motion-reduce:transition-none"></i>
+        </button>
+        <div class="hidden sm:flex space-x-3">
+          {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include social-icon.html %} {% endfor %}
         </div>
+      </div>
     </div>
+  </div>
 </nav>

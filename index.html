@@ -4,52 +4,37 @@ layout: default
 
 {% include header.html %}
 <main class="mb-10">
-    <div class="px-7 md:px-20 pt-24">
-        {% assign services = site.data.services %}
-        <div id="services" class="grid sm:grid-cols-2 xl:grid-cols-4 gap-10">
-            {% for service in services.services %}
-            {% include service.html %}
-            {% endfor %}
-        </div>
+  <div class="px-7 md:px-20 pt-24">
+    {% assign services = site.data.services %}
+    <div id="services" class="grid sm:grid-cols-2 xl:grid-cols-4 gap-10">
+      {% for service in services.services %} {% include service.html %} {% endfor %}
     </div>
-    <div class="xl:flex xl:flex-row px-7 md:px-20 pt-24">
-        <div id="experience" class="flex-initial basis-auto xl:pe-20">
-            <h3 class="text-xsm text-neutral-300 font-bold tracking-wider mb-7">{{ "Experience" | upcase }}</h3>
-            <div class="positions-wrapper">
-                {% include positions.html %}
-            </div>
-        </div>
-        <div class="flex-initial basis-2/5 overflow-hidden">
-            {% assign awards = site.data.awards %}
-            <div id="awards" class="mb-20">
-                <div class="awards-wrapper relative">
-                    {% for award in awards.awards %}
-                    {% include award.html %}
-                    {% endfor %}
-                </div>
-            </div>
-            {% assign featured = site.data.featured %}
-            <div id="featured" class="mb-20">
-                <h3 class="text-xsm text-neutral-300 font-bold tracking-wider mb-7">{{ "Featured" | upcase }}</h3>
-                <div class="featured-wrapper">
-                    {% for feature in featured.featured %}
-                    {% include feature.html %}
-                    {% endfor %}
-                </div>
-            </div>
-            {% assign projects = site.data.projects %}
-            <div id="projects">
-                <h3 class="text-xsm text-neutral-300 font-bold tracking-wider mb-2">{{ "Other Projects" | upcase }}</h3>
-                <p class="text-sm text-neutral-300 mb-7">⟷ Scroll left/right below to see more.<br>Click projects for details.</p>
-                <div
-                    class="projects-wrapper flex snap-x snap-mandatory scroll-pl-2 overflow-scroll overflow-y-visible">
-                    {% for project in projects.projects %}
-                    {% include project.html %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+  </div>
+  <div class="xl:flex xl:flex-row px-7 md:px-20 pt-24">
+    <div id="experience" class="flex-initial basis-auto xl:pe-20">
+      <h3 class="text-xsm text-neutral-300 font-bold tracking-wider mb-7">{{ "Experience" | upcase }}</h3>
+      <div class="positions-wrapper"> {% include positions.html %} </div>
     </div>
-    {% include call-to-action.html %}
+    <div class="flex-initial basis-2/5 overflow-hidden">
+      {% assign awards = site.data.awards %}
+      <div id="awards" class="mb-20">
+        <div class="awards-wrapper relative"> {% for award in awards.awards %} {% include award.html %} {% endfor %} </div>
+      </div>
+      {% assign featured = site.data.featured %}
+      <div id="featured" class="mb-20">
+        <h3 class="text-xsm text-neutral-300 font-bold tracking-wider mb-7">{{ "Featured" | upcase }}</h3>
+        <div class="featured-wrapper"> {% for feature in featured.featured %} {% include feature.html %} {% endfor %} </div>
+      </div>
+      {% assign projects = site.data.projects %}
+      <div id="projects">
+        <h3 class="text-xsm text-neutral-300 font-bold tracking-wider mb-2">{{ "Other Projects" | upcase }}</h3>
+        <p class="text-sm text-neutral-300 mb-7">⟷ Scroll left/right below to see more.<br />Click projects for details.</p>
+        <div class="projects-wrapper flex snap-x snap-mandatory scroll-pl-2 overflow-scroll overflow-y-visible">
+          {% for project in projects.projects %} {% include project.html %} {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include call-to-action.html %}
 </main>
 {% include footer.html %}

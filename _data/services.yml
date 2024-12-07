@@ -10,4 +10,6 @@ services:
     text: I do backend-heavy development professionally, frontend-heavy projects for freelance, and volunteer design for nonprofits.
   - name: Open Source Enthusiast
     icon-class: ri-heart-3-fill
-    text: I believe in open & accessible knowledge — I am where I am today because of the people & opportunities that have helped me, and I hope to do the same :)
+    text:
+      I believe in open & accessible knowledge — I am where I am today because of the people & opportunities that have helped me, and I hope to do the
+      same :)

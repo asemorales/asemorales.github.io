@@ -1,48 +1,53 @@
 <header id="header" class="relative justify-start px-7 md:px-20 py-20 md:py-36 min-h-screen 2xl:min-h-fit">
-    {% assign header = site.data.header %}
-    <div class="flex items-center justify-start mb-7">
-        {% include components/status.html %}
+  {% assign header = site.data.header %}
+  <div class="flex items-center justify-start mb-7"> {% include components/status.html %} </div>
+  <h1 class="text-4xl sm:text-6xl font-medium text-base-content block mb-3 sm:mb-5">{{ header.title }}</h1>
+  <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-12">{{ header.tagline }}</h2>
+  <div class="flex items-center justify-start mb-20 lg:mb-40">
+    <div class="relative group">
+      <a
+        href="mailto:{{ site.email }}"
+        target="_blank"
+        rel="license noopener noreferrer"
+        class="cursor-pointer relative inline-block p-px font-semibold leading-6 text-btn-action-content bg-btn-action-outline rounded-xl transition-transform ease-in-out motion-reduce:transition-none hover:scale-105 active:scale-95">
+        <span
+          class="absolute inset-0 rounded-xl theme-gradient p-[2px] opacity-0 motion-reduce:transition-none transition-opacity duration-500 group-hover:opacity-100"></span>
+        <span class="relative block px-6 py-3 rounded-xl bg-btn-action">
+          <div class="relative flex items-center space-x-2">
+            <span class="transition-all duration-500 group-hover:translate-x-1">
+              Create <span class="hidden md:inline">your next idea</span> with me
+            </span>
+            <i class="ri-arrow-right-s-line transition-transform duration-500 group-hover:translate-x-1"></i>
+          </div>
+        </span>
+      </a>
     </div>
-    <h1 class="text-4xl sm:text-6xl font-medium text-base-content block mb-3 sm:mb-5">{{ header.title }}</h1>
-    <h2 class="text-sm sm:text-xl font-light text-neutral-200 mb-12">{{ header.tagline }}</h2>
-    <div class="flex items-center justify-start mb-20 lg:mb-40">
-        <div class="relative group">
-            <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer"
-                class="cursor-pointer relative inline-block p-px font-semibold leading-6 text-btn-action-content bg-btn-action-outline rounded-xl transition-transform ease-in-out motion-reduce:transition-none hover:scale-105 active:scale-95">
-                <span
-                    class="absolute inset-0 rounded-xl theme-gradient p-[2px] opacity-0 motion-reduce:transition-none transition-opacity duration-500 group-hover:opacity-100"></span>
-                <span class="relative block px-6 py-3 rounded-xl bg-btn-action">
-                    <div class="relative flex items-center space-x-2">
-                        <span class="transition-all duration-500 group-hover:translate-x-1">
-                            Create <span class="hidden md:inline">your next idea</span> with me
-                        </span>
-                        <i class="ri-arrow-right-s-line transition-transform duration-500 group-hover:translate-x-1"></i>
-                    </div>
-                </span>
-            </a>
-        </div>
+  </div>
+  <div class="stats stats-vertical lg:stats-horizontal divide-base-200 bg-transparent">
+    <div class="stat">
+      <div class="stat-value text-3xl sm:text-4xl font-normal mb-2">15+</div>
+      <div class="stat-title text-sm text-neutral-200"><i class="ri-service-line me-2"></i>Clients Served</div>
     </div>
-    <div class="stats stats-vertical lg:stats-horizontal divide-base-200 bg-transparent">
-        <div class="stat">
-            <div class="stat-value text-3xl sm:text-4xl font-normal mb-2">15+</div>
-            <div class="stat-title text-sm text-neutral-200"><i class="ri-service-line me-2"></i>Clients Served</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value text-3xl sm:text-4xl font-normal mb-2">10+</div>
-            <div class="stat-title text-sm text-neutral-200"><i class="ri-verified-badge-line me-2"></i>Enterprise Web Apps</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value text-3xl sm:text-4xl font-normal mb-2">40+</div>
-            <div class="stat-title text-sm text-neutral-200"><i class="ri-heart-3-line me-2"></i>Open Source Contributions</div>
-        </div>
-        <div class="stat">
-            <div class="stat-value text-3xl sm:text-4xl font-normal mb-2">Award-winning</div>
-            <div class="stat-title text-sm text-neutral-200"><i class="ri-trophy-line me-2"></i>FAANG-recognized Developer</div>
-        </div>
+    <div class="stat">
+      <div class="stat-value text-3xl sm:text-4xl font-normal mb-2">10+</div>
+      <div class="stat-title text-sm text-neutral-200"><i class="ri-verified-badge-line me-2"></i>Enterprise Web Apps</div>
     </div>
-    <div id="header-deco">
-        {% include svg/icons.svg classes="absolute -z-50 right-0 bottom-0 fill-logo-icons pointer-events-none h-[75vh] max-h-[800px] w-auto mb-12" %}
-        <div id="ray-long" class="absolute left-[30vw] top-0 2xl:left-[450px] -rotate-45 bg-header-ray opacity-10 shadow-none blur-3xl rounded-full pointer-events-none w-20 h-[30rem]"></div>
-        <div id="ray-short" class="absolute left-[50vw] top-0 2xl:left-[750px] -rotate-45 bg-header-ray opacity-10 shadow-none blur-3xl rounded-full pointer-events-none w-8 h-64"></div>
+    <div class="stat">
+      <div class="stat-value text-3xl sm:text-4xl font-normal mb-2">40+</div>
+      <div class="stat-title text-sm text-neutral-200"><i class="ri-heart-3-line me-2"></i>Open Source Contributions</div>
     </div>
+    <div class="stat">
+      <div class="stat-value text-3xl sm:text-4xl font-normal mb-2">Award-winning</div>
+      <div class="stat-title text-sm text-neutral-200"><i class="ri-trophy-line me-2"></i>FAANG-recognized Developer</div>
+    </div>
+  </div>
+  <div id="header-deco">
+    {% include svg/icons.svg classes="absolute -z-50 right-0 bottom-0 fill-logo-icons pointer-events-none h-[75vh] max-h-[800px] w-auto mb-12" %}
+    <div
+      id="ray-long"
+      class="absolute left-[30vw] top-0 2xl:left-[450px] -rotate-45 bg-header-ray opacity-10 shadow-none blur-3xl rounded-full pointer-events-none w-20 h-[30rem]"></div>
+    <div
+      id="ray-short"
+      class="absolute left-[50vw] top-0 2xl:left-[750px] -rotate-45 bg-header-ray opacity-10 shadow-none blur-3xl rounded-full pointer-events-none w-8 h-64"></div>
+  </div>
 </header>

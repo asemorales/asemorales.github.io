@@ -1,21 +1,19 @@
 <a
-    href="{{ feature.url }}"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="feature flex flex-col bg-card-color rounded-md min-w-48 snap-start border-2 border-transparent shadow-card-shadow shadow-lg {{ feature.border-color-class }} ease-in-out transition motion-reduce:transition-none p-5 mb-5 mx-2">
-    <h6 class="text-sm flex flex-wrap divide-x divide-neutral-300 mb-2">
-        <span class="{{ feature.text-color-class }} pe-2">{{ feature.field }}</span>
-        <span class="text-neutral-300 ps-2">{{ feature.year }}</span>
-    </h6>
-    <h2 class="text-base font-medium text-neutral-100 mb-5">{{ feature.name }}</h2>
-    <p class="grow text-sm text-neutral-200 mb-3">{{ feature.description }}</p>
-    <div class="tools text-xsm text-neutral-300 font-bold tracking-wider">
-        <ul class="flex flex-wrap list-inside">
-            {% for tool in feature.tools %}
-            <li class="[&:not(:first-child)]:list-disc me-3">
-                {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
+  href="{{ feature.url }}"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="feature flex flex-col bg-card-color rounded-md min-w-48 snap-start border-2 border-transparent shadow-card-shadow shadow-lg {{ feature.border-color-class }} ease-in-out transition motion-reduce:transition-none p-5 mb-5 mx-2">
+  <h6 class="text-sm flex flex-wrap divide-x divide-neutral-300 mb-2">
+    <span class="{{ feature.text-color-class }} pe-2">{{ feature.field }}</span>
+    <span class="text-neutral-300 ps-2">{{ feature.year }}</span>
+  </h6>
+  <h2 class="text-base font-medium text-neutral-100 mb-5">{{ feature.name }}</h2>
+  <p class="grow text-sm text-neutral-200 mb-3">{{ feature.description }}</p>
+  <div class="tools text-xsm text-neutral-300 font-bold tracking-wider">
+    <ul class="flex flex-wrap list-inside">
+      {% for tool in feature.tools %}
+      <li class="[&:not(:first-child)]:list-disc me-3"> {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %} </li>
+      {% endfor %}
+    </ul>
+  </div>
 </a>

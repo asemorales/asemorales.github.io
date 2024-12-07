@@ -19,10 +19,18 @@ positions:
     text-color-class: text-primary-high-contrast
     date: Aug 2023 - Dec 2024
     description:
-      - text: Designed and implemented a syncing mechanism across 3 microservices using RESTful APIs and queued cron jobs, ensuring fault-tolerant data consistency across ~150 tables between enterprise systems with high concurrent access
-      - text: Led a project team of 5 developers, training best practices through code reviews and delegating tasks based on individual strengths, career goals, and areas for growth
-      - text: Earned recognition as the go-to developer for communicating to middle management how technical decisions impact product differentiation, timelines, and pricing
-      - text: Delivered an MVP in 10 days with minimal (<5) bugs while achieving all stretch goals and mentoring a developer intern on batched jobs handling storage and file processing, including considerations for idempotency and security
+      - text:
+          Designed and implemented a syncing mechanism across 3 microservices using RESTful APIs and queued cron jobs, ensuring fault-tolerant data
+          consistency across ~150 tables between enterprise systems with high concurrent access
+      - text:
+          Led a project team of 5 developers, training best practices through code reviews and delegating tasks based on individual strengths, career
+          goals, and areas for growth
+      - text:
+          Earned recognition as the go-to developer for communicating to middle management how technical decisions impact product differentiation,
+          timelines, and pricing
+      - text:
+          Delivered an MVP in 10 days with minimal (<5) bugs while achieving all stretch goals and mentoring a developer intern on batched jobs
+          handling storage and file processing, including considerations for idempotency and security
       - text: Developed an internal component library after thorough research found no existing packages met client requirements
       - text: Optimized SQL queries by analyzing query plans, applying database indexes, and rewriting queries to resolve bottlenecks
       - text: Developed 5 projects from the ground up over 6 months and made incremental improvements to 4 other legacy projects
@@ -57,7 +65,9 @@ positions:
     text-color-class: text-primary-high-contrast
     date: Jun - Jul 2023
     description:
-      - text: Cut task time from 40 hours to 6 by identifying a need for and writing scripts to generate Laravel migrations from SQL files, automating the generation of 76 tables for the redevelopment of an 8-year-old enterprise web app
+      - text:
+          Cut task time from 40 hours to 6 by identifying a need for and writing scripts to generate Laravel migrations from SQL files, automating the
+          generation of 76 tables for the redevelopment of an 8-year-old enterprise web app
       - text: Developed a multi-tenant web application with an admin dashboard and customer-facing site with guidance from mentors
     tools:
       - name: Laravel
@@ -79,4 +89,3 @@ positions:
       - name: CSS
       - name: JavaScript
       - name: MySQL
-

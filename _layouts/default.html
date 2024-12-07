@@ -1,27 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ site.description }}">
-    <meta name="keywords" content="{{ site.keywords }}">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="keywords" content="{{ site.keywords }}" />
     <title>{{ site.title }}</title>
     {% seo %}
-    
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
     <script type="text/javascript" src="../assets/js/default.js"></script>
 
     <!-- Styles -->
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico?">
-    <link rel="stylesheet" href="../assets/css/compiled.css">
-</head>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico?" />
+    <link rel="stylesheet" href="../assets/css/compiled.css" />
+  </head>
 
-<body>
+  <body>
     {% include navigation.html %}
     <div class="max-w-screen-2xl divide-y-2 divide-base-200 selection:bg-primary-low-contrast selection:text-neutral-100 mx-auto">
-        {{ content }}
+      {{ content }}
     </div>
-</body>
-
+  </body>
 </html>
