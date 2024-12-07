@@ -1,44 +1,48 @@
-<header id="header" class="relative min-h-screen justify-start px-7 py-20 md:px-20 md:py-36 2xl:min-h-fit">
-  {% assign header = site.data.header %}
-  <div class="mb-7 flex items-center justify-start"> {% include components/status.html %} </div>
-  <h1 class="mb-3 block text-4xl font-medium text-base-content sm:mb-5 sm:text-6xl">{{ header.title }}</h1>
-  <h2 class="mb-12 text-sm font-light text-neutral-200 sm:text-xl">{{ header.tagline }}</h2>
-  <div class="mb-20 flex items-center justify-start lg:mb-40">
-    <div class="group relative">
-      <a
-        href="mailto:{{ site.email }}"
-        target="_blank"
-        rel="license noopener noreferrer"
-        class="relative inline-block cursor-pointer rounded-xl bg-btn-action-outline p-px font-semibold leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
-        <span
-          class="theme-gradient absolute inset-0 rounded-xl p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"></span>
-        <span class="relative block rounded-xl bg-btn-action px-6 py-3">
-          <div class="relative flex items-center space-x-2">
-            <span class="transition-all duration-500 group-hover:translate-x-1">
-              Create <span class="hidden md:inline">your next idea</span> with me
+{% assign header = site.data.header %}
+<header id="header" class="flex relative min-h-screen justify-start px-7 py-20 md:px-20 md:py-36 min-[2000px]:min-h-fit">
+  <div class="flex flex-col">
+    <div class="grow">
+      <div class="mb-7 flex items-center justify-start"> {% include components/status.html %} </div>
+      <h1 class="mb-3 block text-4xl font-medium text-base-content sm:mb-5 sm:text-6xl">{{ header.title }}</h1>
+      <h2 class="mb-12 text-sm font-light text-neutral-200 sm:text-xl">{{ header.tagline }}</h2>
+      <div class="mb-20 flex items-center justify-start lg:mb-40">
+        <div class="group relative">
+          <a
+            href="mailto:{{ site.email }}"
+            target="_blank"
+            rel="license noopener noreferrer"
+            class="relative inline-block cursor-pointer rounded-xl bg-btn-action-outline p-px font-semibold leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
+            <span
+              class="theme-gradient absolute inset-0 rounded-xl p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"></span>
+            <span class="relative block rounded-xl bg-btn-action px-6 py-3">
+              <div class="relative flex items-center space-x-2">
+                <span class="transition-all duration-500 group-hover:translate-x-1">
+                  Create <span class="hidden md:inline">your next idea</span> with me
+                </span>
+                <i class="ri-arrow-right-s-line transition-transform duration-500 group-hover:translate-x-1"></i>
+              </div>
             </span>
-            <i class="ri-arrow-right-s-line transition-transform duration-500 group-hover:translate-x-1"></i>
-          </div>
-        </span>
-      </a>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="stats stats-vertical divide-base-200 bg-transparent lg:stats-horizontal">
-    <div class="stat">
-      <div class="stat-value mb-2 text-3xl font-normal sm:text-4xl">15+</div>
-      <div class="stat-title text-sm text-neutral-200"><i class="ri-service-line me-2"></i>Clients Served</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value mb-2 text-3xl font-normal sm:text-4xl">10+</div>
-      <div class="stat-title text-sm text-neutral-200"><i class="ri-verified-badge-line me-2"></i>Enterprise Web Apps</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value mb-2 text-3xl font-normal sm:text-4xl">40+</div>
-      <div class="stat-title text-sm text-neutral-200"><i class="ri-heart-3-line me-2"></i>Open Source Contributions</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value mb-2 text-3xl font-normal sm:text-4xl">Award-winning</div>
-      <div class="stat-title text-sm text-neutral-200"><i class="ri-trophy-line me-2"></i>FAANG-recognized Developer</div>
+    <div class="stats stats-vertical divide-base-200 bg-transparent lg:stats-horizontal">
+      <div class="stat">
+        <div class="stat-value mb-2 text-3xl font-normal sm:text-4xl">15+</div>
+        <div class="stat-title text-sm text-neutral-200"><i class="ri-service-line me-2"></i>Clients Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value mb-2 text-3xl font-normal sm:text-4xl">10+</div>
+        <div class="stat-title text-sm text-neutral-200"><i class="ri-verified-badge-line me-2"></i>Enterprise Web Apps</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value mb-2 text-3xl font-normal sm:text-4xl">40+</div>
+        <div class="stat-title text-sm text-neutral-200"><i class="ri-heart-3-line me-2"></i>Open Source Contributions</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value mb-2 text-3xl font-normal sm:text-4xl">Award-winning</div>
+        <div class="stat-title text-sm text-neutral-200"><i class="ri-trophy-line me-2"></i>FAANG-recognized Developer</div>
+      </div>
     </div>
   </div>
   <div id="header-deco" aria-hidden="true">
