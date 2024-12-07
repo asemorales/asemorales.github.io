@@ -1,31 +1,30 @@
-<div
-    class="award award-shadow theme-gradient ease-in-out transition motion-reduce:transition-none rounded-lg p-1 mx-2 mb-10">
-    <i class="ri-shining-fill text-award-sparkle stroke-[8px] stroke-base-100 absolute size-10 z-40 top-0 translate-x-[15px]"></i>
-    <i class="ri-shining-fill text-award-sparkle stroke-[8px] stroke-base-100 absolute size-10 z-40 top-0 translate-y-[25px]"></i>
-    <i class="ri-shining-fill text-award-sparkle stroke-[8px] stroke-base-100 absolute size-10 z-40 bottom-0 right-0 translate-y-[40px]"></i>
-    <div
-        class="flex flex-wrap items-center bg-card-color rounded-lg p-5">
-        {% include svg/award.svg classes="fill-award-icon size-32 me-2" %}
-        <div class="award-text-wrapper">
-            <h2
-                class="text-base font-medium text-neutral-100 flex flex-wrap divide-x divide-neutral-300 mb-2">
-                <span class="pe-2">{{ award.name }}</span>
-                <span class="group inline-block ps-2">
-                    <a href="{{ award.url }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="View {{ award.competition }} website in new tab"
-                        class="text-secondary-high-contrast ease-in-out transition motion-reduce:transition-none">
-                        {{ award.competition }}
-                        <i class="ri-arrow-right-up-line inline-block -translate-x-0.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ease-in-out transition motion-reduce:transition-none"></i>
-                    </a>
-                </span>
-            </h2>
-            <ul class="block text-sm list-disc list-inside text-neutral-200 my-3">
-                {% for item in award.description %}
-                <li class="mb-3 md:mb-1">{{ item.text }}</li>
-                {% endfor %}
-            </ul>
-        </div>
+<div class="award award-shadow theme-gradient mx-2 mb-10 rounded-lg p-1 transition ease-in-out motion-reduce:transition-none">
+  <i class="ri-shining-fill absolute top-0 z-40 size-10 translate-x-[15px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
+  <i class="ri-shining-fill absolute top-0 z-40 size-10 translate-y-[25px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
+  <i class="ri-shining-fill absolute bottom-0 right-0 z-40 size-10 translate-y-[40px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
+  <div class="flex flex-wrap items-center rounded-lg bg-card-color p-5">
+    {% include svg/award.svg classes="fill-award-icon size-32 me-2" %}
+    <div class="award-text-wrapper">
+      <h2 class="mb-2 flex flex-wrap divide-x divide-neutral-300 text-base font-medium text-neutral-100">
+        <span class="pe-2">{{ award.name }}</span>
+        <span class="group inline-block ps-2">
+          <a
+            href="{{ award.url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View {{ award.competition }} website in new tab"
+            class="text-secondary-high-contrast transition ease-in-out motion-reduce:transition-none">
+            {{ award.competition }}
+            <i
+              class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
+          </a>
+        </span>
+      </h2>
+      <ul class="my-3 block list-inside list-disc text-sm text-neutral-200">
+        {% for item in award.description %}
+        <li class="mb-3 md:mb-1">{{ item.text }}</li>
+        {% endfor %}
+      </ul>
     </div>
+  </div>
 </div>
