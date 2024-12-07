@@ -1,5 +1,5 @@
-<div class="position relative -top-1 ps-6 pb-16">
-  <h2 class="text-base font-medium text-neutral-100 flex flex-wrap divide-x divide-neutral-300 mb-2">
+<div class="position relative -top-1 pb-16 ps-6">
+  <h2 class="mb-2 flex flex-wrap divide-x divide-neutral-300 text-base font-medium text-neutral-100">
     <span class="pe-2">{{ include.position.name }}</span>
     <span class="group inline-block ps-2">
       <a
@@ -10,25 +10,25 @@
         class="{{ include.position.text-color-class }} ease-in-out transition motion-reduce:transition-none">
         {{ include.position.organization }}
         <i
-          class="ri-arrow-right-up-line inline-block -translate-x-0.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ease-in-out transition motion-reduce:transition-none"></i>
+          class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
       </a>
     </span>
   </h2>
 
-  <h6 class="text-xsm text-neutral-300 font-bold tracking-wider flex flex-wrap">
+  <h6 class="flex flex-wrap text-xsm font-bold tracking-wider text-neutral-300">
     <span class="pe-2">{{ include.position.date | upcase }}</span>
   </h6>
 
-  <ul class="block text-sm list-disc list-inside text-neutral-200 my-6">
+  <ul class="my-6 block list-inside list-disc text-sm text-neutral-200">
     {% for item in include.position.description %}
     <li class="mb-3 md:mb-1">{{ item.text }}</li>
     {% endfor %}
   </ul>
 
-  <div class="tools text-xsm text-neutral-300 font-bold tracking-wider">
-    <ul class="flex flex-wrap list-inside">
+  <div class="tools text-xsm font-bold tracking-wider text-neutral-300">
+    <ul class="flex list-inside flex-wrap">
       {% for tool in include.position.tools %}
-      <li class="[&:not(:first-child)]:list-disc me-3"> {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %} </li>
+      <li class="me-3 [&:not(:first-child)]:list-disc"> {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %} </li>
       {% endfor %}
     </ul>
   </div>

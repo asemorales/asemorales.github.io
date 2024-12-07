@@ -3,16 +3,16 @@
   target="_blank"
   rel="noopener noreferrer"
   class="project flex flex-col bg-card-color dark:bg-gradient-to-r dark:from-base-300 dark:to-base-100 rounded-md min-w-[180px] snap-start border-y-2 border-s-2 border-transparent shadow-card-shadow shadow-lg {{ project.border-color-class }} ease-in-out transition motion-reduce:transition-none p-5 first:ml-2 mb-5">
-  <h6 class="text-sm flex flex-wrap divide-x divide-neutral-300 mb-2">
+  <h6 class="mb-2 flex flex-wrap divide-x divide-neutral-300 text-sm">
     <span class="{{ project.text-color-class }} pe-2">{{ project.field }}</span>
-    <span class="text-neutral-300 ps-2">{{ project.year }}</span>
+    <span class="ps-2 text-neutral-300">{{ project.year }}</span>
   </h6>
-  <h2 class="text-base font-medium text-neutral-100 mb-5">{{ project.name }}</h2>
-  <p class="grow text-sm text-neutral-200 mb-3">{{ project.description }}</p>
-  <div class="tools text-xsm text-neutral-300 font-bold tracking-wider">
-    <ul class="flex flex-wrap list-inside">
+  <h2 class="mb-5 text-base font-medium text-neutral-100">{{ project.name }}</h2>
+  <p class="mb-3 grow text-sm text-neutral-200">{{ project.description }}</p>
+  <div class="tools text-xsm font-bold tracking-wider text-neutral-300">
+    <ul class="flex list-inside flex-wrap">
       {% for tool in project.tools %}
-      <li class="[&:not(:first-child)]:list-disc me-3"> {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %} </li>
+      <li class="me-3 [&:not(:first-child)]:list-disc"> {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %} </li>
       {% endfor %}
     </ul>
   </div>

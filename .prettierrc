@@ -5,5 +5,8 @@
   "bracketSameLine": true,
   "singleAttributePerLine": false,
   "proseWrap": "always",
-  "htmlWhitespaceSensitivity": "strict"
+  "htmlWhitespaceSensitivity": "strict",
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./assets/css/custom.css",
+  "tailwindConfig": "./tailwind.config.js"
 }

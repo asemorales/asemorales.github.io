@@ -121,12 +121,12 @@
   /* parent element must have a non-static position (ex. position: relative) for this to work */
   .award-shadow::after {
     @apply theme-gradient;
-    @apply content-[''] z-[-1] absolute top-2 left-0 right-0 h-full w-full blur-xl scale-x-75 transition-opacity;
+    @apply absolute left-0 right-0 top-2 z-[-1] h-full w-full scale-x-75 blur-xl transition-opacity content-[''];
   }
 
   /* parent element must have a non-static position (ex. position: relative) for this to work */
   .circle-component {
-    @apply absolute w-[1.2rem] h-[1.2rem] border-2 rounded-full bg-base-100 z-40;
+    @apply absolute z-40 h-[1.2rem] w-[1.2rem] rounded-full border-2 bg-base-100;
   }
 
   /* use the classes below together with .circle-component */
@@ -145,6 +145,6 @@
   .bg-icons {
     -webkit-mask-image: url("http://localhost:4000/assets/images/icons.svg");
     mask-image: url("http://localhost:4000/assets/images/icons.svg");
-    @apply absolute -z-50 w-full h-full top-0 bg-contain bg-no-repeat bg-right bg-base-200;
+    @apply absolute top-0 -z-50 h-full w-full bg-base-200 bg-contain bg-right bg-no-repeat;
   }
 }
