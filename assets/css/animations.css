@@ -77,6 +77,13 @@
 }
 
 @layer components {
+	.animate-gradient {
+		background-size: 200% 200%;
+		animation: move-background 7s ease infinite;
+		-moz-animation: move-background 7s ease infinite;
+		-webkit-animation: move-background 7s ease infinite;
+	}
+
 	.animate-on-load {
 		animation-delay: 0.2s;
 		animation-fill-mode: backwards;
