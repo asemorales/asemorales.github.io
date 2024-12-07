@@ -1,11 +1,11 @@
 featured:
-  - name: See how this website was made!
+  - name: View this site on GitHub!
     field: Web Development
     year: 2023
     url: "https://github.com/IrishMorales/irishmorales.github.io"
     text-color-class: text-primary-high-contrast
     border-color-class: hover:border-primary
-    description: Built with performance, scalability, responsiveness, cross-browser support, & accessibility in mind from start to finish
+    description: Built with an end-to-end focus on performance, maintainability, responsiveness, & accessibility
     tools:
       - name: Jekyll
       - name: Tailwind CSS

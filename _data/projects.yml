@@ -19,7 +19,10 @@ projects:
     tools:
       - name: Python
       - name: PyTorch
-      - name: Pandas, NumPy, Matplotlib, Scikit-learn
+      - name: Pandas
+      - name: NumPy
+      - name: Matplotlib
+      - name: Scikit-learn
       - name: Jupyter
   - name: Exploratory Data Analysis of Philippine Poverty
     field: Data Science
@@ -30,7 +33,10 @@ projects:
     description: Analyzing, predicting, & visualizing Philippine poverty
     tools:
       - name: Python
-      - name: Pandas, NumPy, Matplotlib, Scikit-learn
+      - name: Pandas
+      - name: NumPy
+      - name: Matplotlib
+      - name: Scikit-learn
       - name: Tableau
   - name: DEAN Chatbot
     field: Data Science
@@ -50,4 +56,7 @@ projects:
     description: Machine learning models to predict personality traits based on Twitter tweets
     tools:
       - name: Python
-      - name: Pandas, NumPy, Matplotlib, Scikit-learn
+      - name: Pandas
+      - name: NumPy
+      - name: Matplotlib
+      - name: Scikit-learn

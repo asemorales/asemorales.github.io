@@ -56,11 +56,4 @@ A visual homage to several tools & works I love:
 
 ## Licensing
 
-<b>This site is open source!</b> You can use, modify, or distribute this site's code for your own site as long as your own site is also made open
-source (See AGPL 3.0).
-
-I am where I am today because of countless people, resources, & opportunities that have helped me along the way. I have made this site open source
-because I deeply believe in open knowledge and social collaboration. If you’re using this site's code, please be a cool dude and respect this site's
-licensing (and consider contributing to open source). :)
-
 © 2024 Irish Danielle "Ase" Morales under AGPL 3.0

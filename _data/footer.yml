@@ -1,4 +1,4 @@
-created-by: Created with <span class="text-transparent bg-clip-text theme-gradient"><3</span> <br> by me & my bear, Polar :)
+created-by: Created with <span class="text-transparent bg-clip-text theme-gradient"><3</span> <br> by me & my bear, Polar
 attribution:
   Built with Jekyll + Tailwind CSS. <br> <br> Icons by <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300"> Remix Icon</a>, <a href="https://simpleicons.org/" target="_blank"
   rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300"> Simple
@@ -13,12 +13,8 @@ attribution:
   the works of <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer" class="underline
   underline-offset-4 hover:text-link-hover text-neutral-300"> Brittany Chiang.</a>
 licensing:
-  This site is open source! You can use, modify, or distribute this site's code for your own site as long as your own site is also made open source
-  (See <a href="https://opensource.org/license/agpl-v3" target="_blank" rel="license noopener noreferrer" class="underline
-  underline-offset-4 hover:text-link-hover text-neutral-300"> AGPL 3.0</a>). <br> <br> I am where I am today because of countless people, resources, &
-  opportunities that have helped me along the way. I have made this site open source because I deeply believe in open knowledge and social
-  collaboration. If you’re using this site's code, please be a cool dude and respect this site's licensing (and consider contributing to open source).
-  :)
+  This site is open source! <br> <br> I have made this site open source because I deeply believe in open knowledge and collaboration driving innovation.
+  If you’re using this site's code, please be a cool dude and respect this site's licensing (and consider contributing to open source).
 copyright:
   © 2024 <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer" class="underline underline-offset-4
   hover:text-link-hover text-neutral-300"> Irish Danielle "Ase" Morales</a>
