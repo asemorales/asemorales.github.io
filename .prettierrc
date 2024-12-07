@@ -7,6 +7,6 @@
   "proseWrap": "always",
   "htmlWhitespaceSensitivity": "strict",
   "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./assets/css/custom.css",
+  "tailwindStylesheet": "./assets/css/index.css",
   "tailwindConfig": "./tailwind.config.js"
 }

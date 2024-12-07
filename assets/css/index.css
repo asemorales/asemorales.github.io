@@ -1,2 +1,4 @@
 @import "../fonts/remixicon/remixicon.css";
+@import "tailwind.css";
+@import "animations.css";
 @import "custom.css";
