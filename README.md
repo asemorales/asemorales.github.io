@@ -2,7 +2,7 @@
     <img src="assets/favicon.ico?" alt="ase@create-with-<3 logo">
     <h1>ase@create-with-<3</h1>
     <p>Personal portfolio site designed in Figma & built with Jekyll + Tailwind CSS</p>
-    <p>Live @ <a href="https://irishmorales.github.io" target="_blank" title="Open in new tab">irishmorales.github.io</a></p>
+    <p>Live @ <a href="https://irishmorales.github.io">irishmorales.github.io</a></p>
 </div>
 
 ## Status
