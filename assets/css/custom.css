@@ -42,12 +42,6 @@
   }
 
   /* parent element must have a non-static position (ex. position: relative) for this to work */
-  .award-shadow::after {
-    @apply theme-gradient;
-    @apply absolute left-0 right-0 top-2 z-[-1] h-full w-full scale-x-75 blur-xl transition-opacity content-[''];
-  }
-
-  /* parent element must have a non-static position (ex. position: relative) for this to work */
   .circle-component {
     @apply absolute z-10 h-[1.2rem] w-[1.2rem] rounded-full border-2 bg-base-100;
   }
