@@ -79,9 +79,34 @@
       background-position: 0% 0%;
     }
   }
+  
+  @keyframes slide-up {
+    0% {
+      transform: translateY(100%);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
 
 @layer components {
+  .animate-on-load {
+    animation-delay: 0.2s;
+    animation-fill-mode: backwards;
+  }
+
+  .slide-up {
+    overflow: hidden;
+  }
+
+  .slide-up > * {
+    animation: slide-up 0.5s ease;
+    -moz-animation: slide-up 0.5s ease;
+    -webkit-animation: slide-up 0.5s ease;
+  }
+
   .inactive-theme-icon {
     opacity: 0;
 
@@ -91,7 +116,7 @@
     }
   }
 
-  [data-theme="light"] .theme-gradient {
+  .cool-gradient {
     background-color: #38bdf8;
     background-image: radial-gradient(at 99% 98%, #818cf8 0px, transparent 50%), radial-gradient(at 42% 41%, #67e8f9 0px, transparent 50%),
       radial-gradient(at 60% 44%, #2dd4bf 0px, transparent 50%), radial-gradient(at 99% 98%, #818cf8 0px, transparent 50%),
@@ -103,7 +128,7 @@
     -webkit-animation: move-background 7s ease infinite;
   }
 
-  [data-theme="dark"] .theme-gradient {
+  .warm-gradient {
     background-color: hsla(266, 80%, 83%, 1);
     background-image: radial-gradient(at 30% 11%, hsla(32, 100%, 77%, 1) 0px, transparent 50%),
       radial-gradient(at 68% 43%, hsla(310, 61%, 76%, 1) 0px, transparent 50%),
@@ -116,6 +141,14 @@
     animation: move-background 7s ease infinite;
     -moz-animation: move-background 7s ease infinite;
     -webkit-animation: move-background 7s ease infinite;
+  }
+
+  [data-theme="light"] .theme-gradient {
+    @apply cool-gradient;
+  }
+
+  [data-theme="dark"] .theme-gradient {
+    @apply warm-gradient;
   }
 
   /* parent element must have a non-static position (ex. position: relative) for this to work */

@@ -17,9 +17,19 @@
   </head>
 
   <body>
-    {% include navigation.html %}
-    <div class="mx-auto max-w-screen-2xl divide-y-2 divide-base-200 selection:bg-primary-low-contrast selection:text-neutral-100">
-      {{ content }}
+    {% include splash.html %}
+    <div id="content" class="hidden">
+      {% include navigation.html %}
+      <div class="mx-auto max-w-screen-2xl divide-y-2 divide-base-200 selection:bg-primary-low-contrast selection:text-neutral-100">
+        {{ content }}
+      </div>
     </div>
   </body>
+
+  <noscript>
+    <style>
+        #splash {display: none;}
+        #content {display: block;}
+    </style>
+  </noscript>
 </html>
