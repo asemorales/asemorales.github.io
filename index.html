@@ -16,19 +16,16 @@ layout: default
       <div class="positions-wrapper"> {% include positions.html %} </div>
     </div>
     <div class="flex-initial basis-2/5 overflow-hidden">
-      {% assign awards = site.data.awards %}
-      <div id="awards" class="mb-20">
-        <div class="awards-wrapper relative"> {% for award in awards.awards %} {% include award.html %} {% endfor %} </div>
-      </div>
-      {% assign featured = site.data.featured %}
       <div id="featured" class="mb-20">
         <h3 class="mb-7 text-xsm font-bold tracking-wider text-neutral-300">{{ "Featured" | upcase }}</h3>
+        {% assign awards = site.data.awards %}
+        <div class="awards-wrapper relative"> {% for award in awards.awards %} {% include award.html %} {% endfor %} </div>
+        {% assign featured = site.data.featured %}
         <div class="featured-wrapper"> {% for feature in featured.featured %} {% include feature.html %} {% endfor %} </div>
       </div>
       {% assign projects = site.data.projects %}
       <div id="projects">
-        <h3 class="mb-2 text-xsm font-bold tracking-wider text-neutral-300">{{ "Other Projects" | upcase }}</h3>
-        <p class="mb-7 text-sm text-neutral-300">⟷ Scroll left/right below to see more.<br />Click projects for details.</p>
+        <h3 class="mb-7 text-xsm font-bold tracking-wider text-neutral-300">{{ "Selected Projects" | upcase }}</h3>
         <div class="projects-wrapper flex snap-x snap-mandatory scroll-pl-2 overflow-scroll overflow-y-visible">
           {% for project in projects.projects %} {% include project.html %} {% endfor %}
         </div>

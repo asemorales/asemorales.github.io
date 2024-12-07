@@ -1,10 +1,20 @@
 projects:
+  - name: Phlourish Website Mockup & Assets
+    field: Web Development
+    year: 2023
+    url: "https://www.figma.com/design/qpYo0qEYlccQrNz3xCteFk/PHlourish-v2?node-id=303-627&t=QtxnAQXb6XTtMbT6-1"
+    text-color-class: text-primary-high-contrast
+    border-color-class: hover:border-primary
+    description: Design assets & website mockups for a mental health nonprofit in the Philippines
+    tools:
+      - name: Figma
+      - name: Photoshop
   - name: Cancer Detection in Bone Scans
     field: Machine Learning
     year: 2023-2024
     url: https://github.com/IrishMorales/lightweight-cnn-for-bone-metastasis
-    text-color-class: text-primary-high-contrast
-    border-color-class: hover:border-primary
+    text-color-class: text-accent-high-contrast
+    border-color-class: hover:border-accent
     description: Lightweight neural network for cancer detection in underfunded hospitals
     tools:
       - name: Python
@@ -26,8 +36,8 @@ projects:
     field: Data Science
     year: 2021-2022
     url: "https://www.facebook.com/dean.gdscloyola"
-    text-color-class: text-accent-high-contrast
-    border-color-class: hover:border-accent
+    text-color-class: text-secondary-high-contrast
+    border-color-class: hover:border-secondary
     description: Facebook chatbot for users to search Google using free Facebook data, supporting education for those with limited internet access
     tools:
       - name: Python
@@ -35,8 +45,8 @@ projects:
     field: Data Science
     year: 2019-2020
     url: "https://github.com/IrishMorales/modelling-personality-from-twts"
-    text-color-class: text-primary-high-contrast
-    border-color-class: hover:border-primary
+    text-color-class: text-secondary-high-contrast
+    border-color-class: hover:border-secondary
     description: Machine learning models to predict personality traits based on Twitter tweets
     tools:
       - name: Python
