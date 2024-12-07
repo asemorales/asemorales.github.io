@@ -18,13 +18,13 @@ Your system must have at least Ruby 3.1.x. Run the following:
 
 ## Scripts
 
-Since Jekyll requires some additional setup to work with Tailwind CSS, I configured scripts for building the site in `package.json` and created a custom deployment workflow for GitHub Actions. 
+The build process is configured in `package.json` to 1.) process styles using PostCSS, using TailwindCSS as a PostCSS plugin; then 2.) build using Jekyll into the files under `_site`.
 
 #### Building for development
 
 Run `npm run dev` or `npm run start`
 
-This is configured in `package.json` to simultaneously 1.) build using Jekyll into files under `_site`; and 2.) compile styles using TailwindCSS into `compiled.css`. Both are configured so that the page should refresh on any saved changes. However, [live reloading both Jekyll & TailwindCSS may sometimes cause issues](https://github.com/tailwindlabs/tailwindcss/discussions/8470); if changes aren't appearing, try manually serving the page instead or clearing the cache with `bundle exec jekyll clean` before serving.
+This enables live reload, refreshing the page on any changes. Please note that changes to styles may reload the page twice, as [live reloading both Jekyll & TailwindCSS may cause issues](https://github.com/tailwindlabs/tailwindcss/discussions/8470). If changes aren't appearing, try manually serving the page instead or clearing the cache with `bundle exec jekyll clean` before serving.
 
 #### Building for production
 
@@ -32,7 +32,7 @@ Run `npm run prod`
 
 #### Deployment
 
-See `deploy.yml` for the deployment workflow.
+Since Jekyll requires some additional setup to work with Tailwind CSS, this site uses a custom deployment workflow seen in `deploy.yml`.
 
 ## Attribution
 
