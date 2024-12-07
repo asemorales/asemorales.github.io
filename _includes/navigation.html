@@ -5,20 +5,21 @@
         <span class="theme-gradient bg-clip-text text-transparent">ase</span>@create-with-<3
       </h1>
       <div class="flex space-x-6">
-        <button
-          id="toggle-theme"
-          data-toggle-theme="dark,light"
-          data-act-class="ACTIVECLASS"
-          title="Toggle light/dark mode"
-          aria-label="Toggle light/dark mode"
-          class="group relative inline-block size-5">
-          <i
-            id="moon"
-            class="ri-moon-fill inactive-theme-icon absolute top-0 size-5 text-neutral-300 transition ease-in-out group-hover:text-link-hover motion-reduce:transition-none"></i>
-          <i
-            id="sun"
-            class="ri-sun-fill inactive-theme-icon absolute top-0 size-5 text-neutral-300 transition ease-in-out group-hover:text-link-hover motion-reduce:transition-none"></i>
-        </button>
+        <div class="tooltip tooltip-bottom" data-tip="Toggle light/dark mode" aria-hidden="true">
+          <button
+            id="toggle-theme"
+            data-toggle-theme="dark,light"
+            data-act-class="ACTIVECLASS"
+            class="group relative inline-block size-5"
+            aria-label="Toggle light/dark mode">
+            <i
+              id="moon"
+              class="ri-moon-fill inactive-theme-icon absolute top-0 size-5 text-neutral-300 transition ease-in-out group-hover:text-link-hover motion-reduce:transition-none"></i>
+            <i
+              id="sun"
+              class="ri-sun-fill inactive-theme-icon absolute top-0 size-5 text-neutral-300 transition ease-in-out group-hover:text-link-hover motion-reduce:transition-none"></i>
+          </button>
+        </div>
         <div class="hidden space-x-3 sm:flex">
           {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include social-icon.html %} {% endfor %}
         </div>

@@ -1,4 +1,9 @@
-<a title="View {{ social-icon.title }} in new tab" aria-label="View {{ social-icon.title }} in new tab" target="_blank" rel="noopener noreferrer" href="{{ social-icon.url }}" class="flex items-center">
-  <i
-    class="ri-{{ social-icon.filename }}-fill size-5 text-neutral-300 hover:text-link-hover ease-in-out transition motion-reduce:transition-none"></i>
-</a>
+<div class="tooltip tooltip-bottom" data-tip="{{ social-icon.title }}" aria-hidden="true">
+  <a href="{{ social-icon.url }}"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="flex items-center size-5"
+     aria-label="View {{ social-icon.title }} in new tab">
+    <i class="ri-{{ social-icon.filename }}-fill size-5 text-neutral-300 hover:text-link-hover ease-in-out transition motion-reduce:transition-none"></i>
+  </a>
+</div>
