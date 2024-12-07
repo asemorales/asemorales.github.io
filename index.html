@@ -6,7 +6,7 @@ layout: default
 <main class="mb-10">
   <div class="px-7 pt-24 md:px-20">
     {% assign services = site.data.services %}
-    <div id="services" class="grid gap-10 sm:grid-cols-2 xl:grid-cols-4">
+    <div id="services" class="scroll-reveal-hidden grid gap-10 sm:grid-cols-2 xl:grid-cols-4">
       {% for service in services.services %} {% include service.html %} {% endfor %}
     </div>
   </div>

@@ -100,4 +100,8 @@
 			transition: all 1s ease-in-out;
 		}
 	}
+
+	html.sr .scroll-reveal-hidden {
+		visibility: hidden;
+	}
 }
