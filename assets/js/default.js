@@ -1,6 +1,7 @@
 window.onload = function () {
   setThemeIcon(document.querySelector("html").getAttribute("data-theme"));
   hideSplash();
+  initContent();
   watchTheme();
 };
 
@@ -44,8 +45,12 @@ function hideSplash() {
     document.getElementById('content').style['display'] = 'block';
     document.getElementById('splash').style.opacity = 0;
   }, 1000);
+}
 
+function initContent() {
   setTimeout(function(){ 
     document.getElementById('splash').style.display = "none";
+    ScrollReveal().reveal('#services');
+    ScrollReveal().reveal('#call-to-action');  
   }, 2000);
 }
