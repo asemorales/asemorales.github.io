@@ -16,14 +16,16 @@ layout: default
       <div class="positions-wrapper"> {% include positions.html %} </div>
     </div>
   </div>
-  <div class="px-7 pt-24 md:px-20 overflow-hidden">
-    <div id="featured" class="mb-20">
+  <div class="px-7 pt-24 md:px-20">
+    <div id="featured">
       <h3 class="mb-7 text-xsm font-bold tracking-wider text-neutral-300">{{ "Featured" | upcase }}</h3>
       {% assign awards = site.data.awards %}
       <div class="awards-wrapper relative"> {% for award in awards.awards %} {% include award.html %} {% endfor %} </div>
       {% assign featured = site.data.featured %}
       <div class="featured-wrapper"> {% for feature in featured.featured %} {% include feature.html %} {% endfor %} </div>
     </div>
+  </div>
+  <div class="px-7 pt-24 md:px-20 overflow-hidden">
     {% assign projects = site.data.projects %}
     <div id="projects">
       <h3 class="mb-7 text-xsm font-bold tracking-wider text-neutral-300">{{ "Selected Projects" | upcase }}</h3>
@@ -32,6 +34,8 @@ layout: default
       </div>
     </div>
   </div>
-  {% include call-to-action.html %}
+  <div class="px-7 py-24 md:px-20">
+    {% include call-to-action.html %}
+  </div>
 </main>
 {% include footer.html %}

@@ -1,31 +1,29 @@
-<div class="mb-40 px-7 pt-24 md:px-20">
-  <div id="call-to-action" class="scroll-reveal-hidden relative rounded-xl border-dashed border-call-to-action-outline sm:border-2 sm:text-center">
-    <div class="py-36 sm:px-8">
-      <h1 class="mb-8 block text-3xl font-medium text-base-content sm:text-5xl">Create your next idea with me</h1>
-      <div class="mb-14 text-sm font-light text-neutral-200 sm:text-lg">
-        <p class="mb-4">For freelance projects, I provide sliding scale pricing based on your specific needs and scope of requests.</p>
-        <p>From a charity or open source project? I'm open to volunteering where possible. :)</p>
-      </div>
-      <div class="mb-6 flex justify-center">
-        <div class="group relative">
-          <a
-            href="mailto:{{ site.email }}"
-            target="_blank"
-            rel="license noopener noreferrer"
-            class="relative inline-block cursor-pointer rounded-full bg-btn-action-outline p-px leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
-            <span
-              class="theme-gradient group-hover:animate-gradient absolute inset-0 rounded-full p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"></span>
-            <span class="relative block rounded-full bg-btn-action px-6 py-3">
-              <div class="relative flex items-center space-x-2">
-                <i class="ri-mail-ai-line transition-transform duration-500 group-hover:translate-x-1"></i>
-                <span class="transition-all duration-500 group-hover:translate-x-1">{{ site.email }}</span>
-              </div>
-            </span>
-          </a>
-        </div>
-      </div>
-      <div class="flex items-center justify-center"> {% include components/status.html %} </div>
+<div id="call-to-action" class="scroll-reveal-hidden relative rounded-xl border-dashed border-call-to-action-outline sm:border-2 sm:text-center">
+  <div class="py-36 sm:px-8">
+    <h1 class="mb-8 block text-3xl font-medium text-base-content sm:text-5xl">Create your next idea with me</h1>
+    <div class="mb-14 text-sm font-light text-neutral-200 sm:text-lg">
+      <p class="mb-4">For freelance projects, I provide sliding scale pricing based on your specific needs and scope of requests.</p>
+      <p>From a charity or open source project? I'm open to volunteering where possible. :)</p>
     </div>
-    <div class="bg-icons -z-50 bg-logo-icons" aria-hidden="true"></div>
+    <div class="mb-6 flex justify-center">
+      <div class="group relative">
+        <a
+          href="mailto:{{ site.email }}"
+          target="_blank"
+          rel="license noopener noreferrer"
+          class="relative inline-block cursor-pointer rounded-full bg-btn-action-outline p-px leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
+          <span
+            class="theme-gradient group-hover:animate-gradient absolute inset-0 rounded-full p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"></span>
+          <span class="relative block rounded-full bg-btn-action px-6 py-3">
+            <div class="relative flex items-center space-x-2">
+              <i class="ri-mail-ai-line transition-transform duration-500 group-hover:translate-x-1"></i>
+              <span class="transition-all duration-500 group-hover:translate-x-1">{{ site.email }}</span>
+            </div>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="flex items-center justify-center"> {% include components/status.html %} </div>
   </div>
+  <div class="bg-icons -z-50 bg-logo-icons" aria-hidden="true"></div>
 </div>
