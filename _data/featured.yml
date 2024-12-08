@@ -10,3 +10,4 @@ featured:
       - name: Jekyll
       - name: Tailwind CSS
       - name: Figma
+    figure-content: <div class="text-nowrap bg-base-100 flex items-center justify-center w-full min-w-80 min-h-40"><p class="text-neutral-100">ase@create-with-<span class="font-medium text-transparent bg-clip-text theme-gradient animate-gradient"><3</span></></div>
