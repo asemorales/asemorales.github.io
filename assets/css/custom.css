@@ -37,8 +37,8 @@
   }
 
   .bg-icons {
-    -webkit-mask-image: url("http://localhost:4000/assets/images/icons.svg");
-    mask-image: url("http://localhost:4000/assets/images/icons.svg");
+    -webkit-mask-image: url("../images/icons.svg");
+    mask-image: url("../images/icons.svg");
     @apply absolute top-0 -z-50 h-full w-full bg-base-200 bg-contain bg-right bg-no-repeat;
   }
 
