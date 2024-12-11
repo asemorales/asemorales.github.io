@@ -18,13 +18,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Ase Morales | Full-stack Developer
+title: ase@create-with-<3 | Ase Morales
 email: asemorales.tech@gmail.com
 description: >- # this means to ignore newlines until next config
-  Full-stack web and mobile developer, with experience from MVPs to enterprise microservices.
+  Doing data, tech, & art for impact! Full-stack developer doing backend-heavy roles professionally, frontend-heavy projects for freelance, and volunteer design for nonprofits.
 baseurl: ""
 url: ""
-keywords: "portfolio, freelance, full-stack, web developer, mobile developer, creative"
+keywords: "portfolio, freelance, full-stack developer, mobile developer"
 
 # GitHub Pages ignores Gemfile plugins, so make sure any plugins added there are also
 # added to the plugins here:
