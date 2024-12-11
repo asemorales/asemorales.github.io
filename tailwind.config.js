@@ -89,8 +89,8 @@ module.exports = {
           "--card-color": "97.77% 0.0107 280.48", // #F6F7FF
           "--card-shadow": "92.87% 0.0343 276.72", // #E1E6FF
           "--header-ray": "97.77% 0.0107 280.48", // #F6F7FF
-          "--btn-action": "68.47% 0.1479 237.32", // sky-500
-          "--btn-action-outline": "68.47% 0.1479 237.32", // sky-500
+          "--btn-action": "17.33% 0.0154 266.68",
+          "--btn-action-outline": "49.55% 0.0682 274.37", // #565F89
           "--btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
           "--logo-icons": "95.14% 0.025 236.82", // sky-100
           "--call-to-action": "68.47% 0.1479 237.32", // sky-500
