@@ -9,6 +9,12 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="../assets/js/theme-change.js"></script>
+    <script async crossorigin="anonymous">
+      var selectedTheme = localStorage.getItem("theme");
+      if(selectedTheme) {
+          document.documentElement.setAttribute("data-theme", selectedTheme);
+      }
+    </script>
     <script type="text/javascript" src="../assets/js/scrollreveal.min.js"></script>
     <script type="text/javascript" src="../assets/js/default.js"></script>
 
