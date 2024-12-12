@@ -20,7 +20,7 @@ module.exports = {
           300: "#565F89",
           400: "#181E36",
           500: "#14192B",
-          600: "#0D1017",
+          600: "#010100",
         },
         // extend DaisyUI color classes
         "primary-low-contrast": "oklch(var(--primary-low-contrast) / <alpha-value>)",
@@ -57,44 +57,44 @@ module.exports = {
       {
         light: {
           primary: "#7dd3fc", // sky-300
-          "primary-content": "#0D1017",
+          "primary-content": "#010100",
           "--primary-low-contrast": "95.14% 0.025 236.82", // sky-100
           "--primary-high-contrast": "68.47% 0.1479 237.32", // sky-500
           secondary: "#a5b4fc", // indigo-300
-          "secondary-content": "#0D1017",
+          "secondary-content": "#010100",
           "--secondary-low-contrast": "92.99% 0.0334 272.79", // indigo-100
           "--secondary-high-contrast": "58.54% 0.2041 277.12", // indigo-500
           accent: "#c4b5fd", // violet-300
-          "accent-content": "#0D1017",
+          "accent-content": "#010100",
           "--accent-low-contrast": "94.33% 0.0284 294.59", // violet-100
           "--accent-high-contrast": "71.44% 0.1517 293.57",
           neutral: "#FFFFFF",
-          "neutral-content": "#0D1017",
+          "neutral-content": "#010100",
           "base-100": "#F6F7FF",
           "base-200": "#E1E6FF",
           "base-300": "#FFFFFF",
-          "base-content": "#0D1017",
+          "base-content": "#010100",
           info: "#a5f3fc", // cyan-200
-          "info-content": "#0D1017",
+          "info-content": "#010100",
           success: "#bef264", // lime-300
-          "success-content": "#0D1017",
+          "success-content": "#010100",
           warning: "#fcd34d", // amber-300
-          "warning-content": "#0D1017",
+          "warning-content": "#010100",
           error: "#f87171", // red-400
-          "error-content": "#0D1017",
+          "error-content": "#010100",
           // extended color classes in oklch() values
-          "--neutral-100": "49.55% 0.0682 274.37", // #565F89
-          "--neutral-200": "49.55% 0.0682 274.37", // #565F89
-          "--neutral-300": "72.76% 0.0609 273.09", // #9AA5CE
+          "--neutral-100": "6.51% 0.0141 109.77", // #010100
+          "--neutral-200": "24.23% 0.0468 271.89", // #181e36
+          "--neutral-300": "55.6% 0.0742 274.52", // #66709f
           "--card-color": "97.77% 0.0107 280.48", // #F6F7FF
           "--card-shadow": "92.87% 0.0343 276.72", // #E1E6FF
           "--header-ray": "97.77% 0.0107 280.48", // #F6F7FF
-          "--btn-action": "17.33% 0.0154 266.68",
-          "--btn-action-outline": "49.55% 0.0682 274.37", // #565F89
+          "--btn-action": "6.51% 0.0141 109.77", // #010100
+          "--btn-action-outline": "24.23% 0.0468 271.89", // #181e36
           "--btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
-          "--logo-icons": "95.14% 0.025 236.82", // sky-100
+          "--logo-icons": "93.77% 0.0247 276.72", // #e6e9fb
           "--call-to-action": "68.47% 0.1479 237.32", // sky-500
-          "--call-to-action-outline": "82.76% 0.1013 230.32",
+          "--call-to-action-outline": "93.77% 0.0247 276.72", // #e6e9fb
           "--service-icon": "68.47% 0.1479 237.32",
           "--service-icon-hover": "97.77% 0.0107 280.48", // #F6F7FF
           "--service-icon-container": "95.14% 0.025 236.82",
@@ -108,20 +108,20 @@ module.exports = {
       {
         dark: {
           primary: "#7dd3fc", // sky-300
-          "primary-content": "#0D1017",
+          "primary-content": "#010100",
           "--primary-low-contrast": "39.12% 0.0845 240.88", // sky-900
           "--primary-high-contrast": "82.76% 0.1013 230.32", // sky-100
           secondary: "#fdba74", // orange-300
-          "secondary-content": "#0D1017",
+          "secondary-content": "#010100",
           "--secondary-low-contrast": "40.84% 0.1165 38.17", // orange-900
           "--secondary-high-contrast": "83.66% 0.1165 66.29", // orange-100
           accent: "#f9a8d4", // pink-300
-          "accent-content": "#0D1017",
+          "accent-content": "#010100",
           "--accent-low-contrast": "29.32% 0.1309 325.66", // pink-900
           "--accent-high-contrast": "82.28% 0.1095 346.02", // pink-200
-          neutral: "#0D1017",
+          neutral: "#010100",
           "neutral-content": "#E1E6FF",
-          "base-100": "#0D1017",
+          "base-100": "#010100",
           "base-200": "#14192B",
           "base-300": "#181E36",
           "base-content": "#E1E6FF",
@@ -136,16 +136,16 @@ module.exports = {
           // extended color classes in oklch() values
           "--neutral-100": "92.87% 0.0343 276.72", // #E1E6FF
           "--neutral-200": "72.76% 0.0609 273.09", // #9AA5CE
-          "--neutral-300": "49.55% 0.0682 274.37", // #565F89
-          "--card-color": "21.81% 0.0363 271.32", // #9AA5CE
-          "--card-shadow": "17.33% 0.0154 266.68", // #E1E6FF
-          "--header-ray": "49.55% 0.0682 274.37", // #565F89
-          "--btn-action": "17.33% 0.0154 266.68",
-          "--btn-action-outline": "49.55% 0.0682 274.37", // #565F89
+          "--neutral-300": "56.23% 0.0724 274.41", // #565F89
+          "--card-color": "17.33% 0.0154 266.68", // #0d1017
+          "--card-shadow": "6.51% 0.0141 109.77", // #010100
+          "--header-ray": "56.23% 0.0724 274.41", // #565F89
+          "--btn-action": "17.33% 0.0154 266.68", // #0d1017
+          "--btn-action-outline": "17.33% 0.0154 266.68", // #0d1017
           "--btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
-          "--logo-icons": "21.81% 0.0363 271.32",
-          "--call-to-action": "17.33% 0.0154 266.68",
-          "--call-to-action-outline": "21.81% 0.0363 271.32",
+          "--logo-icons": "17.33% 0.0154 266.68", // #0d1017
+          "--call-to-action": "17.33% 0.0154 266.68", // #0d1017
+          "--call-to-action-outline": "17.33% 0.0154 266.68", // #0d1017
           "--service-icon": "97.77% 0.0107 280.48", // #F6F7FF
           "--service-icon-hover": "97.77% 0.0107 280.48", // #F6F7FF
           "--service-icon-container": "21.81% 0.0363 271.32",
