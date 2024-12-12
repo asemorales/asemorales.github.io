@@ -2,17 +2,17 @@
   href="{{ award.url }}"
   target="_blank"
   rel="noopener noreferrer"
-  class="group award block theme-gradient hover:animate-gradient mx-2 mb-5 rounded-lg p-1 shadow-card-shadow shadow-lg">
+  class="group award block theme-gradient hover:animate-gradient mx-2 mb-5 rounded-md p-0.5 shadow-card-shadow shadow-lg">
   <i class="ri-shining-fill opacity-0 group-hover:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute top-0 z-10 size-10 translate-x-[15px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
   <i class="ri-shining-fill opacity-0 group-hover:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute top-0 z-10 size-10 translate-y-[25px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
   <i class="ri-shining-fill opacity-0 group-hover:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute bottom-0 right-0 z-10 size-10 translate-y-[40px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
-  <div class="flex flex-wrap items-center rounded-lg bg-card-color p-[32px]">
+  <div class="flex flex-wrap items-center rounded-md bg-card-color p-[32px]">
     {% include svg/award.svg classes="fill-award-icon size-32 me-2" %}
     <div class="award-text-wrapper">
       <h2 class="mb-2 flex flex-col sm:flex-row sm:divide-x sm:divide-neutral-300 text-base font-medium text-neutral-100">
         <span class="sm:pe-2">{{ award.name }}</span>
         <span class="inline-block sm:ps-2">
-          <div class="text-secondary-high-contrast">
+          <div class="text-award-title">
             {{ award.competition }}
             <i
               class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition-transform ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
