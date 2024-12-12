@@ -47,6 +47,7 @@ module.exports = {
         "service-icon-container-hover": "oklch(var(--service-icon-container-hover) / <alpha-value>)",
         "award-icon": "oklch(var(--award-icon) / <alpha-value>)",
         "award-sparkle": "oklch(var(--award-sparkle) / <alpha-value>)",
+        "award-title": "oklch(var(--award-title) / <alpha-value>)",
         "link-hover": "oklch(var(--link-hover) / <alpha-value>)",
         "status-indicator": "oklch(var(--status-indicator) / <alpha-value>)",
       },
@@ -101,6 +102,7 @@ module.exports = {
           "--service-icon-container-hover": "82.76% 0.1013 230.32", // sky-300
           "--award-icon": "82.76% 0.1013 230.32", // sky-300
           "--award-sparkle": "90.15% 0.0729 70.7", // orange-200
+          "--award-title": "68.47% 0.1479 237.32", // sky-500
           "--link-hover": "68.47% 0.1479 237.32", // sky-500
           "--status-indicator": "82.76% 0.1013 230.32", // sky-300
         },
@@ -152,6 +154,7 @@ module.exports = {
           "--service-icon-container-hover": "24.23% 0.0468 271.89", // #181e36
           "--award-icon": "95.42% 0.0372 75.16", // orange-100
           "--award-sparkle": "95.42% 0.0372 75.16", // orange-100
+          "--award-title": "83.66% 0.1165 66.29", // orange-100
           "--link-hover": "97.77% 0.0107 280.48", // #F6F7FF
           "--status-indicator": "82.76% 0.1013 230.32", // sky-300
         },
