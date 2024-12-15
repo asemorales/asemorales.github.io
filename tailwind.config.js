@@ -143,11 +143,11 @@ module.exports = {
           "--card-shadow": "6.51% 0.0141 109.77", // #010100
           "--header-ray": "56.23% 0.0724 274.41", // #565F89
           "--btn-action": "17.33% 0.0154 266.68", // #0d1017
-          "--btn-action-outline": "17.33% 0.0154 266.68", // #0d1017
+          "--btn-action-outline": "21.81% 0.0363 271.32", // #14192B
           "--btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
-          "--logo-icons": "17.33% 0.0154 266.68", // #0d1017
+          "--logo-icons": "21.81% 0.0363 271.32", // #14192B
           "--call-to-action": "17.33% 0.0154 266.68", // #0d1017
-          "--call-to-action-outline": "17.33% 0.0154 266.68", // #0d1017
+          "--call-to-action-outline": "21.81% 0.0363 271.32", // #14192B
           "--service-icon": "97.77% 0.0107 280.48", // #F6F7FF
           "--service-icon-hover": "97.77% 0.0107 280.48", // #F6F7FF
           "--service-icon-container": "21.81% 0.0363 271.32",
