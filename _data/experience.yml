@@ -6,24 +6,24 @@ positions:
     text-color-class: text-secondary-high-contrast
     date: Mar 2023 - Present
     description:
-      - text: Solely designed, developed, & deployed a web analytics dashboard and mobile app for iOS & Android
+      - text: Solely designed, developed, & deployed a web analytics dashboard and cross-platform mobile app
     tools:
       - name: Flutter
       - name: Firebase
-  - id: hkz-2024
+  - id: hkz
     name: Full-stack Developer
     organization: Hackazouk
     url: https://hackazouk.com
     text-color-class: text-primary-high-contrast
-    date: Aug 2023 - Dec 2024
+    date: Jun 2023 - Dec 2024
     description:
       - text:
-          Built a syncing mechanism across ~150 tables between 3 enterprise microservices with high concurrent access
+          Led development of a syncing mechanism for ~150 tables across 3 microservices
       - text:
-          Led a project team of 5 developers and trained best practices through code reviews
+          Delivered an MVP in 10 days; surpassed KPIs and received exceptional praise
       - text:
-          Delivered an MVP in 10 days with minimal bugs while achieving all stretch goals and mentoring an intern
-      - text: Developed 5 projects from the ground up over 6 months and maintained 4 other legacy projects
+          Led a project with 5 developers, mentoring and delegating based on individual career goals; leadership commended by team and senior management
+      - text: Developed 9 enterprise web apps and built an internal component library
     tools:
       - name: Laravel
       - name: Bootstrap
@@ -36,32 +36,15 @@ positions:
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
     text-color-class: text-accent-high-contrast
-    date: Jun - Aug 2023, Jun - Jul 2024, Oct - Nov 2024
+    date: Jun 2023 - Nov 2024
     description:
-      - text: Executed a major system restructure involving API rewrites, unit test updates, and UX overhaul
-      - text: Revamped 4 SPAs to be fully responsive, improve cross-browser support, and meet WCAG standards
+      - text: Executed a system restructure involving API rewrites, unit tests, and UX overhaul
+      - text: Revamped 4 SPAs for responsiveness, cross-browser support, and accessibility
     tools:
       - name: Ruby on Rails
       - name: React
       - name: Bootstrap
       - name: SASS/SCSS
-      - name: MySQL
-  - id: hkz-2023
-    name: Full-stack Developer Intern
-    organization: Hackazouk
-    url: https://hackazouk.com
-    text-color-class: text-primary-high-contrast
-    date: Jun - Jul 2023
-    description:
-      - text:
-          Cut task time from 40 hours to 6 by automating generation of 76 tables for legacy project redevelopment
-      - text: Developed a multi-tenant web app with an admin dashboard and customer site with guidance from mentors
-    tools:
-      - name: Laravel
-      - name: Bootstrap
-      - name: SASS/SCSS
-      - name: jQuery
-      - name: AJAX
       - name: MySQL
   - id: silid-aralan
     name: Backend Developer (Volunteer)
@@ -70,7 +53,7 @@ positions:
     text-color-class: text-primary-high-contrast
     date: Jan - Jun 2023
     description:
-      - text: Solely developed an admin dashboard to track demographic metrics and generate operational reports for a nonprofit
+      - text: Sole developer of a dashboard to track metrics and generate non-profit reports
     tools:
       - name: Django
       - name: CSS

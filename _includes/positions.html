@@ -49,7 +49,7 @@
         <div class="circle-component circle-upper-left border-primary"></div>
       </td>
       <td class="hidden border-s-2 border-t-[1rem] border-s-secondary border-t-primary-low-contrast md:table-cell"> </td>
-      <td rowspan="2"> {% assign hkz-2024 = positions | where: "id", "hkz-2024" | first %} {% include position.html position=hkz-2024 %} </td>
+      <td rowspan="2"> {% assign hkz = positions | where: "id", "hkz" | first %} {% include position.html position=hkz %} </td>
     </tr>
 
     <tr class="relative">
@@ -77,17 +77,6 @@
         <div class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-11px] border-primary"> </div>
       </td>
       <td class="hidden border-s-2 border-s-secondary md:table-cell"> </td>
-    </tr>
-
-    <tr class="relative">
-      <td class="table-cell border-s-2 border-s-primary md:hidden">
-        <div class="circle-component circle-upper-left border-primary"></div>
-      </td>
-      <td class="hidden border-s-2 border-t-[1rem] border-s-primary border-t-primary-low-contrast md:table-cell">
-        <div class="circle-component circle-upper-left border-primary"></div>
-      </td>
-      <td class="hidden border-s-2 border-t-[1rem] border-s-secondary border-t-primary-low-contrast md:table-cell"> </td>
-      <td> {% assign hkz-2023 = positions | where: "id", "hkz-2023" | first %} {% include position.html position=hkz-2023 %} </td>
     </tr>
 
     <tr class="relative">
