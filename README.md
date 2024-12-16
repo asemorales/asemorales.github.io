@@ -47,7 +47,7 @@ Assets used:
   are trademarks of their respective owners and used solely to demonstrate tech stack expertise. No affiliation, endorsement, or ownership is implied.
 - All other icons by <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer">Remix Icon</a> (Apache License 2.0)
 
-A visual homage to several tools & works I love:
+An homage to several tools & works I love:
 
 - <a href="https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night" target="_blank" rel="noopener noreferrer">Tokyo Night</a>
 - <a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer">CSS Tricks</a>
