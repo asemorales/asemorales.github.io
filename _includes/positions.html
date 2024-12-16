@@ -23,20 +23,28 @@
         <div class="circle-component circle-upper-left border-dashed border-primary"></div>
       </td>
       <td class="hidden border-t-[1rem] border-t-primary-low-contrast md:table-cell"> </td>
-      <td>
+      <td rowspan="2">
         <div class="relative -top-2 pb-10 ps-6">
           <p class="text-base font-medium text-neutral-100">Currently open to freelance<i class="ri-global-line ms-2"></i></p>
         </div>
       </td>
     </tr>
 
+    <tr class="relative h-5">
+      <td class="table-cell border-s-2 border-s-primary md:hidden"> </td>
+      <td class="hidden rounded-tr-lg border-s-2 border-e-2 border-t-2 border-s-primary border-e-secondary border-t-secondary md:table-cell">
+        <div class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-9px] border-primary"> </div>
+      </td>
+      <td class="hidden md:table-cell"> </td>
+    </tr>
+
     <tr class="relative">
       <td class="table-cell border-s-2 border-s-secondary md:hidden">
-        <div class="circle-component circle-upper-left border-dashed border-secondary"></div>
+        <div class="circle-component circle-upper-left border-secondary"></div>
       </td>
-      <td class="hidden border-s-2 border-dashed border-s-primary md:table-cell"> </td>
-      <td class="hidden border-s-2 border-t-[1rem] border-s-secondary border-t-secondary-low-contrast md:table-cell">
-        <div class="circle-component circle-upper-left border-dashed border-secondary"></div>
+      <td class="hidden border-x-2 border-s-primary border-e-secondary md:table-cell"> </td>
+      <td class="hidden border-t-[1rem] border-t-secondary-low-contrast md:table-cell">
+        <div class="circle-component circle-upper-left border-secondary"></div>
       </td>
       <td> {% assign alls = positions | where: "id", "alls" | first %} {% include position.html position=alls %} </td>
     </tr>
@@ -45,49 +53,57 @@
       <td class="table-cell border-s-2 border-s-primary md:hidden">
         <div class="circle-component circle-upper-left border-primary"></div>
       </td>
-      <td class="hidden border-s-2 border-t-[1rem] border-s-primary border-t-primary-low-contrast md:table-cell">
+      <td class="hidden border-x-2 border-t-[1rem] border-s-primary border-e-secondary border-t-primary-low-contrast md:table-cell">
         <div class="circle-component circle-upper-left border-primary"></div>
       </td>
-      <td class="hidden border-s-2 border-t-[1rem] border-s-secondary border-t-primary-low-contrast md:table-cell"> </td>
+      <td class="hidden border-t-[1rem] border-t-primary-low-contrast md:table-cell"> </td>
       <td rowspan="2"> {% assign hkz = positions | where: "id", "hkz" | first %} {% include position.html position=hkz %} </td>
     </tr>
 
-    <tr class="relative">
+    <tr class="relative h-10">
       <td class="table-cell border-s-2 border-s-primary md:hidden"> </td>
-      <td class="hidden border-s-2 border-t-2 border-s-primary border-t-accent md:table-cell">
+      <td class="hidden border-x-2 border-t-2 border-s-primary border-e-secondary border-t-accent md:table-cell">
         <div class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-9px] border-primary"> </div>
       </td>
-      <td class="hidden rounded-tr-lg border-e-2 border-s-2 border-t-2 border-e-accent border-s-secondary border-t-accent md:table-cell"> </td>
+      <td class="hidden rounded-tr-lg border-e-2 border-t-2 border-e-accent border-t-accent md:table-cell"> </td>
     </tr>
 
     <tr class="relative">
       <td class="table-cell border-s-2 border-s-accent md:hidden">
         <div class="circle-component circle-upper-left border-accent"></div>
       </td>
-      <td class="hidden border-b-2 border-s-2 border-b-accent border-s-primary md:table-cell"> </td>
-      <td class="hidden rounded-br-lg border-b-2 border-e-2 border-s-2 border-b-accent border-e-accent border-s-secondary md:table-cell">
+      <td class="hidden border-b-2 border-x-2 border-b-accent border-s-primary border-e-secondary md:table-cell"> </td>
+      <td class="hidden rounded-br-lg border-b-2 border-e-2 border-b-accent border-e-accent md:table-cell">
         <div class="circle-component circle-upper-right border-accent"></div>
       </td>
       <td rowspan="2"> {% assign cloudband = positions | where: "id", "cloudband" | first %} {% include position.html position=cloudband %} </td>
     </tr>
 
-    <tr class="relative">
+    <tr class="relative h-10">
       <td class="table-cell border-s-2 border-s-accent md:hidden"> </td>
-      <td class="hidden border-s-2 border-s-primary md:table-cell">
+      <td class="hidden border-x-2 border-s-primary border-e-secondary md:table-cell">
         <div class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-11px] border-primary"> </div>
       </td>
-      <td class="hidden border-s-2 border-s-secondary md:table-cell"> </td>
+      <td class="hidden md:table-cell"> </td>
     </tr>
 
     <tr class="relative">
       <td class="table-cell border-s-2 border-s-primary md:hidden">
         <div class="circle-component circle-upper-left border-primary"></div>
       </td>
-      <td class="hidden border-s-2 border-t-[1rem] border-s-primary border-t-primary-low-contrast md:table-cell">
+      <td class="hidden rounded-br-lg border-b-2 border-s-2 border-e-2 border-t-[1rem] border-b-secondary border-s-primary border-e-secondary border-t-primary-low-contrast md:table-cell">
         <div class="circle-component circle-upper-left border-primary"></div>
       </td>
-      <td class="hidden border-s-2 border-t-[1rem] border-s-secondary border-t-primary-low-contrast md:table-cell"> </td>
-      <td> {% assign silid-aralan = positions | where: "id", "silid-aralan" | first %} {% include position.html position=silid-aralan %} </td>
+      <td class="hidden border-t-[1rem] border-t-primary-low-contrast md:table-cell"> </td>
+      <td rowspan="2"> {% assign silid-aralan = positions | where: "id", "silid-aralan" | first %} {% include position.html position=silid-aralan %} </td>
+    </tr>
+
+    <tr class="relative h-5">
+      <td class="table-cell border-s-2 border-s-primary md:hidden"> </td>
+      <td class="hidden border-s-2 border-s-primary md:table-cell">
+        <div class="circle-component circle-upper-left translate-x-[-11px] translate-y-[-11px] border-primary"> </div>
+      </td>
+      <td class="hidden md:table-cell"> </td>
     </tr>
 
     <tr class="relative">
@@ -97,7 +113,7 @@
       <td class="hidden border-b-[1rem] border-s-2 border-b-primary-low-contrast border-s-primary md:table-cell">
         <div class="circle-component circle-bottom-left border-primary"></div>
       </td>
-      <td class="hidden border-b-[1rem] border-s-2 border-b-primary-low-contrast border-s-secondary md:table-cell"> </td>
+      <td class="hidden border-b-[1rem] border-b-primary-low-contrast md:table-cell"> </td>
       <td>
         <div class="relative -bottom-1.5 ps-6">
           <span class="group inline-block">
