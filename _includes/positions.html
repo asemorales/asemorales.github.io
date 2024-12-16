@@ -40,21 +40,21 @@
 
     <tr class="relative">
       <td class="table-cell border-s-2 border-s-secondary md:hidden">
-        <div class="circle-component circle-upper-left border-secondary"></div>
+        <div class="circle-component bg-secondary circle-upper-left border-secondary"></div>
       </td>
       <td class="hidden border-x-2 border-s-primary border-e-secondary md:table-cell"> </td>
       <td class="hidden border-t-[1rem] border-t-secondary-low-contrast md:table-cell">
-        <div class="circle-component circle-upper-left border-secondary"></div>
+        <div class="circle-component bg-secondary circle-upper-left border-secondary"></div>
       </td>
       <td> {% assign alls = positions | where: "id", "alls" | first %} {% include position.html position=alls %} </td>
     </tr>
 
     <tr class="relative">
       <td class="table-cell border-s-2 border-s-primary md:hidden">
-        <div class="circle-component circle-upper-left border-primary"></div>
+        <div class="circle-component bg-primary circle-upper-left border-primary"></div>
       </td>
       <td class="hidden border-x-2 border-t-[1rem] border-s-primary border-e-secondary border-t-primary-low-contrast md:table-cell">
-        <div class="circle-component circle-upper-left border-primary"></div>
+        <div class="circle-component bg-primary circle-upper-left border-primary"></div>
       </td>
       <td class="hidden border-t-[1rem] border-t-primary-low-contrast md:table-cell"> </td>
       <td rowspan="2"> {% assign hkz = positions | where: "id", "hkz" | first %} {% include position.html position=hkz %} </td>
@@ -70,11 +70,11 @@
 
     <tr class="relative">
       <td class="table-cell border-s-2 border-s-accent md:hidden">
-        <div class="circle-component circle-upper-left border-accent"></div>
+        <div class="circle-component bg-accent circle-upper-left border-accent"></div>
       </td>
       <td class="hidden border-b-2 border-x-2 border-b-accent border-s-primary border-e-secondary md:table-cell"> </td>
       <td class="hidden rounded-br-lg border-b-2 border-e-2 border-b-accent border-e-accent md:table-cell">
-        <div class="circle-component circle-upper-right border-accent"></div>
+        <div class="circle-component bg-accent circle-upper-right border-accent"></div>
       </td>
       <td rowspan="2"> {% assign cloudband = positions | where: "id", "cloudband" | first %} {% include position.html position=cloudband %} </td>
     </tr>
@@ -89,10 +89,10 @@
 
     <tr class="relative">
       <td class="table-cell border-s-2 border-s-primary md:hidden">
-        <div class="circle-component circle-upper-left border-primary"></div>
+        <div class="circle-component bg-primary circle-upper-left border-primary"></div>
       </td>
       <td class="hidden rounded-br-lg border-b-2 border-s-2 border-e-2 border-t-[1rem] border-b-secondary border-s-primary border-e-secondary border-t-primary-low-contrast md:table-cell">
-        <div class="circle-component circle-upper-left border-primary"></div>
+        <div class="circle-component bg-primary circle-upper-left border-primary"></div>
       </td>
       <td class="hidden border-t-[1rem] border-t-primary-low-contrast md:table-cell"> </td>
       <td rowspan="2"> {% assign silid-aralan = positions | where: "id", "silid-aralan" | first %} {% include position.html position=silid-aralan %} </td>
@@ -108,10 +108,10 @@
 
     <tr class="relative">
       <td class="table-cell border-s-2 border-s-primary md:hidden">
-        <div class="circle-component circle-bottom-left border-primary"></div>
+        <div class="circle-component bg-primary circle-bottom-left border-primary"></div>
       </td>
       <td class="hidden border-b-[1rem] border-s-2 border-b-primary-low-contrast border-s-primary md:table-cell">
-        <div class="circle-component circle-bottom-left border-primary"></div>
+        <div class="circle-component bg-primary circle-bottom-left border-primary"></div>
       </td>
       <td class="hidden border-b-[1rem] border-b-primary-low-contrast md:table-cell"> </td>
       <td>
