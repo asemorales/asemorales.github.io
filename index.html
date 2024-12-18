@@ -5,35 +5,39 @@ layout: default
 {% include header.html %}
 <main class="mb-10">
   <div class="px-7 pt-24 md:px-20">
-    {% assign services = site.data.services %}
-    <div id="services" class="scroll-reveal-hidden grid gap-10 sm:grid-cols-2 xl:grid-cols-4">
-      {% for service in services.services %} {% include service.html %} {% endfor %}
+    <div id="intro">
+      <div class="skeleton h-svh w-full">Intro</div>
     </div>
   </div>
-  <div class="px-7 pt-24 md:px-20 flex flex-col xl:flex-row gap-8">
-    <div id="experience" class="basis-1/2">
-      <h3 class="mb-7 text-xsm font-bold tracking-wider text-neutral-300">{{ "Selected Experience" | upcase }}</h3>
-      <div class="positions-wrapper"> {% include positions.html %} </div>
-    </div>
-    <div class="basis-1/2 overflow-hidden">
-      <div id="featured">
-        <h3 class="mb-7 text-xsm font-bold tracking-wider text-neutral-300">{{ "Featured" | upcase }}</h3>
-        {% assign awards = site.data.awards %}
-        <div class="awards-wrapper relative"> {% for award in awards.awards %} {% include award.html %} {% endfor %} </div>
-        {% assign featured = site.data.featured %}
-        <div class="featured-wrapper"> {% for feature in featured.featured %} {% include feature.html %} {% endfor %} </div>
-      </div>
-      {% assign projects = site.data.projects %}
-      <div id="projects">
-        <h3 class="mb-7 text-xsm font-bold tracking-wider text-neutral-300">{{ "Selected Projects" | upcase }}</h3>
-        <div class="projects-wrapper flex snap-x snap-mandatory scroll-pl-2 overflow-scroll overflow-y-visible">
-          {% for project in projects.projects %} {% include project.html %} {% endfor %}
-        </div>
-      </div>
+  <div class="px-7 pt-24 md:px-20">
+    <div id="bento">
+      <div class="skeleton h-96 w-full">Bento</div>
     </div>
   </div>
-  <div class="px-7 py-24 md:px-20">
-    {% include call-to-action.html %}
+  <div class="px-7 pt-24 md:px-20">
+    <div id="case-studies">
+      <div class="skeleton h-72 w-full">Case Studies</div>
+    </div>
+  </div>
+  <div class="px-7 pt-24 md:px-20">
+    <div id="process">
+      <div class="skeleton h-96 w-full">Process</div>
+    </div>
+  </div>
+  <div class="px-7 pt-24 md:px-20">
+    <div id="faqs">
+      <div class="skeleton h-64 w-full">FAQs</div>
+    </div>
+  </div>
+  <div class="px-7 pt-24 md:px-20">
+    <div id="philosophy">
+      <div class="skeleton h-64 w-full">Philosophy</div>
+    </div>
+  </div>
+  <div class="px-7 pt-24 md:px-20">
+    <div id="contact">
+      <div class="skeleton h-48 w-full">Contact</div>
+    </div>
   </div>
 </main>
 {% include footer.html %}
