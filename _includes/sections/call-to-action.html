@@ -1,17 +1,13 @@
 <div id="call-to-action" class="flex items-center rounded-xl min-h-svh">
   <div class="py-36 sm:px-8">
-    <h1 class="mb-8 block text-3xl font-medium text-base-content sm:text-5xl">Create your next idea with me</h1>
-    <div class="mb-14 text-sm text-neutral-200 sm:text-lg">
-      <p class="mb-4">For freelance projects, I provide sliding scale pricing based on your specific needs and scope of requests.</p>
-      <p>From a charity or open source project? I'm open to volunteering where possible. :)</p>
-    </div>
-    <div class="mb-4 flex">
+    <h1 class="mb-11 block text-3xl font-medium text-base-content sm:text-5xl">Create your next idea with me</h1>
+    <div class="mb-8 flex">
       <div class="group relative">
         <a
           href="mailto:{{ site.email }}"
           target="_blank"
           rel="license noopener noreferrer"
-          class="relative inline-block cursor-pointer rounded-full bg-btn-action-outline p-0.5 leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
+          class="relative inline-block cursor-pointer rounded-full theme-gradient p-0.5 leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
           <span
             class="theme-gradient group-hover:animate-gradient absolute inset-0 rounded-full p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"></span>
           <span class="relative block rounded-full bg-btn-action px-6 py-3">
@@ -23,9 +19,9 @@
         </a>
       </div>
     </div>
-    <div class="mb-14 flex space-x-3">
+    <div class="mb-14 flex"> {% include components/status.html %} </div>
+    <div class="flex space-x-3">
       {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}
     </div>
-    <div class="flex"> {% include components/status.html %} </div>
   </div>
 </div>
