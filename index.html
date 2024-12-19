@@ -2,11 +2,11 @@
 layout: default
 ---
 
-{% include header.html %}
+{% include sections/hero.html %}
 <main class="mb-10">
   <div class="px-7 pt-24 md:px-20">
-    <div id="intro">
-      <div class="skeleton h-svh w-full">Intro</div>
+    <div id="about">
+      {% include sections/about.html %}
     </div>
   </div>
   <div class="px-7 pt-24 md:px-20">
@@ -16,28 +16,28 @@ layout: default
   </div>
   <div class="px-7 pt-24 md:px-20">
     <div id="case-studies">
-      <div class="skeleton h-72 w-full">Case Studies</div>
+      {% include sections/case-studies.html %}
     </div>
   </div>
   <div class="px-7 pt-24 md:px-20">
     <div id="process">
-      <div class="skeleton h-96 w-full">Process</div>
+      {% include sections/timeline.html %}
     </div>
   </div>
   <div class="px-7 pt-24 md:px-20">
     <div id="faqs">
-      <div class="skeleton h-64 w-full">FAQs</div>
+      {% include sections/faqs.html %}
     </div>
   </div>
   <div class="px-7 pt-24 md:px-20">
     <div id="philosophy">
-      <div class="skeleton h-64 w-full">Philosophy</div>
+      {% include sections/philosophy.html %}
     </div>
   </div>
   <div class="px-7 pt-24 md:px-20">
     <div id="contact">
-      <div class="skeleton h-48 w-full">Contact</div>
+      {% include sections/call-to-action.html %}
     </div>
   </div>
 </main>
-{% include footer.html %}
+{% include sections/footer.html %}
