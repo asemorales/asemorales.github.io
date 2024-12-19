@@ -2,42 +2,46 @@
 layout: default
 ---
 
-{% include sections/hero.html %}
-<main class="mb-10">
-  <div class="px-7 pt-24 md:px-20">
-    <div id="about">
-      {% include sections/about.html %}
+{% include components/navigation.html %}
+<div
+     class="mx-auto max-w-screen-2xl divide-y-2 divide-base-200 selection:bg-primary-low-contrast selection:text-neutral-100">
+  {% include sections/hero.html %}
+  <main class="mb-10">
+    <div class="px-7 pt-24 md:px-20">
+      <div id="about">
+        {% include sections/about.html %}
+      </div>
     </div>
-  </div>
-  <div class="px-7 pt-24 md:px-20">
-    <div id="bento">
-      <div class="skeleton h-96 w-full">Bento</div>
+    <div class="px-7 pt-24 md:px-20">
+      <div id="bento">
+        <div class="skeleton h-96 w-full">Bento</div>
+      </div>
     </div>
-  </div>
-  <div class="px-7 pt-24 md:px-20">
-    <div id="case-studies">
-      {% include sections/case-studies.html %}
+    <div class="px-7 pt-24 md:px-20">
+      <div id="case-studies">
+        {% include sections/case-studies.html %}
+      </div>
     </div>
-  </div>
-  <div class="px-7 pt-24 md:px-20">
-    <div id="process">
-      {% include sections/timeline.html %}
+    <div class="px-7 pt-24 md:px-20">
+      <div id="process">
+        {% include sections/timeline.html %}
+      </div>
     </div>
-  </div>
-  <div class="px-7 pt-24 md:px-20">
-    <div id="faqs">
-      {% include sections/faqs.html %}
+    <div class="px-7 pt-24 md:px-20">
+      <div id="faqs">
+        {% include sections/faqs.html %}
+      </div>
     </div>
-  </div>
-  <div class="px-7 pt-24 md:px-20">
-    <div id="philosophy">
-      {% include sections/philosophy.html %}
+    <div class="px-7 pt-24 md:px-20">
+      <div id="philosophy">
+        {% include sections/philosophy.html %}
+      </div>
     </div>
-  </div>
-  <div class="px-7 pt-24 md:px-20">
-    <div id="contact">
-      {% include sections/call-to-action.html %}
+    <div class="px-7 pt-24 md:px-20">
+      <div id="contact">
+        {% include sections/call-to-action.html %}
+      </div>
     </div>
-  </div>
-</main>
-{% include sections/footer.html %}
+  </main>
+  {% include sections/footer.html %}
+</div>

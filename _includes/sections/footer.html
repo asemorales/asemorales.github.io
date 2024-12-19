@@ -28,7 +28,7 @@
         {{ footer.additional }}
       </p>
       <div class="mb-7 flex space-x-3">
-        {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include social-icon.html %} {% endfor %}
+        {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}
       </div>
     </div>
   </div>
