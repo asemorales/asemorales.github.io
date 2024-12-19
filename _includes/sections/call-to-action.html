@@ -5,7 +5,7 @@
       <p class="mb-4">For freelance projects, I provide sliding scale pricing based on your specific needs and scope of requests.</p>
       <p>From a charity or open source project? I'm open to volunteering where possible. :)</p>
     </div>
-    <div class="mb-6 flex">
+    <div class="mb-4 flex">
       <div class="group relative">
         <a
           href="mailto:{{ site.email }}"
@@ -22,6 +22,9 @@
           </span>
         </a>
       </div>
+    </div>
+    <div class="mb-14 flex space-x-3">
+      {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}
     </div>
     <div class="flex"> {% include components/status.html %} </div>
   </div>
