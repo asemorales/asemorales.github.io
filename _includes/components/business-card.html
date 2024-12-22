@@ -1,0 +1,16 @@
+<article class="w-full h-full border border-base-200 p-12 flex flex-col justify-end">
+    <div class="text-xl">Logotype</div>
+    <div class="flex flex-row divide-x divide-base-200 items-end">
+        <div class="basis-1/2 pt-20">
+            <h3 class="font-semibold text-2xl mb-5">Ase Morales</h3>
+            <p class="text-neutral-300">Full-stack Developer &<br>Backend Software Engineer</p>
+        </div>
+        <div class="basis-1/2 ps-7">
+            <p class="mb-3">asemorales.tech@gmail.com</p>
+            <div class="flex space-x-3">
+                {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include
+                components/social-icon.html %} {% endfor %}
+            </div>
+        </div>
+    </div>
+</article>
