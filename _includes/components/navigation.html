@@ -1,6 +1,6 @@
 <div class="navbar sticky top-0 z-50 border-none bg-base-100/75 backdrop-blur-sm mx-auto max-w-screen-2xl">
   <div class="navbar-start">
-    <div class="dropdown">
+    <div id="mobile-menu" class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,25 +29,25 @@
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl">Logotype</a>
-  </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul class="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
+    <a id="logo" class="btn btn-ghost text-xl">Logotype</a>
+    <div id="desktop-menu" class="hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a>Item 1</a></li>
+        <li>
+          <details>
+            <summary>Parent</summary>
+            <ul class="p-2">
+              <li><a>Submenu 1</a></li>
+              <li><a>Submenu 2</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a>Item 3</a></li>
+      </ul>
+    </div>
   </div>
   <div class="navbar-end">
-    <div class="xl:tooltip xl:tooltip-bottom" data-tip="Toggle light/dark mode">
+    <div id="theme-toggle" class="xl:tooltip xl:tooltip-bottom" data-tip="Toggle light/dark mode">
       <button class="btn btn-ghost btn-circle">
         <svg
           xmlns="http://www.w3.org/2000/svg"
