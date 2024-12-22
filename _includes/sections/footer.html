@@ -4,7 +4,6 @@
     <div class="justify-between gap-10 pb-8 xl:flex xl:flex-row">
       <div class="mb-10 basis-1/5">
         <img src="assets/images/footer.png" alt="Ase & Polar" class="mb-2 size-32 rounded-full" />
-        <p class="mb-5 text-base font-medium text-neutral-100">{{ footer.created-by }}</p>
       </div>
       <div class="mb-10 basis-2/5">
         <h3 class="mb-2 text-xsm font-bold tracking-wider text-neutral-300">{{ "Attribution" | upcase }}</h3>
@@ -17,15 +16,7 @@
     </div>
     <div class="justify-between pt-5 xl:flex xl:flex-row">
       <p class="inline-block pb-5 text-xsm text-neutral-300">
-        © {{ footer.year }}
-        <a
-          href="mailto:{{ site.email }}"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-neutral-300 underline underline-offset-4 hover:text-link-hover">
-          {{ footer.name }}</a
-        >
-        {{ footer.additional }}
+        © {{ footer.year }} {{ footer.name }}. {{ footer.license }}.
       </p>
       <div class="mb-7 flex space-x-3">
         {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}

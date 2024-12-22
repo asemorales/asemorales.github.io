@@ -1,6 +1,5 @@
-created-by: Created with <span class="text-transparent bg-clip-text theme-gradient"><3</span> <br> by me & my bear, Polar
 attribution:
-  Built with Jekyll + Tailwind CSS. <br> <br> Icons by <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300"> Remix Icon</a>, <a href="https://simpleicons.org/" target="_blank"
+  Built with Jekyll & Tailwind CSS. <br> <br> Icons by <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300"> Remix Icon</a>, <a href="https://simpleicons.org/" target="_blank"
   rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300"> Simple
   Icons</a>,&nbsp;and <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer"
   class="underline underline-offset-4 hover:text-link-hover text-neutral-300"> Cuputo</a> from the Noun Project. All technology logos are trademarks
@@ -19,7 +18,5 @@ copyright:
   © 2024 <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer" class="underline underline-offset-4
   hover:text-link-hover text-neutral-300"> Irish Danielle "Ase" Morales</a>
 year: 2024
-name: Irish Danielle "Ase" Morales
-additional:
-  under <a href="https://opensource.org/license/agpl-v3" target="_blank" rel="license noopener noreferrer"
-  class="underline underline-offset-4 hover:text-link-hover text-neutral-300"> AGPL 3.0 </a>
+name: Ase Morales
+license: AGPL 3.0
