@@ -1,21 +1,27 @@
-<div class="flex flex-col">
-  <h2 class="px-7 font-semibold text-3xl lg:max-w-screen-md text-pretty">Create your next idea with me</h2>
-  <div class="w-full md:-me-7 max-w-screen-md self-end">
-    {% include components/business-card.html %}
-  </div>
-  <div class="px-7 lg:max-w-screen-sm">
-    <div class="avatar indicator mb-10">
-        <span class="indicator-item badge badge-secondary">typing…</span>
-        <div class="size-20 rounded-full">
-            <img alt="Tailwind CSS examples"
-                 src="https://placehold.co/100x100/000000/FFF" />
-        </div>
+<div class="relative">
+  <div class="flex flex-col">
+    <h2 class="px-7 font-semibold text-3xl lg:max-w-screen-md text-pretty">Create your next idea with me</h2>
+    <div class="w-full md:-me-7 max-w-screen-md self-end">
+      {% include components/business-card.html %}
     </div>
-    <div class="leading-loose">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <br>
-        <br>
-        Irish Danielle "Ase" Morales
+    <div class="px-7 lg:max-w-screen-sm">
+      <div class="avatar indicator mb-10">
+          <span class="indicator-item badge badge-secondary">typing…</span>
+          <div class="size-20 rounded-full">
+              <img alt="Tailwind CSS examples"
+                   src="https://placehold.co/100x100/000000/FFF" />
+          </div>
+      </div>
+      <div class="leading-loose">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <br>
+          <br>
+          Irish Danielle "Ase" Morales
+      </div>
     </div>
   </div>
+  <div id="call-to-action-deco" aria-hidden="true" class="overflow-hidden">
+    {% include svg/grid.svg classes="absolute -z-50 top-0 left-0 pointer-events-none" %}
+    {% include svg/aurora.svg classes="overflow-clip absolute -z-50 -top-96 -left-40 pointer-events-none mix-blend-hard-light" %}
+</div>
 </div>
