@@ -10,6 +10,11 @@
     <div>
         <div class="card bg-base-100 rounded-none w-full h-full min-h-96 border-2 border-base-300">
             <div class="card-body">
+                <div class="justify-center flex gap-5 pt-16 pb-6">
+                    <i class="ri-code-fill text-4xl text-neutral-300"></i>
+                    <i class="ri-flashlight-fill text-4xl text-neutral-300"></i>
+                    <i class="ri-lock-2-fill text-4xl text-neutral-300"></i>
+                </div>
                 <h2 class="font-semibold text-2xl mb-3">Scalable, fast, secure systems</h2>
                 <p><b>Backend-first developer</b> with a passion for system design, security, & optimization</p>
             </div>
@@ -18,6 +23,12 @@
     <div>
         <div class="card bg-base-100 rounded-none w-full h-full min-h-96 border-2 border-base-300">
             <div class="card-body">
+                <div class="mockup-browser bg-base-300 m-4">
+                    <div class="mockup-browser-toolbar">
+                        <div class="input"></div>
+                    </div>
+                    <div class="bg-base-200 flex justify-center px-4 py-16">Hello!</div>
+                </div>
                 <h2 class="font-semibold text-2xl mb-3">Sleek, responsive sites</h2>
                 <p>Designing for speed, cross-browser support, accessibility, & SEO</p>
             </div>
@@ -32,10 +43,16 @@
         </div>
     </div>
     <div class="lg:col-start-3">
-        <div class="card bg-base-100 rounded-none w-full h-full min-h-96 border-2 border-base-300">
-            <div class="card-body">
-                <h2 class="font-semibold text-2xl mb-3">Google Code-in<br>Grand Prize Winner</h2>
-                <p>Among 3,124 contestants from 77 countries. 1st winner in my country in 8 years since launch</p>
+        <div class="group theme-gradient hover:animate-gradient rounded-md p-0.5 shadow-card-shadow shadow-lg relative">
+            <i class="ri-shining-fill opacity-0 group-hover:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute top-0 z-10 size-10 translate-x-[15px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
+            <i class="ri-shining-fill opacity-0 group-hover:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute top-0 z-10 size-10 translate-y-[25px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
+            <i class="ri-shining-fill opacity-0 group-hover:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute bottom-0 right-0 z-10 size-10 translate-y-[40px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>          
+            <div class="card bg-base-100 rounded-none w-full h-full min-h-96 border-2 border-base-300">
+                <div class="card-body">
+                    {% include svg/award.svg classes="fill-award-icon size-32 me-2 h-full" %}
+                    <h2 class="font-semibold text-2xl mb-3">Google Code-in<br>Grand Prize Winner</h2>
+                    <p>Among 3,124 contestants from 77 countries. 1st winner in my country in 8 years since launch</p>
+                </div>
             </div>
         </div>
     </div>
