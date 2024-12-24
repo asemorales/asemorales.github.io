@@ -11,12 +11,10 @@
             href="mailto:{{ site.email }}"
             target="_blank"
             rel="license noopener noreferrer"
-            class="relative inline-block cursor-pointer rounded-xl theme-gradient p-px font-semibold leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
-            <span
-              class="theme-gradient group-hover:animate-gradient absolute inset-0 rounded-xl p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 motion-reduce:transition-none"></span>
-            <span class="relative block rounded-xl bg-btn-action px-6 py-3">
+            class="relative inline-block cursor-pointer rounded-lg theme-gradient group-hover:animate-gradient p-px leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
+            <span class="relative block rounded-lg bg-btn-action px-6 py-3">
               <div class="relative flex items-center space-x-2">
-                <span class="transition-all duration-500 group-hover:translate-x-1">
+                <span class="transition-transform duration-500 group-hover:translate-x-1 font-semibold text-sm">
                   Create <span class="hidden md:inline">your next idea</span> with me
                 </span>
                 <i class="ri-arrow-right-s-line transition-transform duration-500 group-hover:translate-x-1"></i>
@@ -24,7 +22,7 @@
             </span>
           </a>
         </div>
-        <button class="btn">Download résumé</button>
+        <button class="btn btn-outline bg-base-100 px-6 py-4">Download résumé</button>
       </div>
       <div class="mb-20 flex space-x-3">
         {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}
