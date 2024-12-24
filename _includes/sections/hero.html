@@ -1,9 +1,9 @@
-{% assign header = site.data.header %}
-<header id="header" class="flex relative min-h-svh justify-start px-7 py-20 md:px-20 md:py-36">
+{% assign hero = site.data.hero %}
+<header id="hero" class="flex relative min-h-svh justify-start px-7 py-20 md:px-20 md:py-36">
   <div class="flex flex-col">
     <div class="grow">
-      <h1 class="mb-3 block text-4xl font-semibold text-base-content sm:mb-5 sm:text-6xl">{{ header.title }}</h1>
-      <h2 class="mb-12 text-2xl text-neutral-200 sm:text-3xl max-w-screen-md text-pretty">{{ header.subtitle }}</h2>
+      <h1 class="mb-3 block text-4xl font-semibold text-base-content sm:mb-5 sm:text-6xl">{{ hero.title }}</h1>
+      <h2 class="mb-12 text-2xl text-neutral-200 sm:text-3xl max-w-screen-md text-pretty">{{ hero.subtitle }}</h2>
       <div class="mb-3 flex flex-wrap items-center justify-start sm:mb-5 gap-3">
         <div id="cta-button" class="group relative">
           <a
@@ -38,9 +38,9 @@
       </div>
     </div>
   </div>
-  <div id="header-deco" aria-hidden="true" class="w-full h-full absolute top-0 right-0 flex justify-end content-end overflow-hidden pointer-events-none">
+  <div id="hero-deco" aria-hidden="true" class="w-full h-full absolute top-0 right-0 flex justify-end content-end overflow-hidden pointer-events-none">
     {% include svg/grid.svg classes="absolute -z-50 bottom-0 right-0" %}
     {% include svg/aurora.svg classes="absolute -z-30 -top-96 -right-20" %}
-    {% include svg/portfolio-logo-header.svg classes="absolute -z-40 bottom-0 -right-20 w-[970px] h-[1px] overflow-visible mb-[640px]" %}
+    {% include svg/logo-hero.svg classes="absolute -z-40 bottom-0 -right-20 w-[970px] h-[1px] overflow-visible mb-[640px]" %}
   </div>
 </header>
