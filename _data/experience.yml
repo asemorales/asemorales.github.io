@@ -3,7 +3,6 @@ professional:
     name: Full-stack Developer
     organization: Hackazouk
     url: https://hackazouk.com
-    text-color-class: text-primary-high-contrast
     date: Jun 2023 - Dec 2024
     description:
       - text:
@@ -24,7 +23,6 @@ professional:
     name: Backend Developer (Volunteer)
     organization: Silid Aralan
     url: https://facebook.com/silidaralaninc/
-    text-color-class: text-primary-high-contrast
     date: Jan - Jun 2023
     description:
       - text: Sole developer of a dashboard to track metrics and generate non-profit reports
@@ -38,7 +36,6 @@ freelance:
     name: Mobile Developer (Freelance)
     organization: Ateneo Laboratory for the Learning Sciences
     url: https://alls.ateneo.edu/
-    text-color-class: text-secondary-high-contrast
     date: Mar 2023 - Dec 2024
     description:
       - text: Solely designed, developed, & deployed a web analytics dashboard and cross-platform mobile app
@@ -49,7 +46,6 @@ freelance:
     name: Full-stack Developer (Freelance)
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
-    text-color-class: text-accent-high-contrast
     date: Jun 2023 - Nov 2024
     description:
       - text: Executed a system restructure involving API rewrites, unit tests, and UX overhaul
