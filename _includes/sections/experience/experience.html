@@ -1,0 +1,21 @@
+{% assign experience = site.data.experience %}
+<div class="relative">
+    <div class="flex flex-col xl:flex-row w-full gap-7 px-7 pt-24 md:px-20">
+        <div class="max-w-screen-sm">
+            <h2 class="font-semibold text-2xl mb-7">Professional Experience</h2>
+            {% for position in experience.professional %}
+              {% include sections/experience/position.html %}
+            {% endfor %}
+        </div>
+        <div class="max-w-screen-sm pt-0 xl:pt-40">
+            <h2 class="font-semibold text-2xl mb-7">Freelance Experience</h2>
+            {% for position in experience.freelance %}
+              {% include sections/experience/position.html %}
+            {% endfor %}
+        </div>
+    </div>
+    <div id="experience-deco" aria-hidden="true" class="w-full h-full absolute top-0 right-0 flex overflow-hidden pointer-events-none">
+        {% include svg/grid.svg classes="absolute -z-50 top-0 right-0" %}
+        {% include svg/aurora.svg classes="absolute -z-50 -top-96 -right-20" %}
+    </div>
+</div>

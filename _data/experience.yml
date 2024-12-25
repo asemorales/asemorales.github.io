@@ -1,15 +1,4 @@
-positions:
-  - id: alls
-    name: Mobile Developer (Freelance)
-    organization: Ateneo Laboratory for the Learning Sciences
-    url: https://alls.ateneo.edu/
-    text-color-class: text-secondary-high-contrast
-    date: Mar 2023 - Dec 2024
-    description:
-      - text: Solely designed, developed, & deployed a web analytics dashboard and cross-platform mobile app
-    tools:
-      - name: Flutter
-      - name: Firebase
+professional:
   - id: hkz
     name: Full-stack Developer
     organization: Hackazouk
@@ -31,6 +20,31 @@ positions:
       - name: jQuery
       - name: AJAX
       - name: MySQL
+  - id: silid-aralan
+    name: Backend Developer (Volunteer)
+    organization: Silid Aralan
+    url: https://facebook.com/silidaralaninc/
+    text-color-class: text-primary-high-contrast
+    date: Jan - Jun 2023
+    description:
+      - text: Sole developer of a dashboard to track metrics and generate non-profit reports
+    tools:
+      - name: Django
+      - name: CSS
+      - name: JavaScript
+      - name: MySQL
+freelance:
+  - id: alls
+    name: Mobile Developer (Freelance)
+    organization: Ateneo Laboratory for the Learning Sciences
+    url: https://alls.ateneo.edu/
+    text-color-class: text-secondary-high-contrast
+    date: Mar 2023 - Dec 2024
+    description:
+      - text: Solely designed, developed, & deployed a web analytics dashboard and cross-platform mobile app
+    tools:
+      - name: Flutter
+      - name: Firebase
   - id: cloudband
     name: Full-stack Developer (Freelance)
     organization: Cloudband Solutions
@@ -46,16 +60,4 @@ positions:
       - name: Bootstrap
       - name: SASS/SCSS
       - name: MySQL
-  - id: silid-aralan
-    name: Backend Developer (Volunteer)
-    organization: Silid Aralan
-    url: https://facebook.com/silidaralaninc/
-    text-color-class: text-primary-high-contrast
-    date: Jan - Jun 2023
-    description:
-      - text: Sole developer of a dashboard to track metrics and generate non-profit reports
-    tools:
-      - name: Django
-      - name: CSS
-      - name: JavaScript
-      - name: MySQL
+

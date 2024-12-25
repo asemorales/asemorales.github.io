@@ -1,0 +1,35 @@
+<div class="card bg-base-100 border border-base-200 mb-5">
+    <div class="card-body">
+      <h2 class="flex flex-col text-base font-medium text-neutral-100">
+        <span>{{ position.name }}</span>
+        <div class="inline-block">
+          <span class="group">
+            <a
+              href="{{ position.url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="{{ position.text-color-class }} ease-in-out">
+              {{ position.organization }}
+              <i
+                class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition-transform ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
+            </a>
+          </span>
+      </div>
+      </h2>
+      <h6 class="flex flex-wrap text-xsm font-bold tracking-wider text-neutral-300">
+        <span class="pe-2">{{ position.date | upcase }}</span>
+      </h6>
+      <ul class="my-6 block list-inside list-disc text-sm text-neutral-200">
+        {% for item in position.description %}
+        <li class="mb-3 md:mb-1 text-pretty">{{ item.text }}</li>
+        {% endfor %}
+      </ul>
+      <div class="tools text-xsm font-bold tracking-wider text-neutral-300">
+        <ul class="flex list-inside flex-wrap">
+          {% for tool in position.tools %}
+          <li class="me-3 [&:not(:first-child)]:list-disc"> {{ tool.name | upcase }} {% if tool.subtype %} ({{ tool.subtype | upcase }}) {% endif %} </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+</div>
