@@ -1,3 +1,4 @@
+{% assign about = site.data.about %}
 <div class="hero min-h-svh relative">
     <div class="hero-content text-center px-7">
         <div class="max-w-lg">
@@ -6,10 +7,8 @@
                 <i class="ri-flashlight-fill"></i>
                 <i class="ri-lock-2-fill"></i>
             </h2>
-            <h2 class="text-3xl md:text-5xl font-semibold text-pretty mb-7">Scalable, fast, secure web systems</h2>
-            <p class="text-pretty leading-loose">
-                I develop web apps with a passion for systems thinking, making technical choices based on business value and long-term impact on performance, maintainability, and security.
-            </p>
+            <h2 class="text-3xl md:text-5xl font-semibold text-pretty mb-7">{{ about.title }}</h2>
+            <p class="text-pretty leading-loose">{{ about.text }}</p>
         </div>
     </div>
     <div id="hero-deco" aria-hidden="true" class="w-full h-full absolute top-0 right-0 overflow-hidden pointer-events-none">
