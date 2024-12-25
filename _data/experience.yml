@@ -33,7 +33,7 @@ professional:
       - name: MySQL
 freelance:
   - id: alls
-    name: Mobile Developer (Freelance)
+    name: Mobile Developer
     organization: Ateneo Laboratory for the Learning Sciences
     url: https://alls.ateneo.edu/
     date: Mar 2023 - Dec 2024
@@ -43,7 +43,7 @@ freelance:
       - name: Flutter
       - name: Firebase
   - id: cloudband
-    name: Full-stack Developer (Freelance)
+    name: Full-stack Developer
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
     date: Jun 2023 - Nov 2024
