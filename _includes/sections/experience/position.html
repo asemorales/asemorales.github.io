@@ -3,7 +3,7 @@
    rel="noopener noreferrer"
    class="group block card bg-base-100 border border-base-200 hover:border-neutral-100 mb-5">
   <div class="card-body">
-    <h2 class="flex flex-col text-base font-medium text-neutral-100">
+    <h3 class="flex flex-col text-base font-medium text-neutral-100">
       <span>{{ position.name }}</span>
       <div class="inline-block">
         <p>
@@ -12,10 +12,10 @@
              class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition-transform ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
         </p>
       </div>
-    </h2>
-    <h6 class="flex flex-wrap text-xsm font-bold tracking-wider text-neutral-300">
+    </h3>
+    <p class="flex flex-wrap text-xsm font-bold tracking-wider text-neutral-300">
       <span class="pe-2">{{ position.date | upcase }}</span>
-    </h6>
+    </p>
     <ul class="my-6 block list-inside list-disc text-sm text-neutral-200">
       {% for item in position.description %}
       <li class="mb-3 md:mb-1 text-pretty">{{ item.text }}</li>
