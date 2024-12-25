@@ -1,17 +1,22 @@
 {% assign experience = site.data.experience %}
 <div class="relative">
-    <div class="max-w-screen-xl flex flex-col lg:flex-row w-full gap-7 px-7 pt-24 md:px-20">
-        <div class="basis-1/2">
-            <h2 class="font-semibold text-2xl mb-7">Professional Experience</h2>
-            {% for position in experience.professional %}
-              {% include sections/experience/position.html %}
-            {% endfor %}
+    <div class="max-w-screen-xl px-7 pt-24 md:px-20">
+        <div class="flex flex-col lg:flex-row w-full gap-7 mb-7">
+            <div class="basis-1/2">
+                <h2 class="font-semibold text-2xl mb-7">Professional Experience</h2>
+                {% for position in experience.professional %}
+                  {% include sections/experience/position.html %}
+                {% endfor %}
+            </div>
+            <div class="basis-1/2 pt-0 lg:pt-40">
+                <h2 class="font-semibold text-2xl mb-7">Freelance Experience</h2>
+                {% for position in experience.freelance %}
+                  {% include sections/experience/position.html %}
+                {% endfor %}
+            </div>
         </div>
-        <div class="basis-1/2 pt-0 lg:pt-40">
-            <h2 class="font-semibold text-2xl mb-7">Freelance Experience</h2>
-            {% for position in experience.freelance %}
-              {% include sections/experience/position.html %}
-            {% endfor %}
+        <div class="text-center">
+            <a href="../../assets/attachments/Ase Morales - Full-stack Web Developer.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="ri-download-2-line"></i>Download résumé</a>
         </div>
     </div>
     <div id="experience-deco" aria-hidden="true" class="w-full h-full absolute top-0 right-0 flex overflow-hidden pointer-events-none">
