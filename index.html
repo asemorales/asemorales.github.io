@@ -6,9 +6,11 @@ layout: default
 <div class="mx-auto max-w-screen-2xl selection:bg-primary-low-contrast selection:text-neutral-100">
   {% include sections/hero/hero.html %}
   <main class="mb-40">
-    <section id="about">
-      {% include sections/about.html %}
-    </section>
+    <div class="px-7 md:px-0">
+      <section id="about">
+        {% include sections/about.html %}
+      </section>
+    </div>
     <div class="px-7 pt-24 md:px-20">
       <section id="experience">
         {% include sections/experience.html %}
