@@ -1,13 +1,13 @@
 {% assign personal = site.data.personal %}
-<article class="rounded-none md:rounded-xl bg-base-100/50 backdrop-blur-sm border border-base-200 p-12 sm:p-20 flex flex-col justify-end -z-10">
-    <div class="mt-32 text-4xl">{% include svg/logo.svg classes="fill-neutral-200 h-20 w-auto" %}</div>
-    <div class="flex flex-col sm:flex-row sm:divide-x divide-base-300 sm:items-end mt-12 gap-5">
+<article class="rounded-none md:rounded-xl min-h-[500px] bg-base-100/50 backdrop-blur-sm border border-base-200 p-12 sm:p-20 flex flex-col justify-center -z-10">
+    <div class="text-4xl">{% include svg/logo.svg classes="fill-neutral-200 h-16 w-auto" %}</div>
+    <div class="flex flex-col sm:flex-row sm:divide-x divide-base-300 sm:items-end mt-12 gap-7">
         <div class="basis-1/2">
             <h3 class="font-semibold text-2xl mb-3">{{ personal.fullname }}</h3>
-            <p class="text-neutral-300 text-pretty">{{ personal.position }}</p>
+            <p class="text-neutral-200 text-pretty">{{ personal.position }}</p>
         </div>
         <div class="basis-1/2 sm:ps-7">
-            <p class="mb-3">{{ site.email }}</p>
+            <p class="text-neutral-200 mb-3">{{ site.email }}</p>
             <div class="flex space-x-3">
                 {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include
                 components/social-icon.html %} {% endfor %}
