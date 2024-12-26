@@ -1,3 +1,4 @@
+{% assign call-to-action = site.data.call-to-action %}
 <div class="relative md:px-20">
   <div class="flex flex-col max-w-screen-lg">
     <h2 class="pt-20 mb-7 px-7 md:px-0 font-semibold text-3xl md:text-5xl text-pretty z-10">Create your next
@@ -7,22 +8,14 @@
     </div>
     <div class="pt-20 px-7 md:px-0 lg:max-w-screen-sm">
       <div class="avatar indicator mb-10">
-        <span class="indicator-item badge">Hello!</span>
+        <span class="indicator-item badge">{{ call-to-action.greeting }}</span>
         <div class="size-20 rounded-full">
           <img alt="A picture of me holding a stuffed bear"
                src="assets/images/me.png" />
         </div>
       </div>
-      <div class="leading-loose">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-        <br>
-        <br>
-        Irish Danielle "Ase" Morales
-      </div>
+      <p class="leading-loose mb-7">{{ call-to-action.message }}</p>
+      <p>{{ call-to-action.fullname }}</p>
     </div>
   </div>
   <div id="call-to-action-deco"
