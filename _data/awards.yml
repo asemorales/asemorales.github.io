@@ -4,8 +4,8 @@ awards:
     svg: globe
     url: https://codein.withgoogle.com/archive/
     description: Among 3,124 contestants from 77 countries.<br>1st Filipino winner in 8 years since launch.
-  - name: Program Awardee of BS Computer Science
-    competition: Ateneo de Manila University, Batch 2024
+  - name: Program Awardee of Computer Science
+    competition: Ateneo de Manila University
     svg: graduation-cap
-    url: bdla
+    url: https://www.ateneo.edu/document/memorandum/2024/06/05/program-awardees-class-2024-he-memoy240
     description: Awarded to 1 graduate based on academics, extracurriculars, and votes.<br>Top Philippine university in World University Rankings 2024.
