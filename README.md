@@ -41,7 +41,7 @@ Since Jekyll requires some additional setup to work with Tailwind CSS, this site
 
 Assets used:
 
-- Award by <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer">Cuputo</a> from
+- Award icons by <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer">Cuputo</a> from
   <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
 - Technology logo icons by <a href="https://simpleicons.org" target="_blank" rel="noopener noreferrer">Simple Icons</a> (Varying licenses). All logos
   are trademarks of their respective owners and used solely to demonstrate tech stack expertise. No affiliation, endorsement, or ownership is implied.
