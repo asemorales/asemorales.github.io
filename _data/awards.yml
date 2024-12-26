@@ -1,9 +1,11 @@
 awards:
   - name: Grand Prize Winner
     competition: Google Code-in 2018
+    svg: globe
     url: https://codein.withgoogle.com/archive/
     description: Among 3,124 contestants from 77 countries.<br>1st Filipino winner in 8 years since launch.
   - name: Program Awardee of BS Computer Science
     competition: Ateneo de Manila University, Batch 2024
+    svg: graduation-cap
     url: bdla
     description: Awarded to 1 graduate based on academics, extracurriculars, and votes.<br>Top Philippine university in World University Rankings 2024.
