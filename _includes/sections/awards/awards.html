@@ -1,4 +1,4 @@
 {% assign awards = site.data.awards %}
-<div class="flex flex-wrap px-7 pt-24 md:px-36 gap-5">
+<div class="flex flex-col 2xl:flex-row w-full items-center min-h-[600px] py-10 md:px-36 gap-5">
     {% for award in awards.awards %} {% include sections/awards/award.html %} {% endfor %}
 </div>
