@@ -1,8 +1,8 @@
 window.onload = function () {
-  setThemeIcon(document.querySelector("html").getAttribute("data-theme"));
+  // setThemeIcon(document.querySelector("html").getAttribute("data-theme"));
   hideSplash();
   initContent();
-  watchTheme();
+  // watchTheme();
 };
 
 window.onscroll = function () {
