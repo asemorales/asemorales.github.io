@@ -18,10 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: ase@create-with-<3 | Ase Morales
+title: Ase Morales
 email: asemorales.tech@gmail.com
-description: >- # this means to ignore newlines until next config
-  Doing data, tech, & art for impact! Full-stack developer doing backend-heavy roles professionally, frontend-heavy projects for freelance, and volunteer design for nonprofits.
+description: Full-stack developer & software engineer building scalable, fast, and secure web apps.
 baseurl: ""
 url: ""
 keywords: "portfolio, freelance, full-stack developer, mobile developer"
