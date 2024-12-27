@@ -41,4 +41,8 @@
   .circle-upper-right {
     @apply top-0 translate-x-[12px] translate-y-[-1px];
   }
+
+  .btn {
+    animation: none;
+  }
 }
