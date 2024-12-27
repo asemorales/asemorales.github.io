@@ -21,16 +21,11 @@
   </head>
 
   <body class="selection:bg-primary-low-contrast selection:text-neutral-100">
-    {% include splash.html %}
-    <div id="content" class="hidden">
-      {{ content }}
-    </div>
+    {{ content }}
   </body>
 
   <noscript>
     <style>
-        #splash {display: none;}
-        #content {display: block;}
         #navigation {background-color: var(--fallback-b1,oklch(var(--b1)/0.75));}
     </style>
   </noscript>

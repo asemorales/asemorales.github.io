@@ -1,7 +1,5 @@
 window.onload = function () {
   // setThemeIcon(document.querySelector("html").getAttribute("data-theme"));
-  hideSplash();
-  initContent();
   // watchTheme();
 };
 
@@ -38,17 +36,4 @@ function watchTheme() {
   };
   const observer = new MutationObserver(mutationCallback);
   observer.observe(document.querySelector("html"), { attributes: true });
-}
-
-function hideSplash() {
-  setTimeout(function(){ 
-    document.getElementById('content').style['display'] = 'block';
-    document.getElementById('splash').style.opacity = 0;
-  }, 1000);
-}
-
-function initContent() {
-  setTimeout(function(){ 
-    document.getElementById('splash').style.display = "none";
-  }, 2000);
 }
