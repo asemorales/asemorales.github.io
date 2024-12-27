@@ -50,7 +50,5 @@ function hideSplash() {
 function initContent() {
   setTimeout(function(){ 
     document.getElementById('splash').style.display = "none";
-    ScrollReveal().reveal('#services');
-    ScrollReveal().reveal('#call-to-action');  
   }, 2000);
 }
