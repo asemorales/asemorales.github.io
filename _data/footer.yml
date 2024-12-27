@@ -11,8 +11,8 @@ attribution:
   underline-offset-4 hover:text-link-hover text-neutral-300">Brittany Chiang</a> and <a href="https://hen-ry.com/" target="_blank" rel="noopener noreferrer" class="underline
   underline-offset-4 hover:text-link-hover text-neutral-300">Henry Ludlam-Steinke</a>.
 licensing:
-  This site is open source! <br> <br> I have made this site open source because I deeply believe in open knowledge and collaboration driving innovation.
-  If you’re using this site's code, please be a cool dude and respect this site's licensing (and consider contributing to open source).
+  This site is open source! <a href="https://github.com/IrishMorales/irishmorales.github.io" target="_blank" rel="noopener noreferrer" class="underline
+  underline-offset-4 hover:text-link-hover text-neutral-300">View source code.</a> <br> <br> If you’re using this site's code for your own site, please be a cool dude by respecting this site's licensing (and consider contributing to open source).
 copyright:
   © 2024 <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer" class="underline underline-offset-4
   hover:text-link-hover text-neutral-300"> Irish Danielle "Ase" Morales</a>
