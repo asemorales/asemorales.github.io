@@ -10,9 +10,12 @@
     </div>
   </div>
   <div class="navbar-end">
-    <button class="btn btn-ghost btn-circle" aria-label="Toggle light/dark mode">
-      <i class="ri-moon-fill text-lg"></i>
-    </button>
+    <div class="lg:tooltip lg:tooltip-left" data-tip="Toggle light/dark mode">
+      <button class="btn btn-ghost btn-circle">
+        <span class="sr-only">Toggle light/dark mode</span>
+        <i class="ri-moon-fill text-lg"></i>
+      </button>
+    </div>
     <div id="mobile-menu" class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
         <i class="ri-menu-line text-lg"></i>
