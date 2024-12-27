@@ -41,18 +41,18 @@ Since Jekyll requires some additional setup to work with Tailwind CSS, this site
 
 Assets used:
 
-- Award icons by <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer">Cuputo</a> from
+- Award icons by <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer">Cuputo</a> from the
   <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
-- Technology logo icons by <a href="https://simpleicons.org" target="_blank" rel="noopener noreferrer">Simple Icons</a> (Varying licenses). All logos
-  are trademarks of their respective owners and used solely to demonstrate tech stack expertise. No affiliation, endorsement, or ownership is implied.
 - All other icons by <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer">Remix Icon</a> (Apache License 2.0)
 
-An homage to several tools & works I love:
+An homage to several works I love:
 
 - <a href="https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night" target="_blank" rel="noopener noreferrer">Tokyo Night</a>
-- <a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer">CSS Tricks</a>
-- <a href="https://www.gitkraken.com/gitlens" target="_blank">GitLens</a>
-- <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer">the works of Brittany Chiang</a>
+- <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a>
+- <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer">Supabase</a>
+- <a href="https://vercel.com/geist/introduction" target="_blank" rel="noopener noreferrer">Geist</a>
+- the works of  <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer">Brittany Chiang</a> and <a href="https://hen-ry.com/" target="_blank" rel="noopener noreferrer">Henry Ludlam-Steinke</a>
+  
 
 ## Licensing
 
