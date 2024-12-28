@@ -1,8 +1,7 @@
 <div align="center">
-    <img src="assets/favicon.ico?" alt="ase@create-with-<3 logo">
-    <h1>ase@create-with-<3</h1>
-    <p>Personal portfolio site designed in Figma & built with Jekyll + Tailwind CSS</p>
-    <p>Live @ <a href="https://irishmorales.github.io">irishmorales.github.io</a></p>
+    <img src="assets/favicon.ico?" alt="Site logo">
+    <h1><a href="https://irishmorales.github.io">irishmorales.github.io</a></p></h1>
+    <p>Personal portfolio site built with Jekyll + Tailwind CSS</p>
 </div>
 
 ## Status
