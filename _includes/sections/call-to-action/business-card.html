@@ -11,7 +11,7 @@
             href="mailto:{{ site.email }}"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-neutral-200 hover:underline hover:underline-offset-4 block mb-1.5">{{ site.email }}</a>
+            class="text-neutral-200 hover:text-neutral-100 hover:underline hover:underline-offset-4 block mb-1.5">{{ site.email }}</a>
             <div class="flex space-x-3">
                 {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include
                 components/social-icon.html %} {% endfor %}
