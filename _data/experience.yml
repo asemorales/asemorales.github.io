@@ -19,29 +19,17 @@ professional:
       - name: jQuery
       - name: AJAX
       - name: MySQL
-  - id: silid-aralan
-    name: Backend Developer (Volunteer)
-    organization: Silid Aralan
-    url: https://facebook.com/silidaralaninc/
-    date: Jan - Jun 2023
-    description:
-      - text: Sole developer of a dashboard to track metrics and generate non-profit reports
-    tools:
-      - name: Django
-      - name: CSS
-      - name: JavaScript
-      - name: MySQL
-freelance:
   - id: alls
-    name: Mobile Developer
+    name: Full-stack Web & Mobile Developer (Contract)
     organization: Ateneo Laboratory for the Learning Sciences
     url: https://alls.ateneo.edu/
-    date: Mar 2023 - Dec 2024
+    date: Jan - Jun 2023
     description:
       - text: Solely designed, developed, & deployed a web analytics dashboard and cross-platform mobile app
     tools:
       - name: Flutter
       - name: Firebase
+others:
   - id: cloudband
     name: Full-stack Developer
     organization: Cloudband Solutions
@@ -56,4 +44,15 @@ freelance:
       - name: Bootstrap
       - name: SASS/SCSS
       - name: MySQL
-
+  - id: silid-aralan
+    name: Backend Developer
+    organization: Silid Aralan
+    url: https://facebook.com/silidaralaninc/
+    date: Jan - Jun 2023
+    description:
+      - text: Sole developer of a dashboard to track metrics and generate non-profit reports
+    tools:
+      - name: Django
+      - name: CSS
+      - name: JavaScript
+      - name: MySQL
