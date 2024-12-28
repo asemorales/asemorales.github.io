@@ -18,10 +18,9 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7dd3fc",endColorstr="#fdba74",GradientType=1);
   }
 
-  .bg-icons {
-    -webkit-mask-image: url("../images/icons.svg");
-    mask-image: url("../images/icons.svg");
-    @apply absolute top-0 -z-50 h-full w-full bg-base-200 bg-contain bg-right bg-no-repeat;
+  .bg-aurora {
+    background-image: url(../images/aurora-dark.png);
+    @apply bg-no-repeat;
   }
 
   /* parent element must have a non-static position (ex. position: relative) for this to work */
