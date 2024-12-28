@@ -64,16 +64,6 @@
 			background-position: 0% 0%;
 		}
 	}
-
-	@keyframes slide-up {
-		0% {
-			transform: translateY(100%);
-		}
-
-		100% {
-			transform: translateY(0);
-		}
-	}
 }
 
 @layer components {
@@ -82,33 +72,5 @@
 		animation: move-background 7s ease infinite;
 		-moz-animation: move-background 7s ease infinite;
 		-webkit-animation: move-background 7s ease infinite;
-	}
-
-	.animate-on-load {
-		animation-delay: 0.2s;
-		animation-fill-mode: backwards;
-	}
-
-	.slide-up {
-		overflow: hidden;
-	}
-
-	.slide-up>* {
-		animation: slide-up 0.5s ease;
-		-moz-animation: slide-up 0.5s ease;
-		-webkit-animation: slide-up 0.5s ease;
-	}
-
-	.inactive-theme-icon {
-		opacity: 0;
-
-		@media (prefers-reduced-motion: no-preference) {
-			transform: translateY(20%) rotateZ(50deg);
-			transition: all 1s ease-in-out;
-		}
-	}
-
-	html.sr .scroll-reveal-hidden {
-		visibility: hidden;
 	}
 }

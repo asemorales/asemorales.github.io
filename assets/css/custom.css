@@ -22,25 +22,7 @@
     background-image: url(../images/aurora-dark.png);
     @apply bg-no-repeat;
   }
-
-  /* parent element must have a non-static position (ex. position: relative) for this to work */
-  .circle-component {
-    @apply absolute z-10 h-[1.2rem] w-[1.2rem] rounded-full border-2 bg-base-100;
-  }
-
-  /* use the classes below together with .circle-component */
-  .circle-upper-left {
-    @apply top-0 translate-x-[-11px] translate-y-[-1px];
-  }
-
-  .circle-bottom-left {
-    @apply bottom-0 translate-x-[-11px] translate-y-[1px];
-  }
-
-  .circle-upper-right {
-    @apply top-0 translate-x-[12px] translate-y-[-1px];
-  }
-
+  
   .btn {
     animation: none;
   }
