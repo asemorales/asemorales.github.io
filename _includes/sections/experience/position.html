@@ -6,11 +6,10 @@
     <h3 class="flex flex-col text-base font-medium text-neutral-100">
       <span>{{ position.name }}</span>
       <div class="inline-block">
+        <span class="sr-only">at </span>
         <p>
           {{ position.organization }}
-          <i class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition-transform ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none">
-             <span class="sr-only">An icon of an arrow pointing to the upper right, representing opening the link in a new tab</span>
-          </i>
+          <i aria-hidden="true" class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition-transform ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
         </p>
       </div>
     </h3>
