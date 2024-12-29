@@ -7,9 +7,6 @@
     <title>{{ site.title }}</title>
     {% seo %}
 
-    <!-- Scripts -->
-    <script type="text/javascript" src="../assets/js/default.js"></script>
-
     <!-- Styles -->
     <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico?" />
     <link rel="stylesheet" href="../assets/css/compiled.min.css" />
@@ -20,6 +17,9 @@
 
   <body class="selection:bg-primary-low-contrast selection:text-neutral-100">
     {{ content }}
+
+    <!-- Deferred scripts -->
+    <script type="text/javascript" src="../assets/js/default.js"></script>
   </body>
 
   <noscript>
