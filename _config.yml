@@ -22,7 +22,15 @@ title: Ase Morales - Full-stack Developer and Software Engineer
 email: asemorales.tech@gmail.com
 description: Full-stack developer and software engineer building scalable, fast, and secure web apps.
 baseurl: ""
-url: ""
+url: "https://asemorales.me/"
+image:
+  path: /assets/images/logo.svg
+author: Irish Danielle (Ase) Morales
+social:
+  name: Irish Danielle (Ase) Morales
+  links:
+    - https://github.com/IrishMorales
+    - https://www.linkedin.com/in/irish-danielle-morales/
 keywords: "portfolio, freelance, full-stack developer, software engineer, web apps"
 
 # GitHub Pages ignores Gemfile plugins, so make sure any plugins added there are also
