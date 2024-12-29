@@ -18,9 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Ase Morales
+title: Ase Morales - Full-stack Developer and Software Engineer
 email: asemorales.tech@gmail.com
-description: Full-stack developer & software engineer building scalable, fast, and secure web apps.
+description: Full-stack developer and software engineer building scalable, fast, and secure web apps.
 baseurl: ""
 url: ""
 keywords: "portfolio, freelance, full-stack developer, mobile developer"
