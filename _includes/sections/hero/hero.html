@@ -26,7 +26,7 @@
         {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}
       </div>
     </div>
-    <div class="stats stats-vertical divide-none divide-base-200 bg-transparent lg:stats-horizontal lg:divide-solid">
+    <div class="stats stats-vertical bg-transparent lg:stats-horizontal divide-none">
       {% assign stats = site.data.stats %} {% for stat in stats.stats %} {% include sections/hero/stat.html %} {% endfor %}
     </div>
   </div>
