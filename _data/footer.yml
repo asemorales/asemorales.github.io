@@ -1,21 +1,18 @@
 attribution:
   Built with Jekyll & Tailwind CSS. <br> <br> Award icons by <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer"
-  class="underline underline-offset-4 hover:text-link-hover text-neutral-300">Cuputo</a> from the Noun Project (CC BY 3.0). All other icons from <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300">Remix Icon</a> (Apache License 2.0).
+  class="underline underline-offset-4 hover:text-link-hover text-neutral-200">Cuputo</a> from the Noun Project (CC BY 3.0). All other icons from <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-200">Remix Icon</a> (Apache License 2.0).
   <br> <br> An homage to several works I love - <a href="https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night" target="_blank"
-  rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300">Tokyo
+  rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-200">Tokyo
   Night,</a> <a href="https://tailwindcss.com/" target="_blank"
-  rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300">Tailwind CSS,</a>
-  <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300">Supabase,</a>
-  <a href="https://vercel.com/geist/introduction" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-300">Geist,</a> and
+  rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-200">Tailwind CSS,</a>
+  <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-200">Supabase,</a>
+  <a href="https://vercel.com/geist/introduction" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-link-hover text-neutral-200">Geist,</a> and
   the works of <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer" class="underline
-  underline-offset-4 hover:text-link-hover text-neutral-300">Brittany Chiang</a> and <a href="https://hen-ry.com/" target="_blank" rel="noopener noreferrer" class="underline
-  underline-offset-4 hover:text-link-hover text-neutral-300">Henry Ludlam-Steinke</a>.
+  underline-offset-4 hover:text-link-hover text-neutral-200">Brittany Chiang</a> and <a href="https://hen-ry.com/" target="_blank" rel="noopener noreferrer" class="underline
+  underline-offset-4 hover:text-link-hover text-neutral-200">Henry Ludlam-Steinke</a>.
 licensing:
   This site is open source! <a href="https://github.com/IrishMorales/irishmorales.github.io" target="_blank" rel="noopener noreferrer" class="underline
-  underline-offset-4 hover:text-link-hover text-neutral-300">View source code.</a> <br> <br> If you’re using this site's code for your own site, please be a cool dude by respecting this site's licensing (and consider contributing to open source).
-copyright:
-  © 2024 <a href="mailto:{{ site.email }}" target="_blank" rel="license noopener noreferrer" class="underline underline-offset-4
-  hover:text-link-hover text-neutral-300"> Irish Danielle "Ase" Morales</a>
+  underline-offset-4 hover:text-link-hover text-neutral-200">View source code.</a> <br> <br> If you’re using this site's code for your own site, please be a cool dude by respecting this site's licensing (and consider contributing to open source).
 year: 2024
 name: Ase Morales
 license: AGPL 3.0
