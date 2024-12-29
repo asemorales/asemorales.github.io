@@ -1,11 +1,17 @@
-const path = require("path");
-
 module.exports = {
   plugins: {
     "postcss-import": {},
     "tailwindcss/nesting": {},
     tailwindcss: {},
     autoprefixer: {},
-    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
+    ...(process.env.NODE_ENV === 'production' ? {
+      "@fullhuman/postcss-purgecss": {
+        content: ['./**/*.html', './assets/js/default.js'],
+        css: ['./assets/css/compiled.min.css'],
+        defaultExtractor: (content) => content.match(/[\w\-:\>.\/\[#%\]]+(?<!:)/g) || [],
+        output: './assets/css/compiled.min.css',
+      },
+      cssnano: {}
+    } : {})
   },
 };
