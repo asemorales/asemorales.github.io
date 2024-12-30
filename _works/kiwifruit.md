@@ -1,5 +1,8 @@
 ---
 title: Kiwis
+tools: Laravel, React, blabla
+timescale: 2 weeks
+types: [Web App Development, Mobile App Development, UI/UX Design, Search Engine Optimization, Content Management System (CMS), Software Architecture]
 ---
 
 Kiwifruit (often abbreviated as kiwi), or Chinese gooseberry is the

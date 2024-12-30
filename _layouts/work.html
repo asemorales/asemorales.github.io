@@ -14,34 +14,35 @@ layout: default
                 fugiat nulla
                 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
                 id est laborum.</p>
+            {% if page.tools or page.timescale %}
             <div class="mb-10">
                 <table class="table-fixed border-collapse w-full">
                     <tbody>
+                        {% if page.tools %}
                         <tr class="flex flex-col md:flex-row py-3 border-y border-base-200">
                             <th class="text-left w-1/2">Tools</td>
-                            <td>Laravel, React, blabla</td>
+                            <td>{{ page.tools }}</td>
                         </tr>
+                        {% endif %}
+                        {% if page.timescale %}
                         <tr class="flex flex-col md:flex-row py-3 border-y border-base-200">
                             <th class="text-left w-1/2">Timescale</th>
-                            <td>2 weeks</td>
+                            <td>{{ page.timescale }}</td>
                         </tr>
-                        <tr class="flex flex-col md:flex-row py-3 border-y border-base-200">
-                            <th class="text-left w-1/2">Tools</th>
-                            <td>Laravel, React, blabla</td>
-                        </tr>
+                        {% endif %}
                     </tbody>
                 </table>
             </div>
+            {% endif %}
+            {% if page.types %}
             <div class="mb-12">
                 <ul class="flex gap-5 list-inside flex-wrap text-xsm text-neutral-300">
-                    <li class="px-5 py-5 badge badge-outline">Web App Development</li>
-                    <li class="px-5 py-5 badge badge-outline">Mobile App Development</li>
-                    <li class="px-5 py-5 badge badge-outline">UI/UX Design</li>
-                    <li class="px-5 py-5 badge badge-outline">Search Engine Optimization</li>
-                    <li class="px-5 py-5 badge badge-outline">Content Management System (CMS)</li>
-                    <li class="px-5 py-5 badge badge-outline">Software Architecture</li>
+                    {% for type in page.types %}
+                        <li class="px-5 py-5 badge badge-neutral">{{ type }}</li>
+                    {% endfor %}
                 </ul>
             </div>
+            {% endif %}
             {{ content }}
         </div>
     </main>
