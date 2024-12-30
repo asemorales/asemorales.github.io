@@ -13,6 +13,21 @@ social:
     - https://www.linkedin.com/in/irish-danielle-morales/
 keywords: "portfolio, freelance, full-stack developer, software engineer, web apps"
 
+# Site structure
+collections:
+  works:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: "works"
+    values:
+      layout: "work"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
 # GitHub Pages ignores Gemfile plugins, so make sure any plugins added there are also
 # added to the plugins here:
 plugins:

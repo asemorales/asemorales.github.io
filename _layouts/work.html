@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+{% include sections/navigation/navigation.html %}
+<div class="mx-auto max-w-screen-2xl">
+    <main class="my-40 mx-7">
+        <div class="mx-auto max-w-screen-md leading-loose">
+            <h1 class="mb-3 text-4xl font-semibold text-base-content sm:mb-5 sm:text-6xl">{{ page.title }}</h1>
+            {{ content }}
+        </div>
+    </main>
+    {% include sections/footer.html %}
+</div>
