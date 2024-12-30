@@ -3,7 +3,10 @@
   <div>
     <div class="justify-between gap-10 pb-8 xl:flex xl:flex-row">
       <div class="mb-10 basis-1/5">
-        {% include svg/logo.svg classes="fill-neutral-100 h-8 w-auto" %}
+        {% include svg/logo.svg classes="fill-neutral-100 h-8 w-auto mb-5" %}
+        {% assign personal = site.data.personal %}
+        <h3 class="font-semibold text-2xl mb-3">{{ personal.fullname }}</h3>
+        <p class="text-neutral-200 text-pretty">{{ personal.position }}</p>
       </div>
       <div class="mb-10 basis-2/5">
         <h4 class="mb-2 text-xsm font-bold tracking-wider text-neutral-200">{{ "Attribution" | upcase }}</h4>
