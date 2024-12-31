@@ -26,4 +26,14 @@
   .btn {
     animation: none;
   }
+
+  .work-article-body {
+    h2 {
+      @apply font-semibold text-3xl py-5;
+    }
+
+    p {
+      @apply my-5;
+    }
+  }
 }

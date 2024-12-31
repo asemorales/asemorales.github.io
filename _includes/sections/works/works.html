@@ -1,13 +1,13 @@
 <div class="md:px-20">
-    <h2 class="pt-24 px-7 md:px-0 font-semibold text-3xl mb-7">Case Studies</h2>
-    <div class="grid grid-cols-2 w-full border-t-2 border-l-2 border-base-200">
+    <h2 class="pt-24 px-7 md:px-0 font-semibold text-3xl md:text-5xl mb-7">Case Studies</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 w-full border-t-2 border-l-2 border-base-200">
         {% for work in site.works %}
-        <div class="card bg-base-100 rounded-none border-b-2 border-r-2 border-base-200 shadow-xl">
+        <div class="card bg-base-100 rounded-none border-b-2 border-r-2 border-base-200 shadow-xl min-h-[500px]">
             <div class="card-body">
-                <h3 class="card-title">{{ work.title }}</h3>
-                {{ work.excerpt }}
+                <h3 class="card-title font-medium text-3xl text-pretty mb-5">{{ work.title }}</h3>
+                <p class="leading-loose text-pretty">{{ work.summary }}</p>
                 <div class="card-actions">
-                    <a href="{{ work.url }}" class="underline">Read more</a>
+                    <a href="{{ work.url }}" class="underline underline-offset-4">Read more</a>
                 </div>
             </div>
         </div>

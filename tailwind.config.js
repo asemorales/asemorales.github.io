@@ -2,7 +2,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  content: ["./_data/**/*.yml", "./_includes/**/*.{html,svg}", "./assets/js/default.js", "./_layouts/**/*.html", "*.html"],
+  content: ["./_data/**/*.yml", "./_includes/**/*.{html,svg}", "./assets/js/default.js", "./_layouts/**/*.html", "./_works/**/*.md", "*.html"],
   plugins: [require("daisyui")],
   theme: {
     extend: {
