@@ -7,12 +7,15 @@
     <title>{{ site.title }}</title>
     {% seo %}
 
-    <!-- Styles -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ site.url }}/assets/favicon.ico?" />
-    <link rel="stylesheet" href="{{ site.url }}/assets/css/compiled.min.css" />
 
     <!-- Preload assets to improve performance -->
-    <link rel="preload" fetchpriority="high" as="image" href="{{ site.url }}/assets/images/aurora-dark.png" type="image/png">
+    <link rel="preload" fetchpriority="high" as="image" type="image/png" href="{{ site.url }}/assets/images/aurora-dark.png">
+    <link rel="preload" as="font" type="font/woff2" href="{{ site.url }}/assets/fonts/remixicon/remixicon.woff2" crossorigin="anonymous">
+    <link rel="preload" as="style" href="{{ site.url }}/assets/css/compiled.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ site.url }}/assets/css/compiled.min.css" />
   </head>
 
   <body class="selection:bg-primary-low-contrast selection:text-neutral-100">
