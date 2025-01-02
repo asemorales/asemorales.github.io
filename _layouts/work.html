@@ -11,6 +11,12 @@ layout: default
             <div class="mb-10">
                 <table class="table-fixed w-full">
                     <tbody>
+                        {% if page.dev-at %}
+                        <tr class="flex flex-col md:flex-row py-3 border-t border-base-200">
+                            <th class="text-left w-1/2">Developed at</td>
+                            <td>{{ page.dev-at }}</td>
+                        </tr>
+                        {% endif %}
                         {% if page.role %}
                         <tr class="flex flex-col md:flex-row py-3 border-t border-base-200">
                             <th class="text-left w-1/2">Role</td>
