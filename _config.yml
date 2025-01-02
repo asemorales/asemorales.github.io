@@ -3,8 +3,6 @@ email: asemorales.tech@gmail.com
 description: Full-stack developer and software engineer building scalable, fast, and secure web apps.
 baseurl: ""
 url: "https://asemorales.me/"
-image:
-  path: /assets/images/logo.svg
 author: Irish Danielle (Ase) Morales
 social:
   name: Irish Danielle (Ase) Morales
@@ -27,6 +25,11 @@ defaults:
       path: ""
     values:
       layout: "default"
+      image:
+        path: /assets/images/og-image.png
+        height: 1200
+        width: 630
+        alt: Ase Morales - Full-stack Software Engineer
 
 # GitHub Pages ignores Gemfile plugins, so make sure any plugins added there are also
 # added to the plugins here:
