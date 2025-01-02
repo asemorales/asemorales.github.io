@@ -3,24 +3,23 @@
   <div class="flex flex-col">
     <div class="grow">
       <h1 id="hero-title" class="mb-3 block text-4xl font-semibold text-base-content sm:mb-5 sm:text-6xl">{{ personal.fullname }}</h1>
-      <h2 class="mb-12 text-2xl text-neutral-200 sm:text-3xl max-w-screen-md text-pretty">{{ personal.position }}</h2>
+      <h2 class="mb-12 text-2xl sm:text-3xl max-w-screen-md text-pretty">{{ personal.position }}</h2>
       <div class="mb-3 flex flex-wrap items-center justify-start sm:mb-5 gap-3">
-        <div id="cta-button" class="group relative">
+        <div id="cta-button" class="w-full sm:w-fit group relative">
           <a
-            href="mailto:{{ site.email }}"
-            target="_blank"
-            rel="license noopener noreferrer"
-            class="relative inline-block cursor-pointer rounded-lg theme-gradient group-hover:animate-gradient p-px leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
+            href="{{ site.url }}/#call-to-action"
+            rel="noopener noreferrer"
+            class="w-full relative inline-block cursor-pointer rounded-lg theme-gradient group-hover:animate-gradient p-px leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
             <span class="relative block rounded-lg bg-btn-action px-6 py-3">
-              <div class="flex items-center">
+              <div class="flex items-center justify-center">
                 <span class="transition-transform duration-500 group-hover:translate-x-1 font-semibold text-sm">
-                  Create <span class="hidden md:inline">your next idea</span> with me
+                  Create your next idea with me
                 </span>
               </div>
             </span>
           </a>
         </div>
-        <a href="https://drive.google.com/file/d/1mBQI6yHCSkJKOG4w68TbkS54A54Zei7b/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline bg-base-100 px-6 py-4">View resume</a>
+        <a href="https://drive.google.com/file/d/1mBQI6yHCSkJKOG4w68TbkS54A54Zei7b/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full sm:w-fit btn btn-outline bg-base-100 px-6 py-4">View resume</a>
       </div>
       <div class="mb-20 flex space-x-3">
         {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}
