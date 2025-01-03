@@ -2,20 +2,20 @@
 <div class="hero min-h-svh relative justify-start px-7 md:px-20">
     <div class="p-0 max-w-screen-md">
         <h2 class="text-3xl md:text-5xl font-semibold leading-snug text-pretty mb-5">{{ about.title }}</h2>
-        <p class="text-pretty leading-loose mb-12">{{ about.text }}</p>
+        <p class="text-pretty text-neutral-200 leading-loose mb-12">{{ about.text }}</p>
         <div class="mb-5">
-            <label class="text-xsm font-bold tracking-wider text-neutral-300 inline-block mb-3">{{ "Core Interests" | upcase }}</label>
+            <label class="text-xsm font-bold tracking-wider text-neutral-300 block mb-3">{{ "Core Interests" | upcase }}</label>
             <ul class="mb-5">
                 {% for interest in about.interests %}
-                <li class="badge badge-outline bg-base-100 p-4">{{ interest }}</li>
+                <li class="badge badge-outline bg-base-100 border-base-300 p-4 mb-1">{{ interest }}</li>
                 {% endfor %}
             </ul>
         </div>
         <div class="mb-5">
-            <label class="text-xsm font-bold tracking-wider text-neutral-300 inline-block mb-3">{{ "Top Skills*" | upcase }}</label>
+            <label class="text-xsm font-bold tracking-wider text-neutral-300 block mb-3">{{ "Top Skills*" | upcase }}</label>
             <ul class="mb-5">
                 {% for skill in about.skills %}
-                <li class="badge badge-outline bg-base-100 px-5 py-4">{{ skill }}</li>
+                <li class="badge badge-outline bg-base-100 border-base-300 px-5 py-4 mb-1">{{ skill }}</li>
                 {% endfor %}
             </ul>
         </div>

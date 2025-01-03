@@ -12,7 +12,7 @@
         <span class="sr-only">{{ award.icon-label }}</span>
         {% include {{ award.svg | prepend: "svg/awards/" | append: ".svg" }} classes="fill-neutral-200 group-hover:fill-award-icon h-32 transition ease-in-out motion-reduce:transition-none" %}
       </div>
-      <h3 class="mb-2 text-base font-medium text-neutral-100">
+      <h3 class="mb-2 text-base font-semibold leading-relaxed text-neutral-100">
         <p class="text-pretty">{{ award.name }}</p>
         <p class="sr-only">of </p>
         <p class="block text-pretty">
@@ -20,7 +20,7 @@
           <i aria-hidden="true" class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition-transform ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
         </p>
       </h3>
-      <p class="my-3 text-sm text-neutral-200">
+      <p class="my-3 text-sm leading-relaxed text-neutral-200 text-pretty">
         {{ award.description }}
       </p>
     </div>

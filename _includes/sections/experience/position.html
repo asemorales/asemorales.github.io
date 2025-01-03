@@ -1,9 +1,9 @@
 <a href="{{ position.url }}"
    target="_blank"
    rel="noopener noreferrer"
-   class="group block card rounded-none md:rounded-xl bg-base-100 border border-base-200 hover:border-neutral-100 mb-5">
+   class="group block card rounded-none md:rounded-xl bg-base-100 border border-base-200 hover:border-base-300 mb-5">
   <div class="card-body">
-    <h3 class="flex flex-col text-base font-medium text-neutral-100">
+    <h3 class="flex flex-col text-base font-semibold text-neutral-100 leading-relaxed">
       <span>{{ position.name }}</span>
       <div class="inline-block">
         <span class="sr-only">at </span>
@@ -18,7 +18,7 @@
     </p>
     <ul class="my-6 block list-inside list-disc text-sm text-neutral-200">
       {% for item in position.description %}
-      <li class="mb-3 md:mb-1 text-pretty">{{ item.text }}</li>
+      <li class="mb-3 md:mb-1 text-pretty leading-relaxed">{{ item.text }}</li>
       {% endfor %}
     </ul>
     <div class="tools text-xsm font-bold tracking-wider text-neutral-300">
