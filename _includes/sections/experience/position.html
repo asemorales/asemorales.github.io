@@ -1,16 +1,16 @@
-<a href="{{ position.url }}"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="group block card rounded-none md:rounded-xl bg-base-100 border border-base-200 hover:border-base-300 mb-5">
+<div class="card rounded-none md:rounded-xl bg-base-100 border border-base-200 hover:border-base-300 mb-5">
   <div class="card-body">
     <h3 class="flex flex-col text-base font-semibold text-neutral-100 leading-relaxed">
       <span>{{ position.name }}</span>
       <div class="inline-block">
         <span class="sr-only">at </span>
-        <p>
+        <a href="{{ position.url }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="group">
           {{ position.organization }}
-          <i aria-hidden="true" class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition-transform ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
-        </p>
+          <i aria-hidden="true" class="ri-arrow-right-up-line font-medium inline-block -translate-x-0.5 transition-transform ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
+        </a>
       </div>
     </h3>
     <p class="flex flex-wrap text-xsm font-bold tracking-wider text-neutral-300">
@@ -30,4 +30,4 @@
       </ul>
     </div>
   </div>
-</a>
+</div>

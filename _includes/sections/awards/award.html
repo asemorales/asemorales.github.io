@@ -1,28 +1,32 @@
-<a 
-  href="{{ award.url }}"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="group relative w-full h-full block bg-none hover:theme-gradient hover:animate-gradient mx-2 mb-5 rounded-md p-0.5 basis-1/2 max-w-screen-sm">
-  <i class="ri-shining-fill opacity-0 group-hover:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute top-0 z-10 size-10 translate-x-[20px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
-  <i class="ri-shining-fill opacity-0 group-hover:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute top-0 z-10 size-10 translate-x-[5px] translate-y-[25px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
-  <i class="ri-shining-fill opacity-0 group-hover:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute bottom-0 right-0 z-10 size-10 stroke-base-100 stroke-[8px] text-award-sparkle"></i>
+<div class="group/card relative w-full h-full bg-none hover:theme-gradient hover:animate-gradient mx-2 mb-5 rounded-md p-0.5 basis-1/2 max-w-screen-sm">
+  <i
+     class="ri-shining-fill opacity-0 group-hover/card:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute top-0 z-10 size-10 translate-x-[20px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
+  <i
+     class="ri-shining-fill opacity-0 group-hover/card:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute top-0 z-10 size-10 translate-x-[5px] translate-y-[25px] stroke-base-100 stroke-[8px] text-award-sparkle"></i>
+  <i
+     class="ri-shining-fill opacity-0 group-hover/card:opacity-100 transition-opacity ease-in-out motion-reduce:transition-none absolute bottom-0 right-0 z-10 size-10 stroke-base-100 stroke-[8px] text-award-sparkle"></i>
   <div class="rounded-md bg-base-100 p-5 w-full h-full">
     <div class="text-center">
       <div class="flex justify-center items-center h-full w-full">
         <span class="sr-only">{{ award.icon-label }}</span>
-        {% include {{ award.svg | prepend: "svg/awards/" | append: ".svg" }} classes="fill-neutral-200 group-hover:fill-award-icon h-32 transition ease-in-out motion-reduce:transition-none" %}
+        {% include {{ award.svg | prepend: "svg/awards/" | append: ".svg" }} classes="fill-neutral-200
+        group-hover/card:fill-award-icon h-32 transition ease-in-out motion-reduce:transition-none" %}
       </div>
       <h3 class="mb-2 text-base font-semibold leading-relaxed text-neutral-100">
         <p class="text-pretty">{{ award.name }}</p>
         <p class="sr-only">of </p>
-        <p class="block text-pretty">
+        <a href="{{ award.url }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="group/name text-pretty">
           {{ award.competition }}
-          <i aria-hidden="true" class="ri-arrow-right-up-line inline-block -translate-x-0.5 transition-transform ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"></i>
-        </p>
+          <i aria-hidden="true"
+             class="ri-arrow-right-up-line font-medium inline-block -translate-x-0.5 transition-transform ease-in-out group-hover/name:-translate-y-0.5 group-hover/name:translate-x-0.5 motion-reduce:transition-none"></i>
+        </a>
       </h3>
       <p class="my-3 text-sm leading-relaxed text-neutral-200 text-pretty">
         {{ award.description }}
       </p>
     </div>
   </div>
-</a>
+</div>
