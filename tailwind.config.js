@@ -127,7 +127,7 @@ module.exports = {
           "base-200": "#14192B",
           "base-300": "#181E36",
           "base-content": "#E1E6FF",
-          info: "#67e8f9", // cyan-300
+          info: "#A4F3FD",
           "info-content": "#E1E6FF",
           success: "#bef264", // lime-300
           "success-content": "#E1E6FF",
