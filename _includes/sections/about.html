@@ -7,7 +7,7 @@
             <label class="text-xsm font-bold tracking-wider text-neutral-300 block mb-3">{{ "Core Interests" | upcase }}</label>
             <ul class="mb-5">
                 {% for interest in about.interests %}
-                <li class="badge badge-outline bg-base-100 border-base-300 border-2 p-4 mb-1">{{ interest }}</li>
+                <li class="badge badge-outline bg-base-100 border-base-300 border p-4 mb-1">{{ interest }}</li>
                 {% endfor %}
             </ul>
         </div>
@@ -15,7 +15,7 @@
             <label class="text-xsm font-bold tracking-wider text-neutral-300 block mb-3">{{ "Top Skills*" | upcase }}</label>
             <ul class="mb-5">
                 {% for skill in about.skills %}
-                <li class="badge badge-outline bg-base-100 border-base-300 border-2 px-5 py-4 mb-1">{{ skill }}</li>
+                <li class="badge badge-outline bg-base-100 border-base-300 border px-5 py-4 mb-1">{{ skill }}</li>
                 {% endfor %}
             </ul>
         </div>
