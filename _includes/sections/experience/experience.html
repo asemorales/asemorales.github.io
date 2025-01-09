@@ -1,25 +1,23 @@
 {% assign experience = site.data.experience %}
 <div class="relative bg-aurora bg-right-top">
-    <div class="max-w-screen-lg pt-24 md:mx-20">
-        <div class="flex flex-col lg:flex-row w-full gap-7 mb-7">
+    <div class="pt-24 md:mx-20">
+        <div class="px-7 md:px-0">
+            <h2 class="text-3xl md:text-5xl font-semibold leading-snug text-pretty mb-5">Selected Experience</h2>
+            <p class="text-neutral-200 leading-loose mb-12 text-pretty">For full details, <a href="https://drive.google.com/file/d/1mBQI6yHCSkJKOG4w68TbkS54A54Zei7b/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4">view my resume here.</a></p>
+        </div>
+        <div class="flex flex-col lg:flex-row w-full gap-7 pb-20">
             <div class="basis-1/2">
-                <h2 class="font-semibold text-3xl mb-7 px-7 md:px-0">Professional Experience</h2>
+                <h3 class="font-semibold text-2xl md:text-3xl mb-7 px-7 md:px-0">Professional Roles</h3>
                 {% for position in experience.professional %}
                     {% include sections/experience/position.html %}
                 {% endfor %}
             </div>
             <div class="basis-1/2 pt-0 lg:pt-40">
-                <h2 class="font-semibold text-3xl mb-7 px-7 md:px-0">Freelance and Volunteer Experience</h2>
+                <h3 class="font-semibold text-2xl md:text-3xl mb-7 px-7 md:px-0 text-pretty">Freelance and Volunteer Roles</h3>
                 {% for position in experience.others %}
                     {% include sections/experience/position.html %}
                 {% endfor %}
             </div>
-        </div>
-        <div class="text-center pb-20">
-            <a href="https://drive.google.com/file/d/1mBQI6yHCSkJKOG4w68TbkS54A54Zei7b/view?usp=sharing"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn btn-outline bg-base-100">View resume</a>
         </div>
     </div>
     <div id="experience-deco"
