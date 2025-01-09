@@ -19,10 +19,11 @@ professional:
       - name: jQuery
       - name: MySQL
   - id: alls
-    name: Full-stack Web and Mobile Developer (Contract)
+    name: Full-stack Web and Mobile Developer
     organization: Ateneo Laboratory for the Learning Sciences
     url: https://alls.ateneo.edu/
     date: Jan - Jun 2023
+    type: Contract
     description:
       - text: Solely designed, developed, & deployed a web analytics dashboard and cross-platform mobile app
     tools:
@@ -34,6 +35,7 @@ others:
     organization: Cloudband Solutions
     url: https://cloudbandsolutions.com/
     date: Jun 2023 - Nov 2024
+    type: Freelance
     description:
       - text: Restructured a multi-repo web app involving significant updates to API endpoints, unit tests, and UX
       - text: Designed 30+ wireframes & revamped 4 SPAs for responsiveness, cross-browser support, and accessibility
@@ -48,6 +50,7 @@ others:
     organization: Silid Aralan
     url: https://facebook.com/silidaralaninc/
     date: Jan - Jun 2023
+    type: Volunteer
     description:
       - text: Sole developer of a dashboard to track metrics and generate non-profit reports
     tools:
