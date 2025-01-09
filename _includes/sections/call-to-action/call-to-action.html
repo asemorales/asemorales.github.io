@@ -1,4 +1,3 @@
-{% assign call-to-action = site.data.call-to-action %}
 <div class="relative md:px-20 pt-24 bg-aurora bg-left-top">
   <div class="flex flex-col max-w-screen-lg">
     <div class="px-7 md:px-0">
@@ -7,18 +6,6 @@
     </div>
     <div class="w-full max-w-screen-md self-end">
       {% include sections/call-to-action/business-card.html %}
-    </div>
-    <div class="-translate-y-9 px-7 md:px-0 lg:max-w-screen-sm">
-      <div class="avatar indicator mb-10">
-        <span class="indicator-item badge">{{ call-to-action.greeting }}</span>
-        <div class="size-20 rounded-full">
-          <img alt="A picture of me holding a stuffed bear"
-               src="{{ site.url }}/assets/images/me.png"
-               loading="lazy" />
-        </div>
-      </div>
-      <p class="leading-loose mb-7">{{ call-to-action.message }}</p>
-      <p>{{ call-to-action.fullname }}</p>
     </div>
   </div>
   <div id="call-to-action-deco"
