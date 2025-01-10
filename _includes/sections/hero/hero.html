@@ -1,5 +1,5 @@
 {% assign personal = site.data.personal %}
-<header id="hero" class="flex relative min-h-svh justify-start px-7 py-36 md:px-20 bg-aurora">
+<header id="hero" class="flex relative min-h-svh justify-start px-7 py-36 md:px-40 bg-aurora">
   <div class="flex flex-col">
     <div class="grow">
       <h1 id="hero-title" class="mb-3 block text-4xl font-semibold text-base-content sm:mb-5 sm:text-6xl">{{ personal.fullname }}</h1>
@@ -21,7 +21,7 @@
         </div>
         <a href="https://drive.google.com/file/d/1mBQI6yHCSkJKOG4w68TbkS54A54Zei7b/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full sm:w-fit btn btn-outline bg-base-100 px-6 py-4">View resume</a>
       </div>
-      <div class="mb-20 flex space-x-3">
+      <div class="mb-40 flex space-x-3">
         {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}
       </div>
     </div>
@@ -31,6 +31,6 @@
   </div>
   <div id="hero-deco" aria-hidden="true" class="w-full h-full absolute top-0 right-0 overflow-hidden pointer-events-none">
     {% include svg/grid.svg classes="absolute -z-50 bottom-0 right-0" %}
-    {% include svg/logo-hero.svg classes="absolute -z-40 bottom-0 -right-20 w-[970px] h-[1px] overflow-visible mb-[640px]" %}
+    {% include svg/logo-hero.svg classes="absolute -z-40 bottom-0 -right-40 w-[970px] h-[1px] overflow-visible mb-[640px]" %}
   </div>
 </header>
