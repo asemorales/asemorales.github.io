@@ -3,12 +3,27 @@
     <div class="px-7 md:px-0 max-w-screen-md">
         <h2 class="text-3xl md:text-5xl font-semibold leading-snug text-pretty mb-20">Building systems that put people
             first</h2>
-        <div class="mb-20">
+        <div class="mb-32">
             <h3 class="font-semibold text-2xl md:text-3xl mb-10">Philosophy: Why I build things</h3>
-            <p class="text-neutral-200 leading-loose mb-7">{{ story.philosophy }}</p>
+            <div class="text-neutral-200 leading-loose mb-7">
+                <p>{{ story.philosophy-part-1 }}</p>
+                <div id="philosophy-show-more-btn-wrapper"
+                     class="flex w-full flex-col mt-7">
+                    <div class="divider">
+                        <btn id="philosophy-show-more-btn"
+                             class="btn btn-outline bg-base-100 px-4 py-3 min-h-fit h-fit text-neutral-100 rounded-full font-normal">
+                            Show more<i class="ri-arrow-down-s-line"></i>
+                        </btn>
+                    </div>
+                </div>
+                <p id="philosophy-part-2"
+                   class="hidden">
+                    {{ story.philosophy-part-2 }}
+                </p>
+            </div>
         </div>
         <div>
-            <h3 class="font-semibold text-2xl md:text-3xl mb-10">About me: From robotics to development</h3>
+            <h3 class="font-semibold text-2xl md:text-3xl mb-16">About me: From robotics to development</h3>
             <div class="avatar indicator mb-10">
                 <span class="indicator-item badge">{{ story.greeting }}</span>
                 <div class="size-20 rounded-full">
@@ -17,8 +32,21 @@
                          loading="lazy" />
                 </div>
             </div>
-            <p class="text-neutral-200 leading-loose mb-7">{{ story.about-me }}</p>
-            <p class="text-neutral-200">{{ story.fullname }}</p>
+
+            <div class="text-neutral-200 leading-loose mb-7">
+                <p>{{ story.about-me-part-1 }}</p>
+                <div id="about-me-show-more-btn-wrapper" class="flex w-full flex-col mt-7">
+                    <div class="divider">
+                        <btn id="about-me-show-more-btn" class="btn btn-outline bg-base-100 px-4 py-3 min-h-fit h-fit text-neutral-100 rounded-full font-normal">
+                            Show more<i class="ri-arrow-down-s-line"></i>
+                        </btn>
+                    </div>
+                </div>
+                <div id="about-me-part-2"
+                     class="hidden">
+                    <p>{{ story.about-me-part-2 }}</p>
+                </div>
+            </div>
         </div>
     </div>
     <div id="story-deco"
