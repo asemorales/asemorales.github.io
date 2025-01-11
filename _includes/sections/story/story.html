@@ -1,17 +1,57 @@
 {% assign story = site.data.story %}
 <div class="relative md:px-40 py-32 w-full">
     <div class="px-7 md:px-0 max-w-screen-md">
-        <h2 class="text-3xl md:text-5xl font-semibold leading-snug text-pretty mb-20">Data, tech, & art for impact</h2>
-        <div class="avatar indicator mb-10">
-            <span class="indicator-item badge">{{ story.greeting }}</span>
-            <div class="size-20 rounded-full">
-                <img alt="A picture of me holding a stuffed bear"
-                     src="{{ site.url }}/assets/images/me.png"
-                     loading="lazy" />
-            </div>
+        <h2 class="text-3xl md:text-5xl font-semibold leading-snug text-pretty mb-20">Building systems that put people
+            first</h2>
+        <div class="mb-20">
+            <h3 class="font-semibold text-2xl md:text-3xl mb-10">Philosophy: Why I build things</h3>
+            <p class="text-neutral-200 leading-loose mb-7">
+                <b>"Made with ❤️" should mean more than passion.</b>
+                <br>
+                If you search "Made with ❤️", you'll get 30 million+ hits. It's a relic from early Web 2.0.
+                <br><br>
+                <b>The early Web 2.0 internet was a sandbox, and everyone wanted to play.</b>
+                <br>
+                Back then, tech meant nerds staying up late, eating pizza, coding weird little things for the hell
+                of it. I was 14 then, learning C++ from 1990s library books. People made Flash games and funny
+                Twitter bots. People were hopeful about tech.
+                <br><br>
+                <b>Now, it's a strip mine with a paywall and ads hyper-optimized to Goodhart's Law.</b>
+                <br>
+                You want to watch a video, but Youtube plays two ads longer than the video itself. You get pop-ups
+                filling half the screen. You need a subscription to keep something you already own. Enshittification is
+                the great heat death of the Internet.
+                <br><br>
+                <b>Code doesn't live in Git repositories.</b>
+                <br>
+                It lives on servers draining rivers, minerals mined by laborers, and upkeep costs. Code is born into the
+                same systems as us, and when those fail, tech will too. Tech is not exempt from entropy.
+                <br><br>
+                <b>We need tech that remembers it's for people.</b>
+                <br>
+                The industry needs ways to fund innovation without bleeding users dry. Hopefully this is just the
+                trough of the hype cycle, the local minimum of tech's gradient descent. Maybe we had to break things to
+                learn how to build them right.
+                <br><br>
+                For that we need compassion. Passion builds things, but compassion builds things that
+                matter.
+                <br>
+                <b>“Made with ❤️” shouldn’t just mean I cared about making it.<br>It should mean I cared about you.</b>
+            </p>
         </div>
-        <p class="text-neutral-200 leading-loose mb-7">{{ story.message }}</p>
-        <p class="text-neutral-200">{{ story.fullname }}</p>
+        <div>
+            <h3 class="font-semibold text-2xl md:text-3xl mb-10">About me: From robotics to development</h3>
+            <div class="avatar indicator mb-10">
+                <span class="indicator-item badge">{{ story.greeting }}</span>
+                <div class="size-20 rounded-full">
+                    <img alt="A picture of me holding a stuffed bear"
+                         src="{{ site.url }}/assets/images/me.png"
+                         loading="lazy" />
+                </div>
+            </div>
+            <p class="text-neutral-200 leading-loose mb-7">{{ story.message }}</p>
+            <p class="text-neutral-200">{{ story.fullname }}</p>
+        </div>
     </div>
     <div id="story-deco"
          aria-hidden="true"
