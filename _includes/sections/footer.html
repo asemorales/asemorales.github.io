@@ -1,29 +1,43 @@
 {% assign footer = site.data.footer %}
-<footer class="flex flex-wrap px-7 pb-40 pt-32 md:px-40 border-t-2 border-base-200">
-  <div>
-    <div class="justify-between gap-10 pb-8 xl:flex xl:flex-row">
-      <div class="mb-10 basis-1/5">
-        {% include svg/logo.svg classes="fill-neutral-100 h-8 w-auto mb-5" %}
-        {% assign personal = site.data.personal %}
-        <h3 class="font-semibold text-2xl mb-3">{{ personal.fullname }}</h3>
-        <p class="text-neutral-200 text-pretty">{{ personal.position }}</p>
-      </div>
-      <div class="mb-10 basis-2/5">
-        <h4 class="mb-2 text-xsm font-bold tracking-wider text-neutral-200">{{ "Attribution" | upcase }}</h4>
-        <p class="text-sm leading-relaxed text-neutral-200">{{ footer.attribution }}</p>
-      </div>
-      <div class="basis-2/5">
-        <h4 class="mb-2 text-xsm font-bold tracking-wider text-neutral-200">{{ "Licensing" | upcase }}</h4>
-        <p class="text-sm leading-relaxed text-neutral-200">{{ footer.licensing }}</p>
-      </div>
+{% assign personal = site.data.personal %}
+<footer class="px-7 pb-20 pt-32 md:px-40 border-t border-base-200">
+  <div class="justify-between gap-10 pb-8 lg:flex lg:flex-row">
+    <div class="mb-10 grow">
+      {% include svg/logo.svg classes="fill-neutral-100 h-8 w-auto mb-5" %}
+      <h4 class="text-lg font-semibold mb-7">{{ personal.fullname }}</h4>
+      <p class="text-sm leading-relaxed text-neutral-200">{{ footer.note }}</p>
     </div>
-    <div class="justify-between pt-5 xl:flex xl:flex-row">
-      <p class="inline-block pb-5 text-xsm text-neutral-200">
-        © {{ footer.year }} {{ footer.name }}. {{ footer.license }}.
-      </p>
-      <div class="mb-7 flex space-x-3">
-        {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}
-      </div>
+    <div class="basis-1/4">
+      <h4 class="mb-7 text-xsm font-bold tracking-wider">{{ "Explore" | upcase }}</h4>
+      <ul class="text-sm text-neutral-200">
+        <li class="mb-4">
+          <a href="https://drive.google.com/file/d/1mBQI6yHCSkJKOG4w68TbkS54A54Zei7b/view?usp=sharing"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="hover:text-link-hover">Resume</a>
+        </li>
+        <li class="mb-4">
+          <a href="https://github.com/IrishMorales/irishmorales.github.io"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="hover:text-link-hover">Source code & attribution</a>
+        </li>
+        <li class="mb-4">
+          <a href="https://github.com/IrishMorales/irishmorales.github.io/blob/c28a0a627054c7509486a8686c6f3e96a2b601dd/LICENSE.md"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="hover:text-link-hover">Licensing</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="justify-between pt-5 lg:flex lg:flex-row">
+    <p class="inline-block pb-5 text-xsm text-neutral-200">
+      © {{ footer.year }} {{ personal.fullname }}. {{ footer.license }}.
+    </p>
+    <div class="mb-7 flex space-x-3">
+      {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include
+      components/social-icon.html %} {% endfor %}
     </div>
   </div>
 </footer>
