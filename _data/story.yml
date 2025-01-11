@@ -1,3 +1,46 @@
 greeting: Hi, I'm Ase!
-message: I started coding at 14 on our high school robotics team. As a public school, we couldn't afford sumobot upgrades to compete with wealthier schools, but I noticed everyone used the default out-of-the-box program. We didn't have coding classes, so I taught myself C++ from 1990s books and wrote a program to outsmart stronger robots, landing our first international sumobot win. I later taught it to my coaches and teammates, led the team as we won 10+ international awards within 2 years (I'm really proud of them!), and graduated as a leadership awardee.<br><br>Later, I worked on open-source development for a non-profit that taught code to teens in underprivileged areas. Under them, I became the first Filipino to win Google Code-in, was featured on national news, and won a trip to Google.<br><br>Since then, I've given tech talks, been the head artist for a grassroots org, published ML/AI research in undergrad, and was awarded top Computer Science graduate at the top-ranked Philippine university in 2024. I deeply believe tech should be done not just out of passion for code, but out of compassion for people — the end goal of tech should be to uplift human lives.<br><br>Outside tech, I sew clothes for my 20+ year-old stuffed bear, Polar. I also have a cat who isn't technically mine but comes here and asks for food. She's silly and I like her.<br><br>Thanks for visiting my little corner of the internet. <span aria-label="Smiling text emoji">:)</span>
+philosophy: |
+  <b>"Made with ❤️" should mean more than passion.</b>
+  <br>
+  If you search "Made with ❤️", you'll get 30 million+ hits. It's a relic from early Web 2.0.
+  <br><br>
+  <b>The early Web 2.0 internet was a sandbox, and everyone wanted to play.</b>
+  <br>
+  Back then, tech meant nerds staying up late, eating pizza, coding weird little things for the hell
+  of it. I was 14 then, learning C++ from 1990s library books. People made Flash games and funny
+  Twitter bots. People were hopeful about tech.
+  <br><br>
+  <b>Now, it's a strip mine with a paywall and ads hyper-optimized to Goodhart's Law.</b>
+  <br>
+  You want to watch a video, but Youtube plays two ads longer than the video itself. You get pop-ups
+  filling half the screen. You need a subscription to keep something you already own. Enshittification is
+  the great heat death of the Internet.
+  <br><br>
+  <b>Code doesn't live in Git repositories.</b>
+  <br>
+  It lives on servers draining rivers, minerals mined by laborers, and upkeep costs. Code is born into the
+  same systems as us, and when those fail, tech will too. Tech is not exempt from entropy.
+  <br><br>
+  <b>We need tech that remembers it's for people.</b>
+  <br>
+  The industry needs ways to fund innovation without bleeding users dry. Hopefully this is just the
+  trough of the hype cycle, the local minimum of tech's gradient descent. Maybe we had to break things to
+  learn how to build them right.
+  <br><br>
+  For that we need compassion. Passion builds things, but compassion builds things that
+  matter.
+  <br>
+  <b>“Made with ❤️” shouldn’t just mean I cared about making it.<br>It should mean I cared about you.</b>
+about-me: |
+  I started coding at 14 on our high school robotics team. As a public school, we couldn't afford sumobot upgrades to compete with wealthier schools, but I noticed everyone used the default out-of-the-box program.  
+  <br><br>
+  We didn't have coding classes, so I taught myself C++ from 1990s books and wrote a program to outsmart stronger robots, landing our first international sumobot win. I later taught it to my coaches and teammates, led the team as we won 10+ international awards within 2 years (I'm really proud of them!), and graduated as a leadership awardee.
+  <br><br>
+  Later, I worked on open-source development for a non-profit that taught code to teens in underprivileged areas. Under them, I became the first Filipino to win Google Code-in, was featured on national news, and won a trip to Google.
+  <br><br>
+  Since then, I've given tech talks, been the head artist for a grassroots org, published ML/AI research in undergrad, and was awarded top Computer Science graduate at the top-ranked Philippine university in 2024. I deeply believe tech should be done not just out of passion for code, but out of compassion for people — the end goal of tech should be to uplift human lives.
+  <br><br>
+  Outside tech, I sew clothes for my 20+ year-old stuffed bear, Polar. I also have a cat who isn't technically mine but comes here and asks for food. She's silly and I like her.
+  <br><br>
+  Thanks for visiting my little corner of the internet. <span aria-label="Smiling text emoji">:)</span>
 fullname: Irish Danielle (Ase) Morales
