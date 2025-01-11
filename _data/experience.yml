@@ -45,6 +45,16 @@ others:
       - name: Bootstrap
       - name: SASS/SCSS
       - name: MySQL
+  - id: phlourish
+    name: UI/UX Designer
+    organization: Phlourish
+    url: https://www.phlourish.ph/
+    date: Oct - Dec 2023
+    type: Volunteer
+    description:
+      - text: Created* website mockups & design assets for a non-profit<br>(*Development and implementation was done by another team)
+    tools:
+      - name: Figma
   - id: silid-aralan
     name: Backend Developer
     organization: Silid Aralan
