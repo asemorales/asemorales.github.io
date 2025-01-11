@@ -1,7 +1,8 @@
 <div align="center">
-    <img src="assets/favicon.ico?" alt="Site logo">
-    <h1><a href="https://irishmorales.github.io">irishmorales.github.io</a></p></h1>
+    <img src="assets/images/logo.svg" alt="Site logo">
+    <h1>Ase Morales - Full-stack Software Engineer</p></h1>
     <p>Personal portfolio site built with Jekyll + Tailwind CSS</p>
+    <a href="https://irishmorales.github.io">View live site</a>
 </div>
 
 ## Status
@@ -50,7 +51,8 @@ An homage to several works I love:
 - <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a>
 - <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer">Supabase</a>
 - <a href="https://vercel.com/geist/introduction" target="_blank" rel="noopener noreferrer">Geist</a>
-- the works of  <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer">Brittany Chiang</a> and <a href="https://hen-ry.com/" target="_blank" rel="noopener noreferrer">Henry Ludlam-Steinke</a>
+- <a href="https://vercel.com/geist/introduction" target="_blank" rel="noopener noreferrer">Linear</a>
+- the works of  <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer">Brittany Chiang</a>, <a href="https://www.jestsee.com/" target="_blank" rel="noopener noreferrer">Jesica</a>, and <a href="https://hen-ry.com/" target="_blank" rel="noopener noreferrer">Henry Ludlam-Steinke</a>
   
 
 ## Licensing
