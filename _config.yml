@@ -24,7 +24,6 @@ defaults:
         path: /assets/images/og-image.png
         height: 1200
         width: 630
-        alt: Ase Morales - Full-stack Software Engineer
 
 # GitHub Pages ignores Gemfile plugins, so make sure any plugins added there are also
 # added to the plugins here:
