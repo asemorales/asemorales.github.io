@@ -7,8 +7,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs2">
+  <defs>
     <linearGradient
        id="linearGradient14968">
       <stop
@@ -29,7 +28,7 @@
        y="351.3631"
        width="242.70375"
        height="224.72729"
-       id="rect236" />
+       id="{{ include.id }}-rect236" />
     <linearGradient
        xlink:href="#linearGradient14968"
        id="linearGradient14970"
@@ -40,12 +39,12 @@
        gradientUnits="userSpaceOnUse" />
   </defs>
   <g
-     id="layer1"
+     id="{{ include.id }}-layer1"
      transform="translate(-5.0404499,-102.38947)">
     <g
        transform="scale(0.26458333)"
        id="text234"
-       style="font-weight:600;font-size:192px;font-family:Inter;-inkscape-font-specification:'Inter Semi-Bold';white-space:pre;shape-inside:url(#rect236);display:inline;fill:#fdbc4c;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel">
+       style="font-weight:600;font-size:192px;font-family:Inter;-inkscape-font-specification:'Inter Semi-Bold';white-space:pre;shape-inside:url(#{{ include.id }}-rect236);display:inline;fill:#fdbc4c;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel">
       <path
          id="path329"
          style="letter-spacing:-6px;fill:#010100;fill-opacity:1;stroke:url(#linearGradient14970);stroke-width:0.2;stroke-dasharray:none;stroke-opacity:1"

@@ -9,14 +9,13 @@
    id="svg5"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs2">
+  <defs>
     <rect
        x="11.178135"
        y="351.3631"
        width="242.70375"
        height="224.72729"
-       id="rect236" />
+       id="logo-svg-rect236" />
   </defs>
   <rect
      style="fill:#010100;fill-opacity:1;stroke:#010100;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
@@ -26,14 +25,14 @@
      x="5"
      y="5.0000005" />
   <g
-     id="layer1"
+     id="logo-svg-layer1"
      transform="translate(2.3733817,-87.702444)"
      style="fill:#e1e6ff;fill-opacity:1">
     <g
        aria-label="://"
        transform="scale(0.26458333)"
        id="text234"
-       style="font-weight:600;font-size:192px;font-family:Inter;-inkscape-font-specification:'Inter Semi-Bold';white-space:pre;shape-inside:url(#rect236);display:inline;fill:#e1e6ff;fill-opacity:1;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel">
+       style="font-weight:600;font-size:192px;font-family:Inter;-inkscape-font-specification:'Inter Semi-Bold';white-space:pre;shape-inside:url(#logo-svg-rect236);display:inline;fill:#e1e6ff;fill-opacity:1;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel">
       <path
          id="path329"
          style="letter-spacing:-6px;fill:#e1e6ff;fill-opacity:1"
