@@ -14,10 +14,10 @@
       </span>
     </h4>
     <p class="flex flex-wrap text-xsm font-bold tracking-wider text-neutral-300">
-      <span>{{ position.date | upcase }}</span>
+      <span class="uppercase">{{ position.date }}</span>
       {% if position.type %}
         <span class="px-2">·</span>
-        <span>{{ position.type | upcase }}</span>
+        <span class="uppercase">{{ position.type }}</span>
       {% endif %}
     </p>
     <ul class="my-6 block list-inside list-disc text-sm text-neutral-200">
@@ -28,8 +28,8 @@
     <div class="tools text-xsm font-bold tracking-wider text-neutral-300">
       <ul class="flex list-inside flex-wrap">
         {% for tool in position.tools %}
-        <li class="me-3 [&:not(:first-child)]:list-disc"> {{ tool.name | upcase }} {% if tool.subtype %} ({{
-          tool.subtype | upcase }}) {% endif %} </li>
+        <li class="me-3 [&:not(:first-child)]:list-disc uppercase"> {{ tool.name }} {% if tool.subtype %} ({{
+          tool.subtype }}) {% endif %} </li>
         {% endfor %}
       </ul>
     </div>
