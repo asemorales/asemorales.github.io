@@ -56,58 +56,6 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        light: {
-          primary: "#7dd3fc", // sky-300
-          "primary-content": "#010100",
-          "--primary-low-contrast": "95.14% 0.025 236.82", // sky-100
-          "--primary-high-contrast": "68.47% 0.1479 237.32", // sky-500
-          secondary: "#a5b4fc", // indigo-300
-          "secondary-content": "#010100",
-          "--secondary-low-contrast": "92.99% 0.0334 272.79", // indigo-100
-          "--secondary-high-contrast": "58.54% 0.2041 277.12", // indigo-500
-          accent: "#c4b5fd", // violet-300
-          "accent-content": "#010100",
-          "--accent-low-contrast": "94.33% 0.0284 294.59", // violet-100
-          "--accent-high-contrast": "71.44% 0.1517 293.57",
-          neutral: "#FFFFFF",
-          "neutral-content": "#010100",
-          "base-100": "#F6F7FF",
-          "base-200": "#E1E6FF",
-          "base-300": "#FFFFFF",
-          "base-content": "#010100",
-          info: "#a5f3fc", // cyan-200
-          "info-content": "#010100",
-          success: "#bef264", // lime-300
-          "success-content": "#010100",
-          warning: "#fcd34d", // amber-300
-          "warning-content": "#010100",
-          error: "#f87171", // red-400
-          "error-content": "#010100",
-          // extended color classes in oklch() values
-          "--neutral-100": "6.51% 0.0141 109.77", // #010100
-          "--neutral-200": "24.23% 0.0468 271.89", // #181e36
-          "--neutral-300": "55.6% 0.0742 274.52", // #66709f
-          "--card-color": "97.77% 0.0107 280.48", // #F6F7FF
-          "--card-shadow": "92.87% 0.0343 276.72", // #E1E6FF
-          "--header-ray": "97.77% 0.0107 280.48", // #F6F7FF
-          "--btn-action": "6.51% 0.0141 109.77", // #010100
-          "--btn-action-outline": "24.23% 0.0468 271.89", // #181e36
-          "--btn-action-content": "97.77% 0.0107 280.48", // #F6F7FF
-          "--logo-icons": "93.77% 0.0247 276.72", // #e6e9fb
-          "--call-to-action": "68.47% 0.1479 237.32", // sky-500
-          "--call-to-action-outline": "93.77% 0.0247 276.72", // #e6e9fb
-          "--service-icon": "68.47% 0.1479 237.32",
-          "--service-icon-hover": "97.77% 0.0107 280.48", // #F6F7FF
-          "--service-icon-container": "95.14% 0.025 236.82",
-          "--service-icon-container-hover": "82.76% 0.1013 230.32", // sky-300
-          "--award-icon": "82.76% 0.1013 230.32", // sky-300
-          "--award-sparkle": "90.15% 0.0729 70.7", // orange-200
-          "--award-title": "68.47% 0.1479 237.32", // sky-500
-          "--link-hover": "68.47% 0.1479 237.32", // sky-500
-          "--status-indicator": "82.76% 0.1013 230.32", // sky-300
-        },
-      },
-      {
         dark: {
           primary: "#7dd3fc", // sky-300
           "primary-content": "#010100",
