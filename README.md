@@ -39,6 +39,8 @@ Since Jekyll requires some additional setup to work with Tailwind CSS, this site
 
 ## Attribution
 
+Accessibility note: All links below open in a new tab.
+
 Assets used:
 
 - Award icons by <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer">Cuputo</a> from the

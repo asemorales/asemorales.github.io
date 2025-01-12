@@ -2,8 +2,8 @@
   <a href="{{ social-icon.url }}"
      target="_blank"
      rel="noopener noreferrer"
-     class="flex items-center"
-     aria-label="View {{ social-icon.title }} in new tab">
-    <i class="ri-{{ social-icon.filename }}-fill text-2xl text-neutral-300 hover:text-link-hover ease-in-out hover:transition-colors motion-reduce:transition-none"></i>
+     class="flex items-center">
+    <i aria-hidden="true" class="ri-{{ social-icon.filename }}-fill text-2xl text-neutral-300 hover:text-link-hover ease-in-out hover:transition-colors motion-reduce:transition-none"></i>
+    <span class="sr-only">{{ social-icon.title }} (Opens in a new tab)</span>
   </a>
 </div>
