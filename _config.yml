@@ -18,11 +18,6 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: "works"
-    values:
-      layout: "work"
-  - scope:
-      path: ""
     values:
       layout: "default"
       image:
