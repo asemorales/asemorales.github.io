@@ -1,7 +1,7 @@
 social-icons:
   - title: GitHub
     url: https://github.com/IrishMorales
-    filename: github
+    icon-class: ri-github-fill
   - title: LinkedIn
     url: https://www.linkedin.com/in/irish-danielle-morales/
-    filename: linkedin
+    icon-class: ri-linkedin-fill
