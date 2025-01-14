@@ -4,14 +4,6 @@
         <h2 class="text-3xl md:text-5xl font-semibold leading-snug text-pretty mb-5">{{ about.title }}</h2>
         <p class="text-pretty text-neutral-200 leading-loose mb-12">{{ about.text }}</p>
         <div class="mb-5">
-            <label class="text-xsm font-bold tracking-wider text-neutral-300 block mb-3 uppercase">Experience in</label>
-            <ul class="mb-5">
-                {% for industry in about.industries %}
-                <li class="badge badge-outline bg-base-100 border-base-300 border p-4 mb-1">{{ industry }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="mb-5">
             <label class="text-xsm font-bold tracking-wider text-neutral-300 block mb-3 uppercase">Core Interests</label>
             <ul class="mb-5">
                 {% for interest in about.interests %}
