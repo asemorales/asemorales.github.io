@@ -6,12 +6,12 @@ professional:
     date: Jun 2023 - Dec 2024
     description:
       - text:
-          Led development of a syncing mechanism for ~150 tables across 3 microservices using RESTful APIs for a finance system with 15,000+ users
+          Led development of a syncing mechanism for ~150 tables across 3 web apps using RESTful APIs for a finance system with 15,000+ users
       - text:
-          Led a project with 5 developers, mentoring based on individual career goals; commended by team and management
+          Led a project with 5 developers, mentoring based on individual career goals; commended by team and senior management
       - text:
           Delivered an MVP in 10 days; surpassed KPIs and received high client praise
-      - text: Handled 9 web apps, quickly adapting to new tools and requirements
+      - text: Delivered 9 projects, played a key role in securing a company merger, and was recognized for combining technical insights with business goals
     tools:
       - name: Laravel
       - name: Bootstrap
@@ -52,9 +52,10 @@ others:
     date: Oct - Dec 2023
     type: Volunteer
     description:
-      - text: Created* website mockups & design assets for a non-profit<br>(*Development and implementation was done by another team)
+      - text: Designed website mockups & brand assets for a non-profit's launch
     tools:
       - name: Figma
+      - name: Photoshop
   - id: silid-aralan
     name: Backend Developer
     organization: Silid Aralan
@@ -62,7 +63,7 @@ others:
     date: Jan - Jun 2023
     type: Volunteer
     description:
-      - text: Sole developer of a dashboard to track metrics and generate non-profit reports
+      - text: Developed a dashboard to track metrics and generate non-profit reports
     tools:
       - name: Django
       - name: CSS
