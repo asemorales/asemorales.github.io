@@ -8,4 +8,6 @@ social-icons:
   - title: Instagram
     url: https://www.instagram.com/polar_and_ase/
     icon-class: ri-instagram-line
-
+  - title: Steam
+    url: https://steamcommunity.com/id/PeekAPolar/
+    icon-class: ri-steam-fill
