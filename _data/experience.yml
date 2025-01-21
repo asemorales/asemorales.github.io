@@ -13,11 +13,11 @@ professional:
           Delivered an MVP in 10 days; surpassed KPIs and received high client praise
       - text: Delivered 9 projects, played a key role in securing a company merger, and was recognized for combining technical insights with business goals
     tools:
-      - name: Laravel
-      - name: Bootstrap
-      - name: SASS/SCSS
-      - name: jQuery
+      - name: Laravel (PHP)
+      - name: Bootstrap (SCSS)
+      - name: jQuery (JavaScript)
       - name: MySQL
+      - name: HTML & CSS
   - id: alls
     name: Full-stack Web and Mobile Developer
     organization: Ateneo Laboratory for the Learning Sciences
@@ -27,7 +27,7 @@ professional:
     description:
       - text: Solely designed, developed, & deployed a web analytics dashboard and cross-platform mobile app
     tools:
-      - name: Flutter
+      - name: Flutter (Dart)
       - name: Firebase
 others:
   - id: cloudband
@@ -41,10 +41,10 @@ others:
       - text: Designed 30+ wireframes & revamped 4 SPAs for responsiveness, cross-browser support, and accessibility
     tools:
       - name: Ruby on Rails
-      - name: React
-      - name: Bootstrap
-      - name: SASS/SCSS
+      - name: React (JavaScript)
+      - name: Bootstrap (SCSS)
       - name: MySQL
+      - name: HTML & CSS
   - id: phlourish
     name: UI/UX Designer
     organization: Phlourish
@@ -65,7 +65,7 @@ others:
     description:
       - text: Developed a dashboard to track metrics and generate non-profit reports
     tools:
-      - name: Django
-      - name: CSS
+      - name: Django (Python)
       - name: JavaScript
       - name: MySQL
+      - name: HTML & CSS
