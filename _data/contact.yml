@@ -1,13 +1,13 @@
 social-icons:
   - title: GitHub
-    url: https://github.com/IrishMorales
+    url: https://github.com/asemorales
     icon-class: ri-github-fill
   - title: LinkedIn
-    url: https://www.linkedin.com/in/irish-danielle-morales/
+    url: https://www.linkedin.com/in/asemorales
     icon-class: ri-linkedin-fill
   - title: Instagram
-    url: https://www.instagram.com/polar_and_ase/
+    url: https://www.instagram.com/polar_and_ase
     icon-class: ri-instagram-line
   - title: Steam
-    url: https://steamcommunity.com/id/PeekAPolar/
+    url: https://steamcommunity.com/id/PeekAPolar
     icon-class: ri-steam-fill
