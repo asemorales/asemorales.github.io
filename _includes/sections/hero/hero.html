@@ -1,30 +1,18 @@
 {% assign personal = site.data.personal %}
+{% assign about = site.data.about %}
 <header id="hero" class="flex relative min-h-svh justify-start px-7 py-36 md:px-40">
   <div class="flex flex-col">
-    <div class="grow">
-      <h1 id="hero-title" class="mb-3 block text-4xl font-semibold text-base-content sm:mb-5 sm:text-6xl">{{ personal.fullname }}</h1>
-      <h2 class="mb-12 text-2xl sm:text-3xl max-w-screen-md text-pretty">{{ personal.position }}</h2>
-      <div class="mb-3 flex flex-wrap items-center justify-start sm:mb-5 gap-3">
-        <div id="cta-button" class="w-full sm:w-fit group relative">
-          <a
-            href="{{ site.url }}/#call-to-action"
-            rel="noopener noreferrer"
-            class="w-full relative inline-block cursor-pointer rounded-lg theme-gradient group-hover:animate-gradient p-px leading-6 text-btn-action-content transition-transform ease-in-out hover:scale-105 active:scale-95 motion-reduce:transition-none">
-            <span class="relative block rounded-lg bg-btn-action px-6 py-3">
-              <span class="flex items-center justify-center font-semibold text-sm">
-                Contact
-              </span>
-            </span>
-          </a>
-        </div>
-        <a href="https://asemorales.com/academic-cv/cv.pdf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-fit btn btn-outline bg-base-100 px-6 py-4">Curriculum Vitae<span class="sr-only"> (Opens in a new tab)</span></a>
+    <div class="grow max-w-screen-md">
+      <h1 id="hero-title" class="mb-4 block text-4xl font-semibold text-base-content sm:text-6xl">{{ personal.fullname }}</h1>
+      <p class="text-xl md:text-3xl font-serif text-pretty leading-loose mb-12">{{ about.text }}</p>
+      <div>
+          <label class="text-xsm font-mono tracking-wider text-neutral-300 block mb-4 uppercase">Research Interests</label>
+          <ul class="mb-5">
+              {% for interest in about.interests %}
+              <li class="badge badge-outline bg-base-100 border-base-300 border p-4 mb-1">{{ interest }}</li>
+              {% endfor %}
+          </ul>
       </div>
-      <div class="mb-40 flex space-x-3">
-        {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include components/social-icon.html %} {% endfor %}
-      </div>
-    </div>
-    <div class="stats stats-vertical bg-transparent lg:stats-horizontal divide-none">
-      {% assign stats = site.data.stats %} {% for stat in stats.stats %} {% include sections/hero/stat.html %} {% endfor %}
     </div>
   </div>
   <div id="hero-deco" aria-hidden="true" class="w-full h-full absolute top-0 right-0 overflow-hidden pointer-events-none">
