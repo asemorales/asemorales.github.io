@@ -1,16 +1,16 @@
 title: Ase Morales
-tagline: Full-stack Developer and Software Engineer
+tagline: Research Software Engineer
 email: hi@asemorales.com
-description: Full-stack developer and software engineer building scalable, fast, and secure web apps.
+description: Research software engineer bridging complexity, computability, and cognition.
 baseurl: ""
 url: "https://asemorales.com"
-author: Irish Danielle (Ase) Morales
+author: Ase Morales
 social:
-  name: Irish Danielle (Ase) Morales
+  name: Ase Morales
   links:
-    - https://github.com/IrishMorales
-    - https://www.linkedin.com/in/irish-danielle-morales
-keywords: "portfolio, freelance, full-stack developer, software engineer, web apps"
+    - https://github.com/asemorales
+    - https://www.linkedin.com/in/asemorales
+keywords: "Irish Danielle Morales, Research Software Engineer, Complex Systems, Scientific Computing, Computational Neuroscience, Spiking Neural Networks, Embodied Intelligence, Computability Theory"
 
 # Site structure
 collections:

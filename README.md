@@ -1,13 +1,13 @@
 <div align="center">
     <img src="assets/images/logo.svg" alt="Site logo">
-    <h1>Ase Morales - Full-stack Software Engineer</p></h1>
-    <p>Personal portfolio site built with Jekyll + Tailwind CSS</p>
-    <a href="https://irishmorales.github.io">View live site</a>
+    <p style="font-size: 3rem; font-weight: bold; margin-bottom: 0;">Ase Morales</p>
+    <p style="font-size: 1.2rem; font-weight: semibold;">Research Software Engineer</p>
+    <a href="https://asemorales.github.io">View site</a>
 </div>
 
 ## Status
 
-[![Deploy Jekyll + Tailwind CSS with GitHub Pages](https://github.com/IrishMorales/irishmorales.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/IrishMorales/irishmorales.github.io/actions/workflows/deploy.yml)
+[![Deploy Jekyll + Tailwind CSS with GitHub Pages](https://github.com/asemorales/asemorales.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/asemorales/asemorales.github.io/actions/workflows/deploy.yml)
 
 ## Setup
 
@@ -35,11 +35,9 @@ Run `npm run prod`
 
 #### Deployment
 
-Since Jekyll requires some additional setup to work with Tailwind CSS, this site uses a custom deployment workflow seen in `deploy.yml`.
+Since Jekyll requires additional setup to work with Tailwind CSS, this site uses a custom deployment workflow seen in `deploy.yml`.
 
 ## Attribution
-
-Accessibility note: All links below open in a new tab.
 
 Assets used:
 
@@ -47,15 +45,14 @@ Assets used:
   <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
 - All other icons by <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer">Remix Icon</a> (Apache License 2.0)
 
-An homage to several works I love:
+Visual & intellectual influences:
 
-- <a href="https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night" target="_blank" rel="noopener noreferrer">Tokyo Night</a>
-- <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a>
-- <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer">Supabase</a>
-- <a href="https://vercel.com/geist/introduction" target="_blank" rel="noopener noreferrer">Geist</a>
-- <a href="https://vercel.com/geist/introduction" target="_blank" rel="noopener noreferrer">Linear</a>
-- the works of  <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer">Brittany Chiang</a>, <a href="https://www.jestsee.com/" target="_blank" rel="noopener noreferrer">Jesica</a>, and <a href="https://hen-ry.com/" target="_blank" rel="noopener noreferrer">Henry Ludlam-Steinke</a>
-  
+- <a href="https://barabasi.com/" target="_blank" rel="noopener noreferrer">Barabasi Lab</a>
+- <a href="https://gwern.net/" target="_blank" rel="noopener noreferrer">Gwern</a>
+- <a href="https://www.normalcomputing.com/" target="_blank" rel="noopener noreferrer">Normal Computing</a>
+- <a href="https://distill.pub/" target="_blank" rel="noopener noreferrer">Distill.pub</a>
+- <a href="https://andymatuschak.org/" target="_blank" rel="noopener noreferrer">Andy Matuschak (Works)</a>
+- <a href="https://thinkingmachines.ai/" target="_blank" rel="noopener noreferrer">Thinking Machines Lab</a>
 
 ## Licensing
 

@@ -3,7 +3,16 @@
      target="_blank"
      rel="noopener noreferrer"
      class="flex items-center">
-    <i aria-hidden="true" class="{{ social-icon.icon-class }} text-2xl text-neutral-300 hover:text-link-hover ease-in-out hover:transition-colors motion-reduce:transition-none"></i>
+
+    <!-- Temporary workaround since Remix Icon doesn't currently have Substack logo -->
+    {% if social-icon.title == 'Substack' %}
+      <svg class="w-5 h-5 mt-1.5 text-neutral-300 hover:text-link-hover ease-in-out hover:transition-colors motion-reduce:transition-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+      </svg>
+    {% else %}
+      <i aria-hidden="true" class="{{ social-icon.icon-class }} text-2xl text-neutral-300 hover:text-link-hover ease-in-out hover:transition-colors motion-reduce:transition-none"></i>
+    {% endif %}
+
     <span class="sr-only">{{ social-icon.title }} (Opens in a new tab)</span>
   </a>
 </div>

@@ -1,4 +1,4 @@
-{% assign story = site.data.story %}
+{% assign background = site.data.background %}
 <div class="relative md:px-40 py-44 w-full">
     <div class="px-7 md:px-0 max-w-screen-md">
         <h2 class="text-3xl md:text-5xl font-semibold leading-snug text-pretty mb-20">Building systems that put people
@@ -6,7 +6,7 @@
         <div class="mb-32">
             <h3 class="font-semibold text-2xl md:text-3xl mb-10">Philosophy: Why I build things</h3>
             <div class="text-neutral-200 leading-loose mb-7">
-                <p>{{ story.philosophy-part-1 }}</p>
+                <p>{{ background.philosophy-part-1 }}</p>
                 <div id="philosophy-show-more-btn-wrapper"
                      class="flex w-full flex-col mt-7">
                     <div class="divider">
@@ -18,14 +18,13 @@
                 </div>
                 <p id="philosophy-part-2"
                    class="hidden">
-                    {{ story.philosophy-part-2 }}
+                    {{ background.philosophy-part-2 }}
                 </p>
             </div>
         </div>
         <div>
             <h3 class="font-semibold text-2xl md:text-3xl mb-16">Journey: From robotics to development</h3>
             <div class="avatar indicator mb-10">
-                <span class="indicator-item badge">{{ story.greeting }}</span>
                 <div class="size-20 rounded-full">
                     <img alt="A picture of me holding a stuffed bear"
                          src="{{ site.url }}/assets/images/me.png"
@@ -36,7 +35,7 @@
             </div>
 
             <div class="text-neutral-200 leading-loose mb-7">
-                <p>{{ story.about-me-part-1 }}</p>
+                <p>{{ background.about-me-part-1 }}</p>
                 <div id="about-me-show-more-btn-wrapper" class="flex w-full flex-col mt-7">
                     <div class="divider">
                         <btn id="about-me-show-more-btn" class="btn btn-outline bg-base-100 px-4 py-3 min-h-fit h-fit text-neutral-100 rounded-full font-normal">
@@ -46,7 +45,7 @@
                 </div>
                 <div id="about-me-part-2"
                      class="hidden">
-                    <p>{{ story.about-me-part-2 }}</p>
+                    <p>{{ background.about-me-part-2 }}</p>
                 </div>
             </div>
         </div>
