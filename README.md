@@ -1,7 +1,6 @@
 <div align="center">
     <img src="assets/images/logo.svg" alt="Site logo">
-    <p style="font-size: 3rem; font-weight: bold; margin-bottom: 0;">Ase Morales</p>
-    <p style="font-size: 1.2rem; font-weight: semibold;">Research Software Engineer</p>
+    <h1>Ase Morales - Research Software Engineer</h1>
     <a href="https://asemorales.github.io">View site</a>
 </div>
 
