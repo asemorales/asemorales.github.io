@@ -1,0 +1,25 @@
+{% assign papers = site.data.papers %}
+<div class="px-7 md:px-36 pt-44">
+    <div>
+        <h2 class="text-3xl md:text-5xl font-semibold leading-snug text-pretty mb-5">Papers</h2>
+        {% for paper in papers.papers %}
+            <div class="border-y border-base-300 py-8">
+                <h3>{{ paper.title }}</h3>
+                <p class="text-neutral-200 text-pretty">{{ paper.authors }}</p>
+                <p class="text-neutral-200 text-pretty italic">{{ paper.venue }}</p>
+                {% if paper.paper %}
+                <a href="{{ paper.paper }}" target="_blank" rel="noopener noreferrer" 
+                   class="hover:text-white underline underline-offset-4 decoration-base-300 transition-colors">
+                    [Paper]
+                </a>
+                {% endif %}
+                {% if paper.code %}
+                <a href="{{ paper.code }}" target="_blank" rel="noopener noreferrer" 
+                   class="ml-1 hover:text-white underline underline-offset-4 decoration-base-300 transition-colors">
+                    [Code]
+                </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
