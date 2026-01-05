@@ -1,21 +1,21 @@
 {% assign personal = site.data.personal %}
-<article class="rounded-none md:rounded-xl min-h-[500px] bg-base-100 border border-base-200 p-7 sm:p-20 flex flex-col justify-center -z-10">
-    <div class="text-4xl">{% include svg/logo.svg id="logo-svg-business-card" classes="fill-neutral-100 h-16 w-auto" %}</div>
-    <div class="flex flex-col lg:flex-row lg:divide-x divide-base-200 lg:items-end mt-12 gap-7">
+<article class="rounded-none md:rounded-xl min-h-[500px] bg-gradient-to-tl from-base-100 to-base-200 border border-base-200 p-7 sm:p-20 flex flex-col justify-center -z-10 shadow-2xl/30">
+    <div class="text-4xl">{% include svg/logo.svg id="logo-svg-business-card" classes="fill-neutral-100 h-16 w-auto" %}
+    </div>
+    <div class="flex flex-col lg:flex-row lg:items-end mt-4 gap-7">
         <div class="basis-1/2">
-            <h3 class="font-semibold text-2xl mb-3">{{ personal.fullname }}</h3>
+            <h3 class="font-semibold text-2xl">{{ personal.fullname }}</h3>
             <p class="text-neutral-200 text-pretty">{{ personal.position }}</p>
         </div>
         <div class="basis-1/2 lg:ps-7">
-            <a
-            href="mailto:{{ site.email }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-neutral-200 hover:text-neutral-100 hover:underline hover:underline-offset-4 mb-1.5">
+            <a href="mailto:{{ site.email }}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="text-neutral-200 hover:text-neutral-100 hover:underline hover:underline-offset-4">
                 {{ site.email }}
                 <span class="sr-only"> (Opens in a new tab)</span>
             </a>
-            <div class="flex space-x-3">
+            <div class="flex space-x-3 mt-1">
                 {% assign contact = site.data.contact %} {% for social-icon in contact.social-icons %} {% include
                 components/social-icon.html %} {% endfor %}
             </div>
