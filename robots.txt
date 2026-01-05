@@ -1,0 +1,7 @@
+---
+layout: null
+---
+User-agent: *
+Disallow: /cdn-cgi/
+
+Sitemap: https://asemorales.com/sitemap.xml
