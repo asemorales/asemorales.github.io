@@ -1,10 +1,10 @@
 papers:
   - title: "MobileLookNet: A Lightweight Convolutional Neural Network for Detection of Osseous Metastasis Using Feature Fusion and Attention Strategies"
-    authors: <span class="font-bold">I. D. Morales</span>, C. J. Echon, A. R. Teaño, R. Alampay, and P. A. Abu
+    authors: <span class="font-semibold">I. D. Morales</span>, C. J. Echon, A. R. Teaño, R. Alampay, and P. A. Abu
     venue: 2024 2nd Asia Conference on Computer Vision, Image Processing and Pattern Recognition (CVIPPR '24)
     paper: https://doi.org/10.1145/3663976.3664235
     code: https://github.com/asemorales/mobilelooknet
   - title: "An Experience Sampling Study of Student Emotional Life: Preliminary Results"
-    authors: M. M. T. Rodrigo, L. P. Alampay, Q. N. Lee-Chua, and <span class="font-bold">I. D. Morales</span>
+    authors: M. M. T. Rodrigo, L. P. Alampay, Q. N. Lee-Chua, and <span class="font-semibold">I. D. Morales</span>
     venue: 2024 32nd International Conference on Computers in Education (ICCE '24)
     paper: https://doi.org/10.58459/icce.2024.4999

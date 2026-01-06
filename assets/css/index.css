@@ -1,4 +1,6 @@
 @import "../fonts/remixicon/remixicon.css";
+@import "../fonts/inter/inter.css";
+@import "../fonts/newsreader/newsreader.css";
 
 /* purgecss start ignore */
 @import "tailwind.css";
