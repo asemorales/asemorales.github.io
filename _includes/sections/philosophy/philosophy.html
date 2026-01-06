@@ -1,0 +1,44 @@
+{% assign philosophy = site.data.philosophy %}
+
+<div class="relative md:px-40 pt-44 w-full">
+    <div class="px-7 md:px-0 max-w-screen-md">
+        
+        <h2 class="text-3xl md:text-5xl font-semibold leading-snug text-pretty mb-12">Philosophy</h2>
+        
+        <div class="text-neutral-200 leading-loose mb-7
+                    [&_h3]:font-serif [&_h3]:text-2xl [&_h3]:md:text-3xl [&_h3]:mb-6 [&_h3]:text-base-content
+                    [&_blockquote]:border-l-4 [&_blockquote]:border-neutral-300 [&_blockquote]:pl-4 [&_blockquote]:text-xl [&_blockquote]:font-serif [&_blockquote]:my-8 [&_blockquote]:text-base-400
+                    [&_cite]:block [&_cite]:mt-4 [&_cite]:text-xs [&_cite]:not-italic [&_cite]:font-sans [&_cite]:tracking-wider [&_cite]:text-neutral-300 [&_cite]:uppercase
+                    [&_p]:mb-6 [&_p]:text-neutral-200
+                    [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_ul]:mb-4
+                    [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2 [&_ol]:mb-6
+                    [&_li_strong]:text-base-content [&_li_strong]:font-normal">
+
+            <div>
+                {{ philosophy.intro | markdownify }}
+            </div>
+
+            <div id="philosophy-show-more-btn-wrapper" class="flex w-full flex-col mt-6 mb-12">
+                <button id="philosophy-show-more-btn"
+                        onclick="
+                            document.getElementById('philosophy-part-2').classList.remove('hidden'); 
+                            document.getElementById('philosophy-fade').style.display='none'; 
+                            this.parentElement.style.display='none';
+                        "
+                        class="group mx-auto flex flex-col items-center gap-2 text-neutral-300 hover:text-neutral-100 transition-colors duration-500 ease-out">
+                    
+                    <span class="text-xs font-sans tracking-wider uppercase">Continue reading</span>
+                    
+                    <i class="ri-arrow-down-line text-lg group-hover:translate-y-1 transition-transform duration-300"></i>
+                </button>
+
+            </div>
+
+
+            <div id="philosophy-part-2" class="hidden animate-in fade-in slide-in-from-top-4 duration-500">
+                 {{ philosophy.extended | markdownify }}
+            </div>
+
+        </div>
+    </div>
+</div>

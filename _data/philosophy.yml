@@ -1,0 +1,26 @@
+intro: |
+  ### The frontier of artificial intelligence lies in our fundamental understanding of biological intelligence.
+
+  > "Many lines of research have become goals of pursuit in their own right, with little recall of the reasons for pursuing those lines. A little grounding occasionally can go a long way towards helping keep things on track."
+  > <cite>— Rodney Brooks, Intelligence without Reason, 1991</cite>
+
+  Dominant industry AI research revolves around the algorithmic level of intelligence (scaling and optimizing ML model architectures for incremental benchmark performance) and the mechanistic level of intelligence (mechanistic interpretability). While progress at these levels has driven mutual contributions between AI and cognitive science, the bottleneck of scientific progress lies at the pace layer of computation, which asks fundamental questions about cognition from first principles. Of these questions, I am primarily interested in asking: *how does intelligence arise from the interaction of simple biological, physical, and social components within spatio-temporal constraints?*
+
+extended: |
+  ### Cognition is an emergent physical, biological, and social phenomenon.
+
+  Intelligence emerges under thermodynamic and metabolic constraints as biological agents interact with physical and social environments. Hence, advancements in understanding cognition benefit from complementing connectionist approaches with interdisciplinary frameworks that capture the emergent, nonlinear dynamics of intelligent systems.
+
+  My views of cognition are summarized as:
+  1. intelligent systems as complex adaptive systems
+  2. intelligence as agents forming constructivist knowledge within complex environments
+
+  To pursue these questions empirically, I am interested in:
+
+  * **Efficiency of neural computation under physical constraints** (i.e. Landauer's principle, efficient coding hypothesis, optimization in spiking neural networks)
+  * **Computational features of population codes** (robustness, generalization, encoding/decoding schemes, and sparsity of neural encodings)
+  * **Biologically plausible gradient-based learning rules in spiking neural networks** (surrogate gradients and three-factor plasticity rules)
+  * **Embodied cognition and reinforcement learning** in action-perception loops
+  * **Computational modelling of brain-body and brain–behaviour dynamics** (interoception, allostatic load)
+  * **Neural representations of time and space in memory** (multi-scale brain–body rhythms)
+  * **Neural adaptation to prolonged spaceflight** (neural encodings of gravity, impacts on sensory processing, and sensorimotor recalibration during and after spaceflight)
