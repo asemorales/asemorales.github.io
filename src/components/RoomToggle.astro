@@ -1,11 +1,39 @@
 ---
 // Cycles auto, light, and dark. Hidden without JS, where the room follows the system.
+// The icon shows the room in effect, so auto shows the system's room.
 ---
 
-<button id="room-toggle" type="button" hidden class="smcp cursor-pointer text-dim hover:text-ink" aria-live="polite">
-  <span class="sr-only">Theme: </span>
-  <span data-label>auto</span>
+<button id="room-toggle" type="button" hidden class="cursor-pointer text-dim hover:text-ink" aria-live="polite">
+  <span class="sr-only">
+    Theme: <span data-label>auto</span>
+  </span>
+  <svg class="sun size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+  </svg>
+  <svg class="moon size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+    <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"></path>
+  </svg>
 </button>
+
+<style>
+  /* Show the moon in the dark room, picked or followed, and the sun otherwise. */
+  .moon,
+  :global(:root[data-room="dark"]) .sun {
+    display: none;
+  }
+  :global(:root[data-room="dark"]) .moon {
+    display: block;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-room])) .sun {
+      display: none;
+    }
+    :global(:root:not([data-room])) .moon {
+      display: block;
+    }
+  }
+</style>
 
 <script>
   const ROOMS = ["auto", "light", "dark"] as const;
@@ -17,10 +45,15 @@
 
   const current = (): Room => (root.dataset.room === "light" || root.dataset.room === "dark" ? root.dataset.room : "auto");
 
+  function show(room: Room) {
+    label.textContent = room;
+    button.title = `Theme: ${room}`;
+  }
+
   function apply(room: Room) {
     if (room === "auto") delete root.dataset.room;
     else root.dataset.room = room;
-    label.textContent = room;
+    show(room);
     try {
       if (room === "auto") localStorage.removeItem("room");
       else localStorage.setItem("room", room);
@@ -29,7 +62,7 @@
     }
   }
 
-  label.textContent = current();
+  show(current());
   button.hidden = false;
   button.addEventListener("click", () => apply(ROOMS[(ROOMS.indexOf(current()) + 1) % ROOMS.length]));
 </script>

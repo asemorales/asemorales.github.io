@@ -1,37 +1,129 @@
 ---
 import { getCollection, render } from "astro:content";
+import NoteTools from "../components/NoteTools.astro";
 import Base from "../layouts/Base.astro";
 import { summary } from "../lib/summary.js";
 import { slugify } from "../lib/slug.js";
+import { linkTargets } from "../lib/wikilinks.js";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
   return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
 }
 
+interface Citation {
+  url: string;
+  text: string;
+  refs: string[];
+}
+
 const { note } = Astro.props;
-const { Content } = await render(note);
+const { Content, remarkPluginFrontmatter } = await render(note);
 const description = summary(note.body ?? "", { paragraphs: 1 })[0] ?? note.data.title;
 const updated = note.data.updated.toISOString().slice(0, 10);
+
+// See also: every other published note with a wikilink here. Unlisted notes
+// count only on other unlisted notes, so test pages never show on real ones.
+// The config counts these the same way, for the contents.
+const title = note.data.title.toLowerCase();
+const backlinks = (await getCollection("notes", (n) => n.id !== note.id && (!n.data.unlisted || note.data.unlisted)))
+  .filter((n) => linkTargets(n.body ?? "").some((t) => t.toLowerCase() === title))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+// The bibliography: external links in order of first use, each with its
+// hand-written annotation when there is one.
+const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, a]));
+const citations = (remarkPluginFrontmatter.bibliography ?? []) as Citation[];
+const bibliography = await Promise.all(
+  citations.map(async (c) => {
+    const annotation = annotations.get(c.url);
+    return { ...c, domain: new URL(c.url).hostname.replace(/^www\./, ""), Annotation: annotation ? (await render(annotation)).Content : null };
+  }),
+);
+const letter = (i: number) => String.fromCharCode(97 + (i % 26)) + (i >= 26 ? Math.floor(i / 26) : "");
 ---
 
-<Base title={note.data.title} description={description} noindex={note.data.unlisted}>
+<Base title={note.data.title} description={description} noindex={note.data.unlisted} wide>
   <article class="note">
     <h1 class="text-4xl">{note.data.title}</h1>
     <Content />
-    <footer class="mt-12 border-t border-rule pt-4 text-sm text-dim">
-      <ul class="flex list-none flex-wrap gap-2 pl-0">
-        {note.data.tags.map((tag) => (
-          <li>
-            <a href={`/tags/${slugify(tag)}/`} class="smcp border border-frame px-1.5 text-ink no-underline hover:bg-hover">
-              {tag}
+    <footer class="bottom">
+      {backlinks.length > 0 && (
+        <section aria-labelledby="see-also">
+          <h2 id="see-also">
+            See also
+            <a href="#see-also" class="anchor" aria-label="Link to See also">
+              <span class="icon icon-link" aria-hidden="true" />
             </a>
-          </li>
-        ))}
-      </ul>
-      <p>
-        Last updated <time datetime={updated}>{updated}</time>.
+          </h2>
+          <ul>
+            {backlinks.map((n) => (
+              <li>
+                <a href={`/${n.id}/`}>{n.data.title}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      {bibliography.length > 0 && (
+        <section class="bibliography" aria-labelledby="bibliography">
+          <h2 id="bibliography">
+            Bibliography
+            <a href="#bibliography" class="anchor" aria-label="Link to Bibliography">
+              <span class="icon icon-link" aria-hidden="true" />
+            </a>
+          </h2>
+          <ol>
+            {bibliography.map((c) => (
+              <li>
+                <span class="backrefs">
+                  {c.refs.length === 1 ? (
+                    <a href={`#${c.refs[0]}`} aria-label="Back to the citation">
+                      ↑
+                    </a>
+                  ) : (
+                    <>
+                      ↑
+                      {c.refs.map((id, i) => (
+                        <a href={`#${id}`} aria-label={`Back to citation ${letter(i)}`}>
+                          {letter(i)}
+                        </a>
+                      ))}
+                    </>
+                  )}
+                </span>{" "}
+                <a href={c.url}>{c.text}</a> <span class="domain">({c.domain})</span>
+                {c.Annotation && (
+                  <div class="annotation">
+                    <c.Annotation />
+                  </div>
+                )}
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+      {note.data.tags.length > 0 && (
+        <div class="tags">
+          <span class="tags-label">
+            <span class="icon icon-tags" aria-hidden="true" />
+            Tags
+          </span>
+          <ul>
+            {note.data.tags.map((tag) => (
+              <li>
+                <a href={`/tags/${slugify(tag)}/`} class="tag">
+                  {tag}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <p class="font-mono text-sm text-dim">
+        Last updated <time datetime={updated}>{updated}</time>
       </p>
     </footer>
   </article>
+  <NoteTools />
 </Base>

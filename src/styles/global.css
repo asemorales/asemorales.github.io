@@ -46,14 +46,18 @@
 
   --page: light-dark(#f2ecdf, #191612); /* the page itself */
   --panel: light-dark(#ece5d5, #25211c); /* bars, cards, and boxes */
-  --hover: light-dark(#ddd4c1, #3a342d); /* hovered rows and buttons */
+  --code: light-dark(#f9f5ee, #25211c); /* code; lighter than the light page keeps syntax hues above 5:1 */
+  --hover: light-dark(#e3dbc9, #3a342d); /* hovered rows and buttons */
+  --tag-hover: light-dark(#f9f5ee, #3a342d); /* hovered tags, lighter than the page in both rooms */
   --rule: light-dark(#ddd4c1, #4d463e); /* hairlines */
-  --frame: light-dark(#9a9183, #615950); /* borders */
+  --frame: light-dark(#c9bfab, #615950); /* borders */
   --mid: light-dark(#9a9183, #81786d); /* quiet controls */
   --dim: light-dark(#6e6965, #9e958a); /* secondary text */
-  --ink: light-dark(#231a15, #f2ede4); /* body text */
+  --ink: light-dark(#231a15, #efe6d6); /* body text */
   --link: light-dark(#0645ad, #88a3e8); /* live links, 7.2:1 and 7.3:1 */
   --link-dead: light-dark(#ba0000, #fd7865); /* dead links, 5.8:1 and 6.9:1 */
+  --link-hover: light-dark(#0b0080, #b3c6f2); /* hovered live links, 13.5:1 and 10.5:1 */
+  --link-dead-hover: light-dark(#7a0000, #ffa394); /* hovered dead links, 9.8:1 and 9.4:1 */
 }
 :root[data-room="light"] {
   color-scheme: light;
@@ -65,7 +69,9 @@
 @theme inline {
   --color-page: var(--page);
   --color-panel: var(--panel);
+  --color-code: var(--code);
   --color-hover: var(--hover);
+  --color-tag-hover: var(--tag-hover);
   --color-rule: var(--rule);
   --color-frame: var(--frame);
   --color-mid: var(--mid);
@@ -73,6 +79,8 @@
   --color-ink: var(--ink);
   --color-link: var(--link);
   --color-link-dead: var(--link-dead);
+  --color-link-hover: var(--link-hover);
+  --color-link-dead-hover: var(--link-dead-hover);
 }
 
 @theme {
@@ -83,7 +91,7 @@
 
 @layer base {
   html {
-    @apply bg-page font-sans text-ink;
+    @apply bg-page font-serif text-ink;
     -webkit-font-smoothing: antialiased;
     text-size-adjust: 100%;
   }
@@ -92,11 +100,11 @@
   h2,
   h3,
   h4 {
-    @apply font-serif font-semibold;
+    @apply font-semibold;
   }
 
   a {
-    @apply text-link underline decoration-1 underline-offset-2;
+    @apply text-link underline decoration-1 underline-offset-2 hover:text-link-hover;
   }
 
   ::selection {
@@ -107,31 +115,144 @@
     @apply outline-1 outline-offset-4 outline-ink;
   }
 
-  /* Shiki writes both themes as variables. Use the one for the current room. */
+  /* Shiki writes both themes as variables. Use the one for the current room,
+   * on the code color so blocks stand off the page. */
   .astro-code {
-    background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
+    @apply border border-rule bg-code;
   }
   .astro-code,
   .astro-code span {
     color: light-dark(var(--shiki-light), var(--shiki-dark));
   }
+
+  /* MathJax SVG, from the stylesheet it writes per page, which rehype-tidy drops.
+   * Glyphs use currentColor, so math follows the room. */
+  mjx-container[jax="SVG"] {
+    direction: ltr;
+  }
+  mjx-container[jax="SVG"] > svg {
+    @apply inline overflow-visible;
+    min-height: 1px;
+    min-width: 1px;
+  }
+  mjx-container[jax="SVG"] > svg a {
+    fill: var(--link);
+    stroke: var(--link);
+  }
+  mjx-container[jax="SVG"][display="true"] {
+    @apply my-4 block overflow-x-auto overflow-y-hidden text-center;
+  }
+  mjx-container[jax="SVG"][display="true"][width="full"] {
+    @apply flex;
+  }
+  mjx-container[jax="SVG"][justify="left"] {
+    @apply text-left;
+  }
+  mjx-container[jax="SVG"][justify="right"] {
+    @apply text-right;
+  }
+  mjx-container[jax="SVG"] path[data-c],
+  mjx-container[jax="SVG"] use[data-c] {
+    stroke-width: 3;
+  }
+  g[data-mml-node="mtable"] > line[data-line],
+  g[data-mml-node="mtable"] > rect[data-frame],
+  svg[data-table] > g > line[data-line],
+  svg[data-table] > g > rect[data-frame] {
+    stroke-width: 70px;
+    fill: none;
+  }
+  g[data-mml-node="mtable"] > g > svg {
+    @apply overflow-visible;
+  }
 }
 
 @layer components {
-  /* Small caps in Source Serif 4, since Inter has none. */
+  /* Icons, from Lucide (lucide.dev, ISC), drawn in the text color through a
+   * mask. JS swaps the icon-* class to change one. */
+  .icon {
+    @apply inline-block size-[1em] shrink-0 bg-current align-[-0.125em];
+    mask: var(--icon) center / contain no-repeat;
+  }
+  .icon-copy {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='14' height='14' x='8' y='8' rx='2'/><path d='M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2'/></svg>");
+  }
+  .icon-check {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg>");
+  }
+  .icon-x {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 6 6 18M6 6l12 12'/></svg>");
+  }
+  .icon-link {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/><path d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/></svg>");
+  }
+  .icon-code {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m16 18 6-6-6-6M8 6l-6 6 6 6'/></svg>");
+  }
+  .icon-tags {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z'/><path d='M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193'/><circle cx='10.5' cy='6.5' r='.5' fill='black'/></svg>");
+  }
+  .icon-sigma {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2'/></svg>");
+  }
+
+  /* Small caps in Source Serif 4. */
   .smcp {
     @apply font-serif;
     font-variant-caps: all-small-caps;
     letter-spacing: 0.04em;
   }
 
-  /* The note column. Phase 2 builds the full layout on this. */
+  /* The note column, as in Tufte CSS. The measure is 40em, about 90
+   * characters of Source Serif 4. From 760px the right margin holds sidenotes
+   * and infoboxes, which float out of the column with a negative margin. The
+   * column keeps its measure first and the margin takes what's left, up to
+   * --margin-max; 100cqw is the width of <main>. From 1200px the contents sit
+   * in a rail to the left, as --lead. Below 760px, one column. */
   .note {
-    @apply max-w-[66ch] leading-relaxed;
+    --gap: 2.5rem;
+    --lead: 0rem;
+    --rail: 13rem;
+    --measure: 50rem; /* 40em of the column's text-xl */
+    --margin: clamp(12rem, 100cqw - var(--lead) - var(--measure) - var(--gap), 24rem);
+    @apply relative max-w-[40em] text-lg leading-[1.7] sm:text-xl;
     hyphens: auto;
+  }
+  @media (width >= 760px) {
+    .note {
+      margin-left: var(--lead);
+      width: min(var(--measure), 100cqw - var(--lead) - var(--gap) - var(--margin));
+      max-width: none;
+    }
+  }
+  @media (width >= 1200px) {
+    .note:has(> .toc) {
+      --lead: calc(var(--rail) + var(--gap));
+    }
   }
   .note > * + * {
     @apply mt-4;
+  }
+
+  /* Justified, with indented paragraphs and no space between them. Ragged
+   * right on narrow screens, where justified lines open rivers. */
+  .note p {
+    text-align: justify;
+  }
+  @media (width < 30em) {
+    .note p {
+      text-align: left;
+    }
+  }
+  .note p + p {
+    @apply mt-0;
+    text-indent: 1.5em;
+  }
+
+  .note h2,
+  .note h3,
+  .note h4 {
+    @apply relative;
   }
   .note h2 {
     @apply mt-10 text-2xl;
@@ -142,20 +263,38 @@
   .note h4 {
     @apply mt-6 text-lg;
   }
+  .note .secno {
+    @apply mr-1 font-normal text-dim tabular-nums;
+  }
+  /* The link to the section shows on hover and on keyboard focus. With JS it
+   * copies the link, and shows a check once it has. */
+  .note .anchor {
+    @apply ml-2 inline-block text-[0.75em] font-normal text-mid no-underline opacity-0 hover:text-ink focus-visible:opacity-100;
+  }
+  .note .anchor[data-copied] {
+    @apply text-ink opacity-100;
+  }
+  .note :is(h2, h3, h4):hover .anchor {
+    @apply opacity-100;
+  }
+
   .note ul {
     @apply list-disc pl-6;
   }
   .note ol {
     @apply list-decimal pl-6;
   }
-  .note blockquote {
-    @apply border-l border-rule pl-6;
+  .note ol > li::marker {
+    @apply text-dim tabular-nums;
   }
   .note code {
     @apply font-mono text-[0.9em] break-words;
   }
+  .note :not(pre) > code {
+    @apply rounded-sm bg-code px-1;
+  }
   .note pre {
-    @apply overflow-x-auto rounded p-4;
+    @apply overflow-x-auto rounded p-4 leading-normal;
   }
   .note table {
     @apply block overflow-x-auto tabular-nums;
@@ -163,5 +302,282 @@
   .note th,
   .note td {
     @apply border-b border-rule px-2 py-1 text-left;
+  }
+
+  /* The separator: *** in the vault, three spaced asterisks on the page. */
+  .note hr {
+    @apply my-8 h-auto overflow-visible border-0 text-center font-serif leading-none text-dim;
+  }
+  .note hr::after {
+    content: "*\2003*\2003*";
+  }
+
+  /* Contents, open by default, on the page itself. In the column after the
+   * opening, or from 1200px in a rail to the left of the column that runs the
+   * length of the note, where they stick to the top of the screen. */
+  .note .toc {
+    @apply w-fit max-w-full text-lg leading-normal;
+  }
+  .note .toc summary {
+    @apply cursor-pointer font-semibold;
+  }
+  @media (width >= 1200px) {
+    .note .toc {
+      @apply absolute inset-y-0 mt-0 text-base;
+      left: calc(-1 * var(--lead));
+      width: var(--rail);
+    }
+    .note .toc details {
+      @apply sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto;
+    }
+  }
+  .note .toc ol {
+    @apply list-none pl-0;
+  }
+  .note .toc ol ol {
+    @apply pl-6;
+  }
+  .note .toc li {
+    @apply mt-1;
+  }
+  .note .toc a {
+    @apply text-ink no-underline hover:text-link-hover hover:underline;
+  }
+
+  /* Every quote is an epigraph, after Tufte CSS: italic, indented, set off
+   * from the text, with no rule and no quote marks. Attributions sit
+   * right-aligned in small caps below. */
+  .note blockquote {
+    @apply mx-6 my-10 italic;
+  }
+  .note blockquote footer {
+    @apply mt-2 text-right text-[0.95em] not-italic;
+    font-variant-caps: small-caps;
+  }
+
+  /* A status notice: a quiet box in the column. */
+  .note .status {
+    @apply border border-rule px-5 py-3 text-base;
+  }
+  .note .status p {
+    text-indent: 0;
+  }
+
+  /* Infoboxes: a box of facts in the right margin, or in the column on
+   * phones. */
+  .note .infobox {
+    @apply border border-frame bg-panel p-3 text-base leading-snug;
+  }
+  .note .infobox .callout-title {
+    @apply mb-2 text-center text-lg font-semibold;
+  }
+  .note .infobox dl {
+    @apply grid grid-cols-[fit-content(45%)_1fr] gap-x-3 gap-y-1.5;
+  }
+  .note .infobox dt {
+    @apply font-semibold;
+  }
+  @media (width >= 760px) {
+    .note .infobox {
+      @apply float-right clear-right mt-0 mb-4;
+      width: var(--margin);
+      margin-right: calc(-1 * (var(--gap) + var(--margin)));
+    }
+  }
+
+  /* Sidenotes, after Tufte CSS. The number is a label for a hidden checkbox:
+   * on phones it opens the note below the line, with no JS. On wide screens
+   * the note floats into the right margin beside its reference. */
+  .note .sidenote-number,
+  .note .sidenote-ref {
+    @apply align-super text-[0.65em] leading-none;
+  }
+  .note .sidenote-ref a {
+    @apply no-underline;
+  }
+  .note .margin-toggle {
+    @apply sr-only;
+  }
+  .note .sidenote {
+    @apply hidden text-left text-base leading-normal text-ink;
+    text-indent: 0;
+    hyphens: manual;
+  }
+  .note .sidenote-mark {
+    @apply align-super text-[0.75em] leading-none;
+  }
+  .note .sidenote-block + .sidenote-block {
+    @apply mt-2 block;
+  }
+  @media (width < 760px) {
+    .note .sidenote-number {
+      @apply cursor-pointer text-link;
+    }
+    .note .sidenote-number:has(+ .margin-toggle:focus-visible) {
+      @apply outline-1 outline-offset-2 outline-ink;
+    }
+    .note .margin-toggle:checked + .sidenote {
+      @apply mx-4 my-3 block border-l border-rule pl-3;
+    }
+  }
+  @media (width >= 760px) {
+    .note .margin-toggle {
+      @apply hidden;
+    }
+    .note .sidenote {
+      @apply relative float-right clear-right mb-4 block;
+      width: var(--margin);
+      margin-right: calc(-1 * (var(--gap) + var(--margin)));
+    }
+  }
+
+  /* Code and display math, with buttons in the upper right that BlockTools
+   * adds. They show on hover, on focus, or after a tap. */
+  .note .code-block,
+  .note .math-block {
+    @apply relative;
+  }
+  /* Display math gets the code block's hairline box on hover. A numbered
+   * equation keeps clear of the buttons, so they never cover its number. */
+  .note .math-block {
+    @apply border border-transparent px-3 transition-colors;
+  }
+  .note .math-block:is(:hover, :has(:focus-visible), .show) {
+    @apply border-rule;
+  }
+  .note .math-block:has(> mjx-container[width="full"]) > mjx-container {
+    @apply mr-17;
+  }
+  .note .block-tools {
+    @apply absolute top-1.5 right-1.5 z-10 flex gap-1 opacity-0 transition-opacity;
+  }
+  .note :is(.code-block, .math-block):is(:hover, :has(:focus-visible), .show) > .block-tools {
+    @apply opacity-100;
+  }
+  .note .block-tools button {
+    @apply flex cursor-pointer items-center border border-frame bg-page p-1.5 text-sm leading-none text-dim hover:text-ink;
+  }
+  .note .block-tools button[data-copied] {
+    @apply text-ink;
+  }
+  .note .math-block pre {
+    @apply my-4;
+  }
+
+  /* Figures, with captions below. A [!wide] box spans the column and the
+   * right margin, and clears the sidenotes and infoboxes beside it. */
+  .note figure {
+    @apply my-8;
+  }
+  .note figure img {
+    @apply h-auto w-full;
+  }
+  .note figcaption {
+    @apply mt-2 text-base leading-normal text-dim;
+  }
+  .note .wide {
+    @apply clear-right;
+  }
+  .note .wide > table {
+    @apply w-full;
+  }
+  @media (width >= 760px) {
+    .note .wide {
+      width: calc(100% + var(--gap) + var(--margin));
+    }
+  }
+
+  /* The bottom of the note: see also, bibliography, tags, and the date. Its
+   * headings are unnumbered sections, listed last in the contents. */
+  .note .bottom {
+    @apply mt-12 border-t border-rule pt-4 text-base;
+  }
+  .note .bottom > * + * {
+    @apply mt-8;
+  }
+  .note .bottom h2 {
+    @apply mt-0;
+  }
+  /* Every <summary> turns the link color on hover, to show it opens. */
+  .note summary {
+    @apply cursor-pointer transition-colors hover:text-link-hover;
+  }
+  .note .bibliography ol {
+    @apply mt-2;
+  }
+  .note .bibliography li + li {
+    @apply mt-2;
+  }
+  .note .bibliography .domain,
+  .note .bibliography .backrefs {
+    @apply text-dim;
+  }
+  .note .bibliography .backrefs a {
+    @apply no-underline hover:underline;
+  }
+  .note .tags {
+    @apply flex flex-wrap items-center gap-2 font-mono text-sm;
+  }
+  .note .tags-label {
+    @apply inline-flex items-center gap-1.5 text-dim;
+  }
+  .note .tags ul {
+    @apply contents list-none;
+  }
+  .note .tag {
+    @apply inline-block border border-frame px-1.5 text-ink no-underline hover:bg-tag-hover;
+  }
+}
+
+/* Print: no controls, link URLs after the text, every <details> open, and a
+ * new page for each top-level section. Sidenotes stay in the margin. */
+@media print {
+  @page {
+    margin: 2cm 1.5cm;
+  }
+  :root {
+    color-scheme: light;
+  }
+  body {
+    @apply max-w-none p-0;
+  }
+  #room-toggle,
+  .block-tools,
+  .margin-toggle {
+    display: none !important;
+  }
+  .note {
+    --gap: 1.5rem;
+    --margin: 13rem;
+    @apply text-[10.5pt];
+    width: calc(100% - var(--gap) - var(--margin));
+  }
+  .note .sidenote,
+  .note .infobox {
+    @apply relative float-right clear-right block;
+    width: var(--margin);
+    margin-right: calc(-1 * (var(--gap) + var(--margin)));
+  }
+  .note a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    @apply text-[0.85em] break-all text-dim;
+  }
+  .note > h2 {
+    break-before: page;
+  }
+  .note h2,
+  .note h3,
+  .note h4 {
+    break-after: avoid;
+  }
+  .note .anchor {
+    @apply hidden;
+  }
+  .note details::details-content {
+    content-visibility: visible;
+    display: contents;
+  }
+  .note details > summary {
+    @apply list-none;
   }
 }

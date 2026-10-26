@@ -38,14 +38,14 @@ test.describe("lorem ipsum page", () => {
     expect(sitemap).not.toContain("/tags/test/");
   });
 
-  test("sets body text in Inter and headings in Source Serif 4", async ({ page }) => {
+  test("sets body text and headings in Source Serif 4", async ({ page }) => {
     await page.goto("/lorem-ipsum/");
     const family = (sel: string) =>
       page
         .locator(sel)
         .first()
         .evaluate((el) => getComputedStyle(el).fontFamily);
-    expect(await family("article p")).toMatch(/^"?Inter"?,/);
+    expect(await family("article p")).toMatch(/^"?Source Serif 4"?,/);
     expect(await family("article h2")).toMatch(/^"?Source Serif 4"?,/);
   });
 });

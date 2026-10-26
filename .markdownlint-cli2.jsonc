@@ -15,8 +15,8 @@
     "MD053": false,
     // Lists can follow a lead-in sentence directly, as Obsidian renders them.
     "MD032": false,
-    // * * * is the section separator.
-    "MD035": { "style": "* * *" },
+    // *** is the section separator.
+    "MD035": { "style": "***" },
     "MD049": { "style": "asterisk" },
     "MD050": { "style": "asterisk" },
     // Math blocks in $$ fences aren't code, and inline HTML is allowed.

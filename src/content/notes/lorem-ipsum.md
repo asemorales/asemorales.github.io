@@ -6,20 +6,20 @@ tags: ["test"]
 unlisted: true
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. This first paragraph is the note's summary. It appears in popovers, in the feed, on the homepage, and in search, so it must stand alone. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, in the years 1991, 2025, and 2026.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. This first paragraph is the note's summary. Popovers, the feed, the homepage, and search all show it, so it must make sense on its own. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, in the years 1991, 2025, and 2026.
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. A second summary paragraph tests whether popovers show more than one paragraph. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. This second paragraph tests whether popovers show more than one paragraph. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
 > [!status]
 > This page exercises every design feature of the site. It is unlisted, so it stays off the homepage, the feed, and search. Edit it in Obsidian and run the sync to update the live page.
 
 ## Typography
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. This paragraph tests justification and hyphenation with long words: incomprehensibilities, electroencephalographically, and counterrevolutionaries. Numbers in prose: 0123456789, 3.14159, and 1,729. Headings use Source Serif 4, body text uses Inter, and tags and attributions use Source Serif small caps.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. This paragraph tests justification and hyphenation with long words: incomprehensibilities, electroencephalographically, and counterrevolutionaries. Numbers in prose: 0123456789, 3.14159, and 1,729. Headings and body text use [Source Serif 4](https://github.com/adobe-fonts/source-serif), and attributions use its small caps.
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. This paragraph follows another paragraph, so its first line should be indented. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. This paragraph follows another one, so its first line should be indented. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Here is *italic*, **bold**, ***bold italic***, ~~strikethrough~~, `inline code`, and a very long unbreakable string that must not overflow the column on a phone: `https://example.com/a/very/long/path/that/keeps/going/and/going/without/any/spaces`.
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Here is *italic*, **bold**, ***bold italic***, ~~strikethrough~~, `inline code`, and a long unbreakable string that must not overflow the column on a phone: `https://example.com/a/very/long/path/that/keeps/going/and/going/without/any/spaces`.
 
 ### Lists
 
@@ -38,7 +38,7 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
 
 ### Tables
 
-Numbers in tables should be lining and tabular, so columns of digits align.
+Numbers in tables should be lining and tabular, so columns of digits align. The [Complexity Zoo](https://complexityzoo.net/Complexity_Zoo) lists hundreds more classes.
 
 | Class | Example problem | Known inclusion | Year |
 |---|---|---|---:|
@@ -47,19 +47,41 @@ Numbers in tables should be lining and tabular, so columns of digits align.
 | PSPACE | True quantified Boolean formulas | PSPACE ⊆ EXPTIME | 1973 |
 | EXPTIME | Generalized chess | EXPTIME ⊆ EXPSPACE | 1981 |
 
+### Figures
+
+An image alone in its paragraph becomes a figure in the column, here with no caption.
+
+![A dashed elliptical orbit with a planet and a star joined by a line](./images/orbit.svg)
+
+An italic line right below the image becomes its caption.
+
+![A dashed elliptical orbit with a planet and a star joined by a line](./images/orbit.svg)
+*An orbit, drawn to no scale. The line marks the distance $r$ from the star.*
+
+A wide callout spans the column and the right margin, here with a caption.
+
+> [!wide]
+> ![A timeline of four complexity results, from 1971 to 2002](./images/timeline.svg)
+> *Four results from the table above, on a timeline. Wide figures clear the sidenotes beside them.*
+
+And a wide figure with no caption.
+
+> [!wide]
+> ![A timeline of four complexity results, from 1971 to 2002](./images/timeline.svg)
+
 ## Sidenotes
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.[^short] On wide screens each footnote sits in the right margin beside its reference. On phones a tap opens it below the paragraph.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.[^short] On wide screens each footnote sits in the right margin beside its reference. On phones, tapping the number opens the note below the line.
 
 Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.[^long] Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.[^close] At vero eos et accusamus.[^math]
 
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.[^short] This sentence cites the first footnote a second time, which tests citation backlinks.
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.[^short] This sentence cites the first footnote again, to test the link back to its first citation.
 
 [^short]: A short sidenote.
 
 [^long]: A long sidenote that runs for several lines, to test how notes stack when they are taller than the paragraph they annotate. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.
 
-[^close]: A sidenote whose reference sits close to the previous one. It should be pushed down below the long note without overlapping it.
+[^close]: This note's reference sits close to the previous one, so the note should start below the long note and never overlap it.
 
 [^math]: A sidenote with math, $\mathsf{P} \subseteq \mathsf{NP}$, and a link to [the Wikipedia article on complexity classes](https://en.wikipedia.org/wiki/Complexity_class).
 
@@ -71,7 +93,7 @@ A wikilink to another section of this note: [[Lorem Ipsum#Typography]]. A wikili
 
 ### External links
 
-Each of these should show a text-only popover on hover.
+Each of these should show a text-only popover on hover. Every external link on the page also appears in the bibliography at the bottom, in order of first appearance, with a backlink to each place it is cited.
 
 - A GitHub repository: [asemorales/bierstadt](https://github.com/asemorales/bierstadt).
 - An arXiv paper: [Attention Is All You Need](https://arxiv.org/abs/1706.03762).
@@ -93,7 +115,7 @@ K = \{ e \in \mathbb{N} : \varphi_e(e)\!\downarrow \}
 \end{equation}
 $$
 
-Equation $\eqref{eq:halting}$ defines the diagonal halting set.
+Equation $\eqref{eq:halting}$ defines the diagonal halting set, which is undecidable by the [halting problem](https://en.wikipedia.org/wiki/Halting_problem). This link repeats one from the list above, so its bibliography entry should have two backlinks.
 
 A proof tree:
 
@@ -118,7 +140,7 @@ $$
 
 ## Code
 
-Syntax highlighting should follow the light and dark modes.
+Syntax highlighting should change with the light and dark rooms. The first block counts steps in the [Collatz sequence](https://en.wikipedia.org/wiki/Collatz_conjecture).
 
 ```python
 def collatz_steps(n: int) -> int:
@@ -141,51 +163,25 @@ npm run sync && git push
 
 ## Quotes
 
-### Default quote
+### Plain quote
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
 
-### Attributed quote
-
-> [!quote] Rodney Brooks, *Intelligence without Reason*, 1991
-> Many lines of research have become goals of pursuit in their own right, with little recall of the reasons for pursuing those lines. A little grounding occasionally can go a long way towards helping keep things on track.
-
 ### Epigraph
 
-> [!epigraph] Jorge Luis Borges, *The Library of Babel*
+> [!epigraph] Jorge Luis Borges, *[The Library of Babel](https://en.wikipedia.org/wiki/The_Library_of_Babel)*
 > There was no personal problem, no world problem, whose eloquent solution did not exist somewhere in some hexagon.
 
-### Nested quotes
+***
 
-> The first level of quotation.
->
-> > The second level, which should take a different background shade.
-> >
-> > > The third level, with a third shade.
-
-### Long quote
-
-> This quote runs past twelve lines, so it should collapse with only its first lines visible.
->
-> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
->
-> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
->
-> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
->
-> Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
->
-> Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
-
-* * *
-
-The line above is a section separator. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. The paragraph after a separator should not be indented.
+The line above is a section separator. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. This paragraph follows a separator, so its first line should not be indented.
 
 ## Infobox
 
 > [!infobox] NP
 > - **Full name:** Nondeterministic polynomial time
 > - **Defined by:** Polynomial-time verifiers
+> - **See also:** [NP on the Complexity Zoo](https://complexityzoo.net/Complexity_Zoo:N#np)
 > - **Complete problems:** SAT, 3-coloring, Hamiltonian path
 > - **Contains:** P
 > - **Contained in:** PSPACE
@@ -198,4 +194,4 @@ On wide screens the infobox sits in the right margin like a sidenote. On phones 
 
 #### A fourth-level heading
 
-Each heading should be numbered, listed in the table of contents, and linkable through an anchor that appears on hover.
+Each heading should have a number and an entry in the contents. Hovering over a heading shows a link icon, which copies a link to that section.

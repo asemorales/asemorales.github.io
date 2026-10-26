@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 360" width="1600" height="360">
+  <rect width="1600" height="360" fill="#f9f5ee"/>
+  <line x1="80" y1="200" x2="1520" y2="200" stroke="#8c8478" stroke-width="2"/>
+  <g font-family="Georgia, serif" fill="#4a443d" text-anchor="middle">
+    <g transform="translate(160 0)"><circle cy="200" r="10" fill="#3a6ea5"/><text y="160" font-size="28">1971</text><text y="250" font-size="22">Cook–Levin: SAT is NP-complete</text></g>
+    <g transform="translate(330 0)"><circle cy="200" r="10" fill="#3a6ea5"/><text y="160" font-size="28">1973</text><text y="290" font-size="22">TQBF is PSPACE-complete</text></g>
+    <g transform="translate(860 0)"><circle cy="200" r="10" fill="#3a6ea5"/><text y="160" font-size="28">1981</text><text y="250" font-size="22">Generalized chess is EXPTIME-complete</text></g>
+    <g transform="translate(1440 0)"><circle cy="200" r="10" fill="#c9a227"/><text y="160" font-size="28">2002</text><text y="250" font-size="22">AKS: primality is in P</text></g>
+  </g>
+</svg>
