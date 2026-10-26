@@ -1,0 +1,37 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { summary } from "../lib/summary.js";
+import { slugify } from "../lib/slug.js";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+const description = summary(note.body ?? "", { paragraphs: 1 })[0] ?? note.data.title;
+const updated = note.data.updated.toISOString().slice(0, 10);
+---
+
+<Base title={note.data.title} description={description} noindex={note.data.unlisted}>
+  <article class="note">
+    <h1 class="text-4xl">{note.data.title}</h1>
+    <Content />
+    <footer class="mt-12 border-t border-rule pt-4 text-sm text-dim">
+      <ul class="flex list-none flex-wrap gap-2 pl-0">
+        {note.data.tags.map((tag) => (
+          <li>
+            <a href={`/tags/${slugify(tag)}/`} class="smcp border border-frame px-1.5 text-ink no-underline hover:bg-hover">
+              {tag}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p>
+        Last updated <time datetime={updated}>{updated}</time>.
+      </p>
+    </footer>
+  </article>
+</Base>

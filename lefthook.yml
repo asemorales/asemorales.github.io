@@ -1,0 +1,16 @@
+# Fast checks on staged files before each commit. `npm run check` runs everything.
+pre-commit:
+  parallel: true
+  commands:
+    prettier:
+      glob: "*.{js,mjs,cjs,ts,astro,css,json,jsonc,yml,md}"
+      run: npx prettier --check --ignore-unknown {staged_files}
+    eslint:
+      glob: "*.{js,mjs,cjs,ts,astro}"
+      run: npx eslint {staged_files}
+    markdownlint:
+      glob: "src/content/**/*.md"
+      run: npx markdownlint-cli2 {staged_files}
+    vale:
+      glob: "src/content/**/*.md"
+      run: npx vale {staged_files}

@@ -1,27 +1,52 @@
 {
+  "name": "asemorales.com",
+  "version": "4.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "jekyll-watch": "bundle exec jekyll serve --livereload",
-    "tailwind-watch": "postcss ./assets/css/index.css -o ./assets/css/compiled.min.css --watch",
-    "dev": "cross-env NODE_ENV=development npm-run-all --parallel tailwind-watch jekyll-watch",
-    "jekyll-prod": "JEKYLL_ENV=production bundle exec jekyll build",
-    "tailwind-prod": "postcss ./assets/css/index.css -o ./assets/css/compiled.min.css",
-    "prod": "cross-env NODE_ENV=production npm-run-all tailwind-prod jekyll-prod",
-    "start": "npm run dev"
-  },
-  "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^6.0.0",
-    "autoprefixer": "^10.4.20",
-    "cross-env": "^7.0.3",
-    "cssnano": "^7.0.6",
-    "daisyui": "^4.12.14",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.49",
-    "postcss-cli": "^11.0.0",
-    "postcss-import": "^16.1.0",
-    "tailwindcss": "^3.4.13"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync": "node scripts/sync.js",
+    "fonts": "sh scripts/fonts.sh",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint . && markdownlint-cli2 && npm run lint:prose && astro check",
+    "lint:html": "html-validate \"dist/**/*.html\"",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "lighthouse": "lhci autorun --config=lighthouserc.cjs",
+    "check": "npm run lint && npm run test && npm run build && npm run lint:html && npm run test:e2e",
+    "lint:prose": "vale src/content"
   },
   "engines": {
-    "npm": ">=9.2.0",
-    "node": "18.19.0"
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.2",
+    "gray-matter": "^4.0.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@axe-core/playwright": "^4.14.0",
+    "@eslint/js": "^9.39.5",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.64.1",
+    "@vvago/vale": "^3.25.1",
+    "eslint": "^9.39.5",
+    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "globals": "^17.13.0",
+    "html-validate": "^11.4.0",
+    "lefthook": "^2.2.2",
+    "markdownlint-cli2": "^0.24.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.0.5"
   }
 }

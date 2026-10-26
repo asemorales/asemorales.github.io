@@ -1,0 +1,6 @@
+extends: existence
+message: "Say what it is. Drop the 'X, not Y' contrast ('%s')."
+level: error
+tokens:
+  - '\w+, not \w+'
+  - 'not \w+, but'

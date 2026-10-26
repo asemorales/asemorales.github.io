@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* Fonts, subset from upstream by scripts/fonts.sh. Browsers fetch a face only
+ * when a page uses it, so DM Mono loads only on pages with code. */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-roman.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-italic.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonts/source-serif-4-roman.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonts/source-serif-4-italic.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Mono";
+  src: url("/fonts/dm-mono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* The two rooms of the Bierstadt theme (github.com/asemorales/bierstadt). Each
+ * token is light-dark(light room, dark room). The room follows the system until
+ * the reader picks one, which sets data-room on <html> and pins color-scheme. */
+:root {
+  color-scheme: light dark;
+
+  --page: light-dark(#f2ecdf, #191612); /* the page itself */
+  --panel: light-dark(#ece5d5, #25211c); /* bars, cards, and boxes */
+  --hover: light-dark(#ddd4c1, #3a342d); /* hovered rows and buttons */
+  --rule: light-dark(#ddd4c1, #4d463e); /* hairlines */
+  --frame: light-dark(#9a9183, #615950); /* borders */
+  --mid: light-dark(#9a9183, #81786d); /* quiet controls */
+  --dim: light-dark(#6e6965, #9e958a); /* secondary text */
+  --ink: light-dark(#231a15, #f2ede4); /* body text */
+  --link: light-dark(#0645ad, #88a3e8); /* live links, 7.2:1 and 7.3:1 */
+  --link-dead: light-dark(#ba0000, #fd7865); /* dead links, 5.8:1 and 6.9:1 */
+}
+:root[data-room="light"] {
+  color-scheme: light;
+}
+:root[data-room="dark"] {
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-panel: var(--panel);
+  --color-hover: var(--hover);
+  --color-rule: var(--rule);
+  --color-frame: var(--frame);
+  --color-mid: var(--mid);
+  --color-dim: var(--dim);
+  --color-ink: var(--ink);
+  --color-link: var(--link);
+  --color-link-dead: var(--link-dead);
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", ui-serif, Georgia, serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    @apply bg-page font-sans text-ink;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif font-semibold;
+  }
+
+  a {
+    @apply text-link underline decoration-1 underline-offset-2;
+  }
+
+  ::selection {
+    @apply bg-ink text-page;
+  }
+
+  :focus-visible {
+    @apply outline-1 outline-offset-4 outline-ink;
+  }
+
+  /* Shiki writes both themes as variables. Use the one for the current room. */
+  .astro-code {
+    background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
+  }
+  .astro-code,
+  .astro-code span {
+    color: light-dark(var(--shiki-light), var(--shiki-dark));
+  }
+}
+
+@layer components {
+  /* Small caps in Source Serif 4, since Inter has none. */
+  .smcp {
+    @apply font-serif;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.04em;
+  }
+
+  /* The note column. Phase 2 builds the full layout on this. */
+  .note {
+    @apply max-w-[66ch] leading-relaxed;
+    hyphens: auto;
+  }
+  .note > * + * {
+    @apply mt-4;
+  }
+  .note h2 {
+    @apply mt-10 text-2xl;
+  }
+  .note h3 {
+    @apply mt-8 text-xl;
+  }
+  .note h4 {
+    @apply mt-6 text-lg;
+  }
+  .note ul {
+    @apply list-disc pl-6;
+  }
+  .note ol {
+    @apply list-decimal pl-6;
+  }
+  .note blockquote {
+    @apply border-l border-rule pl-6;
+  }
+  .note code {
+    @apply font-mono text-[0.9em] break-words;
+  }
+  .note pre {
+    @apply overflow-x-auto rounded p-4;
+  }
+  .note table {
+    @apply block overflow-x-auto tabular-nums;
+  }
+  .note th,
+  .note td {
+    @apply border-b border-rule px-2 py-1 text-left;
+  }
+}

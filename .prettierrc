@@ -4,9 +4,16 @@
   "printWidth": 150,
   "bracketSameLine": true,
   "singleAttributePerLine": false,
-  "proseWrap": "always",
-  "htmlWhitespaceSensitivity": "strict",
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./assets/css/index.css",
-  "tailwindConfig": "./tailwind.config.js"
+  "proseWrap": "preserve",
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./src/styles/global.css",
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ],
+  "htmlWhitespaceSensitivity": "strict"
 }

@@ -1,0 +1,35 @@
+---
+// Cycles auto, light, and dark. Hidden without JS, where the room follows the system.
+---
+
+<button id="room-toggle" type="button" hidden class="smcp cursor-pointer text-dim hover:text-ink" aria-live="polite">
+  <span class="sr-only">Theme: </span>
+  <span data-label>auto</span>
+</button>
+
+<script>
+  const ROOMS = ["auto", "light", "dark"] as const;
+  type Room = (typeof ROOMS)[number];
+
+  const button = document.getElementById("room-toggle")!;
+  const label = button.querySelector("[data-label]")!;
+  const root = document.documentElement;
+
+  const current = (): Room => (root.dataset.room === "light" || root.dataset.room === "dark" ? root.dataset.room : "auto");
+
+  function apply(room: Room) {
+    if (room === "auto") delete root.dataset.room;
+    else root.dataset.room = room;
+    label.textContent = room;
+    try {
+      if (room === "auto") localStorage.removeItem("room");
+      else localStorage.setItem("room", room);
+    } catch {
+      // Storage is blocked. The choice lasts for this page only.
+    }
+  }
+
+  label.textContent = current();
+  button.hidden = false;
+  button.addEventListener("click", () => apply(ROOMS[(ROOMS.indexOf(current()) + 1) % ROOMS.length]));
+</script>

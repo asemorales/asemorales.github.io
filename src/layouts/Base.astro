@@ -1,0 +1,58 @@
+---
+import "../styles/global.css";
+import RoomToggle from "../components/RoomToggle.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = Astro.url.pathname === "/" ? title : `${title} · Ase Morales`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#f2ecdf" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#191612" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL("/og-image.png", Astro.site)} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preload" href="/fonts/inter-roman.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Apply the reader's room before the first paint. Without a choice, the room follows the system. -->
+    <script is:inline>
+      try {
+        const room = localStorage.getItem("room");
+        if (room === "light" || room === "dark") document.documentElement.dataset.room = room;
+      } catch {
+        // Storage is blocked. Follow the system.
+      }
+    </script>
+
+    {import.meta.env.PROD && <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="aeeab31a-d067-4d0a-9c78-5372e12b938f" />}
+  </head>
+
+  <body class="mx-auto max-w-6xl px-4 py-6 sm:px-8">
+    <header class="mb-12 flex items-baseline justify-between gap-4">
+      <a href="/" class="smcp text-lg text-ink no-underline">
+        Ase Morales
+      </a>
+      <RoomToggle />
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

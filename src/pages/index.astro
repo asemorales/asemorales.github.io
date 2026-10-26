@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { summary } from "../lib/summary.js";
+
+// A plain list for now. Phase 3 builds the searchable table of contents.
+const notes = (await getCollection("notes", (n) => !n.data.unlisted)).sort((a, b) => +b.data.date - +a.data.date);
+---
+
+<Base title="Ase Morales" description="Notes on logic, complexity, and computability.">
+  <h1 class="mb-8 text-4xl">Ase Morales</h1>
+  <p class="mb-8 text-dim">Notes on logic, complexity, and computability.</p>
+  {notes.length ? (
+    <ul class="space-y-4">
+      {notes.map((n) => (
+        <li>
+          <a href={`/${n.id}/`}>{n.data.title}</a>
+          <p class="text-sm text-dim">{summary(n.body ?? "", { paragraphs: 1 })[0]}</p>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>The first notes are on their way.</p>
+  )}
+</Base>

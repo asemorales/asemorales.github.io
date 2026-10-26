@@ -1,58 +1,40 @@
-<div align="center">
-    <img src="assets/images/logo.svg" alt="Site logo">
-    <h1>Ase Morales - Research Software Engineer</h1>
-    <a href="https://asemorales.github.io">View site</a>
-</div>
+# asemorales.com
 
-## Status
+Notes on logic, complexity, and computability. Built with [Astro](https://astro.build/) and Tailwind CSS, and deployed to GitHub Pages.
 
-[![Deploy Jekyll + Tailwind CSS with GitHub Pages](https://github.com/asemorales/asemorales.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/asemorales/asemorales.github.io/actions/workflows/deploy.yml)
+The 2025 site is archived at [asemorales.com/2025](https://asemorales.com/2025/) ([source](https://github.com/asemorales/2025)).
 
 ## Setup
 
-Your system must have at least Ruby 3.1.x. Run the following:
+Needs Node 22.12 or later.
 
-1. `bundle install`
-2. `npm install`
+```sh
+npm install
+npx playwright install chromium firefox webkit
+```
+
+## Writing
+
+Notes are written in Obsidian. Everything in the vault's `published/` folder is published, and nothing else leaves the vault.
+
+```sh
+VAULT=~/code/obsidian-vault npm run sync
+```
+
+This rewrites `src/content/` from the vault, so edit notes in the vault, not here. Each note needs front matter with `date` (first published) and `tags`, and optionally `unlisted: true`. The title comes from the file name and the URL from its slug, so `published/Lorem Ipsum.md` becomes `/lorem-ipsum/`. Review the diff, commit, and push.
 
 ## Scripts
 
-The build process is configured in `package.json` to 1.) process styles using PostCSS, using TailwindCSS as a PostCSS plugin; then 2.) build using
-Jekyll into the files under `_site`.
+| Command              | Does                                                                     |
+| -------------------- | ------------------------------------------------------------------------ |
+| `npm run dev`        | Local server with live reload                                            |
+| `npm run build`      | Static build into `dist/`                                                |
+| `npm run sync`       | Copy the vault's `published/` folder into `src/content/`                 |
+| `npm run check`      | Every linter and test, as in CI                                          |
+| `npm run lint`       | Prettier, ESLint, markdownlint, Vale, and `astro check`                  |
+| `npm test`           | Unit tests (Vitest)                                                      |
+| `npm run test:e2e`   | Browser tests on the built site, wide and phone, with and without JS     |
+| `npm run lighthouse` | Lighthouse CI on the built site                                          |
+| `npm run fonts`      | Re-subset the fonts from upstream into `public/fonts/` (needs fonttools) |
 
-#### Building for development
-
-Run `npm run dev` or `npm run start`
-
-This enables live reload, refreshing the page on any changes. Please note that changes to styles may reload the page twice, as
-[live reloading both Jekyll & TailwindCSS may cause issues](https://github.com/tailwindlabs/tailwindcss/discussions/8470). If changes aren't
-appearing, try manually serving the page instead or clearing the cache with `bundle exec jekyll clean` before serving.
-
-#### Building for production
-
-Run `npm run prod`
-
-#### Deployment
-
-Since Jekyll requires additional setup to work with Tailwind CSS, this site uses a custom deployment workflow seen in `deploy.yml`.
-
-## Attribution
-
-Assets used:
-
-- Award icons by <a href="https://thenounproject.com/creator/imron46/" target="_blank" rel="noopener noreferrer">Cuputo</a> from the
-  <a href="https://thenounproject.com/browse/icons/term/award/" target="_blank" rel="noopener noreferrer">Noun Project</a> (CC BY 3.0)
-- All other icons by <a href="https://remixicon.com/" target="_blank" rel="noopener noreferrer">Remix Icon</a> (Apache License 2.0)
-
-Visual & intellectual influences:
-
-- <a href="https://barabasi.com/" target="_blank" rel="noopener noreferrer">Barabasi Lab</a>
-- <a href="https://gwern.net/" target="_blank" rel="noopener noreferrer">Gwern</a>
-- <a href="https://www.normalcomputing.com/" target="_blank" rel="noopener noreferrer">Normal Computing</a>
-- <a href="https://distill.pub/" target="_blank" rel="noopener noreferrer">Distill.pub</a>
-- <a href="https://andymatuschak.org/" target="_blank" rel="noopener noreferrer">Andy Matuschak (Works)</a>
-- <a href="https://thinkingmachines.ai/" target="_blank" rel="noopener noreferrer">Thinking Machines Lab</a>
-
-## Licensing
-
-© 2024 Irish Danielle "Ase" Morales under AGPL 3.0
+lefthook runs the fast linters on staged files before each commit. CI runs `npm run check`, link checking, and Lighthouse on every push, and deploys `main` once everything passes.

@@ -1,0 +1,13 @@
+dist/
+.astro/
+node_modules/
+package-lock.json
+public/fonts/
+.fonts-upstream/
+test-results/
+playwright-report/
+.lighthouseci/
+PLAN.md
+# Written by `npm run sync` from the vault. markdownlint and Vale check these.
+src/content/
+tests/fixtures/

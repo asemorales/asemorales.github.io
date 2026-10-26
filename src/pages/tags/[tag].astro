@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { slugify } from "../../lib/slug.js";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  const tags = [...new Set(notes.flatMap((n) => n.data.tags))];
+  return tags.map((tag) => {
+    const tagged = notes.filter((n) => n.data.tags.includes(tag));
+    return {
+      params: { tag: slugify(tag) },
+      // Unlisted notes keep their tag links working but never appear in a list.
+      props: { tag, listed: tagged.filter((n) => !n.data.unlisted).sort((a, b) => +b.data.date - +a.data.date) },
+    };
+  });
+}
+
+const { tag, listed } = Astro.props;
+---
+
+<Base title={tag} description={`Notes tagged ${tag}.`} noindex={listed.length === 0}>
+  <h1 class="smcp mb-6 text-3xl">{tag}</h1>
+  {listed.length ? (
+    <ul>
+      {listed.map((n) => (
+        <li>
+          <a href={`/${n.id}/`}>{n.data.title}</a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="text-dim">No listed notes have this tag yet.</p>
+  )}
+</Base>
