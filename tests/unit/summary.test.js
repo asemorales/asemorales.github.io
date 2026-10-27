@@ -9,6 +9,10 @@ describe("summary", () => {
     expect(summary(md, { paragraphs: 1 })).toEqual(["First one with a link and an alias."]);
   });
 
+  it("leaves inline math as written", () => {
+    expect(summary("Let $\\varphi_e$ be *the* $e$-th function.")).toEqual(["Let $\\varphi_e$ be the $e$-th function."]);
+  });
+
   it("is empty when the note opens with a heading", () => {
     expect(summary("## Heading\n\nText.")).toEqual([]);
   });

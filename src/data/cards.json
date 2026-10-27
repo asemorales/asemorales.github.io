@@ -1,0 +1,78 @@
+{
+  "https://arxiv.org/abs/1706.03762": {
+    "kind": "arxiv",
+    "title": "Attention Is All You Need",
+    "meta": ["Ashish Vaswani et al.", "arXiv", "2017"],
+    "text": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely."
+  },
+  "https://doi.org/10.1090/S0002-9947-1953-0053041-6": {
+    "kind": "doi",
+    "title": "Classes of recursively enumerable sets and their decision problems",
+    "meta": ["H. G. Rice", "Transactions of the American Mathematical Society", "1953"],
+    "text": ""
+  },
+  "https://doi.org/10.1112/plms/s2-42.1.230": {
+    "kind": "doi",
+    "title": "On Computable Numbers, with an Application to the Entscheidungsproblem",
+    "meta": ["A. M. Turing", "Proceedings of the London Mathematical Society", "1937"],
+    "text": ""
+  },
+  "https://doi.org/10.1145/3663976.3664235": {
+    "kind": "doi",
+    "title": "MobileLookNet: A Lightweight Convolutional Neural Network for Detection of Osseous Metastasis Using Feature Fusion and Attention Strategies",
+    "meta": [
+      "Irish Danielle Morales et al.",
+      "Proceedings of the 2024 2nd Asia Conference on Computer Vision, Image Processing and Pattern Recognition",
+      "2024"
+    ],
+    "text": "This study introduces MobileLookNet, a novel lightweight architecture designed for detecting osseous metastasis in bone scintigrams on resource-constrained devices. By employing depthwise separable convolutions in parallel, utilizing inverted residuals, and integrating low-level and high-level features, MobileLookNet captures diverse levels of abstraction and extracts more individually expressive…"
+  },
+  "https://en.wikipedia.org/wiki/Collatz_conjecture": {
+    "kind": "wikipedia",
+    "title": "Collatz conjecture",
+    "meta": ["Wikipedia"],
+    "text": "The Collatz conjecture is one of the most famous unsolved problems in mathematics. The conjecture asks whether repeating two simple arithmetic operations will eventually transform every positive integer into 1. It concerns sequences of integers in which each term is obtained from the previous term as follows: if a term is even, the next term is one half of it."
+  },
+  "https://en.wikipedia.org/wiki/Complexity_class": {
+    "kind": "wikipedia",
+    "title": "Complexity class",
+    "meta": ["Wikipedia"],
+    "text": "In computational complexity theory, a complexity class is a set of computational problems \"of related resource-based complexity\". The two most commonly analyzed resources are time and memory."
+  },
+  "https://en.wikipedia.org/wiki/Halting_problem": {
+    "kind": "wikipedia",
+    "title": "Halting problem",
+    "meta": ["Wikipedia"],
+    "text": "In computability theory, the halting problem is the decision problem of, given an arbitrary computer program and an input, determining whether said program will eventually finish running and halt, or will continue to run forever."
+  },
+  "https://en.wikipedia.org/wiki/NP-completeness": {
+    "kind": "wikipedia",
+    "title": "NP-completeness",
+    "meta": ["Wikipedia"],
+    "text": "In computational complexity theory, NP-complete problems are the hardest of the problems to which solutions can be verified quickly. Somewhat more precisely, a problem is NP-complete when:It is a decision problem, meaning that for any input to the problem, the output is either \"yes\" or \"no\"."
+  },
+  "https://en.wikipedia.org/wiki/The_Library_of_Babel": {
+    "kind": "wikipedia",
+    "title": "The Library of Babel",
+    "meta": ["Wikipedia"],
+    "text": "\"The Library of Babel\" is a short story by Argentine author and librarian Jorge Luis Borges (1899–1986), conceiving of a universe in the form of a vast library containing all possible 410-page books of a certain format and character set."
+  },
+  "https://github.com/adobe-fonts/source-serif": {
+    "kind": "github",
+    "title": "adobe-fonts/source-serif",
+    "meta": ["GitHub", "★ 2,406"],
+    "text": "Typeface for setting text in many sizes, weights, and languages. Designed to complement Source Sans."
+  },
+  "https://github.com/asemorales/bierstadt": {
+    "kind": "github",
+    "title": "asemorales/bierstadt",
+    "meta": ["GitHub", "★ 4"],
+    "text": "Linux theme based on books and paintings by Albert Bierstadt"
+  },
+  "https://gwern.net/design": {
+    "kind": "page",
+    "title": "Design Of This Website · Gwern.net",
+    "meta": [],
+    "text": ""
+  }
+}

@@ -1,0 +1,258 @@
+---
+// Text-only popovers on links, after Wikipedia's page previews. A note link
+// shows the note's opening, a heading link the first paragraph under it, and an
+// external link its annotation or card, and a citation marker its source. The
+// text comes from /popovers.json, fetched on the first hover. Paragraphs are
+// HTML built from the site's own notes, with inline math as MathJax SVG.
+//
+// Hovering a link with a mouse for 300 ms opens its popover, and so does
+// focusing it from the keyboard. On touch screens a tap opens the same preview
+// in a drawer from the bottom of the screen, as on Wikipedia's mobile site,
+// with a button to follow the link. Without JS links are plain links.
+---
+
+<script>
+  interface Card {
+    title: string;
+    meta?: string[];
+    paragraphs: string[];
+    dead?: string;
+  }
+
+  const DELAY = 300;
+  const LINGER = 200;
+  let data: Promise<Record<string, Card>> | null = null;
+  let pop: HTMLElement | null = null;
+  let current: HTMLAnchorElement | null = null;
+  let openTimer: number | undefined;
+  let closeTimer: number | undefined;
+
+  const load = (): Promise<Record<string, Card>> =>
+    (data ??= fetch("/popovers.json")
+      .then((r) => (r.ok ? r.json() : {}))
+      .catch(() => ({})));
+
+  // The key a link's card is stored under: the path and hash on this site, or
+  // the full URL elsewhere. A bare #heading is a heading in this note.
+  function key(a: HTMLAnchorElement) {
+    const url = new URL(a.href, location.href);
+    if (url.origin !== location.origin) return url.href;
+    return url.hash ? `${url.pathname}${url.hash}` : url.pathname;
+  }
+
+  function element() {
+    if (pop) return pop;
+    pop = document.createElement("div");
+    pop.id = "link-popover";
+    pop.className = "link-popover";
+    pop.popover = "manual";
+    pop.setAttribute("role", "tooltip");
+    pop.addEventListener("pointerenter", () => clearTimeout(closeTimer));
+    pop.addEventListener("pointerleave", () => scheduleClose());
+    document.body.append(pop);
+    return pop;
+  }
+
+  function add(parent: HTMLElement, tag: string, className: string, text: string) {
+    const el = document.createElement(tag);
+    el.className = className;
+    el.textContent = text;
+    parent.append(el);
+    return el;
+  }
+
+  function fill(el: HTMLElement, card: Card, a: HTMLAnchorElement, more = true) {
+    el.replaceChildren();
+    if (card.dead) add(el, "p", "popover-dead", card.dead);
+    add(el, "p", "popover-title", card.title);
+    if (card.meta?.length) {
+      const meta = add(el, "p", "popover-meta", "");
+      meta.className = "popover-meta flex flex-wrap divide-x divide-rule *:px-2 *:first:pl-0 *:last:pr-0";
+      for (const part of card.meta) add(meta, "span", "", part);
+    }
+    const body = document.createElement("div");
+    body.className = "popover-body";
+    for (const html of card.paragraphs) {
+      const p = document.createElement("p");
+      p.innerHTML = html;
+      body.append(p);
+    }
+    if (card.paragraphs.length) el.append(body);
+    if (more && new URL(a.href, location.href).origin === location.origin && card.paragraphs.length) {
+      const more = add(el, "a", "popover-more", "Read more");
+      (more as HTMLAnchorElement).href = a.href;
+      more.tabIndex = -1;
+    }
+  }
+
+  // Below the link, or above it when there is more room there, and kept
+  // inside the window.
+  function place(el: HTMLElement, a: HTMLAnchorElement) {
+    const r = a.getClientRects()[0] ?? a.getBoundingClientRect();
+    const w = el.offsetWidth;
+    const h = el.offsetHeight;
+    const left = Math.min(Math.max(8, r.left), innerWidth - w - 8);
+    const below = r.bottom + 6;
+    const top = below + h > innerHeight - 8 && r.top - h - 6 > 8 ? r.top - h - 6 : below;
+    el.style.left = `${left}px`;
+    el.style.top = `${top}px`;
+  }
+
+  // A citation marker shows its source's name and card, with any locator,
+  // from its entry under References.
+  function citation(a: HTMLAnchorElement, data: Record<string, Card>): Card | undefined {
+    const entry = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+    const source = entry?.querySelector<HTMLAnchorElement>(":scope > a[href]");
+    if (!entry || !source) return;
+    const card = data[key(source)];
+    const locator = source.nextSibling?.textContent?.match(/^,\s*([^(]+)/)?.[1].trim();
+    const meta = [...(card?.meta ?? []), locator].filter((m): m is string => !!m);
+    return { title: card?.title ?? source.textContent!.trim(), meta, paragraphs: [] };
+  }
+
+  async function open(a: HTMLAnchorElement) {
+    const data = await load();
+    const card = a.closest(".cite-ref") ? citation(a, data) : data[key(a)];
+    if (!card || current !== a) return;
+    const el = element();
+    fill(el, card, a);
+    if (!el.matches(":popover-open")) el.showPopover();
+    const body = el.querySelector<HTMLElement>(".popover-body");
+    body?.classList.toggle("clipped", body.scrollHeight > body.clientHeight);
+    place(el, a);
+    a.setAttribute("aria-describedby", el.id);
+  }
+
+  function close() {
+    clearTimeout(openTimer);
+    current?.removeAttribute("aria-describedby");
+    current = null;
+    if (pop?.matches(":popover-open")) pop.hidePopover();
+  }
+
+  function scheduleClose() {
+    clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(close, LINGER);
+  }
+
+  function start(a: HTMLAnchorElement, delay: number) {
+    if (a === current) return clearTimeout(closeTimer);
+    close();
+    current = a;
+    load();
+    openTimer = window.setTimeout(() => open(a), delay);
+  }
+
+  // Links in notes, on the homepage, and in the bottom matter, but not the
+  // contents, section anchors, sidenote markers, or equation numbers. Citation
+  // markers get a popover on hover, but a tap follows them to References.
+  const SKIP = ".toc, .anchor, .sidenote-ref, .backrefs, .link-popover, #room-toggle, mjx-container";
+  function linkFrom(target: EventTarget | null, tapped = false) {
+    const a = (target as Element | null)?.closest?.<HTMLAnchorElement>("main a[href]");
+    return a && !a.closest(SKIP) && !(tapped && a.closest(".cite-ref")) ? a : null;
+  }
+
+  document.addEventListener("pointerover", (e) => {
+    if (e.pointerType !== "mouse") return;
+    const a = linkFrom(e.target);
+    if (a) start(a, DELAY);
+  });
+  document.addEventListener("pointerout", (e) => {
+    if (e.pointerType !== "mouse") return;
+    const a = linkFrom(e.target);
+    if (a && a === current && !a.contains(e.relatedTarget as Node)) {
+      clearTimeout(openTimer);
+      scheduleClose();
+    }
+  });
+  document.addEventListener("focusin", (e) => {
+    const a = linkFrom(e.target);
+    if (a?.matches(":focus-visible")) start(a, 0);
+  });
+  document.addEventListener("focusout", (e) => {
+    if (linkFrom(e.target) === current) close();
+  });
+  // The drawer on touch screens: a modal dialog at the bottom of the screen.
+  // A tap outside it, its close button, or Escape closes it.
+  let drawer: HTMLDialogElement | null = null;
+  function drawerElement() {
+    if (drawer) return drawer;
+    const d = document.createElement("dialog");
+    d.className = "link-drawer";
+    d.tabIndex = -1;
+    d.setAttribute("aria-label", "Link preview");
+    d.addEventListener("click", (e) => {
+      if (e.target === d) d.close();
+    });
+    document.body.append(d);
+    return (drawer = d);
+  }
+
+  function openDrawer(a: HTMLAnchorElement, card: Card) {
+    const d = drawerElement();
+    const content = document.createElement("div");
+    content.className = "drawer-content";
+    fill(content, card, a, false);
+    const close = document.createElement("button");
+    close.type = "button";
+    close.className = "drawer-close";
+    close.setAttribute("aria-label", "Close preview");
+    close.innerHTML = '<span class="icon icon-x" aria-hidden="true"></span>';
+    close.addEventListener("click", () => d.close());
+    const go = document.createElement("a");
+    go.className = "drawer-go";
+    go.href = a.href;
+    const url = new URL(a.href, location.href);
+    go.textContent =
+      url.origin === location.origin
+        ? url.hash && url.pathname === location.pathname
+          ? "Go to section"
+          : "Read note"
+        : `Open ${url.hostname.replace(/^www\./, "")}`;
+    go.addEventListener("click", () => d.close());
+    d.replaceChildren(close, content, go);
+    d.showModal();
+    // Focus the drawer itself, so no button shows a focus ring on a tap.
+    d.focus();
+    content.scrollTop = 0;
+  }
+
+  // Where the last press came from, since a click event doesn't say.
+  let touch = false;
+  document.addEventListener(
+    "pointerdown",
+    (e) => {
+      touch = e.pointerType !== "mouse";
+      if (touch && linkFrom(e.target, true)) load();
+    },
+    { passive: true },
+  );
+  document.addEventListener("click", async (e) => {
+    if (!touch || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = linkFrom(e.target, true);
+    if (!a) return;
+    e.preventDefault();
+    const card = (await load())[key(a)];
+    if (card) openDrawer(a, card);
+    else followLink(a);
+  });
+
+  // Follows a link the drawer skipped, as the tap would have.
+  function followLink(a: HTMLAnchorElement) {
+    if (a.target === "_blank") window.open(a.href, "_blank", "noopener");
+    else location.href = a.href;
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+  // Scrolling closes an open popover, which would drift from its link, but
+  // leaves a pending one to open where the pointer rests.
+  addEventListener(
+    "scroll",
+    () => {
+      if (pop?.matches(":popover-open")) close();
+    },
+    { passive: true },
+  );
+</script>
