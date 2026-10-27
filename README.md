@@ -1,6 +1,6 @@
 # asemorales.com
 
-Notes on logic, complexity, and computability. Built with [Astro](https://astro.build/) and Tailwind CSS, and deployed to GitHub Pages.
+Notes on logic, complexity, and cognition. Built with [Astro](https://astro.build/) and Tailwind CSS, and deployed to GitHub Pages.
 
 The 2025 site is archived at [asemorales.com/2025](https://asemorales.com/2025/) ([source](https://github.com/asemorales/2025)).
 

@@ -9,7 +9,7 @@ import { summary } from "../lib/summary.js";
 
 const AUTHOR = "Ase Morales";
 const TITLE = "Ase Morales";
-const SUBTITLE = "Notes on logic, complexity, and computability.";
+const SUBTITLE = "Notes on logic, complexity, and cognition.";
 
 const images = import.meta.glob<ImageMetadata>("../content/notes/images/*", { eager: true, import: "default" });
 

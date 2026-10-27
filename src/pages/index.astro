@@ -12,7 +12,7 @@ import { summary } from "../lib/summary.js";
 const notes = (await getCollection("notes", (n) => !n.data.unlisted)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const groups = Map.groupBy(notes, (n) => n.data.tags[0]);
 const tags = [...groups.keys()].sort((a, b) => a.localeCompare(b));
-const description = "Notes on logic, complexity, and computability.";
+const description = "Notes on logic, complexity, and cognition.";
 const links = [
   { href: "/about/", text: "About" },
   { href: "/feed.xml", text: "Feed" },
