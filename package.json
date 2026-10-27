@@ -8,6 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "sync": "node scripts/sync.js",
+    "cards": "node scripts/build-cards.js",
+    "archive": "node scripts/archive-links.js",
     "fonts": "sh scripts/fonts.sh",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint . && markdownlint-cli2 && npm run lint:prose && astro check",
@@ -28,9 +30,15 @@
     "astro": "^7.4.2",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
+    "mathjax-full": "^3.2.1",
     "rehype-mathjax": "^7.1.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
-    "tailwindcss": "^4.3.3"
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "tailwindcss": "^4.3.3",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
