@@ -99,8 +99,13 @@ test.describe("drawer on touch screens", () => {
     await expect(drawer.locator(".popover-title")).toHaveText("asemorales/bierstadt");
     await expect(drawer.locator(".drawer-go")).toHaveText("Open github.com");
     await expect(drawer.locator(".drawer-go")).toHaveAttribute("href", "https://github.com/asemorales/bierstadt");
-    const box = (await drawer.boundingBox())!;
-    expect(Math.round(box.y + box.height)).toBe(page.viewportSize()!.height);
+    // It slides up, so wait for it to settle before measuring.
+    await expect
+      .poll(async () => {
+        const box = (await drawer.boundingBox())!;
+        return Math.round(box.y + box.height);
+      })
+      .toBe(page.viewportSize()!.height);
     await drawer.getByRole("button", { name: "Close preview" }).tap();
     await expect(drawer).toBeHidden();
   });
