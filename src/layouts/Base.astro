@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Popovers from "../components/Popovers.astro";
 import RoomToggle from "../components/RoomToggle.astro";
 
 interface Props {
@@ -8,11 +9,15 @@ interface Props {
   noindex?: boolean;
   // Notes need room for the contents on the left and sidenotes on the right.
   wide?: boolean;
+  // Pages with italics, such as notes and the painting names on About, load
+  // the italic face early. Otherwise the browser finds it needs the face only
+  // after layout, and italics paint in the fallback before swapping in.
+  preloadItalic?: boolean;
 }
 
-const { title, description, noindex = false, wide = false } = Astro.props;
+const { title, description, noindex = false, wide = false, preloadItalic = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const fullTitle = Astro.url.pathname === "/" ? title : `${title} · Ase Morales`;
+const fullTitle = Astro.url.pathname === "/" ? title : `${title} | Ase Morales`;
 ---
 
 <!doctype html>
@@ -30,8 +35,11 @@ const fullTitle = Astro.url.pathname === "/" ? title : `${title} · Ase Morales`
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL("/og-image.png", Astro.site)} />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="alternate" type="application/atom+xml" title="Ase Morales" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/source-serif-4-roman.woff2" as="font" type="font/woff2" crossorigin />
+    {preloadItalic && <link rel="preload" href="/fonts/source-serif-4-italic.woff2" as="font" type="font/woff2" crossorigin />}
 
     <!-- Apply the reader's room before the first paint. Without a choice, the room follows the system. -->
     <script is:inline>
@@ -51,10 +59,16 @@ const fullTitle = Astro.url.pathname === "/" ? title : `${title} · Ase Morales`
       <a href="/" class="smcp text-lg text-ink no-underline">
         Ase Morales
       </a>
-      <RoomToggle />
+      <nav class="flex items-center gap-5" aria-label="Site">
+        <a href="/about/" class="smcp text-dim no-underline hover:text-ink">
+          About
+        </a>
+        <RoomToggle />
+      </nav>
     </header>
     <main class="@container">
       <slot />
     </main>
+    <Popovers />
   </body>
 </html>

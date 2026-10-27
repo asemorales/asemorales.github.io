@@ -19,17 +19,22 @@ export async function getStaticPaths() {
 const { tag, listed } = Astro.props;
 ---
 
-<Base title={tag} description={`Notes tagged ${tag}.`} noindex={listed.length === 0}>
-  <h1 class="smcp mb-6 text-3xl">{tag}</h1>
-  {listed.length ? (
-    <ul>
-      {listed.map((n) => (
-        <li>
-          <a href={`/${n.id}/`}>{n.data.title}</a>
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <p class="text-dim">No listed notes have this tag yet.</p>
-  )}
+<Base title={tag} description={`Notes tagged ${tag}.`} noindex={listed.length === 0} wide>
+  <div class="column listing">
+    <h1 class="tag-title mb-6">
+      <span class="icon icon-tags" aria-hidden="true" />
+      <span class="tag">{tag}</span>
+    </h1>
+    {listed.length ? (
+      <ul>
+        {listed.map((n) => (
+          <li>
+            <a href={`/${n.id}/`}>{n.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="text-dim">No listed notes have this tag yet.</p>
+    )}
+  </div>
 </Base>

@@ -5,7 +5,7 @@ module.exports = {
   ci: {
     collect: {
       staticDistDir: "./dist",
-      url: ["/", "/lorem-ipsum/"],
+      url: ["/", "/about/", "/lorem-ipsum/"],
       numberOfRuns: 1,
       chromePath: process.env.CHROME_PATH || chromium.executablePath(),
       settings: { chromeFlags: "--headless=new --no-sandbox" },

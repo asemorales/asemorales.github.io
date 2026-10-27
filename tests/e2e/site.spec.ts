@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const PAGES = ["/", "/lorem-ipsum/", "/tags/test/", "/404.html"];
+const PAGES = ["/", "/about/", "/lorem-ipsum/", "/tags/test/", "/404.html"];
 const LIGHT = "rgb(242, 236, 223)";
 const DARK = "rgb(25, 22, 18)";
 
@@ -45,7 +45,7 @@ test.describe("lorem ipsum page", () => {
         .locator(sel)
         .first()
         .evaluate((el) => getComputedStyle(el).fontFamily);
-    expect(await family("article p")).toMatch(/^"?Source Serif 4"?,/);
+    expect(await family("#typography + p")).toMatch(/^"?Source Serif 4"?,/);
     expect(await family("article h2")).toMatch(/^"?Source Serif 4"?,/);
   });
 });
@@ -104,5 +104,78 @@ test.describe("theme with JS", () => {
     expect(await page.evaluate(() => (window as unknown as { firstRoom?: string }).firstRoom)).toBe("light");
     expect(await background(page)).toBe(LIGHT);
     await expect(page.locator("#room-toggle")).toContainText("light");
+  });
+});
+
+test.describe("homepage", () => {
+  test("shows one painting per room and downloads only that one", async ({ page }) => {
+    for (const [scheme, painting, other] of [
+      ["light", "lake-lucerne", "sierra-nevada"],
+      ["dark", "sierra-nevada", "lake-lucerne"],
+    ] as const) {
+      const requested: string[] = [];
+      page.on("request", (r) => requested.push(r.url()));
+      await page.emulateMedia({ colorScheme: scheme });
+      await page.goto("/");
+      await page.waitForLoadState("networkidle");
+      expect(await page.locator(".painting").evaluate((el) => getComputedStyle(el).backgroundImage)).toContain(painting);
+      expect(new Set(requested.filter((u) => u.includes("bierstadt-"))).size).toBe(1);
+      expect(requested.some((u) => u.includes(other))).toBe(false);
+      page.removeAllListeners("request");
+    }
+  });
+
+  test("follows a room picked against the system", async ({ page, javaScriptEnabled }) => {
+    test.skip(javaScriptEnabled === false, "JS projects only");
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.addInitScript(() => localStorage.setItem("room", "dark"));
+    await page.goto("/");
+    expect(await page.locator(".painting").evaluate((el) => getComputedStyle(el).backgroundImage)).toContain("sierra-nevada");
+  });
+
+  test("filters the notes as you type, and shows them all without JS", async ({ page, javaScriptEnabled }) => {
+    await page.goto("/");
+    const items = page.locator(".home-notes li");
+    test.skip((await items.count()) === 0, "needs a listed note");
+    const search = page.locator(".home-search");
+    if (javaScriptEnabled === false) {
+      await expect(search).toBeHidden();
+      for (const li of await items.all()) await expect(li).toBeVisible();
+      return;
+    }
+    await expect(search).toBeVisible();
+    const title = (await items.first().textContent())!.trim();
+    await page.locator("#search").fill(title);
+    await expect(items.first()).toBeVisible();
+    await page.locator("#search").fill("zzzz-no-such-note");
+    await expect(page.locator(".home-notes li:visible")).toHaveCount(0);
+    await expect(page.locator(".search-empty")).toBeVisible();
+  });
+
+  test("links to About from every page", async ({ page }) => {
+    for (const path of ["/", "/lorem-ipsum/", "/tags/test/"]) {
+      await page.goto(path);
+      await expect(page.locator('header a[href="/about/"]')).toBeVisible();
+    }
+  });
+});
+
+test.describe("feed", () => {
+  test("is valid Atom, advertised on every page, and leaves unlisted notes out", async ({ page, request }) => {
+    const res = await request.get("/feed.xml");
+    expect(res.headers()["content-type"]).toContain("xml");
+    const xml = await res.text();
+    await page.goto("/");
+    await expect(page.locator('link[rel="alternate"][type="application/atom+xml"]')).toHaveAttribute("href", "/feed.xml");
+    const parsed = await page.evaluate((s) => {
+      const doc = new DOMParser().parseFromString(s, "application/xml");
+      return {
+        error: doc.querySelector("parsererror")?.textContent ?? null,
+        root: doc.documentElement.namespaceURI,
+        self: doc.querySelector('link[rel="self"]')?.getAttribute("href"),
+      };
+    }, xml);
+    expect(parsed).toEqual({ error: null, root: "http://www.w3.org/2005/Atom", self: "https://asemorales.com/feed.xml" });
+    expect(xml).not.toContain("lorem-ipsum");
   });
 });

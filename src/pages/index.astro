@@ -1,25 +1,95 @@
 ---
 import { getCollection } from "astro:content";
+import Painting from "../components/Painting.astro";
 import Base from "../layouts/Base.astro";
+import { slugify } from "../lib/slug.js";
 import { summary } from "../lib/summary.js";
 
-// A plain list for now. Phase 3 builds the searchable table of contents.
-const notes = (await getCollection("notes", (n) => !n.data.unlisted)).sort((a, b) => +b.data.date - +a.data.date);
+// Every listed note, grouped by its first tag, as a table of contents. Groups
+// and the notes in them are in alphabetical order. The search box filters them
+// over titles, summaries, and tags. Without JS the box is hidden and the full
+// list shows.
+const notes = (await getCollection("notes", (n) => !n.data.unlisted)).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const groups = Map.groupBy(notes, (n) => n.data.tags[0]);
+const tags = [...groups.keys()].sort((a, b) => a.localeCompare(b));
+const description = "Notes on logic, complexity, and computability.";
+const links = [
+  { href: "/about/", text: "About" },
+  { href: "/feed.xml", text: "Feed" },
+  { href: "https://asemorales.substack.com", text: "Substack" },
+  { href: "https://github.com/asemorales", text: "GitHub" },
+];
 ---
 
-<Base title="Ase Morales" description="Notes on logic, complexity, and computability.">
-  <h1 class="mb-8 text-4xl">Ase Morales</h1>
-  <p class="mb-8 text-dim">Notes on logic, complexity, and computability.</p>
-  {notes.length ? (
-    <ul class="space-y-4">
-      {notes.map((n) => (
+<Base title="Ase Morales" description={description}>
+  <header class="home-band">
+    <Painting />
+    <div class="home-title">
+      <h1 class="text-4xl">Ase Morales</h1>
+      <p class="text-dim">{description}</p>
+    </div>
+  </header>
+
+  {notes.length > 0 ? (
+    <>
+      <search class="home-search" hidden>
+        <label for="search" class="sr-only">
+          Search notes
+        </label>
+        <input id="search" type="search" placeholder="Search notes" autocomplete="off" spellcheck="false" />
+        <p class="search-empty text-dim" hidden>
+          No notes match.
+        </p>
+      </search>
+      <nav class="home-notes" aria-label="Notes">
+        {tags.map((tag) => (
+          <section aria-labelledby={`tag-${slugify(tag)}`}>
+            <h2 id={`tag-${slugify(tag)}`} class="smcp">
+              <a href={`/tags/${slugify(tag)}/`}>{tag}</a>
+            </h2>
+            <ul>
+              {groups.get(tag)!.map((n) => (
+                <li data-search={[n.data.title, ...summary(n.body ?? ""), ...n.data.tags].join(" ")}>
+                  <a href={`/${n.id}/`}>{n.data.title}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </nav>
+    </>
+  ) : (
+    <p class="mt-10">The first notes are on their way.</p>
+  )}
+
+  <footer class="home-footer">
+    <ul>
+      {links.map((l) => (
         <li>
-          <a href={`/${n.id}/`}>{n.data.title}</a>
-          <p class="text-sm text-dim">{summary(n.body ?? "", { paragraphs: 1 })[0]}</p>
+          <a href={l.href}>{l.text}</a>
         </li>
       ))}
     </ul>
-  ) : (
-    <p>The first notes are on their way.</p>
-  )}
+  </footer>
 </Base>
+
+<script>
+  import { matcher } from "../lib/search.js";
+
+  const box = document.querySelector<HTMLElement>(".home-search");
+  const input = document.querySelector<HTMLInputElement>("#search");
+  if (box && input) {
+    box.hidden = false;
+    const empty = box.querySelector<HTMLElement>(".search-empty")!;
+    const items = [...document.querySelectorAll<HTMLElement>(".home-notes li")];
+    const sections = [...document.querySelectorAll<HTMLElement>(".home-notes section")];
+    const filter = () => {
+      const matches = matcher(input.value);
+      for (const li of items) li.hidden = !matches(li.dataset.search ?? "");
+      for (const s of sections) s.hidden = !s.querySelector("li:not([hidden])");
+      empty.hidden = items.some((li) => !li.hidden);
+    };
+    input.addEventListener("input", filter);
+    filter();
+  }
+</script>
