@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import Painting from "../components/Painting.astro";
 import Base from "../layouts/Base.astro";
 import { slugify } from "../lib/slug.js";
 import { summary } from "../lib/summary.js";
@@ -8,8 +7,7 @@ import { summary } from "../lib/summary.js";
 // Every listed note, grouped by its first tag, as a table of contents. Groups
 // and the notes in them are in alphabetical order. The search box filters them
 // over titles, summaries, and tags. Without JS the box is hidden and the full
-// list shows. Below the notes, the bio, contact links, and a colophon. The
-// only place the paintings are credited.
+// list shows. Below the notes, the bio, contact links, and a colophon.
 const notes = (await getCollection("notes", (n) => !n.data.unlisted)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const groups = Map.groupBy(notes, (n) => n.data.tags[0]);
 const tags = [...groups.keys()].sort((a, b) => a.localeCompare(b));
@@ -24,24 +22,16 @@ const contact = [
   { name: "X", href: "https://x.com/_asemorales", text: "_asemorales" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/asemorales", text: "asemorales" },
 ];
-const paintings = [
-  { title: "Lake Lucerne", year: 1858, room: "light" },
-  { title: "Among the Sierra Nevada, California", year: 1868, room: "dark" },
-];
 const influences = [
   { name: "Tufte CSS", href: "https://edwardtufte.github.io/tufte-css/", for: "sidenotes, the offset column, and quotes" },
   { name: "gwern.net", href: "https://gwern.net/design", for: "popovers, the contents, and design principles" },
   { name: "Wikipedia", href: "https://en.wikipedia.org/", for: "lead paragraphs, infoboxes, citations, and link colors" },
   { name: "Thinking Machines", href: "https://thinkingmachines.ai/blog/", for: "the narrow column and build-time math" },
-  { name: "Normal Computing", href: "https://www.normalcomputing.com/", for: "the painting behind the header" },
-  { name: "Bierstadt", href: "https://github.com/asemorales/bierstadt", for: "the rooms, palette, and paintings" },
+  { name: "Bierstadt", href: "https://github.com/asemorales/bierstadt", for: "the rooms and palette" },
 ];
 ---
 
-<Base title="Ase Morales" description={description} wide preloadItalic>
-  <div slot="band" class="home-band">
-    <Painting />
-  </div>
+<Base title="Ase Morales" description={description} wide>
   <header class="home-title">
     <h1 class="text-4xl">Ase Morales</h1>
     <p class="text-dim">{description}</p>
@@ -115,16 +105,6 @@ const influences = [
         {influences.map((i) => (
           <li>
             <a href={i.href}>{i.name}</a>, for {i.for}
-          </li>
-        ))}
-      </ul>
-
-      <h3 id="paintings">Paintings</h3>
-      <p>The header shows a painting by Albert Bierstadt in each room, from scans on Wikimedia Commons.</p>
-      <ul>
-        {paintings.map((p) => (
-          <li>
-            <cite>{p.title}</cite>, {p.year}, in the {p.room} room
           </li>
         ))}
       </ul>

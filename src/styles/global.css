@@ -197,7 +197,7 @@
     letter-spacing: 0.04em;
   }
 
-  /* The column every page sits in below the homepage band, as in Tufte CSS. The
+  /* The column every page sits in, as in Tufte CSS. The
    * measure is 40em, about 90 characters of Source Serif 4. From 760px the
    * right margin holds a note's sidenotes and infoboxes, which float out of
    * the column with a negative margin. The column keeps its measure first and
@@ -562,59 +562,9 @@
     @apply text-dim;
   }
 
-  /* The homepage. A painting fills the band at the top, one per room, with the
-   * name and one line below it. */
-  .painting {
-    @apply absolute inset-0 bg-cover bg-center;
-    background-image: var(--painting-light-small);
-  }
-  @media (width >= 640px) {
-    .painting {
-      background-image: var(--painting-light);
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-room="light"]) .painting {
-      background-image: var(--painting-dark-small);
-    }
-  }
-  @media (prefers-color-scheme: dark) and (width >= 640px) {
-    :root:not([data-room="light"]) .painting {
-      background-image: var(--painting-dark);
-    }
-  }
-  :root[data-room="dark"] .painting {
-    background-image: var(--painting-dark-small);
-  }
-  @media (width >= 640px) {
-    :root[data-room="dark"] .painting {
-      background-image: var(--painting-dark);
-    }
-  }
-  /* The band spans the viewport from its top, positioned against the initial
-   * containing block so it never counts the scrollbar, with the header over
-   * it. <main> starts 7rem down, the body's padding, the header, and its
-   * margin, so the title clears the band by 2.5rem. */
-  .home-band {
-    --band: 18rem;
-    @apply absolute inset-x-0 top-0 overflow-hidden;
-    height: var(--band);
-  }
-  /* The toggle's dim icon disappears into the painting, so it sits on a disc
-   * of the page color. */
-  body:has(.home-band) #room-toggle {
-    @apply rounded-full bg-page/85 p-1.5 text-ink;
-  }
+  /* The homepage. The name and one line, then the notes. */
   .home-title {
-    --band: 18rem;
-    margin-top: calc(var(--band) - 7rem + 2.5rem);
     margin-left: var(--lead);
-  }
-  @media (width >= 640px) {
-    .home-band,
-    .home-title {
-      --band: 24rem;
-    }
   }
   .home-title p {
     @apply mt-1;
@@ -783,7 +733,6 @@
     @apply max-w-none p-0;
   }
   #room-toggle,
-  .painting,
   .home-search,
   .block-tools,
   .margin-toggle {

@@ -122,31 +122,6 @@ test.describe("theme with JS", () => {
 });
 
 test.describe("homepage", () => {
-  test("shows one painting per room and downloads only that one", async ({ page }) => {
-    for (const [scheme, painting, other] of [
-      ["light", "lake-lucerne", "sierra-nevada"],
-      ["dark", "sierra-nevada", "lake-lucerne"],
-    ] as const) {
-      const requested: string[] = [];
-      page.on("request", (r) => requested.push(r.url()));
-      await page.emulateMedia({ colorScheme: scheme });
-      await page.goto("/");
-      await page.waitForLoadState("networkidle");
-      expect(await page.locator(".painting").evaluate((el) => getComputedStyle(el).backgroundImage)).toContain(painting);
-      expect(new Set(requested.filter((u) => u.includes("bierstadt-"))).size).toBe(1);
-      expect(requested.some((u) => u.includes(other))).toBe(false);
-      page.removeAllListeners("request");
-    }
-  });
-
-  test("follows a room picked against the system", async ({ page, javaScriptEnabled }) => {
-    test.skip(javaScriptEnabled === false, "JS projects only");
-    await page.emulateMedia({ colorScheme: "light" });
-    await page.addInitScript(() => localStorage.setItem("room", "dark"));
-    await page.goto("/");
-    expect(await page.locator(".painting").evaluate((el) => getComputedStyle(el).backgroundImage)).toContain("sierra-nevada");
-  });
-
   test("filters the notes as you type, and shows them all without JS", async ({ page, javaScriptEnabled }) => {
     await page.goto("/");
     const items = page.locator(".home-notes li");
