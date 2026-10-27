@@ -21,7 +21,21 @@ test.describe("pages", () => {
       const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
       expect(results.violations).toEqual([]);
     });
+
+    test(`${path} has a social image`, async ({ page, request }) => {
+      await page.goto(path);
+      const url = new URL((await page.locator('meta[property="og:image"]').getAttribute("content")) ?? "");
+      await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute("content", url.href);
+      const res = await request.get(url.pathname);
+      expect(res.ok()).toBe(true);
+      expect(res.headers()["content-type"]).toBe("image/png");
+    });
   }
+
+  test("notes get their own social image", async ({ page }) => {
+    await page.goto("/lorem-ipsum/");
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/lorem-ipsum\/og\.png$/);
+  });
 });
 
 test.describe("lorem ipsum page", () => {

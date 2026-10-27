@@ -60,7 +60,7 @@ const lists = [
 ].filter((l) => l.entries.length > 0);
 ---
 
-<Base title={note.data.title} description={description} noindex={note.data.unlisted} wide preloadItalic>
+<Base title={note.data.title} description={description} image={`/${note.id}/og.png`} noindex={note.data.unlisted} wide preloadItalic>
   <article class="note column">
     <h1 class="text-4xl">{note.data.title}</h1>
     <p class="flex flex-wrap divide-x divide-rule font-mono text-sm text-dim indent-0 *:px-2 *:first:pl-0 *:last:pr-0">

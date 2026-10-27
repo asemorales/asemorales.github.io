@@ -41,6 +41,20 @@ python3 -m fontTools.subset "$UP/DMMono-Regular.ttf" --output-file="$OUT/dm-mono
   --unicodes="$UNICODES" --layout-features="$BASE" --no-hinting
 echo "dm-mono.woff2 $(wc -c <"$OUT/dm-mono.woff2") bytes"
 
+# Social images: satori reads neither WOFF2 nor variable fonts, so it gets
+# static TTF instances of the roman at the two weights it draws.
+OG=src/assets/og
+mkdir -p "$OG"
+for w in 400 600; do
+  python3 -m fontTools.varLib.instancer "$UP/SourceSerif4Variable-Roman.ttf" "wght=$w" opsz=20 -q -o "$UP/limited.ttf"
+  python3 -m fontTools.subset "$UP/limited.ttf" --output-file="$OG/source-serif-4-$w.ttf" \
+    --unicodes="$UNICODES" --layout-features="$BASE" --no-hinting
+  echo "source-serif-4-$w.ttf $(wc -c <"$OG/source-serif-4-$w.ttf") bytes"
+done
+python3 -m fontTools.subset "$UP/DMMono-Regular.ttf" --output-file="$OG/dm-mono.ttf" \
+  --unicodes="$UNICODES" --layout-features="$BASE" --no-hinting
+echo "dm-mono.ttf $(wc -c <"$OG/dm-mono.ttf") bytes"
+
 # Both are under the SIL Open Font License, which travels with the files.
 unzip -qjo "$UP/source-serif.zip" 'source-serif-4.005_Desktop/LICENSE.md' -d "$UP" && cp "$UP/LICENSE.md" "$OUT/LICENSE-source-serif-4.txt"
 fetch https://raw.githubusercontent.com/google/fonts/main/ofl/dmmono/OFL.txt OFL-dm-mono.txt

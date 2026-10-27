@@ -13,10 +13,13 @@ interface Props {
   // the italic face early. Otherwise the browser finds it needs the face only
   // after layout, and italics paint in the fallback before swapping in.
   preloadItalic?: boolean;
+  // Notes pass their own social image. Other pages share the site's.
+  image?: string;
 }
 
-const { title, description, noindex = false, wide = false, preloadItalic = false } = Astro.props;
+const { title, description, noindex = false, wide = false, preloadItalic = false, image = "/og.png" } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = new URL(image, Astro.site);
 const fullTitle = Astro.url.pathname === "/" ? title : `${title} | Ase Morales`;
 ---
 
@@ -34,7 +37,11 @@ const fullTitle = Astro.url.pathname === "/" ? title : `${title} | Ase Morales`;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL("/og-image.png", Astro.site)} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={imageUrl} />
     <link rel="alternate" type="application/atom+xml" title="Ase Morales" href="/feed.xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
