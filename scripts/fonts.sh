@@ -14,10 +14,8 @@ fetch() {
   [ -f "$UP/$2" ] || curl -sSLo "$UP/$2" "$1"
 }
 
-fetch https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip inter.zip
 fetch https://github.com/adobe-fonts/source-serif/releases/download/4.005R/source-serif-4.005_Desktop.zip source-serif.zip
 fetch https://raw.githubusercontent.com/googlefonts/dm-mono/main/exports/DMMono-Regular.ttf DMMono-Regular.ttf
-unzip -qjo "$UP/inter.zip" InterVariable.ttf InterVariable-Italic.ttf -d "$UP"
 unzip -qjo "$UP/source-serif.zip" '*/VAR/SourceSerif4Variable-Roman.ttf' '*/VAR/SourceSerif4Variable-Italic.ttf' -d "$UP"
 
 # Latin, Latin-1, general punctuation, arrows, and math operators.
@@ -34,12 +32,8 @@ subset() {
   echo "$2 $(wc -c <"$OUT/$2") bytes"
 }
 
-# Inter: body and interface, at its text optical size. Tabular and
-# case-sensitive figures, slashed zero.
-subset InterVariable.ttf inter-roman.woff2 tnum,pnum,case,zero 14
-subset InterVariable-Italic.ttf inter-italic.woff2 tnum,pnum,case,zero 14
-# Source Serif 4: headings at its subhead optical size, plus small caps for
-# tags and attributions.
+# Source Serif 4: body, headings, and interface, at its subhead optical size,
+# plus small caps for attributions and labels.
 subset SourceSerif4Variable-Roman.ttf source-serif-4-roman.woff2 smcp,c2sc,lnum,onum,tnum,case 20
 subset SourceSerif4Variable-Italic.ttf source-serif-4-italic.woff2 lnum,onum,tnum,case 20
 # DM Mono: code only.
@@ -47,8 +41,7 @@ python3 -m fontTools.subset "$UP/DMMono-Regular.ttf" --output-file="$OUT/dm-mono
   --unicodes="$UNICODES" --layout-features="$BASE" --no-hinting
 echo "dm-mono.woff2 $(wc -c <"$OUT/dm-mono.woff2") bytes"
 
-# All three are under the SIL Open Font License, which travels with the files.
-unzip -qjo "$UP/inter.zip" LICENSE.txt -d "$UP" && cp "$UP/LICENSE.txt" "$OUT/LICENSE-inter.txt"
+# Both are under the SIL Open Font License, which travels with the files.
 unzip -qjo "$UP/source-serif.zip" 'source-serif-4.005_Desktop/LICENSE.md' -d "$UP" && cp "$UP/LICENSE.md" "$OUT/LICENSE-source-serif-4.txt"
 fetch https://raw.githubusercontent.com/google/fonts/main/ofl/dmmono/OFL.txt OFL-dm-mono.txt
 cp "$UP/OFL-dm-mono.txt" "$OUT/LICENSE-dm-mono.txt"
