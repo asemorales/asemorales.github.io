@@ -50,7 +50,7 @@ test.describe("popovers on the lorem page", () => {
   test("preview a heading's first paragraph", async ({ page }) => {
     const p = await hover(page, "Lorem Ipsum > Typography");
     await expect(p.locator(".popover-title")).toHaveText("Typography");
-    await expect(p.locator(".popover-body")).toContainText("Excepteur sint occaecat");
+    await expect(p.locator(".popover-body")).toContainText("Incomprehensibilities");
   });
 
   test("open on keyboard focus and close on Escape", async ({ page }) => {

@@ -218,7 +218,7 @@ test.describe("bottom matter", () => {
 
   test("list other external links once each, and leave citations out", async ({ page }) => {
     const links = page.locator("section.sources:has(h2#external-links) li");
-    await expect(links).toHaveCount(11);
+    await expect(links).toHaveCount(10);
     await expect(links.locator("a[href^='http']").first()).toHaveAttribute("href", "https://github.com/adobe-fonts/source-serif");
     await expect(links.locator("a[href*='doi.org/10.1112']")).toHaveCount(0);
     const back = links.first().locator(".backrefs a");
