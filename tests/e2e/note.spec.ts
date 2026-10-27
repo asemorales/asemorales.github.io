@@ -233,7 +233,7 @@ test.describe("bottom matter", () => {
 
   test("dates the note under its title, with no period", async ({ page }) => {
     const dates = page.locator("h1 + p");
-    await expect(dates).toContainText("First written");
+    await expect(dates).not.toContainText("First written");
     await expect(dates).not.toHaveText(/\.\s*$/);
     await expect(dates.locator("time").first()).toHaveAttribute("datetime", /^\d{4}-\d{2}-\d{2}$/);
   });

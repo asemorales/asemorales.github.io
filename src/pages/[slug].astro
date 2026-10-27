@@ -66,7 +66,7 @@ const lists = [
     <h1 class="text-4xl">{note.data.title}</h1>
     <p class="flex flex-wrap divide-x divide-rule font-mono text-sm text-dim indent-0 *:px-2 *:first:pl-0 *:last:pr-0">
       <span>
-        First written <time datetime={written}>{written}</time>
+        <time datetime={written}>{written}</time>
       </span>
       {updated !== written && (
         <span>
