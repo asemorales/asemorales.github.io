@@ -17,11 +17,11 @@ const contrast = (a, b) => {
 };
 
 describe("room contrast", () => {
-  it.each(["ink", "dim", "link", "link-dead", "link-hover", "link-dead-hover"])("keeps %s at 4.5:1 on the page in both rooms", (name) => {
+  it.each(["ink", "dim", "link", "link-dead", "link-hover", "link-dead-hover"])("has %s at 4.5:1 or more on the page in both rooms", (name) => {
     for (const room of [0, 1]) expect(contrast(tokens[name][room], tokens.page[room])).toBeGreaterThanOrEqual(4.5);
   });
 
-  it("keeps dim text at 4.5:1 on code blocks and the contents box", () => {
+  it("has dim text at 4.5:1 or more on code blocks and the contents box", () => {
     for (const room of [0, 1]) expect(contrast(tokens.dim[room], tokens.code[room])).toBeGreaterThanOrEqual(4.5);
   });
 });

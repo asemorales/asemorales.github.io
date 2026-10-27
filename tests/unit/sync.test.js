@@ -66,6 +66,15 @@ describe("sync", () => {
     expect(await read("annotations/gwern-design.md")).toBe(`---\nurl: "https://gwern.net/design"\n---\n\nHow gwern.net is designed, and why.\n`);
   });
 
+  it("treats annotations as optional", async () => {
+    const vault = await fs.mkdtemp(path.join(os.tmpdir(), "sync-vault-"));
+    await fs.mkdir(path.join(vault, "published"));
+    await fs.writeFile(path.join(vault, "published", "Note.md"), "---\ndate: 2026-01-01\ntags: [logic]\n---\nText.");
+    const report = await sync({ vault, out, lastUpdated: fixedDate });
+    expect(report.annotations).toEqual([]);
+    expect(await fs.readdir(path.join(out, "annotations"))).toEqual([".gitkeep"]);
+  });
+
   it("removes notes that left published/", async () => {
     await fs.mkdir(path.join(out, "notes"), { recursive: true });
     await fs.writeFile(path.join(out, "notes", "old.md"), "stale");

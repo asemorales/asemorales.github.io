@@ -149,7 +149,7 @@ describe("rehypeSections", () => {
     );
   });
 
-  it("leaves the back matter's ids to the back matter", () => {
+  it("gives a heading named like the back matter a numbered id", () => {
     const tree = root(el("h2", {}, [txt("External links")]));
     rehypeSections()(tree);
     expect(tree.children[0].properties.id).toBe("external-links-1");

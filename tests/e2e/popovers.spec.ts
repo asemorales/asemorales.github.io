@@ -107,7 +107,7 @@ test.describe("drawer on touch screens", () => {
     await expect(drawer).toBeHidden();
   });
 
-  test("a tap outside closes it, and its button reads a linked note", async ({ page }) => {
+  test("a tap outside closes it, and its button opens the linked note", async ({ page }) => {
     await page.goto("/dolor-sit-amet/");
     await page.getByRole("link", { name: "Lorem Ipsum", exact: true }).first().tap();
     const drawer = page.locator("dialog.link-drawer");
