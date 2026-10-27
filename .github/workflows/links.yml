@@ -1,0 +1,54 @@
+# Checks every external link in the notes each week and records the results in
+# src/data/links-status.json. A link that fails two runs in a row is dead, and
+# the next build points it at the Wayback Machine. The same run refreshes the
+# popover cards in src/data/cards.json. A change to either is committed to
+# main, then CI runs to deploy it, since a push from this workflow's token
+# starts no other workflow.
+name: Links
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: links
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Check external links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Bot walls answer 403 and rate limits 429. Neither means the page is gone.
+          args: --no-progress --max-concurrency 4 --max-retries 2 --accept 100..=103,200..=299,403,429 src/content/notes
+          format: json
+          output: lychee.json
+          fail: false
+      - name: Update link status
+        run: node scripts/link-status.js lychee.json
+      - name: Refresh popover cards
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/build-cards.js --refresh
+
+      - name: Commit and deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git diff --quiet src/data && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update link status and cards" src/data
+          git push
+          gh workflow run ci.yml --ref "${GITHUB_REF_NAME}"

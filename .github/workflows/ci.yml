@@ -1,4 +1,5 @@
-# Lint, test, and build every push. On main, deploy the build that passed.
+# Lint, test, and build every push. On main, deploy the build that passed,
+# then archive the notes' new external links.
 name: CI
 
 on:
@@ -69,3 +70,34 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  # Submits the notes' new external links to the Wayback Machine once they are
+  # live, and commits the record. Without the archive.org secrets it only
+  # lists what it would submit.
+  archive:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: archive
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Archive new links
+        env:
+          ARCHIVE_ACCESS_KEY: ${{ secrets.ARCHIVE_ACCESS_KEY }}
+          ARCHIVE_SECRET_KEY: ${{ secrets.ARCHIVE_SECRET_KEY }}
+        run: npm run archive
+      - name: Commit the record
+        run: |
+          git diff --quiet src/data/archived.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: record archived links" src/data/archived.json
+          git pull --rebase
+          git push
