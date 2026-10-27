@@ -3,10 +3,11 @@
 //   status    a quiet bordered box
 //   infobox   a box of facts, from a list of `**Key:** value` lines
 //   wide      its contents, such as a figure or table, across the right margin
-//   epigraph  a quote with its attribution in a <footer>
+//   quote     a quote with its attribution in a <footer>
 //
-// Every quote is an epigraph, so plain quotes and other types stay quotes,
-// without the marker, and a title becomes the attribution.
+// There is one kind of attributed quote, so any other type, such as the
+// epigraph it replaced, stays a quote too, without the marker, and a title
+// becomes the attribution.
 import { el, isElement, text, txt } from "./hast.js";
 
 const MARKER = /^\s*\[!([a-z-]+)\][+-]?[ \t]*/i;

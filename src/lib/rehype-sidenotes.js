@@ -1,22 +1,31 @@
-// Rewrites GFM footnotes as Tufte CSS sidenotes, with no JS. Each note moves
-// next to its first reference as
+// Rewrites GFM footnotes as Tufte CSS sidenotes and numbered citations, with
+// no JS. Markers follow Wikipedia: sidenotes are lettered ([a], [b], … [z],
+// [aa]) and citations numbered ([1], [2]), so a reader knows which a marker is
+// before following it.
 //
-//   <label for="sn-x" class="sidenote-number" id="snref-x">1</label>
+// A footnote whose body is a single link, optionally followed by a locator
+// ("p. 45"), is a citation. Its marker links to the entry under References, and
+// a source cited twice keeps its number. The citations go to the page as
+// file.data.citations, in order of first citation.
+//
+// Any other footnote is a sidenote, moved next to its first reference as
+//
+//   <label for="sn-x" class="sidenote-number" id="snref-x">[a]</label>
 //   <input type="checkbox" id="sn-x" class="margin-toggle">
 //   <span class="sidenote">…</span>
 //
 // On wide screens CSS floats the note into the right margin. On phones the
-// number toggles the checkbox, which shows the note below the line. Later
-// references to the same note link back to the first. The footnote list at the
-// bottom is removed.
-import { el, hasClass, isElement, txt, walk } from "./hast.js";
+// marker toggles the checkbox, which shows the note below the line. Later
+// references to the same note link back to the first. A sidenote can cite a
+// source. The footnote list at the bottom is removed.
+import { el, hasClass, isElement, text, txt, walk } from "./hast.js";
 
 const PREFIX = "user-content-fn-";
 // Block elements that can't sit inside a <p>, and the span each one becomes.
 const BLOCKS = new Set(["p", "div", "ul", "ol", "li", "blockquote", "pre", "table"]);
 
 export function rehypeSidenotes() {
-  return (tree) => {
+  return (tree, file) => {
     const notes = new Map();
     let section = null;
     walk(tree, (node, parent) => {
@@ -32,33 +41,88 @@ export function rehypeSidenotes() {
     if (!section) return;
     section.parent.children = section.parent.children.filter((c) => c !== section.node);
 
+    const letters = new Map();
     const placed = new Set();
-    replace(tree, (node) => {
+    const citations = new Map();
+    const rewrite = (node) => {
       if (!isElement(node, "sup")) return null;
       const a = node.children.find((c) => isElement(c, "a") && c.properties?.dataFootnoteRef !== undefined);
       if (!a) return null;
       const id = String(a.properties.href).replace(`#${PREFIX}`, "");
       const li = notes.get(id);
       if (!li) return null;
-      const number = String(a.children.map((c) => c.value ?? "").join(""));
+
+      const source = citation(li);
+      if (source) {
+        let entry = citations.get(source.url);
+        if (!entry) {
+          entry = { url: source.url, text: source.text, n: citations.size + 1, locators: [], refs: [] };
+          citations.set(source.url, entry);
+        }
+        if (source.locator && !entry.locators.includes(source.locator)) entry.locators.push(source.locator);
+        const refId = `cite-ref-${entry.n}-${entry.refs.length + 1}`;
+        entry.refs.push(refId);
+        return [
+          el("sup", { className: ["cite-ref"], id: refId }, [
+            el("a", { href: `#ref-${entry.n}`, ariaLabel: `Reference ${entry.n}` }, [txt(`[${entry.n}]`)]),
+          ]),
+        ];
+      }
+
+      if (!letters.has(id)) letters.set(id, letter(letters.size));
+      const mark = letters.get(id);
       if (placed.has(id)) {
-        return [el("sup", { className: ["sidenote-ref"] }, [el("a", { href: `#snref-${id}`, ariaLabel: `Sidenote ${number}` }, [txt(number)])])];
+        return [el("sup", { className: ["sidenote-ref"] }, [el("a", { href: `#snref-${id}`, ariaLabel: `Note ${mark}` }, [txt(`[${mark}]`)])])];
       }
       placed.add(id);
+      const body = el("span", { className: ["sidenote"], role: "note" }, [
+        el("span", { className: ["sidenote-mark"], ariaHidden: "true" }, [txt(mark)]),
+        txt(" "),
+        ...inline(li.children),
+      ]);
+      replace(body, rewrite);
       return [
         el("label", { htmlFor: `sn-${id}`, id: `snref-${id}`, className: ["sidenote-number"] }, [
-          el("span", { className: ["sr-only"] }, [txt("Sidenote ")]),
-          txt(number),
+          el("span", { className: ["sr-only"] }, [txt("Note ")]),
+          txt(`[${mark}]`),
         ]),
         el("input", { type: "checkbox", id: `sn-${id}`, className: ["margin-toggle"] }),
-        el("span", { className: ["sidenote"], role: "note" }, [
-          el("span", { className: ["sidenote-mark"], ariaHidden: "true" }, [txt(number)]),
-          txt(" "),
-          ...inline(li.children),
-        ]),
+        body,
       ];
-    });
+    };
+    replace(tree, rewrite);
+
+    file.data.citations = [...citations.values()].map(({ url, text, n, locators, refs }) => ({ url, text, n, locators, refs }));
   };
+}
+
+// a, b, … z, aa, ab, … as Wikipedia letters its notes.
+export function letter(i) {
+  let s = "";
+  for (let n = i + 1; n > 0; n = Math.floor((n - 1) / 26)) s = String.fromCharCode(97 + ((n - 1) % 26)) + s;
+  return s;
+}
+
+// A footnote whose body is one external link and an optional locator, as in
+// "[Smith 2010](https://…), p. 45". Returns null for any other footnote.
+function citation(li) {
+  const blocks = significant(li.children);
+  if (blocks.length !== 1 || !isElement(blocks[0], "p")) return null;
+  const [link, ...rest] = significant(blocks[0].children);
+  if (!isElement(link, "a") || !/^https?:\/\//.test(String(link.properties.href ?? ""))) return null;
+  if (rest.some((n) => n.type !== "text")) return null;
+  const locator = rest
+    .map((n) => n.value)
+    .join("")
+    .trim()
+    .replace(/^[,;:]\s*/, "")
+    .replace(/\.$/, "");
+  return { url: String(link.properties.href), text: text(link).trim(), locator };
+}
+
+// Children other than blank text and GFM's backlinks to the reference.
+function significant(children) {
+  return children.filter((c) => !(c.type === "text" && !c.value.trim()) && !(isElement(c) && c.properties?.dataFootnoteBackref !== undefined));
 }
 
 // The note's paragraphs become spans, since a sidenote sits inside the

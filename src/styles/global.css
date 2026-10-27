@@ -3,20 +3,6 @@
 /* Fonts, subset from upstream by scripts/fonts.sh. Browsers fetch a face only
  * when a page uses it, so DM Mono loads only on pages with code. */
 @font-face {
-  font-family: "Inter";
-  src: url("/fonts/inter-roman.woff2") format("woff2");
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/inter-italic.woff2") format("woff2");
-  font-weight: 400 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
   font-family: "Source Serif 4";
   src: url("/fonts/source-serif-4-roman.woff2") format("woff2");
   font-weight: 400 700;
@@ -54,10 +40,12 @@
   --mid: light-dark(#9a9183, #81786d); /* quiet controls */
   --dim: light-dark(#6e6965, #9e958a); /* secondary text */
   --ink: light-dark(#231a15, #efe6d6); /* body text */
-  --link: light-dark(#0645ad, #88a3e8); /* live links, 7.2:1 and 7.3:1 */
-  --link-dead: light-dark(#ba0000, #fd7865); /* dead links, 5.8:1 and 6.9:1 */
-  --link-hover: light-dark(#0b0080, #b3c6f2); /* hovered live links, 13.5:1 and 10.5:1 */
-  --link-dead-hover: light-dark(#7a0000, #ffa394); /* hovered dead links, 9.8:1 and 9.4:1 */
+  /* Links take the blue and red of the kitty Bierstadt theme: color4 and
+   * color1, and color12 and color9 on hover. */
+  --link: light-dark(#2f5470, #7fa3c2); /* live links */
+  --link-dead: light-dark(#b04a2a, #d0704f); /* dead links */
+  --link-hover: light-dark(#3a6588, #9dbad3); /* hovered live links */
+  --link-dead-hover: light-dark(#aa4a2b, #e08a6b); /* hovered dead links */
 }
 :root[data-room="light"] {
   color-scheme: light;
@@ -84,14 +72,15 @@
 }
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Source Serif 4", ui-serif, Georgia, serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
 }
 
 @layer base {
+  /* A jump to a section on the same page lands a little below the top of
+   * the screen, as on Wikipedia. */
   html {
-    @apply bg-page font-serif text-ink;
+    @apply scroll-pt-6 bg-page font-serif text-ink;
     -webkit-font-smoothing: antialiased;
     text-size-adjust: 100%;
   }
@@ -104,7 +93,12 @@
   }
 
   a {
-    @apply text-link underline decoration-1 underline-offset-2 hover:text-link-hover;
+    @apply text-link underline decoration-1 underline-offset-6 hover:text-link-hover;
+  }
+  /* Dead links point at an archived copy. Red with a dotted underline, so they
+   * differ by shape as well as color. */
+  a.dead {
+    @apply text-link-dead decoration-dotted hover:text-link-dead-hover;
   }
 
   ::selection {
@@ -203,49 +197,46 @@
     letter-spacing: 0.04em;
   }
 
-  /* The note column, as in Tufte CSS. The measure is 40em, about 90
-   * characters of Source Serif 4. From 760px the right margin holds sidenotes
-   * and infoboxes, which float out of the column with a negative margin. The
-   * column keeps its measure first and the margin takes what's left, up to
-   * --margin-max; 100cqw is the width of <main>. From 1200px the contents sit
-   * in a rail to the left, as --lead. Below 760px, one column. */
-  .note {
+  /* The column every page but the homepage sits in, as in Tufte CSS. The
+   * measure is 40em, about 90 characters of Source Serif 4. From 760px the
+   * right margin holds a note's sidenotes and infoboxes, which float out of
+   * the column with a negative margin. The column keeps its measure first and
+   * the margin takes what's left, up to --margin-max; 100cqw is the width of
+   * <main>. From 1200px a rail to the left holds a note's contents, as --lead,
+   * and every page keeps the same offset. Below 760px, one column. */
+  .column {
     --gap: 2.5rem;
     --lead: 0rem;
     --rail: 13rem;
     --measure: 50rem; /* 40em of the column's text-xl */
     --margin: clamp(12rem, 100cqw - var(--lead) - var(--measure) - var(--gap), 24rem);
     @apply relative max-w-[40em] text-lg leading-[1.7] sm:text-xl;
-    hyphens: auto;
   }
   @media (width >= 760px) {
-    .note {
+    .column {
       margin-left: var(--lead);
       width: min(var(--measure), 100cqw - var(--lead) - var(--gap) - var(--margin));
       max-width: none;
     }
   }
   @media (width >= 1200px) {
-    .note:has(> .toc) {
+    .column {
       --lead: calc(var(--rail) + var(--gap));
     }
+  }
+  .note {
+    hyphens: auto;
   }
   .note > * + * {
     @apply mt-4;
   }
 
-  /* Justified, with indented paragraphs and no space between them. Ragged
-   * right on narrow screens, where justified lines open rivers. */
+  /* Ragged right, with text-pretty to avoid short last lines. Every paragraph
+   * is indented, the first included, with space between them. */
   .note p {
-    text-align: justify;
+    @apply text-pretty;
   }
-  @media (width < 30em) {
-    .note p {
-      text-align: left;
-    }
-  }
-  .note p + p {
-    @apply mt-0;
+  .note > p {
     text-indent: 1.5em;
   }
 
@@ -289,6 +280,11 @@
   }
   .note code {
     @apply font-mono text-[0.9em] break-words;
+  }
+  /* Long unbroken code, such as a URL, breaks anywhere, so it starts on the
+   * line before it and never overflows the column. rehype-blocks marks it. */
+  .note code.long {
+    @apply break-all;
   }
   .note :not(pre) > code {
     @apply rounded-sm bg-code px-1;
@@ -344,7 +340,7 @@
     @apply text-ink no-underline hover:text-link-hover hover:underline;
   }
 
-  /* Every quote is an epigraph, after Tufte CSS: italic, indented, set off
+  /* One style for every quote, after Tufte's epigraphs: italic, indented, set off
    * from the text, with no rule and no quote marks. Attributions sit
    * right-aligned in small caps below. */
   .note blockquote {
@@ -389,11 +385,13 @@
    * on phones it opens the note below the line, with no JS. On wide screens
    * the note floats into the right margin beside its reference. */
   .note .sidenote-number,
-  .note .sidenote-ref {
+  .note .sidenote-ref,
+  .note .cite-ref {
     @apply align-super text-[0.65em] leading-none;
   }
-  .note .sidenote-ref a {
-    @apply no-underline;
+  .note .sidenote-ref a,
+  .note .cite-ref a {
+    @apply no-underline hover:underline;
   }
   .note .margin-toggle {
     @apply sr-only;
@@ -408,6 +406,11 @@
   }
   .note .sidenote-block + .sidenote-block {
     @apply mt-2 block;
+  }
+  /* A sidenote and its markers, while one of them is hovered or clicked, so a
+   * reader sees which goes with which. NoteTools sets the class. */
+  .note :is(.sidenote-number, .sidenote-ref, .sidenote).highlighted {
+    @apply bg-hover outline-1 outline-offset-1 outline-frame;
   }
   @media (width < 760px) {
     .note .sidenote-number {
@@ -440,7 +443,7 @@
   /* Display math gets the code block's hairline box on hover. A numbered
    * equation keeps clear of the buttons, so they never cover its number. */
   .note .math-block {
-    @apply border border-transparent px-3 transition-colors;
+    @apply border border-transparent px-3 outline-link transition-colors;
   }
   .note .math-block:is(:hover, :has(:focus-visible), .show) {
     @apply border-rule;
@@ -462,6 +465,12 @@
   }
   .note .math-block pre {
     @apply my-4;
+  }
+  /* An equation that a hovered or clicked \eqref points at. The outline
+   * color is set on .math-block itself, so transition-colors doesn't fade
+   * it in from currentColor. */
+  .note .math-block.referenced {
+    @apply outline-1 outline-offset-2;
   }
 
   /* Figures, with captions below. A [!wide] box spans the column and the
@@ -487,8 +496,9 @@
     }
   }
 
-  /* The bottom of the note: see also, bibliography, tags, and the date. Its
-   * headings are unnumbered sections, listed last in the contents. */
+  /* The bottom of the note: see also, references, external links, tags, and
+   * the date. Its headings are unnumbered sections, listed last in the
+   * contents. References and external links start collapsed. */
   .note .bottom {
     @apply mt-12 border-t border-rule pt-4 text-base;
   }
@@ -502,18 +512,27 @@
   .note summary {
     @apply cursor-pointer transition-colors hover:text-link-hover;
   }
-  .note .bibliography ol {
+  .note .sources summary {
+    @apply mt-2 text-dim;
+  }
+  .note .sources :is(ol, ul) {
     @apply mt-2;
   }
-  .note .bibliography li + li {
+  .note .sources li + li {
     @apply mt-2;
   }
-  .note .bibliography .domain,
-  .note .bibliography .backrefs {
+  .note .sources li:target {
+    @apply bg-tag-hover;
+  }
+  .note .sources .domain,
+  .note .sources .backrefs {
     @apply text-dim;
   }
-  .note .bibliography .backrefs a {
+  .note .sources .backrefs a {
     @apply no-underline hover:underline;
+  }
+  .note .sources .backrefs sup {
+    @apply ml-0.5 text-[0.75em] font-semibold italic;
   }
   .note .tags {
     @apply flex flex-wrap items-center gap-2 font-mono text-sm;
@@ -524,8 +543,204 @@
   .note .tags ul {
     @apply contents list-none;
   }
-  .note .tag {
-    @apply inline-block border border-frame px-1.5 text-ink no-underline hover:bg-tag-hover;
+  .tag {
+    @apply inline-block border border-frame px-1.5 font-mono text-ink no-underline;
+  }
+  a.tag {
+    @apply hover:bg-tag-hover;
+  }
+  /* A tag page's title: the tags icon, then the tag in its box. */
+  .tag-title {
+    @apply flex items-center gap-3 text-3xl font-normal;
+  }
+  .tag-title .icon {
+    @apply text-dim;
+  }
+
+  /* The homepage. A painting fills the header band, one per room, with the
+   * name and one line on the page color at its lower left, so no text sits on
+   * the painting itself. */
+  .painting {
+    @apply absolute inset-0 bg-cover bg-center;
+    background-image: var(--painting-light-small);
+  }
+  @media (width >= 640px) {
+    .painting {
+      background-image: var(--painting-light);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-room="light"]) .painting {
+      background-image: var(--painting-dark-small);
+    }
+  }
+  @media (prefers-color-scheme: dark) and (width >= 640px) {
+    :root:not([data-room="light"]) .painting {
+      background-image: var(--painting-dark);
+    }
+  }
+  :root[data-room="dark"] .painting {
+    background-image: var(--painting-dark-small);
+  }
+  @media (width >= 640px) {
+    :root[data-room="dark"] .painting {
+      background-image: var(--painting-dark);
+    }
+  }
+  .home-band {
+    @apply relative -mx-4 flex h-72 items-end overflow-hidden sm:mx-0 sm:h-96;
+  }
+  .home-title {
+    @apply relative bg-page px-4 pt-4 sm:pr-8 sm:pl-0;
+  }
+  .home-title p {
+    @apply mt-1;
+  }
+  .home-search {
+    @apply mt-10 max-w-xl;
+  }
+  .home-search input {
+    @apply w-full border border-frame bg-code px-3 py-2 text-lg text-ink placeholder:text-dim;
+  }
+  .home-search p {
+    @apply mt-4;
+  }
+  .home-notes {
+    @apply mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  .home-notes h2 {
+    @apply text-xl;
+  }
+  .home-notes h2 a {
+    @apply text-ink no-underline hover:text-link-hover;
+  }
+  .home-notes ul,
+  .listing ul {
+    @apply mt-2 space-y-1.5 text-lg leading-snug;
+  }
+  .home-footer {
+    @apply mt-16 border-t border-rule pt-4;
+  }
+  .home-footer ul {
+    @apply flex flex-wrap gap-x-6 gap-y-2;
+  }
+
+  /* Link popovers. Text only, on the code color with a hairline frame, cut
+   * off with a fade when the text runs long. */
+  .link-popover {
+    @apply fixed m-0 max-h-80 w-[min(26rem,calc(100vw-1rem))] overflow-hidden border border-frame bg-code p-4 text-left text-base leading-normal text-ink shadow-lg;
+    inset: auto;
+  }
+  .link-popover p + p,
+  .link-popover .popover-body {
+    @apply mt-1;
+  }
+  .popover-meta,
+  .popover-dead {
+    @apply text-sm text-dim;
+  }
+  .popover-dead {
+    @apply text-link-dead;
+  }
+  .popover-title {
+    @apply font-semibold;
+  }
+  .popover-body {
+    @apply max-h-48 overflow-hidden;
+  }
+  .popover-body.clipped {
+    mask-image: linear-gradient(to bottom, black 70%, transparent);
+  }
+  .popover-body p + p {
+    @apply mt-2;
+  }
+  .popover-more {
+    @apply mt-2 inline-block text-sm;
+  }
+
+  /* The drawer that holds a link's preview on touch screens. It slides up
+   * from the bottom of the screen, over a dimmed page. */
+  .link-drawer {
+    @apply fixed inset-x-0 top-auto bottom-0 m-0 max-h-[75vh] w-full max-w-none border-t border-frame bg-code p-0 text-base leading-normal text-ink;
+  }
+  /* It eases in when it opens and out when it closes. */
+  .link-drawer {
+    translate: 0 100%;
+    transition:
+      translate 0.25s ease-in-out,
+      display 0.25s allow-discrete,
+      overlay 0.25s allow-discrete;
+  }
+  .link-drawer[open] {
+    @apply flex flex-col;
+    translate: 0 0;
+  }
+  @starting-style {
+    .link-drawer[open] {
+      translate: 0 100%;
+    }
+  }
+  .link-drawer:focus {
+    @apply outline-none;
+  }
+  .link-drawer::backdrop {
+    background: rgb(0 0 0 / 0);
+    transition:
+      background 0.25s ease-in-out,
+      display 0.25s allow-discrete,
+      overlay 0.25s allow-discrete;
+  }
+  .link-drawer[open]::backdrop {
+    background: rgb(0 0 0 / 0.4);
+  }
+  @starting-style {
+    .link-drawer[open]::backdrop {
+      background: rgb(0 0 0 / 0);
+    }
+  }
+  .drawer-content {
+    @apply overflow-y-auto pt-5 pr-12 pb-2 pl-5;
+  }
+  .drawer-content .popover-body {
+    @apply max-h-none;
+  }
+  .drawer-content p + p,
+  .drawer-content .popover-body {
+    @apply mt-1;
+  }
+  .drawer-content .popover-body p + p {
+    @apply mt-2;
+  }
+  .drawer-close {
+    @apply absolute top-2 right-2 flex cursor-pointer items-center p-2 text-lg text-dim hover:text-ink;
+  }
+  .drawer-go {
+    @apply mx-5 mt-2 mb-5 block border border-frame bg-page px-4 py-2.5 text-center no-underline;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .link-drawer,
+    .link-drawer::backdrop {
+      transition: none;
+    }
+  }
+
+  /* Tag pages and the About page, in the column. */
+  .prose-page h2 {
+    @apply mt-10 mb-3 text-2xl;
+  }
+  .prose-page p,
+  .prose-page ul,
+  .prose-page dl {
+    @apply mt-3 text-lg leading-relaxed;
+  }
+  .prose-page ul {
+    @apply list-disc pl-6;
+  }
+  .prose-page dl {
+    @apply grid grid-cols-[auto_1fr] gap-x-6 gap-y-1;
+  }
+  .prose-page dt {
+    @apply text-dim;
   }
 }
 
@@ -542,6 +757,8 @@
     @apply max-w-none p-0;
   }
   #room-toggle,
+  .painting,
+  .home-search,
   .block-tools,
   .margin-toggle {
     display: none !important;

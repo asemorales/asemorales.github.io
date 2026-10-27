@@ -1,6 +1,7 @@
 // Obsidian wikilinks: [[Note]], [[Note#Heading]], [[Note|alias]], and
 // [[#Heading]] within the same note.
 import { slug } from "github-slugger";
+import { BACK_IDS } from "./rehype-sections.js";
 import { slugify } from "./slug.js";
 
 const WIKILINK = /(?<!!)\[\[([^\]|#]*)(?:#([^\]|]*))?(?:\|([^\]]*))?\]\]/g;
@@ -46,9 +47,17 @@ function resolve([, rawTarget, rawHeading, rawAlias], known, self) {
   const title = target ? known.get(key(target)) : self;
   const label = alias || (target && heading ? `${target} > ${heading}` : heading || target);
   if (!title) return { type: "text", value: label };
-  const hash = heading ? `#${slug(heading)}` : "";
+  const hash = heading ? `#${headingId(heading)}` : "";
   const url = title === self && hash ? hash : `/${slugify(title)}/${hash}`;
   return { type: "link", url, children: [{ type: "text", value: label }] };
+}
+
+// In Obsidian, [[Note#References]] can only point at a heading the note itself
+// has. The page's back matter holds the plain ids, so rehypeSections gives
+// such a heading "references-1".
+function headingId(heading) {
+  const id = slug(heading);
+  return BACK_IDS.includes(id) ? `${id}-1` : id;
 }
 
 // Smartypants has already curled the quotes in the text, so compare titles

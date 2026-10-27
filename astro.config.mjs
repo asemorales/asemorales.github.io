@@ -7,6 +7,8 @@ import { defineConfig } from "astro/config";
 import matter from "gray-matter";
 import rehypeMathjax from "rehype-mathjax/svg";
 import remarkMath from "remark-math";
+import linkStatus from "./src/data/links-status.json" with { type: "json" };
+import { rehypeDeadLinks } from "./src/lib/dead-links.js";
 import { rehypeBibliography } from "./src/lib/rehype-bibliography.js";
 import { rehypeBlocks } from "./src/lib/rehype-blocks.js";
 import { rehypeCallouts } from "./src/lib/rehype-callouts.js";
@@ -52,7 +54,9 @@ export default defineConfig({
     // MathJax renders at build time, as SVG. AMS tags number equations for \eqref.
     // The plugins after it shape the page: callouts, sidenotes, block buttons,
     // then the bibliography, which needs every link in its final place, and
-    // section numbers and contents, which list the bibliography.
+    // section numbers and contents, which list the bibliography. Dead links
+    // go to the Wayback Machine last, so the bibliography keys each source by
+    // its original URL.
     processor: unified({
       remarkPlugins: [remarkMath, [remarkWikilinks, { titles: notes.map((n) => n.data.title) }]],
       rehypePlugins: [
@@ -66,6 +70,7 @@ export default defineConfig({
         rehypeBlocks,
         rehypeBibliography,
         [rehypeSections, { backlinked }],
+        [rehypeDeadLinks, { status: linkStatus }],
       ],
     }),
     shikiConfig: {

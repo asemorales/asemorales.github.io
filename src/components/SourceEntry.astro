@@ -1,0 +1,50 @@
+---
+// One entry under References or External links: backlinks to each place the
+// source is cited (↑ a, b, c), the link, any locators, the domain, and the
+// hand-written annotation when there is one.
+import type { render } from "astro:content";
+import linkStatus from "../data/links-status.json";
+import { archived } from "../lib/dead-links.js";
+import { letter } from "../lib/rehype-sidenotes.js";
+
+interface Props {
+  url: string;
+  text: string;
+  refs: string[];
+  locators?: string[];
+  domain: string;
+  Annotation: Awaited<ReturnType<typeof render>>["Content"] | null;
+}
+
+const { url, text, refs, locators = [], domain, Annotation } = Astro.props;
+// A dead source links to its archived copy, as it does in the text.
+const dead = archived(url, linkStatus);
+---
+
+<span class="backrefs">
+  {refs.length === 1 ? (
+    <a href={`#${refs[0]}`} aria-label="Back to the citation">
+      ↑
+    </a>
+  ) : (
+    <>
+      ↑
+      {refs.map((id, i) => (
+        <sup>
+          <a href={`#${id}`} aria-label={`Back to citation ${letter(i)}`}>
+            {letter(i)}
+          </a>
+        </sup>
+      ))}
+    </>
+  )}
+</span>{" "}
+<a href={dead?.href ?? url} class:list={{ dead }} data-dead-since={dead?.since}>
+  {text}
+</a>
+{locators.length > 0 && `, ${locators.join("; ")}`} <span class="domain">({domain})</span>
+{Annotation && (
+  <div class="annotation">
+    <Annotation />
+  </div>
+)}

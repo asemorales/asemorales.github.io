@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import NoteTools from "../components/NoteTools.astro";
+import Entry from "../components/SourceEntry.astro";
 import Base from "../layouts/Base.astro";
 import { summary } from "../lib/summary.js";
 import { slugify } from "../lib/slug.js";
@@ -11,15 +12,18 @@ export async function getStaticPaths() {
   return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
 }
 
-interface Citation {
+interface Source {
   url: string;
   text: string;
   refs: string[];
+  n?: number;
+  locators?: string[];
 }
 
 const { note } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(note);
 const description = summary(note.body ?? "", { paragraphs: 1 })[0] ?? note.data.title;
+const written = note.data.date.toISOString().slice(0, 10);
 const updated = note.data.updated.toISOString().slice(0, 10);
 
 // See also: every other published note with a wikilink here. Unlisted notes
@@ -30,22 +34,45 @@ const backlinks = (await getCollection("notes", (n) => n.id !== note.id && (!n.d
   .filter((n) => linkTargets(n.body ?? "").some((t) => t.toLowerCase() === title))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
-// The bibliography: external links in order of first use, each with its
-// hand-written annotation when there is one.
+// References (citations) and External links (other links in the prose), each
+// entry with its hand-written annotation when there is one.
 const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, a]));
-const citations = (remarkPluginFrontmatter.bibliography ?? []) as Citation[];
-const bibliography = await Promise.all(
-  citations.map(async (c) => {
-    const annotation = annotations.get(c.url);
-    return { ...c, domain: new URL(c.url).hostname.replace(/^www\./, ""), Annotation: annotation ? (await render(annotation)).Content : null };
-  }),
-);
-const letter = (i: number) => String.fromCharCode(97 + (i % 26)) + (i >= 26 ? Math.floor(i / 26) : "");
+const withAnnotations = (sources: Source[] = []) =>
+  Promise.all(
+    sources.map(async (s) => {
+      const annotation = annotations.get(s.url);
+      return { ...s, domain: new URL(s.url).hostname.replace(/^www\./, ""), Annotation: annotation ? (await render(annotation)).Content : null };
+    }),
+  );
+const lists = [
+  {
+    id: "references",
+    title: "References",
+    count: (n: number) => (n === 1 ? "1 reference" : `${n} references`),
+    entries: await withAnnotations(remarkPluginFrontmatter.references as Source[]),
+  },
+  {
+    id: "external-links",
+    title: "External links",
+    count: (n: number) => (n === 1 ? "1 link" : `${n} links`),
+    entries: await withAnnotations(remarkPluginFrontmatter.externalLinks as Source[]),
+  },
+].filter((l) => l.entries.length > 0);
 ---
 
-<Base title={note.data.title} description={description} noindex={note.data.unlisted} wide>
-  <article class="note">
+<Base title={note.data.title} description={description} noindex={note.data.unlisted} wide preloadItalic>
+  <article class="note column">
     <h1 class="text-4xl">{note.data.title}</h1>
+    <p class="flex flex-wrap divide-x divide-rule font-mono text-sm text-dim indent-0 *:px-2 *:first:pl-0 *:last:pr-0">
+      <span>
+        First written <time datetime={written}>{written}</time>
+      </span>
+      {updated !== written && (
+        <span>
+          Last updated <time datetime={updated}>{updated}</time>
+        </span>
+      )}
+    </p>
     <Content />
     <footer class="bottom">
       {backlinks.length > 0 && (
@@ -65,44 +92,36 @@ const letter = (i: number) => String.fromCharCode(97 + (i % 26)) + (i >= 26 ? Ma
           </ul>
         </section>
       )}
-      {bibliography.length > 0 && (
-        <section class="bibliography" aria-labelledby="bibliography">
-          <h2 id="bibliography">
-            Bibliography
-            <a href="#bibliography" class="anchor" aria-label="Link to Bibliography">
+      {lists.map((list) => (
+        <section class="sources" aria-labelledby={list.id}>
+          <h2 id={list.id}>
+            {list.title}
+            <a href={`#${list.id}`} class="anchor" aria-label={`Link to ${list.title}`}>
               <span class="icon icon-link" aria-hidden="true" />
             </a>
           </h2>
-          <ol>
-            {bibliography.map((c) => (
-              <li>
-                <span class="backrefs">
-                  {c.refs.length === 1 ? (
-                    <a href={`#${c.refs[0]}`} aria-label="Back to the citation">
-                      ↑
-                    </a>
-                  ) : (
-                    <>
-                      ↑
-                      {c.refs.map((id, i) => (
-                        <a href={`#${id}`} aria-label={`Back to citation ${letter(i)}`}>
-                          {letter(i)}
-                        </a>
-                      ))}
-                    </>
-                  )}
-                </span>{" "}
-                <a href={c.url}>{c.text}</a> <span class="domain">({c.domain})</span>
-                {c.Annotation && (
-                  <div class="annotation">
-                    <c.Annotation />
-                  </div>
-                )}
-              </li>
-            ))}
-          </ol>
+          <details>
+            <summary>{list.count(list.entries.length)}</summary>
+            {list.id === "references" ? (
+              <ol>
+                {list.entries.map((c) => (
+                  <li id={`ref-${c.n}`}>
+                    <Entry {...c} />
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <ul>
+                {list.entries.map((c) => (
+                  <li>
+                    <Entry {...c} />
+                  </li>
+                ))}
+              </ul>
+            )}
+          </details>
         </section>
-      )}
+      ))}
       {note.data.tags.length > 0 && (
         <div class="tags">
           <span class="tags-label">
@@ -120,9 +139,6 @@ const letter = (i: number) => String.fromCharCode(97 + (i % 26)) + (i >= 26 ? Ma
           </ul>
         </div>
       )}
-      <p class="font-mono text-sm text-dim">
-        Last updated <time datetime={updated}>{updated}</time>
-      </p>
     </footer>
   </article>
   <NoteTools />

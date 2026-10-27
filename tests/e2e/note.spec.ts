@@ -11,18 +11,25 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("layout and type", () => {
-  test("justifies and indents paragraphs that follow paragraphs", async ({ page }, info) => {
+  test("wraps and indents every paragraph, with space between them", async ({ page, browserName }) => {
     const [first, second] = [page.locator("#typography + p"), page.locator("#typography + p + p")];
-    expect(await first.evaluate((el) => getComputedStyle(el).textIndent)).toBe("0px");
+    expect(await first.evaluate((el) => getComputedStyle(el).textIndent)).not.toBe("0px");
     expect(await second.evaluate((el) => getComputedStyle(el).textIndent)).not.toBe("0px");
-    const align = await second.evaluate((el) => getComputedStyle(el).textAlign);
-    expect(align).toBe(wide(info.project.name) ? "justify" : "left");
+    expect(await second.evaluate((el) => getComputedStyle(el).marginTop)).not.toBe("0px");
+    // Firefox has no text-wrap: pretty yet, and wraps as usual.
+    if (browserName === "chromium") expect(await second.evaluate((el) => getComputedStyle(el).textWrap)).toContain("pretty");
   });
 
-  test("draws the separator as three asterisks, with no indent after it", async ({ page }) => {
+  test("keeps long inline code inside the column", async ({ page }) => {
+    const code = page.locator("article code.long").first();
+    const column = await box(page.locator("article.note"));
+    const b = await box(code);
+    expect(b.x + b.width).toBeLessThanOrEqual(column.x + column.width + 1);
+  });
+
+  test("draws the separator as three asterisks", async ({ page }) => {
     const hr = page.locator("article hr");
     expect(await hr.evaluate((el) => getComputedStyle(el, "::after").content)).toContain("*");
-    expect(await page.locator("article hr + p").evaluate((el) => getComputedStyle(el).textIndent)).toBe("0px");
   });
 });
 
@@ -73,7 +80,7 @@ test.describe("sidenotes", () => {
     test.skip(!wide(info.project.name), "wide screens only");
     const column = await box(page.locator("article.note"));
     const notes = page.locator(".sidenote");
-    await expect(notes).toHaveCount(4);
+    await expect(notes).toHaveCount(5);
     const boxes = await Promise.all((await notes.all()).map(box));
     for (const b of boxes) expect(b.x).toBeGreaterThan(column.x + column.width);
     // Never overlapping, even when the references are close together.
@@ -95,7 +102,37 @@ test.describe("sidenotes", () => {
   test("render a note cited twice once, with the later citation linking back", async ({ page }) => {
     await expect(page.locator(".sidenote", { hasText: "A short sidenote." })).toHaveCount(1);
     await expect(page.locator(".sidenote-ref a")).toHaveAttribute("href", "#snref-short");
+    await expect(page.locator(".sidenote-ref a")).toHaveText("[a]");
+    await expect(page.locator("#snref-short")).toContainText("[a]");
     await expect(page.locator("section.footnotes")).toHaveCount(0);
+  });
+
+  test("highlight with their markers on hover, and after a click until the next click elsewhere", async ({ page, javaScriptEnabled }, info) => {
+    test.skip(javaScriptEnabled === false || !wide(info.project.name), "wide screens with JS");
+    const parts = [page.locator("#snref-short"), page.locator("#sn-short + .sidenote"), page.locator(".sidenote-ref:has(a[href='#snref-short'])")];
+    const lit = async (on: boolean) => {
+      for (const p of parts) await (on ? expect(p).toHaveClass(/highlighted/) : expect(p).not.toHaveClass(/highlighted/));
+    };
+    // Away from every link, so no popover opens over the marker.
+    const corner = [page.viewportSize()!.width - 2, 2] as const;
+    await parts[1].hover();
+    await lit(true);
+    await page.mouse.move(...corner);
+    await lit(false);
+    // By position, since Playwright checks a label's hidden checkbox instead.
+    await parts[0].scrollIntoViewIfNeeded();
+    const b = await box(parts[0]);
+    await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
+    await page.mouse.move(...corner);
+    await lit(true);
+    await page.mouse.click(...corner);
+    await lit(false);
+  });
+
+  test("mark citations with numbers, reusing a source's number, inside sidenotes too", async ({ page }) => {
+    const markers = page.locator(".cite-ref a");
+    expect(await markers.allTextContents()).toEqual(["[1]", "[1]", "[2]", "[1]"]);
+    await expect(page.locator(".sidenote .cite-ref")).toHaveCount(1);
   });
 });
 
@@ -115,16 +152,15 @@ test.describe("callouts", () => {
     else expect(b.x + b.width).toBeLessThanOrEqual(column.x + column.width + 1);
   });
 
-  test("set every quote as an epigraph, with its attribution in a footer", async ({ page }) => {
-    await expect(page.locator("#epigraph + blockquote footer")).toContainText("Borges");
-    expect(await page.locator("#plain-quote + blockquote").evaluate((el) => getComputedStyle(el).fontStyle)).toBe("italic");
+  test("set every quote alike, with an attribution in a footer", async ({ page }) => {
+    await expect(page.locator("#attributed-quote + blockquote footer")).toContainText("Borges");
+    expect(await page.locator("#default-quote + blockquote").evaluate((el) => getComputedStyle(el).fontStyle)).toBe("italic");
   });
 
   test("set figures in the column, and wide figures across the margin on wide screens", async ({ page }, info) => {
     const figures = page.locator("article figure");
-    await expect(figures).toHaveCount(4);
-    await expect(figures.nth(1).locator("figcaption")).toContainText("An orbit, drawn to no scale.");
-    await expect(figures.nth(0).locator("figcaption")).toHaveCount(0);
+    await expect(figures).toHaveCount(2);
+    await expect(figures.nth(0).locator("figcaption")).toContainText("An orbit, drawn to no scale.");
     const column = await box(page.locator("article.note"));
     const narrow = await box(figures.nth(0));
     const spanning = await box(page.locator(".wide figure").first());
@@ -140,26 +176,76 @@ test.describe("links", () => {
     await expect(page.locator("#internal-links + p")).toContainText("plain text: Some Private Note.");
     await expect(page.locator("article a", { hasText: "Some Private Note" })).toHaveCount(0);
   });
+
+  test("point dead links at the Wayback Machine, in the dead-link color with a dotted underline", async ({ page }) => {
+    const dead = page.getByRole("link", { name: "a page that no longer exists" });
+    await expect(dead).toHaveAttribute("href", "https://web.archive.org/web/20261027/https://dead-link-test.invalid/page");
+    await expect(dead).toHaveClass(/\bdead\b/);
+    const live = page.getByRole("link", { name: "asemorales/bierstadt" });
+    const style = (l: Locator) => l.evaluate((el) => [getComputedStyle(el).color, getComputedStyle(el).textDecorationStyle]);
+    const [[deadColor, deadLine], [liveColor]] = await Promise.all([style(dead), style(live)]);
+    expect(deadColor).not.toBe(liveColor);
+    expect(deadLine).toBe("dotted");
+    await expect(page.locator("section.sources a.dead")).toHaveAttribute("href", /^https:\/\/web\.archive\.org\//);
+  });
 });
 
 test.describe("bottom matter", () => {
-  test("lists the bibliography last in the contents, and its backlinks jump to each citation", async ({ page }) => {
-    await expect(page.locator("nav.toc > details > ol > li").last().locator("a")).toHaveAttribute("href", "#bibliography");
-    const bib = page.locator("section.bibliography");
-    await expect(bib.locator("h2#bibliography")).toContainText("Bibliography");
-    const entries = bib.locator("li");
-    await expect(entries).toHaveCount(7);
-    await expect(entries.first().locator("a[href^='http']")).toHaveAttribute("href", "https://en.wikipedia.org/wiki/Complexity_class");
-    const back = entries.first().locator(".backrefs a");
-    const target = await back.getAttribute("href");
-    await expect(page.locator(target!)).toHaveAttribute("href", "https://en.wikipedia.org/wiki/Complexity_class");
+  test("list notes that link here under See also, in the contents too", async ({ page }) => {
+    await expect(page.locator("#see-also + ul a")).toHaveAttribute("href", "/dolor-sit-amet/");
+    await expect(page.locator("nav.toc a[href='#see-also']")).toHaveCount(1);
+    await page.goto("/dolor-sit-amet/");
+    await expect(page.locator("#see-also")).toHaveCount(0);
   });
 
-  test("shows tags under a label, and the last-updated date with no period", async ({ page }) => {
+  test("list References and External links last in the contents, collapsed", async ({ page }) => {
+    const back = page.locator("nav.toc > details > ol > li");
+    await expect(back.nth(-2).locator("a")).toHaveAttribute("href", "#references");
+    await expect(back.last().locator("a")).toHaveAttribute("href", "#external-links");
+    for (const id of ["references", "external-links"]) {
+      const details = page.locator(`section.sources:has(h2#${id}) details`);
+      await expect(details).not.toHaveAttribute("open");
+      await expect(details.locator("li").first()).toBeHidden();
+      await details.locator("summary").click();
+      await expect(details.locator("li").first()).toBeVisible();
+    }
+  });
+
+  test("number references, with locators, and backlinks to each citation", async ({ page }) => {
+    const refs = page.locator("section.sources:has(h2#references) li");
+    await expect(refs).toHaveCount(2);
+    await expect(refs.first()).toHaveAttribute("id", "ref-1");
+    await expect(refs.first()).toContainText("Turing 1936, §8");
+    const backs = refs.first().locator(".backrefs a");
+    await expect(backs).toHaveText(["a", "b", "c"]);
+    await expect(page.locator((await backs.first().getAttribute("href"))!)).toHaveClass("cite-ref");
+  });
+
+  test("list other external links once each, and leave citations out", async ({ page }) => {
+    const links = page.locator("section.sources:has(h2#external-links) li");
+    await expect(links).toHaveCount(11);
+    await expect(links.locator("a[href^='http']").first()).toHaveAttribute("href", "https://github.com/adobe-fonts/source-serif");
+    await expect(links.locator("a[href*='doi.org/10.1112']")).toHaveCount(0);
+    const back = links.first().locator(".backrefs a");
+    await expect(page.locator((await back.getAttribute("href"))!)).toHaveAttribute("href", "https://github.com/adobe-fonts/source-serif");
+  });
+
+  test("citation markers open References and jump to their entry", async ({ page }) => {
+    await page.locator(".cite-ref a").first().click();
+    await expect(page).toHaveURL(/#ref-1$/);
+    await expect(page.locator("#ref-1")).toBeInViewport();
+  });
+
+  test("dates the note under its title, with no period", async ({ page }) => {
+    const dates = page.locator("h1 + p");
+    await expect(dates).toContainText("First written");
+    await expect(dates).not.toHaveText(/\.\s*$/);
+    await expect(dates.locator("time").first()).toHaveAttribute("datetime", /^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  test("shows tags under a label", async ({ page }) => {
     await expect(page.locator(".tags-label")).toHaveText("Tags");
-    await expect(page.locator("footer.bottom p", { has: page.locator("time") })).not.toHaveText(/\.$/);
     await expect(page.locator("a.tag")).toHaveAttribute("href", "/tags/test/");
-    await expect(page.locator("footer.bottom time")).toHaveAttribute("datetime", /^\d{4}-\d{2}-\d{2}$/);
   });
 });
 
