@@ -16,6 +16,7 @@ const description = "Notes on logic, complexity, and cognition.";
 const links = [
   { href: "/about/", text: "About" },
   { href: "/feed.xml", text: "Feed" },
+  { href: "https://mathstodon.xyz/@ase", text: "Mathstodon", rel: "me" },
   { href: "https://asemorales.substack.com", text: "Substack" },
   { href: "https://github.com/asemorales", text: "GitHub" },
 ];
@@ -66,7 +67,9 @@ const links = [
     <ul>
       {links.map((l) => (
         <li>
-          <a href={l.href}>{l.text}</a>
+          <a href={l.href} rel={l.rel}>
+            {l.text}
+          </a>
         </li>
       ))}
     </ul>

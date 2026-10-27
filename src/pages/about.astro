@@ -6,6 +6,7 @@ import Base from "../layouts/Base.astro";
 const contact = [
   { name: "Email", href: "mailto:hi@asemorales.com", text: "hi@asemorales.com" },
   { name: "Feed", href: "/feed.xml", text: "Atom" },
+  { name: "Mathstodon", href: "https://mathstodon.xyz/@ase", text: "@ase@mathstodon.xyz", rel: "me" },
   { name: "Substack", href: "https://asemorales.substack.com", text: "asemorales.substack.com" },
   { name: "GitHub", href: "https://github.com/asemorales", text: "asemorales" },
   { name: "Bluesky", href: "https://asemorales.bsky.social/", text: "asemorales.bsky.social" },
@@ -38,7 +39,9 @@ const influences = [
         <>
           <dt>{c.name}</dt>
           <dd>
-            <a href={c.href}>{c.text}</a>
+            <a href={c.href} rel={c.rel}>
+              {c.text}
+            </a>
           </dd>
         </>
       ))}
