@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import NoteTools from "../components/NoteTools.astro";
 import Entry from "../components/SourceEntry.astro";
+import cards from "../data/cards.json";
 import Base from "../layouts/Base.astro";
 import { summary } from "../lib/summary.js";
 import { slugify } from "../lib/slug.js";
@@ -36,7 +37,12 @@ const withAnnotations = (sources: Source[] = []) =>
   Promise.all(
     sources.map(async (s) => {
       const annotation = annotations.get(s.url);
-      return { ...s, domain: new URL(s.url).hostname.replace(/^www\./, ""), Annotation: annotation ? (await render(annotation)).Content : null };
+      return {
+        ...s,
+        domain: new URL(s.url).hostname.replace(/^www\./, ""),
+        Annotation: annotation ? (await render(annotation)).Content : null,
+        blurb: (cards as Record<string, { text?: string }>)[s.url]?.text || null,
+      };
     }),
   );
 const lists = [

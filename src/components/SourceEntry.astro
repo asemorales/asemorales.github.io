@@ -11,10 +11,10 @@ interface Props {
   locators?: string[];
   domain: string;
   Annotation: Awaited<ReturnType<typeof render>>["Content"] | null;
+  blurb: string | null;
 }
 
-const { url, text, refs, locators = [], domain, Annotation } = Astro.props;
-// A dead source links to its archived copy, as it does in the text.
+const { url, text, refs, locators = [], domain, Annotation, blurb } = Astro.props;
 const dead = archived(url, linkStatus);
 ---
 
@@ -40,8 +40,14 @@ const dead = archived(url, linkStatus);
   {text}
 </a>
 {locators.length > 0 && `, ${locators.join("; ")}`} <span class="domain">({domain})</span>
-{Annotation && (
+{Annotation ? (
   <div class="annotation">
     <Annotation />
   </div>
+) : (
+  blurb && (
+    <div class="annotation">
+      <p>{blurb}</p>
+    </div>
+  )
 )}
