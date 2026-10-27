@@ -29,6 +29,12 @@ const loadFonts = () =>
       weight,
       style: "normal",
     })),
+    {
+      name: "Source Serif 4",
+      data: readFileSync("src/assets/og/source-serif-4-400-italic.ttf"),
+      weight: 400,
+      style: "italic",
+    },
     { name: "DM Mono", data: readFileSync("src/assets/og/dm-mono.ttf"), weight: 400, style: "normal" },
   ]);
 
@@ -70,7 +76,9 @@ function layout({ title, text, home }) {
           ? [
               { type: "img", props: { src: LOGO, width: 194, height: 140, style: { marginRight: 20 } } },
               h("div", { display: "flex", fontFamily: "DM Mono", fontSize: 48, lineHeight: 1.15 }, wordmark(title, 48)),
-              text ? h("div", { display: "block", lineClamp: 3, fontSize: 34, lineHeight: 1.45, color: DIM }, text) : null,
+              text
+                ? h("div", { display: "block", lineClamp: 3, fontSize: 34, fontStyle: "italic", lineHeight: 1.45, color: DIM, marginTop: -16 }, text)
+                : null,
             ].filter(Boolean)
           : [
               { type: "img", props: { src: LOGO, width: 138, height: 100, style: { marginRight: 14 } } },

@@ -39,6 +39,10 @@ for w in 400 600; do
     --unicodes="$UNICODES" --layout-features="$BASE" --no-hinting
   echo "source-serif-4-$w.ttf $(wc -c <"$OG/source-serif-4-$w.ttf") bytes"
 done
+python3 -m fontTools.varLib.instancer "$UP/SourceSerif4Variable-Italic.ttf" wght=400 opsz=20 -q -o "$UP/limited.ttf"
+python3 -m fontTools.subset "$UP/limited.ttf" --output-file="$OG/source-serif-4-400-italic.ttf" \
+  --unicodes="$UNICODES" --layout-features="$BASE" --no-hinting
+echo "source-serif-4-400-italic.ttf $(wc -c <"$OG/source-serif-4-400-italic.ttf") bytes"
 python3 -m fontTools.subset "$UP/DMMono-Regular.ttf" --output-file="$OG/dm-mono.ttf" \
   --unicodes="$UNICODES" --layout-features="$BASE" --no-hinting
 echo "dm-mono.ttf $(wc -c <"$OG/dm-mono.ttf") bytes"
