@@ -26,16 +26,11 @@ const description = summary(note.body ?? "", { paragraphs: 1 })[0] ?? note.data.
 const written = note.data.date.toISOString().slice(0, 10);
 const updated = note.data.updated.toISOString().slice(0, 10);
 
-// See also: every other published note with a wikilink here. Unlisted notes
-// count only on other unlisted notes, so test pages never show on real ones.
-// The config counts these the same way, for the contents.
 const title = note.data.title.toLowerCase();
 const backlinks = (await getCollection("notes", (n) => n.id !== note.id && (!n.data.unlisted || note.data.unlisted)))
   .filter((n) => linkTargets(n.body ?? "").some((t) => t.toLowerCase() === title))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
-// References (citations) and External links (other links in the prose), each
-// entry with its hand-written annotation when there is one.
 const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, a]));
 const withAnnotations = (sources: Source[] = []) =>
   Promise.all(

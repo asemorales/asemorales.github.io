@@ -11,6 +11,7 @@ export default [
   ...astro.configs["jsx-a11y-recommended"],
   {
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    rules: { "no-empty": ["error", { allowEmptyCatch: true }] },
   },
   {
     files: ["**/*.cjs"],

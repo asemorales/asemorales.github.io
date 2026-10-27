@@ -10,7 +10,6 @@ export async function getStaticPaths() {
     const tagged = notes.filter((n) => n.data.tags.includes(tag));
     return {
       params: { tag: slugify(tag) },
-      // Unlisted notes keep their tag links working but never appear in a list.
       props: { tag, listed: tagged.filter((n) => !n.data.unlisted).sort((a, b) => +b.data.date - +a.data.date) },
     };
   });

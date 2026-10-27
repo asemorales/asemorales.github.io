@@ -1,6 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
 
-// Popovers need a mouse or a keyboard, and JS. Phones get the drawer.
 const wideWithJs = () =>
   test.beforeEach(async ({ javaScriptEnabled }, info) => {
     test.skip(javaScriptEnabled === false || !info.project.name.startsWith("wide"), "wide screens with JS");
@@ -56,7 +55,6 @@ test.describe("popovers on the lorem page", () => {
 
   test("open on keyboard focus and close on Escape", async ({ page }) => {
     const link = page.getByRole("link", { name: "asemorales/bierstadt" });
-    // Tab back onto the link, so its focus comes from the keyboard.
     await link.focus();
     await page.keyboard.press("Shift+Tab");
     await page.keyboard.press("Tab");
@@ -99,7 +97,6 @@ test.describe("drawer on touch screens", () => {
     await expect(drawer.locator(".popover-title")).toHaveText("asemorales/bierstadt");
     await expect(drawer.locator(".drawer-go")).toHaveText("Open github.com");
     await expect(drawer.locator(".drawer-go")).toHaveAttribute("href", "https://github.com/asemorales/bierstadt");
-    // It slides up, so wait for it to settle before measuring.
     await expect
       .poll(async () => {
         const box = (await drawer.boundingBox())!;

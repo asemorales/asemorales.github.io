@@ -1,6 +1,5 @@
 import { expect, test, type Locator } from "@playwright/test";
 
-// The note page, with /lorem-ipsum/ as the fixture.
 const LOREM = "/lorem-ipsum/";
 const wide = (name: string) => name.startsWith("wide");
 const box = async (l: Locator) => (await l.boundingBox())!;
@@ -16,7 +15,6 @@ test.describe("layout and type", () => {
     expect(await first.evaluate((el) => getComputedStyle(el).textIndent)).not.toBe("0px");
     expect(await second.evaluate((el) => getComputedStyle(el).textIndent)).not.toBe("0px");
     expect(await second.evaluate((el) => getComputedStyle(el).marginTop)).not.toBe("0px");
-    // Firefox has no text-wrap: pretty yet, and wraps as usual.
     if (browserName === "chromium") expect(await second.evaluate((el) => getComputedStyle(el).textWrap)).toContain("pretty");
   });
 
@@ -83,7 +81,6 @@ test.describe("sidenotes", () => {
     await expect(notes).toHaveCount(5);
     const boxes = await Promise.all((await notes.all()).map(box));
     for (const b of boxes) expect(b.x).toBeGreaterThan(column.x + column.width);
-    // Never overlapping, even when the references are close together.
     for (let i = 1; i < boxes.length; i++) expect(boxes[i].y).toBeGreaterThanOrEqual(boxes[i - 1].y + boxes[i - 1].height);
     const ref = await box(page.locator("#snref-short"));
     expect(Math.abs(boxes[0].y - ref.y)).toBeLessThan(ref.height * 2);
@@ -113,13 +110,11 @@ test.describe("sidenotes", () => {
     const lit = async (on: boolean) => {
       for (const p of parts) await (on ? expect(p).toHaveClass(/highlighted/) : expect(p).not.toHaveClass(/highlighted/));
     };
-    // Away from every link, so no popover opens over the marker.
     const corner = [page.viewportSize()!.width - 2, 2] as const;
     await parts[1].hover();
     await lit(true);
     await page.mouse.move(...corner);
     await lit(false);
-    // By position, since Playwright checks a label's hidden checkbox instead.
     await parts[0].scrollIntoViewIfNeeded();
     const b = await box(parts[0]);
     await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
@@ -285,7 +280,6 @@ test.describe("block buttons", () => {
     await expect(source).toContainText("\\label{eq:halting}");
     await expect(block.locator("mjx-container")).toBeHidden();
     await expect(tools.getByRole("button", { name: "Copy LaTeX" })).toHaveCount(1);
-    // The buttons sit side by side.
     const [copy, swap] = await Promise.all([
       box(tools.getByRole("button", { name: "Copy LaTeX" })),
       box(block.getByRole("button", { name: "Show rendered math" })),

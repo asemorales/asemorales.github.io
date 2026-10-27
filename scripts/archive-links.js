@@ -1,15 +1,3 @@
-// Submits each external link in the notes to the Wayback Machine's Save Page
-// Now, once, so a link that later dies has a copy near the day the note first
-// linked it. Submitted links are recorded in src/data/archived.json. CI runs
-// this after a deploy to main and commits the record. Builds never submit.
-//
-//   ARCHIVE_ACCESS_KEY=… ARCHIVE_SECRET_KEY=… node scripts/archive-links.js
-//   node scripts/archive-links.js --dry-run
-//
-// Without keys it only prints what it would submit. The keys come from
-// archive.org/account/s3.php. Requests go one at a time with a pause between
-// them, skip pages captured in the last month, and stop at the first 429,
-// leaving the rest for the next run.
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -22,13 +10,10 @@ const AGENT = "asemorales.com link-archiver (+https://asemorales.com)";
 const SAVE = "https://web.archive.org/save";
 const PAUSE = 6000;
 
-// Linked URLs never submitted, in a stable order.
 export function pending(linked, archived) {
   return [...new Set(linked)].filter((url) => !archived[url]).sort();
 }
 
-// Submits each URL in turn and records the ones Save Page Now accepted.
-// Returns why it stopped early, if it did.
 export async function archiveAll(urls, archived, { key, secret, today, fetch = globalThis.fetch, pause = PAUSE, log = console.log }) {
   for (const [i, url] of urls.entries()) {
     if (i > 0) await new Promise((r) => setTimeout(r, pause));
@@ -49,7 +34,6 @@ export async function archiveAll(urls, archived, { key, secret, today, fetch = g
     }
     const body = await res.json().catch(() => ({}));
     if (!res.ok || !body.job_id) {
-      // Unreachable pages and the like. Not recorded, so the next run tries again.
       log(`fail  ${url}: ${body.message ?? `${res.status} ${res.statusText}`}`);
       continue;
     }

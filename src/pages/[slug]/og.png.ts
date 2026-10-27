@@ -1,5 +1,3 @@
-// Each note's social image: its title.
-// Unlisted notes get one too, since their links can still be shared.
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { ogImage } from "../../lib/og.js";

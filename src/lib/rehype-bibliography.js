@@ -1,13 +1,3 @@
-// Builds the note's back matter from its sources, as Wikipedia does.
-//
-// References are the citations rehypeSidenotes found, numbered in order of
-// first citation. External links are the other external links in the prose and
-// sidenotes, unnumbered, in order of first appearance. A URL that is also cited
-// appears only under References, and its links in the prose count as citations.
-// Each link gets an id, so the entries' backlinks (↑ a, b, c) can jump to it.
-//
-// Both lists go to the page as remarkPluginFrontmatter.references and
-// remarkPluginFrontmatter.externalLinks.
 import { isElement, text, walk } from "./hast.js";
 
 export function rehypeBibliography() {

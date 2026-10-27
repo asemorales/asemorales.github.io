@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { archiveAll, pending } from "../../scripts/archive-links.js";
 
-// A stand-in for fetch that answers each request in turn and records them.
 function server(...replies) {
   const requests = [];
   const fetch = async (url, init) => {

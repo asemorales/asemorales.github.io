@@ -1,10 +1,3 @@
-// Copy the vault's published/ folder into src/content/.
-//
-//   VAULT=~/code/obsidian-vault npm run sync
-//
-// Notes go to src/content/notes/<slug>.md and annotations to
-// src/content/annotations/. Every note is validated before anything is written,
-// so a bad note leaves src/content/ as it was.
 import { execFileSync } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -23,8 +16,6 @@ export class SyncError extends Error {
   }
 }
 
-// The date of the last commit that touched a file, or today if the file has
-// changes git hasn't recorded yet. Outside a git repo, the file's mtime.
 export function gitLastUpdated(vault, file) {
   const rel = path.relative(vault, file);
   try {
@@ -32,9 +23,7 @@ export function gitLastUpdated(vault, file) {
     if (dirty.trim()) return { date: today(), source: "uncommitted" };
     const date = execFileSync("git", ["-C", vault, "log", "-1", "--format=%cs", "--", rel], { encoding: "utf8" }).trim();
     if (date) return { date, source: "git" };
-  } catch {
-    // Not a git repo. Fall through to mtime.
-  }
+  } catch {}
   return null;
 }
 
@@ -60,8 +49,6 @@ function isoDate(value) {
   return null;
 }
 
-// Run fn over the parts of a markdown body outside code, so comments and
-// embeds inside code blocks and inline code are left alone.
 function outsideCode(body, fn) {
   const code = /^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[^\n]*$|`[^`\n]+`/gm;
   let result = "";
@@ -97,9 +84,7 @@ function validateAnnotation(file, data) {
   try {
     const url = new URL(data.url);
     if (url.protocol === "http:" || url.protocol === "https:") return [];
-  } catch {
-    // Reported below.
-  }
+  } catch {}
   return [`${file}: an annotation needs a "url" field with an http or https URL.`];
 }
 
@@ -156,7 +141,6 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
         const ext = path.extname(target).toLowerCase();
         const name = slugify(path.basename(target, path.extname(target))) + ext;
         images.set(name, target);
-        // Obsidian's ![[image.png|300]] sets a width. Only text counts as alt text.
         const altText = alt && !/^\d+(x\d+)?$/.test(alt.trim()) ? alt.trim() : "";
         return `![${altText}](./images/${name})`;
       }),
@@ -198,7 +182,6 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
   await fs.rm(annotationsDir, { recursive: true, force: true });
   await fs.mkdir(notesDir, { recursive: true });
   await fs.mkdir(annotationsDir, { recursive: true });
-  // Keeps the folder in git while there are no annotations, so the build finds it.
   await fs.writeFile(path.join(annotationsDir, ".gitkeep"), "");
 
   for (const note of notes) {

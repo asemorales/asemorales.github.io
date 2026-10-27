@@ -1,5 +1,3 @@
-// Every link popover's text, for the whole site, fetched by Popovers.astro on
-// the first hover. See src/lib/popovers.js.
 import { getCollection, render } from "astro:content";
 import cards from "../data/cards.json";
 import linkStatus from "../data/links-status.json";

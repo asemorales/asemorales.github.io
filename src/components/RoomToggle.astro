@@ -1,6 +1,4 @@
 ---
-// Cycles auto, light, and dark. Hidden without JS, where the room follows the system.
-// The icon shows the room in effect, so auto shows the system's room.
 ---
 
 <button id="room-toggle" type="button" hidden class="cursor-pointer text-dim hover:text-ink" aria-live="polite">
@@ -17,7 +15,6 @@
 </button>
 
 <style>
-  /* Show the moon in the dark room, picked or followed, and the sun otherwise. */
   .moon,
   :global(:root[data-room="dark"]) .sun {
     display: none;
@@ -57,9 +54,7 @@
     try {
       if (room === "auto") localStorage.removeItem("room");
       else localStorage.setItem("room", room);
-    } catch {
-      // Storage is blocked. The choice lasts for this page only.
-    }
+    } catch {}
   }
 
   show(current());

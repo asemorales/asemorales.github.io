@@ -1,13 +1,3 @@
-// Updates src/data/links-status.json from a lychee run over the notes.
-//
-//   lychee --format json --output lychee.json src/content/notes
-//   node scripts/link-status.js lychee.json
-//
-// Each external link in a note gets an entry: the day it was first seen, its
-// failed runs in a row, and the day it went dead. A link is dead after two
-// failed runs (DEAD_AFTER), and alive again after a run that passes. Links no
-// longer in any note are dropped. The weekly links workflow runs this and
-// commits the result.
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -17,15 +7,12 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STATUS = path.join(root, "src/data/links-status.json");
 const NOTES = path.join(root, "src/content/notes");
 
-// Markdown links and autolinks, as notes write external links.
 const LINK = /\]\((https?:\/\/[^)\s]+)|<(https?:\/\/[^>\s]+)>/g;
 
 export function linksIn(markdown) {
   return [...markdown.matchAll(LINK)].map((m) => m[1] ?? m[2]);
 }
 
-// The URLs lychee couldn't reach. Its JSON lists them by file under fail_map,
-// or error_map in newer versions.
 export function failedUrls(report) {
   const maps = [report.fail_map, report.error_map].filter(Boolean);
   return new Set(

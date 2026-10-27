@@ -1,9 +1,3 @@
-// MathJax's SVG has role="img" but no name, so screen readers skip the math.
-// rehypeMathSource records each formula's TeX before rehype-mathjax runs, and
-// rehypeMathLabels names the SVGs after it, in the same document order. An SVG
-// holding a link (from \eqref) loses role="img", which may not contain links,
-// and the link takes the name. Display math also keeps its TeX as written, in
-// data-tex, for the button that shows the source.
 const MATH = ["language-math", "math-inline", "math-display"];
 
 export function rehypeMathSource() {
@@ -42,7 +36,6 @@ export function rehypeMathLabels() {
   };
 }
 
-// Calls visit on each element, and skips its children when visit returns true.
 function walk(node, visit) {
   for (const child of node.children ?? []) {
     if (child.type !== "element") continue;

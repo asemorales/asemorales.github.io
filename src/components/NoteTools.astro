@@ -1,10 +1,4 @@
 ---
-// Buttons on code and display math, as in Obsidian. Code blocks get a copy
-// button. Math gets a copy button for its TeX and a toggle that swaps the
-// formula for that TeX. Heading links copy their URL. Without JS there are no
-// buttons: code stays selectable, math keeps its labels, and heading links are
-// plain links. Also opens every <details> for print, and a collapsed section
-// when a link jumps into it, and highlights a sidenote with its marker.
 ---
 
 <script>
@@ -18,7 +12,6 @@
     return bar;
   }
 
-  // Swaps an element's icon, as in "icon icon-copy".
   function setIcon(el: Element, name: string) {
     el.className = el.className.replace(/\bicon-\S+/, `icon-${name}`);
   }
@@ -36,7 +29,6 @@
     return b;
   }
 
-  // Copies text on click, and shows a check, or a cross, for a moment.
   function copier(target: HTMLElement, icon: Element, rest: string, getText: () => string) {
     let timer: number | undefined;
     target.addEventListener("click", async (e) => {
@@ -94,7 +86,6 @@
     });
   }
 
-  // A heading's link copies the section's URL instead of jumping to it.
   function addLink(anchor: HTMLAnchorElement) {
     anchor.title = "Copy link to section";
     anchor.setAttribute("aria-label", anchor.getAttribute("aria-label")!.replace(/^Link/, "Copy link"));
@@ -107,8 +98,6 @@
   }
   for (const block of document.querySelectorAll<HTMLElement>(".note .math-block")) addMath(block);
 
-  // Touch screens have no hover, so a tap on a block shows its buttons until
-  // the next tap elsewhere.
   document.addEventListener("pointerdown", (e) => {
     if (e.pointerType !== "touch") return;
     const target = (e.target as Element).closest<HTMLElement>(".code-block, .math-block");
@@ -116,9 +105,6 @@
     target?.classList.add("show");
   });
 
-  // A link into a collapsed section, such as a citation's [1] jumping to its
-  // reference, opens the section before the browser scrolls to it. Some
-  // browsers do this on their own.
   function reveal(hash: string) {
     const target = hash.length > 1 ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
     const details = target?.closest<HTMLDetailsElement>(".note details:not([open])");
@@ -133,8 +119,6 @@
     document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
   }
 
-  // A link to an equation number, from \eqref, outlines the equation while the
-  // pointer rests on it, and after a click until the next click elsewhere.
   function equation(target: EventTarget | null) {
     const href = (target as Element | null)?.closest?.("a")?.getAttribute("href");
     if (!href?.startsWith("#mjx-eqn")) return null;
@@ -153,9 +137,6 @@
     eq?.classList.add("referenced");
   });
 
-  // A sidenote and its markers highlight together while the pointer rests on
-  // any of them, and after a click until the next click elsewhere. The first
-  // marker is the label before the note's checkbox. Later ones link to it.
   function sidenote(target: EventTarget | null) {
     const el = (target as Element | null)?.closest?.(".note .sidenote-number, .note .sidenote-ref, .note .sidenote");
     if (!el) return null;
@@ -178,7 +159,6 @@
     if (note && note[0] !== pinnedNote?.[0] && sidenote(e.relatedTarget)?.[0] !== note[0]) highlight(note, false);
   });
   document.addEventListener("click", (e) => {
-    // A click on a marker clicks its checkbox too, which isn't a click elsewhere.
     if ((e.target as Element).matches(".note .margin-toggle")) return;
     const note = sidenote(e.target);
     if (pinnedNote && pinnedNote[0] !== note?.[0]) highlight(pinnedNote, false);
@@ -186,7 +166,6 @@
     highlight(note, true);
   });
 
-  // Print every <details> open, such as the contents.
   let closed: HTMLDetailsElement[] = [];
   addEventListener("beforeprint", () => {
     closed = [...document.querySelectorAll<HTMLDetailsElement>(".note details:not([open])")];

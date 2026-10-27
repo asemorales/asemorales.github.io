@@ -1,13 +1,3 @@
-// Obsidian callouts, written as `> [!type] Title` on a quote's first line.
-//
-//   status    a quiet bordered box
-//   infobox   a box of facts, from a list of `**Key:** value` lines
-//   wide      its contents, such as a figure or table, across the right margin
-//   quote     a quote with its attribution in a <footer>
-//
-// There is one kind of attributed quote, so any other type, such as the
-// epigraph it replaced, stays a quote too, without the marker, and a title
-// becomes the attribution.
 import { el, isElement, text, txt } from "./hast.js";
 
 const MARKER = /^\s*\[!([a-z-]+)\][+-]?[ \t]*/i;
@@ -44,8 +34,6 @@ function callout(quote) {
   }
 }
 
-// Splits `[!type] Title` off the first paragraph. The title runs to the end of
-// the first line and may hold inline markup.
 function parse(quote) {
   const blocks = quote.children.filter((c) => c.type !== "text" || c.value.trim());
   const first = blocks[0];
@@ -76,8 +64,6 @@ function attribution(title) {
   return title.length ? [el("footer", {}, title)] : [];
 }
 
-// An infobox lists `**Key:** value` lines as a table of facts. Anything else in
-// the box stays as written.
 function infobox(title, body) {
   const facts = body.map((block) => {
     if (!isElement(block, "ul")) return block;

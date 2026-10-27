@@ -1,7 +1,3 @@
-// Wraps each code block and display formula in a box that holds its buttons.
-// The buttons themselves come from BlockTools.astro, since they need JS. The
-// formula's TeX moves to the box, as data-tex. Also marks long inline code with
-// no spaces, such as a URL, as .long, so it can break anywhere.
 import { el, hasClass, isElement, text } from "./hast.js";
 
 const LONG = 30;

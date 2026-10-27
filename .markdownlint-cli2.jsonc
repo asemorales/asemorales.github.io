@@ -1,27 +1,18 @@
-// Note structure, configured for Obsidian's flavor of markdown.
 {
   "globs": ["src/content/**/*.md"],
   "config": {
     "default": true,
-    // Prose is written one paragraph per line in Obsidian.
     "MD013": false,
-    // The title comes from the file name, so notes start with text and use ## for sections.
     "MD041": false,
     "MD025": false,
-    // Callouts like > [!quote] and nested quotes separated by blank > lines.
     "MD028": false,
-    // Footnote definitions and wikilinks trip the reference-link rules.
     "MD052": false,
     "MD053": false,
-    // Lists can follow a lead-in sentence directly, as Obsidian renders them.
     "MD032": false,
-    // *** is the section separator.
     "MD035": { "style": "***" },
     "MD049": { "style": "asterisk" },
     "MD050": { "style": "asterisk" },
-    // Math blocks in $$ fences aren't code, and inline HTML is allowed.
     "MD033": false,
-    // Obsidian writes compact tables (|---|).
     "MD060": false,
   },
 }

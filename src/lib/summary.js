@@ -1,5 +1,3 @@
-// A note's summary is its opening paragraphs: the plain paragraphs before the
-// first heading, quote, list, or other block. Returns plain text.
 export function summary(markdown, { paragraphs = Infinity } = {}) {
   const out = [];
   for (const block of markdown.trim().split(/\n\s*\n/)) {
@@ -10,8 +8,6 @@ export function summary(markdown, { paragraphs = Infinity } = {}) {
   return out;
 }
 
-// Markup outside inline math is stripped. Math keeps its TeX, so $\varphi_e$
-// doesn't lose its underscore.
 function plain(text) {
   return text
     .split(/(\$[^$\n]+\$)/)
@@ -30,8 +26,6 @@ function unmark(text) {
     .replace(/(\*\*|__|\*|_|~~|`)/g, "");
 }
 
-// Cuts text at a sentence boundary before max characters, or at a word with an
-// ellipsis when no sentence ends past halfway.
 export function clip(text, max = 400) {
   const clean = text.replace(/\s+/g, " ").trim();
   if (clean.length <= max) return clean;

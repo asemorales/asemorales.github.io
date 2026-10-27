@@ -1,5 +1,3 @@
-// Obsidian wikilinks: [[Note]], [[Note#Heading]], [[Note|alias]], and
-// [[#Heading]] within the same note.
 import { slug } from "github-slugger";
 import { BACK_IDS } from "./rehype-sections.js";
 import { slugify } from "./slug.js";
@@ -7,8 +5,6 @@ import { slugify } from "./slug.js";
 const WIKILINK = /(?<!!)\[\[([^\]|#]*)(?:#([^\]|]*))?(?:\|([^\]]*))?\]\]/g;
 const FENCE = /^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[^\n]*$|`[^`\n]+`/gm;
 
-// The titles a note's markdown links to, outside code. Links within the note
-// itself have no title and are left out.
 export function linkTargets(markdown) {
   const out = new Set();
   for (const m of markdown.replace(FENCE, "").matchAll(WIKILINK)) {
@@ -17,9 +13,6 @@ export function linkTargets(markdown) {
   return [...out];
 }
 
-// Turns wikilinks into links. `titles` lists the published notes' titles, and
-// the current note's comes from its front matter. Links to anything else become
-// plain text, so unpublished notes never leak a URL.
 export function remarkWikilinks({ titles = [] } = {}) {
   const known = new Map(titles.map((t) => [key(t), t]));
   return (tree, file) => {
@@ -52,22 +45,15 @@ function resolve([, rawTarget, rawHeading, rawAlias], known, self) {
   return { type: "link", url, children: [{ type: "text", value: label }] };
 }
 
-// In Obsidian, [[Note#References]] can only point at a heading the note itself
-// has. The page's back matter holds the plain ids, so rehypeSections gives
-// such a heading "references-1".
 function headingId(heading) {
   const id = slug(heading);
   return BACK_IDS.includes(id) ? `${id}-1` : id;
 }
 
-// Smartypants has already curled the quotes in the text, so compare titles
-// with straight ones.
 function key(title) {
   return title.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
 }
 
-// Replaces a node with the nodes visit returns. Code and inline code are
-// separate node types in mdast, so their text is never visited.
 function visit(node, fn) {
   if (!node.children) return;
   node.children = node.children.flatMap((child) => {

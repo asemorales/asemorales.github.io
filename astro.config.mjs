@@ -24,8 +24,6 @@ import bierstadtLight from "./src/styles/shiki/bierstadt-light.json" with { type
 
 const site = "https://asemorales.com";
 
-// Unlisted notes stay out of the sitemap, as they stay off the homepage and the
-// feed. So do tag pages that list no notes.
 const notesDir = "src/content/notes";
 const notes = fs
   .readdirSync(notesDir)
@@ -33,9 +31,6 @@ const notes = fs
   .map((f) => ({ url: `${site}/${f.replace(/\.md$/, "")}/`, ...matter(fs.readFileSync(path.join(notesDir, f), "utf8")) }));
 const hidden = new Set(notes.filter((n) => n.data.unlisted).map((n) => n.url));
 const listedTags = new Set(notes.filter((n) => !n.data.unlisted).flatMap((n) => n.data.tags.map(slugify)));
-// Titles that another published note links to, as the backlinks on each note's
-// page count them, so the contents can list its See also section. Unlisted
-// notes count only toward other unlisted notes.
 const unlistedTitles = new Set(notes.filter((n) => n.data.unlisted).map((n) => n.data.title.toLowerCase()));
 const backlinked = notes.flatMap((n) =>
   linkTargets(n.content).filter((t) => t.toLowerCase() !== n.data.title.toLowerCase() && (!n.data.unlisted || unlistedTitles.has(t.toLowerCase()))),
@@ -52,13 +47,6 @@ export default defineConfig({
   redirects: { "/about": "/#about" },
   integrations: [sitemap({ filter: inSitemap })],
   markdown: {
-    // The unified processor, since Sätteri runs no remark or rehype plugins.
-    // MathJax renders at build time, as SVG. AMS tags number equations for \eqref.
-    // The plugins after it shape the page: callouts, sidenotes, block buttons,
-    // then the bibliography, which needs every link in its final place, and
-    // section numbers and contents, which list the bibliography. Dead links
-    // go to the Wayback Machine last, so the bibliography keys each source by
-    // its original URL.
     processor: unified({
       remarkPlugins: [remarkMath, [remarkWikilinks, { titles: notes.map((n) => n.data.title) }]],
       rehypePlugins: [
@@ -76,8 +64,6 @@ export default defineConfig({
       ],
     }),
     shikiConfig: {
-      // The Bierstadt VSCodium themes, trimmed to their token rules. Both are
-      // written as CSS variables, and global.css picks one per room.
       themes: { light: bierstadtLight, dark: bierstadtDark },
       defaultColor: false,
     },

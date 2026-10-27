@@ -1,8 +1,6 @@
 import fs from "node:fs";
 import { describe, expect, it } from "vitest";
 
-// The room tokens in global.css, as [light, dark] pairs, so a change to a
-// room's colors can't drop text below WCAG AA without failing here.
 const css = fs.readFileSync(new URL("../../src/styles/global.css", import.meta.url), "utf8");
 const tokens = Object.fromEntries([...css.matchAll(/--([\w-]+): light-dark\((#\w{6}), (#\w{6})\)/g)].map((m) => [m[1], [m[2], m[3]]]));
 

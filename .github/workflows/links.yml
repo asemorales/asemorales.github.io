@@ -1,9 +1,3 @@
-# Checks every external link in the notes each week and records the results in
-# src/data/links-status.json. A link that fails two runs in a row is dead, and
-# the next build points it at the Wayback Machine. The same run refreshes the
-# popover cards in src/data/cards.json. A change to either is committed to
-# main, then CI runs to deploy it, since a push from this workflow's token
-# starts no other workflow.
 name: Links
 
 on:
@@ -30,7 +24,6 @@ jobs:
       - name: Check external links
         uses: lycheeverse/lychee-action@v2
         with:
-          # Bot walls answer 403 and rate limits 429. Neither means the page is gone.
           args: --no-progress --max-concurrency 4 --max-retries 2 --accept 100..=103,200..=299,403,429 src/content/notes
           format: json
           output: lychee.json

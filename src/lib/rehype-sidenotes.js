@@ -1,27 +1,6 @@
-// Rewrites GFM footnotes as Tufte CSS sidenotes and numbered citations, with
-// no JS. Markers follow Wikipedia: sidenotes are lettered ([a], [b], … [z],
-// [aa]) and citations numbered ([1], [2]), so a reader knows which a marker is
-// before following it.
-//
-// A footnote whose body is a single link, optionally followed by a locator
-// ("p. 45"), is a citation. Its marker links to the entry under References, and
-// a source cited twice keeps its number. The citations go to the page as
-// file.data.citations, in order of first citation.
-//
-// Any other footnote is a sidenote, moved next to its first reference as
-//
-//   <label for="sn-x" class="sidenote-number" id="snref-x">[a]</label>
-//   <input type="checkbox" id="sn-x" class="margin-toggle">
-//   <span class="sidenote">…</span>
-//
-// On wide screens CSS floats the note into the right margin. On phones the
-// marker toggles the checkbox, which shows the note below the line. Later
-// references to the same note link back to the first. A sidenote can cite a
-// source. The footnote list at the bottom is removed.
 import { el, hasClass, isElement, text, txt, walk } from "./hast.js";
 
 const PREFIX = "user-content-fn-";
-// Block elements that can't sit inside a <p>, and the span each one becomes.
 const BLOCKS = new Set(["p", "div", "ul", "ol", "li", "blockquote", "pre", "table"]);
 
 export function rehypeSidenotes() {
@@ -96,15 +75,12 @@ export function rehypeSidenotes() {
   };
 }
 
-// a, b, … z, aa, ab, … as Wikipedia letters its notes.
 export function letter(i) {
   let s = "";
   for (let n = i + 1; n > 0; n = Math.floor((n - 1) / 26)) s = String.fromCharCode(97 + ((n - 1) % 26)) + s;
   return s;
 }
 
-// A footnote whose body is one external link and an optional locator, as in
-// "[Smith 2010](https://…), p. 45". Returns null for any other footnote.
 function citation(li) {
   const blocks = significant(li.children);
   if (blocks.length !== 1 || !isElement(blocks[0], "p")) return null;
@@ -120,13 +96,10 @@ function citation(li) {
   return { url: String(link.properties.href), text: text(link).trim(), locator };
 }
 
-// Children other than blank text and GFM's backlinks to the reference.
 function significant(children) {
   return children.filter((c) => !(c.type === "text" && !c.value.trim()) && !(isElement(c) && c.properties?.dataFootnoteBackref !== undefined));
 }
 
-// The note's paragraphs become spans, since a sidenote sits inside the
-// paragraph that cites it. Backlinks to the reference are dropped.
 function inline(children) {
   const out = [];
   for (const child of children) {
@@ -149,7 +122,6 @@ function trimEnd(nodes) {
   if (last?.type === "text") last.value = last.value.replace(/\s+$/, "");
 }
 
-// Replaces each element for which fn returns a list, depth first.
 function replace(node, fn) {
   if (!node.children) return;
   node.children = node.children.flatMap((child) => {

@@ -1,14 +1,3 @@
-// Fetches a text card for each external link in the notes, for the popovers,
-// and caches them in src/data/cards.json.
-//
-//   npm run cards              fetch cards for new links only
-//   npm run cards -- --refresh  fetch every card again
-//
-// GitHub repos, arXiv papers, DOIs, and Wikipedia articles get cards from their
-// APIs, and a DOI with no abstract at Crossref takes OpenAlex's. Any other page
-// gets its <title>. Links with a hand-written annotation still get a card, which
-// the annotation overrides on the page. The weekly links workflow refreshes the
-// cache. Builds never fetch.
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -20,7 +9,6 @@ const CARDS = path.join(root, "src/data/cards.json");
 const NOTES = path.join(root, "src/content/notes");
 const AGENT = "asemorales.com card builder (+https://asemorales.com)";
 
-// Which API knows about a URL, and the id to ask it for.
 export function classify(url) {
   const u = new URL(url);
   const host = u.hostname.replace(/^www\./, "");
@@ -78,8 +66,6 @@ export function parseCrossref({ message: m }) {
   };
 }
 
-// OpenAlex stores an abstract as each word's positions, which it can share
-// for far more works than Crossref has abstracts for.
 export function openalexAbstract(r) {
   const words = [];
   for (const [word, positions] of Object.entries(r?.abstract_inverted_index ?? {})) for (const i of positions) words[i] = word;
@@ -94,8 +80,6 @@ export function openalexAbstract(r) {
 export function parseGithub(r) {
   return {
     title: r.full_name,
-    // GitHub's language is a guess from file sizes, which misnames repos such
-    // as themes, so the card leaves it out.
     meta: ["GitHub", `★ ${r.stargazers_count.toLocaleString("en")}`],
     text: (r.description ?? "").trim(),
   };
@@ -155,11 +139,9 @@ async function main(refresh) {
       if (card?.title) next[url] = card;
       console.log(`${card?.title ? "card" : "none"}  ${url}`);
     } catch (e) {
-      // Keep the old card, if any, when a refresh fails.
       if (cards[url]) next[url] = cards[url];
       console.log(`fail  ${url}: ${e.message}`);
     }
-    // One request at a time, with a pause, to stay polite.
     await new Promise((r) => setTimeout(r, 500));
   }
   await fs.writeFile(CARDS, JSON.stringify(next, null, 2) + "\n");

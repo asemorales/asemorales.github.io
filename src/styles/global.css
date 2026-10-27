@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-/* Fonts, subset from upstream by scripts/fonts.sh. Browsers fetch a face only
- * when a page uses it, so DM Mono loads only on pages with code. */
 @font-face {
   font-family: "Source Serif 4";
   src: url("/fonts/source-serif-4-roman.woff2") format("woff2");
@@ -24,28 +22,23 @@
   font-display: swap;
 }
 
-/* The two rooms of the Bierstadt theme (github.com/asemorales/bierstadt). Each
- * token is light-dark(light room, dark room). The room follows the system until
- * the reader picks one, which sets data-room on <html> and pins color-scheme. */
 :root {
   color-scheme: light dark;
 
-  --page: light-dark(#f2ecdf, #191612); /* the page itself */
-  --panel: light-dark(#ece5d5, #25211c); /* bars, cards, and boxes */
-  --code: light-dark(#f9f5ee, #25211c); /* code; lighter than the light page keeps syntax hues above 5:1 */
-  --hover: light-dark(#e3dbc9, #3a342d); /* hovered rows and buttons */
-  --tag-hover: light-dark(#f9f5ee, #3a342d); /* hovered tags, lighter than the page in both rooms */
-  --rule: light-dark(#ddd4c1, #4d463e); /* hairlines */
-  --frame: light-dark(#c9bfab, #615950); /* borders */
-  --mid: light-dark(#9a9183, #81786d); /* quiet controls */
-  --dim: light-dark(#6e6965, #9e958a); /* secondary text */
-  --ink: light-dark(#231a15, #efe6d6); /* body text */
-  /* Links take the blue and red of the kitty Bierstadt theme: color4 and
-   * color1, and color12 and color9 on hover. */
-  --link: light-dark(#2f5470, #7fa3c2); /* live links */
-  --link-dead: light-dark(#b04a2a, #d0704f); /* dead links */
-  --link-hover: light-dark(#3a6588, #9dbad3); /* hovered live links */
-  --link-dead-hover: light-dark(#aa4a2b, #e08a6b); /* hovered dead links */
+  --page: light-dark(#f2ecdf, #191612);
+  --panel: light-dark(#ece5d5, #25211c);
+  --code: light-dark(#f9f5ee, #25211c);
+  --hover: light-dark(#e3dbc9, #3a342d);
+  --tag-hover: light-dark(#f9f5ee, #3a342d);
+  --rule: light-dark(#ddd4c1, #4d463e);
+  --frame: light-dark(#c9bfab, #615950);
+  --mid: light-dark(#9a9183, #81786d);
+  --dim: light-dark(#6e6965, #9e958a);
+  --ink: light-dark(#231a15, #efe6d6);
+  --link: light-dark(#2f5470, #7fa3c2);
+  --link-dead: light-dark(#b04a2a, #d0704f);
+  --link-hover: light-dark(#3a6588, #9dbad3);
+  --link-dead-hover: light-dark(#aa4a2b, #e08a6b);
 }
 :root[data-room="light"] {
   color-scheme: light;
@@ -77,8 +70,6 @@
 }
 
 @layer base {
-  /* A jump to a section on the same page lands a little below the top of
-   * the screen, as on Wikipedia. */
   html {
     @apply scroll-pt-6 bg-page font-serif text-ink;
     -webkit-font-smoothing: antialiased;
@@ -95,8 +86,6 @@
   a {
     @apply text-link underline decoration-1 underline-offset-6 hover:text-link-hover;
   }
-  /* Dead links point at an archived copy. Red with a dotted underline, so they
-   * differ by shape as well as color. */
   a.dead {
     @apply text-link-dead decoration-dotted hover:text-link-dead-hover;
   }
@@ -109,8 +98,6 @@
     @apply outline-1 outline-offset-4 outline-ink;
   }
 
-  /* Shiki writes both themes as variables. Use the one for the current room,
-   * on the code color so blocks stand off the page. */
   .astro-code {
     @apply border border-rule bg-code;
   }
@@ -119,8 +106,6 @@
     color: light-dark(var(--shiki-light), var(--shiki-dark));
   }
 
-  /* MathJax SVG, from the stylesheet it writes per page, which rehype-tidy drops.
-   * Glyphs use currentColor, so math follows the room. */
   mjx-container[jax="SVG"] {
     direction: ltr;
   }
@@ -162,8 +147,7 @@
 }
 
 @layer components {
-  /* Icons, from Lucide (lucide.dev, ISC), drawn in the text color through a
-   * mask. JS swaps the icon-* class to change one. */
+  /* Lucide icons (lucide.dev), ISC license. */
   .icon {
     @apply inline-block size-[1em] shrink-0 bg-current align-[-0.125em];
     mask: var(--icon) center / contain no-repeat;
@@ -190,7 +174,6 @@
     --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2'/></svg>");
   }
 
-  /* Small caps in Source Serif 4. */
   .smcp {
     @apply font-serif;
     font-variant-caps: all-small-caps;
@@ -212,7 +195,7 @@
     --rail: 13rem;
   }
   .column {
-    --measure: 50rem; /* 40em of the column's text-xl */
+    --measure: 50rem;
     --margin: clamp(12rem, 100cqw - var(--lead) - var(--measure) - var(--gap), 24rem);
     @apply relative max-w-[40em] text-lg leading-[1.7] sm:text-xl;
   }
@@ -236,8 +219,6 @@
     @apply mt-4;
   }
 
-  /* Ragged right, with text-pretty to avoid short last lines. Every paragraph
-   * is indented, the first included, with space between them. */
   .note p {
     @apply text-pretty;
   }
@@ -262,8 +243,6 @@
   .note .secno {
     @apply mr-1 font-normal text-dim tabular-nums;
   }
-  /* The link to the section shows on hover and on keyboard focus. With JS it
-   * copies the link, and shows a check once it has. */
   .note .anchor {
     @apply ml-2 inline-block text-[0.75em] font-normal text-mid no-underline opacity-0 hover:text-ink focus-visible:opacity-100;
   }
@@ -286,8 +265,6 @@
   .note code {
     @apply font-mono text-[0.9em] break-words;
   }
-  /* Long unbroken code, such as a URL, breaks anywhere, so it starts on the
-   * line before it and never overflows the column. rehype-blocks marks it. */
   .note code.long {
     @apply break-all;
   }
@@ -313,9 +290,6 @@
     content: "*\2003*\2003*";
   }
 
-  /* Contents, open by default, on the page itself. In the column after the
-   * opening, or from 1200px in a rail to the left of the column that runs the
-   * length of the note, where they stick to the top of the screen. */
   .note .toc {
     @apply w-fit max-w-full text-lg leading-normal;
   }
@@ -345,9 +319,6 @@
     @apply text-ink no-underline hover:text-link-hover hover:underline;
   }
 
-  /* One style for every quote, after Tufte's epigraphs: italic, indented, set off
-   * from the text, with no rule and no quote marks. Attributions sit
-   * right-aligned in small caps below. */
   .note blockquote {
     @apply mx-6 my-10 italic;
   }
@@ -356,7 +327,6 @@
     font-variant-caps: small-caps;
   }
 
-  /* A status notice: a quiet box in the column. */
   .note .status {
     @apply border border-rule px-5 py-3 text-base;
   }
@@ -364,8 +334,6 @@
     text-indent: 0;
   }
 
-  /* Infoboxes: a box of facts in the right margin, or in the column on
-   * phones. */
   .note .infobox {
     @apply border border-frame bg-panel p-3 text-base leading-snug;
   }
@@ -386,9 +354,6 @@
     }
   }
 
-  /* Sidenotes, after Tufte CSS. The number is a label for a hidden checkbox:
-   * on phones it opens the note below the line, with no JS. On wide screens
-   * the note floats into the right margin beside its reference. */
   .note .sidenote-number,
   .note .sidenote-ref,
   .note .cite-ref {
@@ -412,8 +377,6 @@
   .note .sidenote-block + .sidenote-block {
     @apply mt-2 block;
   }
-  /* A sidenote and its markers, while one of them is hovered or clicked, so a
-   * reader sees which goes with which. NoteTools sets the class. */
   .note :is(.sidenote-number, .sidenote-ref, .sidenote).highlighted {
     @apply bg-hover outline-1 outline-offset-1 outline-frame;
   }
@@ -439,14 +402,10 @@
     }
   }
 
-  /* Code and display math, with buttons in the upper right that BlockTools
-   * adds. They show on hover, on focus, or after a tap. */
   .note .code-block,
   .note .math-block {
     @apply relative;
   }
-  /* Display math gets the code block's hairline box on hover. A numbered
-   * equation keeps clear of the buttons, so they never cover its number. */
   .note .math-block {
     @apply border border-transparent px-3 outline-link transition-colors;
   }
@@ -471,15 +430,10 @@
   .note .math-block pre {
     @apply my-4;
   }
-  /* An equation that a hovered or clicked \eqref points at. The outline
-   * color is set on .math-block itself, so transition-colors doesn't fade
-   * it in from currentColor. */
   .note .math-block.referenced {
     @apply outline-1 outline-offset-2;
   }
 
-  /* Figures, with captions below. A [!wide] box spans the column and the
-   * right margin, and clears the sidenotes and infoboxes beside it. */
   .note figure {
     @apply my-8;
   }
@@ -501,9 +455,6 @@
     }
   }
 
-  /* The bottom of the note: see also, references, external links, tags, and
-   * the date. Its headings are unnumbered sections, listed last in the
-   * contents. References and external links start collapsed. */
   .note .bottom {
     @apply mt-12 border-t border-rule pt-4 text-base;
   }
@@ -513,7 +464,6 @@
   .note .bottom h2 {
     @apply mt-0;
   }
-  /* Every <summary> turns the link color on hover, to show it opens. */
   .note summary {
     @apply cursor-pointer transition-colors hover:text-link-hover;
   }
@@ -554,7 +504,6 @@
   a.tag {
     @apply hover:bg-tag-hover;
   }
-  /* A tag page's title: the tags icon, then the tag in its box. */
   .tag-title {
     @apply flex items-center gap-3 text-3xl font-normal;
   }
@@ -601,8 +550,6 @@
     @apply mt-8 mb-2 text-xl;
   }
 
-  /* Link popovers. Text only, on the code color with a hairline frame, cut
-   * off with a fade when the text runs long. */
   .link-popover {
     @apply fixed m-0 max-h-80 w-[min(26rem,calc(100vw-1rem))] overflow-hidden border border-frame bg-code p-4 text-left text-base leading-normal text-ink shadow-lg;
     inset: auto;
@@ -634,12 +581,9 @@
     @apply mt-2 inline-block text-sm;
   }
 
-  /* The drawer that holds a link's preview on touch screens. It slides up
-   * from the bottom of the screen, over a dimmed page. */
   .link-drawer {
     @apply fixed inset-x-0 top-auto bottom-0 m-0 max-h-[75vh] w-full max-w-none border-t border-frame bg-code p-0 text-base leading-normal text-ink;
   }
-  /* It eases in when it opens and out when it closes. */
   .link-drawer {
     translate: 0 100%;
     transition:
@@ -700,7 +644,6 @@
     }
   }
 
-  /* Tag pages, in the column, and the homepage's About. */
   .prose-page h2 {
     @apply mt-10 mb-3 text-2xl;
   }
@@ -720,8 +663,6 @@
   }
 }
 
-/* Print: no controls, link URLs after the text, every <details> open, and a
- * new page for each top-level section. Sidenotes stay in the margin. */
 @media print {
   @page {
     margin: 2cm 1.5cm;

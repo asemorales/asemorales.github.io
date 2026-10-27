@@ -8,13 +8,8 @@ interface Props {
   title: string;
   description: string;
   noindex?: boolean;
-  // Notes need room for the contents on the left and sidenotes on the right.
   wide?: boolean;
-  // Pages with italics, such as notes, load the italic face early. Otherwise
-  // the browser finds it needs the face only after layout, and italics paint
-  // in the fallback before swapping in.
   preloadItalic?: boolean;
-  // Notes pass their own social image. Other pages share the site's.
   image?: string;
 }
 
@@ -50,14 +45,11 @@ const fullTitle = Astro.url.pathname === "/" ? title : `${title} | Ase Morales`;
     <link rel="preload" href="/fonts/source-serif-4-roman.woff2" as="font" type="font/woff2" crossorigin />
     {preloadItalic && <link rel="preload" href="/fonts/source-serif-4-italic.woff2" as="font" type="font/woff2" crossorigin />}
 
-    <!-- Apply the reader's room before the first paint. Without a choice, the room follows the system. -->
     <script is:inline>
       try {
         const room = localStorage.getItem("room");
         if (room === "light" || room === "dark") document.documentElement.dataset.room = room;
-      } catch {
-        // Storage is blocked. Follow the system.
-      }
+      } catch {}
     </script>
 
     {import.meta.env.PROD && <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="aeeab31a-d067-4d0a-9c78-5372e12b938f" />}

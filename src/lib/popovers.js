@@ -1,8 +1,3 @@
-// The data behind link popovers, built once for the whole site and served as
-// /popovers.json. Keys are link hrefs as they appear on the page: /slug/ and
-// /slug/#heading for notes, and full URLs for external links. Titles and meta
-// parts are plain text. Paragraphs are HTML from paragraphHtml, with inline
-// math drawn as SVG; summaries already leave out display math and code.
 import GithubSlugger from "github-slugger";
 import { texToInlineSvg } from "./feed.js";
 import { BACK_IDS } from "./rehype-sections.js";
@@ -12,13 +7,10 @@ const NOTE_SUMMARY = 500;
 const HEADING = /^(#{2,4})\s+(.+?)\s*#*\s*$/;
 const FENCE = /^(`{3,}|~{3,})/;
 
-// A note's card: its title and opening paragraphs, cut to about 500
-// characters at a sentence boundary.
 export function noteCard(title, markdown) {
   return { title, paragraphs: clipParagraphs(summary(markdown), NOTE_SUMMARY) };
 }
 
-// Each heading's first paragraph, keyed by the id rehypeSections gives it.
 export function headingCards(markdown) {
   const slugger = new GithubSlugger();
   for (const id of BACK_IDS) slugger.slug(id);
@@ -38,8 +30,6 @@ export function headingCards(markdown) {
   return out;
 }
 
-// An external link's card: the hand-written annotation when there is one,
-// else the fetched card, else the link text and domain. A dead link says so.
 export function linkCard({ url, text, card, annotation, deadSince }) {
   const domain = new URL(url).hostname.replace(/^www\./, "");
   const out = {
@@ -52,7 +42,6 @@ export function linkCard({ url, text, card, annotation, deadSince }) {
   return out;
 }
 
-// A plain-text paragraph as HTML: text escaped, and $inline math$ as SVG.
 export function paragraphHtml(paragraph) {
   return paragraph
     .split(/(\$[^$\n]+\$)/)

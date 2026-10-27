@@ -1,12 +1,3 @@
-// Numbers a note's sections (1., 1.1., 1.1.1.), gives each heading an id and a
-// link to it, which JS turns into a copy button, and puts a table of contents
-// before the first heading. The contents end with the page's back matter, See
-// also, References, and External links, unnumbered, when the note has them:
-// See also when another published note links here (`backlinked` lists those
-// notes' titles), and the other two when rehypeBibliography filled them.
-//
-// Ids come from the heading's text alone, so they match the slugs wikilinks use
-// for [[Note#Heading]], and stay put when sections are renumbered.
 import GithubSlugger from "github-slugger";
 import { el, isElement, text, txt } from "./hast.js";
 
@@ -16,8 +7,6 @@ export const BACK_IDS = ["see-also", "references", "external-links"];
 export function rehypeSections({ backlinked = [] } = {}) {
   const linked = new Set(backlinked.map((t) => t.toLowerCase()));
   return (tree, file) => {
-    // The back matter's ids are taken, so a heading named "References" gets
-    // "references-1".
     const slugger = new GithubSlugger();
     for (const id of BACK_IDS) slugger.slug(id);
     const counts = [0, 0, 0];
@@ -52,7 +41,6 @@ export function rehypeSections({ backlinked = [] } = {}) {
   };
 }
 
-// Nested lists, one level per heading depth, then the back matter.
 function toc(headings, back) {
   const root = el("ol");
   const stack = [root];
@@ -77,7 +65,6 @@ function addItem(ol, children) {
   return li;
 }
 
-// A heading's links can't sit inside the contents' links, so keep their text.
 function unlink(nodes) {
   return nodes.flatMap((n) => (isElement(n, "a") ? unlink(n.children) : isElement(n) ? [{ ...n, children: unlink(n.children) }] : [n]));
 }

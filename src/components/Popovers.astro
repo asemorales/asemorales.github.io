@@ -1,14 +1,4 @@
 ---
-// Text-only popovers on links, after Wikipedia's page previews. A note link
-// shows the note's opening, a heading link the first paragraph under it, and an
-// external link its annotation or card, and a citation marker its source. The
-// text comes from /popovers.json, fetched on the first hover. Paragraphs are
-// HTML built from the site's own notes, with inline math as MathJax SVG.
-//
-// Hovering a link with a mouse for 300 ms opens its popover, and so does
-// focusing it from the keyboard. On touch screens a tap opens the same preview
-// in a drawer from the bottom of the screen, as on Wikipedia's mobile site,
-// with a button to follow the link. Without JS links are plain links.
 ---
 
 <script>
@@ -32,8 +22,6 @@
       .then((r) => (r.ok ? r.json() : {}))
       .catch(() => ({})));
 
-  // The key a link's card is stored under: the path and hash on this site, or
-  // the full URL elsewhere. A bare #heading is a heading in this note.
   function key(a: HTMLAnchorElement) {
     const url = new URL(a.href, location.href);
     if (url.origin !== location.origin) return url.href;
@@ -85,8 +73,6 @@
     }
   }
 
-  // Below the link, or above it when there is more room there, and kept
-  // inside the window.
   function place(el: HTMLElement, a: HTMLAnchorElement) {
     const r = a.getClientRects()[0] ?? a.getBoundingClientRect();
     const w = el.offsetWidth;
@@ -98,8 +84,6 @@
     el.style.top = `${top}px`;
   }
 
-  // A citation marker shows its source's name and card, with any locator,
-  // from its entry under References.
   function citation(a: HTMLAnchorElement, data: Record<string, Card>): Card | undefined {
     const entry = document.getElementById(decodeURIComponent(a.hash.slice(1)));
     const source = entry?.querySelector<HTMLAnchorElement>(":scope > a[href]");
@@ -143,9 +127,6 @@
     openTimer = window.setTimeout(() => open(a), delay);
   }
 
-  // Links in notes, on the homepage, and in the bottom matter, but not the
-  // contents, section anchors, sidenote markers, or equation numbers. Citation
-  // markers get a popover on hover, but a tap follows them to References.
   const SKIP = ".toc, .anchor, .sidenote-ref, .backrefs, .link-popover, #room-toggle, mjx-container";
   function linkFrom(target: EventTarget | null, tapped = false) {
     const a = (target as Element | null)?.closest?.<HTMLAnchorElement>("main a[href]");
@@ -172,8 +153,6 @@
   document.addEventListener("focusout", (e) => {
     if (linkFrom(e.target) === current) close();
   });
-  // The drawer on touch screens: a modal dialog at the bottom of the screen.
-  // A tap outside it, its close button, or Escape closes it.
   let drawer: HTMLDialogElement | null = null;
   function drawerElement() {
     if (drawer) return drawer;
@@ -212,12 +191,10 @@
     go.addEventListener("click", () => d.close());
     d.replaceChildren(close, content, go);
     d.showModal();
-    // Focus the drawer itself, so no button shows a focus ring on a tap.
     d.focus();
     content.scrollTop = 0;
   }
 
-  // Where the last press came from, since a click event doesn't say.
   let touch = false;
   document.addEventListener(
     "pointerdown",
@@ -237,7 +214,6 @@
     else followLink(a);
   });
 
-  // Follows a link the drawer skipped, as the tap would have.
   function followLink(a: HTMLAnchorElement) {
     if (a.target === "_blank") window.open(a.href, "_blank", "noopener");
     else location.href = a.href;
@@ -246,8 +222,6 @@
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") close();
   });
-  // Scrolling closes an open popover, which would drift from its link, but
-  // leaves a pending one to open where the pointer rests.
   addEventListener(
     "scroll",
     () => {

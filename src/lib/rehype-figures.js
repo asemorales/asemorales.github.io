@@ -1,10 +1,3 @@
-// Turns a paragraph that holds only an image into a <figure>. An italic line
-// right below the image, in the same paragraph, becomes its caption:
-//
-//   ![[orbit.svg|An ellipse around a dot]]
-//   *An orbit, drawn to no scale.*
-//
-// In Obsidian the italic line already reads as a caption under the image.
 import { el, isElement } from "./hast.js";
 
 export function rehypeFigures() {

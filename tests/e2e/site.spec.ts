@@ -105,8 +105,6 @@ test.describe("theme with JS", () => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.goto("/lorem-ipsum/");
     await page.evaluate(() => localStorage.setItem("room", "light"));
-    // Record the room as soon as <body> starts parsing. The stylesheet blocks the
-    // first paint, so a room set by then is applied before anything shows.
     await page.addInitScript(() => {
       new MutationObserver((_, observer) => {
         if (!document.body) return;

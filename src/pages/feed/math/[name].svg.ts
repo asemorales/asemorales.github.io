@@ -1,5 +1,3 @@
-// Proof trees as SVG images for the feed, which can't show them as MathML.
-// See src/lib/feed.js.
 import { getCollection } from "astro:content";
 import { mathImageName, proofTrees, texToSvg } from "../../../lib/feed.js";
 

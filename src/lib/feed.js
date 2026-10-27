@@ -1,11 +1,3 @@
-// A note's HTML for the Atom feed. It is built from the markdown with its own
-// pipeline, without the site's sidenotes, section numbers, contents, or block
-// buttons, so feed readers get ordinary footnotes and plain quotes.
-//
-// Math becomes MathML, which feed readers can show without fonts or scripts.
-// bussproofs needs a renderer that measures boxes, so proof trees become SVG
-// images at /feed/math/<hash>.svg, with their TeX as alt text. Links and
-// images get absolute URLs, and dead links point at the Wayback Machine.
 import { createHash } from "node:crypto";
 import { liteAdaptor } from "mathjax-full/js/adaptors/liteAdaptor.js";
 import { RegisterHTMLHandler } from "mathjax-full/js/handlers/html.js";
@@ -32,11 +24,9 @@ RegisterHTMLHandler(adaptor);
 const PACKAGES = AllPackages.filter((p) => p !== "bussproofs");
 const mmlDoc = mathjax.document("", { InputJax: new TeX({ packages: PACKAGES, tags: "ams" }) });
 const svgDoc = mathjax.document("", { InputJax: new TeX({ packages: AllPackages }), OutputJax: new SVG({ fontCache: "local" }) });
-// Popovers sit on pages with their own math, so their glyphs carry no ids.
 const inlineDoc = mathjax.document("", { InputJax: new TeX({ packages: PACKAGES }), OutputJax: new SVG({ fontCache: "none" }) });
 const visitor = new SerializedMmlVisitor();
 
-// The ink of the light room, since an image can't follow the reader's colors.
 const INK = "#231a15";
 
 export const isProofTree = (tex) => /\\begin\{prooftree\}/.test(tex);
@@ -55,8 +45,6 @@ export function texToSvg(tex) {
   return svg.replace("<svg ", `<svg ${xmlns}color="${INK}" `);
 }
 
-// Inline math as the site draws it: an SVG in an <mjx-container>, in the
-// text's color, named by its TeX.
 export function texToInlineSvg(tex) {
   const node = inlineDoc.convert(tex, { display: false });
   const svg = adaptor.firstChild(node);
@@ -64,7 +52,6 @@ export function texToInlineSvg(tex) {
   return adaptor.outerHTML(node);
 }
 
-// Every display formula in a note that needs an image in the feed.
 export function proofTrees(markdown) {
   const out = [];
   const tree = unified().use(remarkParse).use(remarkMath).parse(markdown);
@@ -95,9 +82,6 @@ function rehypeFeedMath({ site }) {
   };
 }
 
-// Feed readers drop classes and ids, and know no asides. Status notices and
-// infoboxes become plain quotes, wide boxes give up their contents, and
-// relative URLs become absolute.
 function rehypeFeedTidy({ site, base, image }) {
   return (tree) => {
     const tidy = (node) => {
@@ -124,7 +108,6 @@ function rehypeFeedTidy({ site, base, image }) {
   };
 }
 
-// Footnote labels say "Footnotes", without the site's visually hidden heading.
 function rehypeFeedFootnotes() {
   return (tree) => {
     walk(tree, (node) => {
@@ -135,8 +118,6 @@ function rehypeFeedFootnotes() {
   };
 }
 
-// `image` maps a note's relative image path, such as ./images/orbit.svg, to
-// the URL the build gave it.
 export async function feedHtml(markdown, { title, slug, titles, site, status = {}, image = (src) => src }) {
   const base = `${site}/${slug}/`;
   const file = await unified()

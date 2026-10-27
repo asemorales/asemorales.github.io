@@ -1,6 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
 
-// Every test runs at two widths, with and without JS. Run `npm run build` first.
 const wide = { viewport: { width: 1440, height: 900 } };
 
 export default defineConfig({
@@ -17,7 +16,6 @@ export default defineConfig({
     { name: "phone-nojs", use: { ...devices["iPhone 15"], javaScriptEnabled: false } },
   ],
   webServer: {
-    // --ignore-lock keeps preview in the foreground, which Astro otherwise skips under coding agents.
     command: "npx astro preview --port 4321 --ignore-lock",
     url: "http://localhost:4321",
     reuseExistingServer: !process.env.CI,

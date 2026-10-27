@@ -1,5 +1,3 @@
-// Matches the homepage search: every word of the query appears somewhere in
-// the text, ignoring case and accents. An empty query matches everything.
 export function fold(s) {
   return s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
 }

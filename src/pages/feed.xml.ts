@@ -1,5 +1,3 @@
-// The Atom feed: every listed note, newest first, with its full text. See
-// src/lib/feed.js for how a note's HTML is built for feed readers.
 import type { ImageMetadata } from "astro";
 import { getImage } from "astro:assets";
 import { getCollection } from "astro:content";

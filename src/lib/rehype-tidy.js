@@ -1,6 +1,3 @@
-// Cleans the HTML that the unified pipeline writes, so it passes html-validate.
-// Table cells carry alignment as `style` in place of the obsolete `align`, and
-// MathJax's per-page <style> is dropped, since global.css holds those rules.
 export function rehypeTidy() {
   return (tree) => walk(tree);
 }
