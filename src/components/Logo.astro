@@ -1,0 +1,9 @@
+---
+// The favicon's glyph without its box, cropped as on the social images. It
+// fills with the text color, so it follows the room.
+import favicon from "../../public/favicon.svg?raw";
+
+const glyph = favicon.match(/<g[\s\S]*<\/g>/)![0];
+---
+
+<svg class="h-7 w-auto fill-current" viewBox="7.4 14.7 55.8 40.3" aria-hidden="true" set:html={glyph} />

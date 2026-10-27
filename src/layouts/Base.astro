@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Logo from "../components/Logo.astro";
 import Popovers from "../components/Popovers.astro";
 import RoomToggle from "../components/RoomToggle.astro";
 
@@ -9,7 +10,7 @@ interface Props {
   noindex?: boolean;
   // Notes need room for the contents on the left and sidenotes on the right.
   wide?: boolean;
-  // Pages with italics, such as notes and the painting names on About, load
+  // Pages with italics, such as notes and the painting names on the homepage, load
   // the italic face early. Otherwise the browser finds it needs the face only
   // after layout, and italics paint in the fallback before swapping in.
   preloadItalic?: boolean;
@@ -63,16 +64,13 @@ const fullTitle = Astro.url.pathname === "/" ? title : `${title} | Ase Morales`;
   </head>
 
   <body class:list={["mx-auto px-4 py-6 sm:px-8", wide ? "max-w-[96rem]" : "max-w-6xl"]}>
-    <header class="mb-12 flex items-center justify-between gap-4">
-      <a href="/" class="smcp text-lg text-ink no-underline">
-        Ase Morales
+    <!-- The homepage's painting, behind the header and edge to edge. -->
+    <slot name="band" />
+    <header class="relative mb-12 flex h-10 items-center justify-between gap-4">
+      <a href="/" class="text-ink" aria-label="Ase Morales, home">
+        <Logo />
       </a>
-      <nav class="flex items-center gap-5" aria-label="Site">
-        <a href="/about/" class="smcp text-dim no-underline hover:text-ink">
-          About
-        </a>
-        <RoomToggle />
-      </nav>
+      <RoomToggle />
     </header>
     <main class="@container">
       <slot />

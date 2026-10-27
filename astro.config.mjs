@@ -48,6 +48,8 @@ const inSitemap = (page) => {
 export default defineConfig({
   site,
   trailingSlash: "always",
+  // About moved to the foot of the homepage. Old links land there.
+  redirects: { "/about": "/#about" },
   integrations: [sitemap({ filter: inSitemap })],
   markdown: {
     // The unified processor, since Sätteri runs no remark or rehype plugins.

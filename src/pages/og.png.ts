@@ -1,4 +1,4 @@
-// The social image every page but notes shares: the homepage, About, and tags.
+// The social image every page but notes shares: the homepage and tags.
 import { ogImage } from "../lib/og.js";
 
 export async function GET() {

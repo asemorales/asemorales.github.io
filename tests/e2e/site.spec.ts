@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const PAGES = ["/", "/about/", "/lorem-ipsum/", "/tags/test/", "/404.html"];
+const PAGES = ["/", "/lorem-ipsum/", "/tags/test/", "/404.html"];
 const LIGHT = "rgb(242, 236, 223)";
 const DARK = "rgb(25, 22, 18)";
 
@@ -166,11 +166,17 @@ test.describe("homepage", () => {
     await expect(page.locator(".search-empty")).toBeVisible();
   });
 
-  test("links to About from every page", async ({ page }) => {
+  test("links home from the logo on every page", async ({ page }) => {
     for (const path of ["/", "/lorem-ipsum/", "/tags/test/"]) {
       await page.goto(path);
-      await expect(page.locator('header a[href="/about/"]')).toBeVisible();
+      await expect(page.getByRole("link", { name: "Ase Morales, home" })).toBeVisible();
     }
+  });
+
+  test("redirects the old About page to the homepage's About", async ({ page }) => {
+    await page.goto("/about/");
+    await expect(page).toHaveURL(/\/#about$/);
+    await expect(page.locator("#about")).toBeVisible();
   });
 });
 

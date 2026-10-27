@@ -56,7 +56,7 @@ ${n.data.tags.map((t) => `    <category term="${escape(t)}"/>`).join("\n")}
   <link rel="alternate" type="text/html" href="${origin}/"/>
   <id>${origin}/</id>
   <updated>${updated.toISOString()}</updated>
-  <author><name>${AUTHOR}</name><uri>${origin}/about/</uri></author>
+  <author><name>${AUTHOR}</name><uri>${origin}/</uri></author>
 ${entries.join("\n")}
 </feed>
 `;

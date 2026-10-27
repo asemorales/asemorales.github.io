@@ -197,17 +197,21 @@
     letter-spacing: 0.04em;
   }
 
-  /* The column every page but the homepage sits in, as in Tufte CSS. The
+  /* The column every page sits in below the homepage band, as in Tufte CSS. The
    * measure is 40em, about 90 characters of Source Serif 4. From 760px the
    * right margin holds a note's sidenotes and infoboxes, which float out of
    * the column with a negative margin. The column keeps its measure first and
    * the margin takes what's left, up to --margin-max; 100cqw is the width of
    * <main>. From 1200px a rail to the left holds a note's contents, as --lead,
-   * and every page keeps the same offset. Below 760px, one column. */
-  .column {
+   * and every page keeps the same offset, the homepage's title included.
+   * Below 760px, one column. */
+  .column,
+  .home-title {
     --gap: 2.5rem;
     --lead: 0rem;
     --rail: 13rem;
+  }
+  .column {
     --measure: 50rem; /* 40em of the column's text-xl */
     --margin: clamp(12rem, 100cqw - var(--lead) - var(--measure) - var(--gap), 24rem);
     @apply relative max-w-[40em] text-lg leading-[1.7] sm:text-xl;
@@ -220,7 +224,8 @@
     }
   }
   @media (width >= 1200px) {
-    .column {
+    .column,
+    .home-title {
       --lead: calc(var(--rail) + var(--gap));
     }
   }
@@ -557,9 +562,8 @@
     @apply text-dim;
   }
 
-  /* The homepage. A painting fills the header band, one per room, with the
-   * name and one line on the page color at its lower left, so no text sits on
-   * the painting itself. */
+  /* The homepage. A painting fills the band at the top, one per room, with the
+   * name and one line below it. */
   .painting {
     @apply absolute inset-0 bg-cover bg-center;
     background-image: var(--painting-light-small);
@@ -587,11 +591,30 @@
       background-image: var(--painting-dark);
     }
   }
+  /* The band spans the viewport from its top, positioned against the initial
+   * containing block so it never counts the scrollbar, with the header over
+   * it. <main> starts 7rem down, the body's padding, the header, and its
+   * margin, so the title clears the band by 2.5rem. */
   .home-band {
-    @apply relative -mx-4 flex h-72 items-end overflow-hidden sm:mx-0 sm:h-96;
+    --band: 18rem;
+    @apply absolute inset-x-0 top-0 overflow-hidden;
+    height: var(--band);
+  }
+  /* The toggle's dim icon disappears into the painting, so it sits on a disc
+   * of the page color. */
+  body:has(.home-band) #room-toggle {
+    @apply rounded-full bg-page/85 p-1.5 text-ink;
   }
   .home-title {
-    @apply relative bg-page px-4 pt-4 sm:pr-8 sm:pl-0;
+    --band: 18rem;
+    margin-top: calc(var(--band) - 7rem + 2.5rem);
+    margin-left: var(--lead);
+  }
+  @media (width >= 640px) {
+    .home-band,
+    .home-title {
+      --band: 24rem;
+    }
   }
   .home-title p {
     @apply mt-1;
@@ -618,11 +641,14 @@
   .listing ul {
     @apply mt-2 space-y-1.5 text-lg leading-snug;
   }
-  .home-footer {
-    @apply mt-16 border-t border-rule pt-4;
+  .home-about {
+    @apply mt-16 border-t border-rule pt-2;
   }
-  .home-footer ul {
-    @apply flex flex-wrap gap-x-6 gap-y-2;
+  .home-about h2 {
+    @apply mt-6;
+  }
+  .home-about h3 {
+    @apply mt-8 mb-2 text-xl;
   }
 
   /* Link popovers. Text only, on the code color with a hairline frame, cut
@@ -724,7 +750,7 @@
     }
   }
 
-  /* Tag pages and the About page, in the column. */
+  /* Tag pages, in the column, and the homepage's About. */
   .prose-page h2 {
     @apply mt-10 mb-3 text-2xl;
   }

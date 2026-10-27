@@ -8,72 +8,128 @@ import { summary } from "../lib/summary.js";
 // Every listed note, grouped by its first tag, as a table of contents. Groups
 // and the notes in them are in alphabetical order. The search box filters them
 // over titles, summaries, and tags. Without JS the box is hidden and the full
-// list shows.
+// list shows. Below the notes, the bio, contact links, and a colophon. The
+// only place the paintings are credited.
 const notes = (await getCollection("notes", (n) => !n.data.unlisted)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const groups = Map.groupBy(notes, (n) => n.data.tags[0]);
 const tags = [...groups.keys()].sort((a, b) => a.localeCompare(b));
 const description = "Notes on logic, complexity, and cognition.";
-const links = [
-  { href: "/about/", text: "About" },
-  { href: "/feed.xml", text: "Feed" },
-  { href: "https://mathstodon.xyz/@ase", text: "Mathstodon", rel: "me" },
-  { href: "https://asemorales.substack.com", text: "Substack" },
-  { href: "https://github.com/asemorales", text: "GitHub" },
+const contact = [
+  { name: "Email", href: "mailto:hi@asemorales.com", text: "hi@asemorales.com" },
+  { name: "Feed", href: "/feed.xml", text: "Atom" },
+  { name: "Mathstodon", href: "https://mathstodon.xyz/@ase", text: "@ase@mathstodon.xyz", rel: "me" },
+  { name: "Substack", href: "https://asemorales.substack.com", text: "asemorales.substack.com" },
+  { name: "GitHub", href: "https://github.com/asemorales", text: "asemorales" },
+  { name: "Bluesky", href: "https://asemorales.bsky.social/", text: "asemorales.bsky.social" },
+  { name: "X", href: "https://x.com/_asemorales", text: "_asemorales" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/asemorales", text: "asemorales" },
+];
+const paintings = [
+  { title: "Lake Lucerne", year: 1858, room: "light" },
+  { title: "Among the Sierra Nevada, California", year: 1868, room: "dark" },
+];
+const influences = [
+  { name: "Tufte CSS", href: "https://edwardtufte.github.io/tufte-css/", for: "sidenotes, the offset column, and quotes" },
+  { name: "gwern.net", href: "https://gwern.net/design", for: "popovers, the contents, and design principles" },
+  { name: "Wikipedia", href: "https://en.wikipedia.org/", for: "lead paragraphs, infoboxes, citations, and link colors" },
+  { name: "Thinking Machines", href: "https://thinkingmachines.ai/blog/", for: "the narrow column and build-time math" },
+  { name: "Normal Computing", href: "https://www.normalcomputing.com/", for: "the painting behind the header" },
+  { name: "Bierstadt", href: "https://github.com/asemorales/bierstadt", for: "the rooms, palette, and paintings" },
 ];
 ---
 
-<Base title="Ase Morales" description={description}>
-  <header class="home-band">
+<Base title="Ase Morales" description={description} wide preloadItalic>
+  <div slot="band" class="home-band">
     <Painting />
-    <div class="home-title">
-      <h1 class="text-4xl">Ase Morales</h1>
-      <p class="text-dim">{description}</p>
-    </div>
+  </div>
+  <header class="home-title">
+    <h1 class="text-4xl">Ase Morales</h1>
+    <p class="text-dim">{description}</p>
   </header>
 
-  {notes.length > 0 ? (
-    <>
-      <search class="home-search" hidden>
-        <label for="search" class="sr-only">
-          Search notes
-        </label>
-        <input id="search" type="search" placeholder="Search notes" autocomplete="off" spellcheck="false" />
-        <p class="search-empty text-dim" hidden>
-          No notes match.
-        </p>
-      </search>
-      <nav class="home-notes" aria-label="Notes">
-        {tags.map((tag) => (
-          <section aria-labelledby={`tag-${slugify(tag)}`}>
-            <h2 id={`tag-${slugify(tag)}`} class="smcp">
-              <a href={`/tags/${slugify(tag)}/`}>{tag}</a>
-            </h2>
-            <ul>
-              {groups.get(tag)!.map((n) => (
-                <li data-search={[n.data.title, ...summary(n.body ?? ""), ...n.data.tags].join(" ")}>
-                  <a href={`/${n.id}/`}>{n.data.title}</a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
-      </nav>
-    </>
-  ) : (
-    <p class="mt-10">The first notes are on their way.</p>
-  )}
+  <div class="column">
+    {notes.length > 0 && (
+      <>
+        <search class="home-search" hidden>
+          <label for="search" class="sr-only">
+            Search notes
+          </label>
+          <input id="search" type="search" placeholder="Search notes" autocomplete="off" spellcheck="false" />
+          <p class="search-empty text-dim" hidden>
+            No notes match.
+          </p>
+        </search>
+        <nav class="home-notes" aria-label="Notes">
+          {tags.map((tag) => (
+            <section aria-labelledby={`tag-${slugify(tag)}`}>
+              <h2 id={`tag-${slugify(tag)}`} class="smcp">
+                <a href={`/tags/${slugify(tag)}/`}>{tag}</a>
+              </h2>
+              <ul>
+                {groups.get(tag)!.map((n) => (
+                  <li data-search={[n.data.title, ...summary(n.body ?? ""), ...n.data.tags].join(" ")}>
+                    <a href={`/${n.id}/`}>{n.data.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </nav>
+      </>
+    )}
 
-  <footer class="home-footer">
-    <ul>
-      {links.map((l) => (
-        <li>
-          <a href={l.href} rel={l.rel}>
-            {l.text}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </footer>
+    <footer id="about" class="home-about prose-page" aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <p>Research software engineer bridging logic, complexity, and cognition. Previously engineered fintech and voice AI systems for startups.</p>
+
+      <h3 id="contact">Contact</h3>
+      <dl>
+        {contact.map((c) => (
+          <>
+            <dt>{c.name}</dt>
+            <dd>
+              <a href={c.href} rel={c.rel}>
+                {c.text}
+              </a>
+            </dd>
+          </>
+        ))}
+      </dl>
+
+      <h3 id="colophon">Colophon</h3>
+      <p>
+        Text is set in <a href="https://github.com/adobe-fonts/source-serif">Source Serif 4</a> and code in{" "}
+        <a href="https://github.com/googlefonts/dm-mono">DM Mono</a>, both subset and self-hosted. Notes are written in{" "}
+        <a href="https://obsidian.md/">Obsidian</a> and built into static pages by <a href="https://astro.build/">Astro</a>, with{" "}
+        <a href="https://tailwindcss.com/">Tailwind CSS</a>. Math is rendered by <a href="https://www.mathjax.org/">MathJax</a> and code highlighted
+        by <a href="https://shiki.style/">Shiki</a>, both when the site is built, so pages need no script to read.
+      </p>
+      <p>
+        The site is hosted on <a href="https://pages.github.com/">GitHub Pages</a> and counts visits with <a href="https://umami.is/">Umami</a>, which
+        sets no cookies. Dead links point to copies in the <a href="https://web.archive.org/">Wayback Machine</a>. The source is on{" "}
+        <a href="https://github.com/asemorales/asemorales.github.io">GitHub</a> under the AGPL 3.0.
+      </p>
+
+      <h3 id="influences">Influences</h3>
+      <ul>
+        {influences.map((i) => (
+          <li>
+            <a href={i.href}>{i.name}</a>, for {i.for}
+          </li>
+        ))}
+      </ul>
+
+      <h3 id="paintings">Paintings</h3>
+      <p>The header shows a painting by Albert Bierstadt in each room, from scans on Wikimedia Commons.</p>
+      <ul>
+        {paintings.map((p) => (
+          <li>
+            <cite>{p.title}</cite>, {p.year}, in the {p.room} room
+          </li>
+        ))}
+      </ul>
+    </footer>
+  </div>
 </Base>
 
 <script>

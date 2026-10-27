@@ -1,11 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
   <style>
-    .box { fill: #231a15; stroke: #231a15; }
-    .glyph { fill: #f2ecdf; }
-    @media (prefers-color-scheme: dark) {
-      .box { fill: #efe6d6; stroke: #efe6d6; }
-      .glyph { fill: #191612; }
-    }
+    .box { fill: #191612; stroke: #191612; }
+    .glyph { fill: #efe6d6; }
   </style>
   <rect class="box" x="5" y="5" width="60" height="60" stroke-width="10" stroke-linejoin="round" />
   <g transform="translate(2.3733817,-87.702444) scale(0.26458333)">
