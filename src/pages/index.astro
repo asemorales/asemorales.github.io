@@ -1,55 +1,72 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
+import Logo from "../components/Logo.astro";
 import Base from "../layouts/Base.astro";
 import { slugify } from "../lib/slug.js";
 import { summary } from "../lib/summary.js";
 
-// Every listed note, grouped by its first tag, as a table of contents. Groups
-// and the notes in them are in alphabetical order. The search box filters them
-// over titles, summaries, and tags. Without JS the box is hidden and the full
-// list shows. Below the notes, the bio, contact links, and a colophon.
-const notes = (await getCollection("notes", (n) => !n.data.unlisted)).sort((a, b) => a.data.title.localeCompare(b.data.title));
+// Feature-test notes are listed but kept off the index; the colophon links them.
+const notes = (await getCollection("notes", (n) => !n.data.unlisted && !n.data.tags.includes("test"))).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
 const groups = Map.groupBy(notes, (n) => n.data.tags[0]);
-const tags = [...groups.keys()].sort((a, b) => a.localeCompare(b));
-const description = "Notes on logic, complexity, and cognition.";
+const order = ["logic", "complexity", "cognition", "computation"];
+const rank = (tag: string) => (order.includes(tag) ? order.indexOf(tag) : order.length);
+const tags = [...groups.keys()].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+const description = "On logic, complexity, and cognition";
+const minutes = (body = "") => Math.max(1, Math.round(body.split(/\s+/).filter(Boolean).length / 230));
 const contact = [
-  { name: "Email", href: "mailto:hi@asemorales.com", text: "hi@asemorales.com" },
-  { name: "Feed", href: "/feed.xml", text: "Atom" },
-  { name: "Mathstodon", href: "https://mathstodon.xyz/@ase", text: "@ase@mathstodon.xyz", rel: "me" },
-  { name: "Substack", href: "https://asemorales.substack.com", text: "asemorales.substack.com" },
-  { name: "GitHub", href: "https://github.com/asemorales", text: "asemorales" },
-  { name: "Bluesky", href: "https://asemorales.bsky.social/", text: "asemorales.bsky.social" },
-  { name: "X", href: "https://x.com/_asemorales", text: "_asemorales" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/asemorales", text: "asemorales" },
+  { name: "Email", icon: "mail", href: "mailto:hi@asemorales.com" },
+  { name: "Atom feed", icon: "rss", href: "/feed.xml" },
+  { name: "Mathstodon", icon: "mastodon", href: "https://mathstodon.xyz/@ase", rel: "me" },
+  { name: "Substack", icon: "substack", href: "https://asemorales.substack.com" },
+  { name: "GitHub", icon: "github", href: "https://github.com/asemorales" },
+  { name: "Bluesky", icon: "bluesky", href: "https://asemorales.bsky.social/" },
+  { name: "X", icon: "x-brand", href: "https://x.com/_asemorales" },
+  { name: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/asemorales" },
 ];
-const influences = [
-  { name: "Tufte CSS", href: "https://edwardtufte.github.io/tufte-css/", for: "sidenotes, the offset column, and quotes" },
-  { name: "gwern.net", href: "https://gwern.net/design", for: "popovers, the contents, and design principles" },
-  { name: "Wikipedia", href: "https://en.wikipedia.org/", for: "lead paragraphs, infoboxes, citations, and link colors" },
-  { name: "Thinking Machines", href: "https://thinkingmachines.ai/blog/", for: "the narrow column and build-time math" },
-  { name: "Bierstadt", href: "https://github.com/asemorales/bierstadt", for: "the rooms and palette" },
-];
+const acknowledgements = await getEntry("notes", "acknowledgements");
 ---
 
 <Base title="Ase Morales" description={description} wide>
-  <header class="home-title">
-    <h1 class="text-4xl">Ase Morales</h1>
-    <p class="text-dim">{description}</p>
-  </header>
-
   <div class="column">
+    <header class="home-title">
+      <Logo class="" />
+      <h1>
+        <span class="sr-only">Ase Morales</span>
+        <span class="wordmark" aria-hidden="true">
+          ase<span class="m">m</span>orales
+        </span>
+      </h1>
+      <p>{description}</p>
+    </header>
+    <hr class="ornament" />
+
+    <section id="introduction" class="home-intro prose-page" aria-labelledby="introduction-heading">
+      <h2 id="introduction-heading">Introduction</h2>
+      <p>Research software engineer working across logic, complexity, and cognition. Previously built fintech and voice AI systems for startups.</p>
+    </section>
+    <hr class="ornament" />
+
     {notes.length > 0 && (
       <>
-        <search class="home-search" hidden>
+        <div class="home-contents">
+          <h2 id="contents">Contents</h2>
+          <button type="button" class="search-toggle" popovertarget="search-box" title="Search" hidden>
+            <span class="icon icon-search" aria-hidden="true"></span>
+            <span class="sr-only">Search</span>
+          </button>
+        </div>
+        <search id="search-box" class="home-search" popover>
           <label for="search" class="sr-only">
-            Search notes
+            Search
           </label>
-          <input id="search" type="search" placeholder="Search notes" autocomplete="off" spellcheck="false" />
-          <p class="search-empty text-dim" hidden>
+          <input id="search" type="search" placeholder="Search" autocomplete="off" spellcheck="false" />
+          <p class="search-empty" hidden>
             No notes match.
           </p>
         </search>
-        <nav class="home-notes" aria-label="Notes">
+        <nav class="home-notes" aria-labelledby="contents">
           {tags.map((tag) => (
             <section aria-labelledby={`tag-${slugify(tag)}`}>
               <h2 id={`tag-${slugify(tag)}`} class="smcp">
@@ -59,52 +76,70 @@ const influences = [
                 {groups.get(tag)!.map((n) => (
                   <li data-search={[n.data.title, ...summary(n.body ?? ""), ...n.data.tags].join(" ")}>
                     <a href={`/${n.id}/`}>{n.data.title}</a>
+                    <span class="leader" aria-hidden="true"></span>
+                    <span class="minutes">{minutes(n.body)} min</span>
                   </li>
                 ))}
               </ul>
             </section>
           ))}
+          {acknowledgements && (
+            <ul class="home-end">
+              <li data-search={[acknowledgements.data.title, ...summary(acknowledgements.body ?? "")].join(" ")}>
+                <a href={`/${acknowledgements.id}/`}>{acknowledgements.data.title}</a>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="minutes">{minutes(acknowledgements.body)} min</span>
+              </li>
+            </ul>
+          )}
+          <div class="home-empty" hidden>
+            <svg viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" aria-hidden="true">
+              <path d="M60 7l5 5-5 5-5-5z" fill="currentColor" stroke="none"></path>
+              <g id="flourish-half">
+                <path d="M68 12c10 0 14 7 21 6 5-1 5-8 0-8-3 0-4 4-1 5"></path>
+                <path d="M89 18c8-1 14-6 23-6"></path>
+              </g>
+              <use href="#flourish-half" transform="translate(120 0) scale(-1 1)"></use>
+            </svg>
+            <p>
+              No notes match <q></q>.
+            </p>
+          </div>
         </nav>
       </>
     )}
 
-    <footer id="about" class="home-about prose-page" aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <p>Research software engineer bridging logic, complexity, and cognition. Previously engineered fintech and voice AI systems for startups.</p>
+    <hr class="ornament" />
+    <figure class="epigraph">
+      <blockquote>
+        <p>We must know. We will know.</p>
+      </blockquote>
+      <figcaption>David Hilbert, Königsberg, 1930</figcaption>
+    </figure>
 
-      <h3 id="contact">Contact</h3>
-      <dl>
-        {contact.map((c) => (
-          <>
-            <dt>{c.name}</dt>
-            <dd>
-              <a href={c.href} rel={c.rel}>
-                {c.text}
-              </a>
-            </dd>
-          </>
-        ))}
-      </dl>
-
+    <footer class="colophon prose-page" aria-labelledby="colophon">
+      <hr class="ornament" />
       <h3 id="colophon">Colophon</h3>
       <p>
-        Text is set in <a href="https://github.com/adobe-fonts/source-serif">Source Serif 4</a> and code in{" "}
-        <a href="https://github.com/googlefonts/dm-mono">DM Mono</a>, both subset and self-hosted. Notes are written in{" "}
-        <a href="https://obsidian.md/">Obsidian</a> and built into static pages by <a href="https://astro.build/">Astro</a>, with{" "}
-        <a href="https://tailwindcss.com/">Tailwind CSS</a>. Math is rendered by <a href="https://www.mathjax.org/">MathJax</a> and code highlighted
-        by <a href="https://shiki.style/">Shiki</a>, both when the site is built, so pages need no script to read.
+        Set in <a href="https://github.com/adobe-fonts/source-serif">Source Serif 4</a> and{" "}
+        <a href="https://github.com/googlefonts/dm-mono">DM Mono</a>. Content is written in <a href="https://obsidian.md/">Obsidian</a>, built with{" "}
+        <a href="https://astro.build/">Astro</a>, and styled with <a href="https://tailwindcss.com/">Tailwind CSS</a>. Math is rendered with{" "}
+        <a href="https://www.mathjax.org/">MathJax</a> and code is highlighted with <a href="https://shiki.style/">Shiki</a>. The site is hosted on{" "}
+        <a href="https://pages.github.com/">GitHub Pages</a> with analytics from <a href="https://umami.is/">Umami</a>. External links are archived in
+        the <a href="https://web.archive.org/">Wayback Machine</a>.
       </p>
       <p>
-        The site is hosted on <a href="https://pages.github.com/">GitHub Pages</a> and counts visits with <a href="https://umami.is/">Umami</a>, which
-        sets no cookies. Dead links point to copies in the <a href="https://web.archive.org/">Wayback Machine</a>. The source is on{" "}
-        <a href="https://github.com/asemorales/asemorales.github.io">GitHub</a> under the AGPL 3.0.
+        For a list of all site elements, see the <a href="/lorem-ipsum/">feature test</a>. Source code is available on{" "}
+        <a href="https://github.com/asemorales/asemorales.github.io">GitHub</a> under AGPL 3.0.
       </p>
-
-      <h3 id="influences">Influences</h3>
-      <ul>
-        {influences.map((i) => (
+      <hr class="ornament" />
+      <ul class="home-contact" aria-label="Contact">
+        {contact.map((c) => (
           <li>
-            <a href={i.href}>{i.name}</a>, for {i.for}
+            <a href={c.href} rel={c.rel} title={c.name}>
+              <span class={`icon icon-${c.icon}`} aria-hidden="true"></span>
+              <span class="sr-only">{c.name}</span>
+            </a>
           </li>
         ))}
       </ul>
@@ -116,19 +151,43 @@ const influences = [
   import { matcher } from "../lib/search.js";
 
   const box = document.querySelector<HTMLElement>(".home-search");
+  const toggle = document.querySelector<HTMLButtonElement>(".search-toggle");
   const input = document.querySelector<HTMLInputElement>("#search");
-  if (box && input) {
-    box.hidden = false;
+  if (box && toggle && input) {
+    toggle.hidden = false;
     const empty = box.querySelector<HTMLElement>(".search-empty")!;
+    const blank = document.querySelector<HTMLElement>(".home-empty")!;
     const items = [...document.querySelectorAll<HTMLElement>(".home-notes li")];
     const sections = [...document.querySelectorAll<HTMLElement>(".home-notes section")];
     const filter = () => {
       const matches = matcher(input.value);
       for (const li of items) li.hidden = !matches(li.dataset.search ?? "");
       for (const s of sections) s.hidden = !s.querySelector("li:not([hidden])");
-      empty.hidden = items.some((li) => !li.hidden);
+      empty.hidden = blank.hidden = items.some((li) => !li.hidden);
+      blank.querySelector("q")!.textContent = input.value.trim();
     };
+    // Left-align the popover under the icon, kept inside the viewport.
+    const place = () => {
+      const r = toggle.getBoundingClientRect();
+      box.style.left = `${Math.max(8, Math.min(r.left, innerWidth - box.offsetWidth - 8))}px`;
+      box.style.top = `${r.bottom + 6}px`;
+    };
+    box.addEventListener("toggle", (e) => {
+      const open = (e as ToggleEvent).newState === "open";
+      toggle.setAttribute("aria-expanded", String(open));
+      if (open) {
+        place();
+        input.focus();
+      } else {
+        // Closing clears the query, so the index never stays filtered out of sight.
+        input.value = "";
+        filter();
+      }
+    });
+    addEventListener("scroll", () => box.matches(":popover-open") && place(), { passive: true });
+    addEventListener("resize", () => box.matches(":popover-open") && place());
     input.addEventListener("input", filter);
-    filter();
+    // A search field eats the first Escape to clear itself; close in one press instead.
+    input.addEventListener("keydown", (e) => e.key === "Escape" && box.hidePopover());
   }
 </script>

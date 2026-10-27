@@ -16,7 +16,8 @@ interface Props {
 const { title, description, noindex = false, wide = false, preloadItalic = false, image = "/og.png" } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const imageUrl = new URL(image, Astro.site);
-const fullTitle = Astro.url.pathname === "/" ? title : `${title} | Ase Morales`;
+const home = Astro.url.pathname === "/";
+const fullTitle = home ? title : `${title} | Ase Morales`;
 ---
 
 <!doctype html>
@@ -57,9 +58,13 @@ const fullTitle = Astro.url.pathname === "/" ? title : `${title} | Ase Morales`;
 
   <body class:list={["mx-auto px-4 py-6 sm:px-8", wide ? "max-w-[96rem]" : "max-w-6xl"]}>
     <header class="relative mb-12 flex h-10 items-center justify-between gap-4">
-      <a href="/" class="text-ink" aria-label="Ase Morales, home">
-        <Logo />
-      </a>
+      {home ? (
+        <span />
+      ) : (
+        <a href="/" class="text-ink" aria-label="Ase Morales, home">
+          <Logo />
+        </a>
+      )}
       <RoomToggle />
     </header>
     <main class="@container">

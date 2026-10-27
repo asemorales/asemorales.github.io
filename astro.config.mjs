@@ -43,8 +43,7 @@ const inSitemap = (page) => {
 export default defineConfig({
   site,
   trailingSlash: "always",
-  // About moved to the foot of the homepage. Old links land there.
-  redirects: { "/about": "/#about" },
+  redirects: { "/about": "/#introduction" },
   integrations: [sitemap({ filter: inSitemap })],
   markdown: {
     processor: unified({

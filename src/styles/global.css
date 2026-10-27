@@ -72,6 +72,9 @@
 @layer base {
   html {
     @apply scroll-pt-6 bg-page font-serif text-ink;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    font-variant-numeric: oldstyle-nums proportional-nums;
+    hanging-punctuation: first last;
     -webkit-font-smoothing: antialiased;
     text-size-adjust: 100%;
   }
@@ -170,6 +173,34 @@
   .icon-tags {
     --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1z'/><path d='M2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193'/><circle cx='10.5' cy='6.5' r='.5' fill='black'/></svg>");
   }
+  .icon-search {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m21 21-4.34-4.34'/><circle cx='11' cy='11' r='8'/></svg>");
+  }
+  .icon-mail {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='20' height='16' x='2' y='4' rx='2'/><path d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/></svg>");
+  }
+  .icon-rss {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16'/><circle cx='5' cy='19' r='1'/></svg>");
+  }
+  /* Brand icons from Simple Icons (simpleicons.org), CC0. */
+  .icon-mastodon {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z'/></svg>");
+  }
+  .icon-substack {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z'/></svg>");
+  }
+  .icon-github {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/></svg>");
+  }
+  .icon-bluesky {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z'/></svg>");
+  }
+  .icon-x-brand {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z'/></svg>");
+  }
+  .icon-linkedin {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/></svg>");
+  }
   .icon-sigma {
     --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2'/></svg>");
   }
@@ -180,16 +211,7 @@
     letter-spacing: 0.04em;
   }
 
-  /* The column every page sits in, as in Tufte CSS. The
-   * measure is 40em, about 90 characters of Source Serif 4. From 760px the
-   * right margin holds a note's sidenotes and infoboxes, which float out of
-   * the column with a negative margin. The column keeps its measure first and
-   * the margin takes what's left, up to --margin-max; 100cqw is the width of
-   * <main>. From 1200px a rail to the left holds a note's contents, as --lead,
-   * and every page keeps the same offset, the homepage's title included.
-   * Below 760px, one column. */
-  .column,
-  .home-title {
+  .column {
     --gap: 2.5rem;
     --lead: 0rem;
     --rail: 13rem;
@@ -207,13 +229,16 @@
     }
   }
   @media (width >= 1200px) {
-    .column,
-    .home-title {
+    .column {
       --lead: calc(var(--rail) + var(--gap));
     }
   }
   .note {
+    @apply mb-20;
     hyphens: auto;
+  }
+  .listing {
+    @apply mb-20;
   }
   .note > * + * {
     @apply mt-4;
@@ -282,11 +307,12 @@
     @apply border-b border-rule px-2 py-1 text-left;
   }
 
-  /* The separator: *** in the vault, three spaced asterisks on the page. */
-  .note hr {
+  .note hr,
+  hr.ornament {
     @apply my-8 h-auto overflow-visible border-0 text-center font-serif leading-none text-dim;
   }
-  .note hr::after {
+  .note hr::after,
+  hr.ornament::after {
     content: "*\2003*\2003*";
   }
 
@@ -511,27 +537,82 @@
     @apply text-dim;
   }
 
-  /* The homepage. The name and one line, then the notes. */
+  /* Logo and wordmark keep the OG card's 140:48 ratio (src/lib/og.js). */
   .home-title {
-    margin-left: var(--lead);
+    @apply mt-4 flex flex-col items-center gap-5 text-center sm:mt-10;
+    --mark: 1.5rem;
+  }
+  @media (width >= 40rem) {
+    .home-title {
+      --mark: 1.875rem;
+    }
+  }
+  .home-title svg {
+    height: calc(var(--mark) * 140 / 48);
+    translate: -10% 0;
+  }
+  .home-title h1 {
+    @apply leading-tight font-normal;
+    font-size: var(--mark);
+  }
+  .wordmark {
+    @apply font-mono;
+  }
+  .wordmark .m {
+    margin: 0 0.05em;
   }
   .home-title p {
-    @apply mt-1;
+    @apply -mt-3 text-xl text-dim italic sm:text-2xl;
+  }
+  .home-title + .ornament {
+    @apply mt-10 mb-14;
+  }
+
+  .home-contents {
+    @apply flex items-baseline gap-3;
+  }
+  .home-contents h2 {
+    @apply mt-0 text-2xl;
+  }
+  .search-toggle {
+    @apply cursor-pointer text-xl text-dim hover:text-ink;
   }
   .home-search {
-    @apply mt-10 max-w-xl;
+    @apply fixed m-0 w-[min(22rem,calc(100vw-1rem))] border border-frame bg-code p-4 text-ink shadow-lg;
+    inset: auto;
   }
   .home-search input {
-    @apply w-full border border-frame bg-code px-3 py-2 text-lg text-ink placeholder:text-dim;
+    @apply w-full border-0 border-b border-frame bg-transparent px-0 py-1 text-lg text-ink placeholder:text-dim placeholder:italic;
   }
   .home-search p {
-    @apply mt-4;
+    @apply mt-2 text-sm text-dim italic;
   }
+  /* Swap WebKit's blue clear button for the theme's own x. */
+  .home-search input::-webkit-search-cancel-button {
+    @apply size-4 cursor-pointer appearance-none bg-dim hover:bg-ink;
+    mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 6 6 18M6 6l12 12'/></svg>")
+      center / contain no-repeat;
+  }
+
   .home-notes {
-    @apply mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2 lg:grid-cols-3;
+    counter-reset: part;
+  }
+  .home-notes section {
+    @apply mt-10;
+    counter-increment: part;
   }
   .home-notes h2 {
-    @apply text-xl;
+    @apply relative text-xl;
+  }
+  .home-notes h2::before {
+    @apply mr-3 font-normal text-dim;
+    content: counter(part, upper-roman) ".";
+  }
+  @media (width >= 1200px) {
+    .home-notes h2::before {
+      @apply absolute mr-0 text-right;
+      right: calc(100% + var(--gap));
+    }
   }
   .home-notes h2 a {
     @apply text-ink no-underline hover:text-link-hover;
@@ -540,14 +621,68 @@
   .listing ul {
     @apply mt-2 space-y-1.5 text-lg leading-snug;
   }
-  .home-about {
-    @apply mt-16 border-t border-rule pt-2;
+  .home-notes li {
+    @apply flex items-baseline gap-2;
   }
-  .home-about h2 {
-    @apply mt-6;
+  .home-notes .leader {
+    @apply h-[0.25em] min-w-6 flex-1;
+    background: radial-gradient(circle, var(--mid) 0.06em, transparent 0.08em) bottom left / 0.5em 0.25em repeat-x;
   }
-  .home-about h3 {
-    @apply mt-8 mb-2 text-xl;
+  .home-notes .minutes {
+    @apply shrink-0 text-dim;
+  }
+
+  .home-intro h2 {
+    @apply mt-0;
+  }
+  .colophon .home-contact {
+    @apply m-0 flex list-none flex-wrap justify-center gap-x-5 gap-y-2 p-0 text-xl not-italic;
+  }
+  .home-contact li {
+    @apply m-0 p-0;
+  }
+  .home-contact li::marker {
+    content: none;
+  }
+  .home-contact a {
+    @apply text-dim no-underline hover:text-ink;
+  }
+  .home-intro + .ornament {
+    @apply mt-14 mb-4;
+  }
+  .home-empty {
+    @apply mt-32 mb-12 flex flex-col items-center gap-3 text-center text-dim;
+  }
+  .home-empty svg {
+    @apply h-6 w-30;
+  }
+  .home-empty p {
+    @apply text-lg italic;
+  }
+  .home-notes .home-end {
+    @apply mt-10;
+  }
+  .epigraph {
+    @apply mx-auto mt-14 max-w-[28em] text-center;
+  }
+  .epigraph blockquote {
+    @apply m-0 border-0 p-0 text-xl italic;
+  }
+  .epigraph figcaption {
+    @apply mt-2 text-dim;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.04em;
+  }
+  .colophon {
+    @apply mx-auto mt-14 mb-20 max-w-[28em] text-center italic;
+  }
+  .colophon h3 {
+    @apply text-lg font-normal not-italic;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.08em;
+  }
+  .colophon p {
+    @apply text-base text-pretty;
   }
 
   .link-popover {
@@ -648,18 +783,11 @@
     @apply mt-10 mb-3 text-2xl;
   }
   .prose-page p,
-  .prose-page ul,
-  .prose-page dl {
+  .prose-page ul {
     @apply mt-3 text-lg leading-relaxed;
   }
   .prose-page ul {
     @apply list-disc pl-6;
-  }
-  .prose-page dl {
-    @apply grid grid-cols-[auto_1fr] gap-x-6 gap-y-1;
-  }
-  .prose-page dt {
-    @apply text-dim;
   }
 }
 
@@ -673,7 +801,11 @@
   body {
     @apply max-w-none p-0;
   }
+  html {
+    background-image: none;
+  }
   #room-toggle,
+  .search-toggle,
   .home-search,
   .block-tools,
   .margin-toggle {

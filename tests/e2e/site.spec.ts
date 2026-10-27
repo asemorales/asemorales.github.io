@@ -124,32 +124,40 @@ test.describe("homepage", () => {
     await page.goto("/");
     const items = page.locator(".home-notes li");
     test.skip((await items.count()) === 0, "needs a listed note");
-    const search = page.locator(".home-search");
+    const toggle = page.getByRole("button", { name: "Search" });
     if (javaScriptEnabled === false) {
-      await expect(search).toBeHidden();
+      await expect(toggle).toBeHidden();
       for (const li of await items.all()) await expect(li).toBeVisible();
       return;
     }
-    await expect(search).toBeVisible();
-    const title = (await items.first().textContent())!.trim();
+    await toggle.click();
+    await expect(page.locator("#search")).toBeFocused();
+    const title = (await items.first().locator("a").textContent())!.trim();
     await page.locator("#search").fill(title);
     await expect(items.first()).toBeVisible();
     await page.locator("#search").fill("zzzz-no-such-note");
     await expect(page.locator(".home-notes li:visible")).toHaveCount(0);
     await expect(page.locator(".search-empty")).toBeVisible();
+    await expect(page.locator(".home-empty")).toContainText("zzzz-no-such-note");
+    await page.keyboard.press("Escape");
+    await expect(page.locator("#search")).toBeHidden();
+    await expect(items.first()).toBeVisible();
+    await expect(page.locator(".home-empty")).toBeHidden();
   });
 
-  test("links home from the logo on every page", async ({ page }) => {
-    for (const path of ["/", "/lorem-ipsum/", "/tags/test/"]) {
+  test("links home from the logo on every page but home", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("link", { name: "Ase Morales, home" })).toHaveCount(0);
+    for (const path of ["/lorem-ipsum/", "/tags/test/"]) {
       await page.goto(path);
       await expect(page.getByRole("link", { name: "Ase Morales, home" })).toBeVisible();
     }
   });
 
-  test("redirects the old About page to the homepage's About", async ({ page }) => {
+  test("redirects the old About page to the homepage introduction", async ({ page }) => {
     await page.goto("/about/");
-    await expect(page).toHaveURL(/\/#about$/);
-    await expect(page.locator("#about")).toBeVisible();
+    await expect(page).toHaveURL(/\/#introduction$/);
+    await expect(page.locator("#introduction")).toBeVisible();
   });
 });
 
