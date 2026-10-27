@@ -88,11 +88,11 @@ jobs:
           ARCHIVE_ACCESS_KEY: ${{ secrets.ARCHIVE_ACCESS_KEY }}
           ARCHIVE_SECRET_KEY: ${{ secrets.ARCHIVE_SECRET_KEY }}
         run: npm run archive
-      - name: Commit the record
+      - name: Commit list of archived links
         run: |
           git diff --quiet src/data/archived.json && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: record archived links" src/data/archived.json
+          git commit -m "chore: update archived links" src/data/archived.json
           git pull --rebase
           git push
