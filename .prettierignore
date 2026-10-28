@@ -11,3 +11,5 @@ PLAN.md
 # Written by `npm run sync` from the vault. markdownlint and Vale check these.
 src/content/
 tests/fixtures/
+# Downloaded by `vale sync`.
+.vale/styles/Microsoft/

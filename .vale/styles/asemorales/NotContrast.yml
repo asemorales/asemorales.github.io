@@ -1,5 +1,5 @@
 extends: existence
-message: "Say what it is. Drop the 'X, not Y' contrast ('%s')."
+message: "  Do not use 'X, not Y' phrases ('%s')."
 level: error
 tokens:
   - '\w+, not \w+'

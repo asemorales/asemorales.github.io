@@ -1,5 +1,5 @@
 extends: existence
-message: "'%s' is filler. Cut it or say something specific."
+message: "Remove filler words, like '%s'. Alternatively, say something specific."
 level: warning
 ignorecase: true
 tokens:

@@ -18,7 +18,7 @@
     "test:e2e": "playwright test",
     "lighthouse": "lhci autorun --config=lighthouserc.cjs",
     "check": "npm run lint && npm run test && npm run build && npm run lint:html && npm run test:e2e",
-    "lint:prose": "vale src/content"
+    "lint:prose": "vale src/content docs AGENTS.md README.md src scripts tests/unit tests/e2e *.mjs *.js *.cjs *.ts"
   },
   "engines": {
     "node": ">=22.12.0"

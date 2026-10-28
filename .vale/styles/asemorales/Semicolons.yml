@@ -1,5 +1,5 @@
 extends: existence
-message: "Split the sentence at the semicolon."
+message: "Do not split sentences using semicolons."
 level: error
 nonword: true
 scope: sentence

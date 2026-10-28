@@ -11,5 +11,9 @@ pre-commit:
       glob: "src/content/**/*.md"
       run: npx markdownlint-cli2 {staged_files}
     vale:
-      glob: "src/content/**/*.md"
+      glob:
+        - "src/content/**/*.md"
+        - "{AGENTS,README}.md"
+        - "docs/**/*.md"
+        - "*.{js,mjs,cjs,ts,css}"
       run: npx vale {staged_files}
