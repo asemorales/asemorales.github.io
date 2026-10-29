@@ -12,7 +12,7 @@ All visual changes must follow `docs/DESIGN.md`.
 ## Scope
 
 - Keep the codebase small and lightweight.
-- Front matter must contain only the dates, tags, and `unlisted`. Write epistemic status, summaries, and caveats into the note's text so that these carry over into external feeds.
+- Front matter must contain only the title, dates, tags, and `unlisted`. Write epistemic status, summaries, and caveats into the note's text so that these carry over into external feeds.
 - Opening paragraphs must be able to stand alone. These are used as the note's summary in popovers, the homepage, search, and the feed.
 - Never change a published URL.
 - Builds must never fetch. Cache fetched data in `src/data/`.
@@ -22,7 +22,7 @@ All visual changes must follow `docs/DESIGN.md`.
 
 - Show every new feature on the lorem ipsum page in the vault.
 - In the Lorem Ipsum page, each paragraph must start with a sentence about what that paragraph is testing.
-- Test every feature at phone and wide widths, with and without JS.
+- Test every feature at phone and wide widths. Test each width with JS and without JS.
 - Stop `astro dev` before `npm run check`, since Playwright reuses that server.
 
 ## Cleanup

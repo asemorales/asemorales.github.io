@@ -22,7 +22,7 @@ Notes are written in Obsidian and published with the command:
 VAULT={$OBSIDIAN_VAULT_PATH} npm run sync
 ```
 
-This publishes all notes in the vault's `published/` folder. Each note requires front matter with `date` (first published) and `tags`. Optionally, add `unlisted: true` to unlist notes.
+This publishes all notes in the vault's `published/` folder. A note's file name sets its URL, so `halting-problem.md` is published at `/halting-problem/`. Wikilinks must use that file name. Each note requires front matter with `title`, `date` (first published), and `tags`. Optionally, add `unlisted: true` to unlist notes.
 
 To write custom annotations for an external link, add a note to `published/annotations/` with a `url` field in the front matter. Text in custom annotations are used in popovers for that link.
 

@@ -5,7 +5,7 @@ const LEVELS = { h2: 0, h3: 1, h4: 2 };
 export const BACK_IDS = ["see-also", "references", "external-links"];
 
 export function rehypeSections({ backlinked = [] } = {}) {
-  const linked = new Set(backlinked.map((t) => t.toLowerCase()));
+  const linked = new Set(backlinked);
   return (tree, file) => {
     const slugger = new GithubSlugger();
     for (const id of BACK_IDS) slugger.slug(id);
@@ -32,7 +32,7 @@ export function rehypeSections({ backlinked = [] } = {}) {
     }
     const frontmatter = file?.data.astro?.frontmatter ?? {};
     const back = [];
-    if (linked.has(String(frontmatter.title).toLowerCase())) back.push({ id: "see-also", title: "See also" });
+    if (linked.has(file?.stem)) back.push({ id: "see-also", title: "See also" });
     if (frontmatter.references?.length) back.push({ id: "references", title: "References" });
     if (frontmatter.externalLinks?.length) back.push({ id: "external-links", title: "External links" });
     if (headings.length + back.length < 2) return;

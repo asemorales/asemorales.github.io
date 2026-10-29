@@ -118,13 +118,13 @@ function rehypeFeedFootnotes() {
   };
 }
 
-export async function feedHtml(markdown, { title, slug, titles, site, status = {}, image = (src) => src }) {
+export async function feedHtml(markdown, { slug, slugs, site, status = {}, image = (src) => src }) {
   const base = `${site}/${slug}/`;
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkMath)
-    .use(remarkWikilinks, { titles })
+    .use(remarkWikilinks, { slugs })
     .use(remarkRehype)
     .use(rehypeFeedMath, { site })
     .use(rehypeCallouts)
@@ -133,6 +133,6 @@ export async function feedHtml(markdown, { title, slug, titles, site, status = {
     .use(rehypeDeadLinks, { status })
     .use(rehypeFeedTidy, { site, base, image })
     .use(rehypeStringify, { allowDangerousHtml: true })
-    .process({ value: markdown, data: { astro: { frontmatter: { title } } } });
+    .process(markdown);
   return String(file);
 }

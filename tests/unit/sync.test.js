@@ -55,10 +55,25 @@ describe("sync", () => {
     expect(report.images).toEqual([{ from: "attachments/diagram.png", to: "images/diagram.png" }]);
   });
 
-  it("leaves wikilinks in place and reports ones outside published/", async () => {
+  it("aliases wikilinks with their target's title and reports ones outside published/", async () => {
     const report = await sync({ vault: fixture, out, lastUpdated: fixedDate });
-    expect(await read("notes/halting-problem.md")).toContain("[[Rice's Theorem]]");
-    expect(report.unresolved).toEqual([{ note: "published/Halting Problem.md", target: "Private Draft" }]);
+    expect(await read("notes/halting-problem.md")).toContain("[[rices-theorem|Rice’s Theorem]] and [[private-draft|a draft]]");
+    expect(await read("notes/rices-theorem.md")).toContain("[[halting-problem#Proof|Halting Problem > Proof]]");
+    expect(report.unresolved).toEqual([{ note: "published/halting-problem.md", target: "private-draft" }]);
+  });
+
+  it("links a note's own headings by anchor alone", async () => {
+    const vault = await tempVault({ "note.md": "---\ntitle: Note\ndate: 2026-01-01\ntags: [a]\n---\n[[note#Part]] [[note]] [[#Part]]" });
+    await sync({ vault, out, lastUpdated: fixedDate });
+    expect(await read("notes/note.md")).toContain("[[#Part|Note > Part]] [[note|Note]] [[#Part]]");
+    await fs.rm(vault, { recursive: true });
+  });
+
+  it("keeps special characters in the title", async () => {
+    const vault = await tempVault({ "q-a.md": '---\ntitle: "Q&A: why/how?"\ndate: 2026-01-01\ntags: [a]\n---\nText.' });
+    await sync({ vault, out, lastUpdated: fixedDate });
+    expect(await read("notes/q-a.md")).toContain('title: "Q&A: why/how?"');
+    await fs.rm(vault, { recursive: true });
   });
 
   it("copies annotations with their url", async () => {
@@ -69,7 +84,7 @@ describe("sync", () => {
   it("treats annotations as optional", async () => {
     const vault = await fs.mkdtemp(path.join(os.tmpdir(), "sync-vault-"));
     await fs.mkdir(path.join(vault, "published"));
-    await fs.writeFile(path.join(vault, "published", "Note.md"), "---\ndate: 2026-01-01\ntags: [logic]\n---\nText.");
+    await fs.writeFile(path.join(vault, "published", "note.md"), "---\ntitle: Note\ndate: 2026-01-01\ntags: [logic]\n---\nText.");
     const report = await sync({ vault, out, lastUpdated: fixedDate });
     expect(report.annotations).toEqual([]);
     expect(await fs.readdir(path.join(out, "annotations"))).toEqual([".gitkeep"]);
@@ -89,17 +104,19 @@ describe("sync", () => {
   });
 
   it.each([
-    ["missing date", "---\ntags: [a]\n---\nText.", /missing "date"/],
-    ["bad date", "---\ndate: soon\ntags: [a]\n---\nText.", /"date" must be YYYY-MM-DD/],
-    ["missing tags", "---\ndate: 2026-01-01\n---\nText.", /"tags" must be a list/],
-    ["nested tag", "---\ndate: 2026-01-01\ntags: [a/b]\n---\nText.", /tags are flat/],
-    ["unknown field", "---\ndate: 2026-01-01\ntags: [a]\nstatus: draft\n---\nText.", /unknown front matter field "status"/],
-    ["bad unlisted", "---\ndate: 2026-01-01\ntags: [a]\nunlisted: yes please\n---\nText.", /"unlisted" must be true or false/],
-    ["invalid YAML", "---\ndate: [\n---\nText.", /not valid YAML/],
-    ["note embed", "---\ndate: 2026-01-01\ntags: [a]\n---\n![[Other Note]]", /embedding notes/],
-    ["missing image", "---\ndate: 2026-01-01\ntags: [a]\n---\n![[gone.png]]", /isn't anywhere in the vault/],
-  ])("fails on %s and writes nothing", async (_, text, message) => {
-    const vault = await tempVault({ "Note.md": text });
+    ["missing title", "---\ndate: 2026-01-01\ntags: [a]\n---\nText.", /missing "title"/],
+    ["file name that isn't a slug", "---\ntitle: T\ndate: 2026-01-01\ntags: [a]\n---\nText.", /must look like "note.md"/, "Note.md"],
+    ["missing date", "---\ntitle: T\ntags: [a]\n---\nText.", /missing "date"/],
+    ["bad date", "---\ntitle: T\ndate: soon\ntags: [a]\n---\nText.", /"date" must be YYYY-MM-DD/],
+    ["missing tags", "---\ntitle: T\ndate: 2026-01-01\n---\nText.", /"tags" must be a list/],
+    ["nested tag", "---\ntitle: T\ndate: 2026-01-01\ntags: [a/b]\n---\nText.", /tags are flat/],
+    ["unknown field", "---\ntitle: T\ndate: 2026-01-01\ntags: [a]\nstatus: draft\n---\nText.", /unknown front matter field "status"/],
+    ["bad unlisted", "---\ntitle: T\ndate: 2026-01-01\ntags: [a]\nunlisted: yes please\n---\nText.", /"unlisted" must be true or false/],
+    ["invalid YAML", "---\ntitle: T\ndate: [\n---\nText.", /not valid YAML/],
+    ["note embed", "---\ntitle: T\ndate: 2026-01-01\ntags: [a]\n---\n![[Other Note]]", /embedding notes/],
+    ["missing image", "---\ntitle: T\ndate: 2026-01-01\ntags: [a]\n---\n![[gone.png]]", /isn't anywhere in the vault/],
+  ])("fails on %s and writes nothing", async (_, text, message, name) => {
+    const vault = await tempVault({ [name ?? "note.md"]: text });
     const error = await sync({ vault, out, lastUpdated: fixedDate }).catch((e) => e);
     expect(error).toBeInstanceOf(SyncError);
     expect(error.message).toMatch(message);
@@ -108,7 +125,9 @@ describe("sync", () => {
   });
 
   it("fails on two notes with the same URL", async () => {
-    const vault = await tempVault({ "A b.md": "---\ndate: 2026-01-01\ntags: [a]\n---\n", "A-B.md": "---\ndate: 2026-01-01\ntags: [a]\n---\n" });
+    const vault = await tempVault({ "a-b.md": "---\ntitle: A\ndate: 2026-01-01\ntags: [a]\n---\n" });
+    await fs.mkdir(path.join(vault, "published", "sub"));
+    await fs.writeFile(path.join(vault, "published", "sub", "a-b.md"), "---\ntitle: B\ndate: 2026-01-01\ntags: [a]\n---\n");
     await expect(sync({ vault, out, lastUpdated: fixedDate })).rejects.toThrow(/already taken/);
     await fs.rm(vault, { recursive: true });
   });

@@ -4,9 +4,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { slugify } from "../src/lib/slug.js";
+import { WIKILINK } from "../src/lib/wikilinks.js";
 
 const IMAGE = /\.(png|jpe?g|gif|webp|avif|svg)$/i;
-const NOTE_KEYS = new Set(["date", "tags", "unlisted"]);
+const NOTE_KEYS = new Set(["title", "date", "tags", "unlisted"]);
 const SKIP_DIRS = new Set([".git", ".obsidian", ".trash", "node_modules"]);
 
 export class SyncError extends Error {
@@ -64,8 +65,9 @@ function validateNote(file, data) {
   const problems = [];
   const where = `${file}:`;
   for (const key of Object.keys(data)) {
-    if (!NOTE_KEYS.has(key)) problems.push(`${where} unknown front matter field "${key}". Allowed: date, tags, unlisted.`);
+    if (!NOTE_KEYS.has(key)) problems.push(`${where} unknown front matter field "${key}". Allowed: title, date, tags, unlisted.`);
   }
+  if (typeof data.title !== "string" || !data.title.trim()) problems.push(`${where} missing "title" (the note's heading, as text).`);
   if (data.date === undefined) problems.push(`${where} missing "date" (the first published date, as YYYY-MM-DD).`);
   else if (!isoDate(data.date)) problems.push(`${where} "date" must be YYYY-MM-DD, got ${JSON.stringify(data.date)}.`);
   if (!Array.isArray(data.tags) || data.tags.length === 0) {
@@ -99,7 +101,6 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
   const files = (await walk(published)).filter((f) => f.endsWith(".md"));
   const isAnnotation = (f) => path.relative(published, f).split(path.sep)[0] === "annotations";
   const noteFiles = files.filter((f) => !isAnnotation(f));
-  const titles = new Set(noteFiles.map((f) => path.basename(f, ".md").toLowerCase()));
 
   let vaultFiles;
   const findImage = async (name) => {
@@ -116,8 +117,7 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
 
   for (const file of noteFiles) {
     const rel = path.relative(vault, file);
-    const title = path.basename(file, ".md");
-    const slug = slugify(title);
+    const slug = path.basename(file, ".md");
     let parsed;
     try {
       parsed = matter(await fs.readFile(file, "utf8"));
@@ -126,7 +126,7 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
       continue;
     }
     problems.push(...validateNote(rel, parsed.data));
-    if (!slug) problems.push(`${rel}: the file name has no letters or digits to make a URL from.`);
+    if (slug !== slugify(slug)) problems.push(`${rel}: the file name is the URL, so it must look like "${slugify(slug) || "a-title"}.md".`);
     else if (slugs.has(slug)) problems.push(`${rel}: its URL /${slug}/ is already taken by ${slugs.get(slug)}.`);
     slugs.set(slug, rel);
 
@@ -147,16 +147,27 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
     );
     body = body.replace(/\n{3,}/g, "\n\n").trim() + "\n";
 
-    outsideCode(body, (text) => {
-      for (const m of text.matchAll(/(?<!!)\[\[([^\]|#]*)(#[^\]|]*)?(\|[^\]]*)?\]\]/g)) {
-        const target = m[1].trim();
-        if (target && !titles.has(target.toLowerCase())) report.unresolved.push({ note: rel, target });
-      }
-      return text;
-    });
-
     const updated = lastUpdated(vault, file) ?? { date: isoDate((await fs.stat(file)).mtime), source: "mtime" };
-    notes.push({ rel, slug, title, data: parsed.data, body, updated, embeds });
+    notes.push({ rel, slug, data: parsed.data, body, updated, embeds });
+  }
+
+  const titles = new Map(notes.map((n) => [n.slug, n.data.title]));
+  for (const note of notes) {
+    note.body = outsideCode(note.body, (text) =>
+      text.replace(WIKILINK, (whole, rawTarget, rawHeading, alias) => {
+        const target = rawTarget.trim().toLowerCase();
+        const heading = rawHeading?.trim();
+        if (!target) return whole;
+        if (!titles.has(target)) {
+          report.unresolved.push({ note: note.rel, target: rawTarget.trim() });
+          return whole;
+        }
+        const title = titles.get(target);
+        const label = alias?.trim() || (heading ? `${title} > ${heading}` : title);
+        const self = target === note.slug && heading;
+        return `[[${self ? "" : target}${heading ? `#${heading}` : ""}|${label}]]`;
+      }),
+    );
   }
 
   const annotations = [];
@@ -187,7 +198,7 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
   for (const note of notes) {
     const front = [
       "---",
-      `title: ${JSON.stringify(note.title)}`,
+      `title: ${JSON.stringify(note.data.title)}`,
       `date: ${isoDate(note.data.date)}`,
       `updated: ${note.updated.date}`,
       `tags: ${JSON.stringify(note.data.tags)}`,

@@ -141,7 +141,8 @@ describe("rehypeSections", () => {
   it("ends the contents with See also, References, and External links, unnumbered, when the note has them", () => {
     const tree = root(el("h2", {}, [txt("Only")]));
     const file = {
-      data: { astro: { frontmatter: { title: "Here", references: [{ url: "https://a.org" }], externalLinks: [{ url: "https://b.org" }] } } },
+      stem: "here",
+      data: { astro: { frontmatter: { references: [{ url: "https://a.org" }], externalLinks: [{ url: "https://b.org" }] } } },
     };
     rehypeSections({ backlinked: ["here"] })(tree, file);
     expect(toHtml(tree.children[0])).toContain(
@@ -198,14 +199,14 @@ describe("rehypeBibliography", () => {
 });
 
 describe("wikilinks", () => {
-  const run = (value, title = "Here") => {
+  const run = (value) => {
     const tree = { type: "root", children: [{ type: "paragraph", children: [{ type: "text", value }] }] };
-    remarkWikilinks({ titles: ["Here", "Rice's Theorem"] })(tree, { data: { astro: { frontmatter: { title } } } });
+    remarkWikilinks({ slugs: ["here", "rices-theorem"] })(tree);
     return tree.children[0].children;
   };
 
   it("links published notes and headings, and leaves others as text", () => {
-    expect(run("See [[Rice’s Theorem#Proof sketch|the proof]] and [[Secret]].")).toEqual([
+    expect(run("See [[Rices-Theorem#Proof sketch|the proof]] and [[Secret]].")).toEqual([
       { type: "text", value: "See " },
       { type: "link", url: "/rices-theorem/#proof-sketch", children: [{ type: "text", value: "the proof" }] },
       { type: "text", value: " and " },
@@ -214,24 +215,24 @@ describe("wikilinks", () => {
     ]);
   });
 
-  it("links headings in the same note by anchor alone", () => {
+  it("links headings with no target by anchor alone", () => {
     expect(
-      run("[[#Math]] [[Here#Code]]")
+      run("[[#Math]] [[here#Code]]")
         .filter((n) => n.type === "link")
         .map((n) => n.url),
-    ).toEqual(["#math", "#code"]);
+    ).toEqual(["#math", "/here/#code"]);
   });
 
   it("links headings named like the back matter to the ids rehypeSections gives them", () => {
     expect(
-      run("[[#References]] [[Here#External links]] [[Here#See also]]")
+      run("[[#References]] [[#External links]] [[#See also]]")
         .filter((n) => n.type === "link")
         .map((n) => n.url),
     ).toEqual(["#references-1", "#external-links-1", "#see-also-1"]);
   });
 
   it("lists link targets outside code", () => {
-    expect(linkTargets("[[A]] [[B#x|y]] [[#Self]] `[[C]]`\n```\n[[D]]\n```\n![[img.png]]")).toEqual(["A", "B"]);
+    expect(linkTargets("[[A]] [[B#x|y]] [[#Self]] `[[C]]`\n```\n[[D]]\n```\n![[img.png]]")).toEqual(["a", "b"]);
   });
 });
 

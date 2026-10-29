@@ -189,7 +189,7 @@ test.describe("bottom matter", () => {
   test("list notes that link here under See also, in the contents too", async ({ page }) => {
     await expect(page.locator("#see-also + ul a")).toHaveAttribute("href", "/dolor-sit-amet/");
     await expect(page.locator("nav.toc a[href='#see-also']")).toHaveCount(1);
-    await page.goto("/dolor-sit-amet/");
+    await page.goto("/acknowledgements/");
     await expect(page.locator("#see-also")).toHaveCount(0);
   });
 

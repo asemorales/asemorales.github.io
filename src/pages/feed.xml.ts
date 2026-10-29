@@ -16,7 +16,7 @@ const escape = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").rep
 export async function GET({ site }: { site: URL }) {
   const origin = site.href.replace(/\/$/, "");
   const all = await getCollection("notes");
-  const titles = all.map((n) => n.data.title);
+  const slugs = all.map((n) => n.id);
   const notes = all.filter((n) => !n.data.unlisted).sort((a, b) => +b.data.date - +a.data.date);
   const urls = new Map<string, string>();
   for (const [path, meta] of Object.entries(images)) urls.set(`./images/${path.split("/").pop()}`, (await getImage({ src: meta })).src);
@@ -25,9 +25,8 @@ export async function GET({ site }: { site: URL }) {
     notes.map(async (n) => {
       const url = `${origin}/${n.id}/`;
       const html = await feedHtml(n.body ?? "", {
-        title: n.data.title,
         slug: n.id,
-        titles,
+        slugs,
         site: origin,
         status: linkStatus,
         image: (src: string) => urls.get(src) ?? src,

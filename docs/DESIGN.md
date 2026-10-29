@@ -27,7 +27,7 @@
 - All colors must be stored as variables. Define each color variable for both light and dark mode.
 - Switch between light and dark mode through color variables. Never use `filter: invert()`.
 - Use palette colors from asemorales/bierstadt.
-- Interface elements must use the theme's grayscale colors. Use hue only for meaning, such as links and code.
+- Interface elements must use the theme's grayscale colors. Use hue only for meaning. Links and code use hue for this reason.
 - Text colors must pass WCAG AA (4.5:1) contrast.
 - Color must never be the sole indicator of meaning. Pair it with a shape, such as an underline style.
 - Check if colors are distinct under color blindness.

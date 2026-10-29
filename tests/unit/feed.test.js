@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { feedHtml, mathImageName, proofTrees, texToSvg } from "../../src/lib/feed.js";
 
 const site = "https://asemorales.com";
-const render = (md, opts = {}) => feedHtml(md, { title: "Here", slug: "here", titles: ["Here", "There"], site, ...opts });
+const render = (md, opts = {}) => feedHtml(md, { slug: "here", slugs: ["here", "there"], site, ...opts });
 
 describe("feed HTML", () => {
   it("keeps ordinary footnotes, with no sidenotes or section numbers", async () => {
@@ -25,7 +25,10 @@ describe("feed HTML", () => {
 
   it("makes links absolute, resolves wikilinks, and archives dead links", async () => {
     const status = { "https://gone.org": { firstSeen: "2026-01-02", failures: 2, deadSince: "2026-02-03" } };
-    const html = await render("[[There]], [[#Part]], [gone](https://gone.org), ![x](./images/a.svg)", { status, image: () => "/_astro/a.123.svg" });
+    const html = await render("[[there|There]], [[#Part]], [gone](https://gone.org), ![x](./images/a.svg)", {
+      status,
+      image: () => "/_astro/a.123.svg",
+    });
     expect(html).toContain(`<a href="${site}/there/">There</a>`);
     expect(html).toContain(`<a href="${site}/here/#part">Part</a>`);
     expect(html).toContain('<a href="https://web.archive.org/web/20260102/https://gone.org">gone</a>');

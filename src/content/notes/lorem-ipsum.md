@@ -1,7 +1,7 @@
 ---
 title: "Lorem Ipsum"
 date: 2026-10-26
-updated: 2026-10-28
+updated: 2026-10-29
 tags: ["test"]
 ---
 
@@ -81,7 +81,7 @@ Lorem ipsum dolor sit amet.[^turing] Consectetur adipiscing elit.[^turing] Sed d
 
 ### Internal links
 
-A section of this note: [[Lorem Ipsum#Typography]]. An alias: [[Lorem Ipsum#Math|the math section]]. An unpublished note, as plain text: [[Some Private Note]].
+A section of this note: [[#Typography|Lorem Ipsum > Typography]]. An alias: [[#Math|the math section]]. A note whose title has punctuation: [[dolor-sit-amet|Dolor Sit Amet: “Quis?” & Nostrud]]. An unpublished note, as plain text: [[Some Private Note]].
 
 ### External links
 
