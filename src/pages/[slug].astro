@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import NoteTools from "../components/NoteTools.astro";
+import Reading from "../components/Reading.astro";
 import Entry from "../components/SourceEntry.astro";
 import cards from "../data/cards.json";
 import Base from "../layouts/Base.astro";
@@ -142,4 +143,5 @@ const lists = [
     </footer>
   </article>
   <NoteTools />
+  <Reading />
 </Base>

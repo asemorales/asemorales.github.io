@@ -1,0 +1,58 @@
+---
+---
+
+<script>
+  import { crossed, depth } from "../lib/reading.js";
+
+  const IDLE = 5 * 60 * 1000;
+  const track = (name: string, data: object) => (window as Window & { umami?: { track(name: string, data: object): void } }).umami?.track(name, data);
+
+  let engaged = 0;
+  let start: number | null = null;
+  let idle: number | undefined;
+
+  function pause() {
+    if (start === null) return;
+    engaged += performance.now() - start;
+    start = null;
+  }
+
+  function resume() {
+    if (document.visibilityState !== "visible") return;
+    start ??= performance.now();
+    clearTimeout(idle);
+    idle = window.setTimeout(pause, IDLE);
+  }
+
+  for (const type of ["scroll", "keydown", "pointerdown"]) addEventListener(type, resume, { passive: true });
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") return resume();
+    pause();
+    clearTimeout(idle);
+    if (engaged >= 1000) track("engaged", { seconds: Math.round(engaged / 1000) });
+    engaged = 0;
+  });
+  resume();
+
+  const prose = document.querySelector("article.note")!;
+  const end = document.querySelector("footer.bottom")!;
+  const sent = new Set<number>();
+  let queued = false;
+
+  function measure() {
+    queued = false;
+    const percent = depth(prose.getBoundingClientRect().top, end.getBoundingClientRect().top, innerHeight);
+    for (const d of crossed(percent, sent)) track("scroll", { depth: d });
+  }
+
+  addEventListener(
+    "scroll",
+    () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(measure);
+    },
+    { passive: true },
+  );
+  measure();
+</script>

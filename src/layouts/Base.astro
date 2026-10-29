@@ -53,7 +53,15 @@ const fullTitle = home ? title : `${title} | Ase Morales`;
       } catch {}
     </script>
 
-    {import.meta.env.PROD && <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="aeeab31a-d067-4d0a-9c78-5372e12b938f" />}
+    {import.meta.env.PROD && (
+      <script
+        is:inline
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id="aeeab31a-d067-4d0a-9c78-5372e12b938f"
+        data-domains="asemorales.com"
+      />
+    )}
   </head>
 
   <body class:list={["mx-auto px-4 py-6 sm:px-8", wide ? "max-w-[96rem]" : "max-w-6xl"]}>

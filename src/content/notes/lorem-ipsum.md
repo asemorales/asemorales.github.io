@@ -178,3 +178,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### A third-level heading
 
 #### A fourth-level heading
+
+## Reading
+
+This page's length tests the scroll-depth events, which fire as the reader passes 25%, 50%, 75%, and 90% of the prose. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

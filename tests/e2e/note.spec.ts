@@ -1,4 +1,4 @@
-import { expect, test, type Locator } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 
 const LOREM = "/lorem-ipsum/";
 const wide = (name: string) => name.startsWith("wide");
@@ -306,5 +306,50 @@ test.describe("screenshots", () => {
     await expect(page.locator("#room-toggle")).toBeHidden();
     await page.pdf({ path: info.outputPath("lorem.pdf") });
     await page.screenshot({ path: info.outputPath("lorem-print.png"), fullPage: true });
+  });
+});
+
+test.describe("reading events", () => {
+  test.beforeEach(async ({ page, javaScriptEnabled }) => {
+    test.skip(javaScriptEnabled === false, "events need JS");
+    await page.route("https://cloud.umami.is/**", (route) => route.abort());
+    await page.addInitScript(() => {
+      const w = window as unknown as { events: [string, Record<string, number>][]; umami: object };
+      w.events = [];
+      w.umami = { track: (name: string, data: Record<string, number>) => w.events.push([name, data]) };
+    });
+  });
+
+  const events = (page: Page, name: string) =>
+    page.evaluate(
+      (n) => (window as unknown as { events: [string, Record<string, number>][] }).events.filter(([e]) => e === n).map(([, d]) => d),
+      name,
+    );
+
+  test("reports each scroll depth once", async ({ page }) => {
+    const errors: Error[] = [];
+    page.on("pageerror", (e) => errors.push(e));
+    await page.goto(LOREM);
+    expect(await events(page, "scroll")).toEqual([]);
+    await page.evaluate(() => scrollTo(0, document.body.scrollHeight));
+    await expect.poll(() => events(page, "scroll")).toEqual([{ depth: 25 }, { depth: 50 }, { depth: 75 }, { depth: 90 }]);
+    await page.evaluate(() => scrollTo(0, 0));
+    await page.evaluate(() => scrollTo(0, document.body.scrollHeight));
+    await page.evaluate(() => new Promise(requestAnimationFrame));
+    expect(await events(page, "scroll")).toHaveLength(4);
+    expect(errors).toEqual([]);
+  });
+
+  test("reports engaged time when the page is hidden", async ({ page }) => {
+    await page.clock.install();
+    await page.goto(LOREM);
+    await page.clock.runFor(3000);
+    await page.evaluate(() => {
+      Object.defineProperty(document, "visibilityState", { value: "hidden", configurable: true });
+      document.dispatchEvent(new Event("visibilitychange"));
+    });
+    const engaged = await events(page, "engaged");
+    expect(engaged).toHaveLength(1);
+    expect(engaged[0].seconds).toBeGreaterThan(0);
   });
 });
