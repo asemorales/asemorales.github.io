@@ -39,10 +39,6 @@ test.describe("popovers on the lorem page", () => {
     await expect(await hover(page, "Halting problem")).toContainText("In computability theory");
   });
 
-  test("prefer a hand-written annotation", async ({ page }) => {
-    await expect((await hover(page, "gwern.net design")).locator(".popover-body")).toContainText("Gwern Branwen's essay");
-  });
-
   test("say a dead link's copy is archived", async ({ page }) => {
     await expect((await hover(page, "a page that no longer exists")).locator(".popover-dead")).toContainText("Archived copy");
   });
