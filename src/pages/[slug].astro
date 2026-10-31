@@ -7,6 +7,7 @@ import cards from "../data/cards.json";
 import Base from "../layouts/Base.astro";
 import { summary } from "../lib/summary.js";
 import { slugify } from "../lib/slug.js";
+import { sourceEntry } from "../lib/sources.js";
 import { linkTargets } from "../lib/wikilinks.js";
 
 export async function getStaticPaths() {
@@ -33,16 +34,12 @@ const backlinks = (await getCollection("notes", (n) => n.id !== note.id && (!n.d
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, a]));
-const withAnnotations = (sources: Source[] = []) =>
+const withAnnotations = (sources: Source[] = [], cited = false) =>
   Promise.all(
     sources.map(async (s) => {
-      const annotation = annotations.get(s.url);
-      return {
-        ...s,
-        domain: new URL(s.url).hostname.replace(/^www\./, ""),
-        Annotation: annotation ? (await render(annotation)).Content : null,
-        blurb: (cards as Record<string, { text?: string }>)[s.url]?.text || null,
-      };
+      const card = (cards as Record<string, { meta?: string[]; text?: string }>)[s.url];
+      const { text, domain, annotation, blurb } = sourceEntry({ ...s, card, annotation: annotations.get(s.url), cited });
+      return { ...s, text, domain, blurb, Annotation: annotation ? (await render(annotation)).Content : null };
     }),
   );
 const lists = [
@@ -50,7 +47,7 @@ const lists = [
     id: "references",
     title: "References",
     count: (n: number) => (n === 1 ? "1 reference" : `${n} references`),
-    entries: await withAnnotations(remarkPluginFrontmatter.references as Source[]),
+    entries: await withAnnotations(remarkPluginFrontmatter.references as Source[], true),
   },
   {
     id: "external-links",
@@ -101,7 +98,7 @@ const lists = [
               <span class="icon icon-link" aria-hidden="true" />
             </a>
           </h2>
-          <details>
+          <details open>
             <summary>{list.count(list.entries.length)}</summary>
             {list.id === "references" ? (
               <ol>

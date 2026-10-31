@@ -11,7 +11,6 @@ interface Source {
 
 export async function GET() {
   const notes = await getCollection("notes");
-  const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, a.body ?? ""]));
   const out: Record<string, unknown> = {};
   for (const note of notes) {
     const body = note.body ?? "";
@@ -25,7 +24,6 @@ export async function GET() {
         url,
         text,
         card: (cards as Record<string, { title: string; meta: string[]; text: string }>)[url],
-        annotation: annotations.get(url),
         deadSince: dead ? (dead.since ?? "") : undefined,
       });
       out[url] = card;

@@ -30,12 +30,12 @@ export function headingCards(markdown) {
   return out;
 }
 
-export function linkCard({ url, text, card, annotation, deadSince }) {
+export function linkCard({ url, text, card, deadSince }) {
   const domain = new URL(url).hostname.replace(/^www\./, "");
   const out = {
     title: card?.title || text,
     meta: card?.meta?.length ? card.meta : [domain],
-    paragraphs: annotation ? summary(annotation) : card?.text ? [card.text] : [],
+    paragraphs: card?.text ? [card.text] : [],
   };
   if (deadSince !== undefined)
     out.dead = deadSince ? `Archived copy. The original went dead on ${deadSince}.` : "Archived copy. The original is gone.";

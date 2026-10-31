@@ -19,13 +19,8 @@ describe("popover cards", () => {
     });
   });
 
-  it("prefer an annotation to a card, and a card to the link text", () => {
+  it("prefer a card to the link text", () => {
     const card = { title: "Repo", meta: ["JS", "★ 3"], text: "A repo." };
-    expect(linkCard({ url: "https://github.com/a/b", text: "a/b", card, annotation: "Mine." })).toEqual({
-      title: "Repo",
-      meta: ["JS", "★ 3"],
-      paragraphs: ["Mine."],
-    });
     expect(linkCard({ url: "https://github.com/a/b", text: "a/b", card })).toEqual({ title: "Repo", meta: ["JS", "★ 3"], paragraphs: ["A repo."] });
     expect(linkCard({ url: "https://www.x.org/p", text: "X" })).toEqual({ title: "X", meta: ["x.org"], paragraphs: [] });
   });

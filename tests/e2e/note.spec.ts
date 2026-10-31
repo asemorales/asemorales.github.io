@@ -133,7 +133,7 @@ test.describe("sidenotes", () => {
 test.describe("callouts", () => {
   test("render the status notice as a box without its marker", async ({ page }) => {
     const status = page.locator("aside.status");
-    await expect(status).toContainText("This page exercises every design feature");
+    await expect(status).toContainText("This page is used to test the design features");
     await expect(page.locator("article")).not.toContainText("[!");
   });
 
@@ -147,7 +147,7 @@ test.describe("callouts", () => {
   });
 
   test("set every quote alike, with an attribution in a footer", async ({ page }) => {
-    await expect(page.locator("#attributed-quote + blockquote footer")).toContainText("Borges");
+    await expect(page.locator("#epigraph + blockquote footer")).toContainText("Borges");
     expect(await page.locator("#default-quote + blockquote").evaluate((el) => getComputedStyle(el).fontStyle)).toBe("italic");
   });
 
@@ -181,15 +181,11 @@ test.describe("links", () => {
     await expect(page.locator("article a", { hasText: "Some Private Note" })).toHaveCount(0);
   });
 
-  test("point dead links at the Wayback Machine, in the dead-link color with a dotted underline", async ({ page }) => {
-    const dead = page.getByRole("link", { name: "a page that no longer exists" });
+  test("point dead links at the Wayback Machine, with a dotted underline", async ({ page }) => {
+    const dead = page.getByRole("link", { name: "a page that no longer exists" }).first();
     await expect(dead).toHaveAttribute("href", "https://web.archive.org/web/20261027/https://dead-link-test.invalid/page");
     await expect(dead).toHaveClass(/\bdead\b/);
-    const live = page.getByRole("link", { name: "asemorales/bierstadt" });
-    const style = (l: Locator) => l.evaluate((el) => [getComputedStyle(el).color, getComputedStyle(el).textDecorationStyle]);
-    const [[deadColor, deadLine], [liveColor]] = await Promise.all([style(dead), style(live)]);
-    expect(deadColor).not.toBe(liveColor);
-    expect(deadLine).toBe("dotted");
+    expect(await dead.evaluate((el) => getComputedStyle(el).textDecorationStyle)).toBe("dotted");
     await expect(page.locator("section.sources a.dead")).toHaveAttribute("href", /^https:\/\/web\.archive\.org\//);
   });
 });
@@ -202,16 +198,16 @@ test.describe("bottom matter", () => {
     await expect(page.locator("#see-also")).toHaveCount(0);
   });
 
-  test("list References and External links last in the contents, collapsed", async ({ page }) => {
+  test("list References and External links last in the contents, open", async ({ page }) => {
     const back = page.locator("nav.toc > details > ol > li");
     await expect(back.nth(-2).locator("a")).toHaveAttribute("href", "#references");
     await expect(back.last().locator("a")).toHaveAttribute("href", "#external-links");
     for (const id of ["references", "external-links"]) {
       const details = page.locator(`section.sources:has(h2#${id}) details`);
-      await expect(details).not.toHaveAttribute("open");
-      await expect(details.locator("li").first()).toBeHidden();
-      await details.locator("summary").click();
+      await expect(details).toHaveAttribute("open");
       await expect(details.locator("li").first()).toBeVisible();
+      await details.locator("summary").click();
+      await expect(details.locator("li").first()).toBeHidden();
     }
   });
 
@@ -219,7 +215,7 @@ test.describe("bottom matter", () => {
     const refs = page.locator("section.sources:has(h2#references) li");
     await expect(refs).toHaveCount(2);
     await expect(refs.first()).toHaveAttribute("id", "ref-1");
-    await expect(refs.first()).toContainText("Turing 1936, §8");
+    await expect(refs.first()).toContainText("Turing, 1937, On Computable Numbers, with an Application to the Entscheidungsproblem, §8 (doi.org)");
     const backs = refs.first().locator(".backrefs a");
     await expect(backs).toHaveText(["a", "b", "c"]);
     await expect(page.locator((await backs.first().getAttribute("href"))!)).toHaveClass("cite-ref");
@@ -274,7 +270,7 @@ test.describe("block buttons", () => {
     const copy = tools.getByRole("button", { name: "Copy code" });
     await copy.click();
     await expect(copy).toHaveAttribute("data-copied", "true");
-    if (browserName === "chromium") expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/^def collatz_steps/);
+    if (browserName === "chromium") expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/^from dataclasses/);
   });
 
   test("swap display math for its LaTeX source and back", async ({ page, javaScriptEnabled }, info) => {

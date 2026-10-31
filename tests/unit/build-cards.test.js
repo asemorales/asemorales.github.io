@@ -14,8 +14,8 @@ describe("build-cards", () => {
 
   it("reads an arXiv entry", () => {
     const xml = `<feed><entry><title>A  Title</title><published>2017-06-12T00:00:00Z</published><summary>Short &amp; sweet.</summary>
-      <author><name>A</name></author><author><name>B</name></author><author><name>C</name></author><author><name>D</name></author></entry></feed>`;
-    expect(parseArxiv(xml)).toEqual({ title: "A Title", meta: ["A et al.", "arXiv", "2017"], text: "Short & sweet." });
+      <author><name>Grace B. Ada</name></author><author><name>B</name></author><author><name>C</name></author><author><name>D</name></author></entry></feed>`;
+    expect(parseArxiv(xml)).toEqual({ title: "A Title", meta: ["Ada et al.", "2017", "arXiv"], text: "Short & sweet." });
   });
 
   it("reads a Crossref work, stripping JATS from the abstract", () => {
@@ -28,7 +28,7 @@ describe("build-cards", () => {
         abstract: "<jats:p>Abstract Text.</jats:p>",
       },
     };
-    expect(parseCrossref(work)).toEqual({ title: "T", meta: ["A. M. Turing", "J", "1937"], text: "Text." });
+    expect(parseCrossref(work)).toEqual({ title: "T", meta: ["Turing", "1937", "J"], text: "Text." });
   });
 
   it("rebuilds an OpenAlex abstract from word positions", () => {

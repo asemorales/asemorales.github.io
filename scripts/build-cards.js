@@ -48,20 +48,20 @@ export function parseArxiv(xml) {
   const entry = xml.match(/<entry>([\s\S]*?)<\/entry>/)?.[1];
   if (!entry) return null;
   const tag = (t) => decode(entry.match(new RegExp(`<${t}[^>]*>([\\s\\S]*?)</${t}>`))?.[1] ?? "").trim();
-  const authors = [...entry.matchAll(/<author>\s*<name>([\s\S]*?)<\/name>/g)].map((m) => decode(m[1]).trim());
+  const authors = [...entry.matchAll(/<author>\s*<name>([\s\S]*?)<\/name>/g)].map((m) => decode(m[1]).trim().split(/\s+/).at(-1));
   return {
     title: tag("title").replace(/\s+/g, " "),
-    meta: [authorList(authors), "arXiv", tag("published").slice(0, 4)].filter(Boolean),
+    meta: [authorList(authors), tag("published").slice(0, 4), "arXiv"].filter(Boolean),
     text: clip(tag("summary")),
   };
 }
 
 export function parseCrossref({ message: m }) {
-  const authors = (m.author ?? []).map((a) => [a.given, a.family].filter(Boolean).join(" ") || a.name).filter(Boolean);
+  const authors = (m.author ?? []).map((a) => a.family || a.name).filter(Boolean);
   const year = (m.issued ?? m.published)?.["date-parts"]?.[0]?.[0];
   return {
     title: decode(m.title?.[0] ?? ""),
-    meta: [authorList(authors), decode(m["container-title"]?.[0] ?? ""), year && String(year)].filter(Boolean),
+    meta: [authorList(authors), year && String(year), decode(m["container-title"]?.[0] ?? "")].filter(Boolean),
     text: m.abstract ? clip(decode(m.abstract).replace(/^\s*Abstract\s*/i, "")) : "",
   };
 }

@@ -27,6 +27,23 @@ test.describe("popovers on the lorem page", () => {
     await expect(p.locator(".popover-title")).toHaveText("asemorales/bierstadt");
     await expect(p.locator(".popover-meta")).toContainText("★");
     await expect(p.locator("img")).toHaveCount(0);
+    await expect(p.locator(".popover-more")).toHaveText("Go to site");
+    await expect(p.locator(".popover-more")).toHaveAttribute("href", "https://github.com/asemorales/bierstadt");
+    await expect(p.locator(".popover-more")).toHaveAttribute("target", "_blank");
+    await expect(p.locator(".popover-more .icon-external")).toBeVisible();
+  });
+
+  test("keep Go to site in view when the preview is long", async ({ page }) => {
+    const p = await hover(page, "MobileLookNet");
+    const box = (await p.boundingBox())!;
+    const more = (await p.locator(".popover-more").boundingBox())!;
+    expect(more.y + more.height).toBeLessThanOrEqual(box.y + box.height);
+  });
+
+  test("link a citation's popover to its source", async ({ page }) => {
+    await page.locator(".cite-ref a").first().hover();
+    await expect(popover(page).locator(".popover-more")).toHaveText("Go to site");
+    await expect(popover(page).locator(".popover-more")).toHaveAttribute("href", "https://doi.org/10.1112/plms/s2-42.1.230");
   });
 
   test("show arXiv, DOI, and Wikipedia cards", async ({ page }) => {
@@ -50,7 +67,7 @@ test.describe("popovers on the lorem page", () => {
   });
 
   test("open on keyboard focus and close on Escape", async ({ page }) => {
-    const link = page.getByRole("link", { name: "asemorales/bierstadt" });
+    const link = page.getByRole("link", { name: "asemorales/bierstadt" }).first();
     await link.focus();
     await page.keyboard.press("Shift+Tab");
     await page.keyboard.press("Tab");
@@ -86,7 +103,7 @@ test.describe("drawer on touch screens", () => {
 
   test("a tap opens the preview from the bottom, with a button to follow the link", async ({ page }) => {
     await page.goto("/lorem-ipsum/");
-    await page.getByRole("link", { name: "asemorales/bierstadt" }).tap();
+    await page.getByRole("link", { name: "asemorales/bierstadt" }).first().tap();
     const drawer = page.locator("dialog.link-drawer");
     await expect(drawer).toBeVisible();
     await expect(page).toHaveURL(/\/lorem-ipsum\/$/);
