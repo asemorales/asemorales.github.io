@@ -238,7 +238,7 @@ function printReport(report) {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const vault = process.env.VAULT;
   if (!vault) {
-    console.error("Set VAULT to your Obsidian vault, e.g.\n  VAULT=~/code/obsidian-vault npm run sync");
+    console.error("Set VAULT to your Obsidian vault in .env, e.g.\n  VAULT=~/code/obsidian-vault");
     process.exit(1);
   }
   try {

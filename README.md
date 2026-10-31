@@ -16,10 +16,16 @@ npx playwright install chromium firefox webkit
 
 ## Writing
 
-Notes are written in Obsidian and published with the command:
+Notes are written in Obsidian. Set the vault path once in `.env`:
 
 ```sh
-VAULT={$OBSIDIAN_VAULT_PATH} npm run sync
+echo 'VAULT=~/code/obsidian-vault' > .env
+```
+
+Then publish with:
+
+```sh
+npm run sync
 ```
 
 This publishes all notes in the vault's `published/` folder. A note's file name sets its URL, so `halting-problem.md` is published at `/halting-problem/`. Wikilinks must use that file name. Each note requires front matter with `title`, `date` (first published), and `tags`. Optionally, add `unlisted: true` to unlist notes.

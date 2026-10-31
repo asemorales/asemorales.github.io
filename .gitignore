@@ -13,3 +13,6 @@ playwright-report/
 
 # Local planning notes
 PLAN.md
+
+# Local settings for scripts/sync.js
+.env
