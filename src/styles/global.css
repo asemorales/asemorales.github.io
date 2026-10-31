@@ -479,6 +479,21 @@
     .note .wide {
       width: calc(100% + var(--gap) + var(--margin));
     }
+    .note figure:has(> figcaption) {
+      @apply clear-right grid items-start;
+      grid-template-columns: 100% var(--margin);
+      column-gap: var(--gap);
+    }
+    .note figure > figcaption {
+      @apply mt-0;
+    }
+    .note .wide figure {
+      @apply block;
+    }
+    .note .wide figcaption {
+      @apply mt-2 ml-auto;
+      width: var(--margin);
+    }
   }
 
   .note .bottom {
