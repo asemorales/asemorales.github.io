@@ -28,6 +28,7 @@
 - Switch between light and dark mode through color variables. Never use `filter: invert()`.
 - Use palette colors from asemorales/bierstadt.
 - Interface elements must use the theme's grayscale colors. Use hue only for meaning. Links and code use hue for this reason.
+- Set links in ink, and show their hue only on hover or press, so that pages dense with links still read as prose.
 - Text colors must pass WCAG AA (4.5:1) contrast.
 - Color must never be the sole indicator of meaning. Pair it with a shape, such as an underline style.
 - Check if colors are distinct under color blindness.

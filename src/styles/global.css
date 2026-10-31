@@ -87,10 +87,10 @@
   }
 
   a {
-    @apply text-link underline decoration-1 underline-offset-6 hover:text-link-hover;
+    @apply text-ink underline decoration-1 underline-offset-6 hover:text-link-hover active:text-link-hover;
   }
   a.dead {
-    @apply text-link-dead decoration-dotted hover:text-link-dead-hover;
+    @apply decoration-dotted hover:text-link-dead-hover active:text-link-dead-hover;
   }
 
   ::selection {
@@ -118,8 +118,8 @@
     min-width: 1px;
   }
   mjx-container[jax="SVG"] > svg a {
-    fill: var(--link);
-    stroke: var(--link);
+    fill: var(--ink);
+    stroke: var(--ink);
   }
   mjx-container[jax="SVG"][display="true"] {
     @apply my-4 block overflow-x-auto overflow-y-hidden text-center;
@@ -408,7 +408,7 @@
   }
   @media (width < 760px) {
     .note .sidenote-number {
-      @apply cursor-pointer text-link;
+      @apply cursor-pointer hover:text-link-hover active:text-link-hover;
     }
     .note .sidenote-number:has(+ .margin-toggle:focus-visible) {
       @apply outline-1 outline-offset-2 outline-ink;

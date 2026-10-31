@@ -1,8 +1,8 @@
 ---
-title: "Dolor Sit Amet: “Quis?” & Nostrud"
+title: "Dolor Sit Amet :\"><,.?/+-~`"
 date: 2026-10-27
-updated: 2026-10-29
+updated: 2026-11-01
 tags: ["test"]
 ---
 
-Dolor sit amet, consectetur adipiscing elit. This note exists to link to [[lorem-ipsum|Lorem Ipsum]], so that note shows a See also section.
+This page checks if special characters display correctly in page titles. This page is also linked in the See also section of [[lorem-ipsum|Lorem Ipsum]].
