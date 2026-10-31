@@ -9,26 +9,20 @@ export function rehypeSections({ backlinked = [] } = {}) {
   return (tree, file) => {
     const slugger = new GithubSlugger();
     for (const id of BACK_IDS) slugger.slug(id);
-    const counts = [0, 0, 0];
     const headings = [];
     for (const node of tree.children) {
       if (!isElement(node) || !(node.tagName in LEVELS)) continue;
       const depth = LEVELS[node.tagName];
-      counts[depth]++;
-      counts.fill(0, depth + 1);
-      const number = counts.slice(0, depth + 1).join(".");
       const id = node.properties.id ?? slugger.slug(text(node).trim());
       const title = unlink(structuredClone(node.children));
       node.properties.id = id;
       node.children = [
-        el("span", { className: ["secno"] }, [txt(`${number}.`)]),
-        txt(" "),
         ...node.children,
-        el("a", { href: `#${id}`, className: ["anchor"], ariaLabel: `Link to section ${number}` }, [
+        el("a", { href: `#${id}`, className: ["anchor"], ariaLabel: `Link to section ${text(node).trim()}` }, [
           el("span", { className: ["icon", "icon-link"], ariaHidden: "true" }),
         ]),
       ];
-      headings.push({ depth, number, id, title });
+      headings.push({ depth, id, title });
     }
     const frontmatter = file?.data.astro?.frontmatter ?? {};
     const back = [];
@@ -53,7 +47,7 @@ function toc(headings, back) {
       li.children.push(ol);
       stack.push(ol);
     }
-    addItem(stack.at(-1), [el("a", { href: `#${h.id}` }, [el("span", { className: ["secno"] }, [txt(`${h.number}.`)]), txt(" "), ...h.title])]);
+    addItem(stack.at(-1), [el("a", { href: `#${h.id}` }, h.title)]);
   }
   for (const b of back) addItem(root, [el("a", { href: `#${b.id}` }, [txt(b.title)])]);
   return el("nav", { className: ["toc"], ariaLabel: "Contents" }, [el("details", { open: true }, [el("summary", {}, [txt("Contents")]), root])]);

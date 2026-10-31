@@ -123,22 +123,18 @@ describe("rehypeSidenotes", () => {
 });
 
 describe("rehypeSections", () => {
-  it("numbers headings, links each to itself, and adds contents before the first", () => {
+  it("links each heading to itself, and adds contents before the first", () => {
     const tree = root(p("Opening."), el("h2", {}, [txt("One")]), el("h3", {}, [txt("Sub")]), el("h2", {}, [txt("Two")]));
     rehypeSections()(tree);
     const [, toc, h2] = tree.children;
     expect(toc.tagName).toBe("nav");
     expect(toHtml(h2)).toBe(
-      '<h2 id="one"><span class="secno">1.</span> One<a href="#one" class="anchor" aria-label="Link to section 1"><span class="icon icon-link" aria-hidden="true"></span></a></h2>',
+      '<h2 id="one">One<a href="#one" class="anchor" aria-label="Link to section One"><span class="icon icon-link" aria-hidden="true"></span></a></h2>',
     );
-    expect(tree.children[3].children[0].children[0].value).toBe("1.1.");
-    expect(tree.children[4].children[0].children[0].value).toBe("2.");
-    expect(toHtml(toc)).toContain(
-      '<li><a href="#one"><span class="secno">1.</span> One</a><ol><li><a href="#sub"><span class="secno">1.1.</span> Sub</a></li></ol></li>',
-    );
+    expect(toHtml(toc)).toContain('<li><a href="#one">One</a><ol><li><a href="#sub">Sub</a></li></ol></li>');
   });
 
-  it("ends the contents with See also, References, and External links, unnumbered, when the note has them", () => {
+  it("ends the contents with See also, References, and External links when the note has them", () => {
     const tree = root(el("h2", {}, [txt("Only")]));
     const file = {
       stem: "here",
@@ -146,7 +142,7 @@ describe("rehypeSections", () => {
     };
     rehypeSections({ backlinked: ["here"] })(tree, file);
     expect(toHtml(tree.children[0])).toContain(
-      '<li><a href="#only"><span class="secno">1.</span> Only</a></li><li><a href="#see-also">See also</a></li><li><a href="#references">References</a></li><li><a href="#external-links">External links</a></li>',
+      '<li><a href="#only">Only</a></li><li><a href="#see-also">See also</a></li><li><a href="#references">References</a></li><li><a href="#external-links">External links</a></li>',
     );
   });
 

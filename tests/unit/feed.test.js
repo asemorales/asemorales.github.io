@@ -5,11 +5,11 @@ const site = "https://asemorales.com";
 const render = (md, opts = {}) => feedHtml(md, { slug: "here", slugs: ["here", "there"], site, ...opts });
 
 describe("feed HTML", () => {
-  it("keeps ordinary footnotes, with no sidenotes or section numbers", async () => {
+  it("keeps ordinary footnotes, with no sidenotes or contents", async () => {
     const html = await render("Text.[^a]\n\n## Part\n\nMore.\n\n[^a]: A note.");
     expect(html).toContain("<section data-footnotes>");
     expect(html).toContain("<h2>Part</h2>");
-    expect(html).not.toMatch(/sidenote|secno|toc/);
+    expect(html).not.toMatch(/sidenote|toc/);
   });
 
   it("writes math as MathML, and proof trees as images with their TeX", async () => {

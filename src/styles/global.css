@@ -265,9 +265,6 @@
   .note h4 {
     @apply mt-6 text-lg;
   }
-  .note .secno {
-    @apply mr-1 font-normal text-dim tabular-nums;
-  }
   .note .anchor {
     @apply ml-2 inline-block text-[0.75em] font-normal text-mid no-underline opacity-0 hover:text-ink focus-visible:opacity-100;
   }
@@ -344,6 +341,12 @@
   .note .toc a {
     @apply text-ink no-underline hover:text-link-hover hover:underline;
   }
+  @media (width >= 1200px) {
+    .note .toc,
+    .note .toc a {
+      @apply text-dim;
+    }
+  }
 
   .note blockquote {
     @apply mx-6 my-10 italic;
@@ -403,8 +406,10 @@
   .note .sidenote-block + .sidenote-block {
     @apply mt-2 block;
   }
-  .note :is(.sidenote-number, .sidenote-ref, .sidenote).highlighted {
-    @apply bg-hover outline-1 outline-offset-1 outline-frame;
+  .note :is(.sidenote-number, .sidenote-ref, .sidenote, mjx-container, figure > img, figcaption).highlighted {
+    @apply bg-hover outline-1 outline-frame;
+    outline-offset: var(--pad, 3px);
+    box-shadow: 0 0 0 var(--pad, 3px) var(--hover);
   }
   @media (width < 760px) {
     .note .sidenote-number {
@@ -433,7 +438,7 @@
     @apply relative;
   }
   .note .math-block {
-    @apply border border-transparent px-3 outline-link transition-colors;
+    @apply border border-transparent px-3 outline-frame transition-colors;
   }
   .note .math-block:is(:hover, :has(:focus-visible), .show) {
     @apply border-rule;
@@ -456,7 +461,7 @@
   .note .math-block pre {
     @apply my-4;
   }
-  .note .math-block.referenced {
+  .note .math-block.highlighted {
     @apply outline-1 outline-offset-2;
   }
 
@@ -467,7 +472,10 @@
     @apply h-auto w-full;
   }
   .note figcaption {
-    @apply mt-2 text-base leading-normal text-dim;
+    @apply mt-7 text-base leading-normal text-ink;
+  }
+  .note figure > img {
+    --pad: 12px;
   }
   .note .wide {
     @apply clear-right;
@@ -491,7 +499,7 @@
       @apply block;
     }
     .note .wide figcaption {
-      @apply mt-2 ml-auto;
+      @apply mt-7 ml-auto;
       width: var(--margin);
     }
   }
@@ -609,25 +617,11 @@
       center / contain no-repeat;
   }
 
-  .home-notes {
-    counter-reset: part;
-  }
   .home-notes section {
     @apply mt-10;
-    counter-increment: part;
   }
   .home-notes h2 {
-    @apply relative text-xl;
-  }
-  .home-notes h2::before {
-    @apply mr-3 font-normal text-dim;
-    content: counter(part, upper-roman) ".";
-  }
-  @media (width >= 1200px) {
-    .home-notes h2::before {
-      @apply absolute mr-0 text-right;
-      right: calc(100% + var(--gap));
-    }
+    @apply text-xl;
   }
   .home-notes h2 a {
     @apply text-ink no-underline hover:text-link-hover;

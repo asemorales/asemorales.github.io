@@ -19,7 +19,7 @@
 - Set everything in serif. Use mono only for code and data such as dates and tags.
 - Show emphasis in three styles: bold, then italic, then small caps.
 - Use old-style proportional figures in prose.
-- Use lining tabular figures whenever numbers must align, such as tables, section numbers, and code.
+- Use lining tabular figures in tables, code, and anywhere else that numbers must align.
 - Self-host and subset fonts, since system fonts vary across platforms.
 
 ## Color

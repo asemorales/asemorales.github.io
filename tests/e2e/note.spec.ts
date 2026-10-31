@@ -32,10 +32,9 @@ test.describe("layout and type", () => {
 });
 
 test.describe("sections", () => {
-  test("numbers headings and lists them in the contents", async ({ page }) => {
-    await expect(page.locator("#typography .secno")).toHaveText("1.");
-    await expect(page.locator("#tables .secno")).toHaveText("1.2.");
-    await expect(page.locator("#a-fourth-level-heading .secno")).toHaveText("8.1.1.");
+  test("lists headings, unnumbered, in the contents", async ({ page }) => {
+    await expect(page.locator("#typography")).toHaveText("Typography");
+    await expect(page.locator("nav.toc a[href='#tables']")).toHaveText("Tables");
     const toc = page.locator("nav.toc");
     await expect(toc.locator("details")).toHaveAttribute("open", "");
     for (const href of await toc.locator("a").evaluateAll((as) => as.map((a) => a.getAttribute("href")!))) {
@@ -163,6 +162,16 @@ test.describe("callouts", () => {
     if (wide(info.project.name)) expect(spanning.width).toBeGreaterThan(column.width + 100);
     else expect(spanning.width).toBeLessThanOrEqual(column.width + 1);
   });
+
+  test("box a figure while its caption is hovered", async ({ page, javaScriptEnabled }, info) => {
+    test.skip(javaScriptEnabled === false || !wide(info.project.name), "wide screens with JS");
+    const figure = page.locator("article figure").first();
+    const parts = [figure.locator("img"), figure.locator("figcaption")];
+    await parts[1].hover();
+    for (const p of parts) await expect(p).toHaveClass(/highlighted/);
+    await page.mouse.move(page.viewportSize()!.width - 2, 2);
+    for (const p of parts) await expect(p).not.toHaveClass(/highlighted/);
+  });
 });
 
 test.describe("links", () => {
@@ -288,6 +297,28 @@ test.describe("block buttons", () => {
     await block.getByRole("button", { name: "Show rendered math" }).click();
     await expect(source).toBeHidden();
     await expect(block.locator("mjx-container")).toBeVisible();
+  });
+
+  test("highlight an equation with its references on hover, and after a click until the next click elsewhere", async ({
+    page,
+    javaScriptEnabled,
+  }, info) => {
+    test.skip(javaScriptEnabled === false || !wide(info.project.name), "wide screens with JS");
+    const block = page.locator(".math-block:has([id='mjx-eqn:eq:halting'])");
+    const ref = page.locator(".note mjx-container:has(a[href='#mjx-eqn%3Aeq%3Ahalting'])");
+    const lit = async (on: boolean) => {
+      for (const p of [block, ref]) await (on ? expect(p).toHaveClass(/highlighted/) : expect(p).not.toHaveClass(/highlighted/));
+    };
+    const corner = [page.viewportSize()!.width - 2, 2] as const;
+    await block.hover();
+    await lit(true);
+    await page.mouse.move(...corner);
+    await lit(false);
+    await block.click();
+    await page.mouse.move(...corner);
+    await lit(true);
+    await page.mouse.click(...corner);
+    await lit(false);
   });
 });
 
