@@ -56,6 +56,13 @@ test.describe("popovers on the lorem page", () => {
     await expect(await hover(page, "Halting problem")).toContainText("In computability theory");
   });
 
+  test("show a citation's source text", async ({ page }) => {
+    const card = { title: "Mock source", meta: [], paragraphs: ["Mock source text."] };
+    await page.route("**/popovers.json", (route) => route.fulfill({ json: { "https://doi.org/10.1112/plms/s2-42.1.230": card } }));
+    await page.locator(".cite-ref a").first().hover();
+    await expect(popover(page).locator(".popover-body")).toHaveText(card.paragraphs[0]);
+  });
+
   test("say a dead link's copy is archived", async ({ page }) => {
     await expect((await hover(page, "a page that no longer exists")).locator(".popover-dead")).toContainText("Archived copy");
   });
@@ -68,7 +75,7 @@ test.describe("popovers on the lorem page", () => {
 
   test("show a glossary term's type and every sense, for a word with an accent", async ({ page }) => {
     const href = "/glossary/#móck-noun";
-    const card = { title: "mock term", meta: ["mock type"], paragraphs: ["1. First sense.", "2. Second sense."] };
+    const card = { title: "mock term", type: "mock type", paragraphs: ["1. First sense.", "2. Second sense."] };
     await page.route("**/popovers.json", (route) => route.fulfill({ json: { [href]: card } }));
     await page
       .locator("article > p")
@@ -80,8 +87,9 @@ test.describe("popovers on the lorem page", () => {
         p.append(a);
       }, href);
     const p = await hover(page, "mock link");
-    await expect(p.locator(".popover-title")).toHaveText(card.title);
-    await expect(p.locator(".popover-meta")).toHaveText("mock type");
+    await expect(p.locator(".popover-title")).toHaveText(`${card.title} ${card.type}`);
+    const [row, type] = await Promise.all([p.locator(".popover-title").boundingBox(), p.locator(".term-type").boundingBox()]);
+    expect(row!.height).toBeLessThan(type!.height * 2);
     await expect(p.locator(".popover-body p")).toHaveText(card.paragraphs);
   });
 

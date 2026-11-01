@@ -45,4 +45,19 @@ describe("build-cards", () => {
     });
     expect(parsePage("<html><title>\n Hi &amp; bye </title>")).toEqual({ title: "Hi & bye", meta: [], text: "" });
   });
+
+  it.each([
+    ["a named entity", "Web &ndash; guide", "Web – guide"],
+    ["decimal and hex references", "it&#39;s &#x2014; ok", "it's — ok"],
+    ["a non-breaking space", "a&nbsp;b", "a b"],
+    ["double-escaped text only once", "&amp;lt;tag&amp;gt;", "&lt;tag&gt;"],
+  ])("decodes %s in a page title", (_, title, expected) => {
+    expect(parsePage(`<title>${title}</title>`).title).toBe(expected);
+  });
+
+  it("reads a page's first real paragraph, past short ones and page furniture", () => {
+    const opening = "This opening paragraph is long enough to count, it&#x27;s <em>real</em>.";
+    const html = `<title>T</title><nav><p>A navigation paragraph that is long enough to count as one.</p></nav><main><p>Menu</p><p>${opening}</p><p>A later paragraph that is also long enough to count.</p></main>`;
+    expect(parsePage(html).text).toBe("This opening paragraph is long enough to count, it's real.");
+  });
 });

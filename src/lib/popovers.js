@@ -9,7 +9,7 @@ const HEADING = /^(#{2,4})\s+(.+?)\s*#*\s*$/;
 const FENCE = /^(`{3,}|~{3,})/;
 
 export function noteCard(title, markdown) {
-  return { title, paragraphs: clipParagraphs(summary(markdown), NOTE_SUMMARY) };
+  return { title, paragraphs: clipParagraphs(summary(markdown, { paragraphs: 1 }), NOTE_SUMMARY) };
 }
 
 export function headingCards(markdown) {
@@ -37,17 +37,18 @@ export function termCards(markdown) {
     const term = parseTerm(heading);
     if (!term) continue;
     const blocks = definition.split(/\n\s*\n|\n(?=\s*(?:\d+\.|[-*+])\s)/).map(plain);
-    out[slug(heading)] = { title: term.word, meta: [term.type], paragraphs: clipParagraphs(blocks, NOTE_SUMMARY) };
+    out[slug(heading)] = { title: term.word, type: term.type, paragraphs: clipParagraphs(blocks, NOTE_SUMMARY) };
   }
   return out;
 }
 
-export function linkCard({ url, text, card, deadSince }) {
+export function linkCard({ url, text, card, annotation, deadSince }) {
   const domain = new URL(url).hostname.replace(/^www\./, "");
+  const annotated = annotation ? clipParagraphs(summary(annotation), NOTE_SUMMARY) : [];
   const out = {
     title: card?.title || text,
     meta: card?.meta?.length ? card.meta : [domain],
-    paragraphs: card?.text ? [card.text] : [],
+    paragraphs: annotated.length ? annotated : card?.text ? [card.text] : [],
   };
   if (deadSince !== undefined)
     out.dead = deadSince ? `Archived copy. The original went dead on ${deadSince}.` : "Archived copy. The original is gone.";

@@ -94,6 +94,7 @@ This paragraph tests popovers on glossary terms. Lorem ipsum [[glossary#emergenc
 - A Wikipedia article: [Halting problem](https://en.wikipedia.org/wiki/Halting_problem).
 - The same article again: [the halting problem](https://en.wikipedia.org/wiki/Halting_problem).
 - A page with a hand-written annotation: [gwern.net design](https://gwern.net/design).
+- A page with no annotation, which previews its first paragraph: [Tufte CSS](https://edwardtufte.github.io/tufte-css/).
 - A dead link: [a page that no longer exists](https://dead-link-test.invalid/page).
 
 ## Math

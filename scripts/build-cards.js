@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { decodeHTML } from "entities";
 import { clip } from "../src/lib/summary.js";
 import { linksIn } from "./link-status.js";
 
@@ -8,6 +9,7 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CARDS = path.join(root, "src/data/cards.json");
 const NOTES = path.join(root, "src/content/notes");
 const AGENT = "asemorales.com card builder (+https://asemorales.com)";
+const MIN_PARAGRAPH = 40;
 
 export function classify(url) {
   const u = new URL(url);
@@ -29,15 +31,7 @@ export function classify(url) {
   return { kind: "page" };
 }
 
-const decode = (s) =>
-  s
-    .replace(/<[^>]+>/g, "")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-    .replace(/&amp;/g, "&");
+const decode = (s) => decodeHTML(s.replace(/<[^>]+>/g, "")).replace(/\u00a0/g, " ");
 
 export function authorList(names) {
   if (names.length <= 3) return names.join(", ");
@@ -89,9 +83,19 @@ export function parseWikipedia(r) {
   return { title: r.title, meta: ["Wikipedia"], text: clip(r.extract ?? "") };
 }
 
+function firstParagraph(html) {
+  const content = html.replace(/<(script|style|noscript|nav|header|footer|aside)\b[\s\S]*?<\/\1>/gi, "");
+  const main = content.match(/<(?:main|article)\b[\s\S]*/i)?.[0] ?? content;
+  for (const [, inner] of main.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)) {
+    const text = clip(decode(inner));
+    if (text.length >= MIN_PARAGRAPH) return text;
+  }
+  return "";
+}
+
 export function parsePage(html) {
   const title = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1];
-  return title ? { title: decode(title).replace(/\s+/g, " ").trim(), meta: [], text: "" } : null;
+  return title ? { title: decode(title).replace(/\s+/g, " ").trim(), meta: [], text: firstParagraph(html) } : null;
 }
 
 async function get(url, type = "json") {

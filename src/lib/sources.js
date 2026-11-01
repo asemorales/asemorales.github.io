@@ -9,7 +9,7 @@ export function sourceEntry({ url, text, card, annotation, cited }) {
   return {
     text: (cited && referenceName(card)) || text,
     domain: new URL(url).hostname.replace(/^www\./, ""),
-    annotation: annotation ?? null,
+    annotation: cited ? (annotation ?? null) : null,
     blurb: annotation || !cited ? null : card?.text || null,
   };
 }

@@ -4,6 +4,7 @@
 <script>
   interface Card {
     title: string;
+    type?: string;
     meta?: string[];
     paragraphs: string[];
     dead?: string;
@@ -53,7 +54,11 @@
   function fill(el: HTMLElement, card: Card, a: HTMLAnchorElement, more = true) {
     el.replaceChildren();
     if (card.dead) add(el, "p", "popover-dead", card.dead);
-    add(el, "p", "popover-title", card.title);
+    const title = add(el, "p", "popover-title", card.title);
+    if (card.type) {
+      title.append(" ");
+      add(title, "span", "term-type", card.type);
+    }
     if (card.meta?.length) {
       const meta = add(el, "p", "popover-meta", "");
       meta.className = "popover-meta *:not-first:ml-2 *:not-first:border-l *:not-first:border-rule *:not-first:pl-2";
@@ -99,7 +104,7 @@
     const card = data[key(source)];
     const locator = source.nextSibling?.textContent?.match(/^,\s*([^(]+)/)?.[1].trim();
     const meta = [...(card?.meta ?? []), locator].filter((m): m is string => !!m);
-    return { title: card?.title ?? source.textContent!.trim(), meta, paragraphs: [], href: source.href };
+    return { title: card?.title ?? source.textContent!.trim(), meta, paragraphs: card?.paragraphs ?? [], href: source.href };
   }
 
   async function open(a: HTMLAnchorElement) {

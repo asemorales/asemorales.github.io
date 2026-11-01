@@ -3,11 +3,12 @@ import { headingCards, linkCard, noteCard, paragraphHtml, termCards } from "../.
 import { clip } from "../../src/lib/summary.js";
 
 describe("popover cards", () => {
-  it("cut a note's opening at a sentence near 500 characters", () => {
+  it("cut a note's first paragraph at a sentence near 500 characters", () => {
     const sentence = "This sentence is exactly fifty characters long ok. ";
-    const card = noteCard("Note", `${sentence.repeat(8)}\n\n${sentence.repeat(8)}\n\n## Heading`);
+    const card = noteCard("Note", `${sentence.repeat(12)}\n\nSecond paragraph.\n\n## Heading`);
     expect(card.title).toBe("Note");
-    expect(card.paragraphs.join(" ").length).toBeLessThanOrEqual(500);
+    expect(card.paragraphs).toHaveLength(1);
+    expect(card.paragraphs[0].length).toBeLessThanOrEqual(500);
     expect(card.paragraphs.at(-1)).toMatch(/ok\.$/);
   });
 
@@ -22,8 +23,8 @@ describe("popover cards", () => {
   it("key each glossary term's whole definition by its id, without the etymology", () => {
     const md = "Intro.\n\n## foo (noun)\n\n1. *One* sense.\n2. Another.\n\n### Etymology\n\nFrom bar.\n\n## bar (verb)\n\nTo bar.\n\nAgain.\n";
     expect(termCards(md)).toEqual({
-      "foo-noun": { title: "foo", meta: ["noun"], paragraphs: ["1. One sense.", "2. Another."] },
-      "bar-verb": { title: "bar", meta: ["verb"], paragraphs: ["To bar.", "Again."] },
+      "foo-noun": { title: "foo", type: "noun", paragraphs: ["1. One sense.", "2. Another."] },
+      "bar-verb": { title: "bar", type: "verb", paragraphs: ["To bar.", "Again."] },
     });
   });
 
@@ -31,6 +32,13 @@ describe("popover cards", () => {
     const card = { title: "Repo", meta: ["JS", "★ 3"], text: "A repo." };
     expect(linkCard({ url: "https://github.com/a/b", text: "a/b", card })).toEqual({ title: "Repo", meta: ["JS", "★ 3"], paragraphs: ["A repo."] });
     expect(linkCard({ url: "https://www.x.org/p", text: "X" })).toEqual({ title: "X", meta: ["x.org"], paragraphs: [] });
+  });
+
+  it("prefer an annotation to the source's first paragraph", () => {
+    const card = { title: "Repo", meta: [], text: "From the source." };
+    const url = "https://x.org";
+    expect(linkCard({ url, text: "X", card, annotation: "*Mine*.\n\nAlso mine." }).paragraphs).toEqual(["Mine.", "Also mine."]);
+    expect(linkCard({ url, text: "X", card, annotation: "> Only a quote." }).paragraphs).toEqual(["From the source."]);
   });
 
   it("say when a link is dead", () => {

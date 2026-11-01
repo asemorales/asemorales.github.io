@@ -278,7 +278,7 @@
     @apply opacity-100;
   }
 
-  .note .term-type {
+  .term-type {
     @apply text-[0.8em] font-normal text-dim italic;
   }
   .note h2:has(> .term-type) + p {

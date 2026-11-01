@@ -1,7 +1,7 @@
 export function summary(markdown, { paragraphs = Infinity } = {}) {
   const out = [];
   for (const block of markdown.trim().split(/\n\s*\n/)) {
-    if (/^\s*([#>|`~$*+-]|\d+\.\s|!\[|<|%%)/.test(block)) break;
+    if (/^\s*([#>|`~$+-]|\*\s|\d+\.\s|!\[|<|%%)/.test(block)) break;
     out.push(plain(block));
     if (out.length >= paragraphs) break;
   }

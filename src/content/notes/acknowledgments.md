@@ -14,7 +14,7 @@ I thank Gwern Branwen for his writing, design principles, and numerous experimen
 
 I thank Wikimedia Foundation and the contributors to [Wikipedia](https://en.wikipedia.org/). I am extremely fortunate my coming-of-age rabbit holes happened to align with the democratization of knowledge, even (or especially) when I read more than I probably should've.
 
-I thank Dave Liepmann, Edward Tufte, and the contributors to [Tufte CSS](https://edwardtufte.github.io/tufte-css/) for the numerous techniques translating [Tufte's principles on the display of information](https://archive.org/details/visualdisplayofq0000edwa) to web. I also thank the authors and contributors of [The Elements of Typographic Style](https://archive.org/details/elementsoftypogr0000brin) and [The Elements of Typographic Style Applied to the Web](https://webtypography.net/).
+I thank Dave Liepmann, Edward Tufte, and the contributors to [Tufte CSS](https://edwardtufte.github.io/tufte-css/) for the numerous techniques translating [Tufte's principles on the display of information](https://archive.org/details/visualdisplayofq0000edwa) to web. I also thank the authors and contributors of [The Elements of Typographic Style](https://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style) and [The Elements of Typographic Style Applied to the Web](https://webtypography.net/).
 
 I thank the team behind [Obsidian](https://obsidian.md/) for the tool that brought me into writing again, and [Steph Ango](https://stephango.com/) for sharing his philosophy and software for free with the world.
 

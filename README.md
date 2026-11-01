@@ -28,7 +28,7 @@ Then publish with:
 npm run sync
 ```
 
-This publishes all notes in the vault's `published/` folder. A note's file name sets its URL, so `halting-problem.md` is published at `/halting-problem/`. Wikilinks must use that file name. Each note requires front matter with `title`, `date` (first published), and `tags`. Optionally, add `unlisted: true` to unlist notes.
+This publishes all notes in the vault's `published/` folder. Wikilinks and slugs are based on the filenames of notes. Each note requires front matter with `title`, `date` (first published), and `tags`. Optionally, add `unlisted: true` to unlist notes.
 
 To write custom annotations for an external link, add a note to `published/annotations/` with a `url` field in the front matter. Text in custom annotations are used in popovers for that link.
 
@@ -40,7 +40,7 @@ To define a term, add a `## word (type)` heading to `published/glossary.md`. Wri
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | `npm run dev`        | Local server with live reload                                                                  |
 | `npm run build`      | Static build into `dist/`                                                                      |
-| `npm run sync`       | Copy the vault's `published/` folder into `src/content/`                                       |
+| `npm run sync`       | Copy the vault's `published/` folder into `src/content/`, then fetch cards for new links       |
 | `npm run check`      | Run linters and tests                                                                          |
 | `npm run lint`       | Prettier, ESLint, markdownlint, Vale, and `astro check`                                        |
 | `npm test`           | Unit tests (Vitest)                                                                            |

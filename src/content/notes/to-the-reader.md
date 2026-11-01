@@ -36,6 +36,6 @@ If any part of these writings are lacking context, or difficult to understand, o
 
 [^4]: Why is it that selfish entails a negative connotation, even in cases when prioritizing the self does not cause detriment to others? I much prefer to call it a self-seeking endeavor.
 
-[^5] [[why do we define ourselves by what we do|Why do we define ourselves by what we do, rather than what we think?]]
+[^5] [[why-do-we-define-ourselves-by-what-we-do-rather-than-what-we-think|Why do we define ourselves by what we do, rather than what we think?]]
 
 [^6] I could have described this as an experiment in self-improvement, or self-actualization, or change, but that would be sufficiently precise. Many present-day definitions of self-improvement and self-actualization seem to have an underlying assumption that the current self is insufficient, hence the need for self-improvement. This is closer to Aristotle's definition of kinesis rather than entelechia. I use entelechy in the sense that it not only describes change, but also self-completeness in every possible state. If I were to define entelechy against self-actualization, it would be more akin to this: I am in the process of self-actualization, and simultaneously I am complete at every moment: before, toward, and during self-actualization.

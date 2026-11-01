@@ -17,9 +17,15 @@ describe("sourceEntry", () => {
     expect(sourceEntry({ url: "https://www.x.org/p", text: "T", cited: true }).text).toBe("T");
   });
 
-  it("show an external link's annotation, and nothing else below it", () => {
+  it("show a reference's annotation in place of its abstract", () => {
+    const entry = sourceEntry({ url: "https://doi.org/x", text: "T", card, annotation: "Mine.", cited: true });
+    expect(entry).toMatchObject({ annotation: "Mine.", blurb: null });
+  });
+
+  it("show nothing below an external link", () => {
     const link = { url: "https://www.x.org/p", text: "T", card, cited: false };
-    expect(sourceEntry({ ...link, annotation: "Mine." })).toEqual({ text: "T", domain: "x.org", annotation: "Mine.", blurb: null });
-    expect(sourceEntry(link)).toEqual({ text: "T", domain: "x.org", annotation: null, blurb: null });
+    const bare = { text: "T", domain: "x.org", annotation: null, blurb: null };
+    expect(sourceEntry({ ...link, annotation: "Mine." })).toEqual(bare);
+    expect(sourceEntry(link)).toEqual(bare);
   });
 });

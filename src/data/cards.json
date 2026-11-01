@@ -1,9 +1,27 @@
 {
+  "http://localhost:4321/lorem-ipsum/": {
+    "kind": "page",
+    "title": "Lorem Ipsum | Ase Morales",
+    "meta": [],
+    "text": "This page contains dummy text used to test the design features of this site. Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, in the years 1991, 2025, and 2026."
+  },
+  "https://archive.org/details/visualdisplayofq0000edwa": {
+    "kind": "page",
+    "title": "the visual display of quantitative information : edward r. tufte : Free Download, Borrow, and Streaming : Internet Archive",
+    "meta": [],
+    "text": "Uploaded by station49.cebu on August 16, 2022"
+  },
   "https://arxiv.org/abs/1706.03762": {
     "kind": "arxiv",
     "title": "Attention Is All You Need",
     "meta": ["Vaswani et al.", "2017", "arXiv"],
     "text": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely."
+  },
+  "https://astro.build/": {
+    "kind": "page",
+    "title": "Astro",
+    "meta": [],
+    "text": "Astro powers the world's fastest marketing sites, blogs, e-commerce websites, and more."
   },
   "https://doi.org/10.1090/S0002-9947-1953-0053041-6": {
     "kind": "doi",
@@ -23,11 +41,29 @@
     "meta": ["Morales et al.", "2024", "Proceedings of the 2024 2nd Asia Conference on Computer Vision, Image Processing and Pattern Recognition"],
     "text": "This study introduces MobileLookNet, a novel lightweight architecture designed for detecting osseous metastasis in bone scintigrams on resource-constrained devices. By employing depthwise separable convolutions in parallel, utilizing inverted residuals, and integrating low-level and high-level features, MobileLookNet captures diverse levels of abstraction and extracts more individually expressive…"
   },
-  "https://en.wikipedia.org/wiki/Collatz_conjecture": {
+  "https://edwardtufte.github.io/tufte-css/": {
+    "kind": "page",
+    "title": "Tufte CSS",
+    "meta": [],
+    "text": "Tufte CSS provides tools to style web articles using the ideas demonstrated by Edward Tufte’s books and handouts. Tufte’s style is known for its simplicity, extensive use of sidenotes, tight integration of graphics with text, and carefully chosen typography."
+  },
+  "https://en.wikipedia.org/": {
+    "kind": "page",
+    "title": "Wikipedia, the free encyclopedia",
+    "meta": [],
+    "text": "Europejara is a genus of tapejarid pterosaur that lived during the Barremian age of the Early Cretaceous epoch in what is now Spain. The only known specimen was found at the La Huérguina Formation of Cuenca, a location noted for its exceptional Konservat-Lagerstätte preservation. In 2012, the new genus and species Europejara olcadesorum was named based on it."
+  },
+  "https://en.wikipedia.org/wiki/A_Mathematician's_Apology": {
     "kind": "wikipedia",
-    "title": "Collatz conjecture",
+    "title": "A Mathematician's Apology",
     "meta": ["Wikipedia"],
-    "text": "The Collatz conjecture is one of the most famous unsolved problems in mathematics. The conjecture asks whether repeating two simple arithmetic operations will eventually transform every positive integer into 1. It concerns sequences of integers in which each term is obtained from the previous term as follows: if a term is even, the next term is one half of it."
+    "text": "A Mathematician's Apology is a 1940 essay by British mathematician G. H. Hardy which defends the pursuit of mathematics for its own sake. Central to Hardy's \"apology\" – in the sense of a formal justification or defence – is an argument that mathematics has value independent of its applications."
+  },
+  "https://en.wikipedia.org/wiki/Complex_system": {
+    "kind": "wikipedia",
+    "title": "Complex system",
+    "meta": ["Wikipedia"],
+    "text": "A complex system is a system composed of many components that interact with one another. Examples of complex systems are Earth's global climate, organisms, the human brain, infrastructure such as a power grid, transportation or communication systems, complex software and electronic systems, social and economic organizations, an ecosystem, a living cell, and, ultimately, for some authors, the…"
   },
   "https://en.wikipedia.org/wiki/Complexity_class": {
     "kind": "wikipedia",
@@ -35,17 +71,41 @@
     "meta": ["Wikipedia"],
     "text": "In computational complexity theory, a complexity class is a set of computational problems \"of related resource-based complexity\". The two most commonly analyzed resources are time and memory."
   },
+  "https://en.wikipedia.org/wiki/Computational_irreducibility": {
+    "kind": "wikipedia",
+    "title": "Computational irreducibility",
+    "meta": ["Wikipedia"],
+    "text": "Computational irreducibility suggests certain computational processes cannot be simplified and the only way to determine the outcome of a process is to go through each step of its computation. It is one of the main ideas proposed by Stephen Wolfram in his 2002 book A New Kind of Science, although the concept goes back to studies from the 1980s."
+  },
+  "https://en.wikipedia.org/wiki/Essays_%28Montaigne%29": {
+    "kind": "wikipedia",
+    "title": "Essays (Montaigne)",
+    "meta": ["Wikipedia"],
+    "text": "The Essays of Michel de Montaigne are contained in three books and 107 chapters of varying length. They were originally written in Middle French and published in the Kingdom of France. Montaigne's stated design in writing, publishing and revising the Essays over the period from approximately 1570 to 1592 was to record \"some traits of my character and of my humours.\" The Essays were first…"
+  },
   "https://en.wikipedia.org/wiki/Halting_problem": {
     "kind": "wikipedia",
     "title": "Halting problem",
     "meta": ["Wikipedia"],
     "text": "In computability theory, the halting problem is the decision problem of, given an arbitrary computer program and an input, determining whether said program will eventually finish running and halt, or will continue to run forever."
   },
+  "https://en.wikipedia.org/wiki/Living_document": {
+    "kind": "wikipedia",
+    "title": "Living document",
+    "meta": ["Wikipedia"],
+    "text": "A living document, also known as an evergreen document or dynamic document, is a document that is continually edited and updated. An example of a living document is an article in Wikipedia, an online encyclopedia that permits anyone to freely edit its articles; this is in contrast to \"dead\" or \"static\" documents, such as an article in a single edition of the Encyclopædia Britannica."
+  },
   "https://en.wikipedia.org/wiki/NP-completeness": {
     "kind": "wikipedia",
     "title": "NP-completeness",
     "meta": ["Wikipedia"],
-    "text": "In computational complexity theory, NP-complete problems are the hardest of the problems to which solutions can be verified quickly. Somewhat more precisely, a problem is NP-complete when:It is a decision problem, meaning that for any input to the problem, the output is either \"yes\" or \"no\"."
+    "text": "In computational complexity theory, NP-complete problems are the hardest of the problems to which solutions can be verified quickly. NP is short for \"nondeterministic polynomial-time\" and a problem is NP-complete when:It is a decision problem, meaning that for any input to the problem, the output is either \"yes\" or \"no\"."
+  },
+  "https://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style": {
+    "kind": "wikipedia",
+    "title": "The Elements of Typographic Style",
+    "meta": ["Wikipedia"],
+    "text": "The Elements of Typographic Style is a book on typography and style by Canadian typographer, poet and translator Robert Bringhurst. Originally published in 1992 by Hartley & Marks Publishers, it was revised in 1996, 2001 (v2.4), 2002 (v2.5), 2004 (v3.0), 2005 (v3.1), 2008 (v3.2), and 2012 (v4.0)."
   },
   "https://en.wikipedia.org/wiki/The_Library_of_Babel": {
     "kind": "wikipedia",
@@ -53,11 +113,29 @@
     "meta": ["Wikipedia"],
     "text": "\"The Library of Babel\" is a short story by Argentine author and librarian Jorge Luis Borges (1899–1986), conceiving of a universe in the form of a vast library containing all possible 410-page books of a certain format and character set."
   },
+  "https://en.wikipedia.org/wiki/The_Soul_of_Man_Under_Socialism": {
+    "kind": "wikipedia",
+    "title": "The Soul of Man Under Socialism",
+    "meta": ["Wikipedia"],
+    "text": "\"The Soul of Man Under Socialism\" is an 1891 essay by Oscar Wilde in which he expounds a libertarian socialist worldview and a critique of charity. The writing of \"The Soul of Man\" followed Wilde's conversion to anarchist philosophy, following his reading of the works of Peter Kropotkin."
+  },
+  "https://example.com": {
+    "kind": "page",
+    "title": "Example Domain",
+    "meta": [],
+    "text": "This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes."
+  },
   "https://github.com/adobe-fonts/source-serif": {
     "kind": "github",
     "title": "adobe-fonts/source-serif",
-    "meta": ["GitHub", "★ 2,406"],
+    "meta": ["GitHub", "★ 2,411"],
     "text": "Typeface for setting text in many sizes, weights, and languages. Designed to complement Source Sans."
+  },
+  "https://github.com/asemorales/asemorales.github.io": {
+    "kind": "github",
+    "title": "asemorales/asemorales.github.io",
+    "meta": ["GitHub", "★ 3"],
+    "text": "Personal site and works"
   },
   "https://github.com/asemorales/bierstadt": {
     "kind": "github",
@@ -65,10 +143,88 @@
     "meta": ["GitHub", "★ 4"],
     "text": "Linux theme based on books and paintings by Albert Bierstadt"
   },
+  "https://github.com/googlefonts/dm-mono": {
+    "kind": "github",
+    "title": "googlefonts/dm-mono",
+    "meta": ["GitHub", "★ 133"],
+    "text": "DM Mono"
+  },
   "https://gwern.net/design": {
     "kind": "page",
     "title": "Design Of This Website · Gwern.net",
     "meta": [],
+    "text": "CSS, JS, Internet archiving, typography, meta"
+  },
+  "https://obsidian.md/": {
+    "kind": "page",
+    "title": "Obsidian - Sharpen your thinking",
+    "meta": [],
+    "text": "The free and flexible app for your private thoughts."
+  },
+  "https://openlibrary.org/books/OL21115131M/I_seem_to_be_a_verb._--.": {
+    "kind": "page",
+    "title": "I seem to be a verb. --. (1970) by R. Buckminster Fuller | Open Library",
+    "meta": [],
+    "text": "This edition doesn't have a description yet. Can you add one?"
+  },
+  "https://pages.github.com/": {
+    "kind": "page",
+    "title": "GitHub Pages | Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.",
+    "meta": [],
+    "text": "Head over to GitHub and create a new public repository named username.github.io, where username is your username (or organization name) on GitHub."
+  },
+  "https://shiki.style/": {
+    "kind": "page",
+    "title": "Shiki",
+    "meta": [],
+    "text": "TextMate grammar powered, same engine as your VS Code. Improves with VS Code."
+  },
+  "https://stephango.com/": {
+    "kind": "page",
+    "title": "Steph Ango",
+    "meta": [],
     "text": ""
+  },
+  "https://tailwindcss.com/": {
+    "kind": "page",
+    "title": "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
+    "meta": [],
+    "text": "A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup."
+  },
+  "https://umami.is/": {
+    "kind": "page",
+    "title": "Umami – Open-Source Web and Product Analytics",
+    "meta": [],
+    "text": "Understand acquisition, behavior, conversion, and retention in one privacy-first platform. No cookies, no surveillance, set up in minutes."
+  },
+  "https://web.archive.org/": {
+    "kind": "page",
+    "title": "Wayback Machine",
+    "meta": [],
+    "text": "Keep the news in the Wayback Machine. Sign Fight for the Future's letter."
+  },
+  "https://webtypography.net/": {
+    "kind": "page",
+    "title": "The Elements of Typographic Style Applied to the Web – a practical guide to web typography",
+    "meta": [],
+    "text": ""
+  },
+  "https://www.mathjax.org/": {
+    "kind": "page",
+    "title": "MathJax | Beautiful math in all browsers.",
+    "meta": [],
+    "text": "A JavaScript display engine for mathematics that works in all browsers. No more setup for readers. It just works."
+  },
+  "https://www.santafe.edu/": {
+    "kind": "page",
+    "title": "Home | Santa Fe Institute",
+    "meta": [],
+    "text": "At the Santa Fe Institute, we're asking big questions"
+  },
+  "https://www.sfipress.org/": {
+    "kind": "page",
+    "title": "SFI Press",
+    "meta": [],
+    "text": "The contemporary global economy exhibits unprecedented structural complexity—characterized by nonlinear dynamics, adaptive behaviors, and emergent properties. Understanding these phenomena requires theoretical frameworks capable of addressing complexity, path dependence, and evolutionary processes."
   }
 }
