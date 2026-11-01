@@ -1,6 +1,6 @@
 extends: existence
 message: "Remove filler words, like '%s'. Alternatively, say something specific."
-level: warning
+level: suggestion
 ignorecase: true
 tokens:
   - actually

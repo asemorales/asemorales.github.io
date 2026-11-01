@@ -1,14 +1,14 @@
 ---
 title: "Lorem Ipsum"
 date: 2026-10-26
-updated: 2026-11-01
+updated: 2026-11-02
 tags: ["test"]
 ---
 
 This page contains dummy text used to test the design features of this site. Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, in the years 1991, 2025, and 2026.
 
 > [!status]
-> This is some text in a box.
+> Ase is a human and may make mistakes.
 
 ## Typography
 

@@ -25,7 +25,9 @@ const contact = [
   { name: "X", icon: "x-brand", href: "https://x.com/_asemorales" },
   { name: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/asemorales" },
 ];
-const backMatter = (await Promise.all(["glossary", "acknowledgements"].map((id) => getEntry("notes", id)))).filter((n) => n !== undefined);
+const backMatter = (await Promise.all(["to-the-reader", "acknowledgements", "glossary", "colophon"].map((id) => getEntry("notes", id)))).filter(
+  (n) => n !== undefined,
+);
 ---
 
 <Base title="Ase Morales" description={description} wide>

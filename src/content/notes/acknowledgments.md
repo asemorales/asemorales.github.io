@@ -1,8 +1,8 @@
 ---
-title: "Acknowledgements"
+title: "Acknowledgments"
 date: 2026-10-27
-updated: 2026-11-01
-tags: ["site"]
+updated: 2026-11-02
+tags: ["paratext"]
 unlisted: true
 ---
 

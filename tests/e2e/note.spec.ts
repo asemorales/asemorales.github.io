@@ -209,7 +209,7 @@ test.describe("glossary", () => {
 
   test("appears at the bottom of the home contents", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator(".home-end a").first()).toHaveAttribute("href", "/glossary/");
+    await expect(page.locator(".home-end a")).toHaveText(["To the Reader", "Acknowledgements", "Glossary", "Colophon"]);
   });
 });
 
