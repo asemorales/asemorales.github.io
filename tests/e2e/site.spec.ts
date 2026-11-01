@@ -50,7 +50,7 @@ test.describe("lorem ipsum page", () => {
     await expect(page.locator('.colophon a[href="/lorem-ipsum/"]')).toHaveText("feature test");
     const sitemap = await (await request.get("/sitemap-0.xml")).text();
     expect(sitemap).toContain("lorem-ipsum");
-    expect(sitemap).not.toContain("acknowledgements");
+    expect(sitemap).toContain("acknowledgments");
   });
 
   test("sets body text and headings in Source Serif 4", async ({ page }) => {
@@ -178,6 +178,6 @@ test.describe("feed", () => {
       };
     }, xml);
     expect(parsed).toEqual({ error: null, root: "http://www.w3.org/2005/Atom", self: "https://asemorales.com/feed.xml" });
-    expect(xml).not.toContain("acknowledgements");
+    expect(xml).not.toContain("acknowledgments");
   });
 });

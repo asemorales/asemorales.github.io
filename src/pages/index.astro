@@ -25,7 +25,7 @@ const contact = [
   { name: "X", icon: "x-brand", href: "https://x.com/_asemorales" },
   { name: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/asemorales" },
 ];
-const backMatter = (await Promise.all(["to-the-reader", "acknowledgements", "glossary", "colophon"].map((id) => getEntry("notes", id)))).filter(
+const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glossary", "colophon"].map((id) => getEntry("notes", id)))).filter(
   (n) => n !== undefined,
 );
 ---

@@ -1,7 +1,14 @@
 import { el, hasClass, isElement, text, txt, walk } from "./hast.js";
 
 const PREFIX = "user-content-fn-";
-const BLOCKS = new Set(["p", "div", "ul", "ol", "li", "blockquote", "pre", "table"]);
+const BLOCKS = new Set(["p", "div", "ul", "ol", "li", "blockquote", "footer", "aside", "dl", "dt", "dd", "pre", "table"]);
+const BLOCK_CLASSES = {
+  blockquote: ["sidenote-block", "sidenote-quote"],
+  footer: ["sidenote-block", "sidenote-attribution"],
+  dl: ["sidenote-block", "sidenote-facts"],
+  dt: ["sidenote-key"],
+  dd: ["sidenote-value"],
+};
 
 export function rehypeSidenotes() {
   return (tree, file) => {
@@ -109,12 +116,20 @@ function inline(children) {
       const inner = inline(child.children);
       trimEnd(inner);
       if (child.tagName === "li") out.push(...inner);
-      else out.push(el("span", { className: ["sidenote-block"] }, inner));
+      else out.push(el("span", blockProps(child), inner));
       continue;
     }
     out.push(child);
   }
   return out;
+}
+
+function blockProps(node) {
+  if (isElement(node, "aside")) {
+    return { className: ["sidenote-block", `sidenote-${node.properties.className[0]}`], role: "group", ariaLabel: node.properties.ariaLabel };
+  }
+  if (hasClass(node, "callout-title")) return { className: ["sidenote-block", "sidenote-title"] };
+  return { className: BLOCK_CLASSES[node.tagName] ?? ["sidenote-block"] };
 }
 
 function trimEnd(nodes) {

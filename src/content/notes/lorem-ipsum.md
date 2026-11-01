@@ -60,6 +60,10 @@ Quis autem vel eum iure reprehenderit.[^long] Vel illum qui dolorem eum fugiat.[
 
 At vero eos et accusamus et iusto odio dignissimos.[^short]
 
+This paragraph tests quotes in sidenotes, with the quote's lines indented and unindented. Nam libero tempore.[^quote] Cum soluta nobis est eligendi optio.[^flat-quote]
+
+This paragraph tests a status notice and an infobox in sidenotes. Temporibus autem quibusdam.[^status-note] Itaque earum rerum hic tenetur.[^infobox-note]
+
 ### Citations
 
 Lorem ipsum dolor sit amet.[^turing] Consectetur adipiscing elit.[^turing] Sed do eiusmod tempor.[^rice] Ut labore et dolore.[^cites]
@@ -72,6 +76,19 @@ Lorem ipsum dolor sit amet.[^turing] Consectetur adipiscing elit.[^turing] Sed d
 
 [^math]: A sidenote with math, $\mathsf{P} \subseteq \mathsf{NP}$, and a link to [the Wikipedia article on complexity classes](https://en.wikipedia.org/wiki/Complexity_class).
 
+[^quote]: > [!quote] Jorge Luis Borges, *[The Library of Babel](https://en.wikipedia.org/wiki/The_Library_of_Babel)*
+    > An indented quote in a sidenote.
+
+[^flat-quote]: > [!quote] Jorge Luis Borges, *[The Library of Babel](https://en.wikipedia.org/wiki/The_Library_of_Babel)*
+> An unindented quote in a sidenote.
+
+[^status-note]: > [!status]
+    > A status notice in a sidenote.
+
+[^infobox-note]: > [!infobox] P
+> - **Full name:** Polynomial time
+> - **Contained in:** NP
+
 [^cites]: A sidenote with a citation.[^turing]
 
 [^turing]: [Turing 1936](https://doi.org/10.1112/plms/s2-42.1.230), §8.
@@ -82,7 +99,7 @@ Lorem ipsum dolor sit amet.[^turing] Consectetur adipiscing elit.[^turing] Sed d
 
 ### Internal links
 
-A section of this note: [[#Typography|Lorem Ipsum > Typography]]. An alias: [[#Math|the math section]]. A note whose title has punctuation: [[dolor-sit-amet|Dolor Sit Amet :"><,.?/+-~`]]. An unpublished note, as plain text: [[Some Private Note]].
+A section of this note: [[#Typography|Lorem Ipsum > Typography]]. An alias: [[#Math|the math section]]. A note whose title has punctuation and whose popover shows an epigraph: [[dolor-sit-amet|Dolor Sit Amet :"><,.?/+-~`]]. An unpublished note, as plain text: [[Some Private Note]].
 
 This paragraph tests popovers on glossary terms. Lorem ipsum [[glossary#emergence (noun)|emergence]] dolor sit amet, and [[glossary#entelechy (noun)|entelechy]] has numbered senses. An alias: [[glossary#emergence (noun)|the emergent whole]].
 

@@ -12,6 +12,14 @@ describe("feed HTML", () => {
     expect(html).not.toMatch(/sidenote|toc/);
   });
 
+  it("keeps a footnote quote's unindented lines in the footnote", async () => {
+    const html = await render("Text.[^a]\n\n[^a]: > [!quote] Fuller\n> A verb.\n\nAfter.\n\n[^b]: > Note.\n\n> Separate.");
+    const [body, notes] = html.split("<section data-footnotes>");
+    expect(notes).toContain("A verb.");
+    expect(body).not.toContain("A verb.");
+    expect(body).toContain("Separate.");
+  });
+
   it("writes math as MathML, and proof trees as images with their TeX", async () => {
     const tree = "\\begin{prooftree}\\AxiomC{A}\\UnaryInfC{B}\\end{prooftree}";
     const html = await render(`Let $x^2$ be.\n\n$$\n${tree}\n$$`);

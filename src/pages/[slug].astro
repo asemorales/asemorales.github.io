@@ -30,7 +30,7 @@ const description = summary(note.body ?? "", { paragraphs: 1 })[0] ?? note.data.
 const written = note.data.date.toISOString().slice(0, 10);
 const updated = note.data.updated.toISOString().slice(0, 10);
 
-const backlinks = (await getCollection("notes", (n) => n.id !== note.id && (!n.data.unlisted || note.data.unlisted)))
+const backlinks = (await getCollection("notes", (n) => n.id !== note.id))
   .filter((n) => linkTargets(n.body ?? "").includes(note.id))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 
@@ -59,7 +59,7 @@ const lists = [
 ].filter((l) => l.entries.length > 0);
 ---
 
-<Base title={note.data.title} description={description} image={`/${note.id}/og.png`} noindex={note.data.unlisted} wide preloadItalic>
+<Base title={note.data.title} description={description} image={`/${note.id}/og.png`} wide preloadItalic>
   <article class="note column">
     <h1 class="text-4xl">{note.data.title}</h1>
     {note.id !== GLOSSARY && (

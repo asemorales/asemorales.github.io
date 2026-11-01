@@ -15,7 +15,7 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import { rehypeDeadLinks } from "./dead-links.js";
 import { classes, el, isElement, text, txt, walk } from "./hast.js";
-import { rehypeCallouts } from "./rehype-callouts.js";
+import { rehypeCallouts, remarkFootnoteQuotes } from "./rehype-callouts.js";
 import { rehypeFigures } from "./rehype-figures.js";
 import { remarkWikilinks } from "./wikilinks.js";
 
@@ -123,6 +123,7 @@ export async function feedHtml(markdown, { slug, slugs, site, status = {}, image
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkFootnoteQuotes)
     .use(remarkMath)
     .use(remarkWikilinks, { slugs })
     .use(remarkRehype)

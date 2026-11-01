@@ -366,8 +366,13 @@
   .note blockquote {
     @apply mx-6 my-10 italic;
   }
-  .note blockquote footer {
-    @apply mt-2 text-right text-[0.95em] not-italic;
+  .note .sidenote-quote {
+    @apply italic;
+  }
+  .note blockquote footer,
+  .note .sidenote-attribution,
+  .popover-epigraph footer {
+    @apply mt-2 block text-right text-[0.95em] not-italic;
     font-variant-caps: small-caps;
   }
 
@@ -420,6 +425,21 @@
   }
   .note .sidenote-block + .sidenote-block {
     @apply mt-2 block;
+  }
+  .note .sidenote .sidenote-status {
+    @apply block border border-rule px-3 py-2;
+  }
+  .note .sidenote .sidenote-infobox {
+    @apply block border border-frame bg-panel p-2 leading-snug;
+  }
+  .note .sidenote .sidenote-title {
+    @apply block text-center font-semibold;
+  }
+  .note .sidenote .sidenote-facts {
+    @apply grid grid-cols-[fit-content(45%)_1fr] gap-x-3 gap-y-1.5;
+  }
+  .note .sidenote-key {
+    @apply font-semibold;
   }
   .note :is(.sidenote-number, .sidenote-ref, .sidenote, mjx-container, figure > img, figcaption).highlighted {
     @apply bg-hover outline-1 outline-frame;
@@ -736,8 +756,12 @@
   .popover-body.clipped {
     mask-image: linear-gradient(to bottom, black 70%, transparent);
   }
-  .popover-body p + p {
+  .popover-body p + p,
+  .popover-epigraph + p {
     @apply mt-2;
+  }
+  .popover-epigraph {
+    @apply italic;
   }
   .popover-more {
     @apply mt-2 self-start text-sm;

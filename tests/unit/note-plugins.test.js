@@ -147,6 +147,40 @@ describe("rehypeSidenotes", () => {
     ]);
   });
 
+  it("renders a quote callout with spans, since a sidenote sits inside a paragraph", () => {
+    const callout = quote(p("[!quote] Fuller\nA verb."));
+    const tree = root(p("One.", ref("a", 1)), footnotes(el("li", { id: "user-content-fn-a" }, [callout])));
+    rehypeCallouts()(tree);
+    rehypeSidenotes()(tree, { data: {} });
+    expect(toHtml(tree)).toContain(
+      '<span class="sidenote-block sidenote-quote"><span class="sidenote-block">A verb.</span>' +
+        '<span class="sidenote-block sidenote-attribution">Fuller</span></span>',
+    );
+    expect(toHtml(tree)).not.toMatch(/<footer|<blockquote/);
+  });
+
+  it("renders status and infobox callouts with spans", () => {
+    const fact = el("li", {}, [el("strong", {}, [txt("Size:")]), txt(" Small")]);
+    const tree = root(
+      p("One.", ref("s", 1), " Two.", ref("i", 2)),
+      footnotes(
+        el("li", { id: "user-content-fn-s" }, [quote(p("[!status]\nDraft."))]),
+        el("li", { id: "user-content-fn-i" }, [quote(p("[!infobox] Box"), el("ul", {}, [fact]))]),
+      ),
+    );
+    rehypeCallouts()(tree);
+    rehypeSidenotes()(tree, { data: {} });
+    const html = toHtml(tree);
+    expect(html).toContain(
+      '<span class="sidenote-block sidenote-status" role="group" aria-label="Status"><span class="sidenote-block">Draft.</span></span>',
+    );
+    expect(html).toContain(
+      '<span class="sidenote-block sidenote-infobox" role="group" aria-label="Box"><span class="sidenote-block sidenote-title">Box</span>' +
+        '<span class="sidenote-block sidenote-facts"><span class="sidenote-key">Size</span><span class="sidenote-value">Small</span></span></span>',
+    );
+    expect(html).not.toMatch(/<aside|<dl|<dt|<dd/);
+  });
+
   it("letters past z as aa, ab", () => {
     expect([0, 25, 26, 27, 701, 702].map(letter)).toEqual(["a", "z", "aa", "ab", "zz", "aaa"]);
   });

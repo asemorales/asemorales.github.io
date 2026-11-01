@@ -7,9 +7,15 @@ import { clip, plain, summary } from "./summary.js";
 const NOTE_SUMMARY = 500;
 const HEADING = /^(#{2,4})\s+(.+?)\s*#*\s*$/;
 const FENCE = /^(`{3,}|~{3,})/;
+const EPIGRAPH = /^>\s*\[!(?:quote|epigraph)\][+-]?[ \t]*(.*)\n((?:>.*(?:\n|$))+)/i;
 
 export function noteCard(title, markdown) {
-  return { title, paragraphs: clipParagraphs(summary(markdown, { paragraphs: 1 }), NOTE_SUMMARY) };
+  const body = markdown.trim();
+  const opening = body.match(EPIGRAPH);
+  if (!opening) return { title, paragraphs: clipParagraphs(summary(body, { paragraphs: 1 }), NOTE_SUMMARY) };
+  const text = clip(plain(opening[2].replace(/^>\s?/gm, "")), NOTE_SUMMARY);
+  const paragraphs = clipParagraphs(summary(body.slice(opening[0].length), { paragraphs: 1 }), NOTE_SUMMARY - text.length);
+  return { title, epigraph: { text, by: plain(opening[1]) }, paragraphs };
 }
 
 export function headingCards(markdown) {

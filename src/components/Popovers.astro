@@ -6,6 +6,7 @@
     title: string;
     type?: string;
     meta?: string[];
+    epigraph?: { text: string; by: string };
     paragraphs: string[];
     dead?: string;
     href?: string;
@@ -66,15 +67,22 @@
     }
     const body = document.createElement("div");
     body.className = "popover-body";
+    if (card.epigraph) {
+      const quote = document.createElement("blockquote");
+      quote.className = "popover-epigraph";
+      add(quote, "p", "", "").innerHTML = card.epigraph.text;
+      if (card.epigraph.by) add(quote, "footer", "", card.epigraph.by);
+      body.append(quote);
+    }
     for (const html of card.paragraphs) {
       const p = document.createElement("p");
       p.innerHTML = html;
       body.append(p);
     }
-    if (card.paragraphs.length) el.append(body);
+    if (body.hasChildNodes()) el.append(body);
     const href = card.href ?? a.href;
     const internal = new URL(href, location.href).origin === location.origin;
-    if (more && (!internal || card.paragraphs.length)) {
+    if (more && (!internal || body.hasChildNodes())) {
       const more = add(el, "a", "popover-more", internal ? "Read more" : "Go to site") as HTMLAnchorElement;
       more.href = href;
       more.tabIndex = -1;

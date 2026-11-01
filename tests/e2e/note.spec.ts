@@ -77,7 +77,7 @@ test.describe("sidenotes", () => {
     test.skip(!wide(info.project.name), "wide screens only");
     const column = await box(page.locator("article.note"));
     const notes = page.locator(".sidenote");
-    await expect(notes).toHaveCount(5);
+    await expect(notes).toHaveCount(9);
     const boxes = await Promise.all((await notes.all()).map(box));
     for (const b of boxes) expect(b.x).toBeGreaterThan(column.x + column.width);
     for (let i = 1; i < boxes.length; i++) expect(boxes[i].y).toBeGreaterThanOrEqual(boxes[i - 1].y + boxes[i - 1].height);
@@ -121,6 +121,43 @@ test.describe("sidenotes", () => {
     await lit(true);
     await page.mouse.click(...corner);
     await lit(false);
+  });
+
+  for (const [id, body] of [
+    ["quote", "An indented quote in a sidenote."],
+    ["flat-quote", "An unindented quote in a sidenote."],
+  ]) {
+    test(`keep a quote and its attribution inside the sidenote: ${id}`, async ({ page }, info) => {
+      if (!wide(info.project.name)) await page.locator(`#snref-${id}`).tap();
+      const note = page.locator(`#sn-${id} + .sidenote`);
+      await expect(note.locator(".sidenote-quote")).toContainText(body);
+      await expect(note.locator(".sidenote-quote")).toHaveCSS("font-style", "italic");
+      const attribution = note.locator(".sidenote-attribution");
+      await expect(attribution).toContainText("Jorge Luis Borges");
+      await expect(attribution).toHaveCSS("text-align", "right");
+      await expect(page.locator(`article.note > blockquote, article.note section > blockquote`).filter({ hasText: body })).toHaveCount(0);
+      await expect(page.locator("article.note footer").filter({ hasText: "Jorge Luis Borges" })).toHaveCount(1);
+    });
+  }
+
+  test("keep a status notice inside its sidenote, boxed", async ({ page }, info) => {
+    if (!wide(info.project.name)) await page.locator("#snref-status-note").tap();
+    const status = page.locator("#sn-status-note + .sidenote .sidenote-status");
+    await expect(status).toHaveText("A status notice in a sidenote.");
+    await expect(status).toHaveCSS("border-top-style", "solid");
+    await expect(page.locator("aside.status")).toHaveCount(1);
+  });
+
+  test("keep an infobox inside its sidenote, with facts in two columns", async ({ page }, info) => {
+    if (!wide(info.project.name)) await page.locator("#snref-infobox-note").tap();
+    const infobox = page.locator("#sn-infobox-note + .sidenote .sidenote-infobox");
+    await expect(infobox.locator(".sidenote-title")).toHaveText("P");
+    await expect(infobox.locator(".sidenote-facts")).toHaveCSS("display", "grid");
+    await expect(infobox.locator(".sidenote-key")).toHaveText(["Full name", "Contained in"]);
+    await expect(infobox.locator(".sidenote-value")).toHaveText(["Polynomial time", "NP"]);
+    const [key, value] = await Promise.all([box(infobox.locator(".sidenote-key").first()), box(infobox.locator(".sidenote-value").first())]);
+    expect(value.x).toBeGreaterThan(key.x);
+    await expect(page.locator("aside.infobox")).toHaveCount(1);
   });
 
   test("mark citations with numbers, reusing a source's number, inside sidenotes too", async ({ page }) => {
@@ -209,7 +246,7 @@ test.describe("glossary", () => {
 
   test("appears at the bottom of the home contents", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator(".home-end a")).toHaveText(["To the Reader", "Acknowledgements", "Glossary", "Colophon"]);
+    await expect(page.locator(".home-end a")).toHaveText(["To the Reader", "Acknowledgments", "Glossary", "Colophon"]);
   });
 });
 
@@ -217,8 +254,15 @@ test.describe("bottom matter", () => {
   test("list notes that link here under See also, in the contents too", async ({ page }) => {
     await expect(page.locator("#see-also + ul a")).toHaveAttribute("href", "/dolor-sit-amet/");
     await expect(page.locator("nav.toc a[href='#see-also']")).toHaveCount(1);
-    await page.goto("/acknowledgements/");
+    await page.goto("/acknowledgments/");
     await expect(page.locator("#see-also")).toHaveCount(0);
+  });
+
+  test("list unlisted notes under See also, and let search engines index them", async ({ page }) => {
+    await page.goto("/why-do-we-define-ourselves-by-what-we-do-rather-than-what-we-think/");
+    await expect(page.locator("#see-also + ul a")).toHaveAttribute("href", "/to-the-reader/");
+    await page.goto("/to-the-reader/");
+    await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
   });
 
   test("list References and External links last in the contents, open", async ({ page }) => {

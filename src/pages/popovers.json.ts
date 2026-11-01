@@ -34,6 +34,9 @@ export async function GET() {
       if (dead) out[dead.href] = card;
     }
   }
-  for (const card of Object.values(out) as { paragraphs: string[] }[]) card.paragraphs = card.paragraphs.map(paragraphHtml);
+  for (const card of Object.values(out) as { paragraphs: string[]; epigraph?: { text: string } }[]) {
+    card.paragraphs = card.paragraphs.map(paragraphHtml);
+    if (card.epigraph) card.epigraph.text = paragraphHtml(card.epigraph.text);
+  }
   return new Response(JSON.stringify(out), { headers: { "Content-Type": "application/json" } });
 }

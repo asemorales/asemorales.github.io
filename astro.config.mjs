@@ -12,7 +12,7 @@ import { rehypeDeadLinks } from "./src/lib/dead-links.js";
 import { rehypeGlossary } from "./src/lib/glossary.js";
 import { rehypeBibliography } from "./src/lib/rehype-bibliography.js";
 import { rehypeBlocks } from "./src/lib/rehype-blocks.js";
-import { rehypeCallouts } from "./src/lib/rehype-callouts.js";
+import { rehypeCallouts, remarkFootnoteQuotes } from "./src/lib/rehype-callouts.js";
 import { rehypeFigures } from "./src/lib/rehype-figures.js";
 import { rehypeMathLabels, rehypeMathSource } from "./src/lib/rehype-math-labels.js";
 import { rehypeSections } from "./src/lib/rehype-sections.js";
@@ -30,13 +30,11 @@ const notes = fs
   .readdirSync(notesDir)
   .filter((f) => f.endsWith(".md"))
   .map((f) => ({ slug: f.replace(/\.md$/, ""), ...matter(fs.readFileSync(path.join(notesDir, f), "utf8")) }));
-const hidden = new Set(notes.filter((n) => n.data.unlisted).map((n) => `${site}/${n.slug}/`));
 const listedTags = new Set(notes.filter((n) => !n.data.unlisted).flatMap((n) => n.data.tags.map(slugify)));
-const unlisted = new Set(notes.filter((n) => n.data.unlisted).map((n) => n.slug));
-const backlinked = notes.flatMap((n) => linkTargets(n.content).filter((t) => t !== n.slug && (!n.data.unlisted || unlisted.has(t))));
+const backlinked = notes.flatMap((n) => linkTargets(n.content).filter((t) => t !== n.slug));
 const inSitemap = (page) => {
   const tag = page.match(/\/tags\/([^/]+)\/$/);
-  return !hidden.has(page) && (!tag || listedTags.has(tag[1]));
+  return !tag || listedTags.has(tag[1]);
 };
 
 export default defineConfig({
@@ -46,7 +44,7 @@ export default defineConfig({
   integrations: [sitemap({ filter: inSitemap })],
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkMath, [remarkWikilinks, { slugs: notes.map((n) => n.slug) }]],
+      remarkPlugins: [remarkFootnoteQuotes, remarkMath, [remarkWikilinks, { slugs: notes.map((n) => n.slug) }]],
       rehypePlugins: [
         rehypeMathSource,
         [rehypeMathjax, { tex: { tags: "ams" } }],

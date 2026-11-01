@@ -114,6 +114,15 @@ test.describe("popovers on the lorem page", () => {
 test.describe("popovers on other notes", () => {
   wideWithJs();
 
+  test("show a note's opening epigraph above its first paragraph", async ({ page }) => {
+    await page.goto("/lorem-ipsum/");
+    const p = await hover(page, /^Dolor Sit Amet/);
+    await expect(p.locator(".popover-epigraph p")).toHaveText("Neque porro quisquam est qui dolorem ipsum.");
+    await expect(p.locator(".popover-epigraph footer")).toHaveText("Cicero, De Finibus");
+    await expect(p.locator(".popover-epigraph + p")).toContainText("This page checks");
+    await expect(p.locator(".popover-more")).toBeVisible();
+  });
+
   test("preview a linked note's opening, with a link to read more", async ({ page }) => {
     await page.goto("/dolor-sit-amet/");
     const p = await hover(page, "Lorem Ipsum");

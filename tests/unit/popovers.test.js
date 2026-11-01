@@ -12,6 +12,18 @@ describe("popover cards", () => {
     expect(card.paragraphs.at(-1)).toMatch(/ok\.$/);
   });
 
+  it("show a note's opening epigraph above its first paragraph", () => {
+    const md = "> [!quote] Jorge Luis Borges, *[Babel](https://x.org/a)*\n> The *universe*\n> is a library.\n\nFirst.\n\nSecond.";
+    expect(noteCard("Note", md)).toEqual({
+      title: "Note",
+      epigraph: { text: "The universe is a library.", by: "Jorge Luis Borges, Babel" },
+      paragraphs: ["First."],
+    });
+    expect(noteCard("Note", "> [!quote]\n> Alone.").epigraph).toEqual({ text: "Alone.", by: "" });
+    expect(noteCard("Note", "> [!status]\n> Draft.\n\nFirst.")).toEqual({ title: "Note", paragraphs: [] });
+    expect(noteCard("Note", "First.\n\n> [!quote] Borges\n> Later.")).toEqual({ title: "Note", paragraphs: ["First."] });
+  });
+
   it("key each heading's first paragraph by its id, skipping code", () => {
     const md = "Intro.\n\n## First *one*\n\nUnder first.\n\n```\n## Not a heading\n```\n\n## References\n\nMine.";
     expect(headingCards(md)).toEqual({
