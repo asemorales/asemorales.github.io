@@ -133,7 +133,7 @@ test.describe("sidenotes", () => {
 test.describe("callouts", () => {
   test("render the status notice as a box without its marker", async ({ page }) => {
     const status = page.locator("aside.status");
-    await expect(status).toContainText("This page is used to test the design features");
+    await expect(status).toBeVisible();
     await expect(page.locator("article")).not.toContainText("[!");
   });
 
@@ -187,6 +187,29 @@ test.describe("links", () => {
     await expect(dead).toHaveClass(/\bdead\b/);
     expect(await dead.evaluate((el) => getComputedStyle(el).textDecorationStyle)).toBe("dotted");
     await expect(page.locator("section.sources a.dead")).toHaveAttribute("href", /^https:\/\/web\.archive\.org\//);
+  });
+});
+
+test.describe("glossary", () => {
+  test("shows no date, and leaves etymologies out of the contents", async ({ page }) => {
+    await page.goto("/glossary/");
+    await expect(page.locator("article time")).toHaveCount(0);
+    await expect(page.locator("nav.toc a[href='#etymology']")).toHaveCount(0);
+  });
+
+  test("has a popover card matching each term on the page", async ({ page, request }) => {
+    const cards = await (await request.get("/popovers.json")).json();
+    await page.goto("/glossary/");
+    for (const heading of await page.locator("article > h2:has(.term-type)").all()) {
+      const card = cards[`/glossary/#${await heading.getAttribute("id")}`];
+      expect(card.meta).toEqual([await heading.locator(".term-type").textContent()]);
+      await expect(heading).toContainText(card.title);
+    }
+  });
+
+  test("appears at the bottom of the home contents", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator(".home-end a").first()).toHaveAttribute("href", "/glossary/");
   });
 });
 

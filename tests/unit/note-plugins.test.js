@@ -1,6 +1,7 @@
 import { toHtml } from "hast-util-to-html";
 import { describe, expect, it } from "vitest";
 import { archived, rehypeDeadLinks } from "../../src/lib/dead-links.js";
+import { rehypeGlossary } from "../../src/lib/glossary.js";
 import { el, txt } from "../../src/lib/hast.js";
 import { rehypeBibliography } from "../../src/lib/rehype-bibliography.js";
 import { rehypeBlocks } from "../../src/lib/rehype-blocks.js";
@@ -18,6 +19,35 @@ const p = (...children) =>
     children.map((c) => (typeof c === "string" ? txt(c) : c)),
   );
 const quote = (...children) => el("blockquote", {}, children);
+
+describe("rehypeGlossary", () => {
+  const entry = () =>
+    root(
+      el("h2", {}, [txt("foo (noun)")]),
+      p("A foo."),
+      el("h3", {}, [txt("Etymology")]),
+      p("From bar."),
+      el("h2", {}, [txt("bar (verb)")]),
+      p("To bar."),
+    );
+
+  it("sets the type apart and groups the etymology, so sections skip it but keep the term's anchor", () => {
+    const tree = entry();
+    rehypeGlossary()(tree, { stem: "glossary" });
+    expect(toHtml(tree)).toBe(
+      '<h2>foo <span class="term-type">noun</span></h2><p>A foo.</p><div class="etymology"><h3>Etymology</h3><p>From bar.</p></div>' +
+        '<h2>bar <span class="term-type">verb</span></h2><p>To bar.</p>',
+    );
+    rehypeSections()(tree, { stem: "glossary", data: {} });
+    expect(tree.children.filter((n) => n.tagName === "h2").map((n) => n.properties.id)).toEqual(["foo-noun", "bar-verb"]);
+  });
+
+  it("leaves other notes alone", () => {
+    const tree = entry();
+    rehypeGlossary()(tree, { stem: "other" });
+    expect(toHtml(tree)).toBe(toHtml(entry()));
+  });
+});
 
 describe("rehypeCallouts", () => {
   it("turns [!status] into a box and drops the marker", () => {

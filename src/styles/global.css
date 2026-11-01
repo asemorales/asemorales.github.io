@@ -278,6 +278,18 @@
     @apply opacity-100;
   }
 
+  .note .term-type {
+    @apply text-[0.8em] font-normal text-dim italic;
+  }
+  .note h2:has(> .term-type) + p {
+    text-indent: 0;
+  }
+  .note .etymology h3 {
+    @apply mt-0 text-base font-normal text-dim;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.04em;
+  }
+
   .note ul {
     @apply list-disc pl-6;
   }

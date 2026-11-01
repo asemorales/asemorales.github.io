@@ -1,7 +1,8 @@
-import GithubSlugger from "github-slugger";
+import GithubSlugger, { slug } from "github-slugger";
 import { texToInlineSvg } from "./feed.js";
+import { glossaryEntries, parseTerm } from "./glossary.js";
 import { BACK_IDS } from "./rehype-sections.js";
-import { clip, summary } from "./summary.js";
+import { clip, plain, summary } from "./summary.js";
 
 const NOTE_SUMMARY = 500;
 const HEADING = /^(#{2,4})\s+(.+?)\s*#*\s*$/;
@@ -27,6 +28,17 @@ export function headingCards(markdown) {
     const id = slugger.slug(title);
     out[id] = { title, paragraphs: clipParagraphs(summary(lines.slice(i + 1).join("\n"), { paragraphs: 1 }), NOTE_SUMMARY) };
   });
+  return out;
+}
+
+export function termCards(markdown) {
+  const out = {};
+  for (const [heading, definition] of glossaryEntries(markdown)) {
+    const term = parseTerm(heading);
+    if (!term) continue;
+    const blocks = definition.split(/\n\s*\n|\n(?=\s*(?:\d+\.|[-*+])\s)/).map(plain);
+    out[slug(heading)] = { title: term.word, meta: [term.type], paragraphs: clipParagraphs(blocks, NOTE_SUMMARY) };
+  }
   return out;
 }
 

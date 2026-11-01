@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { headingCards, linkCard, noteCard, paragraphHtml } from "../../src/lib/popovers.js";
+import { headingCards, linkCard, noteCard, paragraphHtml, termCards } from "../../src/lib/popovers.js";
 import { clip } from "../../src/lib/summary.js";
 
 describe("popover cards", () => {
@@ -16,6 +16,14 @@ describe("popover cards", () => {
     expect(headingCards(md)).toEqual({
       "first-one": { title: "First one", paragraphs: ["Under first."] },
       "references-1": { title: "References", paragraphs: ["Mine."] },
+    });
+  });
+
+  it("key each glossary term's whole definition by its id, without the etymology", () => {
+    const md = "Intro.\n\n## foo (noun)\n\n1. *One* sense.\n2. Another.\n\n### Etymology\n\nFrom bar.\n\n## bar (verb)\n\nTo bar.\n\nAgain.\n";
+    expect(termCards(md)).toEqual({
+      "foo-noun": { title: "foo", meta: ["noun"], paragraphs: ["1. One sense.", "2. Another."] },
+      "bar-verb": { title: "bar", meta: ["verb"], paragraphs: ["To bar.", "Again."] },
     });
   });
 

@@ -66,6 +66,25 @@ test.describe("popovers on the lorem page", () => {
     await expect(p.locator(".popover-body")).toContainText("Incomprehensibilities");
   });
 
+  test("show a glossary term's type and every sense, for a word with an accent", async ({ page }) => {
+    const href = "/glossary/#móck-noun";
+    const card = { title: "mock term", meta: ["mock type"], paragraphs: ["1. First sense.", "2. Second sense."] };
+    await page.route("**/popovers.json", (route) => route.fulfill({ json: { [href]: card } }));
+    await page
+      .locator("article > p")
+      .first()
+      .evaluate((p, url) => {
+        const a = document.createElement("a");
+        a.href = url;
+        a.textContent = "mock link";
+        p.append(a);
+      }, href);
+    const p = await hover(page, "mock link");
+    await expect(p.locator(".popover-title")).toHaveText(card.title);
+    await expect(p.locator(".popover-meta")).toHaveText("mock type");
+    await expect(p.locator(".popover-body p")).toHaveText(card.paragraphs);
+  });
+
   test("open on keyboard focus and close on Escape", async ({ page }) => {
     const link = page.getByRole("link", { name: "asemorales/bierstadt" }).first();
     await link.focus();

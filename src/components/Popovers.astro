@@ -26,7 +26,7 @@
   function key(a: HTMLAnchorElement) {
     const url = new URL(a.href, location.href);
     if (url.origin !== location.origin) return url.href;
-    return url.hash ? `${url.pathname}${url.hash}` : url.pathname;
+    return url.hash ? `${url.pathname}${decodeURIComponent(url.hash)}` : url.pathname;
   }
 
   function element() {

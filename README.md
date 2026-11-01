@@ -32,6 +32,8 @@ This publishes all notes in the vault's `published/` folder. A note's file name 
 
 To write custom annotations for an external link, add a note to `published/annotations/` with a `url` field in the front matter. Text in custom annotations are used in popovers for that link.
 
+To define a term, add a `## word (type)` heading to `published/glossary.md`. Write the definition below the heading, and optionally add an `### Etymology` heading after the definition. To reference a term from any note, link to its heading with `[[glossary#word (type)]]` or `[[glossary#word (type)|other text]]`. The link opens a popover with the definition, and Obsidian autocompletes the heading.
+
 ## Scripts
 
 | Command              | Does                                                                                           |

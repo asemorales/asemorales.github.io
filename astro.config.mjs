@@ -9,6 +9,7 @@ import rehypeMathjax from "rehype-mathjax/svg";
 import remarkMath from "remark-math";
 import linkStatus from "./src/data/links-status.json" with { type: "json" };
 import { rehypeDeadLinks } from "./src/lib/dead-links.js";
+import { rehypeGlossary } from "./src/lib/glossary.js";
 import { rehypeBibliography } from "./src/lib/rehype-bibliography.js";
 import { rehypeBlocks } from "./src/lib/rehype-blocks.js";
 import { rehypeCallouts } from "./src/lib/rehype-callouts.js";
@@ -56,6 +57,7 @@ export default defineConfig({
         rehypeSidenotes,
         rehypeBlocks,
         rehypeBibliography,
+        rehypeGlossary,
         [rehypeSections, { backlinked }],
         [rehypeDeadLinks, { status: linkStatus }],
       ],

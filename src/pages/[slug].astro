@@ -5,6 +5,7 @@ import Reading from "../components/Reading.astro";
 import Entry from "../components/SourceEntry.astro";
 import cards from "../data/cards.json";
 import Base from "../layouts/Base.astro";
+import { GLOSSARY } from "../lib/glossary.js";
 import { summary } from "../lib/summary.js";
 import { slugify } from "../lib/slug.js";
 import { sourceEntry } from "../lib/sources.js";
@@ -61,16 +62,18 @@ const lists = [
 <Base title={note.data.title} description={description} image={`/${note.id}/og.png`} noindex={note.data.unlisted} wide preloadItalic>
   <article class="note column">
     <h1 class="text-4xl">{note.data.title}</h1>
-    <p class="flex flex-wrap divide-x divide-rule font-mono text-sm text-dim indent-0 *:px-2 *:first:pl-0 *:last:pr-0">
-      <span>
-        <time datetime={written}>{written}</time>
-      </span>
-      {updated !== written && (
+    {note.id !== GLOSSARY && (
+      <p class="flex flex-wrap divide-x divide-rule font-mono text-sm text-dim indent-0 *:px-2 *:first:pl-0 *:last:pr-0">
         <span>
-          Last updated <time datetime={updated}>{updated}</time>
+          <time datetime={written}>{written}</time>
         </span>
-      )}
-    </p>
+        {updated !== written && (
+          <span>
+            Last updated <time datetime={updated}>{updated}</time>
+          </span>
+        )}
+      </p>
+    )}
     <Content />
     <footer class="bottom">
       {backlinks.length > 0 && (

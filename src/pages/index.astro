@@ -25,7 +25,7 @@ const contact = [
   { name: "X", icon: "x-brand", href: "https://x.com/_asemorales" },
   { name: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/asemorales" },
 ];
-const acknowledgements = await getEntry("notes", "acknowledgements");
+const backMatter = (await Promise.all(["glossary", "acknowledgements"].map((id) => getEntry("notes", id)))).filter((n) => n !== undefined);
 ---
 
 <Base title="Ase Morales" description={description} wide>
@@ -48,7 +48,7 @@ const acknowledgements = await getEntry("notes", "acknowledgements");
     </section>
     <hr class="ornament" />
 
-    {notes.length > 0 && (
+    {notes.length + backMatter.length > 0 && (
       <>
         <div class="home-contents">
           <h2 id="contents">Contents</h2>
@@ -83,13 +83,15 @@ const acknowledgements = await getEntry("notes", "acknowledgements");
               </ul>
             </section>
           ))}
-          {acknowledgements && (
+          {backMatter.length > 0 && (
             <ul class="home-end">
-              <li data-search={[acknowledgements.data.title, ...summary(acknowledgements.body ?? "")].join(" ")}>
-                <a href={`/${acknowledgements.id}/`}>{acknowledgements.data.title}</a>
-                <span class="leader" aria-hidden="true"></span>
-                <span class="minutes">{minutes(acknowledgements.body)} min</span>
-              </li>
+              {backMatter.map((n) => (
+                <li data-search={[n.data.title, ...summary(n.body ?? "")].join(" ")}>
+                  <a href={`/${n.id}/`}>{n.data.title}</a>
+                  <span class="leader" aria-hidden="true"></span>
+                  <span class="minutes">{minutes(n.body)} min</span>
+                </li>
+              ))}
             </ul>
           )}
           <div class="home-empty" hidden>

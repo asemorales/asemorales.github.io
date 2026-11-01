@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
+import { GLOSSARY, glossaryEntries, parseTerm } from "../src/lib/glossary.js";
 import { slugify } from "../src/lib/slug.js";
 import { WIKILINK } from "../src/lib/wikilinks.js";
 
@@ -151,6 +152,12 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
     notes.push({ rel, slug, data: parsed.data, body, updated, embeds });
   }
 
+  const glossary = notes.find((n) => n.slug === GLOSSARY);
+  for (const [heading, definition] of glossaryEntries(glossary?.body ?? "")) {
+    if (!parseTerm(heading)) problems.push(`${glossary.rel}: "## ${heading}" must look like "## word (type)".`);
+    if (!definition) problems.push(`${glossary.rel}: "## ${heading}" needs a definition below it.`);
+  }
+
   const titles = new Map(notes.map((n) => [n.slug, n.data.title]));
   for (const note of notes) {
     note.body = outsideCode(note.body, (text) =>
@@ -163,7 +170,8 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
           return whole;
         }
         const title = titles.get(target);
-        const label = alias?.trim() || (heading ? `${title} > ${heading}` : title);
+        const word = target === GLOSSARY && heading && parseTerm(heading)?.word;
+        const label = alias?.trim() || word || (heading ? `${title} > ${heading}` : title);
         const self = target === note.slug && heading;
         return `[[${self ? "" : target}${heading ? `#${heading}` : ""}|${label}]]`;
       }),

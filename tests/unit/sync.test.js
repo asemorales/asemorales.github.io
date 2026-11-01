@@ -69,6 +69,27 @@ describe("sync", () => {
     await fs.rm(vault, { recursive: true });
   });
 
+  describe("glossary", () => {
+    const front = (title) => `---\ntitle: ${title}\ndate: 2026-01-01\ntags: [a]\n---\n`;
+    const glossary = `${front("Glossary")}Intro.\n\n## foo (noun)\n\nA foo, unlike [[#bar (verb)]].\n\n### Etymology\n\nFrom bar.\n\n## bar (verb)\n\nTo bar.\n`;
+
+    it("labels a term link with the word alone", async () => {
+      const vault = await tempVault({ "glossary.md": glossary, "note.md": `${front("Note")}[[glossary#foo (noun)]] [[glossary#foo (noun)|foos]]` });
+      await sync({ vault, out, lastUpdated: fixedDate });
+      expect(await read("notes/note.md")).toContain("[[glossary#foo (noun)|foo]] [[glossary#foo (noun)|foos]]");
+      await fs.rm(vault, { recursive: true });
+    });
+
+    it.each([
+      ["a heading without a type", `${front("Glossary")}## foo\n\nA foo.\n`, /must look like "## word \(type\)"/],
+      ["a term without a definition", `${front("Glossary")}## foo (noun)\n\n## bar (verb)\n\nTo bar.\n`, /needs a definition/],
+    ])("fails on %s", async (_, glossaryText, message) => {
+      const vault = await tempVault({ "glossary.md": glossaryText });
+      await expect(sync({ vault, out, lastUpdated: fixedDate })).rejects.toThrow(message);
+      await fs.rm(vault, { recursive: true });
+    });
+  });
+
   it("keeps special characters in the title", async () => {
     const vault = await tempVault({ "q-a.md": '---\ntitle: "Q&A: why/how?"\ndate: 2026-01-01\ntags: [a]\n---\nText.' });
     await sync({ vault, out, lastUpdated: fixedDate });

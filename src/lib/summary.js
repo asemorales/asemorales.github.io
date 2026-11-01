@@ -8,7 +8,7 @@ export function summary(markdown, { paragraphs = Infinity } = {}) {
   return out;
 }
 
-function plain(text) {
+export function plain(text) {
   return text
     .split(/(\$[^$\n]+\$)/)
     .map((part, i) => (i % 2 ? part : unmark(part)))

@@ -5,12 +5,10 @@ updated: 2026-11-01
 tags: ["test"]
 ---
 
-Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, in the years 1991, 2025, and 2026.
-
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+This page contains dummy text used to test the design features of this site. Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, in the years 1991, 2025, and 2026.
 
 > [!status]
-> This page is used to test the design features of this site.
+> This is some text in a box.
 
 ## Typography
 
@@ -85,6 +83,8 @@ Lorem ipsum dolor sit amet.[^turing] Consectetur adipiscing elit.[^turing] Sed d
 ### Internal links
 
 A section of this note: [[#Typography|Lorem Ipsum > Typography]]. An alias: [[#Math|the math section]]. A note whose title has punctuation: [[dolor-sit-amet|Dolor Sit Amet :"><,.?/+-~`]]. An unpublished note, as plain text: [[Some Private Note]].
+
+This paragraph tests popovers on glossary terms. Lorem ipsum [[glossary#emergence (noun)|emergence]] dolor sit amet, and [[glossary#entelechy (noun)|entelechy]] has numbered senses. An alias: [[glossary#emergence (noun)|the emergent whole]].
 
 ### External links
 
