@@ -16,6 +16,8 @@ The set of possible future states that an autonomous agent can be in that are on
 
 The idea was introduced by [Stuart Kauffman](https://en.wikipedia.org/wiki/Stuart_Kauffman), who first used the term to describe a law of the biosphere, wherein the biosphere tends towards novelty by evolving towards the adjacent possible[^cite-kauffman-investigations-1]. The term has also been used to describe the explosion of molecular diversity[^cite-kauffman-investigations-2], societal adoption of new technology[^cite-kauffman-investigations-3], and the development of economic complexity within a toy economy[^cite-kauffman-investigations-4].
 
+In education, the adjacent possible is conceptually similar to the [zone of proximal development](https://en.wikipedia.org/wiki/Zone_of_proximal_development#).
+
 ## entelechy (noun)
 
 An activity by which a system actualizes its latent potential. It is an activity that is an end in itself, and thus is complete at every moment. This is in contrast with [[#kinesis (noun)|kinesis]].

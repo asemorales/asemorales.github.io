@@ -5,6 +5,12 @@
     "meta": [],
     "text": "Uploaded by station10.cebu on September 5, 2019"
   },
+  "https://archive.org/details/investigations00kauf": {
+    "kind": "page",
+    "title": "Investigations : Kauffman, Stuart A : Free Download, Borrow, and Streaming : Internet Archive",
+    "meta": [],
+    "text": "Uploaded by adriana.g@archive.org on August 15, 2011"
+  },
   "https://archive.org/details/visualdisplayofq0000edwa": {
     "kind": "page",
     "title": "the visual display of quantitative information : edward r. tufte : Free Download, Borrow, and Streaming : Internet Archive",
@@ -101,6 +107,12 @@
     "meta": ["Wikipedia"],
     "text": "In computational complexity theory, NP-complete problems are the hardest of the problems to which solutions can be verified quickly. NP is short for \"nondeterministic polynomial-time\" and a problem is NP-complete when:It is a decision problem, meaning that for any input to the problem, the output is either \"yes\" or \"no\"."
   },
+  "https://en.wikipedia.org/wiki/Stuart_Kauffman": {
+    "kind": "wikipedia",
+    "title": "Stuart Kauffman",
+    "meta": ["Wikipedia"],
+    "text": "Stuart Alan Kauffman is an American medical doctor, theoretical biologist, and complex systems researcher who studies the origin of life on Earth. He was a professor at the University of Chicago, University of Pennsylvania, and University of Calgary. He is currently emeritus professor of biochemistry at the University of Pennsylvania and affiliate faculty at the Institute for Systems Biology."
+  },
   "https://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style": {
     "kind": "wikipedia",
     "title": "The Elements of Typographic Style",
@@ -118,6 +130,12 @@
     "title": "The Soul of Man Under Socialism",
     "meta": ["Wikipedia"],
     "text": "\"The Soul of Man Under Socialism\" is an 1891 essay by Oscar Wilde in which he expounds a libertarian socialist worldview and a critique of charity. The writing of \"The Soul of Man\" followed Wilde's conversion to anarchist philosophy, following his reading of the works of Peter Kropotkin."
+  },
+  "https://en.wikipedia.org/wiki/Zone_of_proximal_development#": {
+    "kind": "wikipedia",
+    "title": "Zone of proximal development",
+    "meta": ["Wikipedia"],
+    "text": "The zone of proximal development (ZPD) is a concept in educational psychology that represents the space between what a learner is capable of doing unsupported and what the learner cannot do even with support. It is the range where the learner is able to perform, but only with support from a teacher or a peer with more knowledge or expertise."
   },
   "https://example.com": {
     "kind": "page",
