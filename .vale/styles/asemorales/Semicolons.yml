@@ -1,7 +1,0 @@
-extends: existence
-message: "Do not split sentences using semicolons."
-level: error
-nonword: true
-scope: sentence
-tokens:
-  - ";"

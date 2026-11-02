@@ -1,0 +1,20 @@
+extends: existence
+message: "Relative time (MOS:REALTIME): '%s' goes out of date, so give a date."
+link: https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch#Relative_time_references
+level: suggestion
+ignorecase: true
+tokens:
+  - currently
+  - recently
+  - lately
+  - nowadays
+  - presently
+  - these days
+  - as of (?:now|today)
+  - at present
+  - at the moment
+  - to date
+  - up to now
+  - in recent years
+  - in modern times
+  - (?<!as )soon(?! as\b)

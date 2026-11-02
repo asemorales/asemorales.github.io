@@ -1,0 +1,381 @@
+backreference	A to An	\b(?<=[\s\(]|\A)([aA])(?<=a|(?:[\.\n]\s\s?\s?|\A)A)\s\s?((?:[aA](?!\b|2\b|[aA]A?[aTA]?|b(?:ogado|rirse)|c(?:a(?:demiei|o)|ceptat?a?|estei|ordo|quis)|ddaswyd|ED|FN|f(?:ace|ecta)|j(?:outé|uns)|l(?:ba\b|calde|do\b|guien\b|ma)|LL|m(?:basadei|érica)|MD|[nN](?:\b|amnese|[dD]\b|daluc|G|ihila|tiga|ului)|OA|p(?:a(?:gar\b|recer\b)|ostar\b|robat\b)|quest|r(?:der\b|enys\b|matei\b|quitectura|te(?:\b|lor\b))|R[S\$]|s(?:\b|souvi)|t(?:\b|ahualpa\b|enuar|hair|lântida|riz|teint)|U[DS\$\£]|us(?:iàs|triei\b)|v(?:ançar|enida|ut\b)|WG|ZN)|[eE](?!\b|cologia|di(?:ção|l\b|tora\b)|gipto|GP|l(?:a\b|itei\b|las\b)|m(?:a\b|b(?:ajadora|oîté)|igracja|pezar\b)|n(?:core\sdu|ergia|f(?:lamm[eé]|rentar)|ga(?:gé|ñar)|loquecer|se[nñ]ar|tend(?:erse|u)\b|tra(?:da|[iî]n[eé]|r\b)|tre(?:na(?:dor|r))?|voyé)|qui(?:librista|p[ao])|RN|s(?:as?\b|c(?:a[dl]a|ola|u(?:char|ela|ltura|ridão))|fera|p(?:a(?:ldas|[nñń])|erança))|st(?:a(?:\b|ciones|dos|r\b)|é|e(?:\b|ban)|o(?:\b|s\b)|ra(?:da|t[eé][gx]ia)|r(?:é[il]a|e(?:[il]a|llar)|uc?tura)|udia[nr])|TB\b|t(?:é|e(?:rna)?)?\b|[uU](?:[A-Za-z]{2}|\sde\b)|u\b|U[IR]|v(?:acuar|r(?:eilor|op))|w[abei]|x(?:ist[ée](?:ncia)?|p(?:ansão|eri[eê]ncia|osição|ressão))|xtranj)|h(?:aut[besu]|eir|o(?:rs\sd|ur(?:\b|[gs]|ly)))|[iI](?!\b|a(?:ij|[șş]i)|DR\b|greja|[iI][iI]?[iI]?|l(?:\sraen\b|egal|ha\b)|LS|m(?:age[nm]\b|igração|magini\b)|n(?:\b|ceput|dia[’']?s\b|d(?:icação|ro\b|úst)|és|f(?:luência|ormační)|glat|icios|nei\b|quisição|s(?:t(?:ancias|itucí)|ulté)|t(?:e(?:gra(?:nte|rse)|ligência|r(?:preta|ven)[cç][aã]o)|imidade|ra\b)|v(?:asão|e(?:nté|stit)))|NR\b|QD\b|R(?:£|R\b)|s(?:\b|chia\b|la\b|te\b)|SK|ts?\b|u(?:bit(?:\b|-o\b)|d(?:ex\b|ice\b)|re\b)|[vx]\b|V(?:th|\b)|XC?\b|[\b\d])|M(?:D\b|VP\b)|[oO](?!\b|ax|b(?:a\b|čan|chodní|ra|tenu|ţi|yv)|c(?:cidente|h(?:o|rany)|upat)|d(?:\b|e[cč]et\b)|este|f(?:\b|erecer)|ggi|hniv|ito\b|kol[íi]e?\b|l(?:ot\b|še\b|vidarte)|mnisciê|MR\b|nda\b|[nN](?:\s|[cçiIC][eaE]|[eE](?!g(?:\b|a\b|es|in)|i(?:da|[lr])|rous))|O\b|opa|p(?:éra|erador\b)|ra?\b|[rR](?:\b|a(?:[şsș]ului|z\b)|chestr\b|d(?:em|inii)|fu\b|i(?:\b|lla))|S-9\b|s(?:asuna|curas|o(?:bnosti|na))|t(?:r[ao]\b|tobre)|u(?:\b|a[bcdglt]|ed|i|tro)|v(?:elha|iedo))|u(?!\b|[A-Z\dcček\:\.\-]|a(?:dim|h\b|in\b)|b[aiou]|d(?:ev\b|raw\b)|fo|g(?:a(?:li|nd)|x\b)|i(?:le\b|n|ro|tat\b)|jam|l(?:ak|u)|m(?:a\b|\b|ění\b|r(?:ia|l))|n(?:(?:\s|a(?:ni|ry|s\b|\b|te\b))|d\b|e(?:\b|i\b|sco)|o[rs]?\b|s\b|uib?)|ni(?!d(?:[eol]|io)|gn|ll|m(?:ag|[bim]|p[aeloru])|n(?:au|[cd]|eb|[fghjk]|i[nt]|oc|[tnvsq])|r(?:ad|[kr]|on))|omo|p(?:azilas?|risin\b)|r[aeiolsuy]|s[aeiou]|s(?:b(?:net)?|d)\b|s\$|s(?:hape|t(?:ream|ed(?:es)?\b))|t(?:[aeiou]|r(?:anga|ic))|[vž]|yu\b|zs\b))[^\|\[\]\<\⌊\>\{\}\s]{0,29})(?<=\b(?:[\S\s]){1,49}(?<!\b(?:[aA](?:baten|c(?:ceso|o(?:mpañando|sa)|t)|cusa|d(?:herits|i[oó]s|misión|vanced)|eroporto|gus|menazan|[nñN][oO]|n(?:\b|dalucía|fibio|s\b)|prendiendo|şa|spirante|t(?:acó|ención)|u(?:menta|r|sf(?:\.|ührung)|torov)|xudar|y(?:údame|ud(?:ar|dó)))|[bB](?:a(?:r(?:ça|okiem)|ttery)|enefician|ílé|usca(?:ndo)?)|[cČC](?:a(?:bellera|lle|mino|ntan?\b|r(?:retera|tas?))|a(?:sar|tegory\:?)|e(?:n(?:sura|trală)|rcano)?|h(?:ama|lorophyll|romogranin?)|iclista|íny|lass|o\.|om(?:ienzan|p(?:any|o(?:sition|und)|r(?:ó|ometido))|unicações)?|o(?:n(?:certo|firma|oció|trat[aoó]|vocatoria)|sta)|u(?:arto|m)|yclosporine)|[dD](?:[áàâăåeêèé]|a(?:lla)?|e(?:dicada|[nst]|nuncian|recho|seó|tienen|s(?:apareceu|p(?:edida|iden))|voción)|[iîìíòôóuùûú]|i(?:gas|le|recto|vision)|o(?:jmy|uble)|urante)|[eéEÉ](?:\b|cusa|insatzgruppe|jecutan?|l(?:e|le)|mpecé|n(?:frenta(?:rá)?|señ(?:ame|[óo])|t(?:onces|re(?:\b|gó|vista)))?|s(:quivel|t)?|t|x(?:itos|tradita(?:do)?))|[fF](?:a(?:cilitar|z)|e(?:menina|rmato)|i(?:ammanti|chó)|ormula|rente|u(?:[ií]|sil|tbol))|[gG](?:a(?:lega|rcía)|enerală|lorie|olpe|r(?:ade|oup)|uerra)|[hH](?:istorických|o(?:mena(?:gem|je|tge)|usle))|[iI](?:\b|l\b|n(?:formații|na|te(?:gran|r(?:preta|vista)))|n(?:trodu(?:cción|zione)|vita(?:ción)?)|storie|terum)|[jJ](?:r|un(?:g|ior|to))|[kK](?:lavír|r(?:ál|tek)|u(?:ltúry|řátko))|[lL](?:abe|e\b|ékaři|ewis|i(?:gada|pid|st)|íderes|iniers|le(?:ga(?:n?|r[aá]?)|va(?:n|sen))|u(?:i|xe))|[mM](?:a(?:nu|ría|s|tar)|hic\b|\.I|[íi]nima\b|iedo|o(?:del|n(?:te|umento)|ro[șs]anu)|o(?:u(?:lin|nd)|vid[ao])|u(?:lt|sgos))|[nN](?:bsp|ei|iegan|ônibus|o(?:mbrar|tícia|us))|[oO](?:kina\}\}|cchio|lza|maggio|noare|riente|sob\b|t(?:ázky|ec\b)|u\b)|[pP](?:a(?:r[at]|s(?:ado|sou?))|e(?:ntru|r(?:ò|petua)|se)|i(?:etro|ù)|lan|o(?:int|nte)|r(?:o|ólogo|e(?:ludio|senta))|r[ůu]myslu|ublicat|\.)|[qQ](?:\sand|u(?:ando|[ei]))|[rR](?:apó|e(?:c(?:ibe|ordando|usa)|ferencias|gião|i|torno)|isale|o(?:i|mână|zšířené))|şi\b|[sS](?:a(?:be|lve\b|tisface)|e(?:ason|cuestran|ine)|[eé]r(?:á|ie|vir)|i(?:c\s?(?:\|)?|de|ngle)|o(?:b(?:re)?|ciální|u)|p(?:ortivă|rijin)|t(?:avební|yky)|u(?:b(?:ida|unit|(?:-)unit)|ma|p(?:le|plemento)|rt|stituye)|[\.é])|[tT](?:arda|áxi|he|o(?:da|or(?:no|turan))|r(?:azendo|en|i(?:buto|ple))|ype)|[uU](?:hlie|n[ade])|[vV](?:a(?:da|[is]?|mos?|riant|yas)|e(?:che|n(?:ce[rn]?|d[aeo]|g[ao]|t[ae]))|e(?:ta|z)|ě(?:du?|rný)|i(?:agem|llena|ol(?:on?cello|u))|i(?:tamin|va(?:ce)?)|ojsko|ol(?:a(?:mos|r)|ta|v(?:amos|er(?:[aáé]|emos|te)?)|v(?:í|i(:?endo)?))|oy|uel(?:[aeu]\b|t[ao]\b|v[aeo]s?\b))|[wW]h[aā]nau|[yY]\b|[zZŽ](?:eit|ivoty))\W?\s?\s?[aA]\s?\s?\2))
+backreference	of xxx of xxx	\bof\s+([a-z]+)\s+of\s+(?!(?:c(?:lasses|o(?:nsciousness|pies))|f(?:riends|unds)|lists|representations|s(?:ets|ystems)))\1\b
+backreference	Language literature	\bL(iterature)(?<=(?:Chinese|English|Spanish)\s+L\1)(?<=\b(?:(?:(?:d(?:egrees?|octorates?)|graduat(?:ed?|ing)|instruct(?:ion|or)|lectur(?:e[dr]|ing)|major(?:ed|ing)?|[MB]\.?[AS]c?\.?|of\s+(?:Arts|Science)|Ph\.?D\.?|stud(?:ents?|ies)|tutor)\s+(?:in|of))|pr(?:acti[sc](?:e[ds]?|ing)|ofessor\s+(?:[eE]meritus\s+)?(?:in|of))|read|stud(?:ie[ds]|y(?:ing)?)|t(?:aught|each(?:es|ing)?))[\s\w]+)(?=(?:\s+(?:a(?:nd\s+an?|t)|by|from|in|with)\s|[,;\.\)]|\s+\())
+backreference	Duplicated words	\b(a(?:[ms]?|nd?|re)|b(?:e(?:come)?|y)|could|d(?:id|o)|f(?:or|rom)|go|h(?:a(?:s|ve)|e|im|ow)|i[fst]s?|m(?:ade|e|ore)|no|o(?:[fr]|ther)|sh(?:e|ould)|t(?:h(?:e(?:ir|[mny]?|se)|[iu]s)|o)|w(?:as|ere|h(?:at|e(?:n|re)|i(?:ch|le)|om?|y)ith|ould)|is\s+a)\s{1,5}\1\b(?!-)
+backreference	-XXX(ed/er/ing/ive)	(?=([aeiou])([bdfgklmnprstvz])\2{2,})(?<=\b(?:[A-Z][a-z]*|[a-z]+))\1\2{3,}(e(?:d|rs?)|i(?:ngs?|ons?|ves?)|ors?)\b
+character-code escape	Fiancée	\b([fF])ianc[e\u00E9]\u00E9
+disabled upstream	hidden non-breaking space	 
+disabled upstream	MOS:APOSTROPHE_header	(?:<nowiki>['´ˈ׳᾿’′Ꞌꞌ`](?:s</nowiki>|</nowiki>s)|(''+)(?:<nowiki/>)?['´ˈ׳᾿’′Ꞌꞌ`]s|\{\{(-)'\}\}s)\b
+disabled upstream	MOS:BADDATE slash	(\|\d{2,4})\/(\d{2,4}\]{2})
+disabled upstream	space before EOL	 $
+disabled upstream	duplicated space	 
+disabled upstream	different	\b([mM]any|[sS]everal)\s*different\b
+disabled upstream	Mid-	\b([mM])id\s+(\d{3,4}s?)\b
+disabled upstream	exactly the same	\bth(?:at|e|is|ose)\s+exact\s+same\b
+disabled upstream	The Earth's	\b([tT])he\s+earth['’´ˈ׳᾿‘′Ꞌꞌ`]s\b
+disabled upstream	Directly	\b([dD])irectly-(?=[a-z]+ed\b)(?![a-z]+-)
+disabled upstream	Electrically 	\b([eE])lectr(on)?ically-(?=[a-z]+\b)(?![a-z]+-)
+disabled upstream	Politically 	\b([pP])olitically-(?=[a-z]+\b)(?![a-z]+-)
+disabled upstream	CURLY SINGLE QUOTES	[‘’]
+disabled upstream	½	½(?![\]\|])
+disabled upstream	⅓	⅓(?![\]\|])
+disabled upstream	¼	¼(?![\]\|])
+disabled upstream	⅕	⅕(?![\]\|])
+disabled upstream	⅙	⅙(?![\]\|])
+disabled upstream	⅐	⅐(?![\]\|])
+disabled upstream	⅛	⅛(?![\]\|])
+disabled upstream	⅑	⅑(?![\]\|])
+disabled upstream	⅒	⅒(?![\]\|])
+disabled upstream	⅔	⅔(?![\]\|])
+disabled upstream	⅖	⅖(?![\]\|])
+disabled upstream	¾	¾(?![\]\|])
+disabled upstream	⅗	⅗(?![\]\|])
+disabled upstream	⅜	⅜(?![\]\|])
+disabled upstream	⅘	⅘(?![\]\|])
+disabled upstream	⅚	⅚(?![\]\|])
+disabled upstream	⅝	⅝(?![\]\|])
+disabled upstream	⅞	⅞(?![\]\|])
+disabled upstream	remain	\bcontinue\s*to\s*remain\b
+disabled upstream	remains	\bcontinues\s*to\s*remain\b
+disabled upstream	à la	\b(?!ala)(?:[áa]\s*|à)l[àáa]\b
+disabled upstream	Brasília	\bBrasilia\b(?<!(?:E(?:mbraer|MB 120)|Volkswagen|Wésley)\s+Brasilia)
+disabled upstream	Guaraní	\bGuarani\b
+disabled upstream	Bonanno	\b([bB])onnano\b
+disabled upstream	Delusively	\b([dD])elusionally\b
+disabled upstream	Département(al)	\b([dD])epartement(ale?)?\b
+disabled upstream	Eels	\b([eE])les\b
+disabled upstream	Encyclopedia (1)	\b([eE])ncyl?c?l?opa?ea?di(as?|c)\b(?<![eE]ncyclopedi[ac]s?)
+disabled upstream	Jewel(le)ry	\b([jJ])ewl(le)?e?ry\b
+disabled upstream	Jewellery	\b([jJ])ewel(?:e|la)ry\b
+disabled upstream	Kraków	\b([kK])rakow\b(?<!(?:Jonah|Kenneth(?: K\.)?|46977) Krakow)(?!\s+[tT]ownship)
+disabled upstream	Kümmel	\b([kK])ummel\b(?<!Bernhard Kummel)(?!\s+19\d\d\b|19\d\d\b)
+disabled upstream	Leibniz	\b[lL]eibnitz\b
+disabled upstream	Moniker	\b([mM])onicker(s)?\b
+disabled upstream	Pronominal	\b([pP])ronomial\b
+disabled upstream	Québécois	\bQu(?:eb[eé]|[éè]be)cois(es?)?\b
+disabled upstream	World-famous	\b([wW])orld\s+[fF]amou?s\b
+disabled upstream	Hong Kong_	\b(?!Hongkong [lL]and\b)[hH]ong[–‑−—―\s]*kong\b
+disabled upstream	Saskat(chewa/oo)n	\bsaskat(chewa|oo)n\b
+disabled upstream	Kingston upon Thames/Newcastle upon Tyne	\b(Kingston|Newcastle)(?:[–‑−—―\s]+(?:[oO]n[–‑−—―\s]+|Upon[–‑−—―\s]+)|-upon-)[tT](hames|yne)\b
+disabled upstream	Poets' Corner	\bPoet(?:['’´ˈ׳᾿‘′Ꞌꞌ`]s['’´ˈ׳᾿‘′Ꞌꞌ`]?|s['’´ˈ׳᾿‘′Ꞌꞌ`]?) Corner\b
+disabled upstream	March	\b([0-3]?\d)\s+march\b
+disabled upstream	May	\bmay\s+(\d{1,4})\b
+disabled upstream	Internet	\binternet\b
+disabled upstream	Triple letters	(?!\b(?:Eisschnelllauf|[gG]rrrl?|Killlai|[oO]ooh|Pyarrrl?|[rR]sssf|[A-Za-z]+([a-z])\1\1\1[a-z]*|[a-fw]+)\b)\b([A-Z][a-z]*|[a-z]+)([a-gj-wyz])\3\3([a-z]+)\b
+disabled upstream	Emp-	\b([eE])n(p[a-z]+)\b(?<!\b[eE]np(?:hytot[a-z]+|i(?:ng)?|lan[a-z]+|ower|rostil|uku)\b)
+disabled upstream	Imp-/Imm-	(?!\b[iI]nmigrante\b)\b([iI])n(m[b-np-z]|p[b-gi-tv-z])([a-z]+)\b
+disabled upstream	Pre-	\b([pP])er?(rogative[ds]?|scri(?:b(?:er?[ds]?|ing)|pti[a-z]+)|siden[ct][a-z]*)\b
+disabled upstream	-handed	\b([lL]ef|[rR]igh)t\s*hande(d|rs?)\b
+disabled upstream	except for	\bwith\s*the\s*exception\s*of\b
+disabled upstream	Except for	\bWith\s*the\s*exception\s*of\b
+disabled upstream	to	\bso\s*as\s*to\b
+disabled upstream	To	\bSo\s*as\s*to\b
+disabled upstream	whether	\bas\s*to\s*whether\b
+disabled upstream	Whether	\bAs\s*to\s*whether\b
+duplicates '(Four/Five/...)fold'	T(wo/hree/en/welve/wenty/hirty/housand)fold	\bTwelve\s+fold(?!-)\b
+duplicates '(Four/Five/...)fold'	T(wo/hree/en/welve/wenty/hirty/housand)fold	\bTwenty\s+fold(?!-)\b
+duplicates '(Four/Five/...)fold'	T(wo/hree/en/welve/wenty/hirty/housand)fold	\bTwo\s+fold(?!-)\b
+duplicates '(Four/Five/...)fold'	T(wo/hree/en/welve/wenty/hirty/housand)fold	\btwelve\s+fold(?!-)\b
+duplicates '(Four/Five/...)fold'	T(wo/hree/en/welve/wenty/hirty/housand)fold	\btwenty\s+fold(?!-)\b
+duplicates '(Four/Five/...)fold'	T(wo/hree/en/welve/wenty/hirty/housand)fold	\btwo\s+fold(?!-)\b
+duplicates 'Austral(as)ia'	Austr-	\baustralians\b
+duplicates 'Austral(as)ia'	Austr-	\baustralian\b
+duplicates 'Austral(as)ia'	Austr-	\baustralias\b
+duplicates 'Austral(as)ia'	Austr-	\baustralia\b
+duplicates 'Europe'	Eur(asia/ope)	\beurope(?:ans)\b
+duplicates 'Europe'	Eur(asia/ope)	\beuropean\b
+duplicates 'Europe'	Eur(asia/ope)	\beurope\b
+duplicates 'I(c/r)eland'	Icelandic	\biceland\b
+duplicates 'Nor(way/wegian/se/man(dy)/folk)'	Norman	\bnormandy\b
+duplicates 'Nor(way/wegian/se/man(dy)/folk)'	Norman	\bnormans\b
+duplicates 'Nor(way/wegian/se/man(dy)/folk)'	Norman	\bnorman\b
+more than 96 variants	flat (musical note)	\b([ABCDEFG])b([m7]| (?:[aA]ltos?|[bB]a(?:ritones?|ss(?:es)?)|[cC](?:larinets?|o(?:ntrabass|rnets?))|instruments?|[mM](?:aj|in)or|[pP]iccolo|seventh|[tT](?:enors?|rumpets?)))\b
+more than 96 variants	(Working/upper/middle/lower)-class	\b([lL]ower|[mM]iddle|[uU]pper|[wW]orking)[–‑−—―\s]+[cC]lass\s+(b(?:ackground|oy)s?|famil(?:ies|y)|girls?|ho(?:mes?|uses?)|neighbou?rhoods?|p(?:arents|eople)|roots|(?:wo)?m[ae]n)\b
+more than 96 variants	dependent on	\b((?:are|be(?:e(?:c(?:ame|omes?)|n))?|is|w(?:as|ere))\s+(?:al(?:l|so)\s+|[a-z]+ly\s+|becoming\s+|more\s+|no[tw]\s+|often\s+|still\s+|very\s+)?)dependant\s+on\b
+more than 96 variants	Fluorine	\b([dD]if|[fF]|[hH](?:exaf|ydrof)|[pP]entaf|[tT](?:etraf|rif))lour(o|esc(?:e[ds]?|en(?:ce|t)|ing)|i(?:c|des?|dat(?:e[ds]?|i(?:ng|on))|nes?))\b
+more than 96 variants	(Dis/Im/Re/Com/Sup)Position	\b([cC]omp|[dD]isp|[iI]mp|[pP]|[rR]ep|[sS]upp)os(?:i(?:sti|titi?)|osti|ti)(on(?:al(?:ly)?|ed|ing|s?)|ve(?:ly|s?))\b
+more than 96 variants	(Ap/Im/Dis/Disap/Re)Prove	\b([aA]pp|[dD]is(?:app|p)|[iI]mp|[pP]|[rR]ep)roov(a(?:bl[ey]|l)|e[dnrs]?|ing[a-z]*)\b
+more than 96 variants	Qua-...-y	\b([dD]isq|[eE]q|[qQ]|[uU]nq)au(l|nt)[ai](f(?:i(?:cations?|e[ds])|y(?:ing)?)|t(?:ies|y))\b
+more than 96 variants	(Re/Con/Di/Redi)Strict	\b([cC]ons|[dD]is|[rR]e(?:dis|s)|[sS])tict(e(?:[dr]|st)|i(?:ng|ve[a-z]*)|ly|ness|or|s?)\b
+more than 96 variants	(Free/Life)Style	\b([fF]rees|[lL]ifes|[sS])(?:tly|ytl)(e[ds]?|i[sz](?:e[ds]?|ings?)|i(?:ngs?|s[ht][a-z]*))\b
+more than 96 variants	Weight	\b([cC](?:ounterw|ruiserw)|[fF](?:eatherw|lyw)|[hH](?:eavyw|undredw)|[lL]ightw|[mM]iddlew|[oO]verw|[pP](?:aperw|ennyw)|[uU]nderw|[wW](?:elterw)?)ieght(ed|ing|less|s?)\b
+more than 96 variants	(Un)Work	\b([uU]nw|[wW])(?:okr|rok)(a(?:days?|holics?|b(?:ilit(?:ies|y)|l[ey]))|b(?:ench|o(?:ats?|oks?))|days?|e(?:d|rs?)|f(?:are|lows?|olks?)|ho[ru]ses?|ing(?:m[ae]n|wom[ae]n)?|loads?|m[ae]n[a-z]*|outs?|places?|rooms?|s?|s(?:hops?|paces?|tations?)|tables?|ups?|w(?:eeks?|om[ae]n))\b
+more than 96 variants	Allo-	\b([aA])lo(c[au]t|morph|p(?:ath|hon)|trop|w)(a(?:bl[ey]|nces?)|[ds]?|e[ds]?|i(?:cs?|es|ng|on)|ments?|y)\b
+more than 96 variants	App-	\b([aA]|[dmDM]isa)p(all(?:ed|ing[a-z]*|s?)|are(?:l|nt(?:ly)?)|aritions?|e(?:a[lr][a-z]*|llat[a-z]+|nd[a-z]*)|l(?:i[ace][adns][a-z]*|y)|oint(?:ed|ing|ments?|s?)|r(?:ehen[ds][a-z]*|oach[a-z]*)|rov(?:als?|e[ds]?|ing[a-z]*))\b(?<![aA]plicada)
+more than 96 variants	Att-	(?!\bAtack\b)\b([aA]|[uU]na)t(a(?:ck(?:e[dr]s?|ings?|s?)|in(?:able|ed|ing|ment)?s?)|orneys?|r(?:ac|ibu)t(?:ed?|i(?:ng|on|ve)|or)?s?)\b
+more than 96 variants	Disse-	\b([dD])ise(ct|m(?:bl|inat)|n(?:sion|t)|r(?:t(?:at)?|v(?:ic)?)|ver)([ds]?|e(?:[ds]?|rs?)|i(?:ng|ons?)|ors?)\b
+more than 96 variants	(Un)Fore-	\b([fF]|[uU]nf)or(bod(?:es?|ing(?:ly)?)|brains?|c(?:astles?|ourts?|los(?:es?|ing(?:ly)?)|ast(?:ers?|ing|s?))|d(?:ecks?|oom(?:ers?|ing|s?))|f(?:aces?|eet|ingers?|oot|ronts?)|grounds?|h(?:ands?|eads?)|l(?:egs?|ocks?)|m(?:asts?|ost)|n(?:ames?|oons?)|paws?|quarters?|runners?|s(?:a(?:ils?|w)|ee(?:able|ing|[ns]?|rs?)|ta(?:ll(?:ers?|ing|s?)|ys?))|t(?:astes?|ell(?:ers?|ing|s?)|old)|w(?:arn(?:ers?|ing|s?)|ords?))\b(?<!\bFors(?:ee\b|tall\b))
+more than 96 variants	-able (1)	\b([aA](?:ccept|rgu)|[cC](?:ap|onfigur)|[fF]orgiv|[hH]ospit|[iI]n(?:[aA](?:ccept|rgu)|[cC](?:ap|onfigur)|[fF]orgiv|[hH]ospit|[mM]istak|[nN]ot|[oO]ppos|[sS]cal|[tT]ranslat|[uU]s|[vV](?:alu|ulner))|[mM]istak|[nN]ot|[oO]ppos|[sS]cal|[tT]ranslat|[uU](?:s|n(?:[aA](?:ccept|rgu)|[cC](?:ap|onfigur)|[fF]orgiv|[hH]ospit|[mM]istak|[nN]ot|[oO]ppos|[sS]cal|[tT]ranslat|[uU]s|[vV](?:alu|ulner)))|[vV](?:alu|ulner))(?:[eiu]a?)b(ilit(?:ies|y)|l[ey])\b
+more than 96 variants	-able (2)	\b([dD]e|[iuIU]nde)(bat|cid|f(?:in|orm)|grad|lect|not|p(?:end|lor|riv)|riv|s(?:ir|pi[cs])|tect)(?:ea|i)bl([ey])\b
+more than 96 variants	-able (3)	\b([iI]nre|[rR]e|[uU]nre)(a(?:d|son)|c(?:harge|o(?:gni[sz]|ncil|ver)|ycl)|deem|m(?:ark|ov)|new|p(?:ai?r|ea[lt]|lace|ut)|v(?:iew|oc))(?:[eiu]a?)b(ility|l[ey])\b
+more than 96 variants	-an(ce/t)	\b([aA](?:bund|dam|ttend)|(?:[dD]is|[rR]e)?[aA]ppear|[aA]sson|[cC]o(?:gni[sz]|nson)|[dD](?:efend|isson)|[iI]gnor|[mM]erch|[oO]xid|[rR]ecogni[sz]|[sS]erv|[vV]ac)(?:and|en)(c(?:es?|ies?|y)|t(?:ly|s?))\b
+more than 96 variants	-(t)an(ce/t)	\b([aA](?:c(?:cep|qu(?:ain|it))|dmit)|[bB]la|[cC]omba|[eE]xpec|[hH](?:abi|e[rs]i)|[iI](?:mp[ao]r|nh(?:abi|e[rs]i))|[mM]ili|[nN]oncomba|[pP]it|[rR]e(?:luc|mit|pen))t[ei]n((?:c[eiy]|t(?<!\b[rR]emittent))[a-z]*)\b
+more than 96 variants	-(st)ance	\b([aA]ssi|[cC]on|[dD](?:esi|i)|[iI]n|[rR]esi|[sS]ub)st[ei]n(ci?[ey][ds]?|t[a-z]*)\b(?<!\b[dD]istentions?\b)
+more than 96 variants	-cede (1)	\b([aA]ntec|[cC](?:onc)?|[iI]nterc|[pP]rec|[rsRS]ec)eed(e(?:[ds]?|nts?|rs?)|ing)\b
+more than 96 variants	-dition	\b([aA][du]|[cC]on|[dD]e|[eE](?:xpe)?|[pP]er|[rR]en?|[sS]e|[tT]ra)(?:d(?:i(?:dtio|o|t(?:i(?:on|tio)?|o))|tio)|i(?:dtio|tio))n(a(?:l(?:ly)?|ry)|ed|ing|s?)\b(?<![aA]udions?)
+more than 96 variants	-elie(f/ve)	\b([brBR]|[dmDM]isb|[nN]onb|[uU]nb)eleie?(fs?|v(?:abl[ey]|e(?:[ds]?|rs?)|ing))\b
+more than 96 variants	-ely	\b([aA]ctiv|[cC]los|[dD]ens|[eE]ntir|[fF](?:als|ierc)|[iI](?:mmens|n(?:activ|clos|dens|entir|f(?:als|ierc)|immens|l(?:a(?:rg|t)|i[kv]|o(?:n|os))|nam|precis|s(?:ever|incer|pars)|wid))|L(?:a(?:rg|t)|i[kv]|on)|l(?:a(?:rg|t)|i[kv]|o(?:n|os))|[nN]am|[pP]recis|[sS](?:ever|incer|pars)|[uU]n(?:activ|clos|dens|entir|f(?:als|ierc)|immens|l(?:a(?:rg|t)|i[kv]|o(?:n|os))|nam|precis|s(?:ever|incer|pars)|wid)|[wW]id)l+e?y\b(?<!Densley)
+more than 96 variants	-(t)ence	\b([aA]dver|[cC]ompe|[iI](?:mp(?:eni|o|re)|n(?:adver|compe))|[lL]a|[pP](?:eni|o|re)|sen)tan(c(?:e[ds]?|ies?|y)|t(?:ial|ly|s?))\b(?<!par\s+[iI]nadvertance)
+more than 96 variants	-(ist)ence	\b([cC]o(?:ex|ns)|[eE]x|[iI]n(?:cons|s)|[nN]onex|[pP]reex|[sS]ubs)ist[ai]n(ci?[ey]s?|t[a-z]*)\b
+more than 96 variants	-esident	\b([cC]op?r|[nN]onp?r|[pP]r|[rR])(?:ei?s|si)di?en(c(?:[ey]|i(?:al(?:ly)?|es))|t(?:es?|s?|ia(?:l(?:ly)?|ry)|ships?))\b
+more than 96 variants	-etary	\b([dD]i|[mM]on|[pP](?:lan|ro(?:l|pri))|[sS]ecr)(?:at[ae]|et[eo])r(i(?:a[lt]?|es|ly|s[mt]s?|um?)|y)\b(?<![pP]roprietorial|[sS]ecretory)
+more than 96 variants	-form	\b([cC]on|[dD]e|[iI]n|[pP](?:er|lat)|[rR]e|Uni)fr?om(ati(?:ons?|ve(?:ly)?)|ances?|ed|i(?:ng|ty)|ly|s?)\b
+more than 96 variants	-ible	\b([aA]ud|[cC]r(?:ed|uc)|[eE](?:d|lig)|[fF]lex|[hH]orr|[iI][nr](?:aud|cr(?:ed|uc)|e(?:d|lig)|flex|horr|t(?:ang|err)|vinc)|[tT](?:ang|err)|[vV]inc)ab(ility|l[ey]s?)\b
+more than 96 variants	-(t)ible	\b([cC]o(?:mpa|nver|rrup)|[iI][mnr](?:co(?:mpa|nver|rrup)|percep|resis|sugges)|[pP]ercep|[rR]esis|[sS]ugges|[uU][mnr](?:co(?:mpa|nver|rrup)|percep|resis|sugges))tab(ility|l[ey])\b
+more than 96 variants	-ical	\b([aA]tr?[oy]p|[cC](?:lin|rit)|[eE]lectr|[gG]eograph|[iI]dent|[lL]og|M(?:ag|etaphor)|m(?:ag|etaphor|us)|[pP](?:ho[nt]ograph|olit|ract)|[tT](?:e(?:chn|legraph)|op|r[oy]p|yp))(?:c?|ic)ial(ly|s?)\b
+more than 96 variants	-ield	\b([fyY]|[uU]n[fwy]|[wW](?:indsh)?)eild(able|e(?:d|rs?)|ing|[sy]?)\b
+more than 96 variants	-ification	\b([dD](?:e|is)|[mM]is|[rR]e)?([cC](?:ert|lass)|[eE]lectr|[fF]ort|[iI]dent|[mM](?:agn|od)|[nN]ot|[pP](?:erson|ur)|[qQ]ual|[sS]pec|[uU]n|[vV]er)(?:fici?ati?|if(?:cati?|ic(?:at|iati?)))on(s)?\b
+more than 96 variants	-ight	\b([bB]r|[fF]l?|[kK]n|[nrNR]|[sS]l?|[wW]r)igth?(e[dr]|hoods?|ing|l(?:ife|y)|[sy]?)\b(?<!Sligting)
+more than 96 variants	-ition	\b([aA](?:dd|mb|ud)|[cC]o(?:al|nd)|[dD]emol|[eE](?:d|xhib)|[iI](?:gn|n(?:hib|tu)?)|[pP](?:os|rohib)|[tT](?:rad|u))it(?:ioi|oi?)n(al(?:ly)?|is[mt]s?|s?)\b
+more than 96 variants	-ment	((?:[aA](?:gree|r(?:ma|range))|[dD]ocu|[pP]ay)|[aA](?:mend|rgu)|[eE](?:nviron|xperi)|[iI]mprove|[sS](?:eg|tate))m(?:an|e(?:mt|tn)|n(?:et)?)(a[lr][a-z]*|ed|s?)\b(?<!Segman)
+more than 96 variants	-mina(nt/te)	\b([cC]onta|[dD](?:eter|o)|[gG]e|[lL]u|[nN]o|[pP]redo|[rR]u|[sS]e)min(?:e|ia)(n(?:ces?|t(?:ly)?)|t(?:e[ds]?|i(?:ng|ons?)|ors?))\b
+more than 96 variants	-nance	\b([iI]ndig|[mM]a(?:inte|lig)|[pP](?:e|oig|reg)|[rR]e(?:pug|so)|[sS]usti)nen(c(?:es?|ies?|y)|t[a-z]*)\b
+more than 96 variants	-nf(i/o)rm	\b([cC]o|[dD]isi|[iI](?:nco)?|[mM]isi|[rR]eco|[uU]nco)mf([io])rm(a(?:ti(?:ons?|ve(?:ly)?)|bl[ey]|l(?:ity)?)|ed|ing|s?)\b
+more than 96 variants	-oid	\b([aA](?:n[de]r|v)|[cC]ub|[dD]ev|[hH]uman|[oO]v|[pP]aran|[sS]ter|[tT](?:a(?:bl|c)|or|yph))iod(a(?:l|nce)|ed|ing|s?)\b
+more than 96 variants	-pense	\b([dD]is|[eE]x|[iI]n(?:dis|ex|sus)|[sS]us)penc(a(?:bl[ey]|r(?:ies|y)|tions?)|e(?:[ds]?|rs?)|ful|i(?:ng|ve(?:ly|ness)?))\b
+more than 96 variants	-phone	\b([mM](?:ega|icro|ono)|[sS](?:axo|tereo|ym)|[tT]ele)pon(e[ds]?|i(?:c(?:ally)?|ng)|y)\b
+more than 96 variants	-rien(ce/t)	\b([dD]is(?:expe|nut|o|pru)|[eE]xpe|[iI]n(?:expe|nut|o|pru)|[nN]ut|[oO]|[pP]ru|[rR]e(?:expe|nut|o|pru))r(?:ei|i(?:a|te))n(c(?:e[ds]?|ing)|t[a-z]*)\b
+more than 96 variants	-rious	\b([cC][au]|[dD]eli|[fF]u|[hH]ila|[iI](?:llust|n(?:dust|ju))|[lL](?:abou?|uxu)|[mM]yste|[nN]oto|[pP]reca|[sS]e|[vV](?:a|icto))r(?:i(?:o(?:iu|ui)|uo)|o(?:iu|ui?)|riou)s(ly|ness)?\b(?<!\b[sS]erous\b)
+more than 96 variants	-science	\b([bB]io|[cC]on|[gG]eo|[nN]e(?:uro)?|[oO]mni|[pP](?:re|seudo))[cs]ien(ces?|t(?:ious(?:ly)?|ly)?|tific(?:ally)?)\b
+more than 96 variants	-struct	\b((?:[dD]e|[mM]is|[rR]e)?[cC]on|(?:[iI]n|[nN]on)?[drDR]e|[iI]n(?:fra)?|[mM][ai]cro|[oO]b|[sS]u(?:b|per))(?:s(?:ruct|t(?:ruc|truct|uct))|truct)(ed|i(?:ng|on(?:is[mt]s?|s?)|vis[mt]s?)|ive(?:ly)?|ors?|s?|ur(?:al(?:ly)?|es?))\b
+more than 96 variants	-tain	\b([aA](?:bs|[ps][cp][eu]r)|[bB]ri|[cC](?:ap|er|hief|on|ur)|[fF]oun|[mM](?:ain|oun)|[pP][eu]r|[uU]n[cp][eu]r)t(?:ain[ai]|ian[ai]?)(cy|ed|ing|ly|ous|s?|t(?:ies|y))\b
+more than 96 variants	-tified	\b([bB]eau?|[cC]er|[fF]or|[iI]den|[jJ]us|[mM]or|[nN]o|[qQ]uan|[rR](?:a|ec)|[tT]es)ta?fi(abl[ey]|cat(?:es?|ions?)|e[ds])\b
+more than 96 variants	-(s)trate	\b([aA]dmini|[dD]emon|[fF]ru|[iI]llu|[mM]agi|[oO]rche|[rR]emon)star?t(e[ds]?|i(?:ng|ons?|ve(?:ly|s?))|ors?)\b
+not a typo (section 'New: Symbols/HTML entities')	ff	(?:ﬀ|ﬀ)
+not a typo (section 'New: Symbols/HTML entities')	FAX	(?:℻|&#(?:8507;|x213B;))
+not a typo (section 'New: Symbols/HTML entities')	TEL	℡
+not a typo (section 'New: Symbols/HTML entities')	roman1	Ⅰ
+not a typo (section 'New: Symbols/HTML entities')	roman2	Ⅱ
+not a typo (section 'New: Symbols/HTML entities')	roman3	Ⅲ
+not a typo (section 'New: Symbols/HTML entities')	roman4	Ⅳ
+not a typo (section 'New: Symbols/HTML entities')	roman5	Ⅴ
+not a typo (section 'New: Symbols/HTML entities')	roman6	Ⅵ
+not a typo (section 'New: Symbols/HTML entities')	roman7	Ⅶ
+not a typo (section 'New: Symbols/HTML entities')	roman8	Ⅷ
+not a typo (section 'New: Symbols/HTML entities')	roman9	Ⅸ
+not a typo (section 'New: Symbols/HTML entities')	roman10	Ⅹ
+not a typo (section 'New: Symbols/HTML entities')	roman11	Ⅺ
+not a typo (section 'New: Symbols/HTML entities')	roman12	Ⅻ
+not a typo (section 'New: Symbols/HTML entities')	roman50	Ⅼ
+not a typo (section 'New: Symbols/HTML entities')	roman100	Ⅽ
+not a typo (section 'New: Symbols/HTML entities')	roman500	(?:[ⅮＤ]|&#(?:8558;|65316;|x(?:216E;|FF24;)))
+not a typo (section 'New: Symbols/HTML entities')	roman1000	(?:Ⅿ|&#(?:8559;|x216F;))
+not a typo (section 'New: Symbols/HTML entities')	PTE	㉐
+not a typo (section 'New: Symbols/HTML entities')	GB	㎇
+not a typo (section 'New: Symbols/HTML entities')	LTD	㋏
+not a typo (section 'New: Symbols/HTML entities')	ELLIPSIS	…
+not a typo (section 'New: Symbols/HTML entities')	NUMERO	№
+not a typo (section 'New: Symbols/HTML entities')	aacute#x000e1;	�[eE]1;
+not a typo (section 'New: Symbols/HTML entities')	#x00103;	ă
+not a typo (section 'New: Symbols/HTML entities')	#x000f6;	�[fF]6;
+not a typo (section 'New: Symbols/HTML entities')	#x000f3;	�[fF]3;
+not a typo (section 'New: Symbols/HTML entities')	#x000E9;	�[eE]9;
+not a typo (section 'New: calendar dates')	In MY	\bOn\s+(A(?:pril|ugust)|December|February|J(?:anuary|u(?:ly|ne))|Ma(?:rch|y)|November|October|September)\s+(1[6-9]\d\d|20[0-2]\d)\b
+not a typo (section 'New: calendar dates')	in MY	\bon\b(?<!\b(?:based|decrease|focus|increase|re(?:flections?|port))\s+on)\s+(A(?:pril|ugust)|December|February|J(?:anuary|u(?:ly|ne))|Ma(?:rch|y)|November|October|September)\s+(1[6-9]\d\d|20[0-2]\d)\b
+not a typo (section 'New: calendar dates')	On DMY	\bIn\s+([1-9]|[12]\d|3[01])\s+(A(?:pril|ugust)|December|February|J(?:anuary|u(?:ly|ne))|Ma(?:rch|y)|November|October|September)\s+(1[6-9]\d\d|20[0-2]\d)\b
+not a typo (section 'New: calendar dates')	on DMY	\bin\s+([1-9]|[12]\d|3[01])\s+(A(?:pril|ugust)|December|February|J(?:anuary|u(?:ly|ne))|Ma(?:rch|y)|November|October|September)\s+(1[6-9]\d\d|20[0-2]\d)\b
+not a typo (section 'New: calendar dates')	On MDY	\bIn\s+(A(?:pril|ugust)|December|February|J(?:anuary|u(?:ly|ne))|Ma(?:rch|y)|November|October|September)\s+([1-9]|[12]\d|3[01]),\s+(1[6-9]\d\d|20[0-2]\d)\b
+not a typo (section 'New: calendar dates')	on MDY	\bin\s+(A(?:pril|ugust)|December|February|J(?:anuary|u(?:ly|ne))|Ma(?:rch|y)|November|October|September)\s+([1-9]|[12]\d|3[01]),\s+(1[6-9]\d\d|20[0-2]\d)\b
+not a typo (section 'New: calendar dates')	comma after MDY date	\b(A(?:pril|ugust)|December|February|J(?:anuary|u(?:ly|ne))|Ma(?:rch|y)|November|October|September)(?<=\b(?:[aA]fter|and|[bB](?:e(?:fore|tween)|orn|y)|[dD]ied|[fF]rom|[oO]n|to|[uU]ntil|\w+,)\s+\w+)\s+([1-3]?\d),\s+([12]\d\d\d)(?=\s+\w)
+not a typo (section 'New: medals')	? medal-winning	\b([bB]ronze|[gG]old|[sS]ilver)[-–‑−—―\s]+([mM]edal)[-–‑−—―\s]+winning(?<!\w+\s+\w+-\w+)(?=\s)
+not a typo (section 'New: medals')	gold medal	\bGold\s+[mM]edal(s)?\b(?<=\b(?:[a-z]+|Olympic)\s+\w+\s+\w+)(?=(?:[-,;/:/.\)])|\s+(?:a(?:nd|re|t)|by|for|game|i[ns]|with)\b)
+not a typo (section 'New: medals')	silver medal	\bSilver\s+[mM]edal(s)?\b(?<=\b(?:[a-z]+|Olympic)\s+\w+\s+\w+)(?=(?:[-,;/:/.\)])|\s+(?:a(?:nd|re|t)|by|for|game|i[ns]|with)\b)
+not a typo (section 'New: medals')	bronze medal	\bBronze\s+[mM]edal(s)?\b(?<=\b(?:[a-z]+|Olympic)\s+\w+\s+\w+)(?=(?:[-,;/:/.\)])|\s+(?:a(?:nd|re|t)|by|for|game|i[ns]|with)\b)
+not a typo (section 'New: medals')	gold medalist	\bGold\s+[mM]edalist(s)?\b(?<=\b[a-z]+\s+\w+\s+\w+)
+not a typo (section 'New: medals')	silver medalist	\bSilver\s+[mM]edalist(s)?\b(?<=\b[a-z]+\s+\w+\s+\w+)
+not a typo (section 'New: medals')	bronze medalist	\bBronze\s+[mM]edalist(s)?\b(?<=\b[a-z]+\s+\w+\s+\w+)
+not a typo (section 'New: remove redundant words')	Debuted	\bfirst\s+d([eé])but(e[ds]?|ing)\b
+not a typo (section 'New: remove redundant words')	been found	been\s+(?:found\s+previously|previously\s+found)
+not a typo (section 'New: remove redundant words')	rule of thumb	\bgeneral\s+rule(s)?[-–‑−—―\s]+of[-–‑−—―\s]+thumb\b
+not a typo (section 'New: remove redundant words')	fellow_	\bfellow\s+(band\s?mates?|c(?:lass\s?mates?|rew\s?mates?|o(?:[-–‑−—―\s]+workers?|lleagues?|m(?:patriots?|rades?)|workers?))|team\s?mates?)\b
+not a typo (section 'New: remove redundant words')	fact	\bactual\s+fact\b
+not a typo (section 'New: remove redundant words')	past	\bpast\s+(histories|memories|records)\b
+not a typo (section 'New: remove redundant words')	estimated at	\b([eE])stimated\s+at\s+(?:a(?:bout|pprox(?:imately|\.)|round)|roughly)\b
+not a typo (section 'New: remove redundant words')	Merge/Combined/Joined	\b([cC]ombin(?:e[ds]?|ing)|[jJ]oin(?:ed|ing|s?)|[mM]erg(?:e[ds]?|ing))\s+together\b
+not a typo (section 'New: remove redundant words')	result	\bend\s+result\b
+not a typo (section 'New: remove redundant words')	outcome	\b(?:end|final)\s+outcome\b
+not a typo (section 'New: remove redundant words')	eliminate (1)	\b(?:absolutely|completely|entirely|fully|totally)\s+eliminat(e[ds]?|ing)\b
+not a typo (section 'New: remove redundant words')	eliminate (2)	\b([eE])liminat(e[ds]?|ing)\s+(?:absolutely|completely|entirely|fully|totally)\b
+punctuation, not a word typo	sharp (musical note)	\b([ABCDEFG])#([7m]| [mM](?:aj|in)or)\b
+punctuation, not a word typo	U.S.	\bU\.S(?=[\s,])(?<=\sU\.S)
+punctuation, not a word typo	Dummy edit comment	
+punctuation, not a word typo	॥	(?:\s| )?।।
+punctuation, not a word typo	॥/।	(?:\s| )([॥।])
+punctuation, not a word typo	 ,	\s+,(?<=[A-Za-z\d\)]\s+,)\s?
+punctuation, not a word typo	,,	\s?,\s?\s?,\s?
+punctuation, not a word typo	Ed.D.	\bE[dD]\.(?<=[\s\(]E[dD]\.)\s*D\.?(?<!Ed\.D\.)(?=[\s,\)])
+punctuation, not a word typo	M.Phil.	\b([MBD])\.(?<=[\s\(][MBD]\.)\s*(Com|Ed|Litt|Mus|Ph(?:arm|il)|Sc|Tech)\.?(?<![MBD]\.\w+\.)(?=[\s,\)])
+punctuation, not a word typo	Ph.D.	\bP[hH]\.(?<=[\s\(]P[hH]\.)\s*D\.?(?<!Ph\.D\.)(?=[\s,\)])
+punctuation, not a word typo	He	\b([hH])ge\b
+punctuation, not a word typo	NF-κB	\b[nN][fF][-–‑−—―]?[kK][bB]\b
+punctuation, not a word typo	Up to	\b([uU])pto\b
+punctuation, not a word typo	AC/DC	\b[aA][cC]-[dD][cC]\b
+punctuation, not a word typo	TV_	\b[tT]v\b(?<!(\|\s?|WE\s)tv)(?![^\s\.]*\.\w)(?<!\.[^\s\.]{0,999})
+punctuation, not a word typo	(H/Sh/W)e'(d/ll/s)	\b([hwHW]|[sS][hw])e[;’´ˈ׳᾿‘′Ꞌꞌ`]([ds]|ll)\b
+punctuation, not a word typo	I(t)'(d/m/s/ll)	\b([iI]t?)[;’´ˈ׳᾿‘′Ꞌꞌ`]([dms]|ll)\b
+punctuation, not a word typo	it is	\b([iI])t\s+it\b
+punctuation, not a word typo	's	(?<=\w)[;’´ˈ׳᾿‘′Ꞌꞌ`]s\b(?<!'\w[;’´ˈ׳᾿‘′Ꞌꞌ`]s|&[#\w]{1,99};s)
+punctuation, not a word typo	-wed/-wing	(?=ww)(?<=\b(?:[A-Z][a-z]*|[a-z]+))ww(ed|ing|s)\b
+punctuation, not a word typo	et al.	\bet(?:\.\s*al\b\.?|\s+al\b(?!\.))
+too long for a YAML key	Long-distance	\b([lL]ong|[mM]iddle|[sS]hort)\s+distance(?=\s+(?:a(?:ccess|ir|(?:pplications?|t(?:hletes?|tacks?)))|b(?:ackpacking|ird|us(?:es)?)|business(?:es)?|ca(?:ll(?:ing|s?)|r(?:ds?|riers?))|cha(?:mpionship|rges?)|c(?:ircuits?|o(?:ach(?:es)?|llaborations?))|comm(?:erc(?:e|ial)|u(?:nications?|ters?))|co(?:mp(?:an(?:ies|y)|etition)|nnections?)|c(?:ontacts?|r(?:oss|uising)|ustomers?)|cycl(?:es?|i(?:ng|st))|d(?:ata|estinations?|i(?:al|spersal))|d(?:ivision|riving|uathlon)|e(?:ffects?|lectric|ndurance|quipment)|e(?:vents?|x(?:changes?|press))|f(?:ib(?:er|re)|l(?:ights?|ying))|foot(?:paths?)?|f(?:ormations?|re(?:estyle|ight))|goals?|h(?:aulage|i(?:gh(?:ways?)?|jackings?))|h(?:ik(?:ers?|ing)|orse)|in(?:frastructure|ter(?:actions?|city))|journeys?|l(?:earning|ines?|oves?)|mar(?:athon|kets?)|m(?:erchant|igra(?:nts?|tions?)|otorcycles?)|mo(?:torcycling|untain|vements?)|n(?:avigation(?:al)?|etworks?|ight|umbers?)|o(?:cean|perat(?:ions?|ors?)|verland)|p(?:a(?:ssengers?|t(?:hs?|rols?))|hone|laces?|ower)|pr(?:efix(?:es)?|o(?:pagation|viders?))|public|rac(?:es?|ing)|ra(?:dio|il(?:ways?)?|tes?)|re(?:cords?|l(?:a(?:tionships?|y)|ocations?))|r(?:evenues?|id(?:er|ing)|oads?)|ro(?:mances?|utes?)|ru(?:n(?:(?:ners?)?|ning|s))|s(?:ailing|e(?:ed|rvices?)|hippers?)|sh(?:ipping|o(?:oting|rtwave|ts?))|s(?:ignaling|p(?:ace|eed)|tations?)|s(?:trike|urface|wimm(?:ers?|ing))|s(?:witch(?:es)?|ystems?)|tele(?:communications?|graphs?|phon(?:es?|y))|to(?:lls?|ur)|t(?:ouring|ra(?:cks?|de(?:rs?)?))|tra(?:ding|ffic|i(?:ls?|ning))|tra(?:ins?|ns(?:it|missions?|portation))|tra(?:nsports?|vel(?:ers?|ing|lers?))|tr(?:avel(?:ling|s?)|i(?:athlons?|ps?))|tru(?:[cn]ks?)|uses?|v(?:iews?|o(?:ice|yages?))|walk(?:ers?|ing|s?|way)|w(?:ireless|o(?:men|r(?:k|ld))))\b)
+too long for a YAML key	Self-	\b([sS])elf\s+(?<=\s[sS]elf\s{1,9})\b([sS])elf\s+(?<=\s[sS]elf\s{1,9})\b(a(?:b(?:a(?:ndon(?:ed|ment)?|se(?:ed|ment)?)|negati(?:ng|on)|sor(?:bed|ption)|use)|c(?:cusat(?:ion|ory)|t(?:i(?:ng|v(?:ating|ity))|uali[sz](?:ation|e[ds]?)))|d(?:dressed|hesive|just(?:ing|ment)|mi(?:nist(?:er(?:ed|ing|s?)|ration)|r(?:ation|er|ing))|v(?:ancement|erti(?:ng|se(?:ment|r))|ocacy))|ffirmation|ggrandi[sz](?:ement|ing)|li(?:enation|gning)|n(?:aly(?:si(?:ng|s)|zing)|nihilation)|pp(?:ointed|ro(?:bation|v(?:al|ing(?:ly)?)))|ss(?:e(?:mbl[ey]|rti(?:ng|on|ve(?:ness)?)|ssment)|ur(?:ance|ed(?:ly)?))|ware(?:ness)?)|b(?:alancing|etrayal|uild(?:er)?)|c(?:a(?:ncell?ing|tering)|e(?:n(?:sorship|te?red(?:ly|ness)?)|rtif(?:icat(?:e|ion)|y))|l(?:eaning|osing)|o(?:cking|lou?red|m(?:mand|patible)|n(?:ce(?:it(?:ed)?|pt)|demn(?:ation|ed|ing)|f(?:ess(?:ed(?:ly)?|ion(?:al)?)|iden(?:ce|t(?:ly)?))|gratulat(?:ion|ory)|s(?:cious(?:ly|ness)?|isten(?:cy|t(?:ly)?))|t(?:ain(?:ed|ment)|empt(?:uous)?|r(?:adict(?:i(?:ng|on)|ory)|ol(?:led)?)))|rrect(?:i(?:ng|on)|s?))|r(?:eat(?:ed|i(?:ng|on))|itic(?:al|ism)))|d(?:e(?:ce(?:i(?:t|v(?:er|ing))|pti(?:on|ve))|f(?:e(?:ating|n[cs](?:e|ive))|inition)|l(?:ight|usion)|n(?:ial|ying)|p(?:enden(?:ce|t)|reci?at(?:i(?:ng(?:ly)?|on)|ory))|s(?:pair|tr(?:oying|uct(?:i(?:on|ve(?:ly)?)|s?)))|termination|v(?:elopment|otion))|i(?:agnose|ffusion|rect(?:ed|i(?:ng|on))|s(?:c(?:iplined?|overy)|gust))|oubt|r(?:amati[sz]ation|ive))|e(?:ducat(?:ed|ion)|ffac(?:ement|ing(?:ly)?)|mploy(?:ed|ment)|nclosed|steem|v(?:aluation|iden(?:ce|t(?:ly)?))|x(?:amination|cited|ecuting|istent|p(?:lanatory|ressi(?:on|ve))))|f(?:aced|e(?:ed(?:er|ing)|rtil(?:e|i(?:sation|ty|z(?:ation|ed|ing))))|inanc(?:ed|ing)|la(?:gellation|tter(?:ing|y))|orgetful(?:ness)?|ulfil(?:l(?:ing|ment)|ment))|g(?:enerating|lorification|overn(?:ed|ing|ment)|ravitation|uided)|h(?:a(?:at(?:e|red)|rm(?:er)?)|elp)|i(?:denti(?:fication|ty)|m(?:age|molation|p(?:o(?:rtan(?:ce|t(?:ly)?)|sed)|rovement))|n(?:compatib(?:ility|le)|du(?:c(?:ed|t(?:ance|i(?:on|ve)))|lgen(?:ce|t(?:ly)?))|flicted|surance|terest(?:ed)?|volve(?:d|ment)))|justif(?:icat(?:ion|ory)|ying)|know(?:ing|ledge)|l(?:i(?:miting|quidating)|o(?:a(?:d(?:er|ing)|thing)|cking|v(?:e|ing)))|zzNotzzmadezz|m(?:a(?:nag(?:ement|ing)|stery)|edicat(?:e[ds]?|ion)|o(?:ck(?:ery|ing(?:ly)?)|rtification|ti(?:on|vat(?:ed|i(?:ng|on)))|ving)|u(?:rder(?:er)?|tilation))|neglect|o(?:bse(?:rvation|ss(?:ed|ion))|pinion(?:ated)?)|p(?:arod(?:ic|y(?:ing)?)|erpetuati(?:ng|on)|ity(?:ing(?:ly)?)?|o(?:l(?:icing|linat(?:ed|i(?:ng|on)|or))|rtrait(?:s?|ure)|ssess(?:ed|ion))|r(?:aise|eservation|o(?:claimed|duced|mot(?:er|i(?:ng|on))|p(?:agat(?:es?|i(?:ng|on))|ell(?:ed|ing))|tecti(?:on|ve)|ving))|ublish(?:e[drs])?)|r(?:a(?:ising\sflour|ting)|e(?:ali[sz]ation|corded|f(?:eren(?:ce|tial(?:ity|ly)?)|le(?:cti(?:on|ve)|xive))|g(?:ard(?:ing)?|ulat(?:i(?:ng|on)|ory))|l(?:eas(?:ed?|ing)|ian(?:ce|t(?:ly)?))|n(?:ew(?:al|ing)|unciation)|p(?:ort|roach(?:ful)?)|s(?:pect(?:ing)?|train(?:ed|t))|ve(?:aling|lat(?:ion|ory)))|i(?:sing\sflour|ght(?:eous(?:ly|ness)?|ing))|ule)|sa(?:crific(?:e|i(?:al|ng))|tisf(?:action|ied))|se(?:aling|e[dk](?:er|ing)?|lect(?:i(?:ng|on)|s?)|rvi(?:ce|ng))|s(?:hifter|imilar(?:ity)?|laughter|own?|t(?:art(?:er|ing)?|eril(?:e|ity)|i(?:ck|mulation)|orage|yled)|u(?:bsistent|fficien(?:cy|t(?:ly)?)|ggestion|pport(?:ing)?|rrender|tain(?:ed|ing))|ystem)|t(?:a(?:iling|nn(?:er|ing)|pping|ught)|i(?:mer|tled)|orture|ra(?:cking|nscendence))|understanding|zzNotzzwillzz|w(?:i(?:lled|nding)|orth))\b(?!-)
+unbounded capture	A/a UNESCO/UNICEF/UFO/NZ$	\b([aA])n\s+((?:\[\[|\[\[.+\|)?(?:U(?:FO|N(?:ESCO|ICEF)))|NZ\$\d+)(?<!Tràng An UNESCO)\b
+unbounded capture	Currency symbol before number#2	\b([\d\.][\d,\. ]*)([£€\$])(?!\d)
+unbounded capture	n-yard	\b(\d\d?|e(?:ight(?:een|y?)|leven)|f(?:i(?:ft(?:een|y)|ve)|o(?:rty|ur(?:teen)?))|nine(?:t(?:een|y))?|one|s(?:even|ix)(?:t(?:een|y))?|t(?:en|h(?:irt(?:een|y)|ree)|w(?:e(?:lve|nty)|o)))\s*yard\s*(drive|field\s+goal|FG|interception|kick|pass|run|touchdown|TD)\b
+unbounded capture	mid-###0s	\bmid\b(?<=\b[tT]he\s+\w+)[\s–]+(20\d0|1[4-9]\d0)['’;´ˈ׳᾿‘′Ꞌꞌ`]?s\b
+unbounded capture	AM	\b(\d\d?(?:\s| )?[aA]\.?[mM]\.?)\s+in the mornings?\b
+unbounded capture	PM	\b(\d\d?(?:\s| )?[pP]\.?[mM]\.?)\s+(?:at night|in the (?:afternoons?|evenings?|nights?))\b
+unbounded capture	Between YYYY-YY	\b([bB]etween)\s+(\d\d)(\d\d)[-–‑−—―](\d\d)\b(?!\s+and\b)(?!\s+to\b)(?!,\d)(?!-)
+unbounded capture	Between YYYY-Y	\b([bB]etween)\s+(\d\d\d)(\d)[-–‑−—―](\d)\b(?!\s+and\b)(?!\s+to\b)(?!,\d)(?!-)
+unbounded capture	From YYYY-YY	\b([fF]rom)(?<![cC]ompilation\s+from)\s+(\d\d)(\d\d)[-–‑−—―](\d\d)\b(?!\s+(?:onwards?|t(?:hrough|il|o)|until)\b)(?!,\d)(?!-)
+unbounded capture	From YYYY-Y	\b([fF]rom)\s+(\d\d\d)(\d)[-–‑−—―](\d)\b(?!\s+(?:onwards?|t(?:hrough|il|o)|until)\b)(?!,\d)(?!-)
+unbounded capture	Between 0 and 1	\b([bB]etween)\s+(\d+[\d,\.]*\d)[-–‑−—―](\d+[\d,\.]*\d)\b(?!\s+and\b)(?!\s+to\b)(?!-)
+unbounded capture	From 0 to 1	\b([fF]rom)(?<![cC]ompilation\s+from)\s+(\d+[\d,\.]*\d)[-–‑−—―](\d+[\d,\.]*\d)\b(?!\s+(?:onwards?|t(?:hrough|il|o)|until)\b)(?!-)
+unbounded capture	vice president	\bV(ice)\b(?<=\s+(?:a(?:cting|ppointed|s?)|be(?:en|c(?:ame|om(?:e|ing)))?|Democratic|elected|for(?:mer)?|h(?:er|i[ms])|i(?:ncumbent|s|ts)|n(?:amed|ew)|Republican|s(?:erving|itting)|t(?:heir|o)|U\.?S\.?|was|\w+'s)\s+\w+)(?<![A-Z][a-z]+\s+for\s+\w+)([-\s]+)[pP](residen(?:cy|t(?:ial|sial)?))(?=(?:[,\.;\)]|\s+[a-z]+))(?!\s+of\s)
+unbounded capture	0–0–0	\b(\d+)(?<=(?:\s|\()\d+)[-—](\d+)[-—](\d+)(?=\s+(?:as|career|lead|ma(?:jority|rk)|overall|(?:(?:conference|playoff|regular(?:\-|\s+)season)\s+)?record|result|((?:regular|undefeated)\s+)?seasons?|series|vote)(?:\b|\)))
+unbounded capture	([mb]|tr)illion (2)	((?:Rs\.\s?|[€£￥\$])[\d,\.–]+(?:\s| )+(?:[mb]|tr))illions\b
+unbounded capture	Double euros	(€[\d\,\.–]+(?: [mb]illion| t(?:housand|rillion))?)(?: | )euros?\b
+unbounded capture	nn-pounder	\b(\d+)\s+pounder(s)?\b
+unbounded capture	late 2016	\b(early|late)[–‑−—―](?<=\b(?:[bB]y|[dD]uring|[fF]rom|[iI]n|of|to|[uU]ntil)\s+[a-z]+-)([12]\d{3})(?=[,\.\;])
+unbounded capture	September 2016	\b(?:the\s+)?(A(?:pril|ugust)|December|February|J(?:anuary|u(?:ly|ne))|Ma(?:rch|y)|November|October|September)\s+of\s+([12]\d{3})\b
+unbounded capture	nth-minute something	\b(\d+(?:[nr]d|st|th)|e(?:ight(?:eenth|h|ieth)|leventh)|f(?:i(?:ft(?:eenth|h|ieth)|rst)|o(?:rtieth|urt(?:eenth|h)))|hundredth|nint(?:eenth|h|ieth)|s(?:e(?:cond|vent(?:eenth|h|ieth))|ixt(?:eenth|h|ieth))|t(?:enth|h(?:ir(?:d|t(?:eenth|ieth))|ousandth)|we(?:lfth|ntieth)))\b\s+minute(?=\s+(?:equali(?:[sz]er)|goal|header|lead|opener|penalty|s(?:trike|ubstitute)|winner))(?!\s+leading)
+unbounded capture	([mb]|tr)illion	\b(\d+(?:\s| )+(?:[mb]|tr))illions\s+(albums|copies|dollars|[eE]uros?|p(?:eople|ounds)|records|ton(?:ne)?s|vi(?:ew(?:er)?s|sitors)|years)\b
+unbounded capture	Anytown-based	\b([A-Z][a-z]+)\s+based\b(?<=\b(?:[aA]n?|b(?:etween|y)|f(?:or|rom)|h(?:er|is)|o(?:f|ther)|t(?:he|o)|The|with)\s+[A-Z][a-z]+,?(?:\s+[A-Z][a-z]+)?\s+based)(?!\s+(?:a(?:long|[nt]?|round)|[A-Z][a-z]+'s?|h(?:er|is)|i(?:n|ts)|largely|most(?:ly)?|o(?:n|ut\sof)|partially|the(?:ir)?|upon)\b)
+unbounded capture	n-year-old	\b(\d+|e(?:ight(?:een|y?)|leven)|f(?:i(?:ft(?:een|y)|ve)|o(?:rty|ur(?:teen)?))|hundred|nine(?:t(?:een|y))?|one|s(?:even|ix)(?:t(?:een|y))?|t(?:en|h(?:irt(?:een|y)|ousand|ree)|w(?:e(?:lve|nty)|o)))(?:\s+year(?:\s+|-)|-year\s+)[oO]ld\s+(b(?:oys?|r(?:idge|others?)|uilding)|c(?:h(?:ild(?:ren)?|urch)|o(?:llege|mpany))|d(?:aughter|esign)|f(?:a(?:cility|rmhouse|ther)|emales?)|g(?:irls?|rand(?:daughter|father|mother|son))|h(?:igh\s+school|ouse)|institution|la(?:ndmark|w)|m(?:a(?:les?|n(?:sion)?)|en|iddle\s+school|other)|p(?:atient|erson)|record|s(?:chool|elf|isters?|on|t(?:ructures?|udents?))|t(?:heat(?:ers?|res?)|r(?:adition|ees?))|wo(?:m[ae]n|rld\s+record))\b
+unbounded capture	nth-place something	\b(\d+(?:[nr]d|st|th)|e(?:ight(?:eenth|h|ieth)|leventh)|f(?:i(?:ft(?:eenth|h|ieth)|rst)|o(?:rtieth|urt(?:eenth|h)))|hundredth|nint(?:eenth|h|ieth)|s(?:e(?:cond|vent(?:eenth|h|ieth))|ixt(?:eenth|h|ieth))|t(?:enth|h(?:ir(?:d|t(?:eenth|ieth))|ousandth)|we(?:lfth|tieth)))\b\s+(placed?|rate)(?=\s+(?:best\s+finish|effort|finish|p(?:erformance|o(?:ints\s+finish|sition|wer))|r(?:anking|esult|un\b)|t(?:eam\s+finish|roph(?:ies|y))|victory|winner))
+unbounded capture	A n-something	\b(\d+[\d,\.]*|e(?:ight(?:een|y?)|leven)|f(?:i(?:ft(?:een|y)|ve)|o(?:rty|ur(?:teen)?))|hundred|nine(?:t(?:een|y))?|one|s(?:even|ix)(?:t(?:een|y))?|t(?:en|h(?:irt(?:een|y)|ousand|ree)|w(?:e(?:lve|nty)|o)))\b(?<=\b(?:[aA](?:dditional|n?)|first|[hH](?:er|is)|[iI]ts|second|th(?:eir|ird)|Their)\s+[\da-z]+)(?: |\s+)(?!(?:member\s+[a-z]+s|stage\s+wins?)\b)(acre|bed|cylinder|d(?:ay|ecker|oor)|foot|g(?:a(?:llon|me)|oal)|h(?:o(?:le|rsepower|ur)|uman)|inch|lit(?:er|re)|m(?:an|e(?:mber|t(?:er|re))|i(?:le|nute)|onth)|ounce|p(?:a(?:ge|ssenger)|erson|o(?:int|und))|r(?:o(?:om|und)|unner)|s(?:e(?:a(?:son|t(?:er)?)|cond)|ong|t(?:age|ore?y))|ton|vote|w(?:eek|heel(?:e[dr])?|oman)|y(?:ard|ear))(?=[,\s]|-(?:deep|high|long|old|tall|wide)\b)(?!\s+(?:a(?:go|[st])|by|deep|for|high|i[ns]|long|o(?:f|ld)|t(?:all|here|o)|w(?:as|i(?:de|th)))\b)(?<!\b\d{4}\s+(?:game|s(?:e(?:ason|cond)|ong|t(?:age|ory))|vote))(?<![dD]uring\s+h(?:er|is)\s+one\s+season|told\s+h(?:er|im)\s+one\s+day|send\s+for\s+h(?:er|im)\s+one\s+day)
+unbounded capture	n-year	\b(\d+[\d,\.]*|e(?:ight(?:een|y?)|leven)|f(?:i(?:ft(?:een|y)|ve)|o(?:rty|ur(?:teen)?))|hundred|nine(?:t(?:een|y))?|one|s(?:even|ix)(?:t(?:een|y))?|t(?:en|h(?:irt(?:een|y)|ousand|ree)|w(?:e(?:lve|nty)|o)))(?: |[–‑−—―\s]+)(month|year)\b(?<= [\da-z]+(?: [a-z]+|\s+[a-z]+))(?=\s+(?:a(?:bsence|ffair|greement|ss(?:ignment|ociation))|b(?:a(?:n|ttle)|reak)|c(?:a(?:mpaign|reer)|ease[-–‑−—―]?fire|losure|o(?:m(?:a|petition)|ntract|urse)|ruise|ycle)|d(?:e(?:a(?:dline|l)|lay|ployment)|rought|uration)|e(?:ffort|n(?:gagement|listment)|x(?:hibit(?:ion)?|i(?:le|stence)|pedition|tension))|feasibility|g(?:ap|estation|uest)|h(?:i(?:atus|story)|ospital)|i(?:llness|n(?:cumbent|jury|ternship|vestigation))|j(?:ail|ourney)|l(?:ay[-–‑−—―]?off|ea[sv]e|ife[-–‑−—―]?span|o(?:an|ckout))|m(?:aintenance|i(?:litary|ssion)|o(?:dernization|ratorium))|notice|overhaul|p(?:artnership|eriod|lan|osting|r(?:ison|o(?:cess|fessional|gram(?:me)?|ject)))|r(?:e(?:c(?:overy|urring)|fit|gular|ign|lationship|s(?:earch|idency|tricted))|otation|un)|s(?:abbatical|cho(?:larship|ol)|e(?:ason|ntence)|iege|ojourn|p(?:an|e(?:aking|ll))|t(?:a(?:rter|y)|int|r(?:ike|uggle)|udy)|u(?:bs(?:cription|idy)|pen(?:ded|sion)))|t(?:e(?:nure|rm)|our|r(?:aining|eatment|i(?:al|p)|uce))|v(?:eteran|isit|oyage)|w(?:a(?:it(?:ing)?|r)|orkshop))\b)
+unbounded capture	UTC−	\bUTC-(\d\d?(?::00)?)\b
+unbounded capture	Currency symbol before number	\b([\d,\.][\d,\. ]*)([£€\$])(?!\d)
+unbounded capture	Decades apostrophes	\b(1\d\d0|20\d0)['’;´ˈ׳᾿‘′Ꞌꞌ`]?s(?<=\b(?:[aA]n?|[tT]he)\s{1,9}(?:earl(?:ier|y)|later?|mid(?:dle)?)?[–‑−—―\s]{0,9}(?:1\d|20)\d0['’;´ˈ׳᾿‘′Ꞌꞌ`]?s)\s{1,9}and\s{1,9}((?:earl(?:ier|y)|later?|mid(?:dle)?)?[–‑−—―\s]{0,9}(?:1\d\d0|20\d0))['’´ˈ׳᾿‘′Ꞌꞌ`]s
+unbounded capture	Double pounds	(£[\d\,\.–]+(?: [mb]illion| t(?:housand|rillion))?)(?: | )pounds?\b(?: [sS]terling\b)?
+unbounded capture	Double dollars	(\$[\d\,\.–]+(?: [mb]illion| t(?:housand|rillion))?)(?: | )dollars?\b
+unbounded capture	-century	\b(an?\s+\d\d?(?:[nr]d|st|th))\s+century\b
+unbounded capture	Pharmacy	\b([pP])h?a(?:m[mr]*|r(?:am|[mr]*))[aei]?c(?<![pP]harmac)(eutic[a-z]+|i(?:es|sts?)|o(?:log(?:i[cs][a-z]+|y)|p[aeio]+l?|thera[a-z]+)|y)\b(?<!Parcopa\b)
+unbounded capture	(Un)Successful	\b([sS]|[uU]ns)u+c+e+s+[aeiou]?f?f?u+(l+)(?<![sS]uccessful{1,9})(y)?\b
+unbounded capture	Decade apostrophe	\b(1\d\d0|20\d0)['’´ˈ׳᾿‘′Ꞌꞌ`]s(?<=\b(?:[aA]n?|[tT]he)\s{1,9}(?:earl(?:ier|y)|later?|mid(?:dle)?)?[–‑−—―\s]{0,9}(?:1\d|20)\d0['’´ˈ׳᾿‘′Ꞌꞌ`]s)
+unbounded capture	n00	\b(\d\d?00)[–‑−—―\s][hH]undred(s)?(?!\s+euro|euro)\b
+unbounded capture	(Pre/Re/Un)Format	\b([fF]|[pP]ref|[rR]ef|[uU]nf)omat(?!\s+[mM]artin|[mM]artin)(t?(?:a(?:ble|nks?)|e(?:d?|rs?)|i(?:ngs?|on(?:als?|[s\b])|v(?:e(?:ly|s?)|ity))|k(?:ii|y)|or(?:ies|y)|s(?:k(?:ii|y))?))?
+unbounded capture	nn-seat	\b((?:\d+,)?\d\d+)[–‑−—―\s]+seat(?=\s+(?:a(?:rena|uditorium)|black\s+box|concert|lecture|majority|restaurant|st(?:adium|udio)|theat(?:er|re))\b)(?<!\bto\s+\d+\s+\w+)
+unbounded capture	two-way tie	\b([2-9]|e(?:ight(?:een|y?)|leven)|f(?:i(?:ft(?:een|y)|ve)|o(?:rty|ur(?:teen)?))|nine(?:t(?:een|y))?|s(?:even|ix)(?:t(?:een|y))?|t(?:en|h(?:irt(?:een|y)|ree)|w(?:e(?:lve|nty)|o)))[–‑−—―\s]+way(?=\s+(?:battle|co(?:mpetition|ntest)|d(?:ance|ivision)|el(?:ection|imination)|f(?:eud|ight)|intersection|ladd+er|match|p(?:layoff|rimary)|race|split|t(?:ag|ie|rade))\b)
+unbounded capture	CD	\b(\d\d?)\s?[cC][dD]s?\s+(album|[bB]ox\s?[sS]ets?|[sS]ets?)\b
+unbounded capture	GeoCities	\b[gG]eocit(?<!\S[gG]eocit)(?:e|ie?)s(\S\s|\s)
+unbounded capture	LP	\b(\d\d?)\s?[lL][pP]s?\s+(album|box\s?sets?|sets?)\b
+unbounded capture	Christian	\bchristian(i[stz][a-ln-z]+|s?)\b
+unbounded capture	Aesthetic	\b([aA])(?:e(?:sthe(?:ci|tia)|thesti)|sthe(?:ci|tia?))c(al(?:l+y|y)?|s?)\b
+unbounded capture	Alternative	\b([aA])lternitive([lsy]*)\b
+unbounded capture	Anniversary (2)	\b(\d+(?:[nr]d|st|th)|e(?:ight(?:eenth|h|ieth)|leventh)|f(?:i(?:ft(?:eenth|h|ieth)|rst)|o(?:rtieth|urt(?:eenth|h)))|hundredth|nint(?:eenth|h|ieth)|s(?:e(?:cond|vent(?:eenth|h|ieth))|ixt(?:eenth|h|ieth))|t(?:enth|h(?:ir(?:d|t(?:eenth|ieth))|ousandth)|we(?:lfth|ntieth)))[–‑−—―\s]year\s+[aA]nniv[ei]rs[ai]ry\b
+unbounded capture	Beneficial	\b([bB])en(?:aficia|eficai?|ific(?:ai?|ia))([lr][aeilrsy]*)\b
+unbounded capture	(B/M/Tr)illionaire	\b([bB]|[mM](?:ulti[bmBM])?|[tT]r)il+ioni?are([es]){0,4}\b
+unbounded capture	Concept	\b([cC])on(?:cep([abd-su-z])|sept)([a-z]*)\b
+unbounded capture	(C/W/Sh)ould have	\b([cC]|[sS]h|[wW])ould\s+of\b(\S|\s+(?:been|[dg]one|had|said))\b
+unbounded capture	du Pré	\b(Hil+ary|Iris|Jacqueline)\s+[dD]u\s*[pP]r(?:éeé?|e(?:é?|èe?)|èe?)\b
+unbounded capture	Etc.	\b(?:and\s+)?([eE])(?:tc\b(?<!/etc)([^\.\w])|ct\b\.*)
+unbounded capture	First (3)	\b([fF])r?ist\s*([–‑−—―\s])\s*(aid|b(?:ases?|orns?)|class|floors?|hand|l(?:ad(?:ies|y)|y)|p(?:ersons?|laces?)|r(?:ater?|ounds?)|s(?:ergeants?|trings?)|time|water|years?)\b
+unbounded capture	First (3)	\b([fF])r?ist\s*([-\s])\s*(aid|b(?:ases?|orns?)|class|floors?|hand|l(?:ad(?:ies|y)|y)|p(?:ersons?|laces?)|r(?:ater?|ounds?)|s(?:ergeants?|trings?)|time|water|years?)\b
+unbounded capture	Idiosyncra(c/s)y (2)	\b([iI])d(?:eosynch?|iosynch)ra([cst][ei-y]+)\b
+unbounded capture	i.e.	\bi(?:e\.|\.?e)([´ˈ׳᾿‘’′Ꞌꞌ`'\s,:;\)&-])(?<!\.ie\.?.|['’´ˈ׳᾿‘′Ꞌꞌ`]ie['’´ˈ׳᾿‘′Ꞌꞌ`\s]|\-ie[\s\|\-:])
+unbounded capture	Licen(s/c)e	\b([lL])isc?en([cs])(e(?:d?|e+s?|s?)|ing|ors?|ures?)\b
+unbounded capture	Lifetime (2)	\b((?:[dD]uring|[iI]n)\s*(?:h(?:er|is)|its|my|their|your))\s*life?[–‑−—―\s]+time\b
+unbounded capture	Née	([\s\(])n[eè][eèé]\b
+unbounded capture	nth-season something	\b(\d+(?:[nr]d|st|th)|e(?:ight(?:eenth|h|ieth)|leventh)|f(?:i(?:ft(?:eenth|h|ieth)|rst)|o(?:rtieth|urt(?:eenth|th)))|hundredth|nint(?:eenth|h|ieth)|s(?:e(?:cond|ven)|ixt(?:eenth|h|ieth))|t(?:enth|hir(?:d|t(?:eenth|ieth))|we(?:lfth|ntieth)))\b\s+season(?=\s+(?:c(?:ast|liffhanger)|episode|finale(?!\s+loss)|premiere(?!d)))
+unbounded capture	nth-round something	\b(\d+(?:[nr]d|st|th)|e(?:ight(?:eenth|h|ieth)|leventh)|f(?:i(?:ft(?:eenth|h|ieth)|rst)|o(?:rtieth|urt(?:eenth|h)))|hundredth|nint(?:eenth|h|ieth)|s(?:e(?:cond|vent(?:eenth|h|ieth))|ixt(?:eenth|h|ieth))|t(?:enth|h(?:ir(?:d|t(?:eenth|ieth))|ousandth)|we(?:lfth|ntieth)))\b\s+round(?=\s+(?:decisions?|game|knockouts?|KOs?|newspaper\s+decisions?|(?:draft\s+)?picks?|RTDs?|technical\s+(?:decision|knockout)s?|TKOs?))
+unbounded capture	n-round something	\b(\d+|e(?:ight(?:een|y?)|leven)|f(?:i(?:ft(?:een|y)|ve)|o(?:rty|ur(?:teen)?))|hundred|nine(?:t(?:een|y))?|one|s(?:even|ix)(?:t(?:een|y))?|t(?:en|h(?:irt(?:een|y)|ousand|ree)|w(?:e(?:lve|nty)|o)))\b\s+round(?=\s+(?:d(?:ecisions?|raws?)|knockouts?|KOs?|match(?:es)?|newspaper\s+decisions?|technical\s+knockouts?|TKOs?))
+unbounded capture	n-something contract/deal/run/etc.	\b((?<!,)\d{1,3}|e(?:ight(?:een|y?)|leven)|f(?:i(?:ft(?:een|y)|ve)|o(?:rty|ur(?:teen)?))|hundred|nine(?:t(?:een|y))?|one|s(?:even|ix)(?:t(?:een|y))?|t(?:en|hr(?:ee|irt(?:een|y))|w(?:e(?:lve|nty)|o)))(?: |\s+)(album|book|episode|fi(?:ght|lm)|game|movie|picture|record)(?=\s+(?:contract|deal|run|s(?:e(?:ason|ries)|uspension|weep))\b)
+unbounded capture	n-time champion/winner_	\b(\d+[\d,\.]*|e(?:ight(?:een|y?)|leven)|f(?:i(?:ft(?:een|y)|ve)|o(?:rty|ur(?:teen)?))|hundred|nine(?:t(?:een|y))?|one|s(?:even|ix)(?:t(?:een|y))?|t(?:en|h(?:irt(?:een|y)|ousand|ree)|w(?:e(?:lve|nty)|o)))\b\s+time(?=\s+(?:champions?|defending\s+champions?|losers?|nominees?|winners?))
+unbounded capture	Of...descent	\b([oO]f\s+[A-Z][a-z]+(?:an|ese|i(?:c|sh))\s+de)cs?ent\b
+unbounded capture	Orchestra	\b([oO])rch[aiou]?stra([i-sy]*)\b
+unbounded capture	Purport	\b([pP])(?:erpor?|urpo)t([a-qt-z]*)\b
+unbounded capture	Southern	\b([sS])ourth(er(?:l(?:ies|y)|n?|nmost|s?)|east(?:er(?:l[eisy]+|n?))?|west(?:er(?:l[eisy]+|n?))?)?\b
+unbounded capture	Time (1)	\b([tT])iem(l(?:ines*|y))?\b
+unbounded capture	Volley(ball)	\b([vV])ol[el]y((?:[-–‑−—―\s]?ball)?(?:e(?:d|rs?)|ing|s?))\b(?<!\bVol[el]y\b)
+unbounded capture	Website (2)	\b([wW])e(?:b[-–‑−—―]?(\s*)is|sbi)te(s)?\b
+unbounded capture	Wikipedia	\b[wW]h?[iîI]+[ckCK]+[iaeouîI]+?[-–‑−—―\s]?([mpMP])+[aeiǣæéÆ]{0,2}di?e?[îi]?(an?['’´ˈ׳᾿‘′Ꞌꞌ`]?s?|c)\b(?![\.-]\w)(?<!Wiki[mp]edi(?:an?\'?s?\b|c\b))
+unbounded capture	Xbox	\b[xX][–‑−—―\s]?[bB][oO][xX]([e´ˈ׳᾿‘’′Ꞌꞌ`']?s)?\b(?<!Xbox(?:[e´ˈ׳᾿‘’′Ꞌꞌ`']?s)?)(?!\s+binding)
+unbounded capture	(T)bit	([\d\.]+(?:[–‑−—―\s]| )?[tT]?)b(?:its\/se?c?|ps|\/se?c?)\b
+unbounded capture	kbit	([\d\.]+(?:[–‑−—―\s]| )?)(?:k(?:B(?:it(?:s\/se?c?|\/s)|ps)|b(?:its\/se?c?|ps|\/se?c?))|K[bB](?:it(?:s\/se?c?|\/s)|ps|\/se?c?))\b
+unbounded capture	Mbit	([\d\.]+(?:[–‑−—―\s]| )?)(?:M(?:B(?:it(?:s\/se?c?|\/s)|ps)|b(?:its\/se?c?|ps|\/se?c?))|m[bB](?:it(?:s\/se?c?|\/s)|ps|\/se?c?))\b
+unbounded capture	Gbit/s	([\d\.]+(?:[–‑−—―\s]| )?)[gG](?:Bit(?:[p\/]se?c?|s[p\/]se?c?)|b(?:it(?:[p\/]se?c?|s[p\/]se?c?)|[p\/]se?c?|s[p\/]se?c?))\b
+unbounded capture	F (farad)	([\d\.]+(?:[–‑−—―\s]| )?[nµkMT])f\b
+unbounded capture	GHz (gigahertz)	([\d\.]+(?:[–‑−—―\s]| )?)(?:g(?:[hH][zZ]|㎐)|G(?:㎐|h[zZ]|HZ)|㎓)\b
+unbounded capture	GPa (gigapascal)	([\d\.]+(?:[–‑−—―\s]| )?)gP[aA]\b
+unbounded capture	Hz (hertz)	\b([µmkMGT\s]|[-\d\.]+(?: |-)?)(?:h[zZ]|㎐)\b(?<!\b[µmkMGT]hz)
+unbounded capture	J (joule)	([\d\.]+(?:[–‑−—―\s]| )?[µmkMGT])j\b
+unbounded capture	kg (kilogram)	(\.?\d[\d\.]*)(?<!\b(?:19(?:02|[7-9]\d)|2001))(?:\s| )?(?:K[gG]['’´ˈ׳᾿‘′Ꞌꞌ`]?s?|k[gG]['’;´ˈ׳᾿‘′Ꞌꞌ`]?s|㎏['’´ˈ׳᾿‘′Ꞌꞌ`]?s?)\b
+unbounded capture	-kg (kilogram)	([\d\.]+)-(?:K[gG]['’´ˈ׳᾿‘′Ꞌꞌ`]?s?|k[gG]['’;´ˈ׳᾿‘′Ꞌꞌ`]?s|㎏['’´ˈ׳᾿‘′Ꞌꞌ`]?s?)\b
+unbounded capture	kHz (kilohertz)	([\d\.]+)(?:\s| )?(?:K(?:[hH][zZ]|㎐)|k(?:hz|㎐))\b
+unbounded capture	-kHz (kilohertz)	([\d\.]+)-(?:K(?:[hH][zZ]|㎐)|k(?:hz|㎐))\b
+unbounded capture	kJ (kilojoule)	([\d\.]+(?<!\b(?:19(?:02|7[29]|[89]\d)|200[036]))(?:[–‑−—―\s]| )?)K[jJ]\b
+unbounded capture	km (kilometre)	([\d\.]+)(?<!\b(?:19(?:21|7[29]|8[02]|9\d)|2001|(?:KMS|OS)[-–‑−—―\s]*(?:[4-9]\d|1[0-3]\d)|S[uU][-–‑−—―\s]*\d\d))(?:\s| )?(?:K[mM]['’´ˈ׳᾿‘′Ꞌꞌ`]?s?|k[mM]['’;´ˈ׳᾿‘′Ꞌꞌ`]?s)\b(?<![a-z]\.\s+KM)
+unbounded capture	-km (kilometre)	([\d\.]+)-(?:K[mM]['’´ˈ׳᾿‘′Ꞌꞌ`]?s?|k[mM]['’;´ˈ׳᾿‘′Ꞌꞌ`]?s|㎞['’´ˈ׳᾿‘′Ꞌꞌ`]?s?)\b
+unbounded capture	kPa (kilopascal)	([\d\.]+(?:[–‑−—―\s]| )?)(?:kp[aA]|K(?:Pa|pA))\b
+unbounded capture	Pa (pascal)	([\d\.]+(?:[–‑−—―\s]| )?[µkMGT])p[aA]\b
+unbounded capture	W (watt)	(\d(?:[–‑−—―\s]| )?[µmkMGT])w\b
+unbounded capture	Wb (weber)	([\d\.]+(?:[–‑−—―\s]| )?)([µmkMGT])w[bB]\b
+unbounded capture	Ma(rch/y)	\bma(rch|y)\s+(\d{4}\D|[1-3]\d?(?:,\s+\d{4}\D|\s+\d{4}\D|[nr]d\D|st\D|th\D))
+unbounded capture	August (1)	\b([1-3]\d?|[4-9])\s+(?:aug(?:as?|[eu]s)|Aug(?:as?|es))t\b
+unbounded capture	August (2)	\b(?:aug(?:as?|[eu]s)|Aug(?:as?|es))t\s+(\d{4}\D|(?:[4-9]|[12]\d?|3[01]?)(?:,\s+\d{4}\D|\s\d{4}\D|[nr]d\D|st\D|th\D))
+unbounded capture	Muhammad etc.	\bm(oham+[ae][dt](?:ans?)?|uham+[ae][dt](?:ans?)?)\b
+unbounded capture	A to An (2)	\b(?<![´ˈ׳᾿’′Ꞌꞌ`'\[\|\]\.\,\:\-\&\—\>\/])a\s+((?:a(?:[bcd]|n[acdginot])|e[abcdefgilmnpqrstvxB]|i[cdglmnr]|o[bf])\w+|M(?:BA|VP)|NZ)(?<!about|e(?:nterar|s(?:cala|t[aé]\b)))(?!\$\d+)\b
+unbounded capture	An to A	\b(?<!['’´ˈ׳᾿‘′Ꞌꞌ`])([aA])n\s+([eE]u[A-Za-z]+|Ukrain[aeins]+|[uU](n(?:anim[a-z]+|i(?:form|later[a-z]+|on|que[a-z]*|t(?:ed|y?)|vers[a-z]+))|ra[a-z]+|s(?:e(?:ful|r)|ual)|til[a-z]+)(?:ly)?|[Yy]ou[Tt]ube)(?<!Euler[a-z]{0,99})\b
+unbounded capture	An 8th/11th/18th	\b(?<![´ˈ׳᾿’′Ꞌꞌ`'\-\—])([aA])\s+(8|1[18])th([-\s])
+unbounded capture	e.g.	\b([eE]\.g)([,\s])
+unbounded capture	(Dis)Colour-	\b([cC]|[dD]isc)olou([a-ln-qs-y][a-z]*)\b
+unbounded capture	Dissi-	\b([dD])isi([abe-ko-ru-z]|m[a-nq-z]|s[a-km-z]|t[a-gi-z])([a-z]+)\b
+unbounded capture	Exc-	\b([eE])xe(ed[a-z]*|r?pt(?:ed|i(?:ng|onal(?:ly)?|s?))|lle(?:d|n[ct][a-z]*)|ssive[elnsy]*)\b
+unbounded capture	-ail(ed/ing)	\b([bB]?|[fhjmnrswFHJNRS]|[tT]r?)aill(ed|ing)\b
+unbounded capture	-berg	\b([aA]nnen|[hH]eidel|[nN]urem|[tT]annen|[wW][uü]rt+em)bo?urg\b
+unbounded capture	-king	\b([bB][ai]|[sS]tri|[tmwcfrTMCFRW]a|[vhlVHL]i)keing\b
+unbounded capture	-lled	\b([iI]nsta|[mfbckwMFBCKW][ai])leld\b
+unbounded capture	-ound-	([bcfghmprswzCDFGKMPRSTVWYZ])uond([a-z]*)
+unbounded capture	-putation	\b([aA]m|[cC]om|[dD]e|[iI]m|[rR]e)puation([alsy]*)\b
+unbounded capture	-rance	\b([aA](?:ppea|ssu)|[cC]lea|[dD]elive|[eE]n(?:du|t)|[fF][lr]ag|[hH]ind|[iI](?:gno|nsu)|[pP]erseve|[rR]ememb|[sS]eve|[tT](?:empe|ole))e?rea?n([ct][a-gi-z][a-z]*)\b(?<![iI]nsurency\b)
+unbounded capture	-tting	\b([bgpBGP][eu]|[cC]u|[fF]orge|[jlvswJLSVW]e)ting\b(?<!Guting|Isla Puting|Tanjung Puting)
+unbounded capture	Between ... and	\b([bB]etween\s+(?:\d+[\d,\.]*|e(?:ight(?:een|y?)|leven)|f(?:i(?:ft(?:een|y)|ve)|o(?:rty|ur(?:teen)?))|nine(?:t(?:een|y))?|one|s(?:even|ix)(?:t(?:een|y))?|t(?:en|w(?:e(?:lve|nty)|o)|h(?:irt(?:een|y)|ree))|zero)\s)to\b
+unsupported replacement token	US$ (1)	\bUS(?:\s+(?:D\$?|\$)|D\$?|\$)(?<=(?:\b[a-z]+\s+|[\(,]\s*)US[\s\$D]+)(?:\s+(?: \s*)?| \s*)?\$?(?<!US\$)(?=\d)
+unsupported replacement token	US$ (2)	([\s\(~])\$?\s?((?:\d+(?:\.\d+)?|(?:\d+,)+\d{3}(?:\.\d\d)?))((?:\s| )+(?:[mbMB]illion|[tT](?:housand|rillion))\b)?(?<![^\$\d](?:1[89]\d\d|20\d\d))(?<!\d\s+\d+)(?:\s| )*US[D\$]\b
+wiki markup	cubed	\b(ft|in|[mck]m|mi?|yd)³
+wiki markup	space after ref	</ref>([A-Za-z\d])
+wiki markup	space before ref	(?<=[a-z\.,;]) \<ref
+wiki markup	mixed fraction	\b(\d+)[-–‑−—―\s]+and[-–‑−—―\s]+a[-–‑−—―\s]+half(?<=\s\d+[-–‑−—―\s]+and[-–‑−—―\s]+a[-–‑−—―\s]+half)[-–‑−—―\s]+(?=(?:centuries|d(?:ays|ecades)|feet|hours|m(?:i(?:l(?:es|lennia)|nutes)|onths)|s(?:e(?:asons|conds|mesters)|tars)|points|weeks|years)\b)
+wiki markup	sic	\b[\[\(]sic[\]\)]\b
+wiki markup	km²	\b([\d\.]+)(?:\s*|\ )km\^2\b
+wiki markup	mixed fractions with hyphen	\b(\d)[-–‑−—―\s]+1/([24])[-–‑−—―\s]+(?=(?:d(?:ay|ecade)|hour|inch|m(?:i(?:le|nute)|onth)|pound|store?y|ton|week|year)\b)
+wiki markup	mixed fractions, no hyphen	\b(\d)[-–‑−—―\s]+1/([24])[-–‑−—―\s]+(?=(?:d(?:ays|ecades)|hours|inche?s|m(?:i(?:l(?:es|lennia)|nutes)|onths)|pounds|stor(?:ey|ie)s|tons|weeks|years)\b)
+wiki markup	squared	\b(ft|in|[mck]m|mi?|yd)²
+wiki markup	2–1–1	\b(\d+)(?<=(?:\s|\()\d+)(?<!(?:§|\b(?:[A-Z]\.?R\.?S\.?|Article|case|Code|IC|number|Order|[pP](?:UB|ub(?:lication|\.)?)|[sS]ec(?:tion|\.)))[\s\d]+)[-—](\d+)[-—](\d+)(?=(?:[,\.;\)\*]|\s*?(?:\n|\<br)))(?<!\b(?:(?:1[7-9]|20)\d\d-\d\d-\d\d|9-1-1|\d{3}-\d{3}-\d{4}|\d{5}-\d{5}-\d{1,4}))
+wiki markup	0–0	\b(\d+)(?<=(?:\s|\()\d+)[-—](\d+)(?=\s+(?:a(?:cademic|dvantage|fter|gainst|[st]|way)|b(?:e(?:ating|fore|hind)|lowout|y)|c(?:areer|omeback)|d(?:e(?:adlock|feats?)|own|raw)|(halftime\s+)?deficit|edge|final|game|home|in|(?:halftime\s+)?lead|(?:road\s+)?loss|ma(?:jority|r(?:gin|k))|o(?:n|ver(?:all|time)?)|\(OT\)|(?:(?:conference|playoff|regular(?:\-|\s+)season)\s+)?record|r(?:esult|out|un)|sc(?:hool\s+year|ore(?:line)?)|((?:regular|undefeated)\s+)?seasons?|s(?:eries|h(?:ootout|utout)|plit|quads?|ta(?:lemate|rt)|weep)|t(?:e(?:ams?|rm)|hrashing|ie|o|riumph)|up(?:set)?|v(?:ictor[sy]?|ote)|(?:(?:aggregate|road)\s+)?win(?:ners?)?|with(?:in)?)(?:\b|\))|\r?\n(?:\r\n|\n|\*|==|''))(?<!(?:§|\b(?:ANSI(?:/VITA)?|A(?:cc\.\s+[nN]o\.|STM\s+[A-Z]+|tco|TCO|tlantic\s+Records)|Boeing|C(?:GCG|olumbia)|D(?:ash|o(?:cket|t))|E(?:IN:?|ISO|[lL]aws?|pic|RCA|xecutive\s+[oO]rder)|executive\s+[oO]rder|F(?:IPS|ield\sManual|M)|GRT|I(?:C|EC|NCITS|RAS|S[BS]N:?|SO(?:/IEC)?|ssue|tem)|[lL]aws?|L(?:CCC?N|OC)|[mM](?:GC|odel)|N(?:ACA|CES|[oO]\.?:?)|[nN](?:GC|umber:?)|#:?|Order|P(?:art|[KL]|N\s*G)|[pP](?:UB|ub(?:lication|\.)?)|R(?:CA(?:[;,]|\s+Victor)?|unway)|runway|S(?:[ah]|ection|/[nN]:?)|[sS]er(?:ial(?:led)?|\.)(?:\s+[nN]o\.)?|s/[nN]:?|U\.?S\.?|VITA|[vV]ol(?:ume|\.)?|Widow))\s+\d+[-—]\d+)(?<!\b7\d7-\d+)(?!(?<=1-2)\s+result)
+wiki markup	2–1	\b(\d+)(?<=(?:\s|\()\d+)[-—](\d+)(?=(?:[,\.;\)\*]|\s*?(?:\n|\<br)))(?<!(?:§|\b(?:ANSI(?:/VITA)?|A(?:cc\.\s+[nN]o\.|STM\s+[A-Z]+|tco|TCO|tlantic\s+Records)|Boeing|C(?:GCG|olumbia)|D(?:ash|o(?:cket|t))|E(?:IN:?|ISO|[lL]aws?|pic|RCA|xecutive\s+[oO]rder)|executive\s+[oO]rder|F(?:IPS|ield\sManual|M)|GRT|I(?:C|EC|NCITS|RAS|S[BS]N:?|SO(?:/IEC)?|ssue|tem)|[lL]aws?|L(?:CCC?N|OC)|[mM](?:GC|odel)|N(?:ACA|CES|[oO]\.?:?)|[nN](?:GC|umber:?)|#:?|Order|P(?:art|[KL]|N\s*G)|[pP](?:UB|ub(?:lication|\.)?)|R(?:CA(?:[;,]|\s+Victor)?|unway)|runway|S(?:[ah]|ection|/[nN]:?)|[sS]er(?:ial(?:led)?|\.)(?:\s+[nN]o\.)?|s/[nN]:?|U\.?S\.?|VITA|[vV]ol(?:ume|\.)?|Widow))\s+\d+[-—]\d+)(?<!\b(?:\d(?:[-—][02-9]\d|\d[-—][02-9]\d\d)|\1[-—]\1\b|7\d7-\d+|\d{5}[-—]\d{4}|19\d\d-0\d{4}|20[0-2]\d-[0-3]\d{4}))
+wiki markup	Relay	\b4(?:\s+(?:x\s?|×)|[x×]\s?)([248]00|15?00)\s*m\b
+wiki markup	Furthermore,	\b(Accordingly|Consequently|Even\s+so|F(?:or\s+example|urthermore)|In(?:deed|\s+other\s+words)|M(?:eanwhile(?!\s+Gardens)|oreover)|N(?:ever|one)theless|On\s+the\s+other\s+hand|Therefore|Subsequently(?!\s+(?:[a-z]+ed|known|rebuilt|told)))(?!\s+\|)?(?=\s+[\p{L}´ˈ׳᾿’′Ꞌꞌ`'\[\|\]]+\b)
+wiki markup	Idea	\b([iI])dae(s)?\b(?<!\b\p{Lu}\.\s+idae)(?!'')
+wiki markup	cm²	\b(?<!\{)[sS][qQ][-\.\s]+[cC][mM][sS]?\b
+wiki markup	km²	\b(?<!\{)[sS][qQ][-\.\s]+[kK][mM][sS]?\b
+wiki markup	Antarctic	\bantarc?ticc(a)?\b(?!'')
+wiki markup	Argentina	\bargentin(a|e(?:ans?|s?)|ians?)\b(?!'')
+wiki markup	Corsica	\bcorsica(ns?)?\b(?<!\b\p{Lu}\.\s+corsica)(?!'')
+wiki markup	Dominica	\bdomin+ici?a(ns?)?\b(?!'')
+wiki markup	Niger(ia)	\bniger(i[ae]n?s?|ois|\b(?!''))(?!\s+seed|seed)\b
+wiki markup	Ala(bam/sk)a	\bala(bam|sk)(a(?!'')|ans?|ians?)\b(?<!\b\p{Lu}\.\s+alabama\b)
+wiki markup	California (2)	\bcaliforni(a(?!'')n?s?)\b(?<!\b\p{Lu}\.\s+california\b)
+wiki markup	Carolina	\bcarolin(an?s?)\b(?!'')(?<!\b\p{Lu}\.\s+carolin(an?s?))
+wiki markup	Colorado (2)	\bcolorad(ans?|o)\b(?!'')(?<!\b\p{Lu}\.\s+colorad(?:ans?|o))
+wiki markup	Delaware	\bdelawar(es?|ians?)\b(?!'')(?<!\b\p{Lu}\.\s+delawar(?:es?|ians?))
+wiki markup	Florida	\b(?:flori?di?|Flordi?)(a|ians?)\b(?!'')(?<!\b\p{Lu}\.\s+florid(?:a|ians?))
+wiki markup	Idaho	\bidaho(ans?)?\b(?!'')(?<!\b\p{Lu}\.\s+idaho(?:ans?)?)
+wiki markup	Indiana(polis)	\bindian(a(?:(?!'')|ns?|polis)|ians?|town)\b(?<!\b\p{Lu}\.\s+indiana\b)
+wiki markup	Iowa	\biow(a(?!'')n?s?)\b(?<!\b\p{Lu}\.\s+iowa\b)
+wiki markup	Louisiana (2)	\blouisian(a(?!'')|ans?)\b(?<!\b\p{Lu}\.\s+louisiana\b)
+wiki markup	Minnesota (1)	\bminnesot(a(?!'')|ans?)\b(?<!\b\p{Lu}\.\s+minnesota\b)
+wiki markup	Mississippi (1)	\b(?:mississippi(?!'')|[mM]is(?:issip|sis(?:ip|si))pi)(ans?)?\b(?<!\b\p{Lu}\.\s+mississippi\b)
+wiki markup	Montana	\bmontana(ns?)?\b(?!'')(?<!\b(\p{Lu}\.|Annona|Festuca)\s+montana(?:ns?)?)
+wiki markup	Nevada (2)	\bnevad(a(?!'')|ans?|ians?)\b(?<!\b\p{Lu}\.\s+nevada\b)
+wiki markup	Oklahoma	\boklahoma(?!'')(ns?)?\b(?<!\b\p{Lu}\.\s+oklahoma\b)
+wiki markup	Oregon	\boregon(?!'')(ians?)?\b(?<!\b\p{Lu}\.\s+oregon\b)
+wiki markup	Pennsylvania (2)	\bpennsylvania(?!'')(ns?)?\b(?<!\b\p{Lu}\.\s+pennsylvania\b)
+wiki markup	Texas	\btexa(s(?!'')|ns?)\b(?<!\b\p{Lu}\.\s+texas\b)
+wiki markup	Utah	\butah(?!'')(ans?)?\b(?<!\b\p{Lu}\.\s+utah\b)
+wiki markup	Virginia_	\b(?:Vi|vir)gini?a(ns?)?\b(?!'')(?<!\b\p{Lu}\.\s+virginia(?:ns?)?)
+wiki markup	Philadelphia	\b(?:Phil(?:ade(?:lp|ph)|delph|idelph)|phil(?:ade(?:lph?|ph)|delph|idelph))ia(ns?)?\b(?!'')
+wiki markup	Victorian	\bvictorian([as])?\b(?<!\b\p{Lu}\.\s+victoriana)(?!'')
+wiki markup	e.g.	\b([eE])(?:g\.?|\.\s*g)([\s,:;-]|'')(?!River|veit|White)

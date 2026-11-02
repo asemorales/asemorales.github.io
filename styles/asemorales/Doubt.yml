@@ -1,0 +1,11 @@
+extends: existence
+message: "Expression of doubt (MOS:DOUBT): '%s' can imply the point is false, so attribute it or state it."
+link: https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch#Expressions_of_doubt
+level: suggestion
+ignorecase: true
+tokens:
+  - supposed(?! to\b)
+  - supposedly
+  - purported(?:ly)?
+  - alleged(?:ly)?
+  - so-called

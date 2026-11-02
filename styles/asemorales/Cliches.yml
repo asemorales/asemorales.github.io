@@ -1,0 +1,14 @@
+extends: existence
+message: "Cliché or idiom (MOS:CLICHE): say '%s' literally."
+link: https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch#Clich%C3%A9s_and_idioms
+level: suggestion
+ignorecase: true
+tokens:
+  - lion’s share
+  - landslide victory
+  - white elephant
+  - gild(?:s|ed)? the lily
+  - (?:took|takes|taking) the plunge
+  - ace up (?:the|his|her|their|your|my) sleeve
+  - rounded out the top five
+  - the likes of

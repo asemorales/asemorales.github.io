@@ -1,0 +1,17 @@
+extends: existence
+message: "Unsupported attribution (MOS:WEASEL): say who holds the view in '%s'."
+link: https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch#Unsupported_attributions
+level: suggestion
+ignorecase: true
+tokens:
+  - (?:some|many|most) (?:people|scholars|experts|scientists|critics|researchers|observers) (?:say|state|believe|think|feel|claim|argue|remember)
+  - many are of the opinion
+  - most feel
+  - experts (?:declare|say|claim|agree)
+  - it (?:is|has been) (?:often |widely |generally |commonly )?(?:believed|regarded|considered|reported|thought|said)
+  - is widely regarded as
+  - research (?:has shown|shows)
+  - studies (?:have shown|show)
+  - science says
+  - scientists (?:claim|say)
+  - has been described as

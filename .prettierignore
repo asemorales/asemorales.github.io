@@ -12,4 +12,6 @@ PLAN.md
 src/content/
 tests/fixtures/
 # Downloaded by `vale sync`.
-.vale/styles/Microsoft/
+styles/proselint/
+# Written by `npm run typos`.
+styles/asemorales/Typos*.yml

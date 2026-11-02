@@ -1,0 +1,31 @@
+extends: existence
+message: "Puffery (MOS:PUFFERY): show why '%s' is true with a fact."
+link: https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch#Puffery
+level: suggestion
+ignorecase: true
+tokens:
+  - acclaimed
+  - award-winning
+  - awesome
+  - brilliant
+  - celebrated
+  - cutting-edge
+  - extraordinary
+  - (?<!rich and )famous
+  - greatest
+  - iconic
+  - innovative
+  - legendary
+  - notable
+  - outstanding
+  - phenomenal
+  - pioneering
+  - prestigious
+  - prominent
+  - remarkable
+  - renowned
+  - revolutionary
+  - unique
+  - virtuoso
+  - visionary
+  - world-class

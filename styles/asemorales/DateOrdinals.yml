@@ -1,0 +1,6 @@
+extends: existence
+message: "Date ordinal (MOS:DATESNO): write '%s' without the ordinal suffix."
+link: https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Dates_and_numbers#Dates,_months,_and_years
+level: suggestion
+tokens:
+  - (?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}(?:st|nd|rd|th)

@@ -55,3 +55,4 @@ To define a term, add a `## word (type)` heading to `published/glossary.md`. Wri
 | `npm run cards`      | Fetch popover cards for new external links into `src/data/cards.json` (`-- --refresh` for all) |
 | `npm run archive`    | Submit new external links to the Wayback Machine (`--dry-run` to list)                         |
 | `npm run fonts`      | Re-subset the fonts from upstream into `public/fonts/` (needs fonttools)                       |
+| `npm run typos`      | Regenerate the Vale typo rules from Wikipedia (needs Python)                                   |

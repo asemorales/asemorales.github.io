@@ -1,0 +1,13 @@
+extends: existence
+message: "Euphemism (MOS:EUPHEMISM): name '%s' plainly."
+link: https://en.wikipedia.org/wiki/Wikipedia:Manual_of_Style/Words_to_watch#Euphemisms
+level: suggestion
+ignorecase: true
+tokens:
+  - (?:pass|passed|passes|passing) away
+  - (?:gave|give|gives|giving) (?:his|her|their) li(?:fe|ves)
+  - eternal rest
+  - (?:make|made|makes|making) love
+  - (?:an issue|issues) with
+  - differently abled
+  - collateral damage

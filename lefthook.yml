@@ -13,7 +13,7 @@ pre-commit:
     vale:
       glob:
         - "src/content/**/*.md"
-        - "{AGENTS,README}.md"
+        - "{AGENTS,NOTICE,README}.md"
         - "docs/**/*.md"
         - "*.{js,mjs,cjs,ts,css}"
       run: npx vale {staged_files}
