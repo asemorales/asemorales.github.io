@@ -12,7 +12,7 @@ interface Source {
 
 export async function GET() {
   const notes = await getCollection("notes");
-  const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, a.body]));
+  const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, { title: a.data.title, body: a.body }]));
   const out: Record<string, unknown> = {};
   for (const note of notes) {
     const body = note.body ?? "";

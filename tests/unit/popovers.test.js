@@ -49,8 +49,14 @@ describe("popover cards", () => {
   it("prefer an annotation to the source's first paragraph", () => {
     const card = { title: "Repo", meta: [], text: "From the source." };
     const url = "https://x.org";
-    expect(linkCard({ url, text: "X", card, annotation: "*Mine*.\n\nAlso mine." }).paragraphs).toEqual(["Mine.", "Also mine."]);
-    expect(linkCard({ url, text: "X", card, annotation: "> Only a quote." }).paragraphs).toEqual(["From the source."]);
+    const title = "Mine";
+    expect(linkCard({ url, text: "X", card, annotation: { title, body: "*Mine*.\n\nAlso mine." } }).paragraphs).toEqual(["Mine.", "Also mine."]);
+    expect(linkCard({ url, text: "X", card, annotation: { title, body: "> Only a quote." } }).paragraphs).toEqual(["From the source."]);
+  });
+
+  it("prefer an annotation's title to the card's", () => {
+    const card = { title: "Repo", meta: [], text: "From the source." };
+    expect(linkCard({ url: "https://x.org", text: "X", card, annotation: { title: "Mine", body: "Text." } }).title).toBe("Mine");
   });
 
   it("say when a link is dead", () => {

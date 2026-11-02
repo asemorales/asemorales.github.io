@@ -50,9 +50,9 @@ export function termCards(markdown) {
 
 export function linkCard({ url, text, card, annotation, deadSince }) {
   const domain = new URL(url).hostname.replace(/^www\./, "");
-  const annotated = annotation ? clipParagraphs(summary(annotation), NOTE_SUMMARY) : [];
+  const annotated = annotation ? clipParagraphs(summary(annotation.body), NOTE_SUMMARY) : [];
   const out = {
-    title: card?.title || text,
+    title: annotation?.title || card?.title || text,
     meta: card?.meta?.length ? card.meta : [domain],
     paragraphs: annotated.length ? annotated : card?.text ? [card.text] : [],
   };

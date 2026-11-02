@@ -85,11 +85,12 @@ function validateNote(file, data) {
 }
 
 function validateAnnotation(file, data) {
+  const problems = typeof data.title === "string" && data.title.trim() ? [] : [`${file}: an annotation needs a "title" field, as text.`];
   try {
     const url = new URL(data.url);
-    if (url.protocol === "http:" || url.protocol === "https:") return [];
+    if (url.protocol === "http:" || url.protocol === "https:") return problems;
   } catch {}
-  return [`${file}: an annotation needs a "url" field with an http or https URL.`];
+  return [...problems, `${file}: an annotation needs a "url" field with an http or https URL.`];
 }
 
 export async function sync({ vault, out = "src/content", lastUpdated = gitLastUpdated }) {
@@ -185,7 +186,13 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
     const rel = path.relative(vault, file);
     const parsed = matter(await fs.readFile(file, "utf8"));
     problems.push(...validateAnnotation(rel, parsed.data));
-    annotations.push({ rel, slug: slugify(path.basename(file, ".md")), url: parsed.data.url, body: parsed.content.trim() + "\n" });
+    annotations.push({
+      rel,
+      slug: slugify(path.basename(file, ".md")),
+      url: parsed.data.url,
+      title: parsed.data.title,
+      body: parsed.content.trim() + "\n",
+    });
   }
 
   const sources = new Map();
@@ -222,7 +229,10 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
   }
 
   for (const a of annotations) {
-    await fs.writeFile(path.join(annotationsDir, `${a.slug}.md`), `---\nurl: ${JSON.stringify(a.url)}\n---\n\n${a.body}`);
+    await fs.writeFile(
+      path.join(annotationsDir, `${a.slug}.md`),
+      `---\nurl: ${JSON.stringify(a.url)}\ntitle: ${JSON.stringify(a.title)}\n---\n\n${a.body}`,
+    );
     report.annotations.push({ file: a.rel, url: a.url });
   }
 

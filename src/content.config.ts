@@ -15,7 +15,7 @@ const notes = defineCollection({
 
 const annotations = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/annotations" }),
-  schema: z.object({ url: z.url() }),
+  schema: z.object({ url: z.url(), title: z.string() }),
 });
 
 const introduction = defineCollection({

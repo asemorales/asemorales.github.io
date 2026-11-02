@@ -30,7 +30,7 @@ npm run sync
 
 This publishes all notes in the vault's `published/` folder. Wikilinks and slugs are based on the filenames of notes. Each note requires front matter with `title`, `date` (first published), and `tags`. Optionally, add `unlisted: true` to unlist notes.
 
-To write custom annotations for an external link, add a note to `published/annotations/` with a `url` field in the front matter. Text in custom annotations are used in popovers for that link.
+To write a custom annotation for an external link, add a note to `published/annotations/` with `url` and `title` fields in the front matter. The link's popover uses the title as its heading and the note's text as its body.
 
 To change the homepage introduction, edit `published/introduction.md`. This file needs no front matter, and `npm run sync` does not publish it as a note.
 

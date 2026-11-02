@@ -97,9 +97,11 @@ describe("sync", () => {
     await fs.rm(vault, { recursive: true });
   });
 
-  it("copies annotations with their url", async () => {
+  it("copies annotations with their url and title", async () => {
     await sync({ vault: fixture, out, lastUpdated: fixedDate });
-    expect(await read("annotations/gwern-design.md")).toBe(`---\nurl: "https://gwern.net/design"\n---\n\nHow gwern.net is designed, and why.\n`);
+    expect(await read("annotations/gwern-design.md")).toBe(
+      `---\nurl: "https://gwern.net/design"\ntitle: "Design of This Website"\n---\n\nHow gwern.net is designed, and why.\n`,
+    );
   });
 
   it("copies the introduction without publishing it as a note", async () => {
@@ -161,8 +163,14 @@ describe("sync", () => {
   });
 
   it("fails on an annotation without a url", async () => {
-    const vault = await tempVault({ "annotations/x.md": "---\nurl: ftp://x\n---\nText." });
+    const vault = await tempVault({ "annotations/x.md": "---\nurl: ftp://x\ntitle: X\n---\nText." });
     await expect(sync({ vault, out, lastUpdated: fixedDate })).rejects.toThrow(/needs a "url"/);
+    await fs.rm(vault, { recursive: true });
+  });
+
+  it("fails on an annotation without a title", async () => {
+    const vault = await tempVault({ "annotations/x.md": "---\nurl: https://x.org\n---\nText." });
+    await expect(sync({ vault, out, lastUpdated: fixedDate })).rejects.toThrow(/needs a "title"/);
     await fs.rm(vault, { recursive: true });
   });
 
