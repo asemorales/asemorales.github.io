@@ -46,7 +46,7 @@ const wordmark = (text, size) =>
     .filter(Boolean)
     .map((part) => (part === "m" ? h("span", { margin: `0 ${size * 0.05}px` }, part) : part));
 
-function layout({ title, text, home }) {
+function layout({ title, home }) {
   const titleSize = title.length > 60 ? 52 : title.length > 30 ? 62 : 72;
   return h(
     "div",
@@ -76,10 +76,7 @@ function layout({ title, text, home }) {
           ? [
               { type: "img", props: { src: LOGO, width: 194, height: 140, style: { marginRight: 20 } } },
               h("div", { display: "flex", fontFamily: "DM Mono", fontSize: 48, lineHeight: 1.15 }, wordmark(title, 48)),
-              text
-                ? h("div", { display: "block", lineClamp: 3, fontSize: 34, fontStyle: "italic", lineHeight: 1.45, color: DIM, marginTop: -16 }, text)
-                : null,
-            ].filter(Boolean)
+            ]
           : [
               { type: "img", props: { src: LOGO, width: 138, height: 100, style: { marginRight: 14 } } },
               h("div", { display: "block", lineClamp: 2, fontSize: titleSize, fontWeight: 600, lineHeight: 1.15 }, title),
@@ -90,8 +87,8 @@ function layout({ title, text, home }) {
   );
 }
 
-export async function ogImage({ title, text = "", home = false }) {
-  const tree = layout({ title, text, home });
+export async function ogImage({ title, home = false }) {
+  const tree = layout({ title, home });
   const key = createHash("sha256").update(JSON.stringify(tree)).digest("hex").slice(0, 16);
   const file = join(CACHE, `${key}.png`);
   try {

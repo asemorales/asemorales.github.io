@@ -13,6 +13,10 @@ describe("summary", () => {
     expect(summary("Let $\\varphi_e$ be *the* $e$-th function.")).toEqual(["Let $\\varphi_e$ be the $e$-th function."]);
   });
 
+  it("reads through a colophon that opens the note", () => {
+    expect(summary("> [!colophon]\n> First.\n>\n> Second.\n\n## Heading")).toEqual(["First.", "Second."]);
+  });
+
   it("is empty when the note opens with a heading", () => {
     expect(summary("## Heading\n\nText.")).toEqual([]);
   });

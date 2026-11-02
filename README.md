@@ -32,6 +32,10 @@ This publishes all notes in the vault's `published/` folder. Wikilinks and slugs
 
 To write custom annotations for an external link, add a note to `published/annotations/` with a `url` field in the front matter. Text in custom annotations are used in popovers for that link.
 
+To change the homepage introduction, edit `published/introduction.md`. This file needs no front matter, and `npm run sync` does not publish it as a note.
+
+To set text as a colophon, use a `> [!colophon] Title` callout. The title is optional.
+
 To define a term, add a `## word (type)` heading to `published/glossary.md`. Write the definition below the heading, and optionally add an `### Etymology` heading after the definition. To reference a term from any note, link to its heading with `[[glossary#word (type)]]` or `[[glossary#word (type)|other text]]`. The link opens a popover with the definition, and Obsidian autocompletes the heading.
 
 ## Scripts

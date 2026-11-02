@@ -102,6 +102,13 @@ describe("sync", () => {
     expect(await read("annotations/gwern-design.md")).toBe(`---\nurl: "https://gwern.net/design"\n---\n\nHow gwern.net is designed, and why.\n`);
   });
 
+  it("copies the introduction without publishing it as a note", async () => {
+    const vault = await tempVault({ "introduction.md": "A short introduction.\n" });
+    const report = await sync({ vault, out, lastUpdated: fixedDate });
+    expect(await read("introduction.md")).toBe("A short introduction.\n");
+    expect(report.notes).toEqual([]);
+  });
+
   it("treats annotations as optional", async () => {
     const vault = await fs.mkdtemp(path.join(os.tmpdir(), "sync-vault-"));
     await fs.mkdir(path.join(vault, "published"));

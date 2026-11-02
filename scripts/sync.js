@@ -8,6 +8,7 @@ import { slugify } from "../src/lib/slug.js";
 import { WIKILINK } from "../src/lib/wikilinks.js";
 
 const IMAGE = /\.(png|jpe?g|gif|webp|avif|svg)$/i;
+const INTRODUCTION = "introduction.md";
 const NOTE_KEYS = new Set(["title", "date", "tags", "unlisted"]);
 const SKIP_DIRS = new Set([".git", ".obsidian", ".trash", "node_modules"]);
 
@@ -101,7 +102,8 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
 
   const files = (await walk(published)).filter((f) => f.endsWith(".md"));
   const isAnnotation = (f) => path.relative(published, f).split(path.sep)[0] === "annotations";
-  const noteFiles = files.filter((f) => !isAnnotation(f));
+  const introductionFile = path.join(published, INTRODUCTION);
+  const noteFiles = files.filter((f) => !isAnnotation(f) && f !== introductionFile);
 
   let vaultFiles;
   const findImage = async (name) => {
@@ -222,6 +224,10 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
   for (const a of annotations) {
     await fs.writeFile(path.join(annotationsDir, `${a.slug}.md`), `---\nurl: ${JSON.stringify(a.url)}\n---\n\n${a.body}`);
     report.annotations.push({ file: a.rel, url: a.url });
+  }
+
+  if (files.includes(introductionFile)) {
+    await fs.writeFile(path.join(out, INTRODUCTION), matter(await fs.readFile(introductionFile, "utf8")).content.trim() + "\n");
   }
 
   if (sources.size) await fs.mkdir(path.join(notesDir, "images"), { recursive: true });

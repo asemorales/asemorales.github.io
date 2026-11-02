@@ -45,6 +45,12 @@ function callout(quote) {
       return infobox(title, body);
     case "wide":
       return el("div", { className: ["wide"] }, body);
+    case "colophon":
+      return el("aside", { className: ["colophon"], ariaLabel: "Colophon" }, [
+        el("hr", {}, []),
+        ...(title.length ? [el("p", { className: ["colophon-title"] }, title)] : []),
+        ...body,
+      ]);
     default:
       return el("blockquote", {}, [...body, ...attribution(title)]);
   }

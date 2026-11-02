@@ -619,12 +619,6 @@
   .wordmark .m {
     margin: 0 0.05em;
   }
-  .home-title p {
-    @apply -mt-3 text-xl text-dim italic sm:text-2xl;
-  }
-  .home-title + .ornament {
-    @apply mt-10 mb-14;
-  }
 
   .home-contents {
     @apply flex items-baseline gap-3;
@@ -640,7 +634,10 @@
     inset: auto;
   }
   .home-search input {
-    @apply w-full border-0 border-b border-frame bg-transparent px-0 py-1 text-lg text-ink placeholder:text-dim placeholder:italic;
+    @apply w-full border border-frame bg-transparent px-3 py-2 text-lg text-ink placeholder:text-dim placeholder:italic;
+  }
+  .home-search input:focus-visible {
+    @apply outline-offset-0 outline-frame;
   }
   .home-search p {
     @apply mt-2 text-sm text-dim italic;
@@ -676,11 +673,14 @@
     @apply shrink-0 text-dim;
   }
 
-  .home-intro h2 {
-    @apply mt-0;
+  .home-intro {
+    @apply mt-14;
   }
-  .colophon .home-contact {
-    @apply m-0 flex list-none flex-wrap justify-center gap-x-5 gap-y-2 p-0 text-xl not-italic;
+  .home-footer {
+    @apply mt-14 mb-20;
+  }
+  .home-contact {
+    @apply m-0 flex list-none flex-wrap justify-center gap-x-5 gap-y-2 p-0 text-xl;
   }
   .home-contact li {
     @apply m-0 p-0;
@@ -717,16 +717,16 @@
     font-variant-caps: all-small-caps;
     letter-spacing: 0.04em;
   }
-  .colophon {
-    @apply mx-auto mt-14 mb-20 max-w-[28em] text-center italic;
+  .note .colophon {
+    @apply mx-auto mt-14 max-w-[28em] text-center italic;
   }
-  .colophon h3 {
+  .note .colophon .colophon-title {
     @apply text-lg font-normal not-italic;
     font-variant-caps: all-small-caps;
     letter-spacing: 0.08em;
   }
-  .colophon p {
-    @apply text-base text-pretty;
+  .note .colophon p {
+    @apply mt-3 text-base text-pretty;
   }
 
   .link-popover {

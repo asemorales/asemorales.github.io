@@ -18,4 +18,8 @@ const annotations = defineCollection({
   schema: z.object({ url: z.url() }),
 });
 
-export const collections = { notes, annotations };
+const introduction = defineCollection({
+  loader: glob({ pattern: "introduction.md", base: "./src/content" }),
+});
+
+export const collections = { notes, annotations, introduction };

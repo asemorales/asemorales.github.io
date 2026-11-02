@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import Logo from "../components/Logo.astro";
 import Base from "../layouts/Base.astro";
 import { slugify } from "../lib/slug.js";
@@ -13,7 +13,9 @@ const groups = Map.groupBy(notes, (n) => n.data.tags[0]);
 const order = ["logic", "complexity", "cognition", "computation"];
 const rank = (tag: string) => (order.includes(tag) ? order.indexOf(tag) : order.length);
 const tags = [...groups.keys()].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
-const description = "On logic, complexity, and cognition";
+const introduction = (await getEntry("introduction", "introduction"))!;
+const { Content: Introduction } = await render(introduction);
+const description = summary(introduction.body ?? "", { paragraphs: 1 })[0] ?? "Ase Morales";
 const minutes = (body = "") => Math.max(1, Math.round(body.split(/\s+/).filter(Boolean).length / 230));
 const contact = [
   { name: "Email", icon: "mail", href: "mailto:hi@asemorales.com" },
@@ -40,13 +42,10 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
           ase<span class="m">m</span>orales
         </span>
       </h1>
-      <p>{description}</p>
     </header>
-    <hr class="ornament" />
 
-    <section id="introduction" class="home-intro prose-page" aria-labelledby="introduction-heading">
-      <h2 id="introduction-heading">Introduction</h2>
-      <p>Research software engineer working across logic, complexity, and cognition. Previously built fintech and voice AI systems for startups.</p>
+    <section id="introduction" class="home-intro prose-page" aria-label="Introduction">
+      <Introduction />
     </section>
     <hr class="ornament" />
 
@@ -121,21 +120,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
       <figcaption>David Hilbert, Königsberg, 1930</figcaption>
     </figure>
 
-    <footer class="colophon prose-page" aria-labelledby="colophon">
-      <hr class="ornament" />
-      <h3 id="colophon">Colophon</h3>
-      <p>
-        Set in <a href="https://github.com/adobe-fonts/source-serif">Source Serif 4</a> and{" "}
-        <a href="https://github.com/googlefonts/dm-mono">DM Mono</a>. Content is written in <a href="https://obsidian.md/">Obsidian</a>, built with{" "}
-        <a href="https://astro.build/">Astro</a>, and styled with <a href="https://tailwindcss.com/">Tailwind CSS</a>. Math is rendered with{" "}
-        <a href="https://www.mathjax.org/">MathJax</a> and code is highlighted with <a href="https://shiki.style/">Shiki</a>. The site is hosted on{" "}
-        <a href="https://pages.github.com/">GitHub Pages</a> with analytics from <a href="https://umami.is/">Umami</a>. External links are archived in
-        the <a href="https://web.archive.org/">Wayback Machine</a>.
-      </p>
-      <p>
-        For a list of all site elements, see the <a href="/lorem-ipsum/">feature test</a>. Source code is available on{" "}
-        <a href="https://github.com/asemorales/asemorales.github.io">GitHub</a> under AGPL 3.0.
-      </p>
+    <footer class="home-footer">
       <hr class="ornament" />
       <ul class="home-contact">
         {contact.map((c) => (

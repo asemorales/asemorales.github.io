@@ -77,6 +77,12 @@ describe("rehypeCallouts", () => {
     expect(toHtml(tree)).toBe('<aside class="infobox" aria-label="NP"><p class="callout-title">NP</p><dl><dt>Contains</dt><dd>P</dd></dl></aside>');
   });
 
+  it("sets a [!colophon] callout apart under an ornament", () => {
+    const tree = root(quote(p("[!colophon] Colophon"), p("Finished.")));
+    rehypeCallouts()(tree);
+    expect(toHtml(tree)).toBe('<aside class="colophon" aria-label="Colophon"><hr><p class="colophon-title">Colophon</p><p>Finished.</p></aside>');
+  });
+
   it("wraps a [!wide] callout's contents in a wide box", () => {
     const tree = root(quote(p("[!wide]"), el("table", {})));
     rehypeCallouts()(tree);

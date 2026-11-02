@@ -26,8 +26,16 @@ test.describe("layout and type", () => {
   });
 
   test("draws the separator as three asterisks", async ({ page }) => {
-    const hr = page.locator("article hr");
+    const hr = page.locator("article hr").first();
     expect(await hr.evaluate((el) => getComputedStyle(el, "::after").content)).toContain("*");
+  });
+
+  test("sets the colophon apart at the end of the note", async ({ page }) => {
+    const colophon = page.locator("article .colophon");
+    await expect(colophon.locator(".colophon-title")).toHaveText("Colophon");
+    await expect(colophon).toContainText("Finished, thank God.");
+    await expect(colophon).toHaveCSS("text-align", "center");
+    await expect(colophon).toHaveCSS("font-style", "italic");
   });
 });
 
