@@ -13,7 +13,7 @@ In a word, this site is an autobiography. It is an experiment in creating [livin
 
 By that, I mean to say that I am a [computationally irreducible](https://en.wikipedia.org/wiki/Computational_irreducibility) [complex system](https://en.wikipedia.org/wiki/Complex_system). At any given moment I am simultaneously in a certain state, and unfolding towards future possible states[^1] within the [[glossary#adjacent possible (noun)|adjacent possible]]. I am unable to predict my future states, although I am guilty for having had the intellectual arrogance to try and do so for much of my life. I am guilty of planning rather than experimenting.
 
-Hence, I am trying a new approach, from which this website was born. Instead of planning my life ahead, my writings herein are an experiment in documenting who I am by articulating my current ideas, and allowing my ideas to unfold. I am my my ideas, and thus [[the evolution of ideas are biographies]][^5]. Hence, this site is an autobiography.
+Hence, I am trying a new approach, from which this website was born. Instead of planning my life ahead, my writings herein are an experiment in documenting who I am by articulating my current ideas, and allowing my ideas to unfold. I am my ideas, and thus [[the evolution of ideas are biographies]][^5]. Hence, this site is an autobiography.
 
 ## About the Author
 
