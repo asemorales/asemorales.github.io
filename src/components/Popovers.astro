@@ -110,7 +110,7 @@
     const source = entry?.querySelector<HTMLAnchorElement>(":scope > a[href]");
     if (!entry || !source) return;
     const card = data[key(source)];
-    const locator = source.nextSibling?.textContent?.match(/^,\s*([^(]+)/)?.[1].trim();
+    const locator = entry.querySelector(":scope > .locators")?.textContent;
     const meta = [...(card?.meta ?? []), locator].filter((m): m is string => !!m);
     return { title: card?.title ?? source.textContent!.trim(), meta, paragraphs: card?.paragraphs ?? [], href: source.href };
   }

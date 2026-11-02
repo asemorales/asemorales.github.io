@@ -64,9 +64,11 @@ This paragraph tests quotes in sidenotes, with the quote's lines indented and un
 
 This paragraph tests a status notice and an infobox in sidenotes. Temporibus autem quibusdam.[^status-note] Itaque earum rerum hic tenetur.[^infobox-note]
 
+This paragraph tests a footnote that is only a link, which stays a sidenote without the `cite-` prefix. Et harum quidem rerum facilis.[^link-only]
+
 ### Citations
 
-Lorem ipsum dolor sit amet.[^turing] Consectetur adipiscing elit.[^turing] Sed do eiusmod tempor.[^rice] Ut labore et dolore.[^cites]
+This paragraph tests citations, with a repeated source, a formatted locator, and a citation inside a sidenote. Lorem ipsum dolor sit amet.[^cite-turing] Consectetur adipiscing elit.[^cite-turing] Sed do eiusmod tempor.[^cite-rice] Ut labore et dolore.[^cites]
 
 [^short]: A short sidenote.
 
@@ -89,11 +91,13 @@ Lorem ipsum dolor sit amet.[^turing] Consectetur adipiscing elit.[^turing] Sed d
 > - **Full name:** Polynomial time
 > - **Contained in:** NP
 
-[^cites]: A sidenote with a citation.[^turing]
+[^link-only]: [gwern.net design](https://gwern.net/design)
 
-[^turing]: [Turing 1936](https://doi.org/10.1112/plms/s2-42.1.230), §8.
+[^cites]: A sidenote with a citation.[^cite-turing]
 
-[^rice]: [Rice 1953](https://doi.org/10.1090/S0002-9947-1953-0053041-6)
+[^cite-turing]: [Turing 1936](https://doi.org/10.1112/plms/s2-42.1.230), §8.
+
+[^cite-rice]: [Rice 1953](https://doi.org/10.1090/S0002-9947-1953-0053041-6), *Lorem ipsum*, p. 358.
 
 ## Links
 
@@ -101,7 +105,7 @@ Lorem ipsum dolor sit amet.[^turing] Consectetur adipiscing elit.[^turing] Sed d
 
 A section of this note: [[#Typography|Lorem Ipsum > Typography]]. An alias: [[#Math|the math section]]. A note whose title has punctuation and whose popover shows an epigraph: [[dolor-sit-amet|Dolor Sit Amet :"><,.?/+-~`]]. An unpublished note, as plain text: [[Some Private Note]].
 
-This paragraph tests popovers on glossary terms. Lorem ipsum [[glossary#emergence (noun)|emergence]] dolor sit amet, and [[glossary#entelechy (noun)|entelechy]] has numbered senses. An alias: [[glossary#emergence (noun)|the emergent whole]].
+This paragraph tests popovers on glossary terms. Lorem ipsum [[glossary#entelechy (noun)|entelechy]]. An alias: [[glossary#entelechy (noun)|entelechia]].
 
 ### External links
 

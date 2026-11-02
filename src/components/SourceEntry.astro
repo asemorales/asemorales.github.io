@@ -39,7 +39,12 @@ const dead = archived(url, linkStatus);
 <a href={dead?.href ?? url} class:list={{ dead }} data-dead-since={dead?.since}>
   {text}
 </a>
-{locators.length > 0 && `, ${locators.join("; ")}`} <span class="domain">({domain})</span>
+{locators.length > 0 && (
+  <>
+    , <span class="locators" set:html={locators.join("; ")} />
+  </>
+)}{" "}
+<span class="domain">({domain})</span>
 {Annotation ? (
   <div class="annotation">
     <Annotation />

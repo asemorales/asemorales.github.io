@@ -46,6 +46,11 @@ test.describe("popovers on the lorem page", () => {
     await expect(popover(page).locator(".popover-more")).toHaveAttribute("href", "https://doi.org/10.1112/plms/s2-42.1.230");
   });
 
+  test("show a citation's formatted locator as text", async ({ page }) => {
+    await page.locator(".cite-ref a").nth(2).hover();
+    await expect(popover(page).locator(".popover-meta")).toContainText("Lorem ipsum, p. 358");
+  });
+
   test("show arXiv, DOI, and Wikipedia cards", async ({ page }) => {
     await expect(await hover(page, "Attention Is All You Need")).toContainText("Vaswani");
     await page.mouse.move(0, 0);

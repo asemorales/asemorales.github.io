@@ -130,14 +130,14 @@ describe("rehypeSidenotes", () => {
     expect(file.data.citations).toEqual([]);
   });
 
-  it("numbers footnotes that are a single link as citations, reusing a source's number", () => {
+  it("numbers cite- footnotes as citations, reusing a source's number", () => {
     const tree = root(
-      p("One.", ref("s", 1), " Two.", ref("n", 2), " Three.", ref("t", 3)),
+      p("One.", ref("cite-s", 1), " Two.", ref("n", 2), " Three.", ref("cite-t", 3)),
       footnotes(
-        note("s", link("https://smith.org", "Smith 2010"), ", p. 45."),
-        note("n", "A note citing Smith.", ref("s2", 4)),
-        note("t", link("https://tao.org", "Tao")),
-        note("s2", link("https://smith.org", "Smith 2010"), ", p. 50"),
+        note("cite-s", link("https://smith.org", "Smith 2010"), ", p. 45."),
+        note("n", "A note citing Smith.", ref("cite-s2", 4)),
+        note("cite-t", link("https://tao.org", "Tao")),
+        note("cite-s2", link("https://smith.org", "Smith 2010"), ", p. 50"),
       ),
     );
     const file = { data: {} };
@@ -151,6 +151,36 @@ describe("rehypeSidenotes", () => {
       { url: "https://smith.org", text: "Smith 2010", n: 1, locators: ["p. 45", "p. 50"], refs: ["cite-ref-1-1", "cite-ref-1-2"] },
       { url: "https://tao.org", text: "Tao", n: 2, locators: [], refs: ["cite-ref-2-1"] },
     ]);
+  });
+
+  it("keeps a locator's formatting and spacing, and escapes its text", () => {
+    const em = (value) => el("em", {}, [txt(value)]);
+    const tree = root(
+      p("One.", ref("cite-a", 1)),
+      footnotes(note("cite-a", link("https://smith.org", "Smith 2010"), ", ", em("A & B"), " ", el("strong", {}, [em("C")]), ", p. 3.", " ")),
+    );
+    const file = { data: {} };
+    rehypeSidenotes()(tree, file);
+    expect(file.data.citations[0].locators).toEqual(["<em>A &#x26; B</em> <strong><em>C</em></strong>, p. 3"]);
+  });
+
+  it("keeps a footnote that is only a link as a sidenote without the cite- prefix", () => {
+    const tree = root(p("One.", ref("a", 1)), footnotes(note("a", link("https://smith.org", "Smith 2010"))));
+    const file = { data: {} };
+    rehypeSidenotes()(tree, file);
+    expect(toHtml(tree)).toContain('class="sidenote"');
+    expect(file.data.citations).toEqual([]);
+  });
+
+  it.each([
+    ["has no link", ["Smith 2010"]],
+    ["starts with text", ["See ", link("https://smith.org", "Smith 2010")]],
+    ["links internally", [link("/smith/", "Smith 2010")]],
+    ["has a second link", [link("https://smith.org", "Smith"), " and ", link("https://tao.org", "Tao")]],
+    ["nests a link in its locator", [link("https://smith.org", "Smith 2010"), ", ", el("em", {}, [link("https://tao.org", "Tao")])]],
+  ])("fails the build when a cite- footnote %s", (_, children) => {
+    const tree = root(p("One.", ref("cite-a", 1)), footnotes(note("cite-a", ...children)));
+    expect(() => rehypeSidenotes()(tree, { data: {}, path: "note.md" })).toThrow("note.md: footnote [^cite-a]");
   });
 
   it("renders a quote callout with spans, since a sidenote sits inside a paragraph", () => {

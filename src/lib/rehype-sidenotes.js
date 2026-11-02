@@ -1,6 +1,9 @@
+import { toHtml } from "hast-util-to-html";
 import { el, hasClass, isElement, text, txt, walk } from "./hast.js";
 
 const PREFIX = "user-content-fn-";
+const CITATION = "cite-";
+const FORMATTING = new Set(["em", "strong", "code", "del"]);
 const BLOCKS = new Set(["p", "div", "ul", "ol", "li", "blockquote", "footer", "aside", "dl", "dt", "dd", "pre", "table"]);
 const BLOCK_CLASSES = {
   blockquote: ["sidenote-block", "sidenote-quote"],
@@ -38,8 +41,12 @@ export function rehypeSidenotes() {
       const li = notes.get(id);
       if (!li) return null;
 
-      const source = citation(li);
-      if (source) {
+      if (id.startsWith(CITATION)) {
+        const source = citation(li);
+        if (!source)
+          throw new Error(
+            `${file.path}: footnote [^${id}] must be one external link, optionally followed by text with only italics, bold, code, or strikethrough.`,
+          );
         let entry = citations.get(source.url);
         if (!entry) {
           entry = { url: source.url, text: source.text, n: citations.size + 1, locators: [], refs: [] };
@@ -91,16 +98,20 @@ export function letter(i) {
 function citation(li) {
   const blocks = significant(li.children);
   if (blocks.length !== 1 || !isElement(blocks[0], "p")) return null;
-  const [link, ...rest] = significant(blocks[0].children);
+  const { children } = blocks[0];
+  const [link] = significant(children);
   if (!isElement(link, "a") || !/^https?:\/\//.test(String(link.properties.href ?? ""))) return null;
-  if (rest.some((n) => n.type !== "text")) return null;
-  const locator = rest
-    .map((n) => n.value)
-    .join("")
+  const rest = children.slice(children.indexOf(link) + 1).filter((c) => !isElement(c) || c.properties?.dataFootnoteBackref === undefined);
+  if (!rest.every(formattedText)) return null;
+  const locator = toHtml(rest)
     .trim()
     .replace(/^[,;:]\s*/, "")
     .replace(/\.$/, "");
   return { url: String(link.properties.href), text: text(link).trim(), locator };
+}
+
+function formattedText(node) {
+  return node.type === "text" || (isElement(node) && FORMATTING.has(node.tagName) && node.children.every(formattedText));
 }
 
 function significant(children) {

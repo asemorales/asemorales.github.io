@@ -36,6 +36,8 @@ To change the homepage introduction, edit `published/introduction.md`. This file
 
 To set text as a colophon, use a `> [!colophon] Title` callout. The title is optional.
 
+To cite a source, start the footnote's ID with `cite-`, as in `[^cite-turing]: [Turing 1936](https://doi.org/...), §8.` The footnote must be one external link, optionally followed by text such as a page number. The text can use italics, bold, code, and strikethrough. Anything else fails the build. Citations appear under References, and all other footnotes become sidenotes.
+
 To define a term, add a `## word (type)` heading to `published/glossary.md`. Write the definition below the heading, and optionally add an `### Etymology` heading after the definition. To reference a term from any note, link to its heading with `[[glossary#word (type)]]` or `[[glossary#word (type)|other text]]`. The link opens a popover with the definition, and Obsidian autocompletes the heading.
 
 ## Scripts

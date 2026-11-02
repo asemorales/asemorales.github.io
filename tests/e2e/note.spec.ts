@@ -85,7 +85,7 @@ test.describe("sidenotes", () => {
     test.skip(!wide(info.project.name), "wide screens only");
     const column = await box(page.locator("article.note"));
     const notes = page.locator(".sidenote");
-    await expect(notes).toHaveCount(9);
+    await expect(notes).toHaveCount(10);
     const boxes = await Promise.all((await notes.all()).map(box));
     for (const b of boxes) expect(b.x).toBeGreaterThan(column.x + column.width);
     for (let i = 1; i < boxes.length; i++) expect(boxes[i].y).toBeGreaterThanOrEqual(boxes[i - 1].y + boxes[i - 1].height);
@@ -260,7 +260,7 @@ test.describe("glossary", () => {
 
 test.describe("bottom matter", () => {
   test("list notes that link here under See also, in the contents too", async ({ page }) => {
-    await expect(page.locator("#see-also + ul a")).toHaveAttribute("href", "/dolor-sit-amet/");
+    await expect(page.locator("#see-also + ul a[href='/dolor-sit-amet/']")).toHaveCount(1);
     await expect(page.locator("nav.toc a[href='#see-also']")).toHaveCount(1);
     await page.goto("/acknowledgments/");
     await expect(page.locator("#see-also")).toHaveCount(0);
@@ -294,6 +294,8 @@ test.describe("bottom matter", () => {
     const backs = refs.first().locator(".backrefs a");
     await expect(backs).toHaveText(["a", "b", "c"]);
     await expect(page.locator((await backs.first().getAttribute("href"))!)).toHaveClass("cite-ref");
+    await expect(refs.nth(1).locator(".locators")).toHaveText("Lorem ipsum, p. 358");
+    await expect(refs.nth(1).locator(".locators em")).toHaveText("Lorem ipsum");
   });
 
   test("list other external links once each, and leave citations out", async ({ page }) => {
