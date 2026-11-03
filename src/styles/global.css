@@ -250,9 +250,6 @@
   .note p {
     @apply text-pretty;
   }
-  .note > p {
-    text-indent: 1.5em;
-  }
 
   .note h2,
   .note h3,
@@ -280,9 +277,6 @@
 
   .term-type {
     @apply text-[0.8em] font-normal text-dim italic;
-  }
-  .note h2:has(> .term-type) + p {
-    text-indent: 0;
   }
   .note .etymology h3 {
     @apply mt-0 text-base font-normal text-dim;
@@ -379,9 +373,6 @@
   .note .status {
     @apply border border-rule px-5 py-3 text-base;
   }
-  .note .status p {
-    text-indent: 0;
-  }
 
   .note .infobox {
     @apply border border-frame bg-panel p-3 text-base leading-snug;
@@ -417,7 +408,6 @@
   }
   .note .sidenote {
     @apply hidden text-left text-base leading-normal text-ink;
-    text-indent: 0;
     hyphens: manual;
   }
   .note .sidenote-mark {

@@ -10,10 +10,10 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("layout and type", () => {
-  test("wraps and indents every paragraph, with space between them", async ({ page, browserName }) => {
+  test("wraps paragraphs without indents, with space between them", async ({ page, browserName }) => {
     const [first, second] = [page.locator("#typography + p"), page.locator("#typography + p + p")];
-    expect(await first.evaluate((el) => getComputedStyle(el).textIndent)).not.toBe("0px");
-    expect(await second.evaluate((el) => getComputedStyle(el).textIndent)).not.toBe("0px");
+    expect(await first.evaluate((el) => getComputedStyle(el).textIndent)).toBe("0px");
+    expect(await second.evaluate((el) => getComputedStyle(el).textIndent)).toBe("0px");
     expect(await second.evaluate((el) => getComputedStyle(el).marginTop)).not.toBe("0px");
     if (browserName === "chromium") expect(await second.evaluate((el) => getComputedStyle(el).textWrap)).toContain("pretty");
   });
