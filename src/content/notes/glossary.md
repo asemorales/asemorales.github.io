@@ -8,7 +8,7 @@ unlisted: true
 
 Sometimes, pages herein use terms that are relatively new, underused, or defined differently across sources as of the time of writing. Other times, I have an internal definition that comes more naturally to me. In those cases, I have attempted my own definitions of these words. It is in this sense that I use these terms in my writing.
 
-When appropriate and possible, I try to move these definitions to Wikipedia articles, in the hopes that others can build upon a reference for these terms in much the same manner that my own writings are based on existing references.
+When appropriate and possible, I also move these definitions to Wikipedia articles, in the hopes that others can build upon a reference for these terms in much the same manner that my own writings are based on existing references.
 
 ## adjacent possible (noun)
 
@@ -17,6 +17,14 @@ The set of possible future states that an autonomous agent can be in that are on
 The idea was introduced by [Stuart Kauffman](https://en.wikipedia.org/wiki/Stuart_Kauffman), who first used the term to describe a law of the biosphere, wherein the biosphere tends towards novelty by evolving towards the adjacent possible[^cite-kauffman-investigations-1]. The term has also been used to describe the explosion of molecular diversity[^cite-kauffman-investigations-2], societal adoption of new technology[^cite-kauffman-investigations-3], and the development of economic complexity within a toy economy[^cite-kauffman-investigations-4].
 
 In education, the adjacent possible is conceptually similar to the [zone of proximal development](https://en.wikipedia.org/wiki/Zone_of_proximal_development#).
+
+## weak emergence (noun)
+
+[Emergent properties](https://en.wikipedia.org/wiki/Emergence) that are unexpected from a system's components, yet can, in principle, be derived[^cite-chalmers-sawe].
+
+## strong emergence (noun)
+
+[Emergent properties](https://en.wikipedia.org/wiki/Emergence) that cannot be deduced from a system's components, even in principle. Strongly emergent phenomena may also exhibit [downward causation](https://en.wikipedia.org/wiki/Downward_causation)[^cite-chalmers-sawe].
 
 ## entelechy (noun)
 
@@ -42,3 +50,5 @@ Example: building a structure
 [^cite-kauffman-investigations-3]: [Kauffman, Investigations 2000 p. 156](https://archive.org/details/investigations00kauf)
 
 [^cite-kauffman-investigations-4]: [Kauffman, Investigations 2000 p. 224-227](https://archive.org/details/investigations00kauf)
+
+[^cite-chalmers-sawe]: [Chalmers, Strong and Weak Emergence](https://consc.net/papers/emergence.pdf)

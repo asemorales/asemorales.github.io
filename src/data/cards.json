@@ -89,6 +89,18 @@
     "meta": ["Wikipedia"],
     "text": "Computational irreducibility suggests certain computational processes cannot be simplified and the only way to determine the outcome of a process is to go through each step of its computation. It is one of the main ideas proposed by Stephen Wolfram in his 2002 book A New Kind of Science, although the concept goes back to studies from the 1980s."
   },
+  "https://en.wikipedia.org/wiki/Downward_causation": {
+    "kind": "wikipedia",
+    "title": "Downward causation",
+    "meta": ["Wikipedia"],
+    "text": "In philosophy, downward causation is a causal relationship from higher levels of a system to lower-level parts of that system: for example, mental events acting to cause physical events. The term was originally coined in 1974 by the philosopher and social scientist Donald T. Campbell."
+  },
+  "https://en.wikipedia.org/wiki/Emergence": {
+    "kind": "wikipedia",
+    "title": "Emergence",
+    "meta": ["Wikipedia"],
+    "text": "In philosophy, systems theory, science, and art, emergence occurs when a complex entity has properties or behaviors that its components do not have on their own, and emerge only when they interact in a wider whole."
+  },
   "https://en.wikipedia.org/wiki/Essays_%28Montaigne%29": {
     "kind": "wikipedia",
     "title": "Essays (Montaigne)",
