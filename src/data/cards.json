@@ -95,6 +95,18 @@
     "meta": ["Wikipedia"],
     "text": "In philosophy, downward causation is a causal relationship from higher levels of a system to lower-level parts of that system: for example, mental events acting to cause physical events. The term was originally coined in 1974 by the philosopher and social scientist Donald T. Campbell."
   },
+  "https://en.wikipedia.org/wiki/Effective_accelerationism": {
+    "kind": "wikipedia",
+    "title": "Effective accelerationism",
+    "meta": ["Wikipedia"],
+    "text": "Effective accelerationism (e/acc) is a 21st-century ideological movement that advocates for accelerating AI development as rapidly as possible, favoring baseline humanity's intellectual, moral, cultural, spiritual, and social obsolescence through artificial intelligence or transhumanism."
+  },
+  "https://en.wikipedia.org/wiki/Embodied_agent": {
+    "kind": "wikipedia",
+    "title": "Embodied agent",
+    "meta": ["Wikipedia"],
+    "text": "In artificial intelligence, an embodied agent, also sometimes referred to as an interface agent, is an intelligent agent that interacts with the environment through a physical body within that environment. Agents that are represented graphically with a body, for example a human or a cartoon animal, are also called embodied agents, although they have only virtual, not physical, embodiment."
+  },
   "https://en.wikipedia.org/wiki/Emergence": {
     "kind": "wikipedia",
     "title": "Emergence",
@@ -125,6 +137,12 @@
     "meta": ["Wikipedia"],
     "text": "Mastodon is a free and open-source software platform for decentralized social networking with microblogging features similar to Twitter. It operates as a federated network of independently managed servers that communicate using the ActivityPub protocol, allowing users to connect across different instances within the Fediverse."
   },
+  "https://en.wikipedia.org/wiki/Moravec's_paradox": {
+    "kind": "wikipedia",
+    "title": "Moravec's paradox",
+    "meta": ["Wikipedia"],
+    "text": "Moravec's paradox is the observation that, as Hans Moravec wrote in 1988, \"it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility\"."
+  },
   "https://en.wikipedia.org/wiki/NP-completeness": {
     "kind": "wikipedia",
     "title": "NP-completeness",
@@ -154,6 +172,12 @@
     "title": "Stuart Kauffman",
     "meta": ["Wikipedia"],
     "text": "Stuart Alan Kauffman is an American medical doctor, theoretical biologist, and complex systems researcher who studies the origin of life on Earth. He was a professor at the University of Chicago, University of Pennsylvania, and University of Calgary. He is currently emeritus professor of biochemistry at the University of Pennsylvania and affiliate faculty at the Institute for Systems Biology."
+  },
+  "https://en.wikipedia.org/wiki/Technological_unemployment": {
+    "kind": "wikipedia",
+    "title": "Technological unemployment",
+    "meta": ["Wikipedia"],
+    "text": "Technological unemployment is the loss of jobs due to technological change. It is a key type of structural unemployment. Technological change typically includes the introduction of labour-saving \"mechanical-muscle\" machines or more efficient \"mechanical-mind\" processes (automation), reducing the need for human labour."
   },
   "https://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style": {
     "kind": "wikipedia",
@@ -250,6 +274,12 @@
     "title": "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
     "meta": [],
     "text": "A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup."
+  },
+  "https://thepastpresented.com/?p=1639": {
+    "kind": "page",
+    "title": "The Human Use of Human Beings (Norbert Wiener) – History, at Random",
+    "meta": [],
+    "text": "The Human Use of Human Beings by Norbert Wiener Avon Books – (1950) 1973"
   },
   "https://umami.is/": {
     "kind": "page",

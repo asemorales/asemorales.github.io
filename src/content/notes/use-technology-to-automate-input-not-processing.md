@@ -1,7 +1,7 @@
 ---
 title: "Use technology to automate input, not processing"
 date: 2026-11-03
-updated: 2026-11-03
+updated: 2026-11-04
 tags: ["technology","guide"]
 ---
 
@@ -36,12 +36,12 @@ While subscribing to newsletters and mailing lists via email is a longstanding p
 - Avoids clutter from websites that auto-subscribe you to their newsletter upon signup
 - Separate content from email inbox[^6]
 - Less chances of tracking or email address leaks
-- More sources (Youtube channels, podcasts, forums, GitHub releases, changelogs, arXiv categories, journals)
+- More sources (YouTube channels, podcasts, forums, GitHub releases, changelogs, arXiv categories, journals)
 - Avoids broken or missing unsubscribe links from email newsletters
 - No switching costs (list of feeds can be exported)
 - Improved customization, integration, widgets, etc.
 
-Sites that do not clearly display their feed URLs typically have hidden links that feed readers can find with feed autodiscovery. This applies, for example, to Substack, Medium, Youtube, static and Wordpress sites, etc.
+Sites that do not clearly display their feed URLs typically have hidden links that feed readers can find with feed autodiscovery. This applies, for example, to Substack, Medium, YouTube, static and Wordpress sites, etc.
 
 [^1]: For the sake of simplification, assume this includes subfactors such as time and energy to produce, skill of synthesis, and so on.
 
