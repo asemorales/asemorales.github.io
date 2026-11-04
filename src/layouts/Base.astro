@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Logo from "../components/Logo.astro";
+import LSystems from "../components/LSystems.astro";
 import Popovers from "../components/Popovers.astro";
 import RoomToggle from "../components/RoomToggle.astro";
 
@@ -64,7 +65,7 @@ const fullTitle = home ? title : `${title} | Ase Morales`;
     )}
   </head>
 
-  <body class:list={["mx-auto px-4 py-6 sm:px-8", wide ? "max-w-[96rem]" : "max-w-6xl"]}>
+  <body class:list={["mx-auto flex min-h-dvh flex-col px-4 py-6 sm:px-8", wide ? "max-w-[96rem]" : "max-w-6xl"]}>
     <header class="relative mb-12 flex h-10 items-center justify-between gap-4">
       {home ? (
         <span />
@@ -75,9 +76,10 @@ const fullTitle = home ? title : `${title} | Ase Morales`;
       )}
       <RoomToggle />
     </header>
-    <main class="@container">
+    <main class="mb-12 @container">
       <slot />
     </main>
+    <LSystems />
     <Popovers />
   </body>
 </html>

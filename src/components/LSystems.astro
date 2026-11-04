@@ -1,0 +1,65 @@
+---
+---
+
+<div id="lsystems" hidden class="mt-auto -mb-6 print:hidden" aria-hidden="true">
+  <svg class="block h-56 w-full fill-none stroke-frame"></svg>
+</div>
+
+<script>
+  import { GENERATIONS, grow, reached } from "../lib/lsystem.js";
+
+  const STEP = 600;
+  const SPACING = 160;
+
+  const root = document.getElementById("lsystems")!;
+  root.hidden = false;
+  const svg = root.querySelector("svg")!;
+  const { width, height } = svg.getBoundingClientRect();
+  const plants = Math.max(1, Math.floor(width / SPACING));
+
+  let apices = Array.from({ length: plants }, (_, i) => ({
+    symbol: "A",
+    x: Math.round(((i + 0.2 + Math.random() * 0.6) * width) / plants),
+    y: height,
+    heading: 0,
+  }));
+  let generation = 0;
+  let frame = 0;
+  let last = 0;
+
+  const finished = () => generation === GENERATIONS;
+
+  function step() {
+    const grown = grow(apices);
+    apices = grown.apices;
+    generation++;
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", grown.path);
+    svg.append(path);
+  }
+
+  function tick(now: number) {
+    if (now - last >= STEP) {
+      last = now;
+      step();
+    }
+    frame = finished() ? 0 : requestAnimationFrame(tick);
+  }
+
+  function update() {
+    if (finished()) return;
+    const ready = reached(scrollY, innerHeight, document.documentElement.scrollHeight);
+    if (!ready) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+    } else if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      while (!finished()) step();
+    } else if (!frame) {
+      frame = requestAnimationFrame(tick);
+    }
+  }
+
+  addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  new ResizeObserver(update).observe(document.documentElement);
+</script>
