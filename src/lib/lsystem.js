@@ -23,6 +23,14 @@ export function reached(scrolled, viewport, page) {
   return scrolled + viewport >= 0.9 * page;
 }
 
+export function between(min, max, random = Math.random) {
+  return min + Math.floor(random() * (max - min + 1));
+}
+
+export function spots(count, width, random = Math.random) {
+  return Array.from({ length: count }, (_, i) => Math.round(((i + 0.2 + random() * 0.6) * width) / count));
+}
+
 function successor(symbol, random) {
   const rules = RULES[symbol];
   let roll = random();

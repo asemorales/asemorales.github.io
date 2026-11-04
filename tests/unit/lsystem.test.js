@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { GENERATIONS, grow, reached } from "../../src/lib/lsystem.js";
+import { GENERATIONS, between, grow, reached, spots } from "../../src/lib/lsystem.js";
 
 const sequence = (...rolls) => {
   let i = 0;
@@ -16,6 +16,27 @@ describe("the 90% gate", () => {
 
   it("is open from the start on a page that fits on screen", () => {
     expect(reached(0, 900, 900)).toBe(true);
+  });
+});
+
+describe("between", () => {
+  it("includes both ends", () => {
+    expect(between(1, 3, () => 0)).toBe(1);
+    expect(between(1, 3, () => 0.5)).toBe(2);
+    expect(between(1, 3, () => 0.99)).toBe(3);
+  });
+});
+
+describe("spots", () => {
+  it("places one spot inside each equal slice of the width", () => {
+    for (const roll of [0, 0.5, 0.99]) {
+      const xs = spots(10, 1000, () => roll);
+      expect(xs).toHaveLength(10);
+      xs.forEach((x, i) => {
+        expect(x).toBeGreaterThanOrEqual(i * 100);
+        expect(x).toBeLessThanOrEqual((i + 1) * 100);
+      });
+    }
   });
 });
 
