@@ -7,6 +7,8 @@ const segments = (page: Page) =>
 const scrollToFraction = (page: Page, fraction: number) =>
   page.evaluate((f) => scrollTo({ top: f * document.documentElement.scrollHeight - innerHeight, behavior: "instant" }), fraction);
 const fixRandom = (page: Page, roll: number) => page.addInitScript((r) => (Math.random = () => r), roll);
+const trees = (page: Page) =>
+  page.locator("#lsystems path").evaluateAll((paths) => paths.filter((path) => (path as SVGPathElement).getBBox().height > 140).length);
 const loadWithPausedClock = async (page: Page) => {
   await page.clock.install();
   await page.goto("/lorem-ipsum/");
@@ -32,7 +34,7 @@ test.describe("L-systems", () => {
         await page.goto("/lorem-ipsum/");
         const count = phone(info.project.name) ? narrow : wide;
         await expect.poll(() => plants(page)).toBe(count);
-        expect(await segments(page)).toBeGreaterThanOrEqual(16 * count);
+        expect(await segments(page)).toBeGreaterThanOrEqual(count);
       });
     }
 
@@ -66,7 +68,7 @@ test.describe("L-systems", () => {
       expect(box!.y + box!.height).toBe(2000);
     });
 
-    test("stagger up to three plants, then replace each one that finishes", async ({ page }) => {
+    test("start plants three seconds apart at the longest", async ({ page }) => {
       await fixRandom(page, 0.99);
       await loadWithPausedClock(page);
       const initial = await plants(page);
@@ -87,6 +89,26 @@ test.describe("L-systems", () => {
       expect(await plants(page)).toBe(initial + 4);
     });
 
+    test("grow at most three plants at a time and wait for one to finish", async ({ page }) => {
+      await fixRandom(page, 0.99);
+      await loadWithPausedClock(page);
+      const initial = await plants(page);
+      await page.evaluate(() => (Math.random = () => 0.41));
+      await scrollToFraction(page, 1);
+      await page.waitForTimeout(200);
+
+      await page.clock.runFor(100);
+      expect(await plants(page)).toBe(initial + 1);
+      await page.clock.runFor(1800);
+      expect(await plants(page)).toBe(initial + 2);
+      await page.clock.runFor(1800);
+      expect(await plants(page)).toBe(initial + 3);
+      await page.clock.runFor(1800);
+      expect(await plants(page)).toBe(initial + 3);
+      await page.clock.runFor(1000);
+      expect(await plants(page)).toBe(initial + 4);
+    });
+
     test("grow one plant at a time when the random count is one", async ({ page }) => {
       await fixRandom(page, 0);
       await loadWithPausedClock(page);
@@ -96,7 +118,7 @@ test.describe("L-systems", () => {
 
       await page.clock.runFor(100);
       expect(await plants(page)).toBe(initial + 1);
-      await page.clock.runFor(8500);
+      await page.clock.runFor(4300);
       expect(await plants(page)).toBe(initial + 1);
       await page.clock.runFor(800);
       expect(await plants(page)).toBe(initial + 2);
@@ -109,7 +131,7 @@ test.describe("L-systems", () => {
       await scrollToFraction(page, 1);
       await page.waitForTimeout(200);
 
-      await page.clock.runFor(8600);
+      await page.clock.runFor(4400);
       expect(await plants(page)).toBe(initial + 1);
       await page.evaluate(() => (Math.random = () => 0.99));
       await page.clock.runFor(800);
@@ -126,7 +148,19 @@ test.describe("L-systems", () => {
       await page.waitForTimeout(200);
       await page.clock.runFor(120_000);
       expect(await plants(page)).toBe(max);
-      expect(await segments(page)).toBe(16 * max);
+      const grown = await segments(page);
+      await page.clock.runFor(10_000);
+      expect(await segments(page)).toBe(grown);
+    });
+
+    test("cap trees at 8 on desktop and 3 on mobile, and fill the rest with other plants", async ({ page }, info) => {
+      const [max, cap] = phone(info.project.name) ? [10, 3] : [20, 8];
+      await fixRandom(page, 0);
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await page.goto("/lorem-ipsum/");
+      await scrollToFraction(page, 1);
+      await expect.poll(() => plants(page)).toBe(max);
+      expect(await trees(page)).toBe(cap);
     });
 
     test("draw every plant in full at once under reduced motion", async ({ page }, info) => {
@@ -136,7 +170,7 @@ test.describe("L-systems", () => {
       expect(await plants(page)).toBeLessThanOrEqual(4);
       await scrollToFraction(page, 1);
       await expect.poll(() => plants(page)).toBe(max);
-      expect(await segments(page)).toBeGreaterThanOrEqual(16 * max);
+      expect(await segments(page)).toBeGreaterThanOrEqual(max);
     });
   });
 });

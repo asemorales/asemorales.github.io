@@ -1,10 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { GENERATIONS, between, grow, reached, spots } from "../../src/lib/lsystem.js";
-
-const sequence = (...rolls) => {
-  let i = 0;
-  return () => rolls[i++ % rolls.length];
-};
+import { GENERATIONS, KINDS, TREE, between, choose, derive, interpret, reached, spots, sprout } from "../../src/lib/lsystem.js";
 
 describe("the 90% gate", () => {
   it("opens only once the viewport's bottom reaches 90% of the page", () => {
@@ -40,47 +35,121 @@ describe("spots", () => {
   });
 });
 
-describe("grow", () => {
-  const stem = [{ symbol: "A", x: 100, y: 200, heading: 0 }];
-  const branch = [{ symbol: "B", x: 100, y: 200, heading: 0 }];
-
-  it("extends an apex by one segment", () => {
-    const { apices, path } = grow(stem, sequence(0.9));
-    expect(path).toBe("M100 200L100 188");
-    expect(apices).toEqual([{ symbol: "A", x: 100, y: 188, heading: 0 }]);
+describe("derive", () => {
+  it("rewrites every symbol in parallel", () => {
+    expect(derive({ axiom: "X", generations: 2, rules: { X: "F[+X]X", F: "FF" } })).toBe("FF[+F[+X]X]F[+X]X");
   });
 
-  it("forks a stem into a branch and a stem turned opposite ways", () => {
-    const { apices } = grow(stem, sequence(0.1, 0.5, 0.5));
-    expect(apices).toEqual([
-      { symbol: "B", x: 100, y: 188, heading: 25 },
-      { symbol: "A", x: 100, y: 188, heading: -25 },
+  it("picks among weighted rules", () => {
+    const rules = {
+      A: [
+        [0.5, "x"],
+        [0.5, "y"],
+      ],
+    };
+    expect(derive({ axiom: "A", generations: 1, rules }, () => 0.1)).toBe("x");
+    expect(derive({ axiom: "A", generations: 1, rules }, () => 0.9)).toBe("y");
+  });
+
+  it("closes open apices with flowers", () => {
+    expect(derive({ axiom: "aI", generations: 0, rules: {}, tips: /a/g })).toBe("KI");
+  });
+
+  it("reads left context past a closed branch and up into a branch's parent", () => {
+    expect(derive({ axiom: "0[F1]1", generations: 1, rules: { "011": "y" } })).toBe("0[Fy]y");
+  });
+
+  it("reads right context into the next branch and treats a branch's end as 1", () => {
+    expect(derive({ axiom: "1[0]", generations: 1, rules: { 110: "x", 101: "y" } })).toBe("x[y]");
+  });
+
+  it("flips turns when the rules say so", () => {
+    expect(derive({ axiom: "+-", generations: 1, rules: { "+": "-", "-": "+" } })).toBe("-+");
+  });
+});
+
+describe("interpret", () => {
+  const system = { turn: [90, 90], jitter: 0 };
+
+  it("draws upward and returns to the branch point", () => {
+    const { lines } = interpret("F[+F]F", system, () => 0.5);
+    expect(lines.map((line) => [Math.round(line.x2), Math.round(line.y2), line.reach])).toEqual([
+      [0, -1, 1],
+      [1, -1, 2],
+      [0, -2, 2],
     ]);
   });
 
-  it("forks the other way", () => {
-    const { apices } = grow(stem, sequence(0.5, 0.5, 0.5));
-    expect(apices.map((a) => a.heading)).toEqual([-25, 25]);
+  it("alternates lateral branches between sides", () => {
+    const { lines } = interpret("[~F][~F]", system, () => 0.5);
+    expect(Math.round(lines[0].x2)).toBe(-Math.round(lines[1].x2));
   });
 
-  it("ends a branch that takes the terminal rule", () => {
-    const { apices, path } = grow(branch, sequence(0.95));
-    expect(apices).toEqual([]);
-    expect(path).toBe("M100 200L100 188");
+  it("leans a heading back toward vertical", () => {
+    const { lines } = interpret("+FF", { ...system, straighten: 0.5 }, () => 0.5);
+    expect(lines[1].x2 - lines[0].x2).toBeLessThan(lines[0].x2);
   });
 
-  it("never ends a stem", () => {
-    for (const roll of [0, 0.3, 0.6, 0.99]) expect(grow(stem, sequence(roll)).apices.some((a) => a.symbol === "A")).toBe(true);
+  it("marks bracts and flowers where the turtle stands", () => {
+    const { bracts, flowers } = interpret("FLK", system, () => 0.5);
+    expect(bracts[0].reach).toBe(1);
+    expect(flowers[0].reach).toBe(1);
+  });
+});
+
+describe("choose", () => {
+  const others = KINDS.filter((kind) => kind !== TREE);
+
+  it("picks by weight", () => {
+    expect(choose(KINDS, () => 0)).toBe(TREE);
+    expect(choose(KINDS, () => 0.99)).toBe(KINDS.at(-1));
   });
 
-  it("straightens a leaning apex toward vertical", () => {
-    const { apices } = grow([{ ...stem[0], heading: 40 }], sequence(0.9));
-    expect(apices[0].heading).toBe(34);
+  it("shares the whole range among the kinds it is given", () => {
+    expect(choose(others, () => 0.49)).toBe(others[0]);
+    expect(choose(others, () => 0.51)).toBe(others[1]);
+  });
+});
+
+describe("sprout", () => {
+  const ground = 224;
+  const seeded = (seed) => () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const stature = (layers) => {
+    const tops = [...layers.join("").matchAll(/[ML][\d.-]+ ([\d.-]+)/g)].map((match) => +match[1]);
+    return ground - Math.min(...tops);
+  };
+  const plantOf = (kind, seed) => sprout(KINDS[kind], 100, ground, seeded(seed));
+
+  it("keeps every tree taller than every fern and flower", () => {
+    expect(KINDS[0].height[0]).toBeGreaterThan(Math.max(KINDS[1].height[1], KINDS[2].height[1]));
   });
 
-  it("keeps a plant inside the 224px band", () => {
-    let apices = [{ ...stem[0], y: 224 }];
-    for (let i = 0; i < GENERATIONS; i++) apices = grow(apices, sequence(0.9)).apices;
-    expect(apices[0].y).toBeGreaterThanOrEqual(0);
+  it("gives each plant a height inside its kind's range", () => {
+    KINDS.forEach(({ height: [low, high] }, kind) => {
+      const heights = Array.from({ length: 40 }, (_, seed) => stature(plantOf(kind, seed + 1)));
+      for (const height of heights) {
+        expect(height).toBeGreaterThanOrEqual(low - 0.2);
+        expect(height).toBeLessThanOrEqual(high + 0.2);
+      }
+      expect(Math.max(...heights) - Math.min(...heights)).toBeGreaterThan((high - low) / 2);
+    });
+  });
+
+  it("fits inside the 224px band", () => {
+    expect(Math.max(...KINDS.map(({ height }) => height[1]))).toBeLessThanOrEqual(ground);
+  });
+
+  it("grows outward from the base over every generation", () => {
+    KINDS.forEach((_, kind) => {
+      const layers = plantOf(kind, 7);
+      expect(layers).toHaveLength(GENERATIONS);
+      expect(layers[0]).toContain(`M100 ${ground}`);
+    });
+  });
+
+  it("stays small enough to redraw every frame", () => {
+    KINDS.forEach((_, kind) => {
+      for (let seed = 1; seed <= 40; seed++) expect(plantOf(kind, seed).join("").split("M").length).toBeLessThan(3000);
+    });
   });
 });

@@ -234,7 +234,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 This page's length tests the scroll-depth events, which fire as the reader passes 25%, 50%, 75%, and 90% of the prose. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-This page's length also tests the L-systems at the foot of the page. On load, three or four fully grown plants appear on wide screens, and one or two on phones. New plants grow only while the bottom of the screen is past 90% of the page. One to three grow at a time and start one to three seconds apart. When one finishes, the next starts, up to 20 plants on wide screens and 10 on phones. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+This page's length also tests the L-systems at the foot of the page. On load, three or four fully grown plants appear on wide screens, and one or two on phones. New plants grow only while the bottom of the screen is past 90% of the page. One to three grow at a time and start one to three seconds apart. When one finishes, the next starts, up to 20 plants on wide screens and 10 on phones. Each plant is a tree, a fern, or a flowering stalk. Trees are 150 to 216 pixels tall, ferns are 80 to 135, and flowers are 50 to 110, so every tree is taller than every fern and flower. Wide screens show at most eight trees, and phones show at most three. Ferns and flowers make up the rest of the plants. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 > [!colophon] Colophon
 > Finished, thank God.

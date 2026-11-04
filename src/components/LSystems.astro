@@ -2,20 +2,20 @@
 ---
 
 <div id="lsystems" hidden class="mt-auto -mb-6 [--desktop:0] md:[--desktop:1] print:hidden" aria-hidden="true">
-  <svg class="block h-56 w-full fill-none stroke-frame"></svg>
+  <svg class="block h-56 w-full fill-frame stroke-frame"></svg>
 </div>
 
 <script>
-  import { GENERATIONS, between, grow, reached, spots } from "../lib/lsystem.js";
+  import { GENERATIONS, KINDS, TREE, between, choose, reached, spots, sprout } from "../lib/lsystem.js";
 
   type Plant = {
     path: SVGPathElement;
-    apices: { symbol: string; x: number; y: number; heading: number }[];
+    layers: string[];
     generation: number;
     due: number;
   };
 
-  const STEP = 600;
+  const STEP = 300;
 
   const root = document.getElementById("lsystems")!;
   root.hidden = false;
@@ -23,7 +23,9 @@
   const { width, height } = svg.getBoundingClientRect();
   const desktop = getComputedStyle(root).getPropertyValue("--desktop") === "1";
   const free = spots(desktop ? 20 : 10, width);
+  const maxTrees = desktop ? 8 : 3;
 
+  let trees = 0;
   let growing: Plant[] = [];
   let concurrent = between(1, 3);
   let nextStart = 0;
@@ -35,14 +37,13 @@
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     svg.append(path);
     const [x] = free.splice(between(0, free.length - 1), 1);
-    growing.push({ path, apices: [{ symbol: "A", x, y: height, heading: 0 }], generation: 0, due: 0 });
+    const kind = choose(trees < maxTrees ? KINDS : KINDS.filter((k) => k !== TREE));
+    if (kind === TREE) trees++;
+    growing.push({ path, layers: sprout(kind, x, height), generation: 0, due: 0 });
   }
 
   function step(plant: Plant) {
-    const grown = grow(plant.apices);
-    plant.apices = grown.apices;
-    plant.generation++;
-    plant.path.setAttribute("d", (plant.path.getAttribute("d") ?? "") + grown.path);
+    plant.path.setAttribute("d", (plant.path.getAttribute("d") ?? "") + plant.layers[plant.generation++]);
   }
 
   function complete() {
