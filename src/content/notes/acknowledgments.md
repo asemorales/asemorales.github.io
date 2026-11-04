@@ -16,6 +16,8 @@ I thank Wikimedia Foundation and the contributors to [Wikipedia](https://en.wiki
 
 I thank Dave Liepmann, Edward Tufte, and the contributors to [Tufte CSS](https://edwardtufte.github.io/tufte-css/) for the numerous techniques translating [Tufte's principles on the display of information](https://archive.org/details/visualdisplayofq0000edwa) to web. I also thank the authors and contributors of [The Elements of Typographic Style](https://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style) and [The Elements of Typographic Style Applied to the Web](https://webtypography.net/).
 
+I thank Przemyslaw Prusinkiewicz, Aristid Lindenmayer, and the wider community of L-systems research for developments in [The Algorithmic Beauty of Plants](https://algorithmicbotany.org/papers/), which provided equations for the pretty plants generated in this site's footer using L-systems.
+
 I thank the team behind [Obsidian](https://obsidian.md/) for the tool that brought me into writing again, and [Steph Ango](https://stephango.com/) for sharing his philosophy and software with the world.
 
 I thank every contributor to every tool I have used, every library, author, and resource I have read from, and everyone who has had a personal effect on me. Their names are too many to list here, so instead they are scattered across the epigraphs, bibliographies, and marginalia of this site.
