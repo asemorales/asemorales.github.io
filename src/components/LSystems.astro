@@ -39,7 +39,7 @@
     const [x] = free.splice(between(0, free.length - 1), 1);
     const kind = choose(trees < maxTrees ? KINDS : KINDS.filter((k) => k !== TREE));
     if (kind === TREE) trees++;
-    growing.push({ path, layers: sprout(kind, x, height), generation: 0, due: 0 });
+    growing.push({ path, layers: sprout(kind, x, height, width), generation: 0, due: 0 });
   }
 
   function step(plant: Plant) {

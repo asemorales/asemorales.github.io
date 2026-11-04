@@ -118,7 +118,11 @@ describe("sprout", () => {
     const tops = [...layers.join("").matchAll(/[ML][\d.-]+ ([\d.-]+)/g)].map((match) => +match[1]);
     return ground - Math.min(...tops);
   };
-  const plantOf = (kind, seed) => sprout(KINDS[kind], 100, ground, seeded(seed));
+  const plantOf = (kind, seed) => sprout(KINDS[kind], 500, ground, 1000, seeded(seed));
+  const sides = (layers) => {
+    const xs = [...layers.join("").matchAll(/[ML]([\d.-]+) [\d.-]+/g)].map((match) => +match[1]);
+    return [Math.min(...xs), Math.max(...xs)];
+  };
 
   it("keeps every tree taller than every fern and flower", () => {
     expect(KINDS[0].height[0]).toBeGreaterThan(Math.max(KINDS[1].height[1], KINDS[2].height[1]));
@@ -143,8 +147,32 @@ describe("sprout", () => {
     KINDS.forEach((_, kind) => {
       const layers = plantOf(kind, 7);
       expect(layers).toHaveLength(GENERATIONS);
-      expect(layers[0]).toContain(`M100 ${ground}`);
+      expect(layers[0]).toContain(`M500 ${ground}`);
     });
+  });
+
+  it("moves a plant inward instead of letting it cross either side", () => {
+    KINDS.forEach((kind) => {
+      for (const x of [0, 320]) {
+        for (let seed = 1; seed <= 40; seed++) {
+          const [left, right] = sides(sprout(kind, x, ground, 320, seeded(seed)));
+          expect(left).toBeGreaterThanOrEqual(0);
+          expect(right).toBeLessThanOrEqual(320);
+        }
+      }
+    });
+  });
+
+  it("shrinks a plant wider than the page to fit", () => {
+    const [left, right] = sides(sprout(TREE, 40, ground, 80, seeded(3)));
+    expect(left).toBeGreaterThanOrEqual(0);
+    expect(right).toBeLessThanOrEqual(80);
+    expect(right - left).toBeGreaterThan(60);
+  });
+
+  it("leaves a plant at its spot when it already fits", () => {
+    const layers = sprout(KINDS[1], 500, ground, 1000, seeded(5));
+    expect(layers[0]).toContain(`M500 ${ground}`);
   });
 
   it("stays small enough to redraw every frame", () => {

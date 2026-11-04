@@ -406,6 +406,9 @@ test.describe("block buttons", () => {
 });
 
 test.describe("screenshots", () => {
+  // Screenshots cannot exceed 32767 device pixels.
+  test.use({ deviceScaleFactor: 1 });
+
   for (const room of ["light", "dark"] as const) {
     test(`${room} room`, async ({ page }, info) => {
       await page.emulateMedia({ colorScheme: room });

@@ -1,5 +1,6 @@
 const FLOWER_RADIUS = 1.6;
 const BRACT = 4;
+const EDGE = BRACT + 1;
 
 const FLOWERING = {
   turn: [35, 45],
@@ -210,14 +211,18 @@ export function choose(kinds, random = Math.random) {
   )[1];
 }
 
-export function sprout(kind, x, ground, random = Math.random) {
+export function sprout(kind, x, ground, width, random = Math.random) {
   const system = kind.systems[Math.floor(random() * kind.systems.length)];
   const { lines, bracts, flowers } = interpret(derive(system, random), system, random);
 
   const target = kind.height[0] + random() * (kind.height[1] - kind.height[0]);
-  const scale = target / -lines.reduce((top, line) => Math.min(top, line.y2), 0);
   const facing = random() < 0.5 ? 1 : -1;
-  const left = (value) => round(x + value * scale * facing);
+  const sides = lines.map((line) => line.x2 * facing);
+  const low = Math.min(0, ...sides);
+  const high = Math.max(0, ...sides);
+  const scale = Math.min(target / -lines.reduce((top, line) => Math.min(top, line.y2), 0), (width - 2 * EDGE) / (high - low));
+  const base = Math.max(EDGE - low * scale, Math.min(x, width - EDGE - high * scale));
+  const left = (value) => round(base + value * scale * facing);
   const top = (value) => round(ground + value * scale);
 
   const reach = lines.reduce((far, line) => Math.max(far, line.reach), 0);

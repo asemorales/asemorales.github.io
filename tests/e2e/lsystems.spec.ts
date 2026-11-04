@@ -163,6 +163,23 @@ test.describe("L-systems", () => {
       expect(await trees(page)).toBe(cap);
     });
 
+    test("keep every plant inside the band's sides", async ({ page }, info) => {
+      const max = phone(info.project.name) ? 10 : 20;
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await page.goto("/lorem-ipsum/");
+      await scrollToFraction(page, 1);
+      await expect.poll(() => plants(page)).toBe(max);
+      const width = await page.evaluate(() => document.querySelector("#lsystems svg")!.getBoundingClientRect().width);
+      const sides = await page.locator("#lsystems path").evaluateAll((paths) =>
+        paths.map((path) => {
+          const { x, width } = (path as SVGPathElement).getBBox();
+          return [x, x + width];
+        }),
+      );
+      expect(Math.min(...sides.map(([left]) => left))).toBeGreaterThanOrEqual(0);
+      expect(Math.max(...sides.map(([, right]) => right))).toBeLessThanOrEqual(width);
+    });
+
     test("draw every plant in full at once under reduced motion", async ({ page }, info) => {
       const max = phone(info.project.name) ? 10 : 20;
       await page.emulateMedia({ reducedMotion: "reduce" });
