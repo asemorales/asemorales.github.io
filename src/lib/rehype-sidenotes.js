@@ -45,12 +45,13 @@ export function rehypeSidenotes() {
         const source = citation(li);
         if (!source)
           throw new Error(
-            `${file.path}: footnote [^${id}] must be one external link, optionally followed by text with only italics, bold, code, or strikethrough.`,
+            `${file.path}: footnote [^${id}] must be text, or one external link optionally followed by text, with only italics, bold, code, or strikethrough.`,
           );
-        let entry = citations.get(source.url);
+        const key = source.url ?? source.text;
+        let entry = citations.get(key);
         if (!entry) {
           entry = { url: source.url, text: source.text, n: citations.size + 1, locators: [], refs: [] };
-          citations.set(source.url, entry);
+          citations.set(key, entry);
         }
         if (source.locator && !entry.locators.includes(source.locator)) entry.locators.push(source.locator);
         const refId = `cite-ref-${entry.n}-${entry.refs.length + 1}`;
@@ -100,14 +101,18 @@ function citation(li) {
   if (blocks.length !== 1 || !isElement(blocks[0], "p")) return null;
   const { children } = blocks[0];
   const [link] = significant(children);
-  if (!isElement(link, "a") || !/^https?:\/\//.test(String(link.properties.href ?? ""))) return null;
-  const rest = children.slice(children.indexOf(link) + 1).filter((c) => !isElement(c) || c.properties?.dataFootnoteBackref === undefined);
+  const linked = isElement(link, "a");
+  if (linked && !/^https?:\/\//.test(String(link.properties.href ?? ""))) return null;
+  const rest = (linked ? children.slice(children.indexOf(link) + 1) : children).filter(
+    (c) => !isElement(c) || c.properties?.dataFootnoteBackref === undefined,
+  );
   if (!rest.every(formattedText)) return null;
-  const locator = toHtml(rest)
+  const html = toHtml(rest)
     .trim()
     .replace(/^[,;:]\s*/, "")
     .replace(/\.$/, "");
-  return { url: String(link.properties.href), text: text(link).trim(), locator };
+  if (linked) return { url: String(link.properties.href), text: text(link).trim(), locator: html };
+  return html ? { text: html } : null;
 }
 
 function formattedText(node) {

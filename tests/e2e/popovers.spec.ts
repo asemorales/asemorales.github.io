@@ -51,6 +51,12 @@ test.describe("popovers on the lorem page", () => {
     await expect(popover(page).locator(".popover-meta")).toContainText("Lorem ipsum, p. 358");
   });
 
+  test("show a citation without a link by its text alone", async ({ page }) => {
+    await page.locator(".cite-ref a").nth(4).hover();
+    await expect(popover(page).locator(".popover-title")).toHaveText("Hofstadter, 1979, Gödel, Escher, Bach");
+    await expect(popover(page).locator(".popover-more")).toHaveCount(0);
+  });
+
   test("show arXiv, DOI, and Wikipedia cards", async ({ page }) => {
     await expect(await hover(page, "Attention Is All You Need")).toContainText("Vaswani");
     await page.mouse.move(0, 0);

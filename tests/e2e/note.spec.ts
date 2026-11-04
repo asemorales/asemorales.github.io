@@ -170,7 +170,7 @@ test.describe("sidenotes", () => {
 
   test("mark citations with numbers, reusing a source's number, inside sidenotes too", async ({ page }) => {
     const markers = page.locator(".cite-ref a");
-    expect(await markers.allTextContents()).toEqual(["[1]", "[1]", "[2]", "[1]"]);
+    expect(await markers.allTextContents()).toEqual(["[1]", "[1]", "[2]", "[1]", "[3]"]);
     await expect(page.locator(".sidenote .cite-ref")).toHaveCount(1);
   });
 });
@@ -288,7 +288,7 @@ test.describe("bottom matter", () => {
 
   test("number references, with locators, and backlinks to each citation", async ({ page }) => {
     const refs = page.locator("section.sources:has(h2#references) li");
-    await expect(refs).toHaveCount(2);
+    await expect(refs).toHaveCount(3);
     await expect(refs.first()).toHaveAttribute("id", "ref-1");
     await expect(refs.first()).toContainText("Turing, 1937, On Computable Numbers, with an Application to the Entscheidungsproblem, §8 (doi.org)");
     const backs = refs.first().locator(".backrefs a");
@@ -296,6 +296,14 @@ test.describe("bottom matter", () => {
     await expect(page.locator((await backs.first().getAttribute("href"))!)).toHaveClass("cite-ref");
     await expect(refs.nth(1).locator(".locators")).toHaveText("Lorem ipsum, p. 358");
     await expect(refs.nth(1).locator(".locators em")).toHaveText("Lorem ipsum");
+  });
+
+  test("list a citation without a link as text, with no domain", async ({ page }) => {
+    const ref = page.locator("#ref-3");
+    await expect(ref.locator(".source-text")).toHaveText("Hofstadter, 1979, Gödel, Escher, Bach");
+    await expect(ref.locator(".source-text em")).toHaveText("Gödel, Escher, Bach");
+    await expect(ref.locator(":scope > a, .domain")).toHaveCount(0);
+    await expect(page.locator((await ref.locator(".backrefs a").getAttribute("href"))!)).toHaveClass("cite-ref");
   });
 
   test("list other external links once each, and leave citations out", async ({ page }) => {

@@ -5,17 +5,17 @@ import { archived } from "../lib/dead-links.js";
 import { letter } from "../lib/rehype-sidenotes.js";
 
 interface Props {
-  url: string;
+  url?: string;
   text: string;
   refs: string[];
   locators?: string[];
-  domain: string;
+  domain: string | null;
   Annotation: Awaited<ReturnType<typeof render>>["Content"] | null;
   blurb: string | null;
 }
 
 const { url, text, refs, locators = [], domain, Annotation, blurb } = Astro.props;
-const dead = archived(url, linkStatus);
+const dead = url ? archived(url, linkStatus) : null;
 ---
 
 <span class="backrefs">
@@ -36,15 +36,19 @@ const dead = archived(url, linkStatus);
     </>
   )}
 </span>{" "}
-<a href={dead?.href ?? url} class:list={{ dead }} data-dead-since={dead?.since}>
-  {text}
-</a>
+{url ? (
+  <a href={dead?.href ?? url} class:list={{ dead }} data-dead-since={dead?.since}>
+    {text}
+  </a>
+) : (
+  <span class="source-text" set:html={text} />
+)}
 {locators.length > 0 && (
   <>
     , <span class="locators" set:html={locators.join("; ")} />
   </>
 )}{" "}
-<span class="domain">({domain})</span>
+{domain && <span class="domain">({domain})</span>}
 {Annotation ? (
   <div class="annotation">
     <Annotation />

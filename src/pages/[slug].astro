@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 }
 
 interface Source {
-  url: string;
+  url?: string;
   text: string;
   refs: string[];
   n?: number;
@@ -38,8 +38,9 @@ const annotations = new Map((await getCollection("annotations")).map((a) => [a.d
 const withAnnotations = (sources: Source[] = [], cited = false) =>
   Promise.all(
     sources.map(async (s) => {
+      if (!s.url) return { ...s, domain: null, blurb: null, Annotation: null };
       const card = (cards as Record<string, { meta?: string[]; text?: string }>)[s.url];
-      const { text, domain, annotation, blurb } = sourceEntry({ ...s, card, annotation: annotations.get(s.url), cited });
+      const { text, domain, annotation, blurb } = sourceEntry({ ...s, url: s.url, card, annotation: annotations.get(s.url), cited });
       return { ...s, text, domain, blurb, Annotation: annotation ? (await render(annotation)).Content : null };
     }),
   );

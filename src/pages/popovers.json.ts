@@ -6,7 +6,7 @@ import { GLOSSARY } from "../lib/glossary.js";
 import { headingCards, linkCard, noteCard, paragraphHtml, termCards } from "../lib/popovers.js";
 
 interface Source {
-  url: string;
+  url?: string;
   text: string;
 }
 
@@ -21,7 +21,7 @@ export async function GET() {
     for (const [id, card] of Object.entries(sections)) out[`/${note.id}/#${id}`] = card;
     const { remarkPluginFrontmatter: fm } = await render(note);
     for (const { url, text } of [...((fm.references ?? []) as Source[]), ...((fm.externalLinks ?? []) as Source[])]) {
-      if (out[url]) continue;
+      if (!url || out[url]) continue;
       const dead = archived(url, linkStatus);
       const card = linkCard({
         url,

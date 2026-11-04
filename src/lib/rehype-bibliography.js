@@ -2,13 +2,14 @@ import { isElement, text, walk } from "./hast.js";
 
 export function rehypeBibliography() {
   return (tree, file) => {
-    const references = new Map((file.data.citations ?? []).map((c) => [c.url, { ...c, refs: [...c.refs] }]));
+    const references = (file.data.citations ?? []).map((c) => ({ ...c, refs: [...c.refs] }));
+    const cited = new Map(references.filter((c) => c.url).map((c) => [c.url, c]));
     const links = new Map();
     walk(tree, (node) => {
       if (!isElement(node, "a")) return false;
       const href = String(node.properties.href ?? "");
       if (!/^https?:\/\//.test(href)) return true;
-      const reference = references.get(href);
+      const reference = cited.get(href);
       if (reference) {
         node.properties.id = `cite-ref-${reference.n}-${reference.refs.length + 1}`;
         reference.refs.push(node.properties.id);
@@ -25,7 +26,7 @@ export function rehypeBibliography() {
     });
     file.data.astro ??= {};
     file.data.astro.frontmatter ??= {};
-    file.data.astro.frontmatter.references = [...references.values()];
+    file.data.astro.frontmatter.references = references;
     file.data.astro.frontmatter.externalLinks = [...links.values()].map(({ url, text, refs }) => ({ url, text, refs }));
   };
 }

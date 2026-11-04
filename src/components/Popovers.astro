@@ -107,8 +107,9 @@
 
   function citation(a: HTMLAnchorElement, data: Record<string, Card>): Card | undefined {
     const entry = document.getElementById(decodeURIComponent(a.hash.slice(1)));
-    const source = entry?.querySelector<HTMLAnchorElement>(":scope > a[href]");
-    if (!entry || !source) return;
+    if (!entry) return;
+    const source = entry.querySelector<HTMLAnchorElement>(":scope > a[href]");
+    if (!source) return { title: entry.querySelector(":scope > .source-text")!.textContent!.trim(), paragraphs: [] };
     const card = data[key(source)];
     const locator = entry.querySelector(":scope > .locators")?.textContent;
     const meta = [...(card?.meta ?? []), locator].filter((m): m is string => !!m);

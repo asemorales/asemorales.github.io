@@ -70,6 +70,8 @@ This paragraph tests a footnote that is only a link, which stays a sidenote with
 
 This paragraph tests citations, with a repeated source, a formatted locator, and a citation inside a sidenote. Lorem ipsum dolor sit amet.[^cite-turing] Consectetur adipiscing elit.[^cite-turing] Sed do eiusmod tempor.[^cite-rice] Ut labore et dolore.[^cites]
 
+This paragraph tests a citation without a link, which appears in the references as text. Quis nostrud exercitation.[^cite-hofstadter]
+
 [^short]: A short sidenote.
 
 [^long]: A long sidenote. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.
@@ -98,6 +100,8 @@ This paragraph tests citations, with a repeated source, a formatted locator, and
 [^cite-turing]: [Turing 1936](https://doi.org/10.1112/plms/s2-42.1.230), §8.
 
 [^cite-rice]: [Rice 1953](https://doi.org/10.1090/S0002-9947-1953-0053041-6), *Lorem ipsum*, p. 358.
+
+[^cite-hofstadter]: Hofstadter, 1979, *Gödel, Escher, Bach*.
 
 ## Links
 

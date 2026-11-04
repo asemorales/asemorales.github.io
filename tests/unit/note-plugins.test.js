@@ -172,8 +172,22 @@ describe("rehypeSidenotes", () => {
     expect(file.data.citations).toEqual([]);
   });
 
+  it("numbers a cite- footnote without a link by its text, keeping its formatting", () => {
+    const em = (value) => el("em", {}, [txt(value)]);
+    const cite = (id) => note(id, "Smith, 2010, ", em("Title"), ".");
+    const tree = root(
+      p("One.", ref("cite-a", 1), ref("cite-b", 2), ref("cite-c", 3)),
+      footnotes(cite("cite-a"), cite("cite-b"), note("cite-c", "Tao")),
+    );
+    const file = { data: {} };
+    rehypeSidenotes()(tree, file);
+    expect(file.data.citations).toEqual([
+      { text: "Smith, 2010, <em>Title</em>", n: 1, locators: [], refs: ["cite-ref-1-1", "cite-ref-1-2"] },
+      { text: "Tao", n: 2, locators: [], refs: ["cite-ref-2-1"] },
+    ]);
+  });
+
   it.each([
-    ["has no link", ["Smith 2010"]],
     ["starts with text", ["See ", link("https://smith.org", "Smith 2010")]],
     ["links internally", [link("/smith/", "Smith 2010")]],
     ["has a second link", [link("https://smith.org", "Smith"), " and ", link("https://tao.org", "Tao")]],
@@ -291,6 +305,16 @@ describe("rehypeBibliography", () => {
     expect(file.data.astro.frontmatter.references).toEqual([{ ...citations[0], refs: ["cite-ref-1-1", "cite-ref-1-2"] }]);
     expect(file.data.astro.frontmatter.externalLinks.map((l) => l.url)).toEqual(["https://other.org"]);
     expect(citations[0].refs).toEqual(["cite-ref-1-1"]);
+  });
+
+  it("keeps every citation without a URL under References", () => {
+    const citations = [
+      { text: "A", n: 1, locators: [], refs: ["cite-ref-1-1"] },
+      { text: "B", n: 2, locators: [], refs: ["cite-ref-2-1"] },
+    ];
+    const file = { data: { citations } };
+    rehypeBibliography()(root(p()), file);
+    expect(file.data.astro.frontmatter.references).toEqual(citations);
   });
 });
 
