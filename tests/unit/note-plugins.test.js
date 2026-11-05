@@ -70,13 +70,6 @@ describe("rehypeCallouts", () => {
     );
   });
 
-  it("turns an infobox's key-value list into a description list", () => {
-    const li = (k, v) => el("li", {}, [el("strong", {}, [txt(`${k}:`)]), txt(` ${v}`)]);
-    const tree = root(quote(p("[!infobox] NP"), el("ul", {}, [li("Contains", "P")])));
-    rehypeCallouts()(tree);
-    expect(toHtml(tree)).toBe('<aside class="infobox" aria-label="NP"><p class="callout-title">NP</p><dl><dt>Contains</dt><dd>P</dd></dl></aside>');
-  });
-
   it("sets a [!colophon] callout apart under an ornament", () => {
     const tree = root(quote(p("[!colophon] Colophon"), p("Finished.")));
     rehypeCallouts()(tree);
@@ -209,26 +202,15 @@ describe("rehypeSidenotes", () => {
     expect(toHtml(tree)).not.toMatch(/<footer|<blockquote/);
   });
 
-  it("renders status and infobox callouts with spans", () => {
-    const fact = el("li", {}, [el("strong", {}, [txt("Size:")]), txt(" Small")]);
-    const tree = root(
-      p("One.", ref("s", 1), " Two.", ref("i", 2)),
-      footnotes(
-        el("li", { id: "user-content-fn-s" }, [quote(p("[!status]\nDraft."))]),
-        el("li", { id: "user-content-fn-i" }, [quote(p("[!infobox] Box"), el("ul", {}, [fact]))]),
-      ),
-    );
+  it("renders a status callout with spans", () => {
+    const tree = root(p("One.", ref("s", 1)), footnotes(el("li", { id: "user-content-fn-s" }, [quote(p("[!status]\nDraft."))])));
     rehypeCallouts()(tree);
     rehypeSidenotes()(tree, { data: {} });
     const html = toHtml(tree);
     expect(html).toContain(
       '<span class="sidenote-block sidenote-status" role="group" aria-label="Status"><span class="sidenote-block">Draft.</span></span>',
     );
-    expect(html).toContain(
-      '<span class="sidenote-block sidenote-infobox" role="group" aria-label="Box"><span class="sidenote-block sidenote-title">Box</span>' +
-        '<span class="sidenote-block sidenote-facts"><span class="sidenote-key">Size</span><span class="sidenote-value">Small</span></span></span>',
-    );
-    expect(html).not.toMatch(/<aside|<dl|<dt|<dd/);
+    expect(html).not.toMatch(/<aside/);
   });
 
   it("letters past z as aa, ab", () => {

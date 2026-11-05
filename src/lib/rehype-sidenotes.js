@@ -4,13 +4,10 @@ import { el, hasClass, isElement, text, txt, walk } from "./hast.js";
 const PREFIX = "user-content-fn-";
 const CITATION = "cite-";
 const FORMATTING = new Set(["em", "strong", "code", "del"]);
-const BLOCKS = new Set(["p", "div", "ul", "ol", "li", "blockquote", "footer", "aside", "dl", "dt", "dd", "pre", "table"]);
+const BLOCKS = new Set(["p", "div", "ul", "ol", "li", "blockquote", "footer", "aside", "pre", "table"]);
 const BLOCK_CLASSES = {
   blockquote: ["sidenote-block", "sidenote-quote"],
   footer: ["sidenote-block", "sidenote-attribution"],
-  dl: ["sidenote-block", "sidenote-facts"],
-  dt: ["sidenote-key"],
-  dd: ["sidenote-value"],
 };
 
 export function rehypeSidenotes() {

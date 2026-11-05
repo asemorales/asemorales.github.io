@@ -1,4 +1,4 @@
-import { el, isElement, text, txt } from "./hast.js";
+import { el, isElement, txt } from "./hast.js";
 
 const MARKER = /^\s*\[!([a-z-]+)\][+-]?[ \t]*/i;
 
@@ -41,8 +41,6 @@ function callout(quote) {
         ...(title.length ? [el("p", { className: ["callout-title"] }, title)] : []),
         ...body,
       ]);
-    case "infobox":
-      return infobox(title, body);
     case "wide":
       return el("div", { className: ["wide"] }, body);
     case "colophon":
@@ -84,31 +82,6 @@ function parse(quote) {
 
 function attribution(title) {
   return title.length ? [el("footer", {}, title)] : [];
-}
-
-function infobox(title, body) {
-  const facts = body.map((block) => {
-    if (!isElement(block, "ul")) return block;
-    const items = block.children.filter((c) => isElement(c, "li"));
-    const pairs = items.map(fact);
-    if (pairs.some((p) => !p)) return block;
-    return el(
-      "dl",
-      {},
-      pairs.flatMap(([key, value]) => [el("dt", {}, key), el("dd", {}, value)]),
-    );
-  });
-  const heading = title.length ? [el("p", { className: ["callout-title"] }, title)] : [];
-  return el("aside", { className: ["infobox"], ariaLabel: text({ children: title }).trim() || "Infobox" }, [...heading, ...facts]);
-}
-
-function fact(li) {
-  const children = li.children.filter((c) => c.type !== "text" || c.value.trim());
-  const [strong, ...rest] = children;
-  if (!isElement(strong, "strong")) return null;
-  const key = text(strong).trim();
-  if (!key.endsWith(":")) return null;
-  return [[txt(key.slice(0, -1))], trim(rest)];
 }
 
 function trim(nodes) {

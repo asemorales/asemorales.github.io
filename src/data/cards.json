@@ -179,12 +179,6 @@
     "meta": ["Wikipedia"],
     "text": "Moravec's paradox is the observation that, as Hans Moravec wrote in 1988, \"it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility\"."
   },
-  "https://en.wikipedia.org/wiki/NP-completeness": {
-    "kind": "wikipedia",
-    "title": "NP-completeness",
-    "meta": ["Wikipedia"],
-    "text": "In computational complexity theory, NP-complete problems are the hardest of the problems to which solutions can be verified quickly. NP is short for \"nondeterministic polynomial-time\" and a problem is NP-complete when:It is a decision problem, meaning that for any input to the problem, the output is either \"yes\" or \"no\"."
-  },
   "https://en.wikipedia.org/wiki/News_aggregator": {
     "kind": "wikipedia",
     "title": "News aggregator",

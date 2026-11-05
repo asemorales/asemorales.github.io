@@ -51,9 +51,9 @@ test.describe("sections", () => {
   });
 
   test("contents entries jump to their headings", async ({ page }) => {
-    await page.locator("nav.toc a[href='#infobox']").click();
-    await expect(page).toHaveURL(/#infobox$/);
-    await expect(page.locator("#infobox")).toBeInViewport();
+    await page.locator("nav.toc a[href='#headings']").click();
+    await expect(page).toHaveURL(/#headings$/);
+    await expect(page.locator("#headings")).toBeInViewport();
   });
 
   test("each heading links to itself", async ({ page }) => {
@@ -75,7 +75,7 @@ test.describe("sections", () => {
     const column = await box(page.locator("article.note h1"));
     const toc = page.locator("nav.toc details");
     expect((await box(toc)).x + (await box(toc)).width).toBeLessThan(column.x);
-    await page.locator("#infobox").scrollIntoViewIfNeeded();
+    await page.locator("#headings").scrollIntoViewIfNeeded();
     await expect(toc).toBeInViewport();
   });
 });
@@ -85,7 +85,7 @@ test.describe("sidenotes", () => {
     test.skip(!wide(info.project.name), "wide screens only");
     const column = await box(page.locator("article.note"));
     const notes = page.locator(".sidenote");
-    await expect(notes).toHaveCount(10);
+    await expect(notes).toHaveCount(8);
     const boxes = await Promise.all((await notes.all()).map(box));
     for (const b of boxes) expect(b.x).toBeGreaterThan(column.x + column.width);
     for (let i = 1; i < boxes.length; i++) expect(boxes[i].y).toBeGreaterThanOrEqual(boxes[i - 1].y + boxes[i - 1].height);
@@ -156,18 +156,6 @@ test.describe("sidenotes", () => {
     await expect(page.locator("aside.status")).toHaveCount(1);
   });
 
-  test("keep an infobox inside its sidenote, with facts in two columns", async ({ page }, info) => {
-    if (!wide(info.project.name)) await page.locator("#snref-infobox-note").tap();
-    const infobox = page.locator("#sn-infobox-note + .sidenote .sidenote-infobox");
-    await expect(infobox.locator(".sidenote-title")).toHaveText("P");
-    await expect(infobox.locator(".sidenote-facts")).toHaveCSS("display", "grid");
-    await expect(infobox.locator(".sidenote-key")).toHaveText(["Full name", "Contained in"]);
-    await expect(infobox.locator(".sidenote-value")).toHaveText(["Polynomial time", "NP"]);
-    const [key, value] = await Promise.all([box(infobox.locator(".sidenote-key").first()), box(infobox.locator(".sidenote-value").first())]);
-    expect(value.x).toBeGreaterThan(key.x);
-    await expect(page.locator("aside.infobox")).toHaveCount(1);
-  });
-
   test("mark citations with numbers, reusing a source's number, inside sidenotes too", async ({ page }) => {
     const markers = page.locator(".cite-ref a");
     expect(await markers.allTextContents()).toEqual(["[1]", "[1]", "[2]", "[1]", "[3]"]);
@@ -180,15 +168,6 @@ test.describe("callouts", () => {
     const status = page.locator("aside.status");
     await expect(status).toBeVisible();
     await expect(page.locator("article")).not.toContainText("[!");
-  });
-
-  test("put the infobox in the margin on wide screens and the column on phones", async ({ page }, info) => {
-    const infobox = page.locator("aside.infobox");
-    await expect(infobox.locator("dt").first()).toHaveText("Full name");
-    const column = await box(page.locator("article.note"));
-    const b = await box(infobox);
-    if (wide(info.project.name)) expect(b.x).toBeGreaterThan(column.x + column.width);
-    else expect(b.x + b.width).toBeLessThanOrEqual(column.x + column.width + 1);
   });
 
   test("set every quote alike, with an attribution in a footer", async ({ page }) => {
@@ -308,7 +287,7 @@ test.describe("bottom matter", () => {
 
   test("list other external links once each, and leave citations out", async ({ page }) => {
     const links = page.locator("section.sources:has(h2#external-links) li");
-    await expect(links).toHaveCount(11);
+    await expect(links).toHaveCount(10);
     await expect(links.locator("a[href^='http']").first()).toHaveAttribute("href", "https://github.com/adobe-fonts/source-serif");
     await expect(links.locator("a[href*='doi.org/10.1112']")).toHaveCount(0);
     await expect(links.locator("a[href='https://gwern.net/design']")).toHaveCount(1);

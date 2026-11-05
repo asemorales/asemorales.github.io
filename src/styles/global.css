@@ -26,7 +26,6 @@
   color-scheme: light dark;
 
   --page: light-dark(#f2ecdf, #191612);
-  --panel: light-dark(#ece5d5, #25211c);
   --code: light-dark(#f9f5ee, #25211c);
   --hover: light-dark(#e3dbc9, #3a342d);
   --tag-hover: light-dark(#f9f5ee, #3a342d);
@@ -49,7 +48,6 @@
 
 @theme inline {
   --color-page: var(--page);
-  --color-panel: var(--panel);
   --color-code: var(--code);
   --color-hover: var(--hover);
   --color-tag-hover: var(--tag-hover);
@@ -374,26 +372,6 @@
     @apply border border-rule px-5 py-3 text-base;
   }
 
-  .note .infobox {
-    @apply border border-frame bg-panel p-3 text-base leading-snug;
-  }
-  .note .infobox .callout-title {
-    @apply mb-2 text-center text-lg font-semibold;
-  }
-  .note .infobox dl {
-    @apply grid grid-cols-[fit-content(45%)_1fr] gap-x-3 gap-y-1.5;
-  }
-  .note .infobox dt {
-    @apply font-semibold;
-  }
-  @media (width >= 760px) {
-    .note .infobox {
-      @apply float-right clear-right mt-0 mb-4;
-      width: var(--margin);
-      margin-right: calc(-1 * (var(--gap) + var(--margin)));
-    }
-  }
-
   .note .sidenote-number,
   .note .sidenote-ref,
   .note .cite-ref {
@@ -419,17 +397,8 @@
   .note .sidenote .sidenote-status {
     @apply block border border-rule px-3 py-2;
   }
-  .note .sidenote .sidenote-infobox {
-    @apply block border border-frame bg-panel p-2 leading-snug;
-  }
   .note .sidenote .sidenote-title {
     @apply block text-center font-semibold;
-  }
-  .note .sidenote .sidenote-facts {
-    @apply grid grid-cols-[fit-content(45%)_1fr] gap-x-3 gap-y-1.5;
-  }
-  .note .sidenote-key {
-    @apply font-semibold;
   }
   .note :is(.sidenote-number, .sidenote-ref, .sidenote, mjx-container, figure > img, figcaption).highlighted {
     @apply bg-hover outline-1 outline-frame;
@@ -859,8 +828,7 @@
     @apply text-[10.5pt];
     width: calc(100% - var(--gap) - var(--margin));
   }
-  .note .sidenote,
-  .note .infobox {
+  .note .sidenote {
     @apply relative float-right clear-right block;
     width: var(--margin);
     margin-right: calc(-1 * (var(--gap) + var(--margin)));

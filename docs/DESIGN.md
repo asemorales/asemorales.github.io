@@ -12,7 +12,7 @@
 ## Layout
 
 - Set the text in a narrow column offset left, as in Tufte CSS.
-- Reserve the right margin for sidenotes and infoboxes. On narrow screens, stack them into the column.
+- Reserve the right margin for sidenotes. On narrow screens, stack them into the column.
 
 ## Type
 

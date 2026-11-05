@@ -56,13 +56,13 @@ This paragraph tests the uneven ink, which should look faintly blotchy only unde
 
 Lorem ipsum dolor sit amet.[^short]
 
-Quis autem vel eum iure reprehenderit.[^long] Vel illum qui dolorem eum fugiat.[^close] At vero eos et accusamus.[^math]
+Quis autem vel eum iure reprehenderit.[^long] At vero eos et accusamus.[^math]
 
 At vero eos et accusamus et iusto odio dignissimos.[^short]
 
 This paragraph tests quotes in sidenotes, with the quote's lines indented and unindented. Nam libero tempore.[^quote] Cum soluta nobis est eligendi optio.[^flat-quote]
 
-This paragraph tests a status notice and an infobox in sidenotes. Temporibus autem quibusdam.[^status-note] Itaque earum rerum hic tenetur.[^infobox-note]
+This paragraph tests a status notice in a sidenote. Temporibus autem quibusdam.[^status-note]
 
 This paragraph tests a footnote that is only a link, which stays a sidenote without the `cite-` prefix. Et harum quidem rerum facilis.[^link-only]
 
@@ -76,8 +76,6 @@ This paragraph tests a citation without a link, which appears in the references 
 
 [^long]: A long sidenote. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.
 
-[^close]: A sidenote close behind the long one.
-
 [^math]: A sidenote with math, $\mathsf{P} \subseteq \mathsf{NP}$, and a link to [the Wikipedia article on complexity classes](https://en.wikipedia.org/wiki/Complexity_class).
 
 [^quote]: > [!quote] Jorge Luis Borges, *[The Library of Babel](https://en.wikipedia.org/wiki/The_Library_of_Babel)*
@@ -88,10 +86,6 @@ This paragraph tests a citation without a link, which appears in the references 
 
 [^status-note]: > [!status]
     > A status notice in a sidenote.
-
-[^infobox-note]: > [!infobox] P
-> - **Full name:** Polynomial time
-> - **Contained in:** NP
 
 [^link-only]: [gwern.net design](https://gwern.net/design)
 
@@ -213,20 +207,6 @@ npm run sync && git push
 ### Separator
 
 ***
-
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-## Infobox
-
-> [!infobox] NP
-> - **Full name:** Nondeterministic polynomial time
-> - **Defined by:** Polynomial-time verifiers
-> - **See also:** [NP-completeness](https://en.wikipedia.org/wiki/NP-completeness)
-> - **Complete problems:** SAT, 3-coloring, Hamiltonian path
-> - **Contains:** P
-> - **Contained in:** PSPACE
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 ## Headings
 
