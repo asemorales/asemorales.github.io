@@ -217,6 +217,11 @@ test.describe("callouts", () => {
     await expect(page.locator("article")).not.toContainText("[!");
   });
 
+  test("keep a quote's line breaks, in the body and in sidenotes", async ({ page }) => {
+    await expect(page.locator("#quote-with-line-breaks + blockquote br")).toHaveCount(2);
+    await expect(page.locator(".sidenote-quote br")).toHaveCount(1);
+  });
+
   test("set every quote alike, with an attribution in a footer", async ({ page }) => {
     await expect(page.locator("#epigraph + blockquote footer")).toContainText("Borges");
     expect(await page.locator("#default-quote + blockquote").evaluate((el) => getComputedStyle(el).fontStyle)).toBe("italic");

@@ -73,6 +73,7 @@ A citation.[^cite-turing] Same citation again.[^cite-turing] Another citation.[^
 
 [^quote]: > [!quote] Jorge Luis Borges, *[The Library of Babel](https://en.wikipedia.org/wiki/The_Library_of_Babel)*
     > An indented quote in a sidenote.
+    > Its second line stays on its own line.
 
 [^flat-quote]: > [!quote] Jorge Luis Borges, *[The Library of Babel](https://en.wikipedia.org/wiki/The_Library_of_Babel)*
 > An unindented quote in a sidenote.
@@ -185,6 +186,12 @@ npm run sync && git push
 ### Default quote
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+### Quote with line breaks
+
+> This quote tests that each source line keeps its own line.
+> Lorem ipsum dolor sit amet,
+> consectetur adipiscing elit.
 
 ### Epigraph
 

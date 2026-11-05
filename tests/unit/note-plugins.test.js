@@ -70,6 +70,18 @@ describe("rehypeCallouts", () => {
     );
   });
 
+  it("keeps a quote's line breaks, including inside formatting", () => {
+    const tree = root(quote(p("[!quote] Shelley\nFirst\n", el("em", {}, [txt("second\nthird")]))));
+    rehypeCallouts()(tree);
+    expect(toHtml(tree)).toBe("<blockquote><p>First<br>\n<em>second<br>\nthird</em></p><footer>Shelley</footer></blockquote>");
+  });
+
+  it("keeps the line breaks of a quote without a callout marker", () => {
+    const tree = root(quote(p("First\nsecond")));
+    rehypeCallouts()(tree);
+    expect(toHtml(tree)).toBe("<blockquote><p>First<br>\nsecond</p></blockquote>");
+  });
+
   it("sets a [!colophon] callout apart under an ornament", () => {
     const tree = root(quote(p("[!colophon] Colophon"), p("Finished.")));
     rehypeCallouts()(tree);

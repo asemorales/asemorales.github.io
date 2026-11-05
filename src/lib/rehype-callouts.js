@@ -1,6 +1,7 @@
 import { el, isElement, txt } from "./hast.js";
 
 const MARKER = /^\s*\[!([a-z-]+)\][+-]?[ \t]*/i;
+const FORMATTING = new Set(["a", "em", "strong", "del"]);
 
 export function remarkFootnoteQuotes() {
   return (tree) => {
@@ -33,7 +34,7 @@ function transform(node) {
 
 function callout(quote) {
   const parsed = parse(quote);
-  if (!parsed) return quote;
+  if (!parsed) return { ...quote, children: keepLineBreaks(quote.children) };
   const { type, title, body } = parsed;
   switch (type) {
     case "status":
@@ -56,7 +57,7 @@ function callout(quote) {
         ...body,
       ]);
     default:
-      return el("blockquote", {}, [...body, ...attribution(title)]);
+      return el("blockquote", {}, [...keepLineBreaks(body), ...attribution(title)]);
   }
 }
 
@@ -84,6 +85,16 @@ function parse(quote) {
   const inline = rest.slice(i).filter((n) => n.type !== "text" || n.value.trim());
   const body = [...(inline.length ? [{ ...first, children: inline }] : []), ...blocks.slice(1)];
   return { type: match[1].toLowerCase(), title: trim(title), body };
+}
+
+function keepLineBreaks(blocks) {
+  return blocks.map((block) => (isElement(block, "p") ? { ...block, children: block.children.flatMap(breakLines) } : block));
+}
+
+function breakLines(node) {
+  if (node.type === "text") return node.value.split("\n").flatMap((line, i) => (i ? [el("br", {}, []), txt("\n"), txt(line)] : [txt(line)]));
+  if (isElement(node) && FORMATTING.has(node.tagName)) return [{ ...node, children: node.children.flatMap(breakLines) }];
+  return [node];
 }
 
 function figure(body) {
