@@ -62,6 +62,20 @@ describe("sync", () => {
     expect(report.unresolved).toEqual([{ note: "published/halting-problem.md", target: "private-draft" }]);
   });
 
+  it("reports annotations no note links to and PDF links with no annotation", async () => {
+    const front = "---\ntitle: Note\ndate: 2026-01-01\ntags: [a]\n---\n";
+    const annotation = (url) => `---\nurl: ${url}\ntitle: T\n---\nText.`;
+    const vault = await tempVault({
+      "note.md": `${front}[a](https://x.org/a.pdf) [b](https://x.org/b.pdf) [c](https://arxiv.org/pdf/1706.03762.pdf) [d](https://x.org/d)`,
+      "annotations/a.md": annotation("https://x.org/a.pdf"),
+      "annotations/b.md": annotation("http://x.org/b.pdf"),
+    });
+    const report = await sync({ vault, out, lastUpdated: fixedDate });
+    expect(report.unlinkedAnnotations).toEqual([{ file: "published/annotations/b.md", url: "http://x.org/b.pdf" }]);
+    expect(report.unannotatedPdfs).toEqual([{ url: "https://x.org/b.pdf", notes: ["published/note.md"] }]);
+    await fs.rm(vault, { recursive: true });
+  });
+
   it("links a note's own headings by anchor alone", async () => {
     const vault = await tempVault({ "note.md": "---\ntitle: Note\ndate: 2026-01-01\ntags: [a]\n---\n[[note#Part]] [[note]] [[#Part]]" });
     await sync({ vault, out, lastUpdated: fixedDate });

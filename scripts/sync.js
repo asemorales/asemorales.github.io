@@ -6,11 +6,13 @@ import matter from "gray-matter";
 import { GLOSSARY, glossaryEntries, parseTerm } from "../src/lib/glossary.js";
 import { slugify } from "../src/lib/slug.js";
 import { WIKILINK } from "../src/lib/wikilinks.js";
+import { classify, notesByLink } from "./build-cards.js";
 
 const IMAGE = /\.(png|jpe?g|gif|webp|avif|svg)$/i;
 const INTRODUCTION = "introduction.md";
 const NOTE_KEYS = new Set(["title", "date", "tags", "unlisted"]);
 const SKIP_DIRS = new Set([".git", ".obsidian", ".trash", "node_modules"]);
+const IGNORED_WIKILINKS = new Set(["some private note"]);
 
 export class SyncError extends Error {
   constructor(problems) {
@@ -169,7 +171,7 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
         const heading = rawHeading?.trim();
         if (!target) return whole;
         if (!titles.has(target)) {
-          report.unresolved.push({ note: note.rel, target: rawTarget.trim() });
+          if (!IGNORED_WIKILINKS.has(target)) report.unresolved.push({ note: note.rel, target: rawTarget.trim() });
           return whole;
         }
         const title = titles.get(target);
@@ -203,6 +205,13 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
   }
 
   if (problems.length) throw new SyncError(problems);
+
+  const byLink = notesByLink(notes.map((n) => [n.rel, n.body]));
+  const annotated = new Set(annotations.map((a) => a.url));
+  report.unlinkedAnnotations = annotations.filter((a) => !byLink.has(a.url)).map((a) => ({ file: a.rel, url: a.url }));
+  report.unannotatedPdfs = [...byLink]
+    .filter(([url]) => classify(url).kind === "pdf" && !annotated.has(url))
+    .map(([url, files]) => ({ url, notes: files }));
 
   const notesDir = path.join(out, "notes");
   const annotationsDir = path.join(out, "annotations");
@@ -251,11 +260,19 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
 
 function printReport(report) {
   console.log(`Synced ${report.notes.length} note(s) and ${report.annotations.length} annotation(s).`);
-  for (const n of report.notes) console.log(`  ${n.url.padEnd(32)} updated ${n.updated.date} (${n.updated.source})`);
+  for (const n of report.notes) console.log(`  ${n.url}`);
   for (const i of report.images) console.log(`  image ${i.from} -> ${i.to}`);
   if (report.unresolved.length) {
     console.log(`\nThese wikilinks point outside published/ and will render as plain text:`);
     for (const u of report.unresolved) console.log(`  ${u.note}: [[${u.target}]]`);
+  }
+  if (report.unlinkedAnnotations.length) {
+    console.log(`\nThese annotations won't show, since no note links to their exact URL:`);
+    for (const a of report.unlinkedAnnotations) console.log(`  ${a.file}: ${a.url}`);
+  }
+  if (report.unannotatedPdfs.length) {
+    console.log(`\nThese PDF links have no annotation, so their popovers will have no text:`);
+    for (const p of report.unannotatedPdfs) console.log(`  ${p.url} (in ${p.notes.join(", ")})`);
   }
 }
 

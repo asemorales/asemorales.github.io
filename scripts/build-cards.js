@@ -10,6 +10,7 @@ const CARDS = path.join(root, "src/data/cards.json");
 const NOTES = path.join(root, "src/content/notes");
 const AGENT = "asemorales.com card builder (+https://asemorales.com)";
 const MIN_PARAGRAPH = 40;
+const IGNORED_LINKS = new Set(["https://dead-link-test.invalid/page"]);
 
 export function classify(url) {
   const u = new URL(url);
@@ -28,6 +29,7 @@ export function classify(url) {
   if (host === "doi.org" || host === "dx.doi.org") return { kind: "doi", id: decodeURIComponent(u.pathname.slice(1)) };
   const wiki = host.match(/^([a-z-]+)\.(?:m\.)?wikipedia\.org$/);
   if (wiki && parts[0] === "wiki" && parts[1]) return { kind: "wikipedia", id: parts.slice(1).join("/"), lang: wiki[1] };
+  if (/\.pdf$/i.test(u.pathname)) return { kind: "pdf" };
   return { kind: "page" };
 }
 
@@ -128,26 +130,42 @@ export async function fetchCard(url) {
   }
 }
 
+export function notesByLink(notes) {
+  const byLink = new Map();
+  for (const [file, markdown] of notes) {
+    for (const url of new Set(linksIn(markdown))) byLink.set(url, [...(byLink.get(url) ?? []), file]);
+  }
+  return byLink;
+}
+
 async function main(refresh) {
   const cards = JSON.parse(await fs.readFile(CARDS, "utf8").catch(() => "{}"));
   const files = (await fs.readdir(NOTES)).filter((f) => f.endsWith(".md"));
-  const linked = [...new Set((await Promise.all(files.map((f) => fs.readFile(path.join(NOTES, f), "utf8")))).flatMap(linksIn))].sort();
+  const notes = await Promise.all(files.map(async (f) => [f, await fs.readFile(path.join(NOTES, f), "utf8")]));
+  const byLink = notesByLink(notes);
+  const usedIn = (url) => `(in ${byLink.get(url).join(", ")})`;
+  const linked = [...byLink.keys()].sort();
   const next = {};
+  const warnings = [];
   for (const url of linked) {
     if (cards[url] && !refresh) {
       next[url] = cards[url];
       continue;
     }
     try {
+      if (classify(url).kind === "pdf" || IGNORED_LINKS.has(url)) continue;
       const card = await fetchCard(url);
-      if (card?.title) next[url] = card;
-      console.log(`${card?.title ? "card" : "none"}  ${url}`);
+      if (card?.title) {
+        next[url] = card;
+        console.log(`card  ${url}`);
+      } else warnings.push(`  none  ${url} ${usedIn(url)}`);
     } catch (e) {
       if (cards[url]) next[url] = cards[url];
-      console.log(`fail  ${url}: ${e.message}`);
+      warnings.push(`  fail  ${url}: ${e.message} ${usedIn(url)}`);
     }
     await new Promise((r) => setTimeout(r, 500));
   }
+  if (warnings.length) console.log(["\nThese external links returned warnings while generating popovers:", ...warnings].join("\n"));
   await fs.writeFile(CARDS, JSON.stringify(next, null, 2) + "\n");
 }
 

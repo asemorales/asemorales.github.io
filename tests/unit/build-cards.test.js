@@ -1,7 +1,20 @@
 import { describe, expect, it } from "vitest";
-import { classify, openalexAbstract, parseArxiv, parseCrossref, parseGithub, parsePage } from "../../scripts/build-cards.js";
+import { classify, notesByLink, openalexAbstract, parseArxiv, parseCrossref, parseGithub, parsePage } from "../../scripts/build-cards.js";
 
 describe("build-cards", () => {
+  it("maps each link to the notes that use it, once per note", () => {
+    const notes = [
+      ["a.md", "[x](https://a.com) [y](https://a.com) [z](https://b.com)"],
+      ["b.md", "[x](https://a.com)"],
+    ];
+    expect(notesByLink(notes)).toEqual(
+      new Map([
+        ["https://a.com", ["a.md", "b.md"]],
+        ["https://b.com", ["a.md"]],
+      ]),
+    );
+  });
+
   it.each([
     ["https://github.com/asemorales/bierstadt", { kind: "github", id: "asemorales/bierstadt" }],
     ["https://github.com/asemorales/bierstadt/issues", { kind: "page" }],
@@ -10,6 +23,7 @@ describe("build-cards", () => {
     ["https://doi.org/10.1145/3663976.3664235", { kind: "doi", id: "10.1145/3663976.3664235" }],
     ["https://en.wikipedia.org/wiki/Halting_problem", { kind: "wikipedia", id: "Halting_problem", lang: "en" }],
     ["https://gwern.net/design", { kind: "page" }],
+    ["https://consc.net/papers/emergence.PDF", { kind: "pdf" }],
   ])("classifies %s", (url, expected) => expect(classify(url)).toEqual(expected));
 
   it("reads an arXiv entry", () => {
