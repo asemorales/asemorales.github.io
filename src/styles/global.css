@@ -461,7 +461,7 @@
   .note .sidenote-number,
   .note .sidenote-ref,
   .note .cite-ref {
-    @apply align-super text-[0.65em] leading-none;
+    @apply static align-super text-[0.65em] leading-none;
   }
   .note .sidenote-ref a,
   .note .cite-ref a {

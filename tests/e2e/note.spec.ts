@@ -239,6 +239,16 @@ test.describe("sidenotes", () => {
     expect(await markers.allTextContents()).toEqual(["[1]", "[1]", "[2]", "[1]", "[3]"]);
     await expect(page.locator(".sidenote .cite-ref")).toHaveCount(1);
   });
+
+  test("align adjacent citation and footnote markers", async ({ page }) => {
+    const [citation, footnote] = await page.evaluate(() => {
+      const cite = document.querySelector(".note p > .cite-ref")!;
+      const label = document.querySelector(".note .sidenote-number")!.cloneNode(true) as Element;
+      cite.after(label);
+      return [cite, label].map((marker) => marker.getBoundingClientRect().top);
+    });
+    expect(footnote).toBeCloseTo(citation, 0);
+  });
 });
 
 test.describe("callouts", () => {
