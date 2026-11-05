@@ -238,6 +238,11 @@
     font-variant-caps: all-small-caps;
     letter-spacing: 0.04em;
   }
+  .lead-in {
+    @apply font-normal;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.04em;
+  }
 
   .column {
     --gap: 2.5rem;

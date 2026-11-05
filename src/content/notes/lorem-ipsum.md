@@ -14,6 +14,10 @@ This page contains dummy text used to test the design features of this site.
 
 Incomprehensibilities, electroencephalographically, counterrevolutionaries, pneumonoultramicroscopicsilicovolcanoconiosis. 0123456789, 3.14159, and 1,729. Set in [Source Serif 4](https://github.com/adobe-fonts/source-serif). *Italic*, **bold**, ***bold italic***, ~~strikethrough~~, `inline code`, and `https://example.com/a/very/long/path/that/keeps/going/and/going/without/any/spaces`.
 
+**This paragraph tests an opening sentence set entirely in bold.** That sentence renders in small caps, and the rest of the paragraph stays in roman.
+
+**This paragraph tests bold that stops mid-sentence**, which stays bold because the opening sentence continues past it.
+
 ### Lists
 
 - An unordered item.

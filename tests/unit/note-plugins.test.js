@@ -322,6 +322,24 @@ describe("rehypeBlocks", () => {
       '<div class="code-block"><pre class="astro-code"></pre></div><div class="math-block" data-tex="x^2"><mjx-container display="true"></mjx-container></div>',
     );
   });
+
+  it.each([
+    ["a bold sentence before more text", ["Lead.", " Body."], true],
+    ["a bold sentence alone", ["Lead!"], true],
+    ["a closing quote after the stop", ["“Lead?”", " Body."], true],
+    ["bold that stops mid-sentence", ["Lead", " continues."], false],
+    ["a stop followed by more of the sentence", ["Lead.", ", he said."], false],
+  ])("handles %s", (_, [bold, ...rest], marked) => {
+    const lead = el("strong", {}, [txt(bold)]);
+    rehypeBlocks()(root(p(lead, ...rest)));
+    expect(lead.properties.className).toEqual(marked ? ["lead-in"] : undefined);
+  });
+
+  it("leaves bold later in a paragraph alone", () => {
+    const later = el("strong", {}, [txt("Later.")]);
+    rehypeBlocks()(root(p("Opening. ", later)));
+    expect(later.properties.className).toBeUndefined();
+  });
 });
 
 describe("rehypeBibliography", () => {
