@@ -1,1 +1,14 @@
-{}
+{
+  "https://arxiv.org/abs/2405.02325": {
+    "submitted": "2026-11-05",
+    "job": "spn2-0fac835745519183213a7829b1092cc93a8634ef"
+  },
+  "https://consc.net/papers/emergence.pdf": {
+    "submitted": "2026-11-05",
+    "job": "spn2-be0948dac346d29e4f9bd9d9e97767a3eefcfe91"
+  },
+  "https://doi.org/10.1007%2Fs13194-012-0056-8": {
+    "submitted": "2026-11-05",
+    "job": "spn2-abb95a2dbd59ff9f5b962c8696bd0a35893757cb"
+  }
+}
