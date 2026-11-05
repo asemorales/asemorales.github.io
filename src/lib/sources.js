@@ -10,6 +10,5 @@ export function sourceEntry({ url, text, card, annotation, cited }) {
     text: (cited && referenceName(card)) || text,
     domain: new URL(url).hostname.replace(/^www\./, ""),
     annotation: cited ? (annotation ?? null) : null,
-    blurb: annotation || !cited ? null : card?.text || null,
   };
 }

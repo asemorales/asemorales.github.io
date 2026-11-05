@@ -11,10 +11,9 @@ interface Props {
   locators?: string[];
   domain: string | null;
   Annotation: Awaited<ReturnType<typeof render>>["Content"] | null;
-  blurb: string | null;
 }
 
-const { url, text, refs, locators = [], domain, Annotation, blurb } = Astro.props;
+const { url, text, refs, locators = [], domain, Annotation } = Astro.props;
 const dead = url ? archived(url, linkStatus) : null;
 ---
 
@@ -49,14 +48,8 @@ const dead = url ? archived(url, linkStatus) : null;
   </>
 )}{" "}
 {domain && <span class="domain">({domain})</span>}
-{Annotation ? (
+{Annotation && (
   <div class="annotation">
     <Annotation />
   </div>
-) : (
-  blurb && (
-    <div class="annotation">
-      <p>{blurb}</p>
-    </div>
-  )
 )}
