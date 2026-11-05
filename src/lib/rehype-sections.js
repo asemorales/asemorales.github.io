@@ -50,7 +50,23 @@ function toc(headings, back) {
     addItem(stack.at(-1), [el("a", { href: `#${h.id}` }, h.title)]);
   }
   for (const b of back) addItem(root, [el("a", { href: `#${b.id}` }, [txt(b.title)])]);
-  return el("nav", { className: ["toc"], ariaLabel: "Contents" }, [el("details", { open: true }, [el("summary", {}, [txt("Contents")]), root])]);
+  return el("nav", { className: ["toc"], ariaLabel: "Contents" }, [
+    el("div", {}, [
+      el("a", { href: "/", className: ["toc-home"] }, [icon("home"), txt("Home")]),
+      // Must match src/components/RoomToggle.astro.
+      el("button", { type: "button", className: ["room-toggle"] }, [
+        icon("sun"),
+        icon("moon"),
+        el("span", {}, [txt("Toggle theme")]),
+        el("span", { className: ["sr-only"], ariaLive: "polite" }, [txt("("), el("span", { dataLabel: "" }, [txt("auto")]), txt(")")]),
+      ]),
+      el("details", { open: true }, [el("summary", {}, [txt("Contents")]), root]),
+    ]),
+  ]);
+}
+
+function icon(name) {
+  return el("span", { className: ["icon", `icon-${name}`], ariaHidden: "true" });
 }
 
 function addItem(ol, children) {

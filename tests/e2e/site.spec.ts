@@ -76,7 +76,7 @@ test.describe("theme without JS", () => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.goto("/lorem-ipsum/");
     expect(await background(page)).toBe(DARK);
-    await expect(page.locator("#room-toggle")).toBeHidden();
+    await expect(page.locator(".room-toggle:visible")).toBeHidden();
     await page.emulateMedia({ colorScheme: "light" });
     expect(await background(page)).toBe(LIGHT);
   });
@@ -88,7 +88,7 @@ test.describe("theme with JS", () => {
   test("cycles auto, light, and dark", async ({ page }) => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.goto("/lorem-ipsum/");
-    const toggle = page.locator("#room-toggle");
+    const toggle = page.locator(".room-toggle:visible");
     await expect(toggle).toBeVisible();
     await expect(toggle).toContainText("auto");
     expect(await background(page)).toBe(DARK);
@@ -120,7 +120,7 @@ test.describe("theme with JS", () => {
     await page.reload();
     expect(await page.evaluate(() => (window as unknown as { firstRoom?: string }).firstRoom)).toBe("light");
     expect(await background(page)).toBe(LIGHT);
-    await expect(page.locator("#room-toggle")).toContainText("light");
+    await expect(page.locator(".room-toggle:visible")).toContainText("light");
   });
 });
 
@@ -150,12 +150,13 @@ test.describe("homepage", () => {
     await expect(page.locator(".home-empty")).toBeHidden();
   });
 
-  test("links home from the logo on every page but home", async ({ page }) => {
+  test("links home once on every page but home", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("link", { name: "Ase Morales, home" })).toHaveCount(0);
+    await expect(page.getByRole("link", { name: "Home", exact: true })).toHaveCount(0);
     for (const path of ["/lorem-ipsum/", "/tags/test/"]) {
       await page.goto(path);
-      await expect(page.getByRole("link", { name: "Ase Morales, home" })).toBeVisible();
+      await expect(page.getByRole("link", { name: "Home", exact: true })).toBeVisible();
+      await expect(page.locator("header").getByRole("link", { name: "Home", exact: true })).toHaveCount(0);
     }
   });
 

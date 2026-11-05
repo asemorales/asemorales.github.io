@@ -45,9 +45,49 @@ test.describe("sections", () => {
     await expect(page.locator("nav.toc a[href='#tables']")).toHaveText("Tables");
     const toc = page.locator("nav.toc");
     await expect(toc.locator("details")).toHaveAttribute("open", "");
-    for (const href of await toc.locator("a").evaluateAll((as) => as.map((a) => a.getAttribute("href")!))) {
+    for (const href of await toc.locator("details a").evaluateAll((as) => as.map((a) => a.getAttribute("href")!))) {
       await expect(page.locator(href)).toHaveCount(1);
     }
+  });
+
+  test("link home above the contents, matching the contents header", async ({ page }) => {
+    const home = page.locator(".toc-home");
+    await expect(page.locator(".site-home")).toBeHidden();
+    const summary = page.locator("nav.toc summary");
+    expect((await box(home)).y).toBeLessThan((await box(summary)).y);
+    const style = (l: Locator) => l.evaluate((el) => ({ caps: getComputedStyle(el).fontVariantCaps, color: getComputedStyle(el).color }));
+    expect(await style(home)).toEqual(await style(summary));
+    expect((await style(home)).caps).toBe("all-small-caps");
+    expect((await style(page.locator("nav.toc li a").first())).caps).toBe("normal");
+  });
+
+  test("aligns the home, theme, and contents icons and labels", async ({ page, javaScriptEnabled }) => {
+    test.skip(javaScriptEnabled === false, "the theme toggle needs JS");
+    const home = await box(page.locator(".toc-home .icon"));
+    const toggle = page.locator("nav.toc .room-toggle");
+    await expect(toggle).toHaveText(/Toggle theme/);
+    const sun = await box(toggle.locator(".icon:visible"));
+    const homeText = await page.locator(".toc-home").evaluate((a) => {
+      const range = document.createRange();
+      range.selectNodeContents(a.lastChild!);
+      return range.getBoundingClientRect().x;
+    });
+    const toggleText = await toggle
+      .locator("span:not(.icon):not(.sr-only)")
+      .first()
+      .evaluate((s) => s.getBoundingClientRect().x);
+    const arrow = await page.locator("nav.toc summary").evaluate((s) => {
+      const { x } = s.getBoundingClientRect();
+      return { x, width: parseFloat(getComputedStyle(s, "::before").width), gap: parseFloat(getComputedStyle(s).columnGap) };
+    });
+    expect(sun.x).toBeCloseTo(home.x, 1);
+    expect(arrow.x).toBeCloseTo(home.x, 1);
+    expect(arrow.width).toBeCloseTo(home.width, 1);
+    expect(toggleText).toBeCloseTo(homeText, 1);
+    expect(arrow.x + arrow.width + arrow.gap).toBeCloseTo(homeText, 1);
+    const y = (await box(toggle)).y;
+    expect((await box(page.locator(".toc-home"))).y).toBeLessThan(y);
+    expect(y).toBeLessThan((await box(page.locator("nav.toc summary"))).y);
   });
 
   test("contents entries jump to their headings", async ({ page }) => {
@@ -77,6 +117,13 @@ test.describe("sections", () => {
     expect((await box(toc)).x + (await box(toc)).width).toBeLessThan(column.x);
     await page.locator("#headings").scrollIntoViewIfNeeded();
     await expect(toc).toBeInViewport();
+    const home = page.locator(".toc-home");
+    await expect(home).toBeInViewport();
+    expect((await box(home)).x).toBe((await box(toc)).x);
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+    await expect.poll(async () => (await box(toc)).y - ((await box(home)).y + (await box(home)).height)).toBeGreaterThanOrEqual(0);
+    await home.click();
+    await expect(page).toHaveURL(/\/$/);
   });
 });
 
@@ -253,7 +300,7 @@ test.describe("bottom matter", () => {
   });
 
   test("list References and External links last in the contents, open", async ({ page }) => {
-    const back = page.locator("nav.toc > details > ol > li");
+    const back = page.locator("nav.toc details > ol > li");
     await expect(back.nth(-2).locator("a")).toHaveAttribute("href", "#references");
     await expect(back.last().locator("a")).toHaveAttribute("href", "#external-links");
     for (const id of ["references", "external-links"]) {
@@ -399,7 +446,7 @@ test.describe("screenshots", () => {
   test("print", async ({ page, browserName }, info) => {
     test.skip(browserName !== "chromium" || !wide(info.project.name) || info.project.name.includes("nojs"), "Chromium, wide, with JS");
     await page.emulateMedia({ media: "print" });
-    await expect(page.locator("#room-toggle")).toBeHidden();
+    await expect(page.locator("nav.toc .room-toggle")).toBeHidden();
     await page.pdf({ path: info.outputPath("lorem.pdf") });
     await page.screenshot({ path: info.outputPath("lorem-print.png"), fullPage: true });
   });

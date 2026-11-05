@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import Logo from "../components/Logo.astro";
 import LSystems from "../components/LSystems.astro";
 import Popovers from "../components/Popovers.astro";
 import RoomToggle from "../components/RoomToggle.astro";
@@ -63,20 +62,27 @@ const fullTitle = home ? title : `${title} | Ase Morales`;
         data-domains="asemorales.com"
       />
     )}
+    <noscript>
+      <style is:inline>
+        .room-toggle,
+        .home-room {
+          display: none !important;
+        }
+      </style>
+    </noscript>
   </head>
 
   <body class:list={["mx-auto flex min-h-dvh flex-col px-4 py-6 sm:px-8", wide ? "max-w-[96rem]" : "max-w-6xl"]}>
-    <header class="relative mb-12 flex h-10 items-center justify-between gap-4">
-      {home ? (
-        <span />
-      ) : (
-        <a href="/" class="text-ink" aria-label="Ase Morales, home">
-          <Logo />
-        </a>
+    <main class="mt-22 mb-12 @container">
+      {!home && (
+        <nav class="site-nav" aria-label="Site">
+          <a href="/" class="site-home">
+            <span class="icon icon-home" aria-hidden="true"></span>
+            Home
+          </a>
+          <RoomToggle />
+        </nav>
       )}
-      <RoomToggle />
-    </header>
-    <main class="mb-12 @container">
       <slot />
     </main>
     <LSystems />

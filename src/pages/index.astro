@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
 import Logo from "../components/Logo.astro";
+import RoomToggle from "../components/RoomToggle.astro";
 import Base from "../layouts/Base.astro";
 import { slugify } from "../lib/slug.js";
 import { summary } from "../lib/summary.js";
@@ -131,6 +132,9 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
             </a>
           </li>
         ))}
+        <li class="home-room">
+          <RoomToggle iconOnly />
+        </li>
       </ul>
     </footer>
   </div>
