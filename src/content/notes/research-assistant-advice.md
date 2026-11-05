@@ -1,7 +1,7 @@
 ---
 title: "Advice on getting research assistant positions"
 date: 2026-11-04
-updated: 2026-11-04
+updated: 2026-11-06
 tags: ["research","guide"]
 ---
 
@@ -11,7 +11,7 @@ This page lists some personal advice for getting [research assistant](https://en
 
 **A few deep relationships.** Identify a few (1-3) labs in areas you're interested in. Focus your efforts on looking at their publications, culture, etc. to see if it fits you, then commit to deep relationships with a few labs. This is unlike job applications in industry, where people send out applications in bulk to 10+ companies.
 
-**Choose a lab based on your interests, rather than lab prestige.** High school and university education often trains students to optimize for the most prestigious schools, circles, and jobs. People in industry tend to choose job opportunities based on this as well. However, this does not apply to higher education and long-term research, where fit matters more than prestige[^1]. If you are considering an academic career, remember that an academic career is a lifelong endeavor, and [intrinsic motivators outweigh extrinsic motivators in the long-term](https://www.sciencedirect.com/science/article/pii/S0361476X99910202).
+**Choose a lab based on your interests, rather than lab prestige.** High school and university education often trains students to optimize for the most prestigious schools, circles, and jobs. People in industry tend to choose job opportunities based on this as well. However, this does not apply to higher education and long-term research, where fit matters more than prestige[^1]. If you are considering an academic career, remember that an academic career is a lifelong endeavor, and intrinsic motivators outweigh extrinsic motivators in the long-term.
 
 **Attend lab events, seminars, or after-class office hours.** Engage with the research *ideas* first, as a test if those areas interest you. Do not engage solely with the intent of getting in. You are testing your interest. Labs tend to hire people they already know (i.e. current students associated with the lab, or students of the PI/[principal investigator](https://en.wikipedia.org/wiki/Principal_investigator)), and being present acquaints yourself with the community. If we imagine a lab community as a graph, with the innermost nodes most involved in the work and community of the lab, all nodes begin at the outermost edges. Outermost nodes start by taking low-risk commitments that familiarize them with the network (i.e. being present, then doing low-stakes tasks, then committing to positions, etc.), and as they take on more central work, these nodes start to move towards the center[^2].
 

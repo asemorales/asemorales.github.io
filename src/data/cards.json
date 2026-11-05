@@ -41,11 +41,29 @@
     "meta": ["Chollet", "2019", "arXiv"],
     "text": "To make deliberate progress towards more intelligent and more human-like artificial systems, we need to be following an appropriate feedback signal: we need to be able to define and evaluate intelligence in a way that enables comparisons between two systems, as well as comparisons with humans."
   },
+  "https://arxiv.org/abs/2405.02325": {
+    "kind": "arxiv",
+    "title": "Are Biological Systems More Intelligent Than Artificial Intelligence?",
+    "meta": ["Bennett", "2024", "arXiv"],
+    "text": "Are biological self-organising systems more ``intelligent'' than artificial intelligence (AI)? If so, why? I address this question using a mathematical framework that defines intelligence in terms of adaptability. Systems are modelled as stacks of abstraction layers (\\emph{Stack Theory}) and compared by how effectively they delegate agentic control down their stacks."
+  },
   "https://astro.build/": {
     "kind": "page",
     "title": "Astro",
     "meta": [],
     "text": "Astro powers the world's fastest marketing sites, blogs, e-commerce websites, and more."
+  },
+  "https://doi.org/10.1007%2Fs13194-012-0056-8": {
+    "kind": "doi",
+    "title": "What is a complex system?",
+    "meta": ["Ladyman, Lambert, Wiesner", "2012", "European Journal for Philosophy of Science"],
+    "text": ""
+  },
+  "https://doi.org/10.1057/s41599-020-00680-y": {
+    "kind": "doi",
+    "title": "Elitism in mathematics and inequality",
+    "meta": ["Chang, Fu", "2021", "Humanities and Social Sciences Communications"],
+    "text": "The Fields Medal, often referred as the Nobel Prize of mathematics, is awarded to no more than four mathematicians under the age of 40, every 4 years. In recent years, its conferral has come under scrutiny of math historians, for rewarding the existing elite rather than its original goal of elevating under-represented mathematicians."
   },
   "https://doi.org/10.1090/S0002-9947-1953-0053041-6": {
     "kind": "doi",
@@ -83,6 +101,42 @@
     "meta": ["Wikipedia"],
     "text": "A Mathematician's Apology is a 1940 essay by British mathematician G. H. Hardy which defends the pursuit of mathematics for its own sake. Central to Hardy's \"apology\" – in the sense of a formal justification or defence – is an argument that mathematics has value independent of its applications."
   },
+  "https://en.wikipedia.org/wiki/Abstraction_(computer_science)": {
+    "kind": "wikipedia",
+    "title": "Abstraction (computer science)",
+    "meta": ["Wikipedia"],
+    "text": "In software, an abstraction provides access while hiding details that otherwise might make access more challenging. It focuses attention on details of greater importance. Examples include the abstract data type which separates use from the representation of data and functions that form a call tree that is more general at the base and more specific towards the leaves."
+  },
+  "https://en.wikipedia.org/wiki/Assembly_language": {
+    "kind": "wikipedia",
+    "title": "Assembly language",
+    "meta": ["Wikipedia"],
+    "text": "In computing, assembly language, often referred to simply as assembly and commonly abbreviated as ASM or asm, is any low-level programming language with a very strong correspondence between the instructions in the language and the architecture's machine code instructions."
+  },
+  "https://en.wikipedia.org/wiki/Author-level_metric": {
+    "kind": "wikipedia",
+    "title": "Author-level metrics",
+    "meta": ["Wikipedia"],
+    "text": "Author-level metrics are citation metrics that measure the bibliometric impact of individual authors, researchers, academics, and scholars. Many metrics have been developed that take into account varying numbers of factors."
+  },
+  "https://en.wikipedia.org/wiki/C++": {
+    "kind": "wikipedia",
+    "title": "C++",
+    "meta": ["Wikipedia"],
+    "text": "C++ is a high-level, general-purpose programming language created by Danish computer scientist Bjarne Stroustrup. First released in 1985 as an extension of the C programming language, adding object-oriented (OOP) functionality and later expanding significantly with the addition of functional programming features."
+  },
+  "https://en.wikipedia.org/wiki/Cellular_automaton": {
+    "kind": "wikipedia",
+    "title": "Cellular automaton",
+    "meta": ["Wikipedia"],
+    "text": "A cellular automaton is a discrete model of computation studied in automata theory. Cellular automata are also called cellular spaces, tessellation automata, homogeneous structures, cellular structures, tessellation structures, and iterative arrays. Cellular automata have found application in various areas, including physics, theoretical biology, and microstructure modeling."
+  },
+  "https://en.wikipedia.org/wiki/Citation": {
+    "kind": "wikipedia",
+    "title": "Citation",
+    "meta": ["Wikipedia"],
+    "text": "A citation is a reference to a source. More precisely, a citation is an abbreviated alphanumeric expression embedded in the body of an intellectual work that denotes an entry in the bibliographic references section of the work, for the purpose of acknowledging the relevance of the works of others to the topic of discussion at the spot where the citation appears."
+  },
   "https://en.wikipedia.org/wiki/Cold_start_%28recommender_systems%29": {
     "kind": "wikipedia",
     "title": "Cold start (recommender systems)",
@@ -106,6 +160,12 @@
     "title": "Computational irreducibility",
     "meta": ["Wikipedia"],
     "text": "Computational irreducibility suggests certain computational processes cannot be simplified and the only way to determine the outcome of a process is to go through each step of its computation. It is one of the main ideas proposed by Stephen Wolfram in his 2002 book A New Kind of Science, although the concept goes back to studies from the 1980s."
+  },
+  "https://en.wikipedia.org/wiki/De_facto_and_de_jure": {
+    "kind": "wikipedia",
+    "title": "De facto and de jure",
+    "meta": ["Wikipedia"],
+    "text": "De facto and de jure are contrasting concepts, with de facto being used to refer to the actual existence of a state of affairs, and de jure being used to refer to the legal existence of something even if it is not represented in reality. These terms are particularly used in the context of law and governance."
   },
   "https://en.wikipedia.org/wiki/Downward_causation": {
     "kind": "wikipedia",
@@ -137,6 +197,12 @@
     "meta": ["Wikipedia"],
     "text": "The Essays of Michel de Montaigne are contained in three books and 107 chapters of varying length. They were originally written in Middle French and published in the Kingdom of France. Montaigne's stated design in writing, publishing and revising the Essays over the period from approximately 1570 to 1592 was to record \"some traits of my character and of my humours.\" The Essays were first…"
   },
+  "https://en.wikipedia.org/wiki/Fields_Medal": {
+    "kind": "wikipedia",
+    "title": "Fields Medal",
+    "meta": ["Wikipedia"],
+    "text": "The Fields Medal is a prize awarded to two, three, or four mathematicians under 40 years of age at the International Congress of Mathematicians (ICM) of the International Mathematical Union (IMU), a convention which takes place every four years. The name of the award honors the Canadian mathematician John Charles Fields."
+  },
   "https://en.wikipedia.org/wiki/Fiscal_year": {
     "kind": "wikipedia",
     "title": "Fiscal year",
@@ -155,11 +221,47 @@
     "meta": ["Wikipedia"],
     "text": "Research funding is a term that generally encompasses any funding for scientific research in the areas of natural science, technology, and social science. While different methods can be used to disburse funding, the term generally connotes funding obtained through a competitive process, in which potential research projects are evaluated, with only the most promising and economically viable…"
   },
+  "https://en.wikipedia.org/wiki/Goodhart's_law": {
+    "kind": "wikipedia",
+    "title": "Goodhart's law",
+    "meta": ["Wikipedia"],
+    "text": "Goodhart's law is an adage that has been stated as, \"When a measure becomes a target, it ceases to be a good measure\". It is named after British economist Charles Goodhart, who is credited with expressing the core idea of the adage in a 1975 article on monetary policy in the United Kingdom:Any observed statistical regularity will tend to collapse once pressure is placed upon it for control…"
+  },
+  "https://en.wikipedia.org/wiki/Gregor_Mendel": {
+    "kind": "wikipedia",
+    "title": "Gregor Mendel",
+    "meta": ["Wikipedia"],
+    "text": "Gregor Johann Mendel was an Austrian biologist, meteorologist, mathematician, Augustinian friar and abbot of St. Thomas' Abbey in Brno (Brünn), Margraviate of Moravia. Mendel was born in a German-speaking family in the Silesian part of the Austrian Empire and gained posthumous recognition as the founder of the modern science of genetics."
+  },
+  "https://en.wikipedia.org/wiki/H-index": {
+    "kind": "wikipedia",
+    "title": "H-index",
+    "meta": ["Wikipedia"],
+    "text": "The h-index is an author-level metric that measures both the productivity and citation impact of the publications, initially used for an individual scientist or scholar. The h-index correlates with success indicators such as winning the Nobel Prize, being accepted for research fellowships and holding positions at top universities."
+  },
   "https://en.wikipedia.org/wiki/Halting_problem": {
     "kind": "wikipedia",
     "title": "Halting problem",
     "meta": ["Wikipedia"],
     "text": "In computability theory, the halting problem is the decision problem of, given an arbitrary computer program and an input, determining whether said program will eventually finish running and halt, or will continue to run forever."
+  },
+  "https://en.wikipedia.org/wiki/Ignaz_Semmelweis": {
+    "kind": "wikipedia",
+    "title": "Ignaz Semmelweis",
+    "meta": ["Wikipedia"],
+    "text": "Ignaz Philipp Semmelweis was a Hungarian medical doctor and scientist of German descent who was an early pioneer of antiseptic procedures, known as the \"saviour of mothers\". Postpartum infection, also known as puerperal fever or childbed fever, was common in the 19th century, and often fatal."
+  },
+  "https://en.wikipedia.org/wiki/L-system": {
+    "kind": "wikipedia",
+    "title": "L-system",
+    "meta": ["Wikipedia"],
+    "text": "An L-system or Lindenmayer system is a parallel rewriting system and a type of formal grammar. An L-system consists of an alphabet of symbols that can be used to make strings, a collection of production rules that expand each symbol into some larger string of symbols, an initial \"axiom\" string from which to begin construction, and a mechanism for translating the generated strings into geometric…"
+  },
+  "https://en.wikipedia.org/wiki/Langton's_ant": {
+    "kind": "wikipedia",
+    "title": "Langton's ant",
+    "meta": ["Wikipedia"],
+    "text": "Langton's ant is a two-dimensional Turing machine with a very simple set of rules but complex emergent behavior. It was invented by Chris Langton in 1986 and runs on a square lattice of black and white cells. The idea has been generalized in several different ways, such as turmites which add more colors and more states."
   },
   "https://en.wikipedia.org/wiki/Living_document": {
     "kind": "wikipedia",
@@ -173,6 +275,18 @@
     "meta": ["Wikipedia"],
     "text": "Mastodon is a free and open-source software platform for decentralized social networking with microblogging features similar to Twitter. It operates as a federated network of independently managed servers that communicate using the ActivityPub protocol, allowing users to connect across different instances within the Fediverse."
   },
+  "https://en.wikipedia.org/wiki/Matthew_effect": {
+    "kind": "wikipedia",
+    "title": "Matthew effect",
+    "meta": ["Wikipedia"],
+    "text": "The Matthew effect, sometimes called the Matthew principle or cumulative advantage, is the tendency of individuals to accrue social or economic success in proportion to their initial level of popularity, friends, wealth, and natural advantages. It is sometimes summarized by the adage or platitude \"the rich get richer and the poor get poorer\"."
+  },
+  "https://en.wikipedia.org/wiki/Mercury_(mythology)": {
+    "kind": "wikipedia",
+    "title": "Mercury (mythology)",
+    "meta": ["Wikipedia"],
+    "text": "Mercury is a major god in Roman religion and mythology, being one of the 12 Dii Consentes within the ancient Roman pantheon. He is the god of boundaries, commerce, communication, eloquence, financial gain, languages, luck, thieves, travelers, and trickery; he is also the guide of souls to the underworld."
+  },
   "https://en.wikipedia.org/wiki/Moravec's_paradox": {
     "kind": "wikipedia",
     "title": "Moravec's paradox",
@@ -184,6 +298,18 @@
     "title": "News aggregator",
     "meta": ["Wikipedia"],
     "text": "In computing, a news aggregator, also termed a feed aggregator, content aggregator, feed reader, news reader, or simply an aggregator, is client software or a web application that aggregates digital content such as online newspapers, blogs, podcasts, and video blogs (vlogs) in one location for easy viewing."
+  },
+  "https://en.wikipedia.org/wiki/Nobel_Prize": {
+    "kind": "wikipedia",
+    "title": "Nobel Prize",
+    "meta": ["Wikipedia"],
+    "text": "The Nobel Prizes are awards administered by the Nobel Foundation and granted in accordance with the principle of \"for the greatest benefit to humankind\". The prizes were first awarded in 1901, marking the fifth anniversary of Alfred Nobel's death. The original Nobel Prizes covered five fields: physics, chemistry, physiology or medicine, literature, and peace, specified in Nobel's will."
+  },
+  "https://en.wikipedia.org/wiki/Price_signal": {
+    "kind": "wikipedia",
+    "title": "Price signal",
+    "meta": ["Wikipedia"],
+    "text": "A price signal is information conveyed to consumers and producers, via the prices offered or requested for, and the amount requested or offered of a product or service, which provides a signal to increase or decrease quantity supplied or quantity demanded. It also provides potential business opportunities."
   },
   "https://en.wikipedia.org/wiki/Principal_investigator": {
     "kind": "wikipedia",
@@ -245,6 +371,12 @@
     "meta": ["Wikipedia"],
     "text": "\"The Soul of Man Under Socialism\" is an 1891 essay by Oscar Wilde in which he expounds a libertarian socialist worldview and a critique of charity. The writing of \"The Soul of Man\" followed Wilde's conversion to anarchist philosophy, following his reading of the works of Peter Kropotkin."
   },
+  "https://en.wikipedia.org/wiki/Turing_Award": {
+    "kind": "wikipedia",
+    "title": "Turing Award",
+    "meta": ["Wikipedia"],
+    "text": "The ACM A. M. Turing Award is an annual prize given by the Association for Computing Machinery (ACM) for contributions of lasting and major technical importance to computer science. It is generally recognized as the highest distinction in the field of computer science and is often referred to as the \"Nobel Prize of Computing\"."
+  },
   "https://en.wikipedia.org/wiki/Zone_of_proximal_development#": {
     "kind": "wikipedia",
     "title": "Zone of proximal development",
@@ -287,11 +419,23 @@
     "meta": [],
     "text": "CSS, JS, Internet archiving, typography, meta"
   },
+  "https://link.springer.com/article/10.1007/s11192-024-04936-1": {
+    "kind": "page",
+    "title": "The Nobel family | Scientometrics | Springer Nature Link",
+    "meta": [],
+    "text": "You have full access to this open access article"
+  },
   "https://obsidian.md/": {
     "kind": "page",
     "title": "Obsidian - Sharpen your thinking",
     "meta": [],
     "text": "The free and flexible app for your private thoughts."
+  },
+  "https://obsidian.md/sync": {
+    "kind": "page",
+    "title": "Obsidian Sync",
+    "meta": [],
+    "text": "The simple and secure way to sync your notes across any device and OS."
   },
   "https://openlibrary.org/books/OL21115131M/I_seem_to_be_a_verb._--.": {
     "kind": "page",
@@ -352,6 +496,12 @@
     "title": "Situated Learning | Cambridge Aspire website",
     "meta": [],
     "text": ""
+  },
+  "https://www.eastgate.com/garden/Enter.html": {
+    "kind": "page",
+    "title": "Hypertext Gardens",
+    "meta": [],
+    "text": "Into the Garden Beyond the Navigation Problem The Limits of Structure Gardens and Paths The Virtue of Irregularity Gates and Signposts Statuary and Follies: Punctuating the Reader Experience Planning Pathways Seven Lessons from Gardening"
   },
   "https://www.mathjax.org/": {
     "kind": "page",

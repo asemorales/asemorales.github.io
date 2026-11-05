@@ -357,7 +357,7 @@ test.describe("bottom matter", () => {
   });
 
   test("list unlisted notes under See also, and let search engines index them", async ({ page }) => {
-    await page.goto("/why-do-we-define-ourselves-by-what-we-do-rather-than-what-we-think/");
+    await page.goto("/identity-by-action-and-thought/");
     await expect(page.locator("#see-also + ul a")).toHaveAttribute("href", "/to-the-reader/");
     await page.goto("/to-the-reader/");
     await expect(page.locator('meta[name="robots"]')).toHaveCount(0);

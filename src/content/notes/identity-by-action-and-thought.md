@@ -1,7 +1,7 @@
 ---
 title: "Why do we define ourselves by what we do, rather than what we think?"
 date: 2026-11-02
-updated: 2026-11-04
+updated: 2026-11-06
 tags: ["culture"]
 ---
 
@@ -21,6 +21,8 @@ Majority of social media stories and updates are of *events*: announcements or p
 
 Why is it that biographies are stories of what a person has *done* or what has been *done* to them throughout their life (that is, born in $X$, studied at $Y$, died of $Z$, etc.), and rarely ever the evolution of ideas and beliefs throughout their lives[^1]? Even when biographies do mention ideas, often it is in the form of "he published $XYZ$, which discusses..." This is still more about the *action* of publishing ideas rather than the conception and description of the idea itself.
 
-In studying the history of a field, it traces the thinkers and events, and by consequence the evolution of ideas. Yet this is more uncommon in both the study of the history of a person, and even more uncommon in how people retell their own lives. Ask anyone to tell you about their life, and most can easily recount the history of events, but not the history of their ideas and beliefs.
+In studying the history of a field, it traces the thinkers and events[^2], and by consequence the evolution of ideas. Yet this is more uncommon in both the study of the history of a person, and even more uncommon in how people retell their own lives. Ask anyone to tell you about their life, and most can easily recount the history of events, but not the history of their ideas and beliefs.
 
 [^1]: In Einstein's *[Autobiographical Notes](https://archive.org/details/autobiographical1979eins)*, he wrote relatively little of what he *did*. Instead, he wrote about the evolution of his ideas that led to his discoveries.
+
+[^2]: It follows from this that [[science-and-math-as-influence|science and mathematics are unbounded influence games.]]

@@ -1,47 +1,66 @@
 ---
 title: "Glossary"
 date: 2026-11-01
-updated: 2026-11-04
+updated: 2026-11-06
 tags: ["paratext"]
 unlisted: true
 ---
 
-Sometimes, pages herein use terms that are relatively new, underused, or defined differently across sources as of the time of writing. Other times, I have an internal definition that comes more naturally to me. In those cases, I have attempted my own definitions of these words. It is in this sense that I use these terms in my writing.
+Sometimes, pages herein use terms that are relatively new, underused, or defined differently across sources as of the time of writing[^3]. To be precise, I define here which definitions I use across my writing.
 
-When appropriate and possible, I also move these definitions to Wikipedia articles, in the hopes that others can build upon a reference for these terms in much the same manner that my own writings are based on existing references.
+## complex system (noun)
+
+>[!definition]
+>A complex system is an ensemble of many elements which are interacting in a disordered way, resulting in robust organisation and memory[^cite-ladyman-complexsystem].
 
 ## adjacent possible (noun)
 
-The set of possible future states that an autonomous agent can be in that are one step away from the agent's current state. The adjacent possible is indefinitely expandable, since when an agent moves into a state within the adjacent possible, a new adjacent possible becomes available, which consists of the next set of states one step away from the agent's new current state. It describes the mechanism by which there occurs an explosion of possibilities through evolution.
-
-The idea was introduced by [Stuart Kauffman](https://en.wikipedia.org/wiki/Stuart_Kauffman), who first used the term to describe a law of the biosphere, wherein the biosphere tends towards novelty by evolving towards the adjacent possible[^cite-kauffman-investigations-1]. The term has also been used to describe the explosion of molecular diversity[^cite-kauffman-investigations-2], societal adoption of new technology[^cite-kauffman-investigations-3], and the development of economic complexity within a toy economy[^cite-kauffman-investigations-4].
-
-In education, the adjacent possible is conceptually similar to the [zone of proximal development](https://en.wikipedia.org/wiki/Zone_of_proximal_development#).
+> [!definition]
+> The set of possible future states that an autonomous agent can be in that are one step away from the agent's current state. The adjacent possible is indefinitely expandable, since when an agent moves into a state within the adjacent possible, a new adjacent possible becomes available, which consists of the next set of states one step away from the agent's new current state. It describes the mechanism by which there occurs an explosion of possibilities through evolution.
+>
+> The idea was introduced by [Stuart Kauffman](https://en.wikipedia.org/wiki/Stuart_Kauffman), who first used the term to describe a law of the biosphere, wherein the biosphere tends towards novelty by evolving towards the adjacent possible[^cite-kauffman-investigations-1]. The term has also been used to describe the explosion of molecular diversity[^cite-kauffman-investigations-2], societal adoption of new technology[^cite-kauffman-investigations-3], and the development of economic complexity within a toy economy[^cite-kauffman-investigations-4].
+>
+> In education, the adjacent possible is conceptually similar to the [zone of proximal development](https://en.wikipedia.org/wiki/Zone_of_proximal_development#).
 
 ## weak emergence (noun)
 
-[Emergent properties](https://en.wikipedia.org/wiki/Emergence) that are unexpected from a system's components, yet can, in principle, be derived[^cite-chalmers-sawe].
+> [!definition]
+> [Emergent properties](https://en.wikipedia.org/wiki/Emergence) that are unexpected from a system's components, yet can, in principle, be derived[^cite-chalmers-sawe][^2].
+>
+> ### Examples
+>
+> - many-body physics (the higher-level domain) has new laws not present in elementary particle physics (the lower-level domain)
+> - social sciences (the higher-level domain) has new laws not present in psychology (the lower-level domain)
+>
+> In these examples, while the new laws of the higher-level domain are unexpected, they can, in principle, be derived and simulated from the laws of the lower-level domain[^1].
 
 ## strong emergence (noun)
 
-[Emergent properties](https://en.wikipedia.org/wiki/Emergence) that cannot be deduced from a system's components, even in principle. Strongly emergent phenomena may also exhibit [downward causation](https://en.wikipedia.org/wiki/Downward_causation)[^cite-chalmers-sawe].
+> [!definition]
+> [Emergent properties](https://en.wikipedia.org/wiki/Emergence) that cannot be deduced from a system's components, even in principle. Some forms of strongly emergent phenomena may also exhibit [downward causation](https://en.wikipedia.org/wiki/Downward_causation)[^cite-chalmers-sawe][^2].
 
 ## entelechy (noun)
 
-An activity by which a system actualizes its latent potential. It is an activity that is an end in itself, and thus is complete at every moment. This is in contrast with [[#kinesis (noun)|kinesis]].
-
-Example: being
-
-### Etymology
-
->[!quote] Joe Sachs, *Aristotle's Physics: a Guided Study*
->Aristotle invents the word by combining *entelēs* (ἐντελής, 'complete, full-grown') with *echein* (= *hexis*, to be a certain way by the continuing effort of holding on in that condition), while at the same time punning on *endelecheia* (ἐνδελέχεια, 'persistence') by inserting *telos* (τέλος, 'completion'). This is a three-ring circus of a word, at the heart of everything in Aristotle's thinking, including the definition of motion.
+> [!definition]
+> An activity by which a system actualizes its latent potential. It is an activity that is an end in itself, and thus is complete at every moment. This is in contrast with [[#kinesis (noun)|kinesis]].
+>
+> ### Examples
+>
+> - being
+>
+> ### Etymology
+>
+> > [!quote] Joe Sachs, *Aristotle's Physics: a Guided Study*
+> > Aristotle invents the word by combining *entelēs* (ἐντελής, 'complete, full-grown') with *echein* (= *hexis*, to be a certain way by the continuing effort of holding on in that condition), while at the same time punning on *endelecheia* (ἐνδελέχεια, 'persistence') by inserting *telos* (τέλος, 'completion'). This is a three-ring circus of a word, at the heart of everything in Aristotle's thinking, including the definition of motion.
 
 ## kinesis (noun)
 
-(As used by Aristotle) An activity by which a system actualizes its latent potential. Unlike [[#entelechy (noun)|entelechy]], it is not an end in itself, and thus is only complete once potential has been fully realized.
-
-Example: building a structure
+> [!definition]
+> (As used by Aristotle) An activity by which a system actualizes its latent potential. Unlike [[#entelechy (noun)|entelechy]], it is not an end in itself, and thus is only complete once potential has been fully realized.
+>
+> ### Examples
+>
+> - building a structure
 
 [^cite-kauffman-investigations-1]: [Kauffman, Investigations 2000 p. 22](https://archive.org/details/investigations00kauf)
 
@@ -52,3 +71,13 @@ Example: building a structure
 [^cite-kauffman-investigations-4]: [Kauffman, Investigations 2000 p. 224-227](https://archive.org/details/investigations00kauf)
 
 [^cite-chalmers-sawe]: [Chalmers, Strong and Weak Emergence](https://consc.net/papers/emergence.pdf)
+
+[^cite-bedau-dcawe]: Bedau, 2008, Downward Causation and Autonomy in Weak Emergence
+
+[^cite-ladyman-complexsystem]: [Ladyman, Lambert, Wiesner, 2013, What is a complex system?](https://doi.org/10.1007%2Fs13194-012-0056-8)
+
+[^1]: This is a common, but not necessary, property of some weakly emergent systems. Bedau further separates weak emergence into robust weak emergence (emergence wherein new laws appear in the higher-level domain) and non-robust weak emergence (emergence that does not create new laws, but still produces unexpected behavior, like [Langdon's Ant](https://en.wikipedia.org/wiki/Langton's_ant))[^cite-bedau-dcawe].
+
+[^2]: Across my writing, I mainly use the classifications of emergence by Chalmers (weak and strong emergence), and only sometimes mention the classifications of emergence by Bedau (nominal, weak, and strong emergence; with further subdivisions for each classification).
+
+[^3]: When some scientific consensus exists for a rigorous definition, I tend to link to definitions in Wikipedia to indicate that I'm referring to that definition. When little consensus exists, or when I adhere to some definition of my own, I add and use the definitions here. Hence, some of my definitions here may differ from others'.

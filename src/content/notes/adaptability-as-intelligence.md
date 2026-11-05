@@ -1,7 +1,7 @@
 ---
 title: "Adaptability is a necessary, but not sufficient, dimension of intelligence"
 date: 2026-11-04
-updated: 2026-11-04
+updated: 2026-11-06
 tags: ["cognition","technology"]
 ---
 
@@ -23,6 +23,6 @@ AI research has similarly been applying adaptability as a measure of intelligenc
 
 [^cite-piaget-tpi]: [Piaget, 1972, The Psychology of Intelligence](https://archive.org/details/psychologyofinte0000jean)
 
-[^cite-bennett-absmitai]: [Bennett, 2024, Are Biological Systems More Intelligent Than Artificial Intelligence?](https://doi.org/10.48550/arXiv.2405.02325)
+[^cite-bennett-absmitai]: [Bennett, 2024, Are Biological Systems More Intelligent Than Artificial Intelligence?](https://arxiv.org/abs/2405.02325)
 
-[^cite-thorndike-ims]: [Thorndike et al., 1921, Intelligence and its Measurement: A Symposium](https://www.semanticscholar.org/paper/Intelligence-and-its-measurement:-A-symposium--I.-Thorndike/d53993b49367614d27d9823e59b99a0ca214f928?utm_source=direct_link)
+[^cite-thorndike-ims]: Thorndike et al., 1921, Intelligence and its Measurement: A Symposium

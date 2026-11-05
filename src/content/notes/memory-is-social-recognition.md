@@ -1,7 +1,7 @@
 ---
 title: "Memory is social recognition"
 date: 2026-11-02
-updated: 2026-11-04
+updated: 2026-11-06
 tags: ["philosophy"]
 ---
 
@@ -21,4 +21,6 @@ Why is it that memory is measured by social recognition rather than the form of 
 
 Perhaps one ought not worry about remembrance. Being remembered is the inconsequential baseline, for the geometry of reality will remember regardless. Each event, by constraining the set of possible future states, is necessarily encoded. Entropy encodes history in irreversibility.
 
-By virtue of truth, entropic memory outweighs social memory. Therefore, the question of "What do I want to be remembered for?" mistakes social recognition for ontological persistence. To ask how one will be remembered rests on a mistaken definition of an observer. A more reality-grounded question would be to ask, "What constraints on the future do I want my existence to impose?"
+By virtue of truth, entropic memory outweighs social memory[^1]. Therefore, the question of "What do I want to be remembered for?" mistakes social recognition for ontological persistence. To ask how one will be remembered rests on a mistaken definition of an observer. A more reality-grounded question would be to ask, "What constraints on the future do I want my existence to impose?"
+
+[^1]: See [[science-and-math-as-influence|science and mathematics are unbounded influence games]]

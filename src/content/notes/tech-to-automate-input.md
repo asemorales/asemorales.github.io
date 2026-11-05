@@ -1,7 +1,7 @@
 ---
 title: "Use technology to automate input, not processing"
 date: 2026-11-03
-updated: 2026-11-04
+updated: 2026-11-06
 tags: ["technology","guide"]
 ---
 
