@@ -269,6 +269,7 @@
   .note {
     @apply mb-20;
     hyphens: auto;
+    overflow-wrap: break-word;
   }
   .listing {
     @apply mb-20;

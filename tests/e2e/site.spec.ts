@@ -51,7 +51,7 @@ test.describe("lorem ipsum page", () => {
     await expect(page.locator(".colophon")).toHaveCount(0);
 
     await page.goto("/colophon/");
-    await expect(page.locator('.colophon a[href="/lorem-ipsum/"]')).toHaveText("feature test");
+    await expect(page.locator('article a[href="/lorem-ipsum/"]')).toHaveText("feature test");
     const sitemap = await (await request.get("/sitemap-0.xml")).text();
     expect(sitemap).toContain("lorem-ipsum");
     expect(sitemap).toContain("acknowledgments");
