@@ -158,7 +158,11 @@
   document.addEventListener("click", (e) => {
     if ((e.target as Element).matches(".note .margin-toggle")) return;
     const g = group(e.target);
-    if (pinned && pinned[0] !== g?.[0]) highlight(pinned, false);
+    if (pinned && pinned[0] !== g?.[0]) {
+      highlight(pinned, false);
+      pinned = null;
+    }
+    if (!g || (e.target as Element).closest(".block-tools")) return;
     pinned = g;
     highlight(g, true);
   });

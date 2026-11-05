@@ -504,7 +504,7 @@
     @apply relative;
   }
   .note .math-block {
-    @apply border border-transparent px-3 outline-frame transition-colors;
+    @apply border border-transparent px-3 transition-colors;
   }
   .note .math-block:is(:hover, :has(:focus-visible), .show) {
     @apply border-rule;
@@ -528,7 +528,7 @@
     @apply my-4;
   }
   .note .math-block.highlighted {
-    @apply outline-1 outline-offset-2;
+    @apply border-frame;
   }
 
   .note figure {

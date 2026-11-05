@@ -421,6 +421,7 @@ test.describe("block buttons", () => {
     const corner = [page.viewportSize()!.width - 2, 2] as const;
     await block.hover();
     await lit(true);
+    await expect(block).toHaveCSS("outline-style", "none");
     await page.mouse.move(...corner);
     await lit(false);
     await block.click();
@@ -428,6 +429,29 @@ test.describe("block buttons", () => {
     await lit(true);
     await page.mouse.click(...corner);
     await lit(false);
+  });
+
+  test("clicking an equation's tools leaves its highlight to hover", async ({ page, javaScriptEnabled }, info) => {
+    test.skip(javaScriptEnabled === false, "JS projects only");
+    const block = page.locator(".math-block:has([id='mjx-eqn:eq:halting'])");
+    if (!wide(info.project.name)) {
+      await block.getByRole("button", { name: "Show LaTeX source" }).tap();
+      await expect(block.locator("pre.tex-source")).toBeVisible();
+      await expect(block).not.toHaveClass(/highlighted/);
+      return;
+    }
+    const corner = [page.viewportSize()!.width - 2, 2] as const;
+    await block.hover();
+    await block.getByRole("button", { name: "Show LaTeX source" }).click();
+    await block.getByRole("button", { name: "Show rendered math" }).click();
+    await expect(block).toHaveClass(/highlighted/);
+    await page.mouse.move(...corner);
+    await expect(block).not.toHaveClass(/highlighted/);
+
+    await block.click({ position: { x: 5, y: 5 } });
+    await block.getByRole("button", { name: "Show LaTeX source" }).click();
+    await page.mouse.move(...corner);
+    await expect(block).toHaveClass(/highlighted/);
   });
 });
 
