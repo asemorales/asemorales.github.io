@@ -32,7 +32,7 @@ This publishes all notes in the vault's `published/` folder. Wikilinks and slugs
 
 To write a custom annotation for an external link, add a note to `published/annotations/` with `url` and `title` fields in the front matter. The link's popover uses the title as its heading and the note's text as its body. The `url` must match the note's link exactly. Sync warns about annotations that no note links to, and about PDF links with no annotation, because PDFs have no fetched card.
 
-To change the homepage introduction, edit `published/introduction.md`. This file needs no front matter, and `npm run sync` does not publish it as a note.
+To change the homepage introduction, edit `published/paratext/introduction.md`. This file needs no front matter, and `npm run sync` does not publish it as a note.
 
 To set text as a colophon, use a `> [!colophon] Title` callout. The title is optional.
 

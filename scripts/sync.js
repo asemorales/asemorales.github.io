@@ -9,7 +9,7 @@ import { WIKILINK } from "../src/lib/wikilinks.js";
 import { classify, notesByLink } from "./build-cards.js";
 
 const IMAGE = /\.(png|jpe?g|gif|webp|avif|svg)$/i;
-const INTRODUCTION = "introduction.md";
+const INTRODUCTION = "paratext/introduction.md";
 const NOTE_KEYS = new Set(["title", "date", "tags", "unlisted"]);
 const SKIP_DIRS = new Set([".git", ".obsidian", ".trash", "node_modules"]);
 const IGNORED_WIKILINKS = new Set(["some private note"]);
@@ -246,7 +246,7 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
   }
 
   if (files.includes(introductionFile)) {
-    await fs.writeFile(path.join(out, INTRODUCTION), matter(await fs.readFile(introductionFile, "utf8")).content.trim() + "\n");
+    await fs.writeFile(path.join(out, path.basename(INTRODUCTION)), matter(await fs.readFile(introductionFile, "utf8")).content.trim() + "\n");
   }
 
   if (sources.size) await fs.mkdir(path.join(notesDir, "images"), { recursive: true });

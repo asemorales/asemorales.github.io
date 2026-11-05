@@ -20,7 +20,11 @@ const read = (rel) => fs.readFile(path.join(out, rel), "utf8");
 async function tempVault(notes) {
   const vault = await fs.mkdtemp(path.join(os.tmpdir(), "sync-vault-"));
   await fs.mkdir(path.join(vault, "published", "annotations"), { recursive: true });
-  for (const [name, text] of Object.entries(notes)) await fs.writeFile(path.join(vault, "published", name), text);
+  for (const [name, text] of Object.entries(notes)) {
+    const file = path.join(vault, "published", name);
+    await fs.mkdir(path.dirname(file), { recursive: true });
+    await fs.writeFile(file, text);
+  }
   return vault;
 }
 
@@ -119,7 +123,7 @@ describe("sync", () => {
   });
 
   it("copies the introduction without publishing it as a note", async () => {
-    const vault = await tempVault({ "introduction.md": "A short introduction.\n" });
+    const vault = await tempVault({ "paratext/introduction.md": "A short introduction.\n" });
     const report = await sync({ vault, out, lastUpdated: fixedDate });
     expect(await read("introduction.md")).toBe("A short introduction.\n");
     expect(report.notes).toEqual([]);
