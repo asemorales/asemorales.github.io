@@ -33,6 +33,23 @@ test.describe("popovers on the lorem page", () => {
     await expect(p.locator(".popover-more .icon-external")).toBeVisible();
   });
 
+  test("open above the link when there is room", async ({ page }) => {
+    const p = await hover(page, "Halting problem");
+    const link = (await page.getByRole("link", { name: "Halting problem", exact: true }).first().boundingBox())!;
+    const box = (await p.boundingBox())!;
+    expect(box.y + box.height).toBeLessThanOrEqual(link.y);
+  });
+
+  test("open below the link when there is no room above", async ({ page }) => {
+    const link = page.getByRole("link", { name: "Halting problem", exact: true }).first();
+    await link.evaluate((a) => scrollTo({ top: a.getBoundingClientRect().top + scrollY - 20, behavior: "instant" }));
+    const box = (await link.boundingBox())!;
+    expect(box.y).toBeLessThan(100);
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await expect(popover(page)).toBeVisible();
+    expect((await popover(page).boundingBox())!.y).toBeGreaterThanOrEqual(box.y + box.height);
+  });
+
   test("keep Go to site in view when the preview is long", async ({ page }) => {
     const p = await hover(page, "MobileLookNet");
     const box = (await p.boundingBox())!;
@@ -67,6 +84,12 @@ test.describe("popovers on the lorem page", () => {
     await expect(await hover(page, "Halting problem")).toContainText("In computability theory");
   });
 
+  test("switch to another link's card when moving straight to it", async ({ page }) => {
+    await hover(page, "Attention Is All You Need");
+    await page.getByRole("link", { name: "Halting problem", exact: true }).first().hover();
+    await expect(popover(page).locator(".popover-title")).toHaveText("Halting problem");
+  });
+
   test("show a citation's source text", async ({ page }) => {
     const card = { title: "Mock source", meta: [], paragraphs: ["Mock source text."] };
     await page.route("**/popovers.json", (route) => route.fulfill({ json: { "https://doi.org/10.1112/plms/s2-42.1.230": card } }));
@@ -75,7 +98,7 @@ test.describe("popovers on the lorem page", () => {
   });
 
   test("say a dead link's copy is archived", async ({ page }) => {
-    await expect((await hover(page, "a page that no longer exists")).locator(".popover-dead")).toContainText("Archived copy");
+    await expect((await hover(page, "a page that no longer exists")).locator(".popover-dead")).toContainText("archived copy");
   });
 
   test("preview a heading's first paragraph", async ({ page }) => {

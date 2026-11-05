@@ -56,8 +56,7 @@ export function linkCard({ url, text, card, annotation, deadSince }) {
     meta: card?.meta?.length ? card.meta : [domain],
     paragraphs: annotated.length ? annotated : card?.text ? [card.text] : [],
   };
-  if (deadSince !== undefined)
-    out.dead = deadSince ? `Archived copy. The original went dead on ${deadSince}.` : "Archived copy. The original is gone.";
+  if (deadSince !== undefined) out.dead = "This redirects to an archived copy since the source is no longer available.";
   return out;
 }
 

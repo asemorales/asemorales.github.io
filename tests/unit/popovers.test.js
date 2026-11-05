@@ -60,7 +60,9 @@ describe("popover cards", () => {
   });
 
   it("say when a link is dead", () => {
-    expect(linkCard({ url: "https://x.org", text: "X", deadSince: "2026-01-02" }).dead).toBe("Archived copy. The original went dead on 2026-01-02.");
+    expect(linkCard({ url: "https://x.org", text: "X", deadSince: "2026-01-02" }).dead).toBe(
+      "This redirects to an archived copy since the source is no longer available.",
+    );
   });
 
   it("clip at a sentence, or at a word with an ellipsis", () => {
