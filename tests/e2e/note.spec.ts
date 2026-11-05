@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("layout and type", () => {
   test("wraps paragraphs without indents, with space between them", async ({ page, browserName }) => {
-    const [first, second] = [page.locator("#typography + p"), page.locator("#typography + p + p")];
+    const [first, second] = [page.locator("#sidenotes + p"), page.locator("#sidenotes + p + p")];
     expect(await first.evaluate((el) => getComputedStyle(el).textIndent)).toBe("0px");
     expect(await second.evaluate((el) => getComputedStyle(el).textIndent)).toBe("0px");
     expect(await second.evaluate((el) => getComputedStyle(el).marginTop)).not.toBe("0px");

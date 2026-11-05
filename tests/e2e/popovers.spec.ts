@@ -161,7 +161,7 @@ test.describe("popovers on other notes", () => {
     await page.goto("/dolor-sit-amet/");
     const p = await hover(page, "Lorem Ipsum");
     await expect(p.locator(".popover-title")).toHaveText("Lorem Ipsum");
-    await expect(p.locator(".popover-body")).toContainText("Lorem ipsum dolor sit amet");
+    await expect(p.locator(".popover-body")).toContainText("This page contains dummy text");
     await expect(p.locator(".popover-more")).toHaveAttribute("href", /\/lorem-ipsum\/$/);
   });
 });
@@ -194,7 +194,7 @@ test.describe("drawer on touch screens", () => {
     await page.goto("/dolor-sit-amet/");
     await page.getByRole("link", { name: "Lorem Ipsum", exact: true }).first().tap();
     const drawer = page.locator("dialog.link-drawer");
-    await expect(drawer.locator(".popover-body")).toContainText("Lorem ipsum dolor sit amet");
+    await expect(drawer.locator(".popover-body")).toContainText("This page contains dummy text");
     await expect(drawer.locator(".drawer-go")).toHaveText("Read note");
     await page.touchscreen.tap(10, 10);
     await expect(drawer).toBeHidden();
