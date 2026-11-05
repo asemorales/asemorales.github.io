@@ -840,7 +840,7 @@
   }
 
   .link-drawer {
-    @apply fixed inset-x-0 top-auto bottom-0 m-0 max-h-[75vh] w-full max-w-none border-t border-frame bg-code p-0 text-base leading-normal text-ink;
+    @apply fixed inset-x-0 top-auto bottom-0 m-0 max-h-[75vh] w-full max-w-none flex-col border-t border-frame bg-code p-0 text-base leading-normal text-ink;
   }
   .link-drawer {
     translate: 0 100%;
@@ -850,7 +850,7 @@
       overlay 0.25s allow-discrete;
   }
   .link-drawer[open] {
-    @apply flex flex-col;
+    @apply flex;
     translate: 0 0;
   }
   @starting-style {
@@ -893,7 +893,7 @@
     @apply absolute top-2 right-2 flex cursor-pointer items-center p-2 text-lg text-dim hover:text-ink;
   }
   .drawer-go {
-    @apply mx-5 mt-2 mb-5 block border border-frame bg-page px-4 py-2.5 text-center no-underline;
+    @apply mx-5 mt-2 mb-5 block border border-frame bg-page px-4 py-2.5 text-center no-underline hover:bg-hover hover:text-ink active:bg-hover active:text-ink;
   }
   @media (prefers-reduced-motion: reduce) {
     .link-drawer,

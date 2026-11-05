@@ -216,6 +216,35 @@ test.describe("drawer on touch screens", () => {
     await expect(drawer).toBeHidden();
   });
 
+  test("pressing the drawer's button darkens its background and keeps its text color", async ({ page }) => {
+    await page.goto("/lorem-ipsum/");
+    await page.getByRole("link", { name: "asemorales/bierstadt" }).first().tap();
+    const go = page.locator("dialog.link-drawer .drawer-go");
+    await expect(go).toBeVisible();
+    await page.waitForTimeout(300);
+    const color = (el: Element, property: "color" | "backgroundColor") => getComputedStyle(el)[property];
+    const text = await go.evaluate(color, "color");
+    const background = await go.evaluate(color, "backgroundColor");
+    const { x, y, width, height } = (await go.boundingBox())!;
+    await page.mouse.move(x + width / 2, y + height / 2);
+    await page.mouse.down();
+    await expect(go).not.toHaveCSS("background-color", background);
+    await expect(go).toHaveCSS("color", text);
+    await page.mouse.up();
+  });
+
+  test("the drawer keeps its layout while it slides closed", async ({ page }) => {
+    await page.goto("/lorem-ipsum/");
+    await page.getByRole("link", { name: "asemorales/bierstadt" }).first().tap();
+    const drawer = page.locator("dialog.link-drawer");
+    await expect(drawer).toBeVisible();
+    const direction = await drawer.evaluate((d: HTMLDialogElement) => {
+      d.close();
+      return getComputedStyle(d).flexDirection;
+    });
+    expect(direction).toBe("column");
+  });
+
   test("a tap outside closes it, and its button opens the linked note", async ({ page }) => {
     await page.goto("/dolor-sit-amet/");
     await page.getByRole("link", { name: "Lorem Ipsum", exact: true }).first().tap();
