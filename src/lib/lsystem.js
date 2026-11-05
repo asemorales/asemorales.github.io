@@ -1,6 +1,16 @@
 const FLOWER_RADIUS = 1.6;
 const BRACT = 4;
 const EDGE = BRACT + 1;
+const CELL = 8;
+const EXTINCTION = 0.008;
+const RAYS = [-1, 0, 1];
+const LOOK = 5;
+const BEND = 40;
+const STIFFNESS = 80;
+const DAMPING = 4;
+const PUSH = 0.2;
+const MOST_SPEED = 7;
+const MOST_TILT = 0.8;
 
 const FLOWERING = {
   turn: [35, 45],
@@ -102,9 +112,9 @@ const SYSTEMS = {
 };
 
 export const KINDS = [
-  { weight: 0.4, height: [150, 216], systems: SYSTEMS.tree },
-  { weight: 0.3, height: [80, 135], systems: SYSTEMS.fern },
-  { weight: 0.3, height: [50, 110], systems: SYSTEMS.flower },
+  { weight: 0.4, height: [150, 216], needs: 0.5, sun: 2, opacity: 1, room: 20, life: [240, 480], systems: SYSTEMS.tree },
+  { weight: 0.3, height: [80, 135], needs: 0.2, sun: -0.5, opacity: 0.25, room: 6, life: [120, 300], systems: SYSTEMS.fern },
+  { weight: 0.3, height: [50, 110], needs: 0.35, sun: 1, opacity: 0.25, room: 6, life: [60, 180], systems: SYSTEMS.flower },
 ];
 
 export const TREE = KINDS[0];
@@ -168,7 +178,7 @@ export function derive({ axiom, generations, rules, tips }, random = Math.random
   return tips ? word.replace(tips, "K") : word;
 }
 
-export function interpret(word, { turn: [low, high], jitter, straighten = 1 }, random = Math.random) {
+export function interpret(word, { turn: [low, high], jitter, straighten = 1, bend = 0 }, random = Math.random) {
   const turn = low + random() * (high - low);
   const angle = () => turn + (random() - 0.5) * jitter;
   const lines = [];
@@ -179,6 +189,7 @@ export function interpret(word, { turn: [low, high], jitter, straighten = 1 }, r
   for (const symbol of word) {
     if (symbol === "F" || symbol === "I") {
       turtle.heading *= straighten;
+      turtle.heading += bend * Math.cos((turtle.heading * Math.PI) / 180);
       const radians = (turtle.heading * Math.PI) / 180;
       const x = turtle.x + Math.sin(radians);
       const y = turtle.y - Math.cos(radians);
@@ -204,19 +215,25 @@ export function interpret(word, { turn: [low, high], jitter, straighten = 1 }, r
 
 const round = (value) => +value.toFixed(1);
 
-export function choose(kinds, random = Math.random) {
+export function choose(kinds, random = Math.random, light = 1) {
   return weighted(
-    kinds.map((kind) => [kind.weight, kind]),
+    kinds.map((kind) => [kind.weight * light ** kind.sun, kind]),
     random,
   )[1];
 }
 
-export function sprout(kind, x, ground, width, random = Math.random) {
+export function sprout(kind, x, ground, width, random = Math.random, { light = 1, lean = 0 } = {}) {
   const system = kind.systems[Math.floor(random() * kind.systems.length)];
-  const { lines, bracts, flowers } = interpret(derive(system, random), system, random);
-
-  const target = kind.height[0] + random() * (kind.height[1] - kind.height[0]);
+  const word = derive(system, random);
   const facing = random() < 0.5 ? 1 : -1;
+  let shape = interpret(word, system, random);
+  if (lean) {
+    const span = shape.lines.reduce((far, line) => Math.max(far, line.reach), 1);
+    shape = interpret(word, { ...system, bend: (lean * facing) / span }, random);
+  }
+  const { lines, bracts, flowers } = shape;
+
+  const target = kind.height[0] + random() * (kind.height[1] - kind.height[0]) * light;
   const sides = lines.map((line) => line.x2 * facing);
   const low = Math.min(0, ...sides);
   const high = Math.max(0, ...sides);
@@ -229,7 +246,14 @@ export function sprout(kind, x, ground, width, random = Math.random) {
   const layers = Array.from({ length: GENERATIONS }, () => "");
   const layer = (at) => Math.floor(((at - 1) / reach) * GENERATIONS);
 
-  for (const line of lines) layers[layer(line.reach)] += `M${left(line.x1)} ${top(line.y1)}L${left(line.x2)} ${top(line.y2)}`;
+  const cells = new Map();
+  for (const line of lines) {
+    layers[layer(line.reach)] += `M${left(line.x1)} ${top(line.y1)}L${left(line.x2)} ${top(line.y2)}`;
+    const col = Math.floor(left((line.x1 + line.x2) / 2) / CELL);
+    const row = Math.floor(top((line.y1 + line.y2) / 2) / CELL);
+    const key = `${col} ${row}`;
+    cells.set(key, { col, row, length: (cells.get(key)?.length ?? 0) + scale * kind.opacity });
+  }
   for (const bract of bracts) {
     const radians = ((bract.heading + 60 * bract.side) * Math.PI) / 180;
     const dx = round(BRACT * Math.sin(radians));
@@ -241,5 +265,95 @@ export function sprout(kind, x, ground, width, random = Math.random) {
     layers[layer(flower.reach)] +=
       `M${round(left(flower.x) - FLOWER_RADIUS)} ${top(flower.y)}a${FLOWER_RADIUS} ${FLOWER_RADIUS} 0 1 0 ${d} 0a${FLOWER_RADIUS} ${FLOWER_RADIUS} 0 1 0 ${-d} 0`;
   }
-  return layers;
+  return { kind, x, base, layers, foliage: [...cells.values()] };
+}
+
+export function canopy(width, height) {
+  const cols = Math.ceil(width / CELL) + 1;
+  const rows = Math.ceil(height / CELL) + 1;
+  return { cols, rows, density: new Float64Array(cols * rows), plants: [] };
+}
+
+function shift({ cols, density }, foliage, sign) {
+  for (const { col, row, length } of foliage) density[row * cols + col] += sign * length;
+}
+
+export function skylight({ cols, density }, col, row) {
+  let total = 0;
+  for (const ray of RAYS) {
+    let area = 0;
+    for (let c = col + ray, r = row - 1; r >= 0 && c >= 0 && c < cols; c += ray, r--) area += density[r * cols + c];
+    total += Math.exp(-EXTINCTION * area);
+  }
+  return total / RAYS.length;
+}
+
+function exposure(garden, foliage) {
+  let lit = 0;
+  let area = 0;
+  for (const { col, row, length } of foliage) {
+    lit += length * skylight(garden, col, row);
+    area += length;
+  }
+  return area ? lit / area : 1;
+}
+
+export function lightOn(garden, plant) {
+  const held = garden.plants.includes(plant);
+  if (held) shift(garden, plant.foliage, -1);
+  const light = exposure(garden, plant.foliage);
+  if (held) shift(garden, plant.foliage, 1);
+  return light;
+}
+
+function admit(garden, plant) {
+  if (garden.plants.some((other) => Math.abs(other.base - plant.base) < other.kind.room + plant.kind.room)) return false;
+  if (lightOn(garden, plant) < plant.kind.needs) return false;
+  shift(garden, plant.foliage, 1);
+  garden.plants.push(plant);
+  if (garden.plants.every((other) => lightOn(garden, other) >= other.kind.needs)) return true;
+  remove(garden, plant);
+  return false;
+}
+
+export function remove(garden, plant) {
+  shift(garden, plant.foliage, -1);
+  garden.plants.splice(garden.plants.indexOf(plant), 1);
+}
+
+export function establish(garden, kinds, x, ground, width, random = Math.random) {
+  const col = Math.floor(x / CELL);
+  let pool = kinds;
+  while (pool.length) {
+    const kind = choose(pool, random, skylight(garden, col, garden.rows - 1));
+    const row = Math.floor((ground - kind.height[0]) / CELL);
+    const plant = sprout(kind, x, ground, width, random, {
+      light: skylight(garden, col, row),
+      lean: BEND * (skylight(garden, col + LOOK, row) - skylight(garden, col - LOOK, row)),
+    });
+    if (admit(garden, plant)) return plant;
+    pool = pool.filter((other) => other !== kind);
+  }
+  return null;
+}
+
+export function plantNear({ plants }, x, y) {
+  const col = Math.floor(x / CELL);
+  const row = Math.floor(y / CELL);
+  const near = plants.filter(({ foliage }) => foliage.some((cell) => Math.abs(cell.col - col) <= 1 && Math.abs(cell.row - row) <= 1));
+  return near.reduce((best, plant) => (!best || Math.abs(plant.base - x) < Math.abs(best.base - x) ? plant : best), null);
+}
+
+const within = (value, limit) => Math.max(-limit, Math.min(limit, value));
+
+export function brush(plant, pixels) {
+  plant.speed = within(plant.speed + pixels * PUSH, MOST_SPEED);
+}
+
+export function swing(plant, seconds) {
+  plant.speed += (-STIFFNESS * plant.tilt - DAMPING * plant.speed) * seconds;
+  plant.tilt = within(plant.tilt + plant.speed * seconds, MOST_TILT);
+  const moving = Math.abs(plant.tilt) > 0.005 || Math.abs(plant.speed) > 0.05;
+  if (!moving) plant.tilt = plant.speed = 0;
+  return moving;
 }
