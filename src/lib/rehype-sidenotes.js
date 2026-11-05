@@ -8,6 +8,7 @@ const BLOCKS = new Set(["p", "div", "ul", "ol", "li", "blockquote", "footer", "a
 const BLOCK_CLASSES = {
   blockquote: ["sidenote-block", "sidenote-quote"],
   footer: ["sidenote-block", "sidenote-attribution"],
+  ul: ["sidenote-block", "sidenote-list"],
 };
 
 export function rehypeSidenotes() {
@@ -128,8 +129,7 @@ function inline(children) {
     if (isElement(child) && BLOCKS.has(child.tagName)) {
       const inner = inline(child.children);
       trimEnd(inner);
-      if (child.tagName === "li") out.push(...inner);
-      else out.push(el("span", blockProps(child), inner));
+      out.push(el("span", blockProps(child), inner));
       continue;
     }
     out.push(child);
@@ -138,10 +138,11 @@ function inline(children) {
 }
 
 function blockProps(node) {
-  if (isElement(node, "aside")) {
+  if (isElement(node, "aside") || hasClass(node, "definition")) {
     return { className: ["sidenote-block", `sidenote-${node.properties.className[0]}`], role: "group", ariaLabel: node.properties.ariaLabel };
   }
   if (hasClass(node, "callout-title")) return { className: ["sidenote-block", "sidenote-title"] };
+  if (hasClass(node, "definition-label")) return { className: ["sidenote-block", "definition-label"] };
   return { className: BLOCK_CLASSES[node.tagName] ?? ["sidenote-block"] };
 }
 

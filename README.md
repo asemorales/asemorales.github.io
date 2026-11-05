@@ -40,7 +40,9 @@ To add a figure, use a `> [!figure]` or `> [!wide-figure]` callout. Put the imag
 
 To cite a source, start the footnote's ID with `cite-`, as in `[^cite-turing]: [Turing 1936](https://doi.org/...), §8.` The footnote must be one external link, optionally followed by text such as a page number. The text can use italics, bold, code, and strikethrough. Anything else fails the build. Citations appear under References, and all other footnotes become sidenotes.
 
-To define a term, add a `## word (type)` heading to `published/glossary.md`. Write the definition below the heading, and optionally add an `### Etymology` heading after the definition. To reference a term from any note, link to its heading with `[[glossary#word (type)]]` or `[[glossary#word (type)|other text]]`. The link opens a popover with the definition, and Obsidian autocompletes the heading.
+To define a term in any note or footnote, use a `> [!definition] word (type)` callout. The title is optional. To add optional sections, put `### Examples` or `### Etymology` headings inside the callout. To add an attributed quote, nest a `> > [!quote] Attribution` callout inside it.
+
+To add a term to the glossary, add a `## word (type)` heading to `published/paratext/glossary.md`. Write the definition below the heading in a `> [!definition]` callout without a title. To reference a term from any note, link to its heading with `[[glossary#word (type)]]` or `[[glossary#word (type)|other text]]`. The link opens a popover with the definition, and Obsidian autocompletes the heading.
 
 ## Scripts
 

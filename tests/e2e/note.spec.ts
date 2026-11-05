@@ -132,7 +132,7 @@ test.describe("sidenotes", () => {
     test.skip(!wide(info.project.name), "wide screens only");
     const column = await box(page.locator("article.note"));
     const notes = page.locator(".sidenote");
-    await expect(notes).toHaveCount(8);
+    await expect(notes).toHaveCount(9);
     const boxes = await Promise.all((await notes.all()).map(box));
     for (const b of boxes) expect(b.x).toBeGreaterThan(column.x + column.width);
     for (let i = 1; i < boxes.length; i++) expect(boxes[i].y).toBeGreaterThanOrEqual(boxes[i - 1].y + boxes[i - 1].height);
@@ -281,6 +281,18 @@ test.describe("glossary", () => {
       expect(card.type).toBe(await heading.locator(".term-type").textContent());
       await expect(heading).toContainText(card.title);
     }
+  });
+
+  test("renders a definition in the column and in a sidenote", async ({ page }) => {
+    await page.goto("/lorem-ipsum/");
+    const column = page.locator("article > .definition").first();
+    await expect(column.locator(".callout-title .term-type")).toHaveText("noun");
+    await expect(column.locator(".definition-label")).toHaveText(["Examples", "Etymology"]);
+    await expect(column.locator("blockquote footer").first()).toContainText("Cicero");
+    const sidenote = page.locator(".sidenote .sidenote-definition");
+    await expect(sidenote.locator(".sidenote-title .term-type")).toHaveText("noun");
+    await expect(sidenote.locator(".definition-label")).toHaveText(["Examples", "Etymology"], { useInnerText: false });
+    await expect(page.locator("nav.toc a[href='#examples']")).toHaveCount(0);
   });
 
   test("appears at the bottom of the home contents", async ({ page }) => {

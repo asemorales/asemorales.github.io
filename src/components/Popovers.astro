@@ -8,6 +8,7 @@
     meta?: string[];
     epigraph?: { text: string; by: string };
     paragraphs: string[];
+    sections?: { title?: string; epigraph?: { text: string; by: string }; paragraphs: string[] }[];
     dead?: string;
     href?: string;
   }
@@ -52,6 +53,21 @@
     return el;
   }
 
+  function addText(body: HTMLElement, { epigraph, paragraphs }: Pick<Card, "epigraph" | "paragraphs">) {
+    if (epigraph) {
+      const quote = document.createElement("blockquote");
+      quote.className = "popover-epigraph";
+      add(quote, "p", "", "").innerHTML = epigraph.text;
+      if (epigraph.by) add(quote, "footer", "", epigraph.by);
+      body.append(quote);
+    }
+    for (const html of paragraphs) {
+      const p = document.createElement("p");
+      p.innerHTML = html;
+      body.append(p);
+    }
+  }
+
   function fill(el: HTMLElement, card: Card, a: HTMLAnchorElement, more = true) {
     el.replaceChildren();
     if (card.dead) add(el, "p", "popover-dead", card.dead);
@@ -67,17 +83,10 @@
     }
     const body = document.createElement("div");
     body.className = "popover-body";
-    if (card.epigraph) {
-      const quote = document.createElement("blockquote");
-      quote.className = "popover-epigraph";
-      add(quote, "p", "", "").innerHTML = card.epigraph.text;
-      if (card.epigraph.by) add(quote, "footer", "", card.epigraph.by);
-      body.append(quote);
-    }
-    for (const html of card.paragraphs) {
-      const p = document.createElement("p");
-      p.innerHTML = html;
-      body.append(p);
+    addText(body, card);
+    for (const section of card.sections ?? []) {
+      if (section.title) add(body, "p", "definition-label", section.title);
+      addText(body, section);
     }
     if (body.hasChildNodes()) el.append(body);
     const href = card.href ?? a.href;

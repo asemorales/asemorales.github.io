@@ -1,3 +1,4 @@
+import { markType } from "./glossary.js";
 import { el, isElement, txt } from "./hast.js";
 
 const MARKER = /^\s*\[!([a-z-]+)\][+-]?[ \t]*/i;
@@ -42,6 +43,8 @@ function callout(quote) {
         ...(title.length ? [el("p", { className: ["callout-title"] }, title)] : []),
         ...body,
       ]);
+    case "definition":
+      return definition(title, body);
     case "wide":
       return el("div", { className: ["wide"] }, body);
     case "figure":
@@ -95,6 +98,15 @@ function breakLines(node) {
   if (node.type === "text") return node.value.split("\n").flatMap((line, i) => (i ? [el("br", {}, []), txt("\n"), txt(line)] : [txt(line)]));
   if (isElement(node) && FORMATTING.has(node.tagName)) return [{ ...node, children: node.children.flatMap(breakLines) }];
   return [node];
+}
+
+function definition(title, body) {
+  const heading = el("p", { className: ["callout-title"] }, title);
+  markType(heading);
+  return el("div", { className: ["definition"], role: "group", ariaLabel: "Definition" }, [
+    ...(title.length ? [heading] : []),
+    ...body.map((node) => (isElement(node) && /^h[1-6]$/.test(node.tagName) ? el("p", { className: ["definition-label"] }, node.children) : node)),
+  ]);
 }
 
 function figure(body) {

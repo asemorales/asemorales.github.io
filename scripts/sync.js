@@ -160,7 +160,7 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
   const glossary = notes.find((n) => n.slug === GLOSSARY);
   for (const [heading, definition] of glossaryEntries(glossary?.body ?? "")) {
     if (!parseTerm(heading)) problems.push(`${glossary.rel}: "## ${heading}" must look like "## word (type)".`);
-    if (!definition) problems.push(`${glossary.rel}: "## ${heading}" needs a definition below it.`);
+    if (!definition) problems.push(`${glossary.rel}: "## ${heading}" needs a definition callout below it.`);
   }
 
   const titles = new Map(notes.map((n) => [n.slug, n.data.title]));

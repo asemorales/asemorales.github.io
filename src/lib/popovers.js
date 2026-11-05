@@ -8,6 +8,7 @@ const NOTE_SUMMARY = 500;
 const HEADING = /^(#{2,4})\s+(.+?)\s*#*\s*$/;
 const FENCE = /^(`{3,}|~{3,})/;
 const EPIGRAPH = /^>\s*\[!(?:quote|epigraph)\][+-]?[ \t]*(.*)\n((?:>.*(?:\n|$))+)/i;
+const QUOTE = new RegExp(EPIGRAPH.source, "im");
 
 export function noteCard(title, markdown) {
   const body = markdown.trim();
@@ -42,11 +43,38 @@ export function termCards(markdown) {
   for (const [heading, definition] of glossaryEntries(markdown)) {
     const term = parseTerm(heading);
     if (!term) continue;
-    const blocks = definition.split(/\n\s*\n|\n(?=\s*(?:\d+\.|[-*+])\s)/).map(plain);
-    out[slug(heading)] = { title: term.word, type: term.type, paragraphs: clipParagraphs(blocks, NOTE_SUMMARY) };
+    const [main, ...rest] = definition.split(/^#{1,6} +(.+?) *$/m);
+    const [first, ...sections] = definitionParts(main);
+    for (let i = 0; i < rest.length; i += 2) {
+      const [part, ...quotes] = definitionParts(rest[i + 1]);
+      sections.push({ title: rest[i], ...part }, ...quotes);
+    }
+    out[slug(heading)] = { title: term.word, type: term.type, ...first, sections };
   }
   return out;
 }
+
+function definitionParts(markdown) {
+  const [lead, ...pieces] = markdown.split(QUOTE);
+  const parts = [{ paragraphs: definitionBlocks(lead) }];
+  for (let i = 0; i < pieces.length; i += 3) {
+    const epigraph = { text: clip(plain(unquote(pieces[i + 1])), NOTE_SUMMARY), by: plain(pieces[i]) };
+    parts.push({ epigraph, paragraphs: definitionBlocks(pieces[i + 2]) });
+  }
+  return parts.length > 1 && !parts[0].paragraphs.length ? parts.slice(1) : parts;
+}
+
+function definitionBlocks(markdown) {
+  const body = markdown.trim();
+  return body
+    ? clipParagraphs(
+        body.split(/\n\s*\n|\n(?=\s*(?:\d+\.|[-*+])\s)/).map((block) => plain(unquote(block).replace(/^\s*[-*+]\s/, "• "))),
+        NOTE_SUMMARY,
+      )
+    : [];
+}
+
+const unquote = (markdown) => markdown.replace(/^>\s?/gm, "");
 
 export function linkCard({ url, text, card, annotation, deadSince }) {
   const domain = new URL(url).hostname.replace(/^www\./, "");

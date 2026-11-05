@@ -89,7 +89,7 @@ describe("sync", () => {
 
   describe("glossary", () => {
     const front = (title) => `---\ntitle: ${title}\ndate: 2026-01-01\ntags: [a]\n---\n`;
-    const glossary = `${front("Glossary")}Intro.\n\n## foo (noun)\n\nA foo, unlike [[#bar (verb)]].\n\n### Etymology\n\nFrom bar.\n\n## bar (verb)\n\nTo bar.\n`;
+    const glossary = `${front("Glossary")}Intro.\n\n## foo (noun)\n\n> [!definition]\n> A foo, unlike [[#bar (verb)]].\n>\n> ### Etymology\n>\n> From bar.\n\n## bar (verb)\n\n> [!definition]\n> To bar.\n`;
 
     it("labels a term link with the word alone", async () => {
       const vault = await tempVault({ "glossary.md": glossary, "note.md": `${front("Note")}[[glossary#foo (noun)]] [[glossary#foo (noun)|foos]]` });
@@ -100,7 +100,11 @@ describe("sync", () => {
 
     it.each([
       ["a heading without a type", `${front("Glossary")}## foo\n\nA foo.\n`, /must look like "## word \(type\)"/],
-      ["a term without a definition", `${front("Glossary")}## foo (noun)\n\n## bar (verb)\n\nTo bar.\n`, /needs a definition/],
+      [
+        "a term without a definition",
+        `${front("Glossary")}## foo (noun)\n\nA foo.\n\n## bar (verb)\n\n> [!definition]\n> To bar.\n`,
+        /needs a definition callout/,
+      ],
     ])("fails on %s", async (_, glossaryText, message) => {
       const vault = await tempVault({ "glossary.md": glossaryText });
       await expect(sync({ vault, out, lastUpdated: fixedDate })).rejects.toThrow(message);

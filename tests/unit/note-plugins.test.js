@@ -21,22 +21,13 @@ const p = (...children) =>
 const quote = (...children) => el("blockquote", {}, children);
 
 describe("rehypeGlossary", () => {
-  const entry = () =>
-    root(
-      el("h2", {}, [txt("foo (noun)")]),
-      p("A foo."),
-      el("h3", {}, [txt("Etymology")]),
-      p("From bar."),
-      el("h2", {}, [txt("bar (verb)")]),
-      p("To bar."),
-    );
+  const entry = () => root(el("h2", {}, [txt("foo (noun)")]), p("A foo."), el("h2", {}, [txt("bar (verb)")]), p("To bar."));
 
-  it("sets the type apart and groups the etymology, so sections skip it but keep the term's anchor", () => {
+  it("sets the type apart and keeps the term's anchor", () => {
     const tree = entry();
     rehypeGlossary()(tree, { stem: "glossary" });
     expect(toHtml(tree)).toBe(
-      '<h2>foo <span class="term-type">noun</span></h2><p>A foo.</p><div class="etymology"><h3>Etymology</h3><p>From bar.</p></div>' +
-        '<h2>bar <span class="term-type">verb</span></h2><p>To bar.</p>',
+      '<h2>foo <span class="term-type">noun</span></h2><p>A foo.</p><h2>bar <span class="term-type">verb</span></h2><p>To bar.</p>',
     );
     rehypeSections()(tree, { stem: "glossary", data: {} });
     expect(tree.children.filter((n) => n.tagName === "h2").map((n) => n.properties.id)).toEqual(["foo-noun", "bar-verb"]);
@@ -243,6 +234,42 @@ describe("rehypeSidenotes", () => {
       '<span class="sidenote-block sidenote-status" role="group" aria-label="Status"><span class="sidenote-block">Draft.</span></span>',
     );
     expect(html).not.toMatch(/<aside/);
+  });
+
+  it("renders a definition callout with spans, keeping its term, sections, and list items apart", () => {
+    const callout = quote(
+      p("[!definition] foo (noun)\nA foo."),
+      el("h3", {}, [txt("Examples")]),
+      el("ul", {}, [el("li", {}, [txt("one")]), el("li", {}, [txt("two")])]),
+    );
+    const tree = root(p("One.", ref("d", 1)), footnotes(el("li", { id: "user-content-fn-d" }, [callout])));
+    rehypeCallouts()(tree);
+    rehypeSidenotes()(tree, { data: {} });
+    const html = toHtml(tree);
+    expect(html).toContain(
+      '<span class="sidenote-block sidenote-definition" role="group" aria-label="Definition">' +
+        '<span class="sidenote-block sidenote-title">foo <span class="term-type">noun</span></span>' +
+        '<span class="sidenote-block">A foo.</span>' +
+        '<span class="sidenote-block definition-label">Examples</span>' +
+        '<span class="sidenote-block sidenote-list"><span class="sidenote-block">one</span><span class="sidenote-block">two</span></span></span>',
+    );
+    expect(html).not.toMatch(/<div|<h3|<ul/);
+  });
+
+  it("renders an attributed quote inside a definition callout, in the column and in a sidenote", () => {
+    const definition = () => quote(p("[!definition]\nA foo."), quote(p("[!quote] Smith\nQuoted.")));
+    const column = root(definition());
+    rehypeCallouts()(column);
+    expect(toHtml(column)).toBe(
+      '<div class="definition" role="group" aria-label="Definition"><p>A foo.</p><blockquote><p>Quoted.</p><footer>Smith</footer></blockquote></div>',
+    );
+
+    const tree = root(p("One.", ref("d", 1)), footnotes(el("li", { id: "user-content-fn-d" }, [definition()])));
+    rehypeCallouts()(tree);
+    rehypeSidenotes()(tree, { data: {} });
+    expect(toHtml(tree)).toContain(
+      '<span class="sidenote-block sidenote-quote"><span class="sidenote-block">Quoted.</span><span class="sidenote-block sidenote-attribution">Smith</span></span>',
+    );
   });
 
   it("letters past z as aa, ab", () => {

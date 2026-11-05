@@ -127,6 +127,32 @@ test.describe("popovers on the lorem page", () => {
     await expect(p.locator(".popover-body p")).toHaveText(card.paragraphs);
   });
 
+  test("show a glossary term's sections", async ({ page }) => {
+    const href = "/glossary/#m\u00f3ck-noun";
+    const card = {
+      title: "mock term",
+      type: "noun",
+      paragraphs: ["A sense."],
+      sections: [
+        { title: "Examples", paragraphs: ["- an example"] },
+        { title: "Etymology", epigraph: { text: "From bar.", by: "Smith" }, paragraphs: [] },
+      ],
+    };
+    await page.route("**/popovers.json", (route) => route.fulfill({ json: { [href]: card } }));
+    await page
+      .locator("article > p")
+      .first()
+      .evaluate((p, url) => {
+        const a = document.createElement("a");
+        a.href = url;
+        a.textContent = "mock link";
+        p.append(a);
+      }, href);
+    const p = await hover(page, "mock link");
+    await expect(p.locator(".definition-label")).toHaveText(["Examples", "Etymology"]);
+    await expect(p.locator(".popover-epigraph footer")).toHaveText("Smith");
+  });
+
   test("open on keyboard focus and close on Escape", async ({ page }) => {
     const link = page.getByRole("link", { name: "asemorales/bierstadt" }).first();
     await link.focus();

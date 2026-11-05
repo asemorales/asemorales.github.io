@@ -32,11 +32,36 @@ describe("popover cards", () => {
     });
   });
 
-  it("key each glossary term's whole definition by its id, without the etymology", () => {
-    const md = "Intro.\n\n## foo (noun)\n\n1. *One* sense.\n2. Another.\n\n### Etymology\n\nFrom bar.\n\n## bar (verb)\n\nTo bar.\n\nAgain.\n";
+  it("key each glossary term's definition callout by its id, with its sections", () => {
+    const md =
+      "Intro.\n\n## foo (noun)\n\n> [!definition]\n> 1. *One* sense.\n> 2. Another.\n>\n> ### Examples\n>\n> - a foo\n> - b foo\n>\n> ### Etymology\n>\n> > [!quote] Smith, *Words*\n> > From bar.\n\n" +
+      "## bar (verb)\n\n> [!definition]\n> To bar.\n>\n> Again.\n\n[^1]: Not part of the definition.\n";
     expect(termCards(md)).toEqual({
-      "foo-noun": { title: "foo", type: "noun", paragraphs: ["1. One sense.", "2. Another."] },
-      "bar-verb": { title: "bar", type: "verb", paragraphs: ["To bar.", "Again."] },
+      "foo-noun": {
+        title: "foo",
+        type: "noun",
+        paragraphs: ["1. One sense.", "2. Another."],
+        sections: [
+          { title: "Examples", paragraphs: ["• a foo", "• b foo"] },
+          { title: "Etymology", epigraph: { text: "From bar.", by: "Smith, Words" }, paragraphs: [] },
+        ],
+      },
+      "bar-verb": { title: "bar", type: "verb", paragraphs: ["To bar.", "Again."], sections: [] },
+    });
+  });
+
+  it("keep a term's attributed quotes in place, wherever they fall in the definition", () => {
+    const md =
+      "## foo (noun)\n\n> [!definition]\n> A foo.\n>\n> > [!quote] Smith\n> > Quoted.\n>\n> After.\n>\n> ### Etymology\n>\n> From bar.\n>\n> > [!quote] Tao\n> > Also quoted.\n";
+    expect(termCards(md)["foo-noun"]).toEqual({
+      title: "foo",
+      type: "noun",
+      paragraphs: ["A foo."],
+      sections: [
+        { epigraph: { text: "Quoted.", by: "Smith" }, paragraphs: ["After."] },
+        { title: "Etymology", paragraphs: ["From bar."] },
+        { epigraph: { text: "Also quoted.", by: "Tao" }, paragraphs: [] },
+      ],
     });
   });
 

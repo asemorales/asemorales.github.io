@@ -10,6 +10,18 @@ interface Source {
   text: string;
 }
 
+interface CardText {
+  paragraphs: string[];
+  epigraph?: { text: string };
+  sections?: CardText[];
+}
+
+function renderText(card: CardText) {
+  card.paragraphs = card.paragraphs.map(paragraphHtml);
+  if (card.epigraph) card.epigraph.text = paragraphHtml(card.epigraph.text);
+  card.sections?.forEach(renderText);
+}
+
 export async function GET() {
   const notes = await getCollection("notes");
   const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, { title: a.data.title, body: a.body }]));
@@ -34,9 +46,6 @@ export async function GET() {
       if (dead) out[dead.href] = card;
     }
   }
-  for (const card of Object.values(out) as { paragraphs: string[]; epigraph?: { text: string } }[]) {
-    card.paragraphs = card.paragraphs.map(paragraphHtml);
-    if (card.epigraph) card.epigraph.text = paragraphHtml(card.epigraph.text);
-  }
+  (Object.values(out) as CardText[]).forEach(renderText);
   return new Response(JSON.stringify(out), { headers: { "Content-Type": "application/json" } });
 }

@@ -303,8 +303,8 @@
   .term-type {
     @apply text-[0.8em] font-normal text-dim italic;
   }
-  .note .etymology h3 {
-    @apply mt-0 text-base font-normal text-dim;
+  .definition-label {
+    @apply text-base font-normal text-dim not-italic;
     font-variant-caps: all-small-caps;
     letter-spacing: 0.04em;
   }
@@ -440,8 +440,20 @@
     font-variant-caps: small-caps;
   }
 
-  .note .status {
+  .note :is(.status, .definition) {
     @apply border border-rule px-5 py-3 text-base;
+  }
+  .note .definition .callout-title {
+    @apply font-semibold;
+  }
+  .note .definition > * + * {
+    @apply mt-2;
+  }
+  .note .definition > .definition-label {
+    @apply mt-4;
+  }
+  .note .definition blockquote {
+    @apply my-2;
   }
 
   .note .sidenote-number,
@@ -466,11 +478,20 @@
   .note .sidenote-block + .sidenote-block {
     @apply mt-2 block;
   }
-  .note .sidenote .sidenote-status {
+  .note .sidenote :is(.sidenote-status, .sidenote-definition) {
     @apply block border border-rule px-3 py-2;
   }
   .note .sidenote .sidenote-title {
     @apply block text-center font-semibold;
+  }
+  .note .sidenote .sidenote-definition .sidenote-title {
+    @apply text-left;
+  }
+  .note .sidenote-list > .sidenote-block {
+    @apply block;
+  }
+  .note .sidenote-list > .sidenote-block::before {
+    content: "• ";
   }
   .note :is(.sidenote-number, .sidenote-ref, .sidenote, mjx-container, figure > img, figcaption).highlighted {
     @apply bg-hover outline-1 outline-frame;
@@ -797,8 +818,16 @@
   .popover-body.clipped {
     mask-image: linear-gradient(to bottom, black 70%, transparent);
   }
+  .popover-body:has(.definition-label) {
+    @apply max-h-none overflow-y-auto;
+    mask-image: none;
+  }
   .popover-body p + p,
   .popover-epigraph + p {
+    @apply mt-2;
+  }
+  .popover-body p + .popover-epigraph,
+  .popover-epigraph + .popover-epigraph {
     @apply mt-2;
   }
   .popover-epigraph {

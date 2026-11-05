@@ -14,5 +14,6 @@
     "MD050": { "style": "asterisk" },
     "MD033": false,
     "MD060": false,
+    "MD024": { "siblings_only": true },
   },
 }

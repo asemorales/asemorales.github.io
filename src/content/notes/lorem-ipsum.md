@@ -59,6 +59,8 @@ This paragraph tests quotes in sidenotes, with the quote's lines indented and un
 
 This paragraph tests a status notice in a sidenote. Temporibus autem quibusdam.[^status-note]
 
+This paragraph tests a definition in a sidenote, with examples and an etymology. Nam libero tempore.[^definition-note]
+
 This paragraph tests a footnote that is only a link, which stays a sidenote without the `cite-` prefix. Et harum quidem rerum facilis.[^link-only]
 
 ### Citations
@@ -80,6 +82,19 @@ A citation.[^cite-turing] Same citation again.[^cite-turing] Another citation.[^
 
 [^status-note]: > [!status]
     > A status notice in a sidenote.
+
+[^definition-note]: > [!definition] lorem (noun)
+> Dummy text.
+>
+> ### Examples
+>
+> - lorem ipsum dolor
+> - sit amet
+>
+> ### Etymology
+>
+> > [!quote] Jorge Luis Borges, *The Library of Babel*
+> > A quote in a definition in a sidenote.
 
 [^link-only]: [gwern.net design](https://gwern.net/design)
 
@@ -199,6 +214,33 @@ npm run sync && git push
 > There was no personal problem, no world problem, whose eloquent solution did not exist somewhere in some hexagon.
 
 ***
+
+## Definitions
+
+This paragraph tests a definition with a term, examples, an etymology, and attributed quotes, in the column.
+
+> [!definition] lorem (noun)
+> Dummy text set in place of real copy.
+>
+> > [!quote] Cicero, *De Finibus*
+> > A quote in the body of a definition.
+>
+> ### Examples
+>
+> - lorem ipsum dolor
+> - sit amet
+>
+> ### Etymology
+>
+> A clipped form of *dolorem*.
+>
+> > [!quote] Seneca, *Letters*
+> > A quote in a section of a definition.
+
+This paragraph tests a definition with neither a term nor optional sections.
+
+> [!definition]
+> Dummy text set in place of real copy.
 
 ## Headings
 
