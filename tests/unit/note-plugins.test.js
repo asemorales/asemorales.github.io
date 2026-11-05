@@ -81,6 +81,26 @@ describe("rehypeCallouts", () => {
     rehypeCallouts()(tree);
     expect(toHtml(tree)).toBe('<div class="wide"><table></table></div>');
   });
+
+  it("captions a [!figure] callout's image with the text below it, keeping inline italics", () => {
+    const img = el("img", { src: "a.svg", alt: "A" });
+    const tree = root(quote(p("[!figure]\n", img, "\nSee ", el("em", {}, [txt("Title")]), ".")));
+    rehypeCallouts()(tree);
+    expect(toHtml(tree)).toBe('<figure><img src="a.svg" alt="A"><figcaption>See <em>Title</em>.</figcaption></figure>');
+  });
+
+  it("wraps a [!wide-figure] callout's figure in a wide box", () => {
+    const img = el("img", { src: "a.svg", alt: "A" });
+    const tree = root(quote(p("[!wide-figure]\n", img, "\nCaption.")));
+    rehypeCallouts()(tree);
+    expect(toHtml(tree)).toBe('<div class="wide"><figure><img src="a.svg" alt="A"><figcaption>Caption.</figcaption></figure></div>');
+  });
+
+  it("leaves a [!figure] callout without an image as a quote", () => {
+    const tree = root(quote(p("[!figure]\nNo image.")));
+    rehypeCallouts()(tree);
+    expect(tree.children[0].tagName).toBe("blockquote");
+  });
 });
 
 describe("rehypeFigures", () => {

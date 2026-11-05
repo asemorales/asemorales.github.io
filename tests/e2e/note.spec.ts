@@ -178,7 +178,7 @@ test.describe("callouts", () => {
   test("set figures in the column, and wide figures across the margin on wide screens", async ({ page }, info) => {
     const figures = page.locator("article figure");
     await expect(figures).toHaveCount(2);
-    await expect(figures.nth(0).locator("figcaption")).toContainText("An orbit, drawn to no scale.");
+    await expect(figures.nth(0).locator("figcaption")).toContainText("Foundational Papers in Complexity Science");
     const column = await box(page.locator("article.note"));
     const narrow = await box(figures.nth(0));
     const spanning = await box(page.locator(".wide figure").first());

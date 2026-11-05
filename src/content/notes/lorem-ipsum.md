@@ -45,12 +45,13 @@ This paragraph tests the uneven ink, which should look faintly blotchy only unde
 
 ### Figures
 
-![A dashed elliptical orbit with a planet and a star joined by a line](./images/orbit.svg)
-*An orbit, drawn to no scale. The line marks the distance $r$ from the star.*
+> [!figure]
+> ![Flowchart of citations among the foundational papers of complexity science](./images/fp-citation-flow-chart.webp)
+> Krakauer, D. C. (Ed.). (2024). *Foundational Papers in Complexity Science* (Vols. 1–4). SFI Press.
 
-> [!wide]
-> ![A timeline of four complexity results, from 1971 to 2002](./images/timeline.svg)
-> *Four results from the table above, on a timeline.*
+> [!wide-figure]
+> ![The School of Athens, a fresco by Raffaello Sanzio da Urbino](./images/the-school-of-athens-by-raffaello-sanzio-da-urbino.jpg)
+> Raphael. (1509–1511). The school of Athens [Fresco]. Wikimedia Commons.
 
 ## Sidenotes
 

@@ -43,6 +43,12 @@ function callout(quote) {
       ]);
     case "wide":
       return el("div", { className: ["wide"] }, body);
+    case "figure":
+      return figure(body) ?? quote;
+    case "wide-figure": {
+      const wide = figure(body);
+      return wide ? el("div", { className: ["wide"] }, [wide]) : quote;
+    }
     case "colophon":
       return el("aside", { className: ["colophon"], ariaLabel: "Colophon" }, [
         el("hr", {}, []),
@@ -78,6 +84,13 @@ function parse(quote) {
   const inline = rest.slice(i).filter((n) => n.type !== "text" || n.value.trim());
   const body = [...(inline.length ? [{ ...first, children: inline }] : []), ...blocks.slice(1)];
   return { type: match[1].toLowerCase(), title: trim(title), body };
+}
+
+function figure(body) {
+  const [img, ...caption] = body[0]?.children ?? [];
+  if (!isElement(img, "img")) return null;
+  const figcaption = trim(caption);
+  return el("figure", {}, [img, ...(figcaption.length ? [el("figcaption", {}, figcaption)] : [])]);
 }
 
 function attribution(title) {
