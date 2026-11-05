@@ -110,6 +110,20 @@ test.describe("sections", () => {
     expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/\/lorem-ipsum\/#math$/);
   });
 
+  test("put the contents above the title on narrow screens, in the same color as the wide rail", async ({ page }) => {
+    test.skip((page.viewportSize()?.width ?? 0) >= 1200, "below 1200px");
+    const toc = await box(page.locator("nav.toc"));
+    expect(toc.y + toc.height).toBeLessThanOrEqual((await box(page.locator("article.note h1"))).y);
+    const dim = await page.locator("nav.toc").evaluate((el) => getComputedStyle(el).color);
+    await page.goto("/404/");
+    await expect(page.locator(".site-home")).toHaveCSS("color", dim);
+  });
+
+  test("align the title with the top of the contents rail on wide screens", async ({ page }) => {
+    test.skip((page.viewportSize()?.width ?? 0) < 1200, "1200px and up");
+    expect((await box(page.locator("nav.toc"))).y).toBe((await box(page.locator("article.note h1"))).y);
+  });
+
   test("put the contents in a sticky rail left of the column on wide screens", async ({ page }) => {
     test.skip((page.viewportSize()?.width ?? 0) < 1200, "1200px and up");
     const column = await box(page.locator("article.note h1"));

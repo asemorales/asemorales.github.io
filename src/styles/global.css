@@ -353,7 +353,7 @@
   }
 
   .note .toc {
-    @apply w-fit max-w-full text-lg leading-normal;
+    @apply w-fit max-w-full text-lg leading-normal text-dim;
   }
   .note .toc summary {
     @apply cursor-pointer list-none font-semibold;
@@ -385,7 +385,11 @@
   }
   .note .toc .room-toggle,
   .site-nav > :is(a, button) {
-    @apply text-ink no-underline hover:text-link-hover hover:underline;
+    @apply no-underline hover:text-link-hover hover:underline;
+  }
+  .note .toc .room-toggle,
+  .site-nav > :is(a, button) {
+    @apply text-dim;
   }
   .site-nav {
     @apply mb-4 text-lg leading-normal;
@@ -397,8 +401,8 @@
     .site-nav {
       @apply sticky top-6 mb-0 h-0 text-base;
     }
-    .site-nav > :is(a, button) {
-      @apply text-dim;
+    .note > .toc + h1 {
+      @apply mt-0;
     }
     .note .toc {
       @apply absolute inset-y-0 mt-0 text-base;
@@ -422,14 +426,7 @@
     @apply mt-1;
   }
   .note .toc a {
-    @apply text-ink no-underline hover:text-link-hover hover:underline;
-  }
-  @media (width >= 1200px) {
-    .note .toc,
-    .note .toc a,
-    .note .toc .room-toggle {
-      @apply text-dim;
-    }
+    @apply text-dim no-underline hover:text-link-hover hover:underline;
   }
 
   .note blockquote {
@@ -717,7 +714,7 @@
     @apply text-xl;
   }
   .home-notes h2 a {
-    @apply text-ink no-underline hover:text-link-hover;
+    @apply text-dim no-underline hover:text-link-hover;
   }
   .home-notes ul,
   .listing ul {
@@ -937,7 +934,7 @@
   .home-search,
   .block-tools,
   .margin-toggle,
-  .toc-home,
+  .toc,
   .site-nav {
     display: none !important;
   }

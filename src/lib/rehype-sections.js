@@ -1,4 +1,5 @@
 import GithubSlugger from "github-slugger";
+import { toHtml } from "hast-util-to-html";
 import { el, isElement, text, txt } from "./hast.js";
 
 const LEVELS = { h2: 0, h3: 1, h4: 2 };
@@ -30,8 +31,7 @@ export function rehypeSections({ backlinked = [] } = {}) {
     if (frontmatter.references?.length) back.push({ id: "references", title: "References" });
     if (frontmatter.externalLinks?.length) back.push({ id: "external-links", title: "External links" });
     if (headings.length + back.length < 2) return;
-    const first = tree.children.findIndex((n) => isElement(n) && n.tagName in LEVELS);
-    tree.children.splice(first === -1 ? tree.children.length : first, 0, toc(headings, back));
+    frontmatter.toc = toHtml(toc(headings, back));
   };
 }
 

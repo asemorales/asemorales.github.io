@@ -278,15 +278,16 @@ describe("rehypeSidenotes", () => {
 });
 
 describe("rehypeSections", () => {
-  it("links each heading to itself, and adds contents before the first", () => {
+  it("links each heading to itself, and lifts the contents out of the note body", () => {
     const tree = root(p("Opening."), el("h2", {}, [txt("One")]), el("h3", {}, [txt("Sub")]), el("h2", {}, [txt("Two")]));
-    rehypeSections()(tree);
-    const [, toc, h2] = tree.children;
-    expect(toc.tagName).toBe("nav");
+    const file = { data: { astro: { frontmatter: {} } } };
+    rehypeSections()(tree, file);
+    const [, h2] = tree.children;
+    expect(tree.children.some((n) => n.tagName === "nav")).toBe(false);
     expect(toHtml(h2)).toBe(
       '<h2 id="one">One<a href="#one" class="anchor" aria-label="Link to section One"><span class="icon icon-link" aria-hidden="true"></span></a></h2>',
     );
-    expect(toHtml(toc)).toContain('<li><a href="#one">One</a><ol><li><a href="#sub">Sub</a></li></ol></li>');
+    expect(file.data.astro.frontmatter.toc).toContain('<li><a href="#one">One</a><ol><li><a href="#sub">Sub</a></li></ol></li>');
   });
 
   it("ends the contents with See also, References, and External links when the note has them", () => {
@@ -296,7 +297,7 @@ describe("rehypeSections", () => {
       data: { astro: { frontmatter: { references: [{ url: "https://a.org" }], externalLinks: [{ url: "https://b.org" }] } } },
     };
     rehypeSections({ backlinked: ["here"] })(tree, file);
-    expect(toHtml(tree.children[0])).toContain(
+    expect(file.data.astro.frontmatter.toc).toContain(
       '<li><a href="#only">Only</a></li><li><a href="#see-also">See also</a></li><li><a href="#references">References</a></li><li><a href="#external-links">External links</a></li>',
     );
   });
@@ -308,9 +309,9 @@ describe("rehypeSections", () => {
   });
 
   it("adds no contents for a single heading", () => {
-    const tree = root(el("h2", {}, [txt("Only")]));
-    rehypeSections()(tree);
-    expect(tree.children).toHaveLength(1);
+    const file = { data: { astro: { frontmatter: {} } } };
+    rehypeSections()(root(el("h2", {}, [txt("Only")])), file);
+    expect(file.data.astro.frontmatter.toc).toBeUndefined();
   });
 });
 
