@@ -76,6 +76,7 @@ const lists = [
       </p>
     )}
     <Content />
+    {(backlinks.length > 0 || lists.length > 0 || note.data.tags.length > 0) && <hr />}
     <footer class="bottom">
       {backlinks.length > 0 && (
         <section aria-labelledby="see-also">

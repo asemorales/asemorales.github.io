@@ -285,6 +285,12 @@ test.describe("glossary", () => {
 });
 
 test.describe("bottom matter", () => {
+  test("open with the same separator as the note", async ({ page }) => {
+    const hr = page.locator("article > hr:has(+ footer.bottom)");
+    expect(await hr.evaluate((el) => getComputedStyle(el, "::after").content)).toContain("*");
+    await expect(page.locator("footer.bottom")).toHaveCSS("border-top-width", "0px");
+  });
+
   test("list notes that link here under See also, in the contents too", async ({ page }) => {
     await expect(page.locator("#see-also + ul a[href='/dolor-sit-amet/']")).toHaveCount(1);
     await expect(page.locator("nav.toc a[href='#see-also']")).toHaveCount(1);

@@ -571,7 +571,7 @@
   }
 
   .note .bottom {
-    @apply mt-12 border-t border-rule pt-4 text-base;
+    @apply text-base;
   }
   .note .bottom > * + * {
     @apply mt-8;
@@ -582,8 +582,12 @@
   .note summary {
     @apply cursor-pointer transition-colors hover:text-link-hover;
   }
+  .note .sources summary,
+  .note .bottom h2 + ul {
+    @apply mt-2;
+  }
   .note .sources summary {
-    @apply mt-2 text-dim;
+    @apply text-dim;
   }
   .note .sources :is(ol, ul) {
     @apply mt-2;
