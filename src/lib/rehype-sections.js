@@ -4,6 +4,14 @@ import { el, isElement, text, txt } from "./hast.js";
 
 const LEVELS = { h2: 0, h3: 1, h4: 2 };
 export const BACK_IDS = ["see-also", "references", "external-links"];
+// Width must match the contents rail in src/styles/global.css.
+const OPEN_WHEN_WIDE = `{
+  const details = document.currentScript.previousElementSibling;
+  const wide = matchMedia("(width >= 1200px)");
+  const sync = () => (details.open = wide.matches);
+  sync();
+  wide.addEventListener("change", sync);
+}`;
 
 export function rehypeSections({ backlinked = [] } = {}) {
   const linked = new Set(backlinked);
@@ -61,6 +69,7 @@ function toc(headings, back) {
         el("span", { className: ["sr-only"], ariaLive: "polite" }, [txt("("), el("span", { dataLabel: "" }, [txt("auto")]), txt(")")]),
       ]),
       el("details", { open: true }, [el("summary", {}, [txt("Contents")]), root]),
+      el("script", {}, [txt(OPEN_WHEN_WIDE)]),
     ]),
   ]);
 }

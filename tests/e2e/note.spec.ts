@@ -44,10 +44,26 @@ test.describe("sections", () => {
     await expect(page.locator("#typography")).toHaveText("Typography");
     await expect(page.locator("nav.toc a[href='#tables']")).toHaveText("Tables");
     const toc = page.locator("nav.toc");
-    await expect(toc.locator("details")).toHaveAttribute("open", "");
     for (const href of await toc.locator("details a").evaluateAll((as) => as.map((a) => a.getAttribute("href")!))) {
       await expect(page.locator(href)).toHaveCount(1);
     }
+  });
+
+  test("collapse the contents on phones with JS, and open them otherwise", async ({ page, javaScriptEnabled }, info) => {
+    const details = page.locator("nav.toc details");
+    if (info.project.name === "phone-js") {
+      await expect(details).not.toHaveAttribute("open");
+      await expect(page.locator("nav.toc li a").first()).toBeHidden();
+      await page.locator("nav.toc summary").click();
+      await expect(page.locator("nav.toc li a").first()).toBeVisible();
+    } else {
+      await expect(details).toHaveAttribute("open", "");
+    }
+    if (javaScriptEnabled === false) return;
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await expect(details).toHaveAttribute("open", "");
+    await page.setViewportSize({ width: 390, height: 844 });
+    await expect(details).not.toHaveAttribute("open");
   });
 
   test("link home above the contents, matching the contents header", async ({ page }) => {
@@ -90,7 +106,8 @@ test.describe("sections", () => {
     expect(y).toBeLessThan((await box(page.locator("nav.toc summary"))).y);
   });
 
-  test("contents entries jump to their headings", async ({ page }) => {
+  test("contents entries jump to their headings", async ({ page }, info) => {
+    if (info.project.name === "phone-js") await page.locator("nav.toc summary").click();
     await page.locator("nav.toc a[href='#headings']").click();
     await expect(page).toHaveURL(/#headings$/);
     await expect(page.locator("#headings")).toBeInViewport();
