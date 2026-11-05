@@ -10,6 +10,14 @@ describe("link status", () => {
     ]);
   });
 
+  it("keeps parentheses that belong to a URL", () => {
+    expect(linksIn("[a](https://a.org/x_(y)) [b](https://b.org/x_(y)_z) ([c](https://c.org))")).toEqual([
+      "https://a.org/x_(y)",
+      "https://b.org/x_(y)_z",
+      "https://c.org",
+    ]);
+  });
+
   it("reads failed URLs from lychee's fail_map or error_map", () => {
     expect(failedUrls({ fail_map: { "a.md": [{ url: "https://a.org" }] }, error_map: { "b.md": [{ url: "https://b.org" }] } })).toEqual(
       new Set(["https://a.org", "https://b.org"]),

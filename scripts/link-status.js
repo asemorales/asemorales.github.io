@@ -7,7 +7,7 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STATUS = path.join(root, "src/data/links-status.json");
 const NOTES = path.join(root, "src/content/notes");
 
-const LINK = /\]\((https?:\/\/[^)\s]+)|<(https?:\/\/[^>\s]+)>/g;
+const LINK = /\]\((https?:\/\/(?:[^()\s]|\([^()\s]*\))+)|<(https?:\/\/[^>\s]+)>/g;
 
 export function linksIn(markdown) {
   return [...markdown.matchAll(LINK)].map((m) => m[1] ?? m[2]);
