@@ -305,6 +305,12 @@
     "meta": ["Wikipedia"],
     "text": "The Nobel Prizes are awards administered by the Nobel Foundation and granted in accordance with the principle of \"for the greatest benefit to humankind\". The prizes were first awarded in 1901, marking the fifth anniversary of Alfred Nobel's death. The original Nobel Prizes covered five fields: physics, chemistry, physiology or medicine, literature, and peace, specified in Nobel's will."
   },
+  "https://en.wikipedia.org/wiki/Ozymandias": {
+    "kind": "wikipedia",
+    "title": "Ozymandias",
+    "meta": ["Wikipedia"],
+    "text": "\"Ozymandias\" is a sonnet written by the English Romantic poet Percy Bysshe Shelley, first published in the 11 January 1818 issue of The Examiner of London."
+  },
   "https://en.wikipedia.org/wiki/Price_signal": {
     "kind": "wikipedia",
     "title": "Price signal",
@@ -352,6 +358,12 @@
     "title": "Technological unemployment",
     "meta": ["Wikipedia"],
     "text": "Technological unemployment is the loss of jobs due to technological change. It is a key type of structural unemployment. Technological change typically includes the introduction of labour-saving \"mechanical-muscle\" machines or more efficient \"mechanical-mind\" processes (automation), reducing the need for human labour."
+  },
+  "https://en.wikipedia.org/wiki/The_Book_of_Disquiet": {
+    "kind": "wikipedia",
+    "title": "The Book of Disquiet",
+    "meta": ["Wikipedia"],
+    "text": "The Book of Disquiet is a work by the Portuguese author Fernando Pessoa (1888–1935). Published posthumously, The Book of Disquiet is a fragmentary lifetime project, left unedited by the author, who introduced it as a \"factless autobiography\"."
   },
   "https://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style": {
     "kind": "wikipedia",

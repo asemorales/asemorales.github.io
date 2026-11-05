@@ -48,7 +48,7 @@ In science and mathematics, however, your influence is not limited to an organiz
 
 [^8]: As of writing, the pattern does not strongly carry over to Turing awardees. However, I speculate this may be the case over time given that advances in computing require more and more compute, hence being subject to the Matthew effect for both compute and expertise.
 
-[^9]: >[!quote]Ozymandias
+[^9]: >[!quote]*[Ozymandias](https://en.wikipedia.org/wiki/Ozymandias)*
     >I met a traveller from an antique land
     >Who said: Two vast and trunkless legs of stone
     >Stand in the desert. Near them, on the sand,

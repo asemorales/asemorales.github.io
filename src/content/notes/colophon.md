@@ -12,13 +12,13 @@ Set in [Source Serif 4](https://github.com/adobe-fonts/source-serif) and [DM Mon
 
 ## Workflow
 
-I write in Obsidian and use [Obsidian Sync]([across](https://obsidian.md/sync)) across my devices[^3]. I dedicate a folder for content to be published, which includes attachments, notes to be published, and custom annotations for popovers on links to external sites. I then run a custom `npm run` command to pull content from my vault to my site.
+I write in Obsidian and use [Obsidian Sync](https://obsidian.md/sync) across my devices[^3]. I dedicate a folder for content to be published, which includes attachments, notes to be published, and custom annotations for popovers on links to external sites. I then run a custom `npm run` command to pull content from my vault to my site.
 
 Styled components in notes, such as quotes, epigraphs, definitions, figure captions, and status boxes are written as callouts in Obsidian, then rendered by the site depending on the type of callout. Math and code blocks in Obsidian are rendered as is. Footnotes in Obsidian are rendered as either citations (if the footnote starts with `cite-`) or as sidenotes (for all other cases) in the site.
 
 ## Digital garden
 
->[!quote]Fernando Pessoa, The Book of Disquiet
+>[!quote]Fernando Pessoa, *[The Book of Disquiet](https://en.wikipedia.org/wiki/The_Book_of_Disquiet)*
 >Since we cannot extract beauty from life, let us at least extract beauty from our inability to extract beauty from life. Let us make of our failure a victory, something proud and positive, complete with pillars, majesty and spiritual aquiescence.
 
 I wanted to simulate a complex system in my site's footer, and at first I considered [cellular automata](https://en.wikipedia.org/wiki/Cellular_automaton). [D0L-systems](https://en.wikipedia.org/wiki/L-system) are fascinating[^2], but not complex systems. At best, they are an attempt to mimic the complexity of life.
