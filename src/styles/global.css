@@ -615,7 +615,8 @@
   .note .sources :is(ol, ul) {
     @apply mt-2;
   }
-  .note .sources li + li {
+  .note .sources li + li,
+  .note .bottom h2 + ul > li + li {
     @apply mt-2;
   }
   .note .sources li:target {
