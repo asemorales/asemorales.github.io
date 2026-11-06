@@ -5,9 +5,7 @@ updated: 2026-11-06
 tags: ["society","science","mathematics"]
 ---
 
-It seems to be a common belief that science and mathematics are more free of influence games[^4] than other careers and endeavors. Not only is this a misconception, but I argue that science and mathematics are *more* of an influence game than other careers, albeit a *different* kind. That is,
-
->Science and mathematics are the only unbounded influence games.
+It seems to be a common belief that science and mathematics are more free of influence games[^4] than other careers and endeavors. Not only is this a misconception, but I argue that science and mathematics are *more* of an influence game than other careers, albeit a *different* kind.
 
 ***
 
@@ -27,7 +25,7 @@ In science and mathematics, however, your influence is not limited to an organiz
 
 ## Why do we think that science and mathematics are free of influence games?
 
-**Influence based on correctness, politics, and both.** Influence based on correctness is an appeal to truth (ideas), while influence based on politics is an appeal to power (people). In practice, influence is often based on both. However, power is ephemeral[^9], whereas truth is not. When the latter fails within one's lifetime, there is no reappeal. The dead no longer have power. When the former fails, the idea can still resurface. Science and mathematics must have true foundations in order to progress, hence there is a selection pressure toward truth that allows for rediscovery.
+**Influence based on correctness, politics, and both.** Influence based on correctness is an appeal to truth (ideas), while influence based on politics is an appeal to power (people). In practice, influence is often based on both. However, power is ephemeral[^9], whereas truth is not[^10]. When the latter fails within one's lifetime, there is no reappeal. The dead no longer have power. When the former fails, the idea can still resurface. Science and mathematics must have true foundations in order to progress, hence there is a selection pressure toward truth that allows for rediscovery.
 
 **Influence within human lifetimes.** It follows, then, that this view stems from the limitations of what we can observe within our human lifetimes. Science and mathematics are the only unbounded influence games, and yet less visible ones, because their influence extends beyond our lifetimes.
 
@@ -63,3 +61,7 @@ In science and mathematics, however, your influence is not limited to an organiz
     >Nothing beside remains. Round the decay
     >Of that colossal wreck, boundless and bare
     >The lone and level sands stretch far away.
+
+[^10]: Art, engineering, and other sciences of the artificial are not necessarily held to truth, but to possibility. That is,
+    >[!quote] Herbert Simon, *[The Sciences of the Artificial](https://en.wikipedia.org/wiki/The_Sciences_of_the_Artificial)*
+    >Engineering, medicine, business, architecture, and painting are concerned not with the necessary but with the contingent – not with how things are but with how they might be – in short, with design.

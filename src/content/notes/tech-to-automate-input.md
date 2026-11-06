@@ -10,7 +10,7 @@ Ceteris paribus, the quality of what you produce is affected by three factors:
 2. the quality of what you consume
 3. your ability to synthesize[^1]
 
-The last is a uniquely human activity, and should be so. Learning is primarily the act of generating connections, hence offloading synthesis is offloading learning.
+The last is a uniquely human activity, and should be so. Learning is the act of refining neural connections, hence offloading synthesis is offloading learning.
 
 The rest of this page is about how to automate the first two with technology.
 

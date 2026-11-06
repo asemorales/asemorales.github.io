@@ -6,7 +6,7 @@ tags: ["paratext"]
 unlisted: true
 ---
 
-Sometimes, pages herein use terms that are relatively new, underused, or defined differently across sources as of the time of writing[^3]. To be precise, I define here which definitions I use across my writing.
+Sometimes, I use terms for which there is insufficient scientific consensus on a rigorous definition[^3]. I list here which definitions I use across my writing.
 
 ## complex system (noun)
 
@@ -38,6 +38,12 @@ Sometimes, pages herein use terms that are relatively new, underused, or defined
 
 > [!definition]
 > [Emergent properties](https://en.wikipedia.org/wiki/Emergence) that cannot be deduced from a system's components, even in principle. Some forms of strongly emergent phenomena may also exhibit [downward causation](https://en.wikipedia.org/wiki/Downward_causation)[^cite-chalmers-sawe][^2].
+>
+> ### Examples
+>
+> - [the hard problem of consciousness](https://en.wikipedia.org/wiki/Hard_problem_of_consciousness)
+>
+> It is speculated that very few strongly emergent phenomena exist. David Chalmers argues that only the hard problem of consciousness may be strongly emergent, and a close contender may be [wave function collapse](https://en.wikipedia.org/wiki/Wave_function_collapse), and that all other phenomena are weakly emergent.
 
 ## entelechy (noun)
 

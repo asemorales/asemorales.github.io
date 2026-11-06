@@ -1,10 +1,12 @@
 ---
-title: "Colophon (About this Site)"
+title: "Colophon"
 date: 2026-10-27
 updated: 2026-11-06
 tags: ["paratext"]
 unlisted: true
 ---
+
+This page elaborates on the making of this site.
 
 ## Tools
 
@@ -39,4 +41,4 @@ For a list of all site elements, see the [[lorem-ipsum|feature test]]. Source co
 
 [^2]: And literal [digital gardens](https://www.eastgate.com/garden/Enter.html) :)
 
-[^3]: So I can be lazy and write on a phone in bed
+[^3]: So I can be lazy and write on a phone in bed :)

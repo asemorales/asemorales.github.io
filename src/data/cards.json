@@ -245,6 +245,18 @@
     "meta": ["Wikipedia"],
     "text": "In computability theory, the halting problem is the decision problem of, given an arbitrary computer program and an input, determining whether said program will eventually finish running and halt, or will continue to run forever."
   },
+  "https://en.wikipedia.org/wiki/Hard_problem_of_consciousness": {
+    "kind": "wikipedia",
+    "title": "Hard problem of consciousness",
+    "meta": ["Wikipedia"],
+    "text": "In philosophy of mind, the hard problem of consciousness is to explain how and why organisms have qualia, phenomenal consciousness, or subjective experience. It is contrasted with the \"easy problems\" of explaining why and how physical systems give rise to the ability to discriminate, to integrate information, and to perform behavioural functions such as watching, listening, speaking, and so…"
+  },
+  "https://en.wikipedia.org/wiki/Hybrid_regime#Semi-democracy": {
+    "kind": "wikipedia",
+    "title": "Hybrid regime",
+    "meta": ["Wikipedia"],
+    "text": "A hybrid regime is a type of political system often created as a result of an incomplete democratic transition from an authoritarian regime to a democratic one. Hybrid regimes are categorized as having a combination of autocratic features with democratic ones and can simultaneously hold political repressions and regular elections."
+  },
   "https://en.wikipedia.org/wiki/Ignaz_Semmelweis": {
     "kind": "wikipedia",
     "title": "Ignaz Semmelweis",
@@ -377,6 +389,12 @@
     "meta": ["Wikipedia"],
     "text": "\"The Library of Babel\" is a short story by Argentine author and librarian Jorge Luis Borges (1899–1986), conceiving of a universe in the form of a vast library containing all possible 410-page books of a certain format and character set."
   },
+  "https://en.wikipedia.org/wiki/The_Sciences_of_the_Artificial": {
+    "kind": "wikipedia",
+    "title": "The Sciences of the Artificial",
+    "meta": ["Wikipedia"],
+    "text": "The Sciences of the Artificial (1969) is a book by Herbert A. Simon in the domain of the learning sciences and artificial intelligence; it is especially influential in design theory. The book is themed around how artificial phenomena ought to be categorized, discussing as to whether such phenomena belong within the domain of 'science'."
+  },
   "https://en.wikipedia.org/wiki/The_Soul_of_Man_Under_Socialism": {
     "kind": "wikipedia",
     "title": "The Soul of Man Under Socialism",
@@ -388,6 +406,12 @@
     "title": "Turing Award",
     "meta": ["Wikipedia"],
     "text": "The ACM A. M. Turing Award is an annual prize given by the Association for Computing Machinery (ACM) for contributions of lasting and major technical importance to computer science. It is generally recognized as the highest distinction in the field of computer science and is often referred to as the \"Nobel Prize of Computing\"."
+  },
+  "https://en.wikipedia.org/wiki/Wave_function_collapse": {
+    "kind": "wikipedia",
+    "title": "Wave function collapse",
+    "meta": ["Wikipedia"],
+    "text": "In various interpretations of quantum mechanics, wave function collapse, also called reduction of the state vector, occurs when a wave function—initially in a superposition of several eigenstates—reduces to a single eigenstate due to interaction with the external world."
   },
   "https://en.wikipedia.org/wiki/Zone_of_proximal_development#": {
     "kind": "wikipedia",
@@ -514,6 +538,12 @@
     "title": "Hypertext Gardens",
     "meta": [],
     "text": "Into the Garden Beyond the Navigation Problem The Limits of Structure Gardens and Paths The Virtue of Irregularity Gates and Signposts Statuary and Follies: Punctuating the Reader Experience Planning Pathways Seven Lessons from Gardening"
+  },
+  "https://www.lesswrong.com/posts/jinzzbPHshif8nmnw/do-not-conquer-what-you-cannot-defend": {
+    "kind": "page",
+    "title": "Do not conquer what you cannot defend — LessWrong",
+    "meta": [],
+    "text": ""
   },
   "https://www.mathjax.org/": {
     "kind": "page",

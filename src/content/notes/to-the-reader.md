@@ -11,13 +11,13 @@ unlisted: true
 
 In a word, this site is an autobiography. It is an experiment in creating [living documentation](https://en.wikipedia.org/wiki/Living_document) of [[glossary#entelechy (noun)|entelechy]][^6] within myself.
 
-By that, I mean to say that I am a [computationally irreducible](https://en.wikipedia.org/wiki/Computational_irreducibility) [complex system](https://en.wikipedia.org/wiki/Complex_system). At any given moment I am simultaneously in a certain state, and unfolding towards future possible states[^1] within the [[glossary#adjacent possible (noun)|adjacent possible]]. I am unable to predict my future states, although I am guilty for having had the intellectual arrogance to try and do so for much of my life. I am guilty of planning rather than experimenting.
+By that, I mean to say that I am a [computationally irreducible](https://en.wikipedia.org/wiki/Computational_irreducibility) [complex system](https://en.wikipedia.org/wiki/Complex_system). At any given moment, I am simultaneously in a certain state, and unfolding towards future possible states[^1] within the [[glossary#adjacent possible (noun)|adjacent possible]]. I am unable to predict my future states, although I am guilty for having had the intellectual arrogance to try and do so for much of my life. I am guilty of planning rather than experimenting.
 
-Hence, I am trying a new approach, from which this website was born. Instead of planning my life ahead, my writings herein are an experiment in documenting who I am by articulating my current ideas, and allowing my ideas to unfold. I am my ideas, and thus [[the evolution of ideas are biographies]][^5]. Hence, this site is an autobiography.
+Hence, I am trying a new approach, from which this website was born. Writings herein are an experiment in documenting who I am by articulating my current ideas and allowing them to unfold. I am my ideas, and thus it follows that [[the evolution of ideas are biographies]][^5]. Hence, this site is an autobiography.
 
 ## About the Author
 
-I might want to tell you about myself, but in truth I am probably fundamentally unable to tell you. Any narrative I give in an "About the author" page is a distilled mental model I have about myself at my current state. That narrative would be both inaccurate (for my mental model of myself is biased) and incomplete (for in describing only my current state I deprive you of the opportunity to observe greater complexity and past states). Hence I have decided not to hand you my self-model through some limited narrative, and instead invite you to create your own narrative, your own mental model of me, from my writing. This entire site is "About the Author."
+Any narrative I give in an "About the Author" page is a distilled mental model I have about myself at my current state. That narrative would be both inaccurate (for my mental model of myself is biased) and incomplete (for in describing only my current state I deprive you of the opportunity to observe the complexity that arises from across my current and past states). Instead of handing you my self-model through some limited narrative, I invite you to create your own narrative, your own mental model of me, from my writing. This entire site is "About the Author."
 
 ## A Writer's Apology
 
