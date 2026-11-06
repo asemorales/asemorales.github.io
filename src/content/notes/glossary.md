@@ -1,7 +1,7 @@
 ---
 title: "Glossary"
 date: 2026-11-01
-updated: 2026-11-06
+updated: 2026-11-07
 tags: ["paratext"]
 unlisted: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Memory is social recognition"
 date: 2026-11-02
-updated: 2026-11-06
+updated: 2026-11-07
 tags: ["philosophy"]
 ---
 

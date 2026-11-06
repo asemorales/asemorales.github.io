@@ -1,7 +1,7 @@
 ---
 title: "Abstraction layers are techniques to handle complexity"
 date: 2026-11-05
-updated: 2026-11-06
+updated: 2026-11-07
 tags: ["complexity","science","mathematics","engineering"]
 ---
 
