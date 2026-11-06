@@ -222,9 +222,9 @@ test.describe("drawer on touch screens", () => {
     const go = page.locator("dialog.link-drawer .drawer-go");
     await expect(go).toBeVisible();
     await page.waitForTimeout(300);
-    const color = (el: Element, property: "color" | "backgroundColor") => getComputedStyle(el)[property];
+    const color = (el: Element, property: string) => getComputedStyle(el).getPropertyValue(property);
     const text = await go.evaluate(color, "color");
-    const background = await go.evaluate(color, "backgroundColor");
+    const background = await go.evaluate(color, "background-color");
     const { x, y, width, height } = (await go.boundingBox())!;
     await page.mouse.move(x + width / 2, y + height / 2);
     await page.mouse.down();
