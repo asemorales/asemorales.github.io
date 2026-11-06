@@ -10,7 +10,15 @@ function server(...replies) {
   };
   return { fetch, requests };
 }
-const opts = (fetch) => ({ key: "k", secret: "s", today: "2026-10-27", fetch, pause: 0, log: () => {} });
+const opts = (fetch, waits = []) => ({
+  key: "k",
+  secret: "s",
+  today: "2026-10-27",
+  fetch,
+  pause: 0,
+  wait: async (ms) => waits.push(ms),
+  log: () => {},
+});
 
 describe("archive-links", () => {
   it("submits each linked URL once, in order", () => {
@@ -18,6 +26,20 @@ describe("archive-links", () => {
       "https://a.org",
       "https://b.org",
     ]);
+  });
+
+  it("skips archive.org and .invalid links", () => {
+    expect(
+      pending(["https://archive.org/details/x", "https://web.archive.org/web/1/a", "https://gone.invalid/p", "https://notarchive.org"], {}),
+    ).toEqual(["https://notarchive.org"]);
+  });
+
+  it("records links that already have a recent snapshot", async () => {
+    const message = "The same snapshot had been made 231 hours, 2 minutes ago. You can make new capture of this URL after 720 hours.";
+    const { fetch } = server([200, { status: "error", message }]);
+    const archived = {};
+    await archiveAll(["https://a.org"], archived, opts(fetch));
+    expect(archived).toEqual({ "https://a.org": { submitted: "2026-10-27" } });
   });
 
   it("authenticates, skips recent captures, and records accepted jobs", async () => {
@@ -31,12 +53,24 @@ describe("archive-links", () => {
     expect(requests[0].body).toMatchObject({ url: "https://a.org", if_not_archived_within: "30d" });
   });
 
-  it("stops at a 429 and leaves the rest for the next run", async () => {
-    const { fetch, requests } = server([200, { job_id: "j" }], [429, {}, { "Retry-After": "60" }]);
+  it("waits out a 429 and retries the same link", async () => {
+    const { fetch, requests } = server([429, {}, { "Retry-After": "300" }], [200, { job_id: "j" }]);
     const archived = {};
-    const stopped = await archiveAll(["https://a.org", "https://b.org", "https://c.org"], archived, opts(fetch));
-    expect(stopped).toBe("rate limited, retry after 60s; 2 left for the next run");
-    expect(requests).toHaveLength(2);
+    const waits = [];
+    expect(await archiveAll(["https://a.org"], archived, opts(fetch, waits))).toBeNull();
+    expect(waits).toEqual([300000]);
+    expect(requests.map((r) => r.body.url)).toEqual(["https://a.org", "https://a.org"]);
+    expect(Object.keys(archived)).toEqual(["https://a.org"]);
+  });
+
+  it("stops after a second 429 and leaves the rest for the next run", async () => {
+    const { fetch, requests } = server([200, { job_id: "j" }], [429, {}], [429, {}]);
+    const archived = {};
+    const waits = [];
+    const stopped = await archiveAll(["https://a.org", "https://b.org", "https://c.org"], archived, opts(fetch, waits));
+    expect(stopped).toBe("rate limited twice; 2 left for the next run");
+    expect(waits).toEqual([0, 60000]);
+    expect(requests).toHaveLength(3);
     expect(Object.keys(archived)).toEqual(["https://a.org"]);
   });
 });

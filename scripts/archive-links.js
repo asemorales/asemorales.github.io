@@ -9,15 +9,21 @@ const ARCHIVED = path.join(root, "src/data/archived.json");
 const AGENT = "asemorales.com link-archiver (+https://asemorales.com)";
 const SAVE = "https://web.archive.org/save";
 const PAUSE = 6000;
+const RETRY_AFTER = 60;
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export function pending(linked, archived) {
-  return [...new Set(linked)].filter((url) => !archived[url]).sort();
+function archivable(url) {
+  const host = new URL(url).hostname;
+  return !/(^|\.)archive\.org$/.test(host) && !host.endsWith(".invalid");
 }
 
-export async function archiveAll(urls, archived, { key, secret, today, fetch = globalThis.fetch, pause = PAUSE, log = console.log }) {
-  for (const [i, url] of urls.entries()) {
-    if (i > 0) await new Promise((r) => setTimeout(r, pause));
-    const res = await fetch(SAVE, {
+export function pending(linked, archived) {
+  return [...new Set(linked)].filter((url) => !archived[url] && archivable(url)).sort();
+}
+
+export async function archiveAll(urls, archived, { key, secret, today, fetch = globalThis.fetch, pause = PAUSE, wait = sleep, log = console.log }) {
+  const save = (url) =>
+    fetch(SAVE, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -28,11 +34,22 @@ export async function archiveAll(urls, archived, { key, secret, today, fetch = g
       body: new URLSearchParams({ url, if_not_archived_within: "30d", skip_first_archive: "1" }),
       signal: AbortSignal.timeout(60000),
     });
+  for (const [i, url] of urls.entries()) {
+    if (i > 0) await wait(pause);
+    let res = await save(url);
     if (res.status === 429) {
-      const wait = res.headers.get("Retry-After");
-      return `rate limited${wait ? `, retry after ${wait}s` : ""}; ${urls.length - i} left for the next run`;
+      const seconds = Number(res.headers.get("Retry-After")) || RETRY_AFTER;
+      log(`rate limited, waiting ${seconds}s`);
+      await wait(seconds * 1000);
+      res = await save(url);
+      if (res.status === 429) return `rate limited twice; ${urls.length - i} left for the next run`;
     }
     const body = await res.json().catch(() => ({}));
+    if (/same snapshot had been made/i.test(body.message ?? "")) {
+      archived[url] = { submitted: today };
+      log(`seen  ${url}`);
+      continue;
+    }
     if (!res.ok || !body.job_id) {
       log(`fail  ${url}: ${body.message ?? `${res.status} ${res.statusText}`}`);
       continue;
