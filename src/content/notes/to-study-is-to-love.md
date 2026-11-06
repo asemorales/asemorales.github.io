@@ -1,5 +1,5 @@
 ---
-title: "To study is an act of love for existence"
+title: "To study is to love"
 date: 2025-08-07
 updated: 2026-11-07
 tags: ["creative","complexity"]

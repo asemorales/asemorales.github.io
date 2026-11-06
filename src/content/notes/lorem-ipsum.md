@@ -256,5 +256,4 @@ This paragraph tests a definition with neither a term nor optional sections.
 
 This page's length tests the scroll-depth events, which fire as the reader passes 25%, 50%, 75%, and 90% of the prose.
 
-> [!colophon] Colophon
-> Finished, thank God.
+This paragraph tests the wildlife in the footer garden. The number of visitors grows with the number of notes tended in the past 30 days. Scroll to the bottom to see the fireflies flash in sync. Hover over or tap the garden to scatter fireflies, hide the snail, shake a web, blow a dandelion, or puff a mushroom's spores.

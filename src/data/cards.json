@@ -161,6 +161,12 @@
     "meta": ["Wikipedia"],
     "text": "Computational irreducibility suggests certain computational processes cannot be simplified and the only way to determine the outcome of a process is to go through each step of its computation. It is one of the main ideas proposed by Stephen Wolfram in his 2002 book A New Kind of Science, although the concept goes back to studies from the 1980s."
   },
+  "https://en.wikipedia.org/wiki/Continuous_integration": {
+    "kind": "wikipedia",
+    "title": "Continuous integration",
+    "meta": ["Wikipedia"],
+    "text": "Continuous integration (CI) is the practice of integrating source code changes frequently and ensuring that the integrated codebase is in a workable state. Typically, developers merge changes to an integration branch, and an automated system builds and tests the software system. Often, the automated process runs on each commit or runs on a schedule such as once a day."
+  },
   "https://en.wikipedia.org/wiki/De_facto_and_de_jure": {
     "kind": "wikipedia",
     "title": "De facto and de jure",
@@ -263,6 +269,12 @@
     "meta": ["Wikipedia"],
     "text": "Ignaz Philipp Semmelweis was a Hungarian medical doctor and scientist of German descent who was an early pioneer of antiseptic procedures, known as the \"saviour of mothers\". Postpartum infection, also known as puerperal fever or childbed fever, was common in the 19th century, and often fatal."
   },
+  "https://en.wikipedia.org/wiki/Kuramoto_model": {
+    "kind": "wikipedia",
+    "title": "Kuramoto model",
+    "meta": ["Wikipedia"],
+    "text": "The Kuramoto model, first proposed by Yoshiki Kuramoto , is a mathematical model used in describing synchronization. More specifically, it is a model for the behavior of a large set of coupled oscillators."
+  },
   "https://en.wikipedia.org/wiki/L-system": {
     "kind": "wikipedia",
     "title": "L-system",
@@ -274,6 +286,12 @@
     "title": "Langton's ant",
     "meta": ["Wikipedia"],
     "text": "Langton's ant is a two-dimensional Turing machine with a very simple set of rules but complex emergent behavior. It was invented by Chris Langton in 1986 and runs on a square lattice of black and white cells. The idea has been generalized in several different ways, such as turmites which add more colors and more states."
+  },
+  "https://en.wikipedia.org/wiki/Link_rot": {
+    "kind": "wikipedia",
+    "title": "Link rot",
+    "meta": ["Wikipedia"],
+    "text": "Link rot is the phenomenon of hyperlinks tending over time to cease to point to their originally targeted file, web page, or server due to that resource being relocated to a new address or becoming permanently unavailable. A link that no longer resolves at the intended target may be called broken or dead."
   },
   "https://en.wikipedia.org/wiki/Living_document": {
     "kind": "wikipedia",

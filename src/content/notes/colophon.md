@@ -6,17 +6,23 @@ tags: ["paratext"]
 unlisted: true
 ---
 
-This page elaborates on the making of this site.
+This page includes details on the making of this site.
+
+***
 
 ## Tools
 
-Set in [Source Serif 4](https://github.com/adobe-fonts/source-serif) and [DM Mono](https://github.com/googlefonts/dm-mono). Content is written in [Obsidian](https://obsidian.md/), built with [Astro](https://astro.build/), and styled with [Tailwind CSS](https://tailwindcss.com/). Math is rendered with [MathJax](https://www.mathjax.org/) and code is highlighted with [Shiki](https://shiki.style/). The site is hosted on [GitHub Pages](https://pages.github.com/) with analytics from [Umami](https://umami.is/). External links are archived in the [Wayback Machine](https://web.archive.org/) to avoid linkrot.
+Set in [Source Serif 4](https://github.com/adobe-fonts/source-serif) and [DM Mono](https://github.com/googlefonts/dm-mono). Content is written in [Obsidian](https://obsidian.md/), built with [Astro](https://astro.build/), and styled with [Tailwind CSS](https://tailwindcss.com/). Math is rendered with [MathJax](https://www.mathjax.org/) and code is highlighted with [Shiki](https://shiki.style/). The site is hosted on [GitHub Pages](https://pages.github.com/) with analytics from [Umami](https://umami.is/).
 
 ## Workflow
 
 I write in Obsidian and use [Obsidian Sync](https://obsidian.md/sync) across my devices[^3]. I dedicate a folder for content to be published, which includes attachments, notes to be published, and custom annotations for popovers on links to external sites. I then run a custom `npm run` command to pull content from my vault to my site.
 
 Styled components in notes, such as quotes, epigraphs, definitions, figure captions, and status boxes are written as callouts in Obsidian, then rendered by the site depending on the type of callout. Math and code blocks in Obsidian are rendered as is. Footnotes in Obsidian are rendered as either citations (if the footnote starts with `cite-`) or as sidenotes (for all other cases) in the site.
+
+## Archiving external links
+
+To account for [linkrot](https://en.wikipedia.org/wiki/Link_rot), [CI](https://en.wikipedia.org/wiki/Continuous_integration) is configured to archive new external links through the [Wayback Machine](https://web.archive.org/) and substitute dead links with previously archived copies.
 
 ## Digital garden
 
@@ -29,9 +35,11 @@ I settled on L-systems for the simple reason that when I chose, I hadn't seen a 
 
 The algorithms for the L-systems here are taken from [The Algorithmic Beauty of Plants](https://algorithmicbotany.org/papers/). A few details:
 - Light attenuation based on Monsi–Saeki theory
-- Plants wither and regrow over time
+- Plants wither, drop seeds/petals, and regrow over time
 - Hover to rustle plants
 - Tap to grow new plants[^1]
+
+Wildlife is generated based on how often I wrote or updated a note in the past 30 days, where each note is one visitor. This includes fireflies whose behavior syncs based on the [Kuromato model](https://en.wikipedia.org/wiki/Kuramoto_model), snails, birds, spiders, and caterpillars that transform into butterflies.
 
 ## Source code and miscellaneous
 
