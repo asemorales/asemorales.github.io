@@ -30,7 +30,7 @@
   const styles = getComputedStyle(root);
   const desktop = styles.getPropertyValue("--desktop") === "1";
   const free = spots(Number(styles.getPropertyValue("--plants")), width);
-  const garden = canopy(width, height);
+  const garden: ReturnType<typeof canopy> & { plants: Plant[] } = canopy(width, height);
   const maxTrees = Number(styles.getPropertyValue("--trees"));
 
   let trees = 0;
