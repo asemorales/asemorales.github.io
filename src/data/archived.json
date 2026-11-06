@@ -84,6 +84,9 @@
     "submitted": "2026-11-06",
     "job": "spn2-f2220a46f4a69d8d9a00a7f0e703fe8d89842d9c"
   },
+  "https://en.wikipedia.org/wiki/Continuous_integration": {
+    "submitted": "2026-11-06"
+  },
   "https://en.wikipedia.org/wiki/De_facto_and_de_jure": {
     "submitted": "2026-11-06"
   },
@@ -128,8 +131,19 @@
   "https://en.wikipedia.org/wiki/Halting_problem": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Hard_problem_of_consciousness": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Hybrid_regime#Semi-democracy": {
+    "submitted": "2026-11-06",
+    "job": "spn2-2960cf327e94b2f41d48da43a80123d03c0d799d"
+  },
   "https://en.wikipedia.org/wiki/Ignaz_Semmelweis": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Kuramoto_model": {
+    "submitted": "2026-11-06",
+    "job": "spn2-a5630471303b91b305bf2f9ad5d4350342a4b3e9"
   },
   "https://en.wikipedia.org/wiki/L-system": {
     "submitted": "2026-11-06"
@@ -137,6 +151,9 @@
   "https://en.wikipedia.org/wiki/Langton's_ant": {
     "submitted": "2026-11-06",
     "job": "spn2-043a37b84503d17c60c25adc12f442b3916ff562"
+  },
+  "https://en.wikipedia.org/wiki/Link_rot": {
+    "submitted": "2026-11-06"
   },
   "https://en.wikipedia.org/wiki/Living_document": {
     "submitted": "2026-11-06",
@@ -202,12 +219,20 @@
     "submitted": "2026-11-06",
     "job": "spn2-dbfc753e8ef3fd4b42d34a4a51a021cc4ef76651"
   },
+  "https://en.wikipedia.org/wiki/The_Sciences_of_the_Artificial": {
+    "submitted": "2026-11-06",
+    "job": "spn2-972a3747a411401d3408b5639a8ffff51952ac87"
+  },
   "https://en.wikipedia.org/wiki/The_Soul_of_Man_Under_Socialism": {
     "submitted": "2026-11-06",
     "job": "spn2-07104a870958a134330e730ce67e37518d012d04"
   },
   "https://en.wikipedia.org/wiki/Turing_Award": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Wave_function_collapse": {
+    "submitted": "2026-11-06",
+    "job": "spn2-32d4152ce2de9642843645bb5b7688535d1dcbd1"
   },
   "https://en.wikipedia.org/wiki/Zone_of_proximal_development#": {
     "submitted": "2026-11-06"
@@ -249,6 +274,9 @@
   "https://pages.github.com/": {
     "submitted": "2026-11-06"
   },
+  "https://repo.darmajaya.ac.id/3794/1/Adaptation%20in%20Natural%20and%20Artificial%20Systems_%20An%20Introductory%20Analysis%20with%20Applications%20to%20Biology,%20Control,%20and%20Artificial%20Intelligence%20(A%20Bradford%20Book)%20(%20PDFDrive%20).pdf": {
+    "submitted": "2026-11-06"
+  },
   "https://shiki.style/": {
     "submitted": "2026-11-06"
   },
@@ -279,6 +307,9 @@
     "submitted": "2026-11-06",
     "job": "spn2-168eaec6d51f7eee45fbe46e15e20eb00ba56968"
   },
+  "https://www.lesswrong.com/posts/jinzzbPHshif8nmnw/do-not-conquer-what-you-cannot-defend": {
+    "submitted": "2026-11-06"
+  },
   "https://www.mathjax.org/": {
     "submitted": "2026-11-06"
   },
@@ -288,5 +319,9 @@
   "https://www.sfipress.org/": {
     "submitted": "2026-11-06",
     "job": "spn2-a0cb3d62620617a91671f67d6b26ad523bac4cf8"
+  },
+  "https://www.unife.it/economia/lm.economia/insegnamenti/economia-applicata-avanzata/mat-did/frattini/ff4-arthur1989.pdf": {
+    "submitted": "2026-11-06",
+    "job": "spn2-7b6633d01c68f5498761723d040a3c7e5e50ae25"
   }
 }
