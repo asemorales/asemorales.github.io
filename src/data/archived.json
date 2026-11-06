@@ -1,7 +1,22 @@
 {
+  "http://www.econ.yale.edu/smith/econ116a/keynes1.pdf": {
+    "submitted": "2026-11-06"
+  },
+  "https://algorithmicbotany.org/papers/": {
+    "submitted": "2026-11-06"
+  },
+  "https://arxiv.org/abs/1706.03762": {
+    "submitted": "2026-11-06"
+  },
+  "https://arxiv.org/abs/1911.01547": {
+    "submitted": "2026-11-06"
+  },
   "https://arxiv.org/abs/2405.02325": {
     "submitted": "2026-11-05",
     "job": "spn2-0fac835745519183213a7829b1092cc93a8634ef"
+  },
+  "https://astro.build/": {
+    "submitted": "2026-11-06"
   },
   "https://consc.net/papers/emergence.pdf": {
     "submitted": "2026-11-05",
@@ -10,5 +25,268 @@
   "https://doi.org/10.1007%2Fs13194-012-0056-8": {
     "submitted": "2026-11-05",
     "job": "spn2-abb95a2dbd59ff9f5b962c8696bd0a35893757cb"
+  },
+  "https://doi.org/10.1057/s41599-020-00680-y": {
+    "submitted": "2026-11-06",
+    "job": "spn2-77d332364f499c0caa5481170b5b5b5489735c51"
+  },
+  "https://doi.org/10.1090/S0002-9947-1953-0053041-6": {
+    "submitted": "2026-11-06",
+    "job": "spn2-93c2cc5d8d507dcca1cb522b9d20844701c88e73"
+  },
+  "https://doi.org/10.1112/plms/s2-42.1.230": {
+    "submitted": "2026-11-06"
+  },
+  "https://doi.org/10.1145/3663976.3664235": {
+    "submitted": "2026-11-06",
+    "job": "spn2-16456e3caf4704a3980d6d86cb089cc1e3175b97"
+  },
+  "https://edwardtufte.github.io/tufte-css/": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/A_Mathematician's_Apology": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Abstraction_(computer_science)": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Assembly_language": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Author-level_metric": {
+    "submitted": "2026-11-06",
+    "job": "spn2-da602b2cfe0e2eab4ec5b45b4ff1bd791da2b6dc"
+  },
+  "https://en.wikipedia.org/wiki/C++": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Cellular_automaton": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Citation": {
+    "submitted": "2026-11-06",
+    "job": "spn2-072e849d81ff97160d9e41eacec3abc509f00a8a"
+  },
+  "https://en.wikipedia.org/wiki/Cold_start_%28recommender_systems%29": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Complex_system": {
+    "submitted": "2026-11-06",
+    "job": "spn2-bfdd42dca2b76cb07303f5e93dc59c5946d42ade"
+  },
+  "https://en.wikipedia.org/wiki/Complexity_class": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Computational_irreducibility": {
+    "submitted": "2026-11-06",
+    "job": "spn2-f2220a46f4a69d8d9a00a7f0e703fe8d89842d9c"
+  },
+  "https://en.wikipedia.org/wiki/De_facto_and_de_jure": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Downward_causation": {
+    "submitted": "2026-11-06",
+    "job": "spn2-3a53dc36aa9e26fa9e2d79e86a8bbb91606ab2d7"
+  },
+  "https://en.wikipedia.org/wiki/Effective_accelerationism": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Embodied_agent": {
+    "submitted": "2026-11-06",
+    "job": "spn2-b3e501052fd914a00851fd64e26605495303438c"
+  },
+  "https://en.wikipedia.org/wiki/Emergence": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Essays_%28Montaigne%29": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Fields_Medal": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Fiscal_year": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Fluid_and_crystallized_intelligence": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Funding_of_science": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Goodhart's_law": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Gregor_Mendel": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/H-index": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Halting_problem": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Ignaz_Semmelweis": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/L-system": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Langton's_ant": {
+    "submitted": "2026-11-06",
+    "job": "spn2-043a37b84503d17c60c25adc12f442b3916ff562"
+  },
+  "https://en.wikipedia.org/wiki/Living_document": {
+    "submitted": "2026-11-06",
+    "job": "spn2-924a2db439b8e18556c9e4eb7fdf2ff110ef800d"
+  },
+  "https://en.wikipedia.org/wiki/Mastodon_%28social_network%29": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Matthew_effect": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Mercury_(mythology)": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Moravec's_paradox": {
+    "submitted": "2026-11-06",
+    "job": "spn2-3d0dee8002740d4bc6c1e26300a655af14176633"
+  },
+  "https://en.wikipedia.org/wiki/News_aggregator": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Nobel_Prize": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Ozymandias": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Price_signal": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Principal_investigator": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Rational_analysis": {
+    "submitted": "2026-11-06",
+    "job": "spn2-c7fdafd8f61b0249092e3ce601e48ef90c1f82d3"
+  },
+  "https://en.wikipedia.org/wiki/Recommender_system": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Research_assistant": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Separation_of_concerns": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Stuart_Kauffman": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Technological_unemployment": {
+    "submitted": "2026-11-06",
+    "job": "spn2-874c381a4d4033ab2428d70260fa6f12635d671f"
+  },
+  "https://en.wikipedia.org/wiki/The_Book_of_Disquiet": {
+    "submitted": "2026-11-06",
+    "job": "spn2-00f96893fffba7db32eafd85505e77602909c74f"
+  },
+  "https://en.wikipedia.org/wiki/The_Elements_of_Typographic_Style": {
+    "submitted": "2026-11-06",
+    "job": "spn2-955681caa078dec01d02588346d8f0020f213195"
+  },
+  "https://en.wikipedia.org/wiki/The_Library_of_Babel": {
+    "submitted": "2026-11-06",
+    "job": "spn2-dbfc753e8ef3fd4b42d34a4a51a021cc4ef76651"
+  },
+  "https://en.wikipedia.org/wiki/The_Soul_of_Man_Under_Socialism": {
+    "submitted": "2026-11-06",
+    "job": "spn2-07104a870958a134330e730ce67e37518d012d04"
+  },
+  "https://en.wikipedia.org/wiki/Turing_Award": {
+    "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Zone_of_proximal_development#": {
+    "submitted": "2026-11-06"
+  },
+  "https://example.com": {
+    "submitted": "2026-11-06"
+  },
+  "https://github.com/adobe-fonts/source-serif": {
+    "submitted": "2026-11-06"
+  },
+  "https://github.com/asemorales/asemorales.github.io": {
+    "submitted": "2026-11-06",
+    "job": "spn2-e95085a4c987ee66d3db58321df74a26438961c1"
+  },
+  "https://github.com/asemorales/bierstadt": {
+    "submitted": "2026-11-06",
+    "job": "spn2-649909b26b91bce17cabc0bf30317f1a867955b7"
+  },
+  "https://github.com/googlefonts/dm-mono": {
+    "submitted": "2026-11-06"
+  },
+  "https://gwern.net/design": {
+    "submitted": "2026-11-06"
+  },
+  "https://link.springer.com/article/10.1007/s11192-024-04936-1": {
+    "submitted": "2026-11-06",
+    "job": "spn2-2ffc296271d9515da5b00c57fd96ba385630a54f"
+  },
+  "https://obsidian.md/": {
+    "submitted": "2026-11-06"
+  },
+  "https://obsidian.md/sync": {
+    "submitted": "2026-11-06"
+  },
+  "https://openlibrary.org/books/OL21115131M/I_seem_to_be_a_verb._--.": {
+    "submitted": "2026-11-06",
+    "job": "spn2-48871ac1bc6bb2a3df8fefa02205ec0bd1839148"
+  },
+  "https://pages.github.com/": {
+    "submitted": "2026-11-06"
+  },
+  "https://shiki.style/": {
+    "submitted": "2026-11-06"
+  },
+  "https://stephango.com/": {
+    "submitted": "2026-11-06"
+  },
+  "https://tailwindcss.com/": {
+    "submitted": "2026-11-06"
+  },
+  "https://thepastpresented.com/?p=1639": {
+    "submitted": "2026-11-06",
+    "job": "spn2-d8be39ce3ddae794465f82358b119effc44cf70d"
+  },
+  "https://umami.is/": {
+    "submitted": "2026-11-06"
+  },
+  "https://webtypography.net/": {
+    "submitted": "2026-11-06"
+  },
+  "https://www-sop.inria.fr/members/Ian.Jermyn/philosophy/writings/Boxonmaths.pdf": {
+    "submitted": "2026-11-06",
+    "job": "spn2-b41ed04dd1be32e3cbab69e1e571cec334e9fcf2"
+  },
+  "https://www.cambridge.org/highereducation/books/situated-learning/6915ABD21C8E4619F750A4D4ACA616CD": {
+    "submitted": "2026-11-06"
+  },
+  "https://www.eastgate.com/garden/Enter.html": {
+    "submitted": "2026-11-06",
+    "job": "spn2-168eaec6d51f7eee45fbe46e15e20eb00ba56968"
+  },
+  "https://www.mathjax.org/": {
+    "submitted": "2026-11-06"
+  },
+  "https://www.santafe.edu/": {
+    "submitted": "2026-11-06"
+  },
+  "https://www.sfipress.org/": {
+    "submitted": "2026-11-06",
+    "job": "spn2-a0cb3d62620617a91671f67d6b26ad523bac4cf8"
   }
 }
