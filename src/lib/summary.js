@@ -1,8 +1,6 @@
-const OPENING_COLOPHON = /^>\s*\[!colophon\][^\n]*\n((?:>.*(?:\n|$))+)/i;
-
 export function summary(markdown, { paragraphs = Infinity } = {}) {
   const out = [];
-  const source = markdown.trim().replace(OPENING_COLOPHON, (_, body) => body.replace(/^>[ \t]?/gm, ""));
+  const source = markdown.trim();
   for (const block of source.split(/\n\s*\n/)) {
     if (/^\s*([#>|`~$+-]|\*\s|\d+\.\s|!\[|<|%%)/.test(block)) break;
     out.push(plain(block));

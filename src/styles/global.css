@@ -785,17 +785,6 @@
     font-variant-caps: all-small-caps;
     letter-spacing: 0.04em;
   }
-  .note .colophon {
-    @apply mx-auto mt-14 max-w-[28em] text-center italic;
-  }
-  .note .colophon .colophon-title {
-    @apply text-lg font-normal not-italic;
-    font-variant-caps: all-small-caps;
-    letter-spacing: 0.08em;
-  }
-  .note .colophon p {
-    @apply mt-3 text-base text-pretty;
-  }
 
   .link-popover {
     @apply fixed m-0 max-h-80 w-[min(26rem,calc(100vw-1rem))] overflow-hidden border border-frame bg-code p-4 text-left text-base leading-normal text-ink shadow-lg;

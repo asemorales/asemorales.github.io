@@ -29,14 +29,6 @@ test.describe("layout and type", () => {
     const hr = page.locator("article hr").first();
     expect(await hr.evaluate((el) => getComputedStyle(el, "::after").content)).toContain("*");
   });
-
-  test("sets the colophon apart at the end of the note", async ({ page }) => {
-    const colophon = page.locator("article .colophon");
-    await expect(colophon.locator(".colophon-title")).toHaveText("Colophon");
-    await expect(colophon).toContainText("Finished, thank God.");
-    await expect(colophon).toHaveCSS("text-align", "center");
-    await expect(colophon).toHaveCSS("font-style", "italic");
-  });
 });
 
 test.describe("sections", () => {
@@ -338,7 +330,8 @@ test.describe("glossary", () => {
 
   test("appears at the bottom of the home contents", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator(".home-end a")).toHaveText(["To the Reader", "Acknowledgments", "Glossary", "Colophon (About this Site)"]);
+    const hrefs = await page.locator(".home-end a").evaluateAll((as) => as.map((a) => a.getAttribute("href")));
+    expect(hrefs).toEqual(["/to-the-reader/", "/acknowledgments/", "/glossary/", "/colophon/"]);
   });
 });
 

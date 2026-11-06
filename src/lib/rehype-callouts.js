@@ -53,12 +53,6 @@ function callout(quote) {
       const wide = figure(body);
       return wide ? el("div", { className: ["wide"] }, [wide]) : quote;
     }
-    case "colophon":
-      return el("aside", { className: ["colophon"], ariaLabel: "Colophon" }, [
-        el("hr", {}, []),
-        ...(title.length ? [el("p", { className: ["colophon-title"] }, title)] : []),
-        ...body,
-      ]);
     default:
       return el("blockquote", {}, [...keepLineBreaks(body), ...attribution(title)]);
   }

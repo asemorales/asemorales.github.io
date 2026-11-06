@@ -34,8 +34,6 @@ To write a custom annotation for an external link, add a note to `published/anno
 
 To change the homepage introduction, edit `published/paratext/introduction.md`. This file needs no front matter, and `npm run sync` does not publish it as a note.
 
-To set text as a colophon, use a `> [!colophon] Title` callout. The title is optional.
-
 To add a figure, use a `> [!figure]` or `> [!wide-figure]` callout. Put the image on the next line and the optional caption on the line after it.
 
 To cite a source, start the footnote's ID with `cite-`, as in `[^cite-turing]: [Turing 1936](https://doi.org/...), §8.` The footnote must be one external link, optionally followed by text such as a page number. The text can use italics, bold, code, and strikethrough. Anything else fails the build. Citations appear under References, and all other footnotes become sidenotes.
