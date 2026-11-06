@@ -36,13 +36,19 @@ export async function archiveAll(urls, archived, { key, secret, today, fetch = g
     });
   for (const [i, url] of urls.entries()) {
     if (i > 0) await wait(pause);
-    let res = await save(url);
-    if (res.status === 429) {
-      const seconds = Number(res.headers.get("Retry-After")) || RETRY_AFTER;
-      log(`rate limited, waiting ${seconds}s`);
-      await wait(seconds * 1000);
+    const left = `${urls.length - i} left for the next run`;
+    let res;
+    try {
       res = await save(url);
-      if (res.status === 429) return `rate limited twice; ${urls.length - i} left for the next run`;
+      if (res.status === 429) {
+        const seconds = Number(res.headers.get("Retry-After")) || RETRY_AFTER;
+        log(`rate limited, waiting ${seconds}s`);
+        await wait(seconds * 1000);
+        res = await save(url);
+        if (res.status === 429) return `rate limited twice; ${left}`;
+      }
+    } catch (err) {
+      return `${err.cause?.code ?? err.message}; ${left}`;
     }
     const body = await res.json().catch(() => ({}));
     if (/same snapshot had been made/i.test(body.message ?? "")) {

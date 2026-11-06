@@ -73,4 +73,16 @@ describe("archive-links", () => {
     expect(requests).toHaveLength(3);
     expect(Object.keys(archived)).toEqual(["https://a.org"]);
   });
+
+  it("stops on a network error and keeps earlier results", async () => {
+    let calls = 0;
+    const fetch = async () => {
+      if (++calls === 1) return new Response(JSON.stringify({ job_id: "j" }));
+      throw new TypeError("fetch failed", { cause: { code: "UND_ERR_CONNECT_TIMEOUT" } });
+    };
+    const archived = {};
+    const stopped = await archiveAll(["https://a.org", "https://b.org", "https://c.org"], archived, opts(fetch));
+    expect(stopped).toBe("UND_ERR_CONNECT_TIMEOUT; 2 left for the next run");
+    expect(Object.keys(archived)).toEqual(["https://a.org"]);
+  });
 });
