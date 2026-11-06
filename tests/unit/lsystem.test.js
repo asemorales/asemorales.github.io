@@ -124,7 +124,7 @@ describe("interpret", () => {
 });
 
 describe("choose", () => {
-  const others = KINDS.filter((kind) => kind !== TREE);
+  const others = KINDS.slice(1, 3);
 
   it("picks by weight", () => {
     expect(choose(KINDS, () => 0)).toBe(TREE);

@@ -1,16 +1,24 @@
 ---
+import { getCollection } from "astro:content";
+
+const tended = (await getCollection("notes", (note) => !note.data.unlisted)).map((note) => note.data.updated.toISOString().slice(0, 10)).join(" ");
 ---
 
 <div
   id="lsystems"
   hidden
   class="mt-auto -mb-6 cursor-pointer [--desktop:0] [--plants:10] [--trees:3] sm:[--plants:13] sm:[--trees:4] md:[--desktop:1] md:[--plants:14] md:[--trees:5] lg:[--plants:17] lg:[--trees:7] xl:[--plants:20] xl:[--trees:8] print:hidden"
+  data-tended={tended}
   aria-hidden="true">
-  <svg class="block h-56 w-full fill-frame stroke-frame"></svg>
+  <svg class="block h-56 w-full fill-frame stroke-frame">
+    <g class="plants"></g>
+    <g class="wildlife" pointer-events="none"></g>
+  </svg>
 </div>
 
 <script>
   import { GENERATIONS, KINDS, TREE, between, brush, canopy, establish, plantNear, reached, remove, spots, swing } from "../lib/lsystem.js";
+  import { census, inhabit, recent } from "../lib/wildlife.js";
 
   type Plant = NonNullable<ReturnType<typeof establish>> & {
     path: SVGPathElement;
@@ -25,7 +33,7 @@
 
   const root = document.getElementById("lsystems")!;
   root.hidden = false;
-  const svg = root.querySelector("svg")!;
+  const svg = root.querySelector(".plants")!;
   const { width, height } = root.getBoundingClientRect();
   const styles = getComputedStyle(root);
   const desktop = styles.getPropertyValue("--desktop") === "1";
@@ -50,8 +58,8 @@
   let swayed = 0;
   const rustling = new Set<Plant>();
 
-  function start(index = between(0, free.length - 1), x = free[index]) {
-    const kinds = trees < maxTrees ? KINDS : KINDS.filter((k) => k !== TREE);
+  function start(index = between(0, free.length - 1), x = free[index], pool = KINDS) {
+    const kinds = trees < maxTrees ? pool : pool.filter((k) => k !== TREE);
     const plant = establish(garden, kinds, x, height, width);
     if (!plant) return false;
     plant.x = free.splice(index, 1)[0];
@@ -96,8 +104,37 @@
     if (plant.kind === TREE) trees--;
   }
 
+  function sow(x: number, pool = KINDS) {
+    if (!free.length) return;
+    const index = free.reduce((best, spot, i) => (Math.abs(spot - x) < Math.abs(free[best] - x) ? i : best), 0);
+    if (Math.abs(free[index] - x) < 30) start(index, x, pool);
+  }
+
+  function rustle(plant: Plant, pixels: number) {
+    brush(plant, pixels);
+    rustling.add(plant);
+    if (!swaying) {
+      swayed = performance.now();
+      swaying = requestAnimationFrame(sway);
+    }
+  }
+
+  const tended = (root.dataset.tended ?? "").split(" ").filter(Boolean).map(Date.parse);
+  const wildlife = inhabit(root.querySelector(".wildlife")!, {
+    width,
+    height,
+    garden,
+    visitors: census(recent(tended, Date.now()), desktop ? 12 : 6),
+    standing: () => standing,
+    sow,
+    touch: (plant: Plant, pixels: number) => {
+      if (!calm()) rustle(plant, pixels);
+    },
+  });
+
   function tick(now: number) {
-    clock += Math.min(now - last, 100);
+    const elapsed = Math.min(now - last, 100);
+    clock += elapsed;
     last = now;
     if (free.length && growing.length < concurrent && clock >= nextStart) {
       start();
@@ -114,10 +151,13 @@
     growing.filter((plant) => plant.generation >= GENERATIONS).forEach(age);
     growing = unfinished;
 
-    dying.push(...standing.filter((plant) => clock >= plant.due));
+    const due = standing.filter((plant) => clock >= plant.due);
+    due.forEach(wildlife.fall);
+    dying.push(...due);
     standing = standing.filter((plant) => clock < plant.due);
     for (const plant of dying) if (clock >= plant.due) wither(plant);
     dying = dying.filter((plant) => plant.generation > 0);
+    wildlife.step(elapsed / 1000);
     frame = requestAnimationFrame(tick);
   }
 
@@ -125,8 +165,10 @@
     return matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
-  function plantAt({ clientX }: MouseEvent) {
-    const x = clientX - root.getBoundingClientRect().left;
+  function plantAt({ clientX, clientY }: MouseEvent) {
+    const { left, top } = root.getBoundingClientRect();
+    const x = clientX - left;
+    if (!calm() && wildlife.click(x, clientY - top)) return;
     const nearest = free.reduce((best, spot, index) => (Math.abs(spot - x) < Math.abs(free[best] - x) ? index : best), 0);
     const crowding = standing.reduce<Plant | null>(
       (best, plant) => (!best || Math.abs(plant.base - x) < Math.abs(best.base - x) ? plant : best),
@@ -139,11 +181,15 @@
       if (calm()) {
         crowding.path.remove();
       } else {
+        wildlife.fall(crowding);
         crowding.due = clock;
         dying.push(crowding);
       }
     }
-    if (calm()) complete();
+    if (calm()) {
+      complete();
+      wildlife.still();
+    }
   }
 
   function sway(now: number) {
@@ -169,17 +215,16 @@
     if (calm()) return;
     const { left, top } = root.getBoundingClientRect();
     const x = event.clientX - left;
-    const next = event.type === "pointerleave" ? null : (plantNear(garden, x, event.clientY - top) as Plant | null);
+    const y = event.clientY - top;
+    if (event.type === "pointerleave") wildlife.leave();
+    else wildlife.pointer(x, y);
+    const next = event.type === "pointerleave" ? null : (plantNear(garden, x, y) as Plant | null);
     for (const plant of new Set([hovered, next])) {
       if (!plant) continue;
-      brush(plant, across + (along / 2) * Math.sign(x - plant.base));
-      rustling.add(plant);
+      rustle(plant, across + (along / 2) * Math.sign(x - plant.base));
+      wildlife.blow(plant, across);
     }
     hovered = next;
-    if (rustling.size && !swaying) {
-      swayed = performance.now();
-      swaying = requestAnimationFrame(sway);
-    }
   }
 
   function update() {
@@ -191,6 +236,7 @@
     } else if (calm()) {
       for (let index = free.length - 1; index >= 0; index--) start(index);
       complete();
+      wildlife.still();
       settled = true;
     } else if (!frame) {
       frame = requestAnimationFrame(tick);

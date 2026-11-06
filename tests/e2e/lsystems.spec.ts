@@ -1,14 +1,14 @@
 import { expect, test, type Page } from "@playwright/test";
 
 const phone = (name: string) => name.includes("phone");
-const plants = (page: Page) => page.locator("#lsystems path").count();
+const plants = (page: Page) => page.locator("#lsystems .plants path").count();
 const segments = (page: Page) =>
-  page.locator("#lsystems path").evaluateAll((paths) => paths.reduce((sum, path) => sum + path.getAttribute("d")!.split("M").length - 1, 0));
+  page.locator("#lsystems .plants path").evaluateAll((paths) => paths.reduce((sum, path) => sum + path.getAttribute("d")!.split("M").length - 1, 0));
 const scrollToFraction = (page: Page, fraction: number) =>
   page.evaluate((f) => scrollTo({ top: f * document.documentElement.scrollHeight - innerHeight, behavior: "instant" }), fraction);
 const fixRandom = (page: Page, roll: number) => page.addInitScript((r) => (Math.random = () => r), roll);
 const trees = (page: Page) =>
-  page.locator("#lsystems path").evaluateAll((paths) => paths.filter((path) => (path as SVGPathElement).getBBox().height > 140).length);
+  page.locator("#lsystems .plants path").evaluateAll((paths) => paths.filter((path) => (path as SVGPathElement).getBBox().height > 140).length);
 const coarsenFrames = (page: Page) =>
   page.addInitScript(() => {
     window.requestAnimationFrame = (callback) => setTimeout(() => callback(performance.now()), 100) as unknown as number;
@@ -165,11 +165,11 @@ test.describe("L-systems", () => {
       await fixRandom(page, 0.99);
       await coarsenFrames(page);
       await loadWithPausedClock(page);
-      await page.locator("#lsystems path").evaluateAll((paths) => paths.forEach((path) => path.setAttribute("data-original", "")));
+      await page.locator("#lsystems .plants path").evaluateAll((paths) => paths.forEach((path) => path.setAttribute("data-original", "")));
       await scrollToFraction(page, 1);
       await page.waitForTimeout(200);
       await page.clock.runFor(200_000);
-      expect(await page.locator("#lsystems path[data-original]").count()).toBe(0);
+      expect(await page.locator("#lsystems .plants path[data-original]").count()).toBe(0);
       expect(await plants(page)).toBeGreaterThan(0);
     });
 
@@ -188,7 +188,7 @@ test.describe("L-systems", () => {
       await scrollToFraction(page, 1);
       await page.mouse.move(1, 1);
       const find = () =>
-        page.locator("#lsystems path").evaluateAll((paths) => {
+        page.locator("#lsystems .plants path").evaluateAll((paths) => {
           const { left, top } = document.querySelector("#lsystems")!.getBoundingClientRect();
           return paths
             .flatMap((path) => {
@@ -270,7 +270,7 @@ test.describe("L-systems", () => {
       const before = await plants(page);
       const band = page.locator("#lsystems");
       await page.evaluate(() => (Math.random = () => 0.5));
-      const empty = await page.locator("#lsystems path").evaluateAll(
+      const empty = await page.locator("#lsystems .plants path").evaluateAll(
         (paths, width) => {
           const centers = paths.map((path) => (path as SVGPathElement).getBBox()).map(({ x, width }) => x + width / 2);
           const gap = (spot: number) => Math.min(...centers.map((center) => Math.abs(center - spot)));
@@ -283,7 +283,7 @@ test.describe("L-systems", () => {
       expect(await plants(page)).toBe(before + 1);
       await page.clock.runFor(6000);
       const { x, width } = await page
-        .locator("#lsystems path")
+        .locator("#lsystems .plants path")
         .nth(before)
         .evaluate((path) => {
           const box = (path as SVGPathElement).getBBox();
@@ -305,13 +305,13 @@ test.describe("L-systems", () => {
       const before = await plants(page);
       const band = (await page.locator("#lsystems").boundingBox())!;
       await page.locator("#lsystems").evaluate((root) =>
-        root.querySelectorAll("path").forEach((path, index) => {
+        root.querySelectorAll(".plants path").forEach((path, index) => {
           path.setAttribute("data-index", String(index));
           path.setAttribute("data-length", String(path.getAttribute("d")!.length));
         }),
       );
       const middle = band.width / 2;
-      const nearest = await page.locator("#lsystems path").evaluateAll(
+      const nearest = await page.locator("#lsystems .plants path").evaluateAll(
         (paths, x) =>
           paths
             .map((path) => {
@@ -326,15 +326,15 @@ test.describe("L-systems", () => {
       }
       await page.clock.runFor(1000);
       const withering = await page
-        .locator("#lsystems path[data-index]")
+        .locator("#lsystems .plants path[data-index]")
         .evaluateAll((paths) => paths.filter((path) => path.getAttribute("d")!.length < Number(path.getAttribute("data-length"))).length);
       const sprouting = await page
-        .locator("#lsystems path:not([data-index])")
+        .locator("#lsystems .plants path:not([data-index])")
         .evaluateAll((paths) => paths.filter((path) => path.getAttribute("d")).length);
       expect(withering).toBeGreaterThan(0);
       expect(sprouting).toBeGreaterThan(0);
       await page.clock.runFor(20_000);
-      expect(await page.locator(`#lsystems path[data-index="${nearest}"]`).count()).toBe(0);
+      expect(await page.locator(`#lsystems .plants path[data-index="${nearest}"]`).count()).toBe(0);
       expect(await plants(page)).toBeGreaterThanOrEqual(Math.min(before, 2));
       expect(await plants(page)).toBeLessThanOrEqual(max);
     });
@@ -345,11 +345,11 @@ test.describe("L-systems", () => {
       await page.goto("/lorem-ipsum/");
       await scrollToFraction(page, 1);
       await expect.poll(() => plants(page)).toBeGreaterThan(4);
-      await page.locator("#lsystems path").evaluateAll((paths) => paths.forEach((path) => path.setAttribute("data-original", "")));
+      await page.locator("#lsystems .plants path").evaluateAll((paths) => paths.forEach((path) => path.setAttribute("data-original", "")));
       for (let tries = 0; tries < 30; tries++) {
         await page.locator("#lsystems").click({ position: { x: 5 + tries * 11, y: 100 } });
       }
-      expect(await page.locator("#lsystems path:not([data-original])").count()).toBeGreaterThan(0);
+      expect(await page.locator("#lsystems .plants path:not([data-original])").count()).toBeGreaterThan(0);
       expect(await plants(page)).toBeLessThanOrEqual(max);
     });
 
@@ -390,7 +390,7 @@ test.describe("L-systems", () => {
       await scrollToFraction(page, 1);
       await expect.poll(() => plants(page)).toBeGreaterThan(initial);
       const width = await page.evaluate(() => document.querySelector("#lsystems svg")!.getBoundingClientRect().width);
-      const sides = await page.locator("#lsystems path").evaluateAll((paths) =>
+      const sides = await page.locator("#lsystems .plants path").evaluateAll((paths) =>
         paths.map((path) => {
           const { x, width } = (path as SVGPathElement).getBBox();
           return [x, x + width];
@@ -410,6 +410,80 @@ test.describe("L-systems", () => {
       const count = await plants(page);
       expect(count).toBeLessThanOrEqual(max);
       expect(await segments(page)).toBeGreaterThanOrEqual(count);
+    });
+
+    const latestTended = (page: Page) =>
+      page.locator("#lsystems").evaluate((root) => Math.max(...(root as HTMLElement).dataset.tended!.split(" ").map(Date.parse)));
+    const fireflies = (page: Page) => page.locator("#lsystems .wildlife .stroke-glow");
+    const visitWhileTended = async (page: Page) => {
+      await page.goto("/lorem-ipsum/");
+      await page.clock.install({ time: (await latestTended(page)) + 86_400_000 });
+    };
+    const spot = (el: Element) =>
+      el
+        .getAttribute("transform")!
+        .match(/translate\(([-\d.]+) ([-\d.]+)\)/)!
+        .slice(1)
+        .map(Number);
+
+    test("bring wildlife for notes tended in the last 30 days, and none after", async ({ page }) => {
+      await page.goto("/lorem-ipsum/");
+      const latest = await latestTended(page);
+      await page.clock.install({ time: latest + 31 * 86_400_000 });
+      await page.reload();
+      await scrollToFraction(page, 1);
+      await page.waitForTimeout(500);
+      expect(await page.locator("#lsystems .wildlife > *").count()).toBe(0);
+
+      await page.clock.setSystemTime(latest + 86_400_000);
+      await page.reload();
+      await scrollToFraction(page, 1);
+      await expect.poll(() => fireflies(page).count()).toBeGreaterThan(0);
+    });
+
+    test("scatter fireflies from the pointer", async ({ page }) => {
+      await visitWhileTended(page);
+      await page.reload();
+      await scrollToFraction(page, 1);
+      await expect.poll(() => fireflies(page).count()).toBeGreaterThan(0);
+      await page.waitForTimeout(500);
+      const band = (await page.locator("#lsystems").boundingBox())!;
+      const [x, y] = await fireflies(page).first().evaluate(spot);
+      await page.mouse.move(band.x + x + 10, band.y + y, { steps: 2 });
+      await page.mouse.move(band.x + x, band.y + y, { steps: 2 });
+      await page.waitForTimeout(800);
+      const [after, below] = await fireflies(page).first().evaluate(spot);
+      expect(Math.hypot(after - x, below - y)).toBeGreaterThan(10);
+    });
+
+    test("puff spores from a tapped mushroom instead of planting", async ({ page }) => {
+      test.setTimeout(60_000);
+      await visitWhileTended(page);
+      await coarsenFrames(page);
+      await page.reload();
+      await scrollToFraction(page, 1);
+      await page.waitForTimeout(200);
+      const mushroom = page.locator('#lsystems .wildlife path[d^="M-.9"]').first();
+      for (let tries = 0; tries < 12 && !(await mushroom.count()); tries++) await page.clock.runFor(5000);
+      await page.clock.runFor(3000);
+      const [x] = await mushroom.evaluate(spot);
+      const box = (await page.locator("#lsystems").boundingBox())!;
+      const before = await plants(page);
+      await page.mouse.click(box.x + x, box.y + box.height - 3);
+      expect(await plants(page)).toBe(before);
+      expect(await page.locator('#lsystems .wildlife path[d="M0 0h.01"]').count()).toBeGreaterThan(0);
+    });
+
+    test("hold wildlife still under reduced motion", async ({ page }) => {
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await visitWhileTended(page);
+      await page.reload();
+      await scrollToFraction(page, 1);
+      await expect.poll(() => fireflies(page).count()).toBeGreaterThan(0);
+      const pose = () => page.locator("#lsystems .wildlife").evaluate((layer) => layer.innerHTML);
+      const first = await pose();
+      await page.waitForTimeout(1000);
+      expect(await pose()).toBe(first);
     });
   });
 });

@@ -1,7 +1,9 @@
 const FLOWER_RADIUS = 1.6;
 const BRACT = 4;
+const PUFF = 4;
+const RAYS_IN_PUFF = 10;
 const EDGE = BRACT + 1;
-const CELL = 8;
+export const CELL = 8;
 const EXTINCTION = 0.008;
 const RAYS = [-1, 0, 1];
 const LOOK = 5;
@@ -109,15 +111,34 @@ const SYSTEMS = {
       },
     },
   ],
+  dandelion: [
+    {
+      axiom: "I[L][L]a",
+      generations: 9,
+      turn: [3, 7],
+      jitter: 3,
+      tips: /a/g,
+      tip: "P",
+      rules: {
+        a: [
+          [0.35, "+Ia"],
+          [0.35, "-Ia"],
+          [0.3, "Ia"],
+        ],
+      },
+    },
+  ],
 };
 
 export const KINDS = [
   { weight: 0.4, height: [150, 216], needs: 0.5, sun: 2, opacity: 1, room: 20, life: [240, 480], systems: SYSTEMS.tree },
   { weight: 0.3, height: [80, 135], needs: 0.2, sun: -0.5, opacity: 0.25, room: 6, life: [120, 300], systems: SYSTEMS.fern },
   { weight: 0.3, height: [50, 110], needs: 0.35, sun: 1, opacity: 0.25, room: 6, life: [60, 180], systems: SYSTEMS.flower },
+  { weight: 0.05, height: [60, 100], needs: 0.4, sun: 1, opacity: 0.15, room: 6, life: [60, 150], systems: SYSTEMS.dandelion },
 ];
 
 export const TREE = KINDS[0];
+export const DANDELION = KINDS[3];
 export const GENERATIONS = 16;
 
 export function reached(scrolled, viewport, page) {
@@ -163,7 +184,7 @@ function rightContext(word, i) {
   return "1";
 }
 
-export function derive({ axiom, generations, rules, tips }, random = Math.random) {
+export function derive({ axiom, generations, rules, tips, tip = "K" }, random = Math.random) {
   let word = axiom;
   for (let generation = 0; generation < generations; generation++) {
     const next = [];
@@ -175,7 +196,7 @@ export function derive({ axiom, generations, rules, tips }, random = Math.random
     }
     word = next.join("");
   }
-  return tips ? word.replace(tips, "K") : word;
+  return tips ? word.replace(tips, tip) : word;
 }
 
 export function interpret(word, { turn: [low, high], jitter, straighten = 1, bend = 0 }, random = Math.random) {
@@ -184,6 +205,7 @@ export function interpret(word, { turn: [low, high], jitter, straighten = 1, ben
   const lines = [];
   const bracts = [];
   const flowers = [];
+  const puffs = [];
   const stack = [];
   let turtle = { x: 0, y: 0, heading: 0, reach: 0, side: random() < 0.5 ? 1 : -1 };
   for (const symbol of word) {
@@ -209,8 +231,9 @@ export function interpret(word, { turn: [low, high], jitter, straighten = 1, ben
     } else if (symbol === "]") turtle = stack.pop();
     else if (symbol === "L") bracts.push({ ...turtle, side: random() < 0.5 ? 1 : -1 });
     else if (symbol === "K") flowers.push({ ...turtle });
+    else if (symbol === "P") puffs.push({ ...turtle });
   }
-  return { lines, bracts, flowers };
+  return { lines, bracts, flowers, puffs };
 }
 
 const round = (value) => +value.toFixed(1);
@@ -231,7 +254,7 @@ export function sprout(kind, x, ground, width, random = Math.random, { light = 1
     const span = shape.lines.reduce((far, line) => Math.max(far, line.reach), 1);
     shape = interpret(word, { ...system, bend: (lean * facing) / span }, random);
   }
-  const { lines, bracts, flowers } = shape;
+  const { lines, bracts, flowers, puffs } = shape;
 
   const target = kind.height[0] + random() * (kind.height[1] - kind.height[0]) * light;
   const sides = lines.map((line) => line.x2 * facing);
@@ -265,7 +288,31 @@ export function sprout(kind, x, ground, width, random = Math.random, { light = 1
     layers[layer(flower.reach)] +=
       `M${round(left(flower.x) - FLOWER_RADIUS)} ${top(flower.y)}a${FLOWER_RADIUS} ${FLOWER_RADIUS} 0 1 0 ${d} 0a${FLOWER_RADIUS} ${FLOWER_RADIUS} 0 1 0 ${-d} 0`;
   }
-  return { kind, x, base, layers, foliage: [...cells.values()] };
+  const puff = puffs.length ? tuft(left(puffs[0].x), top(puffs[0].y)) : null;
+  if (puff) layers[layer(puffs[0].reach)] += puff.d;
+
+  const starts = new Map();
+  for (const line of lines) {
+    const key = `${line.x1} ${line.y1}`;
+    starts.set(key, [...(starts.get(key) ?? []), line]);
+  }
+  const heading = (line) => Math.atan2((line.x2 - line.x1) * facing, line.y1 - line.y2);
+  const twigs = lines
+    .filter((line) => !starts.has(`${line.x2} ${line.y2}`))
+    .map((line) => ({ x: left(line.x2), y: top(line.y2), heading: heading(line) }));
+  const forks = [...starts.values()]
+    .filter((group) => group.length > 1)
+    .map((group) => ({ x: left(group[0].x1), y: top(group[0].y1), headings: group.map(heading) }));
+  const blooms = flowers.map((flower) => ({ x: left(flower.x), y: top(flower.y) }));
+  return { kind, x, base, layers, foliage: [...cells.values()], blooms, twigs, forks, puff };
+}
+
+function tuft(x, y) {
+  const rays = Array.from({ length: RAYS_IN_PUFF }, (_, i) => {
+    const angle = (i / RAYS_IN_PUFF) * 2 * Math.PI;
+    return { dx: round(PUFF * Math.sin(angle)), dy: round(-PUFF * Math.cos(angle)) };
+  });
+  return { x, y, rays, d: rays.map(({ dx, dy }) => `M${x} ${y}l${dx} ${dy}`).join("") };
 }
 
 export function canopy(width, height) {

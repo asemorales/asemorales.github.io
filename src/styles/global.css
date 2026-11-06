@@ -32,6 +32,7 @@
   --rule: light-dark(#ddd4c1, #4d463e);
   --frame: light-dark(#c9bfab, #615950);
   --mid: light-dark(#9a9183, #81786d);
+  --glow: light-dark(#9a9183, #efe6d6);
   --dim: light-dark(#6e6965, #9e958a);
   --ink: light-dark(#231a15, #efe6d6);
   --link: light-dark(#2f5470, #7fa3c2);
@@ -54,6 +55,7 @@
   --color-rule: var(--rule);
   --color-frame: var(--frame);
   --color-mid: var(--mid);
+  --color-glow: var(--glow);
   --color-dim: var(--dim);
   --color-ink: var(--ink);
   --color-link: var(--link);
