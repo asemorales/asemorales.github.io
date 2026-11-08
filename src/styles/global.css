@@ -691,18 +691,24 @@
   .search-toggle {
     @apply cursor-pointer text-xl text-dim hover:text-ink;
   }
+  @media (scripting: none) {
+    .search-toggle {
+      display: none;
+    }
+  }
   .home-search {
-    @apply fixed m-0 w-[min(22rem,calc(100vw-1rem))] border border-frame bg-code p-4 text-ink shadow-lg;
+    --width: min(22rem, calc(100vw - 1rem));
+    @apply fixed m-0 border border-frame bg-code p-4 text-ink shadow-lg;
     inset: auto;
+    top: var(--top);
+    left: min(var(--left), calc(100vw - var(--width) - 0.5rem));
+    width: var(--width);
   }
   .home-search input {
     @apply w-full border border-frame bg-transparent px-3 py-2 text-lg text-ink placeholder:text-dim placeholder:italic;
   }
   .home-search input:focus-visible {
     @apply outline-offset-0 outline-frame;
-  }
-  .home-search p {
-    @apply mt-2 text-sm text-dim italic empty:mt-0;
   }
   /* Swap WebKit's blue clear button for the theme's own x. */
   .home-search input::-webkit-search-cancel-button {

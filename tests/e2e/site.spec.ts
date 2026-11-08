@@ -139,7 +139,7 @@ test.describe("homepage", () => {
     await expect(items.first()).toBeVisible();
     await page.locator("#search").fill("zzzz-no-such-note");
     await expect(page.locator(".home-notes li:visible")).toHaveCount(0);
-    await expect(page.locator(".search-empty")).toBeVisible();
+    await expect(page.getByRole("status")).toHaveText("No notes match.");
     await expect(page.locator(".home-empty")).toContainText("zzzz-no-such-note");
     await page.keyboard.press("Escape");
     await expect(page.locator("#search")).toBeHidden();
