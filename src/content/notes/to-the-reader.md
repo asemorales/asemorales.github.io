@@ -1,7 +1,7 @@
 ---
 title: "To the Reader"
-date: 2026-11-01
-updated: 2026-11-08
+date: 2026-10-27
+updated: 2026-10-27
 tags: ["paratext"]
 unlisted: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Commerce and communication are both information exchange"
-date: 2026-11-06
-updated: 2026-11-08
+date: 2025-11-30
+updated: 2026-11-04
 tags: ["society","etymology"]
 ---
 

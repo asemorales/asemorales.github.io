@@ -1,7 +1,7 @@
 ---
 title: "Automate everything that distracts you from being human"
 date: 2026-11-04
-updated: 2026-11-08
+updated: 2026-11-04
 tags: ["technology"]
 ---
 

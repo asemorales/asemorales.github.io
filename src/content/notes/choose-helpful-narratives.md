@@ -1,7 +1,7 @@
 ---
 title: "Choose helpful narratives"
-date: 2026-11-08
-updated: 2026-11-08
+date: 2025-11-30
+updated: 2026-11-07
 tags: ["cognition","philosophy"]
 ---
 

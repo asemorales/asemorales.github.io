@@ -1,7 +1,7 @@
 ---
 title: "Advice on getting research assistant positions"
-date: 2026-11-04
-updated: 2026-11-08
+date: 2026-01-03
+updated: 2026-11-04
 tags: ["research","guide"]
 ---
 

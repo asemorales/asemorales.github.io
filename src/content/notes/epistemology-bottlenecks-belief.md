@@ -1,7 +1,7 @@
 ---
 title: "Epistemology is the bottleneck of belief"
-date: 2026-11-08
-updated: 2026-11-08
+date: 2026-03-21
+updated: 2026-11-07
 tags: ["philosophy"]
 ---
 

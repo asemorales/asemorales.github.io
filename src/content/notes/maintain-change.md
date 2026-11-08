@@ -1,7 +1,7 @@
 ---
 title: "Build systems to maintain change"
-date: 2026-11-06
-updated: 2026-11-08
+date: 2026-05-05
+updated: 2026-11-06
 tags: ["complexity","society"]
 ---
 
