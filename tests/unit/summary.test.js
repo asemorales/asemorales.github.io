@@ -9,6 +9,10 @@ describe("summary", () => {
     expect(summary(md, { paragraphs: 1 })).toEqual(["First one with a link and an alias."]);
   });
 
+  it("drops URLs that contain parentheses", () => {
+    expect(summary("The god [Mercury](https://x.org/Mercury_(god)) ran.")).toEqual(["The god Mercury ran."]);
+  });
+
   it("skips an opening epigraph for the lead, and shortens the description", () => {
     const md = `> [!quote] Someone\n> Words.\n\n${"A sentence of text. ".repeat(20)}`;
     expect(lead(md)).toMatch(/^A sentence/);

@@ -13,6 +13,12 @@ describe("feed HTML", () => {
     expect(html).not.toMatch(/sidenote|toc/);
   });
 
+  it("drops links to footnote anchors that exist only in the entry", async () => {
+    const html = await render("Text.[^a]\n\n[^a]: A note.");
+    expect(html).toContain("<sup>1</sup>");
+    expect(html).not.toContain("user-content");
+  });
+
   it("keeps a footnote quote's unindented lines in the footnote", async () => {
     const html = await render("Text.[^a]\n\n[^a]: > [!quote] Fuller\n> A verb.\n\nAfter.\n\n[^b]: > Note.\n\n> Separate.");
     const [body, notes] = html.split("<section data-footnotes>");

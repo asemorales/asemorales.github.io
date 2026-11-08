@@ -59,10 +59,13 @@ function rehypeFeedTidy({ site, base, image }) {
 
 function rehypeFeedFootnotes() {
   return (tree) => {
-    walk(tree, (node) => {
-      if (!isElement(node, "h2") || node.properties.id !== "footnote-label") return false;
-      node.children = [txt("Notes")];
-      return true;
+    walk(tree, (node, parent) => {
+      const i = parent.children.indexOf(node);
+      if (isElement(node, "h2") && node.properties.id === "footnote-label") node.children = [txt("Notes")];
+      else if (node.properties.dataFootnoteRef !== undefined) parent.children[i] = txt(text(node));
+      else if (node.properties.dataFootnoteBackref !== undefined) parent.children.splice(i, 1);
+      else if (isElement(node, "li")) delete node.properties.id;
+      return false;
     });
   };
 }
