@@ -248,10 +248,11 @@ test.describe("L-systems", () => {
       expect(await rustling(page).count()).toBe(0);
 
       await page.mouse.move(x + 3, y, { steps: 3 });
+      await page.mouse.move(x, y, { steps: 3 });
       await expect.poll(() => rustling(page).count()).toBeGreaterThan(0);
       await expect.poll(() => rustling(page).count(), { timeout: 5000 }).toBe(0);
 
-      await page.mouse.move(x + 3, 1, { steps: 4 });
+      await page.mouse.move(x + 12, 1, { steps: 4 });
       await expect.poll(() => rustling(page).count()).toBeGreaterThan(0);
       await expect.poll(() => rustling(page).count(), { timeout: 5000 }).toBe(0);
     });
