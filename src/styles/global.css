@@ -270,7 +270,7 @@
     --lead: 0rem;
     --measure: 50rem;
     --margin: clamp(12rem, 100cqw - var(--lead) - var(--measure) - var(--gap), 24rem);
-    @apply relative max-w-[40em] text-lg leading-[1.7] sm:text-xl;
+    @apply relative max-w-[40em] text-base leading-[1.55] sm:text-xl sm:leading-[1.7];
   }
   @media (width >= 760px) {
     .column {
@@ -306,13 +306,13 @@
     @apply relative;
   }
   .note h2 {
-    @apply mt-10 text-2xl;
+    @apply mt-10 text-xl sm:text-2xl;
   }
   .note h3 {
-    @apply mt-8 text-xl;
+    @apply mt-8 text-lg sm:text-xl;
   }
   .note h4 {
-    @apply mt-6 text-lg;
+    @apply mt-6 text-[1.0625rem] sm:text-lg;
   }
   .note .anchor {
     @apply ml-2 inline-block text-[0.75em] font-normal text-dim no-underline opacity-0 hover:text-ink focus-visible:opacity-100;
@@ -373,7 +373,7 @@
   }
 
   .toc {
-    @apply w-fit max-w-full text-lg leading-normal text-dim;
+    @apply w-fit max-w-full text-base leading-normal text-dim sm:text-lg;
   }
   .toc summary {
     @apply cursor-pointer list-none font-semibold;
@@ -406,8 +406,13 @@
   .rail {
     @apply mt-22 mb-4;
   }
+  @media (width < 760px) {
+    .rail:has(+ main .note) {
+      @apply mt-0;
+    }
+  }
   .site-nav {
-    @apply text-lg leading-normal;
+    @apply text-base leading-normal sm:text-lg;
   }
   @media (width >= 1200px) {
     .rail {
@@ -668,7 +673,7 @@
     @apply hover:bg-code;
   }
   .tag-title {
-    @apply flex items-center gap-3 text-3xl font-normal;
+    @apply flex items-center gap-3 text-2xl font-normal sm:text-3xl;
   }
   .tag-title .icon {
     @apply text-dim;
@@ -703,7 +708,7 @@
     @apply flex items-baseline gap-3;
   }
   .home-contents h2 {
-    @apply mt-0 text-2xl;
+    @apply mt-0 text-xl sm:text-2xl;
   }
   .search-toggle {
     @apply cursor-pointer text-xl text-dim hover:text-ink;
@@ -738,14 +743,14 @@
     @apply mt-10;
   }
   .home-notes h3 {
-    @apply text-xl;
+    @apply text-lg font-normal sm:text-xl;
   }
   .home-notes h3 a {
     @apply text-dim no-underline hover:text-link-hover;
   }
   .home-notes ul,
   .listing ul {
-    @apply mt-2 space-y-1.5 text-lg leading-snug;
+    @apply mt-2 space-y-1.5 text-base leading-snug sm:text-lg;
   }
   .home-notes li {
     @apply flex items-baseline gap-2;
@@ -811,7 +816,7 @@
     @apply mx-auto mt-14 max-w-[28em] text-center;
   }
   .epigraph blockquote {
-    @apply m-0 border-0 p-0 text-xl italic;
+    @apply m-0 border-0 p-0 text-lg italic sm:text-xl;
   }
   .epigraph figcaption {
     @apply mt-2 leading-snug caps text-balance text-dim;
@@ -925,11 +930,11 @@
   }
 
   .prose-page h2 {
-    @apply mt-10 mb-3 text-2xl;
+    @apply mt-10 mb-3 text-xl sm:text-2xl;
   }
   .prose-page p,
   .prose-page ul {
-    @apply mt-3 text-lg leading-relaxed;
+    @apply mt-3 text-base leading-normal sm:text-lg sm:leading-relaxed;
   }
   .prose-page ul {
     @apply list-disc pl-6;
