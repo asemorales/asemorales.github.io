@@ -1,4 +1,16 @@
 export const EPIGRAPH = /^>\s*\[!(?:quote|epigraph)\][+-]?[ \t]*(.*)\n((?:>.*(?:\n|$))+)/i;
+const DESCRIPTION = 160;
+
+export function lead(markdown) {
+  const body = markdown.trim();
+  const opening = body.match(EPIGRAPH);
+  return summary(opening ? body.slice(opening[0].length) : body, { paragraphs: 1 })[0];
+}
+
+export function description(markdown, fallback) {
+  return clip(lead(markdown) ?? fallback, DESCRIPTION);
+}
+
 export function summary(markdown, { paragraphs = Infinity } = {}) {
   const out = [];
   const source = markdown.trim();

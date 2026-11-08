@@ -7,6 +7,7 @@ import { defineConfig } from "astro/config";
 import matter from "gray-matter";
 import rehypeMathjax from "rehype-mathjax/svg";
 import remarkMath from "remark-math";
+import { day } from "./src/lib/date.js";
 import linkStatus from "./src/data/links-status.json" with { type: "json" };
 import { rehypeDeadLinks } from "./src/lib/dead-links.js";
 import { rehypeGlossary } from "./src/lib/glossary.js";
@@ -38,11 +39,14 @@ const inSitemap = (page) => {
   return !tag || listedTags.has(tag[1]);
 };
 
+const updated = new Map(notes.map((n) => [`${site}/${n.slug}/`, day(new Date(n.data.updated))]));
+const serialize = (item) => ({ ...item, lastmod: updated.get(item.url) });
+
 export default defineConfig({
   site,
   trailingSlash: "always",
   redirects: { "/about": "/#introduction" },
-  integrations: [sitemap({ filter: inSitemap })],
+  integrations: [sitemap({ filter: inSitemap, serialize })],
   markdown: {
     processor: unified({
       remarkPlugins: [remarkFootnoteQuotes, remarkMath, [remarkWikilinks, { slugs: notes.map((n) => n.slug) }]],

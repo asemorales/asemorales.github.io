@@ -86,6 +86,10 @@ function layout({ title, home }) {
   );
 }
 
+export function touchIcon() {
+  return new Resvg(readFileSync("public/favicon.svg", "utf8"), { fitTo: { mode: "width", value: 180 }, background: PAGE }).render().asPng();
+}
+
 export async function ogImage({ title, home = false }) {
   const tree = layout({ title, home });
   const key = createHash("sha256").update(JSON.stringify(tree)).digest("hex").slice(0, 16);

@@ -3,6 +3,7 @@ import "../styles/global.css";
 import LSystems from "../components/LSystems.astro";
 import Popovers from "../components/Popovers.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import { COLORS, NAME, SITE_URL } from "../lib/site.js";
 
 interface Props {
   title: string;
@@ -11,13 +12,28 @@ interface Props {
   wide?: boolean;
   preloadItalic?: boolean;
   image?: string;
+  article?: { published: string; updated: string; tags: string[] };
 }
 
-const { title, description, noindex = false, wide = false, preloadItalic = false, image = "/og.png" } = Astro.props;
+const { title, description, noindex = false, wide = false, preloadItalic = false, image = "/og.png", article } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const imageUrl = new URL(image, Astro.site);
 const home = Astro.url.pathname === "/";
-const fullTitle = home ? title : `${title} | Ase Morales`;
+const fullTitle = home ? title : `${title} | ${NAME}`;
+const jsonLd =
+  article &&
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    image: imageUrl,
+    url: canonical,
+    datePublished: article.published,
+    dateModified: article.updated,
+    keywords: article.tags,
+    author: { "@type": "Person", name: NAME, url: SITE_URL },
+  }).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -27,24 +43,32 @@ const fullTitle = home ? title : `${title} | Ase Morales`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={NAME} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
-    <meta name="theme-color" content="#f2ecdf" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#191612" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content={COLORS.lightPage} media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content={COLORS.darkPage} media="(prefers-color-scheme: dark)" />
+    <meta property="og:site_name" content={NAME} />
+    <meta property="og:type" content={article ? "article" : "website"} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={imageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    {article && <meta property="article:published_time" content={article.published} />}
+    {article && <meta property="article:modified_time" content={article.updated} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={imageUrl} />
     <meta name="fediverse:creator" content="@ase@mathstodon.xyz" />
-    <link rel="alternate" type="application/atom+xml" title="Ase Morales" href="/feed.xml" />
+    <link rel="alternate" type="application/atom+xml" title={NAME} href="/feed.xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/fonts/source-serif-4-roman.woff2" as="font" type="font/woff2" crossorigin />
     {preloadItalic && <link rel="preload" href="/fonts/source-serif-4-italic.woff2" as="font" type="font/woff2" crossorigin />}
+    {jsonLd && <script is:inline type="application/ld+json" set:html={jsonLd} />}
 
     <script is:inline>
       try {

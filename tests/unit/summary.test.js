@@ -1,12 +1,19 @@
 import { describe, expect, it } from "vitest";
 import { slugify } from "../../src/lib/slug.js";
-import { summary } from "../../src/lib/summary.js";
+import { description, lead, summary } from "../../src/lib/summary.js";
 
 describe("summary", () => {
   it("takes the opening paragraphs up to the first block", () => {
     const md = "First *one* with [a link](https://x.org) and [[Note|an alias]].[^1]\n\nSecond.\n\n> [!status]\n> Not part of it.\n\nAfter.";
     expect(summary(md)).toEqual(["First one with a link and an alias.", "Second."]);
     expect(summary(md, { paragraphs: 1 })).toEqual(["First one with a link and an alias."]);
+  });
+
+  it("skips an opening epigraph for the lead, and shortens the description", () => {
+    const md = `> [!quote] Someone\n> Words.\n\n${"A sentence of text. ".repeat(20)}`;
+    expect(lead(md)).toMatch(/^A sentence/);
+    expect(description(md, "Title").length).toBeLessThanOrEqual(160);
+    expect(description("## Heading", "Title")).toBe("Title");
   });
 
   it("leaves inline math as written", () => {

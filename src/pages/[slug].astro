@@ -6,8 +6,8 @@ import Reading from "../components/Reading.astro";
 import Base from "../layouts/Base.astro";
 import { day } from "../lib/date.js";
 import { GLOSSARY } from "../lib/glossary.js";
-import { summary } from "../lib/summary.js";
 import { backlinksTo, sourceLists } from "../lib/notes";
+import { description } from "../lib/summary.js";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
@@ -15,16 +15,21 @@ export async function getStaticPaths() {
 }
 
 const { note } = Astro.props;
-const { tags } = note.data;
+const { title, tags } = note.data;
 const { Content, remarkPluginFrontmatter } = await render(note);
-const description = summary(note.body ?? "", { paragraphs: 1 })[0] ?? note.data.title;
 const written = day(note.data.date);
 const updated = day(note.data.updated);
 const backlinks = await backlinksTo(note);
 const lists = await sourceLists(remarkPluginFrontmatter);
 ---
 
-<Base title={note.data.title} description={description} image={`/${note.id}/og.png`} wide preloadItalic>
+<Base
+  title={title}
+  description={description(note.body ?? "", title)}
+  image={`/${note.id}/og.png`}
+  article={{ published: written, updated, tags }}
+  wide
+  preloadItalic>
   <Fragment slot="rail" set:html={remarkPluginFrontmatter.toc} />
   <article class="note column">
     <h1 class="text-4xl">{note.data.title}</h1>
