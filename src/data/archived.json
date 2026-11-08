@@ -53,6 +53,9 @@
   "https://en.wikipedia.org/wiki/Abstraction_(computer_science)": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Analects": {
+    "submitted": "2026-11-08"
+  },
   "https://en.wikipedia.org/wiki/Assembly_language": {
     "submitted": "2026-11-06"
   },
@@ -90,6 +93,13 @@
   "https://en.wikipedia.org/wiki/De_facto_and_de_jure": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Discretization": {
+    "submitted": "2026-11-08"
+  },
+  "https://en.wikipedia.org/wiki/Discretization_error": {
+    "submitted": "2026-11-08",
+    "job": "spn2-34b8d451f7e5731ae35d6559baf1186659fd0e58"
+  },
   "https://en.wikipedia.org/wiki/Downward_causation": {
     "submitted": "2026-11-06",
     "job": "spn2-3a53dc36aa9e26fa9e2d79e86a8bbb91606ab2d7"
@@ -106,6 +116,9 @@
   },
   "https://en.wikipedia.org/wiki/Essays_%28Montaigne%29": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Exploration%E2%80%93exploitation_dilemma": {
+    "submitted": "2026-11-08"
   },
   "https://en.wikipedia.org/wiki/Fields_Medal": {
     "submitted": "2026-11-06"
@@ -134,12 +147,19 @@
   "https://en.wikipedia.org/wiki/Hard_problem_of_consciousness": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Homophily": {
+    "submitted": "2026-11-08"
+  },
   "https://en.wikipedia.org/wiki/Hybrid_regime#Semi-democracy": {
     "submitted": "2026-11-06",
     "job": "spn2-2960cf327e94b2f41d48da43a80123d03c0d799d"
   },
   "https://en.wikipedia.org/wiki/Ignaz_Semmelweis": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Inquiry_education": {
+    "submitted": "2026-11-08",
+    "job": "spn2-a222a5f4acdb20a39364cb4ee406437177c46916"
   },
   "https://en.wikipedia.org/wiki/Kuramoto_model": {
     "submitted": "2026-11-06",
@@ -181,6 +201,9 @@
   "https://en.wikipedia.org/wiki/Ozymandias": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Pens%C3%A9es": {
+    "submitted": "2026-11-08"
+  },
   "https://en.wikipedia.org/wiki/Price_signal": {
     "submitted": "2026-11-06"
   },
@@ -193,6 +216,13 @@
   },
   "https://en.wikipedia.org/wiki/Recommender_system": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Reductionism": {
+    "submitted": "2026-11-08",
+    "job": "spn2-aee3636d72a1c7d2eee18ded3abe8ee2064f74b0"
+  },
+  "https://en.wikipedia.org/wiki/Reinforcement_learning": {
+    "submitted": "2026-11-08"
   },
   "https://en.wikipedia.org/wiki/Research_assistant": {
     "submitted": "2026-11-06"
@@ -219,6 +249,10 @@
     "submitted": "2026-11-06",
     "job": "spn2-dbfc753e8ef3fd4b42d34a4a51a021cc4ef76651"
   },
+  "https://en.wikipedia.org/wiki/The_purpose_of_a_system_is_what_it_does": {
+    "submitted": "2026-11-08",
+    "job": "spn2-b820d7be61f528cf875761de6bcd6547b85f49fa"
+  },
   "https://en.wikipedia.org/wiki/The_Sciences_of_the_Artificial": {
     "submitted": "2026-11-06",
     "job": "spn2-972a3747a411401d3408b5639a8ffff51952ac87"
@@ -240,6 +274,10 @@
   "https://example.com": {
     "submitted": "2026-11-06"
   },
+  "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/JudgementAndChoice.MappingBoundedRationality.DKahneman2003.pdf": {
+    "submitted": "2026-11-08",
+    "job": "spn2-ff894a634aedbd70b154f3bc8680e61b3573778e"
+  },
   "https://github.com/adobe-fonts/source-serif": {
     "submitted": "2026-11-06"
   },
@@ -260,6 +298,14 @@
   "https://link.springer.com/article/10.1007/s11192-024-04936-1": {
     "submitted": "2026-11-06",
     "job": "spn2-2ffc296271d9515da5b00c57fd96ba385630a54f"
+  },
+  "https://notes.andymatuschak.org/z8SU3r8xyZyvwRhyDdJasJ2": {
+    "submitted": "2026-11-08",
+    "job": "spn2-15c161189fc04c44dba60b5662b470a9e98a1e4e"
+  },
+  "https://notes.andymatuschak.org/zBsWyd6EMxcvhwNzqeHzADC": {
+    "submitted": "2026-11-08",
+    "job": "spn2-e99b921f43a42c3a3ac5b71625a50cd2ad7fae59"
   },
   "https://obsidian.md/": {
     "submitted": "2026-11-06"
