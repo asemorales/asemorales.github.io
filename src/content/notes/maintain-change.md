@@ -1,13 +1,15 @@
 ---
 title: "Build systems to maintain change"
 date: 2026-11-06
-updated: 2026-11-07
+updated: 2026-11-08
 tags: ["complexity","society"]
 ---
 
-If one aims to achieve some lofty goal or significant change, the act of creating change alone is necessary but not sufficient. The next requirement is to build a system that maintains the changed state long-term[^2]. Left without such a system alone to its devices, the achieved change may cause more harm than prior to the change having ever happened at all[^1]. The rise and fall of the French Revolution and the rise and fall of the Roman Empire are two such examples.
+If one aims to achieve significant change, the act of creating change alone is necessary but not sufficient. The next requirement is to build a system that maintains the changed state long-term[^2]. Without maintenance, the changed state may either revert to the previous one or transform into a state less desirable than the previous one.
 
-This also implies that if one wishes to incite change, or build a community, or so on, one must also consider first whether they are willing and capable of defending such change, and opposing potential external and internal threats to the impacts of that change.
+Many endeavours aiming for positive change that failed to maintain the changed state have unintentionally caused more harm than prior to the change by transforming into a state worse than before[^1]. The rise and fall of the French Revolution and the Roman Empire are two such examples.
+
+This also implies that if one wishes to incite change, or build a community, or so on, one must also consider first whether they are willing and capable of defending such change long-term, and opposing potential external and internal threats to the impacts of that change.
 
 Sometimes, no system was engineered to maintain a change, yet change persists through spontaneous memory of complex systems[^4]. A primary example of this is persistence through [increasing returns in economics and historical lock-in](https://www.unife.it/economia/lm.economia/insegnamenti/economia-applicata-avanzata/mat-did/frattini/ff4-arthur1989.pdf). That is, bottom-up systems to maintain change may also arise, even when top-down systems to maintain change were not designed.
 

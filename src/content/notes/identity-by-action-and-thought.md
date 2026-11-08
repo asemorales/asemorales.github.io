@@ -1,7 +1,7 @@
 ---
 title: "Why do we define ourselves by what we do, rather than what we think?"
 date: 2026-11-02
-updated: 2026-11-07
+updated: 2026-11-08
 tags: ["culture"]
 ---
 

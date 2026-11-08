@@ -107,6 +107,12 @@
     "meta": ["Wikipedia"],
     "text": "In software, an abstraction provides access while hiding details that otherwise might make access more challenging. It focuses attention on details of greater importance. Examples include the abstract data type which separates use from the representation of data and functions that form a call tree that is more general at the base and more specific towards the leaves."
   },
+  "https://en.wikipedia.org/wiki/Analects": {
+    "kind": "wikipedia",
+    "title": "Analects",
+    "meta": ["Wikipedia"],
+    "text": "The Analects, also known as the Sayings of Confucius, is an ancient Chinese philosophical text composed of sayings and ideas attributed to Confucius and his contemporaries, traditionally believed to have been compiled by his followers."
+  },
   "https://en.wikipedia.org/wiki/Assembly_language": {
     "kind": "wikipedia",
     "title": "Assembly language",
@@ -173,6 +179,18 @@
     "meta": ["Wikipedia"],
     "text": "De facto and de jure are contrasting concepts, with de facto being used to refer to the actual existence of a state of affairs, and de jure being used to refer to the legal existence of something even if it is not represented in reality. These terms are particularly used in the context of law and governance."
   },
+  "https://en.wikipedia.org/wiki/Discretization": {
+    "kind": "wikipedia",
+    "title": "Discretization",
+    "meta": ["Wikipedia"],
+    "text": "In applied mathematics, discretization is the process of transferring continuous functions, models, variables, and equations into discrete counterparts. This process is usually carried out as a first step toward making them suitable for numerical evaluation and implementation on digital computers."
+  },
+  "https://en.wikipedia.org/wiki/Discretization_error": {
+    "kind": "wikipedia",
+    "title": "Discretization error",
+    "meta": ["Wikipedia"],
+    "text": "In numerical analysis, computational physics, and simulation, discretization error is the error resulting from the fact that a function of a continuous variable is represented in the computer by a finite number of evaluations, for example, on a lattice. Discretization error can usually be reduced by using a more finely spaced lattice, with an increased computational cost."
+  },
   "https://en.wikipedia.org/wiki/Downward_causation": {
     "kind": "wikipedia",
     "title": "Downward causation",
@@ -202,6 +220,12 @@
     "title": "Essays (Montaigne)",
     "meta": ["Wikipedia"],
     "text": "The Essays of Michel de Montaigne are contained in three books and 107 chapters of varying length. They were originally written in Middle French and published in the Kingdom of France. Montaigne's stated design in writing, publishing and revising the Essays over the period from approximately 1570 to 1592 was to record \"some traits of my character and of my humours.\" The Essays were first…"
+  },
+  "https://en.wikipedia.org/wiki/Exploration%E2%80%93exploitation_dilemma": {
+    "kind": "wikipedia",
+    "title": "Exploration–exploitation dilemma",
+    "meta": ["Wikipedia"],
+    "text": "The exploration–exploitation dilemma, also known as the explore–exploit tradeoff, is a fundamental concept in decision-making that arises in many domains. It is depicted as the balancing act between two opposing strategies."
   },
   "https://en.wikipedia.org/wiki/Fields_Medal": {
     "kind": "wikipedia",
@@ -257,6 +281,12 @@
     "meta": ["Wikipedia"],
     "text": "In philosophy of mind, the hard problem of consciousness is to explain how and why organisms have qualia, phenomenal consciousness, or subjective experience. It is contrasted with the \"easy problems\" of explaining why and how physical systems give rise to the ability to discriminate, to integrate information, and to perform behavioural functions such as watching, listening, speaking, and so…"
   },
+  "https://en.wikipedia.org/wiki/Homophily": {
+    "kind": "wikipedia",
+    "title": "Homophily",
+    "meta": ["Wikipedia"],
+    "text": "Homophily is a concept in sociology describing the tendency of individuals to associate and bond with similar others, as in the proverb \"birds of a feather flock together\". The presence of homophily has been discovered in a vast array of network studies: over 100 studies have observed homophily in some form or another, and they establish that similarity is associated with connection."
+  },
   "https://en.wikipedia.org/wiki/Hybrid_regime#Semi-democracy": {
     "kind": "wikipedia",
     "title": "Hybrid regime",
@@ -268,6 +298,12 @@
     "title": "Ignaz Semmelweis",
     "meta": ["Wikipedia"],
     "text": "Ignaz Philipp Semmelweis was a Hungarian medical doctor and scientist of German descent who was an early pioneer of antiseptic procedures, known as the \"saviour of mothers\". Postpartum infection, also known as puerperal fever or childbed fever, was common in the 19th century, and often fatal."
+  },
+  "https://en.wikipedia.org/wiki/Inquiry_education": {
+    "kind": "wikipedia",
+    "title": "Inquiry education",
+    "meta": ["Wikipedia"],
+    "text": "Inquiry education is a student-centered method of education focused on asking questions. Students are encouraged to ask questions which are meaningful to them, and which do not necessarily have easy answers; teachers are encouraged to avoid giving answers when this is possible, and in any case to avoid giving direct answers in favor of asking more questions."
   },
   "https://en.wikipedia.org/wiki/Kuramoto_model": {
     "kind": "wikipedia",
@@ -341,6 +377,12 @@
     "meta": ["Wikipedia"],
     "text": "\"Ozymandias\" is a sonnet written by the English Romantic poet Percy Bysshe Shelley, first published in the 11 January 1818 issue of The Examiner of London."
   },
+  "https://en.wikipedia.org/wiki/Pens%C3%A9es": {
+    "kind": "wikipedia",
+    "title": "Pensées",
+    "meta": ["Wikipedia"],
+    "text": "The Pensées (Thoughts) is a collection of fragments written by the French 17th-century philosopher and mathematician Blaise Pascal. Pascal's religious conversion led him into a life of asceticism, and the Pensées was in many ways his life's work. It represented Pascal's defense of the Christian religion, and the concept of \"Pascal's wager\" stems from a portion of this work."
+  },
   "https://en.wikipedia.org/wiki/Price_signal": {
     "kind": "wikipedia",
     "title": "Price signal",
@@ -364,6 +406,18 @@
     "title": "Recommender system",
     "meta": ["Wikipedia"],
     "text": "A recommender system, also called a recommendation engine or content discovery platform is a type of information filtering system that aims to suggest items most relevant for some input or to a particular user."
+  },
+  "https://en.wikipedia.org/wiki/Reductionism": {
+    "kind": "wikipedia",
+    "title": "Reductionism",
+    "meta": ["Wikipedia"],
+    "text": "Reductionism is any of several related philosophical ideas regarding the associations between phenomena which can be described in terms of simpler or more fundamental phenomena. It is also described as an intellectual and philosophical position that interprets a complex system as the sum of its parts, contrary to holism."
+  },
+  "https://en.wikipedia.org/wiki/Reinforcement_learning": {
+    "kind": "wikipedia",
+    "title": "Reinforcement learning",
+    "meta": ["Wikipedia"],
+    "text": "In machine learning and optimal control, reinforcement learning (RL) is concerned with how an intelligent agent should take actions in a dynamic environment in order to maximize a reward signal. Reinforcement learning is one of the three basic machine learning paradigms, alongside supervised learning and unsupervised learning."
   },
   "https://en.wikipedia.org/wiki/Research_assistant": {
     "kind": "wikipedia",
@@ -418,6 +472,12 @@
     "title": "The Soul of Man Under Socialism",
     "meta": ["Wikipedia"],
     "text": "\"The Soul of Man Under Socialism\" is an 1891 essay by Oscar Wilde in which he expounds a libertarian socialist worldview and a critique of charity. The writing of \"The Soul of Man\" followed Wilde's conversion to anarchist philosophy, following his reading of the works of Peter Kropotkin."
+  },
+  "https://en.wikipedia.org/wiki/The_purpose_of_a_system_is_what_it_does": {
+    "kind": "wikipedia",
+    "title": "The purpose of a system is what it does",
+    "meta": ["Wikipedia"],
+    "text": "The purpose of a system is what it does (POSIWID) is a heuristic in systems thinking coined by the British management consultant Stafford Beer, who stated that there is \"no point in claiming that the purpose of a system is to do what it constantly fails to do\"."
   },
   "https://en.wikipedia.org/wiki/Turing_Award": {
     "kind": "wikipedia",
@@ -479,6 +539,24 @@
     "meta": [],
     "text": "You have full access to this open access article"
   },
+  "https://notes.andymatuschak.org/z8SU3r8xyZyvwRhyDdJasJ2": {
+    "kind": "page",
+    "title": "Prefer associative ontologies to hierarchical taxonomies",
+    "meta": [],
+    "text": "Let structure emerge organically. When it’s imposed from the start, you prematurely constrain what may emerge and artificially compress the nuanced relationships between ideas."
+  },
+  "https://notes.andymatuschak.org/zBsWyd6EMxcvhwNzqeHzADC": {
+    "kind": "page",
+    "title": "Momentum as explore-exploit heuristic in creative work",
+    "meta": [],
+    "text": "In my creative work, I’m always managing this tension: do I chase this new curiosity, sketch on this new idea; or do I keep pushing on my current “main project”? The Explore-exploit problem. I’ve struggled to find good heuristics here. If I center on expansive generativity, nothing ever gets the deep focus it needs to mature."
+  },
+  "https://notes.andymatuschak.org/zMmH3GBLKotdP4t1sdSvEQJ": {
+    "kind": "page",
+    "title": "Culturally default behaviors fill spare time with others’ ideas",
+    "meta": [],
+    "text": "Nature abhors a vacuum; contemporary culture abhors a silence. If I find myself with a spare moment, the culturally “default” thing to do seems to be to fill it—with reading or listening (books, articles, podcasts), with a friendly conversation, with an execution-oriented task."
+  },
   "https://obsidian.md/": {
     "kind": "page",
     "title": "Obsidian - Sharpen your thinking",
@@ -515,6 +593,12 @@
     "meta": [],
     "text": ""
   },
+  "https://supermemo.guru/wiki/Incremental_writing": {
+    "kind": "page",
+    "title": "Incremental writing - supermemo.guru",
+    "meta": [],
+    "text": "Incremental writing is a method of writing, in which ideas are written down, and assembled incrementally. Incremental writing requires no linearity. It adapts to your way of thinking. Many great writers and scientists of the past used a variant of incremental writing using their own systems of notes. In SuperMemo, incremental writing is integral with the creative process and learning itself."
+  },
   "https://tailwindcss.com/": {
     "kind": "page",
     "title": "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
@@ -550,6 +634,12 @@
     "title": "Situated Learning | Cambridge Aspire website",
     "meta": [],
     "text": ""
+  },
+  "https://www.cold-takes.com/learning-by-writing/": {
+    "kind": "page",
+    "title": "Learning By Writing",
+    "meta": [],
+    "text": "Click lower right to download or find on Apple Podcasts, Spotify, Stitcher, etc."
   },
   "https://www.eastgate.com/garden/Enter.html": {
     "kind": "page",

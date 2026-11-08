@@ -1,7 +1,7 @@
 ---
 title: "Use technology to automate input, not processing"
 date: 2026-11-03
-updated: 2026-11-07
+updated: 2026-11-08
 tags: ["technology","guide"]
 ---
 
@@ -24,7 +24,9 @@ For most people, the quantity of one's consumption is largely not a problem. If 
 
 The quality of what you consume depends on how you use [recommender systems](https://en.wikipedia.org/wiki/Recommender_system), and whether you are using them intentionally. Left unchecked, recommender systems tend to either turn feeds to echo chambers or degrade feeds to content of mixed levels of quality. However, when used intentionally, recommender systems can automate the chore of sifting through data to serve you a continuous stream of high-quality content.
 
-You must intentionally teach recommender systems what constitutes good quality to you. When algorithms evaluate quality by engagement metrics[^5], this works in the favor of mainstream and entertaining content, but less so for any content that requires a certain level of prerequisite knowledge. Say you are an academic in complexity science. If so, engaging with complexity-related content is not enough. Because recommender systems choose for popularity, and the majority of users have no prerequisite knowledge of your field, the system is likely to only show you: a.) content on concepts you already know; or b.) content by popular thinkers in the field[^2]. For the purposes of learning, these are both insufficient. To change this, you must make a deliberate effort to mark low-quality content on your feed with the "Show less" or "Not interested" options, engage with high-quality content[^3], and actively seek out and follow people that produce high-quality content despite being lesser known[^4].
+You must intentionally teach recommender systems what constitutes good quality to you. When algorithms evaluate quality by engagement metrics[^5], this works in the favor of mainstream and entertaining content, but less so for any content that requires a certain level of prerequisite knowledge. Say you are an academic in complexity science. If so, engaging with complexity-related content is not enough. Because recommender systems choose for popularity, and the majority of users have no prerequisite knowledge of your field, the system is likely to only show you: a.) content on concepts you already know; or b.) content by popular thinkers in the field[^2]. For the purposes of learning, these are both insufficient. To change this, you must make a deliberate effort to mark low-quality content on your feed with the "Show less" or "Not interested" options, engage with high-quality content[^3], and actively seek out and follow people that produce high-quality content despite being lesser known.
+
+A useful method to do this is to actively seek out one such person, then go through the list of others they follow, and follow people from that list. Repeat for those new people you follow. As a result of the [Matthew effect](https://en.wikipedia.org/wiki/Matthew_effect) and [homophily](https://en.wikipedia.org/wiki/Homophily) in social networks, being within a social circles makes it far easier to find others in similar domains, ideas, and circles. This is true of both thinkers and their works. Good knowledge is built on and references many others.
 
 ### Mastodon
 
@@ -48,8 +50,6 @@ Sites that do not clearly display their feed URLs typically have hidden links th
 [^2]: It is necessary but not sufficient to keep up-to-date with the popular developments and thinkers in a field. Good science should not depend on the merit of the author, but on the merit of the arguments. Tracking influence is useful insofar as it allows you to track the wider context of the field.
 
 [^3]: Make an effort to like/upvote well-grounded, high-quality content you want to continue seeing regardless of whether you agree with the content, rather than liking/upvoting solely on the basis of whether you agree. This is one way to avoid echo chambers. Note that this advice applies most to social media communities, and less so for entirely informational communities that equate upvotes with factual correctness (ex. Stack Exchange).
-
-[^4]: A useful method to do this is to actively seek out one such person, then go through the list of others they follow, and follow people from that list. Repeat for those new people you follow. People with similar taste and fields tend to cluster together in social networks, within which ideas become ambient around the hubs.
 
 [^5]: While this isn't the only way recommender systems choose what to recommend, this is how many systems handle [cold starts](https://en.wikipedia.org/wiki/Cold_start_%28recommender_systems%29). Once the system gains sufficient information about you and who you follow, content will more closely approximate your interests and the interests of those you follow. Hence, follow those whose taste and fields you want to emulate, rather than mainly following acquaintances.
 

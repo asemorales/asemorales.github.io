@@ -1,7 +1,7 @@
 ---
 title: "Adaptability is a necessary, but not sufficient, dimension of intelligence"
 date: 2026-11-04
-updated: 2026-11-07
+updated: 2026-11-08
 tags: ["cognition","technology"]
 ---
 

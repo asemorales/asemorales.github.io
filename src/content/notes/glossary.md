@@ -1,7 +1,7 @@
 ---
 title: "Glossary"
 date: 2026-11-01
-updated: 2026-11-07
+updated: 2026-11-08
 tags: ["paratext"]
 unlisted: true
 ---
@@ -16,9 +16,13 @@ Sometimes, I use terms for which there is insufficient scientific consensus on a
 ## adjacent possible (noun)
 
 > [!definition]
-> The set of possible future states that an autonomous agent can be in that are one step away from the agent's current state. The adjacent possible is indefinitely expandable, since when an agent moves into a state within the adjacent possible, a new adjacent possible becomes available, which consists of the next set of states one step away from the agent's new current state. It describes the mechanism by which there occurs an explosion of possibilities through evolution.
+> The set of future states that an autonomous agent can reach in a single step from its current state. The adjacent possible is indefinitely expandable, since when an agent moves into a new state, a new adjacent possible becomes available, which consists of the next set of states one step away from the agent's new current state.
 >
-> The idea was introduced by [Stuart Kauffman](https://en.wikipedia.org/wiki/Stuart_Kauffman), who first used the term to describe a law of the biosphere, wherein the biosphere tends towards novelty by evolving towards the adjacent possible[^cite-kauffman-investigations-1]. The term has also been used to describe the explosion of molecular diversity[^cite-kauffman-investigations-2], societal adoption of new technology[^cite-kauffman-investigations-3], and the development of economic complexity within a toy economy[^cite-kauffman-investigations-4].
+> The idea was introduced by [Stuart Kauffman](https://en.wikipedia.org/wiki/Stuart_Kauffman), who used the term to describe the mechanism by which there occurs an explosion of possibilities through evolution. That is, the biosphere tends towards novelty by evolving towards the adjacent possible[^cite-kauffman-investigations-1].
+>
+> ### Examples
+>
+> The term has also been used to describe the explosion of molecular diversity[^cite-kauffman-investigations-2], societal adoption of new technology[^cite-kauffman-investigations-3], and the development of economic complexity within a toy economy[^cite-kauffman-investigations-4].
 >
 > In education, the adjacent possible is conceptually similar to the [zone of proximal development](https://en.wikipedia.org/wiki/Zone_of_proximal_development#).
 
