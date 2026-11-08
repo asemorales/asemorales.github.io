@@ -133,7 +133,7 @@ test.describe("L-systems", () => {
       expect(await plants(page)).toBe(initial + 4);
     });
 
-    test("grow one plant at a time when the random count is one, and pick a new count when it finishes", async ({ page }) => {
+    test("grow one plant at a time when the random count is one, and pick a new count when that plant finishes", async ({ page }) => {
       await fixRandom(page, 0);
       await loadWithPausedClock(page);
       const initial = await plants(page);
@@ -237,7 +237,7 @@ test.describe("L-systems", () => {
       });
     }
 
-    test("ease to rest under a still pointer and rustle again on moving or leaving", async ({ page }) => {
+    test("ease to rest under a still pointer and rustle again when the pointer moves or leaves", async ({ page }) => {
       await page.goto("/lorem-ipsum/");
       const { x, y } = await pointOnPlant(page);
       await page.mouse.move(x - 20, y);
@@ -298,7 +298,7 @@ test.describe("L-systems", () => {
       expect(empty).toBeLessThanOrEqual(x + width + 1);
     });
 
-    test("wither the nearest plant when a full band is tapped, and keep to the cap", { tag: "@slow" }, async ({ page }, info) => {
+    test("wither the nearest plant when a full band is tapped, and stay within the cap", { tag: "@slow" }, async ({ page }, info) => {
       test.setTimeout(120_000);
       const max = phone(info.project.name) ? 10 : 20;
       await fixRandom(page, 0.99);
@@ -432,7 +432,7 @@ test.describe("L-systems", () => {
         .slice(1)
         .map(Number);
 
-    test("bring wildlife for notes tended in the last 30 days, and none after", async ({ page }) => {
+    test("bring wildlife only for notes tended in the last 30 days", async ({ page }) => {
       await page.goto("/lorem-ipsum/");
       const latest = await latestTended(page);
       await page.clock.install({ time: latest + 31 * 86_400_000 });

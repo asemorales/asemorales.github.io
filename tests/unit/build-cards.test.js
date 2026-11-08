@@ -70,7 +70,7 @@ describe("build-cards", () => {
     expect(parsePage(`<title>${title}</title>`).title).toBe(expected);
   });
 
-  it("reads a page's first real paragraph, past short ones and page furniture", () => {
+  it("reads a page's first real paragraph, skipping short paragraphs and page furniture", () => {
     const opening = "This opening paragraph is long enough to count, it&#x27;s <em>real</em>.";
     const html = `<title>T</title><nav><p>A navigation paragraph that is long enough to count as one.</p></nav><main><p>Menu</p><p>${opening}</p><p>A later paragraph that is also long enough to count.</p></main>`;
     expect(parsePage(html).text).toBe("This opening paragraph is long enough to count, it's real.");

@@ -34,7 +34,7 @@ describe("rehypeGlossary", () => {
     expect(tree.children.filter((n) => n.tagName === "h2").map((n) => n.properties.id)).toEqual(["foo-noun", "bar-verb"]);
   });
 
-  it("leaves other notes alone", () => {
+  it("does not change other notes", () => {
     const tree = entry();
     rehypeGlossary()(tree, { stem: "other" });
     expect(toHtml(tree)).toBe(toHtml(entry()));
@@ -112,7 +112,7 @@ describe("rehypeFigures", () => {
     );
   });
 
-  it("leaves images in running text alone", () => {
+  it("does not change images in running text", () => {
     const tree = root(p("See ", img), p(img, el("em", {}, [txt("a")]), " b"));
     rehypeFigures()(tree);
     expect(tree.children.map((c) => c.tagName)).toEqual(["p", "p"]);
@@ -127,7 +127,7 @@ describe("rehypeSidenotes", () => {
   const footnotes = (...items) => el("section", { dataFootnotes: true, className: ["footnotes"] }, [el("ol", {}, items)]);
   const note = (id, ...children) => el("li", { id: `user-content-fn-${id}` }, [p(...children, back(id))]);
 
-  it("moves each note beside its first reference, lettered, and links later ones back", () => {
+  it("moves each note beside its first reference, adds a letter, and links later references back", () => {
     const tree = root(p("One.", ref("a", 1)), p("Two.", ref("a", 1, "-2")), footnotes(note("a", "Note A. ")));
     const file = { data: {} };
     rehypeSidenotes()(tree, file);
@@ -267,7 +267,7 @@ describe("rehypeSidenotes", () => {
     );
   });
 
-  it("letters past z as aa, ab", () => {
+  it("labels notes past z as aa, ab", () => {
     expect([0, 25, 26, 27, 701, 702].map(letter)).toEqual(["a", "z", "aa", "ab", "zz", "aaa"]);
   });
 });
@@ -331,7 +331,7 @@ describe("rehypeBlocks", () => {
     expect(lead.properties.className).toEqual(marked ? ["lead-in"] : undefined);
   });
 
-  it("leaves bold later in a paragraph alone", () => {
+  it("does not change bold later in a paragraph", () => {
     const later = el("strong", {}, [txt("Later.")]);
     rehypeBlocks()(root(p("Opening. ", later)));
     expect(later.properties.className).toBeUndefined();
@@ -398,7 +398,7 @@ describe("wikilinks", () => {
     ).toEqual(["#math", "/here/#code"]);
   });
 
-  it("links headings named like the back matter to the ids rehypeSections gives them", () => {
+  it("links headings named like the back matter to their rehypeSections ids", () => {
     expect(
       run("[[#References]] [[#External links]] [[#See also]]")
         .filter((n) => n.type === "link")

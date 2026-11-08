@@ -84,7 +84,7 @@ describe("popover cards", () => {
     expect(linkCard({ url: "https://x.org", text: "X", card, annotation: { title: "Mine", body: "Text." } }).title).toBe("Mine");
   });
 
-  it("say when a link is dead", () => {
+  it("show when a link is dead", () => {
     expect(linkCard({ url: "https://x.org", text: "X", deadSince: "2026-01-02" }).dead).toBe(
       "This redirects to an archived copy since the source is no longer available.",
     );

@@ -25,7 +25,7 @@ describe("link status", () => {
     );
   });
 
-  it("marks a link dead after two failed runs, revives it after a pass, and drops unlinked ones", () => {
+  it("marks a link dead after two failed runs, marks it live after a pass, and drops unlinked ones", () => {
     let status = update({}, ["https://a.org", "https://b.org"], new Set(["https://a.org"]), "2026-01-01");
     expect(status["https://a.org"]).toEqual({ firstSeen: "2026-01-01", failures: 1 });
     status = update(status, ["https://a.org", "https://b.org"], new Set(["https://a.org"]), "2026-01-08");

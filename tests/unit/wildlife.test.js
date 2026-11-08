@@ -17,7 +17,7 @@ describe("recent", () => {
 });
 
 describe("census", () => {
-  it("brings no one to a garden left alone", () => {
+  it("brings no visitors when no notes are recent", () => {
     expect(Object.values(census(0, 12)).every((count) => count === 0)).toBe(true);
   });
 
@@ -26,20 +26,20 @@ describe("census", () => {
     for (const kind of new Set(ORDER)) expect(visitors[kind]).toBe(ORDER.filter((other) => other === kind).length);
   });
 
-  it("brings fireflies past the order, up to the cap", () => {
+  it("adds fireflies after the order ends, up to the cap", () => {
     expect(census(ORDER.length + 3, 99).firefly).toBe(ORDER.filter((kind) => kind === "firefly").length + 3);
     expect(census(40, 6).firefly).toBe(6);
   });
 });
 
 describe("fireflies", () => {
-  it("flash once per turn of phase", () => {
+  it("flash once per phase cycle", () => {
     expect(glow(0)).toBe(1);
     expect(glow(2 * Math.PI)).toBeCloseTo(1);
     expect(glow(Math.PI)).toBeLessThan(0.01);
   });
 
-  it("fall into step over a few minutes", () => {
+  it("synchronize over a few minutes", () => {
     const random = seeded(7);
     const flies = Array.from({ length: 10 }, () => swarm(random));
     const before = coherence(flies).order;
@@ -48,7 +48,7 @@ describe("fireflies", () => {
     expect(coherence(flies).order).toBeGreaterThan(0.95);
   });
 
-  it("stay out of step without coupling", () => {
+  it("stay unsynchronized without coupling", () => {
     const random = seeded(7);
     const flies = Array.from({ length: 10 }, () => swarm(random));
     for (let frame = 0; frame < 180 * 30; frame++) synchronize(flies, 1 / 30, 0);
@@ -69,7 +69,7 @@ describe("seek", () => {
 describe("drift", () => {
   const mote = () => ({ x: 0, y: 0, vx: 0, vy: 0, fall: 20, catch: 1, sway: 0, age: 0, seed: 0 });
 
-  it("falls and rides the wind", () => {
+  it("falls and moves with the wind", () => {
     const calm = mote();
     const windy = mote();
     for (let frame = 0; frame < 120; frame++) {
@@ -90,7 +90,7 @@ describe("findShade", () => {
     expect(findShade(canopy(width, ground), width, [], seeded(3))).toBeNull();
   });
 
-  it("finds shade under a tree, away from what is taken", () => {
+  it("finds shade under a tree, away from taken spots", () => {
     for (let seed = 1; seed <= 10; seed++) {
       const garden = canopy(width, ground);
       if (!establish(garden, [TREE], 200, ground, width, seeded(seed))) continue;
@@ -111,7 +111,7 @@ describe("weave", () => {
     expect(web.hub.y).toBeLessThan(100);
   });
 
-  it("refuses forks too narrow, too wide, or too near the top", () => {
+  it("rejects forks that are too narrow, too wide, or too near the top", () => {
     expect(weave({ x: 100, y: 100, headings: [0, 0.2] }, 10)).toBeNull();
     expect(weave({ x: 100, y: 100, headings: [-1.5, 1.5] }, 10)).toBeNull();
     expect(weave({ x: 100, y: 10, headings: [-0.5, 0.5] }, 10)).toBeNull();

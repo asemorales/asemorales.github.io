@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("layout and type", () => {
-  test("wraps paragraphs without indents, with space between them", async ({ page, browserName }) => {
+  test("wrap paragraphs without indents, with space between them", async ({ page, browserName }) => {
     const [first, second] = [page.locator("#sidenotes + p"), page.locator("#sidenotes + p + p")];
     expect(await first.evaluate((el) => getComputedStyle(el).textIndent)).toBe("0px");
     expect(await second.evaluate((el) => getComputedStyle(el).textIndent)).toBe("0px");
@@ -18,21 +18,21 @@ test.describe("layout and type", () => {
     if (browserName === "chromium") expect(await second.evaluate((el) => getComputedStyle(el).textWrap)).toContain("pretty");
   });
 
-  test("keeps long inline code inside the column", async ({ page }) => {
+  test("keep long inline code inside the column", async ({ page }) => {
     const code = page.locator("article code.long").first();
     const column = await box(page.locator("article.note"));
     const b = await box(code);
     expect(b.x + b.width).toBeLessThanOrEqual(column.x + column.width + 1);
   });
 
-  test("draws the separator as three asterisks", async ({ page }) => {
+  test("draw the separator as three asterisks", async ({ page }) => {
     const hr = page.locator("article hr").first();
     expect(await hr.evaluate((el) => getComputedStyle(el, "::after").content)).toContain("*");
   });
 });
 
 test.describe("sections", () => {
-  test("lists headings, unnumbered, in the contents", { tag: "@once" }, async ({ page }) => {
+  test("list headings, unnumbered, in the contents", { tag: "@once" }, async ({ page }) => {
     await expect(page.locator("#typography")).toHaveText("Typography");
     await expect(page.locator("nav.toc a[href='#tables']")).toHaveText("Tables");
     const toc = page.locator("nav.toc");
@@ -68,7 +68,7 @@ test.describe("sections", () => {
     expect((await style(page.locator("nav.toc li a").first())).caps).toBe("normal");
   });
 
-  test("aligns the home, theme, and contents icons and labels", async ({ page, javaScriptEnabled }) => {
+  test("align the home, theme, and contents icons and labels", async ({ page, javaScriptEnabled }) => {
     test.skip(javaScriptEnabled === false, "the theme toggle needs JS");
     const home = await box(page.locator(".site-home .icon"));
     const toggle = page.locator(".site-nav .theme-toggle");
@@ -229,7 +229,7 @@ test.describe("sidenotes", () => {
 });
 
 test.describe("callouts", () => {
-  test("set every quote alike, with an attribution in a footer", async ({ page }) => {
+  test("format every quote the same way, with an attribution in a footer", async ({ page }) => {
     await expect(page.locator("#epigraph + blockquote footer")).toContainText("Borges");
     expect(await page.locator("#default-quote + blockquote").evaluate((el) => getComputedStyle(el).fontStyle)).toBe("italic");
   });
@@ -268,7 +268,7 @@ test.describe("links", () => {
 });
 
 test.describe("glossary", () => {
-  test("shows no date, and leaves etymologies out of the contents", { tag: "@once" }, async ({ page }) => {
+  test("shows no date and omits etymologies from the contents", { tag: "@once" }, async ({ page }) => {
     await page.goto("/glossary/");
     await expect(page.locator("article time")).toHaveCount(0);
     await expect(page.locator("nav.toc a[href='#etymology']")).toHaveCount(0);
@@ -337,7 +337,7 @@ test.describe("bottom matter", () => {
     }
   });
 
-  test("number references, with locators, and backlinks to each citation", { tag: "@once" }, async ({ page }) => {
+  test("number references and show locators and backlinks to each citation", { tag: "@once" }, async ({ page }) => {
     const refs = page.locator("section.sources:has(h2#references) li");
     await expect(refs).toHaveCount(3);
     await expect(refs.first()).toHaveAttribute("id", "ref-1");
@@ -374,14 +374,14 @@ test.describe("bottom matter", () => {
     await expect(page.locator("#ref-1")).toBeInViewport();
   });
 
-  test("dates the note under its title, with no period", { tag: "@once" }, async ({ page }) => {
+  test("date the note under its title, with no period", { tag: "@once" }, async ({ page }) => {
     const dates = page.locator("h1 + p");
     await expect(dates).not.toContainText("First written");
     await expect(dates).not.toHaveText(/\.\s*$/);
     await expect(dates.locator("time").first()).toHaveAttribute("datetime", /^\d{4}-\d{2}-\d{2}$/);
   });
 
-  test("shows tags under a label", { tag: "@once" }, async ({ page }) => {
+  test("show tags under a label", { tag: "@once" }, async ({ page }) => {
     await expect(page.locator(".tags-label")).toHaveText("Tags");
     await expect(page.locator("a.tag")).toHaveAttribute("href", "/tags/test/");
   });
@@ -394,7 +394,7 @@ test.describe("block buttons", () => {
     return block.locator(".block-tools");
   };
 
-  test("don't appear without JS", async ({ page, javaScriptEnabled }) => {
+  test("do not appear without JS", async ({ page, javaScriptEnabled }) => {
     test.skip(javaScriptEnabled !== false, "no-JS projects only");
     await expect(page.locator(".block-tools")).toHaveCount(0);
   });
@@ -456,7 +456,7 @@ test.describe("block buttons", () => {
     await lit(false);
   });
 
-  test("clicking an equation's tools leaves its highlight to hover", async ({ page, javaScriptEnabled }, info) => {
+  test("clicking an equation's tools does not change its highlight", async ({ page, javaScriptEnabled }, info) => {
     test.skip(javaScriptEnabled === false, "JS projects only");
     const block = page.locator(".math-block:has([id='mjx-eqn:eq:halting'])");
     if (!wide(info.project.name)) {

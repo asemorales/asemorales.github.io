@@ -59,14 +59,14 @@ describe("sync", () => {
     expect(report.images).toEqual([{ from: "attachments/diagram.png", to: "images/diagram.png" }]);
   });
 
-  it("aliases wikilinks with their target's title and reports ones outside published/", async () => {
+  it("aliases wikilinks with their target's title and reports wikilinks outside published/", async () => {
     const report = await sync({ vault: fixture, out, lastUpdated: fixedDate });
     expect(await read("notes/halting-problem.md")).toContain("[[rices-theorem|Rice’s Theorem]] and [[private-draft|a draft]]");
     expect(await read("notes/rices-theorem.md")).toContain("[[halting-problem#Proof|Halting Problem > Proof]]");
     expect(report.unresolved).toEqual([{ note: "published/halting-problem.md", target: "private-draft" }]);
   });
 
-  it("reports annotations no note links to and PDF links with no annotation", async () => {
+  it("reports annotations without a linking note and PDF links without an annotation", async () => {
     const front = "---\ntitle: Note\ndate: 2026-01-01\ntags: [a]\n---\n";
     const annotation = (url) => `---\nurl: ${url}\ntitle: T\n---\nText.`;
     const vault = await tempVault({

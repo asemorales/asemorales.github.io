@@ -183,7 +183,7 @@ test.describe("media modes", () => {
 });
 
 test.describe("feed", () => {
-  test("is valid Atom, advertised on every page, and leaves unlisted notes out", { tag: "@once" }, async ({ page, request }) => {
+  test("is valid Atom, is advertised on every page, and omits unlisted notes", { tag: "@once" }, async ({ page, request }) => {
     const res = await request.get("/feed.xml");
     expect(res.headers()["content-type"]).toContain("xml");
     const xml = await res.text();

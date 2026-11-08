@@ -53,7 +53,7 @@ describe("archive-links", () => {
     expect(requests[0].body).toMatchObject({ url: "https://a.org", if_not_archived_within: "30d" });
   });
 
-  it("waits out a 429 and retries the same link", async () => {
+  it("waits after a 429 and retries the same link", async () => {
     const { fetch, requests } = server([429, {}, { "Retry-After": "300" }], [200, { job_id: "j" }]);
     const archived = {};
     const waits = [];

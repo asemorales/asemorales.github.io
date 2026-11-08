@@ -82,7 +82,7 @@ describe("derive", () => {
     expect(derive({ axiom: "1[0]", generations: 1, rules: { 110: "x", 101: "y" } })).toBe("x[y]");
   });
 
-  it("flips turns when the rules say so", () => {
+  it("flips turns when the rules require it", () => {
     expect(derive({ axiom: "+-", generations: 1, rules: { "+": "-", "-": "+" } })).toBe("-+");
   });
 });
@@ -188,7 +188,7 @@ describe("the light model", () => {
     }
   });
 
-  it("refuses a spot too dark for every kind, and leaves the garden unchanged", () => {
+  it("rejects a spot that is too dark for every kind and leaves the garden unchanged", () => {
     const garden = canopy(width, ground);
     garden.density.fill(50);
     const before = [...garden.density];
@@ -212,7 +212,7 @@ describe("the light model", () => {
     }
   });
 
-  it("refuses a plant that would starve its neighbor", () => {
+  it("rejects a plant that would leave its neighbor without enough light", () => {
     const refused = Array.from({ length: 30 }, (_, seed) => {
       const random = seeded((seed + 1) * 211);
       const garden = canopy(width, ground);
@@ -364,7 +364,7 @@ describe("rustle", () => {
     expect(plant.tilt).toBe(0);
   });
 
-  it("stays subtle however hard the pointer moves", () => {
+  it("keeps the tilt small however fast the pointer moves", () => {
     const plant = { tilt: 0, speed: 0 };
     for (let i = 0; i < 300; i++) {
       brush(plant, 500);

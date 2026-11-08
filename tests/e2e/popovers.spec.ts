@@ -84,7 +84,7 @@ test.describe("popovers on the lorem page", () => {
     await expect(await hover(page, "Halting problem")).toContainText("In computability theory");
   });
 
-  test("switch to another link's card when moving straight to it", async ({ page }) => {
+  test("switch to another link's card when the pointer moves straight to that link", async ({ page }) => {
     await hover(page, "Attention Is All You Need");
     await page.getByRole("link", { name: "Halting problem", exact: true }).first().hover();
     await expect(popover(page).locator(".popover-title")).toHaveText("Halting problem");
@@ -97,7 +97,7 @@ test.describe("popovers on the lorem page", () => {
     await expect(popover(page).locator(".popover-body")).toHaveText(card.paragraphs[0]);
   });
 
-  test("say a dead link's copy is archived", async ({ page }) => {
+  test("show that a dead link's copy is archived", async ({ page }) => {
     await expect((await hover(page, "a page that no longer exists")).locator(".popover-dead")).toContainText("archived copy");
   });
 
@@ -245,7 +245,7 @@ test.describe("drawer on touch screens", () => {
     expect(direction).toBe("column");
   });
 
-  test("a tap outside closes it, and its button opens the linked note", async ({ page }) => {
+  test("a tap outside closes the drawer, and the drawer's button opens the linked note", async ({ page }) => {
     await page.goto("/dolor-sit-amet/");
     await page.getByRole("link", { name: "Lorem Ipsum", exact: true }).first().tap();
     const drawer = page.locator("dialog.link-drawer");
