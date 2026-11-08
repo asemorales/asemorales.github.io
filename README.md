@@ -27,7 +27,7 @@ Then publish with:
 npm run sync
 ```
 
-This publishes all notes in the vault's `published/` folder. Wikilinks and slugs are based on the filenames of notes. Each note requires front matter with `title`, `date` (first published), and `tags`. Optionally, add `unlisted: true` to unlist notes.
+This publishes all notes in the vault's `published/` folder. Wikilinks and slugs are based on the filenames of notes. Each note requires front matter with `title`, `date` (first published), `last_updated`, and `tags`. Optionally, add `unlisted: true` to unlist notes.
 
 ### To write a custom annotation for an external link
 

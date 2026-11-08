@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -11,7 +10,7 @@ import { CODE, WIKILINK } from "../src/lib/wikilinks.js";
 
 const IMAGE = /\.(png|jpe?g|gif|webp|avif|svg)$/i;
 const INTRODUCTION = "paratext/introduction.md";
-const NOTE_KEYS = new Set(["title", "date", "tags", "unlisted"]);
+const NOTE_KEYS = new Set(["title", "date", "last_updated", "tags", "unlisted"]);
 const SKIP_DIRS = new Set([".git", ".obsidian", ".trash", "node_modules"]);
 const IGNORED_WIKILINKS = new Set(["some private note"]);
 
@@ -20,22 +19,6 @@ export class SyncError extends Error {
     super(problems.map((p) => `  - ${p}`).join("\n"));
     this.problems = problems;
   }
-}
-
-export function gitLastUpdated(vault, file) {
-  const rel = path.relative(vault, file);
-  try {
-    const dirty = execFileSync("git", ["-C", vault, "status", "--porcelain", "--", rel], { encoding: "utf8" });
-    if (dirty.trim()) return { date: today(), source: "uncommitted" };
-    const date = execFileSync("git", ["-C", vault, "log", "-1", "--format=%cs", "--", rel], { encoding: "utf8" }).trim();
-    if (date) return { date, source: "git" };
-  } catch {}
-  return null;
-}
-
-function today() {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
 async function walk(dir) {
@@ -69,11 +52,13 @@ function validateNote(file, data) {
   const problems = [];
   const where = `${file}:`;
   for (const key of Object.keys(data)) {
-    if (!NOTE_KEYS.has(key)) problems.push(`${where} unknown front matter field "${key}". Allowed: title, date, tags, unlisted.`);
+    if (!NOTE_KEYS.has(key)) problems.push(`${where} unknown front matter field "${key}". Allowed: title, date, last_updated, tags, unlisted.`);
   }
   if (typeof data.title !== "string" || !data.title.trim()) problems.push(`${where} missing "title" (the note's heading, as text).`);
   if (data.date === undefined) problems.push(`${where} missing "date" (the first published date, as YYYY-MM-DD).`);
   else if (!isoDate(data.date)) problems.push(`${where} "date" must be YYYY-MM-DD, got ${JSON.stringify(data.date)}.`);
+  if (data.last_updated === undefined) problems.push(`${where} missing "last_updated" (the last updated date, as YYYY-MM-DD).`);
+  else if (!isoDate(data.last_updated)) problems.push(`${where} "last_updated" must be YYYY-MM-DD, got ${JSON.stringify(data.last_updated)}.`);
   if (!Array.isArray(data.tags) || data.tags.length === 0) {
     problems.push(`${where} "tags" must be a list with at least one tag, like tags: [logic].`);
   } else {
@@ -95,7 +80,7 @@ function validateAnnotation(file, data) {
   return [...problems, `${file}: an annotation needs a "url" field with an http or https URL.`];
 }
 
-async function readNotes(vault, files, lastUpdated, problems) {
+async function readNotes(vault, files, problems) {
   const notes = [];
   const images = new Map();
   const slugs = new Map();
@@ -132,8 +117,7 @@ async function readNotes(vault, files, lastUpdated, problems) {
     );
     body = body.replace(/\n{3,}/g, "\n\n").trim() + "\n";
 
-    const updated = lastUpdated(vault, file) ?? { date: isoDate((await fs.stat(file)).mtime), source: "mtime" };
-    notes.push({ rel, slug, data: parsed.data, body, updated, embeds });
+    notes.push({ rel, slug, data: parsed.data, body, embeds });
   }
   return { notes, images };
 }
@@ -221,7 +205,7 @@ async function writeContent({ vault, out, notes, annotations, sources, introduct
       "---",
       `title: ${JSON.stringify(note.data.title)}`,
       `date: ${isoDate(note.data.date)}`,
-      `updated: ${note.updated.date}`,
+      `updated: ${isoDate(note.data.last_updated)}`,
       `tags: ${JSON.stringify(note.data.tags)}`,
       ...(note.data.unlisted ? ["unlisted: true"] : []),
       "---",
@@ -229,7 +213,7 @@ async function writeContent({ vault, out, notes, annotations, sources, introduct
       "",
     ].join("\n");
     await fs.writeFile(path.join(notesDir, `${note.slug}.md`), front + note.body);
-    report.notes.push({ file: note.rel, url: `/${note.slug}/`, updated: note.updated });
+    report.notes.push({ file: note.rel, url: `/${note.slug}/` });
   }
 
   for (const a of annotations) {
@@ -251,7 +235,7 @@ async function writeContent({ vault, out, notes, annotations, sources, introduct
   }
 }
 
-export async function sync({ vault, out = "src/content", lastUpdated = gitLastUpdated }) {
+export async function sync({ vault, out = "src/content" }) {
   const published = path.join(vault, "published");
   try {
     await fs.access(published);
@@ -266,7 +250,7 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
 
   const problems = [];
   const report = { notes: [], annotations: [], images: [], unresolved: [] };
-  const { notes, images } = await readNotes(vault, noteFiles, lastUpdated, problems);
+  const { notes, images } = await readNotes(vault, noteFiles, problems);
   checkGlossary(notes, problems);
   resolveWikilinks(notes, report);
   const annotations = await readAnnotations(vault, files.filter(isAnnotation), problems);

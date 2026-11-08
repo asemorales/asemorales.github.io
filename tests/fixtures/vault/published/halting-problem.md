@@ -1,6 +1,7 @@
 ---
 title: "Halting Problem"
 date: 2026-01-05
+last_updated: 2026-03-04
 tags: [computability, logic]
 ---
 
