@@ -29,7 +29,7 @@ test.describe("popovers on the lorem page", () => {
     await expect(p.locator("img")).toHaveCount(0);
     await expect(p.locator(".popover-more")).toHaveText("Go to site");
     await expect(p.locator(".popover-more")).toHaveAttribute("href", "https://github.com/asemorales/bierstadt");
-    await expect(p.locator(".popover-more")).toHaveAttribute("target", "_blank");
+    await expect(p.locator(".popover-more")).not.toHaveAttribute("target");
     await expect(p.locator(".popover-more .icon-external")).toBeVisible();
   });
 

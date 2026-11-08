@@ -50,10 +50,6 @@ export function fill(el: HTMLElement, card: Card, a: HTMLAnchorElement, more = t
     const more = add(el, "a", "popover-more", internal ? "Read more" : "Go to site") as HTMLAnchorElement;
     more.href = href;
     more.tabIndex = -1;
-    if (!internal) {
-      more.target = "_blank";
-      more.rel = "noopener";
-      more.insertAdjacentHTML("beforeend", '<span class="icon icon-external ml-1" aria-hidden="true"></span>');
-    }
+    if (!internal) more.insertAdjacentHTML("beforeend", '<span class="icon icon-external ml-1" aria-hidden="true"></span>');
   }
 }
