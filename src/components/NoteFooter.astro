@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Entry from "./SourceEntry.astro";
+import { slugify } from "../lib/slug.js";
+import type { sourceLists } from "../lib/notes";
+
+interface Props {
+  backlinks: CollectionEntry<"notes">[];
+  lists: Awaited<ReturnType<typeof sourceLists>>;
+  tags: string[];
+}
+
+const { backlinks, lists, tags } = Astro.props;
+---
+
+{(backlinks.length > 0 || lists.length > 0 || tags.length > 0) && <hr />}
+<footer class="bottom">
+  {backlinks.length > 0 && (
+    <section aria-labelledby="see-also">
+      <h2 id="see-also">
+        See also
+        <a href="#see-also" class="anchor" aria-label="Link to See also">
+          <span class="icon icon-link" aria-hidden="true" />
+        </a>
+      </h2>
+      <ul>
+        {backlinks.map((n) => (
+          <li>
+            <a href={`/${n.id}/`}>{n.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+  {lists.map((list) => (
+    <section class="sources" aria-labelledby={list.id}>
+      <h2 id={list.id}>
+        {list.title}
+        <a href={`#${list.id}`} class="anchor" aria-label={`Link to ${list.title}`}>
+          <span class="icon icon-link" aria-hidden="true" />
+        </a>
+      </h2>
+      <details open>
+        <summary>{list.count(list.entries.length)}</summary>
+        {list.id === "references" ? (
+          <ol>
+            {list.entries.map((c) => (
+              <li id={`ref-${c.n}`}>
+                <Entry {...c} />
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <ul>
+            {list.entries.map((c) => (
+              <li>
+                <Entry {...c} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </details>
+    </section>
+  ))}
+  {tags.length > 0 && (
+    <div class="tags">
+      <span class="tags-label">
+        <span class="icon icon-tags" aria-hidden="true" />
+        Tags
+      </span>
+      <ul>
+        {tags.map((tag) => (
+          <li>
+            <a href={`/tags/${slugify(tag)}/`} class="tag">
+              {tag}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</footer>

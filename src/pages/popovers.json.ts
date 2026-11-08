@@ -3,18 +3,8 @@ import cards from "../data/cards.json";
 import linkStatus from "../data/links-status.json";
 import { archived } from "../lib/dead-links.js";
 import { GLOSSARY } from "../lib/glossary.js";
+import type { CardText, Source } from "../types";
 import { headingCards, linkCard, noteCard, paragraphHtml, termCards } from "../lib/popovers.js";
-
-interface Source {
-  url?: string;
-  text: string;
-}
-
-interface CardText {
-  paragraphs: string[];
-  epigraph?: { text: string };
-  sections?: CardText[];
-}
 
 function renderText(card: CardText) {
   card.paragraphs = card.paragraphs.map(paragraphHtml);

@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { summary } from "../lib/summary.js";
+
+interface Props {
+  note: CollectionEntry<"notes">;
+}
+
+const { note } = Astro.props;
+const body = note.body ?? "";
+const minutes = Math.max(1, Math.round(body.split(/\s+/).filter(Boolean).length / 230));
+---
+
+<li data-search={[note.data.title, ...summary(body), ...note.data.tags].join(" ")}>
+  <a href={`/${note.id}/`}>{note.data.title}</a>
+  <span class="leader" aria-hidden="true"></span>
+  <span class="minutes">{minutes} min</span>
+</li>

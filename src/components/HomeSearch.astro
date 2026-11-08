@@ -1,0 +1,64 @@
+---
+---
+
+<div class="home-contents">
+  <h2 id="contents">Contents</h2>
+  <button type="button" class="search-toggle" popovertarget="search-box" title="Search" hidden>
+    <span class="icon icon-search" aria-hidden="true"></span>
+    <span class="sr-only">Search</span>
+  </button>
+</div>
+<search id="search-box" class="home-search" popover>
+  <label for="search" class="sr-only">
+    Search
+  </label>
+  <input id="search" type="search" placeholder="Search" autocomplete="off" spellcheck="false" />
+  <p class="search-empty" role="status"></p>
+</search>
+
+<script>
+  import { matcher } from "../lib/search.js";
+
+  const box = document.querySelector<HTMLElement>(".home-search");
+  const toggle = document.querySelector<HTMLButtonElement>(".search-toggle");
+  const input = document.querySelector<HTMLInputElement>("#search");
+  if (box && toggle && input) {
+    toggle.hidden = false;
+    const empty = box.querySelector<HTMLElement>(".search-empty")!;
+    const blank = document.querySelector<HTMLElement>(".home-empty")!;
+    const items = [...document.querySelectorAll<HTMLElement>(".home-notes li")];
+    const sections = [...document.querySelectorAll<HTMLElement>(".home-notes section")];
+    const filter = () => {
+      const matches = matcher(input.value);
+      for (const li of items) li.hidden = !matches(li.dataset.search ?? "");
+      for (const s of sections) s.hidden = !s.querySelector("li:not([hidden])");
+      const found = items.some((li) => !li.hidden);
+      blank.hidden = found;
+      empty.textContent = found ? "" : "No notes match.";
+      blank.querySelector("q")!.textContent = input.value.trim();
+    };
+    // Left-align the popover under the icon, kept inside the viewport.
+    const place = () => {
+      const r = toggle.getBoundingClientRect();
+      box.style.left = `${Math.max(8, Math.min(r.left, innerWidth - box.offsetWidth - 8))}px`;
+      box.style.top = `${r.bottom + 6}px`;
+    };
+    box.addEventListener("toggle", (e) => {
+      const open = (e as ToggleEvent).newState === "open";
+      toggle.setAttribute("aria-expanded", String(open));
+      if (open) {
+        place();
+        input.focus();
+      } else {
+        // Closing clears the query, so the index never stays filtered out of sight.
+        input.value = "";
+        filter();
+      }
+    });
+    addEventListener("scroll", () => box.matches(":popover-open") && place(), { passive: true });
+    addEventListener("resize", () => box.matches(":popover-open") && place());
+    input.addEventListener("input", filter);
+    // A search field eats the first Escape to clear itself; close in one press instead.
+    input.addEventListener("keydown", (e) => e.key === "Escape" && box.hidePopover());
+  }
+</script>

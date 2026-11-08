@@ -1,63 +1,27 @@
 ---
 import { getCollection, render } from "astro:content";
+import NoteFooter from "../components/NoteFooter.astro";
 import NoteTools from "../components/NoteTools.astro";
 import Reading from "../components/Reading.astro";
-import Entry from "../components/SourceEntry.astro";
-import cards from "../data/cards.json";
 import Base from "../layouts/Base.astro";
+import { day } from "../lib/date.js";
 import { GLOSSARY } from "../lib/glossary.js";
 import { summary } from "../lib/summary.js";
-import { slugify } from "../lib/slug.js";
-import { sourceEntry } from "../lib/sources.js";
-import { linkTargets } from "../lib/wikilinks.js";
+import { backlinksTo, sourceLists } from "../lib/notes";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
   return notes.map((note) => ({ params: { slug: note.id }, props: { note } }));
 }
 
-interface Source {
-  url?: string;
-  text: string;
-  refs: string[];
-  n?: number;
-  locators?: string[];
-}
-
 const { note } = Astro.props;
+const { tags } = note.data;
 const { Content, remarkPluginFrontmatter } = await render(note);
 const description = summary(note.body ?? "", { paragraphs: 1 })[0] ?? note.data.title;
-const written = note.data.date.toISOString().slice(0, 10);
-const updated = note.data.updated.toISOString().slice(0, 10);
-
-const backlinks = (await getCollection("notes", (n) => n.id !== note.id))
-  .filter((n) => linkTargets(n.body ?? "").includes(note.id))
-  .sort((a, b) => a.data.title.localeCompare(b.data.title));
-
-const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, a]));
-const withAnnotations = (sources: Source[] = [], cited = false) =>
-  Promise.all(
-    sources.map(async (s) => {
-      if (!s.url) return { ...s, domain: null, Annotation: null };
-      const card = (cards as Record<string, { meta?: string[]; text?: string }>)[s.url];
-      const { text, domain, annotation } = sourceEntry({ ...s, url: s.url, card, annotation: annotations.get(s.url), cited });
-      return { ...s, text, domain, Annotation: annotation ? (await render(annotation)).Content : null };
-    }),
-  );
-const lists = [
-  {
-    id: "references",
-    title: "References",
-    count: (n: number) => (n === 1 ? "1 reference" : `${n} references`),
-    entries: await withAnnotations(remarkPluginFrontmatter.references as Source[], true),
-  },
-  {
-    id: "external-links",
-    title: "External links",
-    count: (n: number) => (n === 1 ? "1 link" : `${n} links`),
-    entries: await withAnnotations(remarkPluginFrontmatter.externalLinks as Source[]),
-  },
-].filter((l) => l.entries.length > 0);
+const written = day(note.data.date);
+const updated = day(note.data.updated);
+const backlinks = await backlinksTo(note);
+const lists = await sourceLists(remarkPluginFrontmatter);
 ---
 
 <Base title={note.data.title} description={description} image={`/${note.id}/og.png`} wide preloadItalic>
@@ -77,73 +41,7 @@ const lists = [
       </p>
     )}
     <Content />
-    {(backlinks.length > 0 || lists.length > 0 || note.data.tags.length > 0) && <hr />}
-    <footer class="bottom">
-      {backlinks.length > 0 && (
-        <section aria-labelledby="see-also">
-          <h2 id="see-also">
-            See also
-            <a href="#see-also" class="anchor" aria-label="Link to See also">
-              <span class="icon icon-link" aria-hidden="true" />
-            </a>
-          </h2>
-          <ul>
-            {backlinks.map((n) => (
-              <li>
-                <a href={`/${n.id}/`}>{n.data.title}</a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-      {lists.map((list) => (
-        <section class="sources" aria-labelledby={list.id}>
-          <h2 id={list.id}>
-            {list.title}
-            <a href={`#${list.id}`} class="anchor" aria-label={`Link to ${list.title}`}>
-              <span class="icon icon-link" aria-hidden="true" />
-            </a>
-          </h2>
-          <details open>
-            <summary>{list.count(list.entries.length)}</summary>
-            {list.id === "references" ? (
-              <ol>
-                {list.entries.map((c) => (
-                  <li id={`ref-${c.n}`}>
-                    <Entry {...c} />
-                  </li>
-                ))}
-              </ol>
-            ) : (
-              <ul>
-                {list.entries.map((c) => (
-                  <li>
-                    <Entry {...c} />
-                  </li>
-                ))}
-              </ul>
-            )}
-          </details>
-        </section>
-      ))}
-      {note.data.tags.length > 0 && (
-        <div class="tags">
-          <span class="tags-label">
-            <span class="icon icon-tags" aria-hidden="true" />
-            Tags
-          </span>
-          <ul>
-            {note.data.tags.map((tag) => (
-              <li>
-                <a href={`/tags/${slugify(tag)}/`} class="tag">
-                  {tag}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </footer>
+    <NoteFooter backlinks={backlinks} lists={lists} tags={tags} />
   </article>
   <NoteTools />
   <Reading />

@@ -2,16 +2,9 @@
 ---
 
 <script>
-  interface Card {
-    title: string;
-    type?: string;
-    meta?: string[];
-    epigraph?: { text: string; by: string };
-    paragraphs: string[];
-    sections?: { title?: string; epigraph?: { text: string; by: string }; paragraphs: string[] }[];
-    dead?: string;
-    href?: string;
-  }
+  import type { Card } from "../types";
+  import { fill } from "../client/popover-card";
+  import { domain } from "../lib/links.js";
 
   const DELAY = 300;
   const LINGER = 200;
@@ -43,64 +36,6 @@
     pop.addEventListener("pointerleave", () => scheduleClose());
     document.body.append(pop);
     return pop;
-  }
-
-  function add(parent: HTMLElement, tag: string, className: string, text: string) {
-    const el = document.createElement(tag);
-    el.className = className;
-    el.textContent = text;
-    parent.append(el);
-    return el;
-  }
-
-  function addText(body: HTMLElement, { epigraph, paragraphs }: Pick<Card, "epigraph" | "paragraphs">) {
-    if (epigraph) {
-      const quote = document.createElement("blockquote");
-      quote.className = "popover-epigraph";
-      add(quote, "p", "", "").innerHTML = epigraph.text;
-      if (epigraph.by) add(quote, "footer", "", epigraph.by);
-      body.append(quote);
-    }
-    for (const html of paragraphs) {
-      const p = document.createElement("p");
-      p.innerHTML = html;
-      body.append(p);
-    }
-  }
-
-  function fill(el: HTMLElement, card: Card, a: HTMLAnchorElement, more = true) {
-    el.replaceChildren();
-    if (card.dead) add(el, "p", "popover-dead", card.dead);
-    const title = add(el, "p", "popover-title", card.title);
-    if (card.type) {
-      title.append(" ");
-      add(title, "span", "term-type", card.type);
-    }
-    if (card.meta?.length) {
-      const meta = add(el, "p", "popover-meta", "");
-      meta.className = "popover-meta *:not-first:ml-2 *:not-first:border-l *:not-first:border-rule *:not-first:pl-2";
-      for (const part of card.meta) add(meta, "span", "", part);
-    }
-    const body = document.createElement("div");
-    body.className = "popover-body";
-    addText(body, card);
-    for (const section of card.sections ?? []) {
-      if (section.title) add(body, "p", "definition-label", section.title);
-      addText(body, section);
-    }
-    if (body.hasChildNodes()) el.append(body);
-    const href = card.href ?? a.href;
-    const internal = new URL(href, location.href).origin === location.origin;
-    if (more && (!internal || body.hasChildNodes())) {
-      const more = add(el, "a", "popover-more", internal ? "Read more" : "Go to site") as HTMLAnchorElement;
-      more.href = href;
-      more.tabIndex = -1;
-      if (!internal) {
-        more.target = "_blank";
-        more.rel = "noopener";
-        more.insertAdjacentHTML("beforeend", '<span class="icon icon-external ml-1" aria-hidden="true"></span>');
-      }
-    }
   }
 
   function place(el: HTMLElement, a: HTMLAnchorElement) {
@@ -215,11 +150,7 @@
     go.href = a.href;
     const url = new URL(a.href, location.href);
     go.textContent =
-      url.origin === location.origin
-        ? url.hash && url.pathname === location.pathname
-          ? "Go to section"
-          : "Read note"
-        : `Open ${url.hostname.replace(/^www\./, "")}`;
+      url.origin === location.origin ? (url.hash && url.pathname === location.pathname ? "Go to section" : "Read note") : `Open ${domain(url.href)}`;
     go.addEventListener("click", () => d.close());
     d.replaceChildren(close, content, go);
     d.showModal();
@@ -243,13 +174,8 @@
     e.preventDefault();
     const card = (await load())[key(a)];
     if (card) openDrawer(a, card);
-    else followLink(a);
-  });
-
-  function followLink(a: HTMLAnchorElement) {
-    if (a.target === "_blank") window.open(a.href, "_blank", "noopener");
     else location.href = a.href;
-  }
+  });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") close();

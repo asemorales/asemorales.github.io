@@ -1,8 +1,11 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
+import HomeSearch from "../components/HomeSearch.astro";
 import Logo from "../components/Logo.astro";
 import RoomToggle from "../components/RoomToggle.astro";
+import NoteRow from "../components/NoteRow.astro";
 import Base from "../layouts/Base.astro";
+import { CONTACT, NAME } from "../lib/site.js";
 import { slugify } from "../lib/slug.js";
 import { summary } from "../lib/summary.js";
 
@@ -17,17 +20,6 @@ const tags = [...groups.keys()].sort((a, b) => rank(a) - rank(b) || a.localeComp
 const introduction = (await getEntry("introduction", "introduction"))!;
 const { Content: Introduction } = await render(introduction);
 const description = summary(introduction.body ?? "", { paragraphs: 1 })[0] ?? "Ase Morales";
-const minutes = (body = "") => Math.max(1, Math.round(body.split(/\s+/).filter(Boolean).length / 230));
-const contact = [
-  { name: "Email", icon: "mail", href: "mailto:hi@asemorales.com" },
-  { name: "Atom feed", icon: "rss", href: "/feed.xml" },
-  { name: "Mathstodon", icon: "mastodon", href: "https://mathstodon.xyz/@ase", rel: "me" },
-  { name: "Substack", icon: "substack", href: "https://asemorales.substack.com" },
-  { name: "GitHub", icon: "github", href: "https://github.com/asemorales" },
-  { name: "Bluesky", icon: "bluesky", href: "https://asemorales.bsky.social/" },
-  { name: "X", icon: "x-brand", href: "https://x.com/_asemorales" },
-  { name: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/in/asemorales" },
-];
 const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glossary", "colophon"].map((id) => getEntry("notes", id)))).filter(
   (n) => n !== undefined,
 );
@@ -38,7 +30,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
     <header class="home-title">
       <Logo class="" />
       <h1>
-        <span class="sr-only">Ase Morales</span>
+        <span class="sr-only">{NAME}</span>
         <span class="wordmark" aria-hidden="true">
           ase<span class="m">m</span>orales
         </span>
@@ -52,22 +44,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
 
     {notes.length + backMatter.length > 0 && (
       <>
-        <div class="home-contents">
-          <h2 id="contents">Contents</h2>
-          <button type="button" class="search-toggle" popovertarget="search-box" title="Search" hidden>
-            <span class="icon icon-search" aria-hidden="true"></span>
-            <span class="sr-only">Search</span>
-          </button>
-        </div>
-        <search id="search-box" class="home-search" popover>
-          <label for="search" class="sr-only">
-            Search
-          </label>
-          <input id="search" type="search" placeholder="Search" autocomplete="off" spellcheck="false" />
-          <p class="search-empty" hidden>
-            No notes match.
-          </p>
-        </search>
+        <HomeSearch />
         <nav class="home-notes" aria-labelledby="contents">
           {tags.map((tag) => (
             <section aria-labelledby={`tag-${slugify(tag)}`}>
@@ -76,11 +53,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
               </h2>
               <ul>
                 {groups.get(tag)!.map((n) => (
-                  <li data-search={[n.data.title, ...summary(n.body ?? ""), ...n.data.tags].join(" ")}>
-                    <a href={`/${n.id}/`}>{n.data.title}</a>
-                    <span class="leader" aria-hidden="true"></span>
-                    <span class="minutes">{minutes(n.body)} min</span>
-                  </li>
+                  <NoteRow note={n} />
                 ))}
               </ul>
             </section>
@@ -88,11 +61,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
           {backMatter.length > 0 && (
             <ul class="home-end">
               {backMatter.map((n) => (
-                <li data-search={[n.data.title, ...summary(n.body ?? "")].join(" ")}>
-                  <a href={`/${n.id}/`}>{n.data.title}</a>
-                  <span class="leader" aria-hidden="true"></span>
-                  <span class="minutes">{minutes(n.body)} min</span>
-                </li>
+                <NoteRow note={n} />
               ))}
             </ul>
           )}
@@ -127,7 +96,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
     <footer class="home-footer">
       <hr class="ornament" />
       <ul class="home-contact">
-        {contact.map((c) => (
+        {CONTACT.map((c) => (
           <li>
             <a href={c.href} rel={c.rel} title={c.name}>
               <span class={`icon icon-${c.icon}`} aria-hidden="true"></span>
@@ -142,48 +111,3 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
     </footer>
   </div>
 </Base>
-
-<script>
-  import { matcher } from "../lib/search.js";
-
-  const box = document.querySelector<HTMLElement>(".home-search");
-  const toggle = document.querySelector<HTMLButtonElement>(".search-toggle");
-  const input = document.querySelector<HTMLInputElement>("#search");
-  if (box && toggle && input) {
-    toggle.hidden = false;
-    const empty = box.querySelector<HTMLElement>(".search-empty")!;
-    const blank = document.querySelector<HTMLElement>(".home-empty")!;
-    const items = [...document.querySelectorAll<HTMLElement>(".home-notes li")];
-    const sections = [...document.querySelectorAll<HTMLElement>(".home-notes section")];
-    const filter = () => {
-      const matches = matcher(input.value);
-      for (const li of items) li.hidden = !matches(li.dataset.search ?? "");
-      for (const s of sections) s.hidden = !s.querySelector("li:not([hidden])");
-      empty.hidden = blank.hidden = items.some((li) => !li.hidden);
-      blank.querySelector("q")!.textContent = input.value.trim();
-    };
-    // Left-align the popover under the icon, kept inside the viewport.
-    const place = () => {
-      const r = toggle.getBoundingClientRect();
-      box.style.left = `${Math.max(8, Math.min(r.left, innerWidth - box.offsetWidth - 8))}px`;
-      box.style.top = `${r.bottom + 6}px`;
-    };
-    box.addEventListener("toggle", (e) => {
-      const open = (e as ToggleEvent).newState === "open";
-      toggle.setAttribute("aria-expanded", String(open));
-      if (open) {
-        place();
-        input.focus();
-      } else {
-        // Closing clears the query, so the index never stays filtered out of sight.
-        input.value = "";
-        filter();
-      }
-    });
-    addEventListener("scroll", () => box.matches(":popover-open") && place(), { passive: true });
-    addEventListener("resize", () => box.matches(":popover-open") && place());
-    input.addEventListener("input", filter);
-    // A search field eats the first Escape to clear itself; close in one press instead.
-    input.addEventListener("keydown", (e) => e.key === "Escape" && box.hidePopover());
-  }
-</script>
