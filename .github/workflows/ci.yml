@@ -2,7 +2,6 @@ name: CI
 
 on:
   push:
-  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -67,7 +66,7 @@ jobs:
 
   deploy:
     needs: check
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       pages: write
