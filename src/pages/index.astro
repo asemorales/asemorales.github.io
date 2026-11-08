@@ -28,7 +28,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
   <div class="column">
     <header class="home-title">
       <Logo class="" />
-      <h1>
+      <h1 id="page-title">
         <span class="sr-only">{NAME}</span>
         <span class="wordmark" aria-hidden="true">
           ase<span class="m">m</span>orales
@@ -47,9 +47,9 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
         <nav class="home-notes" aria-labelledby="contents">
           {tags.map((tag) => (
             <section aria-labelledby={`tag-${slugify(tag)}`}>
-              <h2 id={`tag-${slugify(tag)}`} class="smcp">
+              <h3 id={`tag-${slugify(tag)}`} class="smcp">
                 <a href={`/tags/${slugify(tag)}/`}>{tag}</a>
-              </h2>
+              </h3>
               <ul>
                 {groups.get(tag)!.map((n) => (
                   <NoteRow note={n} />

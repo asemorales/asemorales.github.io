@@ -166,6 +166,24 @@ test.describe("homepage", () => {
   });
 });
 
+test.describe("media modes", () => {
+  test("print uses light colors under a saved dark theme", { tag: "@once" }, async ({ page }) => {
+    await page.goto("/colophon/");
+    await page.evaluate(() => localStorage.setItem("theme", "dark"));
+    await page.reload();
+    await page.emulateMedia({ media: "print" });
+    await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
+  });
+
+  test("icons keep their color in forced colors", { tag: "@once" }, async ({ page }) => {
+    await page.goto("/colophon/");
+    await page.emulateMedia({ forcedColors: "active" });
+    const icon = page.locator(".site-home .icon");
+    const color = await icon.evaluate((el) => getComputedStyle(el.parentElement!).color);
+    await expect(icon).toHaveCSS("background-color", color);
+  });
+});
+
 test.describe("feed", () => {
   test("is valid Atom, advertised on every page, and leaves unlisted notes out", { tag: "@once" }, async ({ page, request }) => {
     const res = await request.get("/feed.xml");

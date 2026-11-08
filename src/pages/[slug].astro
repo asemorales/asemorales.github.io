@@ -32,7 +32,9 @@ const lists = await sourceLists(remarkPluginFrontmatter);
   preloadItalic>
   <Fragment slot="rail" set:html={remarkPluginFrontmatter.toc} />
   <article class="note column">
-    <h1 class="text-4xl">{note.data.title}</h1>
+    <h1 id="page-title" class="text-4xl">
+      {title}
+    </h1>
     {note.id !== GLOSSARY && (
       <p class="flex flex-wrap divide-x divide-rule font-mono text-sm text-dim *:px-2 *:first:pl-0 *:last:pr-0">
         <span>

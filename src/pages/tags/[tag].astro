@@ -20,7 +20,7 @@ const { tag, listed } = Astro.props;
 
 <Base title={tag} description={`Notes tagged ${tag}.`} noindex={listed.length === 0} wide>
   <div class="column listing">
-    <h1 class="tag-title mb-6">
+    <h1 id="page-title" class="tag-title mb-6">
       <span class="icon icon-tags" aria-hidden="true" />
       <span class="tag">{tag}</span>
     </h1>

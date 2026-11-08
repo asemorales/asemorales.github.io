@@ -47,6 +47,7 @@ export default defineConfig({
   trailingSlash: "always",
   redirects: { "/about": "/#introduction" },
   integrations: [sitemap({ filter: inSitemap, serialize })],
+  image: { layout: "constrained" },
   markdown: {
     processor: unified({
       remarkPlugins: [remarkFootnoteQuotes, remarkMath, [remarkWikilinks, { slugs: notes.map((n) => n.slug) }]],

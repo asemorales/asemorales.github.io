@@ -6,13 +6,14 @@ const math = (tex) => el("code", { className: ["language-math", "math-inline"] }
 const rendered = (...children) => el("mjx-container", {}, [el("svg", { role: "img" }, children)]);
 
 describe("rehypeMathLabels", () => {
-  it("names each SVG with its TeX, in document order", () => {
+  it("hides each SVG behind MathML, in document order", () => {
     const file = { data: {} };
     rehypeMathSource()({ type: "root", children: [el("p", {}, [math("a\n+ b"), math("c")])] }, file);
     const [first, second] = [rendered(), rendered()];
     rehypeMathLabels()({ type: "root", children: [el("p", {}, [first, second])] }, file);
-    expect(first.children[0].properties["aria-label"]).toBe("a + b");
-    expect(second.children[0].properties["aria-label"]).toBe("c");
+    expect(first.children[0].properties.ariaHidden).toBe("true");
+    expect(first.children[1].children[0].value).toContain("<mi>a</mi>");
+    expect(second.children[1].children[0].value).toContain("<mi>c</mi>");
   });
 
   it("names the link in place of an SVG that holds one", () => {

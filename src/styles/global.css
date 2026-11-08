@@ -103,7 +103,7 @@
   }
 
   :focus-visible {
-    @apply outline-1 outline-offset-4 outline-ink;
+    @apply outline-2 outline-offset-4 outline-ink;
   }
 
   .astro-code {
@@ -112,6 +112,10 @@
   .astro-code,
   .astro-code span {
     color: light-dark(var(--shiki-light), var(--shiki-dark));
+  }
+
+  mjx-assistive-mml {
+    @apply sr-only select-none;
   }
 
   mjx-container[jax="SVG"] {
@@ -158,6 +162,8 @@
   /* Lucide icons (lucide.dev), ISC license. */
   .icon {
     @apply inline-block size-[1em] shrink-0 bg-current align-[-0.125em];
+    forced-color-adjust: preserve-parent-color;
+    print-color-adjust: exact;
     mask: var(--icon) center / contain no-repeat;
   }
   .theme-toggle {
@@ -240,10 +246,12 @@
     --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2'/></svg>");
   }
 
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-4 focus:z-50 focus:bg-code focus:px-3 focus:py-1;
+  }
+
   .smcp {
-    @apply font-serif;
-    font-variant-caps: all-small-caps;
-    letter-spacing: 0.04em;
+    @apply font-serif caps;
   }
   .lead-in {
     @apply font-normal;
@@ -301,7 +309,7 @@
     @apply mt-6 text-lg;
   }
   .note .anchor {
-    @apply ml-2 inline-block text-[0.75em] font-normal text-mid no-underline opacity-0 hover:text-ink focus-visible:opacity-100;
+    @apply ml-2 inline-block text-[0.75em] font-normal text-dim no-underline opacity-0 hover:text-ink focus-visible:opacity-100;
   }
   .note .anchor[data-copied] {
     @apply text-ink opacity-100;
@@ -339,7 +347,10 @@
     @apply overflow-x-auto rounded p-4 leading-normal;
   }
   .note table {
-    @apply block overflow-x-auto tabular-nums;
+    @apply tabular-nums;
+  }
+  .note .table-block {
+    @apply overflow-x-auto;
   }
   .note th,
   .note td {
@@ -495,7 +506,7 @@
       @apply cursor-pointer hover:text-link-hover active:text-link-hover;
     }
     .note .sidenote-number:has(+ .margin-toggle:focus-visible) {
-      @apply outline-1 outline-offset-2 outline-ink;
+      @apply outline-2 outline-offset-2 outline-ink;
     }
     .note .margin-toggle:checked + .sidenote {
       @apply mx-4 my-3 block border-l border-rule pl-3;
@@ -559,7 +570,7 @@
   .note .wide {
     @apply clear-right;
   }
-  .note .wide > table {
+  .note .wide table {
     @apply w-full;
   }
   @media (width >= 760px) {
@@ -690,7 +701,7 @@
     @apply outline-offset-0 outline-frame;
   }
   .home-search p {
-    @apply mt-2 text-sm text-dim italic;
+    @apply mt-2 text-sm text-dim italic empty:mt-0;
   }
   /* Swap WebKit's blue clear button for the theme's own x. */
   .home-search input::-webkit-search-cancel-button {
@@ -702,10 +713,10 @@
   .home-notes section {
     @apply mt-10;
   }
-  .home-notes h2 {
+  .home-notes h3 {
     @apply text-xl;
   }
-  .home-notes h2 a {
+  .home-notes h3 a {
     @apply text-dim no-underline hover:text-link-hover;
   }
   .home-notes ul,
@@ -895,7 +906,8 @@
   @page {
     margin: 2cm 1.5cm;
   }
-  :root {
+  :root,
+  :root[data-theme] {
     color-scheme: light;
   }
   body {
@@ -928,9 +940,6 @@
   .note a[href^="http"]::after {
     content: " (" attr(href) ")";
     @apply text-[0.85em] break-all text-dim;
-  }
-  .note > h2 {
-    break-before: page;
   }
   .note h2,
   .note h3,
