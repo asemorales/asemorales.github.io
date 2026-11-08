@@ -427,12 +427,18 @@
   }
   .toc ol {
     @apply list-none pl-0;
+    counter-reset: toc;
   }
   .toc ol ol {
-    @apply pl-6;
+    @apply col-start-2;
   }
   .toc li {
-    @apply mt-1;
+    @apply mt-1 grid grid-cols-[auto_minmax(0,1fr)] gap-x-2;
+    counter-increment: toc;
+  }
+  .toc li::before {
+    @apply lining-nums tabular-nums;
+    content: counters(toc, ".") ".";
   }
   .toc a {
     @apply text-dim no-underline hover:text-link-hover hover:underline;

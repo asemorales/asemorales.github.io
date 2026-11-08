@@ -39,9 +39,11 @@ test.describe("layout and type", () => {
 });
 
 test.describe("sections", () => {
-  test("list headings, unnumbered, in the contents", { tag: "@once" }, async ({ page }) => {
+  test("list headings in the contents, numbering only the contents", { tag: "@once" }, async ({ page }) => {
     await expect(page.locator("#typography")).toHaveText("Typography");
-    await expect(page.locator("nav.toc a[href='#tables']")).toHaveText("Tables");
+    const entry = page.locator("nav.toc li:has(> a[href='#tables'])");
+    await expect(entry.locator("> a")).toHaveText("Tables");
+    expect(await entry.evaluate((li) => getComputedStyle(li, "::before").content)).toContain("counters(toc");
     const toc = page.locator("nav.toc");
     for (const href of await toc.locator("details a").evaluateAll((as) => as.map((a) => a.getAttribute("href")!))) {
       await expect(page.locator(href)).toHaveCount(1);
