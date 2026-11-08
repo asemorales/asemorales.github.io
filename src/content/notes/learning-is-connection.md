@@ -1,6 +1,6 @@
 ---
 title: "Learning is connection and creation, not consumption"
-date: 2026-11-07
+date: 2026-11-08
 updated: 2026-11-08
 tags: ["cognition"]
 ---

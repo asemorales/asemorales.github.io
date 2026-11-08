@@ -1,6 +1,6 @@
 ---
 title: "Understand the system, don't solve a problem"
-date: 2026-11-07
+date: 2026-11-08
 updated: 2026-11-08
 tags: ["complexity"]
 ---

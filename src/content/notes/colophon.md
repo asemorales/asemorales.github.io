@@ -1,6 +1,6 @@
 ---
 title: "Colophon"
-date: 2026-10-27
+date: 2026-11-02
 updated: 2026-11-08
 tags: ["paratext"]
 unlisted: true

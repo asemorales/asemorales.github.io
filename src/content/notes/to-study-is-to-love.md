@@ -1,6 +1,6 @@
 ---
 title: "To study is to love"
-date: 2025-08-07
+date: 2026-11-07
 updated: 2026-11-08
 tags: ["creative","complexity"]
 ---
