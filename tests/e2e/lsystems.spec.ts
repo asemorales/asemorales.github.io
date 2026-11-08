@@ -27,8 +27,27 @@ test.describe("L-systems", () => {
     await expect(page.locator("#lsystems")).toBeHidden();
   });
 
+  test("load only once the footer is near the viewport", async ({ page, javaScriptEnabled }) => {
+    test.skip(!javaScriptEnabled, "needs JS");
+    await page.goto("/lorem-ipsum/");
+    expect(await plants(page)).toBe(0);
+    await scrollToFraction(page, 1);
+    await expect.poll(() => plants(page)).toBeGreaterThan(0);
+  });
+
   test.describe("with JS", () => {
     test.skip(({ javaScriptEnabled }) => !javaScriptEnabled, "needs JS");
+    test.beforeEach(({ page }) =>
+      page.addInitScript(() => {
+        window.IntersectionObserver = class {
+          constructor(private callback: IntersectionObserverCallback) {}
+          observe() {
+            this.callback([{ isIntersecting: true } as IntersectionObserverEntry], this as unknown as IntersectionObserver);
+          }
+          disconnect() {}
+        } as unknown as typeof IntersectionObserver;
+      }),
+    );
 
     for (const [roll, wide, narrow] of [
       [0.41, 3, 1],
@@ -438,9 +457,12 @@ test.describe("L-systems", () => {
       const [x, y] = await fireflies(page).first().evaluate(spot);
       await page.mouse.move(band.x + x + 10, band.y + y, { steps: 2 });
       await page.mouse.move(band.x + x, band.y + y, { steps: 2 });
-      await page.waitForTimeout(800);
-      const [after, below] = await fireflies(page).first().evaluate(spot);
-      expect(Math.hypot(after - x, below - y)).toBeGreaterThan(10);
+      await expect
+        .poll(async () => {
+          const [after, below] = await fireflies(page).first().evaluate(spot);
+          return Math.hypot(after - x, below - y);
+        })
+        .toBeGreaterThan(10);
     });
 
     test("puff spores from a tapped mushroom instead of planting", { tag: "@slow" }, async ({ page }) => {
