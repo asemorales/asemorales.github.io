@@ -15,5 +15,6 @@
     "MD033": false,
     "MD060": false,
     "MD024": { "siblings_only": true },
+    "MD010": { "spaces_per_tab": 4 },
   },
 }

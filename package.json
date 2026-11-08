@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "sync": "node --env-file-if-exists=.env scripts/sync.js && node scripts/build-cards.js && prettier --write --log-level warn src/data/cards.json",
+    "sync": "node --env-file-if-exists=.env scripts/sync.js && node scripts/build-cards.js && prettier --write --log-level warn src/data/cards.json && markdownlint-cli2 --fix",
     "cards": "node scripts/build-cards.js",
     "archive": "node scripts/archive-links.js",
     "fonts": "sh scripts/fonts.sh",
