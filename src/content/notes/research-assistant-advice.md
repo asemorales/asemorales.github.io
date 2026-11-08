@@ -19,7 +19,7 @@ This page lists some personal advice for getting [research assistant](https://en
 
 **Actively ask for open positions.** For many labs, RA positions are often not advertised or announced on the lab's site. Sometimes, PIs may post to social media that they are hiring, although this varies. It's best to just ask the PI if there are any open positions[^6]. If none are open at the time, ask when a slot might open up.
 
-**RA roles may be paid or unpaid.** If you're just interested and are fine with an unpaid role, it's generally socially acceptable to ask PIs if you can collaborate as an unpaid RA. Slots usually refer to paid positions, hence the PI may be willing to informally take you in even if there's no open slots at the time.
+**Unpaid roles may still be available even when no slots are listed.** RA roles may be paid or unpaid. Slots usually refer to paid positions, hence PIs may still take in unpaid RAs. It's generally socially acceptable to ask PIs if you can collaborate as an unpaid RA.
 
 **Plan around grant cycles.** In industry, job applications usually peak around June-July, or near the end of a [fiscal year](https://en.wikipedia.org/wiki/Fiscal_year). In university research, the equivalent for this is research grant cycles. Each research project needs [funding](https://en.wikipedia.org/wiki/Funding_of_science). Usually, labs apply for research grants yearly to get project funding, file the necessary paperwork (ethics clearance, etc.), wait for approval, and projects only start once approved[^5]. Filing and approval take months, and the exact months vary by university and funding source, so ask your PI about the timeline for research grant cycles so you can ask then if new RA slots have opened up, and so you can plan around when to make time for RA commitments.
 
@@ -29,7 +29,7 @@ This page lists some personal advice for getting [research assistant](https://en
 
 [^2]: [Situated Learning: Legitimate Peripheral Participation](https://www.cambridge.org/highereducation/books/situated-learning/6915ABD21C8E4619F750A4D4ACA616CD) develops this idea and shows example across different social networks/communities.
 
-[^3]: I am rather confident this advice applies regardless of country, although there may be gaps in my knowledge. My own experiences are based on norms in university research labs in the Philippines.
+[^3]: My own experiences are based on norms in university research labs in the Philippines, and other cultures may differ.
 
 [^4]: Norms in industry research labs differ, and this advice might not apply.
 

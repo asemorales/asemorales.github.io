@@ -5,9 +5,7 @@ updated: 2026-11-04
 tags: ["technology"]
 ---
 
-Over the years, my view of automation has evolved to best be described by the following:
-
-> Automate away everything that distracts you from the most fundamental activity of all: being human.
+Over the years, my view of automation has evolved to best be described by the following: Automate away everything that distracts you from being human.
 
 The first section of this statement is hardly controversial at all, for many thinkers and builders have already suggested that the end goal of automation is to free up time for human flourishing. It is the exact definition of the last two words that incite controversy: "being human". The rest of the statement hinges on how this is defined[^1]. Once it is defined what constitutes a good human life, it then follows that the maximum bound of using automation is that which does not impede human well-being.
 

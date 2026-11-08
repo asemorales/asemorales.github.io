@@ -5,7 +5,7 @@ updated: 2026-11-07
 tags: ["cognition"]
 ---
 
->[!quote]Daniel Kahneman, *[A Perspective on Judgment and Choice](https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/JudgementAndChoice.MappingBoundedRationality.DKahneman2003.pdf)
+>[!quote]Daniel Kahneman, *[A Perspective on Judgment and Choice](https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/JudgementAndChoice.MappingBoundedRationality.DKahneman2003.pdf)*
 > From its earliest days, the research that Tversky and I conducted was guided by the idea that intuitive judgments occupy a position—perhaps corresponding to evolutionary history—between the automatic operations of perception and the deliberate operations of reasoning.
 
 It is possible to independently discern truths through rationality that very much approximate objective reality. This is observable in the history of scientific progress: early philosophers hypothesized truths antecedent to scientific discovery. This principle holds true for the general process of learning through meaning-making.

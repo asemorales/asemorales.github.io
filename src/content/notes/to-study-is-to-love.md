@@ -19,4 +19,4 @@ There is so much to love. Attention is all you need.
 
 To study is an act of love for existence.
 
-[^1]: Translation: It is rough on the ground where I sit with a half-eaten pig's ear, three bare skewers, two dipping sauces, and a spirit anguished by the limits of what I know. Whose breath and blood have flowed here, and whose are yet to come?
+[^1]: Translation: It is rough on the ground where I sit with a half-eaten pig's ear, three bare skewers, two dipping sauces, and a spirit in anguish. Whose breath and blood have flowed here, and whose are yet to come?

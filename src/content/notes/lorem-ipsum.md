@@ -15,9 +15,9 @@ This page contains dummy text used to test the design features of this site.
 
 Incomprehensibilities, electroencephalographically, counterrevolutionaries, pneumonoultramicroscopicsilicovolcanoconiosis. 0123456789, 3.14159, and 1,729. Set in [Source Serif 4](https://github.com/adobe-fonts/source-serif). *Italic*, **bold**, ***bold italic***, ~~strikethrough~~, `inline code`, and `https://example.com/a/very/long/path/that/keeps/going/and/going/without/any/spaces`.
 
-**This paragraph tests an opening sentence set entirely in bold.** That sentence renders in small caps, and the rest of the paragraph stays in roman.
+**This paragraph tests an opening sentence in small caps.** The following test is body text.
 
-**This paragraph tests bold that stops mid-sentence**, which stays bold because the opening sentence continues past it.
+**This paragraph tests an opening segment without small caps**, which is rendered as bold text.
 
 ### Lists
 
@@ -60,13 +60,13 @@ Quis autem vel eum iure reprehenderit.[^long] At vero eos et accusamus.[^math]
 
 At vero eos et accusamus et iusto odio dignissimos.[^short]
 
-This paragraph tests quotes in sidenotes, with the quote's lines indented and unindented. Nam libero tempore.[^quote] Cum soluta nobis est eligendi optio.[^flat-quote]
+This paragraph tests quotes in sidenotes, with the quote's lines indented and unindented.[^quote] Cum soluta nobis est eligendi optio.[^flat-quote]
 
-This paragraph tests a status notice in a sidenote. Temporibus autem quibusdam.[^status-note]
+This paragraph tests a status notice in a sidenote.[^status-note]
 
-This paragraph tests a definition in a sidenote, with examples and an etymology. Nam libero tempore.[^definition-note]
+This paragraph tests a definition in a sidenote, with examples and an etymology.[^definition-note]
 
-This paragraph tests a footnote that is only a link, which stays a sidenote without the `cite-` prefix. Et harum quidem rerum facilis.[^link-only]
+This paragraph tests a link-only footnote.[^link-only]
 
 ### Citations
 
@@ -80,7 +80,7 @@ A citation.[^cite-turing] Same citation again.[^cite-turing] Another citation.[^
 
 [^quote]: > [!quote] Jorge Luis Borges, *[The Library of Babel](https://en.wikipedia.org/wiki/The_Library_of_Babel)*
     > An indented quote in a sidenote.
-    > Its second line stays on its own line.
+    > Newlines must be preserved after rendering.
 
 [^flat-quote]: > [!quote] Jorge Luis Borges, *[The Library of Babel](https://en.wikipedia.org/wiki/The_Library_of_Babel)*
 > An unindented quote in a sidenote.
@@ -256,5 +256,3 @@ This paragraph tests a definition with neither a term nor optional sections.
 ## Reading
 
 This page's length tests the scroll-depth events, which fire as the reader passes 25%, 50%, 75%, and 90% of the prose.
-
-This paragraph tests the wildlife in the footer garden. The number of visitors grows with the number of notes tended in the past 30 days. Scroll to the bottom to see the fireflies flash in sync. Hover over or tap the garden to scatter fireflies, hide the snail, shake a web, blow a dandelion, or puff a mushroom's spores.
