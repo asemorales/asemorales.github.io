@@ -12,18 +12,19 @@ import { rehypeDeadLinks } from "./src/lib/dead-links.js";
 import { rehypeGlossary } from "./src/lib/glossary.js";
 import { rehypeBibliography } from "./src/lib/rehype-bibliography.js";
 import { rehypeBlocks } from "./src/lib/rehype-blocks.js";
-import { rehypeCallouts, remarkFootnoteQuotes } from "./src/lib/rehype-callouts.js";
+import { rehypeCallouts } from "./src/lib/rehype-callouts.js";
 import { rehypeFigures } from "./src/lib/rehype-figures.js";
+import { rehypeInlineMarks } from "./src/lib/rehype-inline-marks.js";
 import { rehypeMathLabels, rehypeMathSource } from "./src/lib/rehype-math-labels.js";
 import { rehypeSections } from "./src/lib/rehype-sections.js";
 import { rehypeSidenotes } from "./src/lib/rehype-sidenotes.js";
 import { rehypeTidy } from "./src/lib/rehype-tidy.js";
+import { remarkFootnoteQuotes } from "./src/lib/remark-footnote-quotes.js";
+import { SITE_URL as site } from "./src/lib/site.js";
 import { slugify } from "./src/lib/slug.js";
 import { linkTargets, remarkWikilinks } from "./src/lib/wikilinks.js";
 import bierstadtDark from "./src/styles/shiki/bierstadt-dark.json" with { type: "json" };
 import bierstadtLight from "./src/styles/shiki/bierstadt-light.json" with { type: "json" };
-
-const site = "https://asemorales.com";
 
 const notesDir = "src/content/notes";
 const notes = fs
@@ -54,6 +55,7 @@ export default defineConfig({
         rehypeFigures,
         rehypeSidenotes,
         rehypeBlocks,
+        rehypeInlineMarks,
         rehypeBibliography,
         rehypeGlossary,
         [rehypeSections, { backlinked }],

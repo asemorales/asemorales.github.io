@@ -1,9 +1,8 @@
-import { toHtml } from "hast-util-to-html";
-import { el, hasClass, isElement, text, txt, walk } from "./hast.js";
+import { el, hasClass, isElement, txt, walk } from "./hast.js";
+import { citationRef } from "./rehype-bibliography.js";
 
 const PREFIX = "user-content-fn-";
 const CITATION = "cite-";
-const FORMATTING = new Set(["em", "strong", "code", "del"]);
 const BLOCKS = new Set(["p", "div", "ul", "ol", "li", "blockquote", "footer", "aside", "pre", "table"]);
 const BLOCK_CLASSES = {
   blockquote: ["sidenote-block", "sidenote-quote"],
@@ -39,27 +38,7 @@ export function rehypeSidenotes() {
       const li = notes.get(id);
       if (!li) return null;
 
-      if (id.startsWith(CITATION)) {
-        const source = citation(li);
-        if (!source)
-          throw new Error(
-            `${file.path}: footnote [^${id}] must be text, or one external link optionally followed by text, with only italics, bold, code, or strikethrough.`,
-          );
-        const key = source.url ?? source.text;
-        let entry = citations.get(key);
-        if (!entry) {
-          entry = { url: source.url, text: source.text, n: citations.size + 1, locators: [], refs: [] };
-          citations.set(key, entry);
-        }
-        if (source.locator && !entry.locators.includes(source.locator)) entry.locators.push(source.locator);
-        const refId = `cite-ref-${entry.n}-${entry.refs.length + 1}`;
-        entry.refs.push(refId);
-        return [
-          el("sup", { className: ["cite-ref"], id: refId }, [
-            el("a", { href: `#ref-${entry.n}`, ariaLabel: `Reference ${entry.n}` }, [txt(`[${entry.n}]`)]),
-          ]),
-        ];
-      }
+      if (id.startsWith(CITATION)) return citationRef(citations, li, id, file.path);
 
       if (!letters.has(id)) letters.set(id, letter(letters.size));
       const mark = letters.get(id);
@@ -92,33 +71,6 @@ export function letter(i) {
   let s = "";
   for (let n = i + 1; n > 0; n = Math.floor((n - 1) / 26)) s = String.fromCharCode(97 + ((n - 1) % 26)) + s;
   return s;
-}
-
-function citation(li) {
-  const blocks = significant(li.children);
-  if (blocks.length !== 1 || !isElement(blocks[0], "p")) return null;
-  const { children } = blocks[0];
-  const [link] = significant(children);
-  const linked = isElement(link, "a");
-  if (linked && !/^https?:\/\//.test(String(link.properties.href ?? ""))) return null;
-  const rest = (linked ? children.slice(children.indexOf(link) + 1) : children).filter(
-    (c) => !isElement(c) || c.properties?.dataFootnoteBackref === undefined,
-  );
-  if (!rest.every(formattedText)) return null;
-  const html = toHtml(rest)
-    .trim()
-    .replace(/^[,;:]\s*/, "")
-    .replace(/\.$/, "");
-  if (linked) return { url: String(link.properties.href), text: text(link).trim(), locator: html };
-  return html ? { text: html } : null;
-}
-
-function formattedText(node) {
-  return node.type === "text" || (isElement(node) && FORMATTING.has(node.tagName) && node.children.every(formattedText));
-}
-
-function significant(children) {
-  return children.filter((c) => !(c.type === "text" && !c.value.trim()) && !(isElement(c) && c.properties?.dataFootnoteBackref !== undefined));
 }
 
 function inline(children) {

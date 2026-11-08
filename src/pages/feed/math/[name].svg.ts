@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import { mathImageName, proofTrees, texToSvg } from "../../../lib/feed.js";
+import { mathImageName, proofTrees, texToSvg } from "../../../lib/math.js";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes", (n) => !n.data.unlisted);

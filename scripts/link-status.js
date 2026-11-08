@@ -1,17 +1,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { day } from "../src/lib/date.js";
 import { DEAD_AFTER } from "../src/lib/dead-links.js";
+import { linksIn } from "../src/lib/links.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STATUS = path.join(root, "src/data/links-status.json");
 const NOTES = path.join(root, "src/content/notes");
-
-const LINK = /\]\((https?:\/\/(?:[^()\s]|\([^()\s]*\))+)|<(https?:\/\/[^>\s]+)>/g;
-
-export function linksIn(markdown) {
-  return [...markdown.matchAll(LINK)].map((m) => m[1] ?? m[2]);
-}
 
 export function failedUrls(report) {
   const maps = [report.fail_map, report.error_map].filter(Boolean);
@@ -45,7 +41,7 @@ async function main(reportPath) {
   const status = JSON.parse(await fs.readFile(STATUS, "utf8"));
   const files = (await fs.readdir(NOTES)).filter((f) => f.endsWith(".md"));
   const linked = (await Promise.all(files.map((f) => fs.readFile(path.join(NOTES, f), "utf8")))).flatMap(linksIn);
-  const next = update(status, linked, failedUrls(report), new Date().toISOString().slice(0, 10));
+  const next = update(status, linked, failedUrls(report), day(new Date()));
   await fs.writeFile(STATUS, JSON.stringify(next, null, 2) + "\n");
   const dead = Object.entries(next).filter(([, e]) => e.failures >= DEAD_AFTER);
   console.log(`${Object.keys(next).length} link(s), ${dead.length} dead.`);

@@ -5,6 +5,7 @@ import { rehypeGlossary } from "../../src/lib/glossary.js";
 import { el, txt } from "../../src/lib/hast.js";
 import { rehypeBibliography } from "../../src/lib/rehype-bibliography.js";
 import { rehypeBlocks } from "../../src/lib/rehype-blocks.js";
+import { rehypeInlineMarks } from "../../src/lib/rehype-inline-marks.js";
 import { rehypeCallouts } from "../../src/lib/rehype-callouts.js";
 import { rehypeFigures } from "../../src/lib/rehype-figures.js";
 import { rehypeSections } from "../../src/lib/rehype-sections.js";
@@ -326,7 +327,7 @@ describe("rehypeBlocks", () => {
     ["a stop followed by more of the sentence", ["Lead.", ", he said."], false],
   ])("handles %s", (_, [bold, ...rest], marked) => {
     const lead = el("strong", {}, [txt(bold)]);
-    rehypeBlocks()(root(p(lead, ...rest)));
+    rehypeInlineMarks()(root(p(lead, ...rest)));
     expect(lead.properties.className).toEqual(marked ? ["lead-in"] : undefined);
   });
 

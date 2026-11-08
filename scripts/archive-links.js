@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { linksIn } from "./link-status.js";
+import { linksIn } from "../src/lib/links.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const NOTES = path.join(root, "src/content/notes");

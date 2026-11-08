@@ -1,12 +1,12 @@
 import { slug } from "github-slugger";
-import { BACK_IDS } from "./rehype-sections.js";
+import { BACK_IDS } from "./headings.js";
 
 export const WIKILINK = /(?<!!)\[\[([^\]|#]*)(?:#([^\]|]*))?(?:\|([^\]]*))?\]\]/g;
-const FENCE = /^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[^\n]*$|`[^`\n]+`/gm;
+export const CODE = /^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[^\n]*$|`[^`\n]+`/gm;
 
 export function linkTargets(markdown) {
   const out = new Set();
-  for (const m of markdown.replace(FENCE, "").matchAll(WIKILINK)) {
+  for (const m of markdown.replace(CODE, "").matchAll(WIKILINK)) {
     if (m[1].trim()) out.add(m[1].trim().toLowerCase());
   }
   return [...out];

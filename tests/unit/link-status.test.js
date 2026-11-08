@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { failedUrls, linksIn, update } from "../../scripts/link-status.js";
+import { failedUrls, update } from "../../scripts/link-status.js";
+import { linksIn } from "../../src/lib/links.js";
 
 describe("link status", () => {
   it("finds markdown links and autolinks", () => {

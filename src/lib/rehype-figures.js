@@ -1,4 +1,4 @@
-import { el, isElement } from "./hast.js";
+import { figureElement, isElement } from "./hast.js";
 
 export function rehypeFigures() {
   return (tree) => transform(tree);
@@ -18,5 +18,5 @@ function figure(p) {
   const [img, caption, ...rest] = p.children.filter((c) => c.type !== "text" || c.value.trim());
   if (!isElement(img, "img") || rest.length) return null;
   if (caption && !isElement(caption, "em")) return null;
-  return el("figure", {}, [img, ...(caption ? [el("figcaption", {}, caption.children)] : [])]);
+  return figureElement(img, caption?.children ?? []);
 }

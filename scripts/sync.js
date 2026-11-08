@@ -3,10 +3,11 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
+import { day } from "../src/lib/date.js";
 import { GLOSSARY, glossaryEntries, parseTerm } from "../src/lib/glossary.js";
+import { classify, notesByLink } from "../src/lib/links.js";
 import { slugify } from "../src/lib/slug.js";
-import { WIKILINK } from "../src/lib/wikilinks.js";
-import { classify, notesByLink } from "./build-cards.js";
+import { CODE, WIKILINK } from "../src/lib/wikilinks.js";
 
 const IMAGE = /\.(png|jpe?g|gif|webp|avif|svg)$/i;
 const INTRODUCTION = "paratext/introduction.md";
@@ -49,16 +50,15 @@ async function walk(dir) {
 }
 
 function isoDate(value) {
-  if (value instanceof Date && !isNaN(value)) return value.toISOString().slice(0, 10);
+  if (value instanceof Date && !isNaN(value)) return day(value);
   if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) && !isNaN(new Date(value))) return value;
   return null;
 }
 
 function outsideCode(body, fn) {
-  const code = /^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[^\n]*$|`[^`\n]+`/gm;
   let result = "";
   let last = 0;
-  for (const m of body.matchAll(code)) {
+  for (const m of body.matchAll(CODE)) {
     result += fn(body.slice(last, m.index)) + m[0];
     last = m.index + m[0].length;
   }
@@ -95,33 +95,12 @@ function validateAnnotation(file, data) {
   return [...problems, `${file}: an annotation needs a "url" field with an http or https URL.`];
 }
 
-export async function sync({ vault, out = "src/content", lastUpdated = gitLastUpdated }) {
-  const published = path.join(vault, "published");
-  try {
-    await fs.access(published);
-  } catch {
-    throw new SyncError([`no published/ folder in ${vault}.`]);
-  }
-
-  const files = (await walk(published)).filter((f) => f.endsWith(".md"));
-  const isAnnotation = (f) => path.relative(published, f).split(path.sep)[0] === "annotations";
-  const introductionFile = path.join(published, INTRODUCTION);
-  const noteFiles = files.filter((f) => !isAnnotation(f) && f !== introductionFile);
-
-  let vaultFiles;
-  const findImage = async (name) => {
-    vaultFiles ??= await walk(vault);
-    const direct = path.join(vault, name);
-    return vaultFiles.find((f) => f === direct) ?? vaultFiles.find((f) => path.basename(f) === path.basename(name));
-  };
-
-  const problems = [];
-  const report = { notes: [], annotations: [], images: [], unresolved: [] };
+async function readNotes(vault, files, lastUpdated, problems) {
   const notes = [];
   const images = new Map();
   const slugs = new Map();
 
-  for (const file of noteFiles) {
+  for (const file of files) {
     const rel = path.relative(vault, file);
     const slug = path.basename(file, ".md");
     let parsed;
@@ -156,13 +135,18 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
     const updated = lastUpdated(vault, file) ?? { date: isoDate((await fs.stat(file)).mtime), source: "mtime" };
     notes.push({ rel, slug, data: parsed.data, body, updated, embeds });
   }
+  return { notes, images };
+}
 
+function checkGlossary(notes, problems) {
   const glossary = notes.find((n) => n.slug === GLOSSARY);
   for (const [heading, definition] of glossaryEntries(glossary?.body ?? "")) {
     if (!parseTerm(heading)) problems.push(`${glossary.rel}: "## ${heading}" must look like "## word (type)".`);
     if (!definition) problems.push(`${glossary.rel}: "## ${heading}" needs a definition callout below it.`);
   }
+}
 
+function resolveWikilinks(notes, report) {
   const titles = new Map(notes.map((n) => [n.slug, n.data.title]));
   for (const note of notes) {
     note.body = outsideCode(note.body, (text) =>
@@ -182,9 +166,11 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
       }),
     );
   }
+}
 
+async function readAnnotations(vault, files, problems) {
   const annotations = [];
-  for (const file of files.filter(isAnnotation)) {
+  for (const file of files) {
     const rel = path.relative(vault, file);
     const parsed = matter(await fs.readFile(file, "utf8"));
     problems.push(...validateAnnotation(rel, parsed.data));
@@ -196,23 +182,32 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
       body: parsed.content.trim() + "\n",
     });
   }
+  return annotations;
+}
 
+async function resolveImages(vault, images, problems) {
   const sources = new Map();
+  if (!images.size) return sources;
+  const vaultFiles = await walk(vault);
   for (const [name, target] of images) {
-    const source = await findImage(target);
+    const direct = path.join(vault, target);
+    const source = vaultFiles.find((f) => f === direct) ?? vaultFiles.find((f) => path.basename(f) === path.basename(target));
     if (source) sources.set(name, source);
     else problems.push(`![[${target}]] isn't anywhere in the vault.`);
   }
+  return sources;
+}
 
-  if (problems.length) throw new SyncError(problems);
-
+function reportLinks(notes, annotations, report) {
   const byLink = notesByLink(notes.map((n) => [n.rel, n.body]));
   const annotated = new Set(annotations.map((a) => a.url));
   report.unlinkedAnnotations = annotations.filter((a) => !byLink.has(a.url)).map((a) => ({ file: a.rel, url: a.url }));
   report.unannotatedPdfs = [...byLink]
     .filter(([url]) => classify(url).kind === "pdf" && !annotated.has(url))
     .map(([url, files]) => ({ url, notes: files }));
+}
 
+async function writeContent({ vault, out, notes, annotations, sources, introduction }, report) {
   const notesDir = path.join(out, "notes");
   const annotationsDir = path.join(out, "annotations");
   await fs.rm(notesDir, { recursive: true, force: true });
@@ -245,8 +240,8 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
     report.annotations.push({ file: a.rel, url: a.url });
   }
 
-  if (files.includes(introductionFile)) {
-    await fs.writeFile(path.join(out, path.basename(INTRODUCTION)), matter(await fs.readFile(introductionFile, "utf8")).content.trim() + "\n");
+  if (introduction) {
+    await fs.writeFile(path.join(out, path.basename(INTRODUCTION)), matter(await fs.readFile(introduction, "utf8")).content.trim() + "\n");
   }
 
   if (sources.size) await fs.mkdir(path.join(notesDir, "images"), { recursive: true });
@@ -254,7 +249,33 @@ export async function sync({ vault, out = "src/content", lastUpdated = gitLastUp
     await fs.copyFile(source, path.join(notesDir, "images", name));
     report.images.push({ from: path.relative(vault, source), to: `images/${name}` });
   }
+}
 
+export async function sync({ vault, out = "src/content", lastUpdated = gitLastUpdated }) {
+  const published = path.join(vault, "published");
+  try {
+    await fs.access(published);
+  } catch {
+    throw new SyncError([`no published/ folder in ${vault}.`]);
+  }
+
+  const files = (await walk(published)).filter((f) => f.endsWith(".md"));
+  const isAnnotation = (f) => path.relative(published, f).split(path.sep)[0] === "annotations";
+  const introductionFile = path.join(published, INTRODUCTION);
+  const noteFiles = files.filter((f) => !isAnnotation(f) && f !== introductionFile);
+
+  const problems = [];
+  const report = { notes: [], annotations: [], images: [], unresolved: [] };
+  const { notes, images } = await readNotes(vault, noteFiles, lastUpdated, problems);
+  checkGlossary(notes, problems);
+  resolveWikilinks(notes, report);
+  const annotations = await readAnnotations(vault, files.filter(isAnnotation), problems);
+  const sources = await resolveImages(vault, images, problems);
+  if (problems.length) throw new SyncError(problems);
+
+  reportLinks(notes, annotations, report);
+  const introduction = files.includes(introductionFile) ? introductionFile : null;
+  await writeContent({ vault, out, notes, annotations, sources, introduction }, report);
   return report;
 }
 

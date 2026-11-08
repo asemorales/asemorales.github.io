@@ -1,13 +1,14 @@
-import GithubSlugger, { slug } from "github-slugger";
-import { texToInlineSvg } from "./feed.js";
+import { escapeText } from "entities";
+import { slug } from "github-slugger";
 import { glossaryEntries, parseTerm } from "./glossary.js";
-import { BACK_IDS } from "./rehype-sections.js";
-import { clip, plain, summary } from "./summary.js";
+import { headingSlugger } from "./headings.js";
+import { domain } from "./links.js";
+import { texToInlineSvg } from "./math.js";
+import { clip, EPIGRAPH, plain, summary } from "./summary.js";
 
 const NOTE_SUMMARY = 500;
 const HEADING = /^(#{2,4})\s+(.+?)\s*#*\s*$/;
 const FENCE = /^(`{3,}|~{3,})/;
-const EPIGRAPH = /^>\s*\[!(?:quote|epigraph)\][+-]?[ \t]*(.*)\n((?:>.*(?:\n|$))+)/i;
 const QUOTE = new RegExp(EPIGRAPH.source, "im");
 
 export function noteCard(title, markdown) {
@@ -20,8 +21,7 @@ export function noteCard(title, markdown) {
 }
 
 export function headingCards(markdown) {
-  const slugger = new GithubSlugger();
-  for (const id of BACK_IDS) slugger.slug(id);
+  const slugger = headingSlugger();
   const lines = markdown.split("\n");
   const out = {};
   let fence = null;
@@ -77,11 +77,10 @@ function definitionBlocks(markdown) {
 const unquote = (markdown) => markdown.replace(/^>\s?/gm, "");
 
 export function linkCard({ url, text, card, annotation, deadSince }) {
-  const domain = new URL(url).hostname.replace(/^www\./, "");
   const annotated = annotation ? clipParagraphs(summary(annotation.body), NOTE_SUMMARY) : [];
   const out = {
     title: annotation?.title || card?.title || text,
-    meta: card?.meta?.length ? card.meta : [domain],
+    meta: card?.meta?.length ? card.meta : [domain(url)],
     paragraphs: annotated.length ? annotated : card?.text ? [card.text] : [],
   };
   if (deadSince !== undefined) out.dead = "This redirects to an archived copy since the source is no longer available.";
@@ -91,11 +90,9 @@ export function linkCard({ url, text, card, annotation, deadSince }) {
 export function paragraphHtml(paragraph) {
   return paragraph
     .split(/(\$[^$\n]+\$)/)
-    .map((part, i) => (i % 2 ? texToInlineSvg(part.slice(1, -1)) : escape(part)))
+    .map((part, i) => (i % 2 ? texToInlineSvg(part.slice(1, -1)) : escapeText(part)))
     .join("");
 }
-
-const escape = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 function clipParagraphs(paragraphs, max) {
   const out = [];

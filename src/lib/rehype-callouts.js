@@ -1,24 +1,8 @@
 import { markType } from "./glossary.js";
-import { el, isElement, txt } from "./hast.js";
+import { el, figureElement, isElement, txt } from "./hast.js";
 
 const MARKER = /^\s*\[!([a-z-]+)\][+-]?[ \t]*/i;
 const FORMATTING = new Set(["a", "em", "strong", "del"]);
-
-export function remarkFootnoteQuotes() {
-  return (tree) => {
-    const out = [];
-    for (const node of tree.children) {
-      const previous = out.at(-1);
-      const quote = previous?.type === "footnoteDefinition" ? previous.children.at(-1) : null;
-      if (node.type === "blockquote" && quote?.type === "blockquote" && quote.position.end.line + 1 === node.position.start.line) {
-        quote.children.push(...node.children);
-      } else {
-        out.push(node);
-      }
-    }
-    tree.children = out;
-  };
-}
 
 export function rehypeCallouts() {
   return (tree) => transform(tree);
@@ -106,8 +90,7 @@ function definition(title, body) {
 function figure(body) {
   const [img, ...caption] = body[0]?.children ?? [];
   if (!isElement(img, "img")) return null;
-  const figcaption = trim(caption);
-  return el("figure", {}, [img, ...(figcaption.length ? [el("figcaption", {}, figcaption)] : [])]);
+  return figureElement(img, trim(caption));
 }
 
 function attribution(title) {

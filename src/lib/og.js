@@ -3,14 +3,13 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 import satori from "satori";
+import { COLORS } from "./site.js";
 
 export const WIDTH = 1200;
 export const HEIGHT = 630;
 const CACHE = "node_modules/.cache/og";
 
-const PAGE = "#191612";
-const INK = "#efe6d6";
-const DIM = "#9e958a";
+const { darkPage: PAGE, darkInk: INK, darkDim: DIM } = COLORS;
 
 const LOGO = `data:image/svg+xml;base64,${Buffer.from(
   readFileSync("public/favicon.svg", "utf8")

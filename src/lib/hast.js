@@ -6,6 +6,10 @@ export function txt(value) {
   return { type: "text", value };
 }
 
+export function figureElement(img, caption) {
+  return el("figure", {}, [img, ...(caption.length ? [el("figcaption", {}, caption)] : [])]);
+}
+
 export function walk(node, visit) {
   for (const child of [...(node.children ?? [])]) {
     if (child.type !== "element") continue;

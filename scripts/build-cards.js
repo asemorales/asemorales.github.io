@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { decodeHTML } from "entities";
 import { clip } from "../src/lib/summary.js";
-import { linksIn } from "./link-status.js";
+import { classify, notesByLink } from "../src/lib/links.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CARDS = path.join(root, "src/data/cards.json");
@@ -11,27 +11,6 @@ const NOTES = path.join(root, "src/content/notes");
 const AGENT = "asemorales.com card builder (+https://asemorales.com)";
 const MIN_PARAGRAPH = 40;
 const IGNORED_LINKS = new Set(["https://dead-link-test.invalid/page"]);
-
-export function classify(url) {
-  const u = new URL(url);
-  const host = u.hostname.replace(/^www\./, "");
-  const parts = u.pathname.split("/").filter(Boolean);
-  if (host === "github.com" && parts.length === 2) return { kind: "github", id: `${parts[0]}/${parts[1].replace(/\.git$/, "")}` };
-  if (host === "arxiv.org" && ["abs", "pdf"].includes(parts[0]) && parts[1])
-    return {
-      kind: "arxiv",
-      id: parts
-        .slice(1)
-        .join("/")
-        .replace(/\.pdf$/, "")
-        .replace(/v\d+$/, ""),
-    };
-  if (host === "doi.org" || host === "dx.doi.org") return { kind: "doi", id: decodeURIComponent(u.pathname.slice(1)) };
-  const wiki = host.match(/^([a-z-]+)\.(?:m\.)?wikipedia\.org$/);
-  if (wiki && parts[0] === "wiki" && parts[1]) return { kind: "wikipedia", id: parts.slice(1).join("/"), lang: wiki[1] };
-  if (/\.pdf$/i.test(u.pathname)) return { kind: "pdf" };
-  return { kind: "page" };
-}
 
 const decode = (s) => decodeHTML(s.replace(/<[^>]+>/g, "")).replace(/\u00a0/g, " ");
 
@@ -128,14 +107,6 @@ export async function fetchCard(url) {
       return page && { kind: c.kind, ...page };
     }
   }
-}
-
-export function notesByLink(notes) {
-  const byLink = new Map();
-  for (const [file, markdown] of notes) {
-    for (const url of new Set(linksIn(markdown))) byLink.set(url, [...(byLink.get(url) ?? []), file]);
-  }
-  return byLink;
 }
 
 async function main(refresh) {

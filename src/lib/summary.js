@@ -1,3 +1,4 @@
+export const EPIGRAPH = /^>\s*\[!(?:quote|epigraph)\][+-]?[ \t]*(.*)\n((?:>.*(?:\n|$))+)/i;
 export function summary(markdown, { paragraphs = Infinity } = {}) {
   const out = [];
   const source = markdown.trim();

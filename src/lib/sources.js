@@ -1,3 +1,5 @@
+import { domain } from "./links.js";
+
 const papers = new Set(["arxiv", "doi"]);
 
 function referenceName(card) {
@@ -8,7 +10,7 @@ function referenceName(card) {
 export function sourceEntry({ url, text, card, annotation, cited }) {
   return {
     text: (cited && referenceName(card)) || text,
-    domain: new URL(url).hostname.replace(/^www\./, ""),
+    domain: domain(url),
     annotation: cited ? (annotation ?? null) : null,
   };
 }

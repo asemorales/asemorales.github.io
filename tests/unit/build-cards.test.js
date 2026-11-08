@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { classify, notesByLink, openalexAbstract, parseArxiv, parseCrossref, parseGithub, parsePage } from "../../scripts/build-cards.js";
+import { classify, notesByLink } from "../../src/lib/links.js";
+import { openalexAbstract, parseArxiv, parseCrossref, parseGithub, parsePage } from "../../scripts/build-cards.js";
 
 describe("build-cards", () => {
   it("maps each link to the notes that use it, once per note", () => {

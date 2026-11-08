@@ -1,9 +1,8 @@
-import GithubSlugger from "github-slugger";
 import { toHtml } from "hast-util-to-html";
 import { el, isElement, text, txt } from "./hast.js";
+import { headingSlugger } from "./headings.js";
 
 const LEVELS = { h2: 0, h3: 1, h4: 2 };
-export const BACK_IDS = ["see-also", "references", "external-links"];
 // Width must match the contents rail in src/styles/global.css.
 const OPEN_WHEN_WIDE = `{
   const details = document.currentScript.previousElementSibling;
@@ -16,8 +15,7 @@ const OPEN_WHEN_WIDE = `{
 export function rehypeSections({ backlinked = [] } = {}) {
   const linked = new Set(backlinked);
   return (tree, file) => {
-    const slugger = new GithubSlugger();
-    for (const id of BACK_IDS) slugger.slug(id);
+    const slugger = headingSlugger();
     const headings = [];
     for (const node of tree.children) {
       if (!isElement(node) || !(node.tagName in LEVELS)) continue;

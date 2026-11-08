@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { feedHtml, mathImageName, proofTrees, texToSvg } from "../../src/lib/feed.js";
+import { feedHtml } from "../../src/lib/feed.js";
+import { mathImageName, proofTrees, texToSvg } from "../../src/lib/math.js";
 
 const site = "https://asemorales.com";
 const render = (md, opts = {}) => feedHtml(md, { slug: "here", slugs: ["here", "there"], site, ...opts });

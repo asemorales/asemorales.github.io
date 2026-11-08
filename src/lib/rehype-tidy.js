@@ -1,15 +1,17 @@
+import { isElement, walk } from "./hast.js";
+
 export function rehypeTidy() {
-  return (tree) => walk(tree);
+  return (tree) => tidy(tree);
 }
 
-function walk(node) {
-  if (!node.children) return;
-  node.children = node.children.filter((child) => !(child.type === "element" && child.tagName === "style"));
-  for (const child of node.children) {
-    if (child.type === "element" && (child.tagName === "th" || child.tagName === "td") && child.properties?.align) {
-      child.properties.style = `text-align: ${child.properties.align}`;
-      delete child.properties.align;
+function tidy(root) {
+  root.children = root.children.filter((child) => !isElement(child, "style"));
+  walk(root, (node) => {
+    node.children = node.children.filter((child) => !isElement(child, "style"));
+    if ((node.tagName === "th" || node.tagName === "td") && node.properties?.align) {
+      node.properties.style = `text-align: ${node.properties.align}`;
+      delete node.properties.align;
     }
-    walk(child);
-  }
+    return false;
+  });
 }
