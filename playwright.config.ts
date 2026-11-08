@@ -10,10 +10,10 @@ export default defineConfig({
   use: { baseURL: "http://localhost:4321", trace: "retain-on-failure" },
   projects: [
     { name: "wide-js-chromium", use: { ...devices["Desktop Chrome"], ...wide } },
-    { name: "wide-js-firefox", use: { ...devices["Desktop Firefox"], ...wide } },
-    { name: "wide-nojs", use: { ...devices["Desktop Chrome"], ...wide, javaScriptEnabled: false } },
-    { name: "phone-js", use: { ...devices["iPhone 15"] } },
-    { name: "phone-nojs", use: { ...devices["iPhone 15"], javaScriptEnabled: false } },
+    { name: "wide-js-firefox", use: { ...devices["Desktop Firefox"], ...wide }, grepInvert: /@once|@slow/ },
+    { name: "wide-nojs", use: { ...devices["Desktop Chrome"], ...wide, javaScriptEnabled: false }, grepInvert: /@once/ },
+    { name: "phone-js", use: { ...devices["iPhone 15"] }, grepInvert: /@once/ },
+    { name: "phone-nojs", use: { ...devices["iPhone 15"], javaScriptEnabled: false }, grepInvert: /@once/ },
   ],
   webServer: {
     command: "npx astro preview --port 4321 --ignore-lock",

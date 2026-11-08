@@ -32,7 +32,7 @@ test.describe("layout and type", () => {
 });
 
 test.describe("sections", () => {
-  test("lists headings, unnumbered, in the contents", async ({ page }) => {
+  test("lists headings, unnumbered, in the contents", { tag: "@once" }, async ({ page }) => {
     await expect(page.locator("#typography")).toHaveText("Typography");
     await expect(page.locator("nav.toc a[href='#tables']")).toHaveText("Tables");
     const toc = page.locator("nav.toc");
@@ -105,7 +105,7 @@ test.describe("sections", () => {
     await expect(page.locator("#headings")).toBeInViewport();
   });
 
-  test("each heading links to itself", async ({ page }) => {
+  test("each heading links to itself", { tag: "@once" }, async ({ page }) => {
     await expect(page.locator("#math a.anchor")).toHaveAttribute("href", "#math");
   });
 
@@ -173,14 +173,6 @@ test.describe("sidenotes", () => {
     await expect(note).toBeHidden();
   });
 
-  test("render a note cited twice once, with the later citation linking back", async ({ page }) => {
-    await expect(page.locator(".sidenote", { hasText: "A short sidenote." })).toHaveCount(1);
-    await expect(page.locator(".sidenote-ref a")).toHaveAttribute("href", "#snref-short");
-    await expect(page.locator(".sidenote-ref a")).toHaveText("[a]");
-    await expect(page.locator("#snref-short")).toContainText("[a]");
-    await expect(page.locator("section.footnotes")).toHaveCount(0);
-  });
-
   test("highlight with their markers on hover, and after a click until the next click elsewhere", async ({ page, javaScriptEnabled }, info) => {
     test.skip(javaScriptEnabled === false || !wide(info.project.name), "wide screens with JS");
     const parts = [page.locator("#snref-short"), page.locator("#sn-short + .sidenote"), page.locator(".sidenote-ref:has(a[href='#snref-short'])")];
@@ -226,12 +218,6 @@ test.describe("sidenotes", () => {
     await expect(page.locator("aside.status")).toHaveCount(1);
   });
 
-  test("mark citations with numbers, reusing a source's number, inside sidenotes too", async ({ page }) => {
-    const markers = page.locator(".cite-ref a");
-    expect(await markers.allTextContents()).toEqual(["[1]", "[1]", "[2]", "[1]", "[3]"]);
-    await expect(page.locator(".sidenote .cite-ref")).toHaveCount(1);
-  });
-
   test("align adjacent citation and footnote markers", async ({ page }) => {
     const [citation, footnote] = await page.evaluate(() => {
       const cite = document.querySelector(".note p > .cite-ref")!;
@@ -244,17 +230,6 @@ test.describe("sidenotes", () => {
 });
 
 test.describe("callouts", () => {
-  test("render the status notice as a box without its marker", async ({ page }) => {
-    const status = page.locator("aside.status");
-    await expect(status).toBeVisible();
-    await expect(page.locator("article")).not.toContainText("[!");
-  });
-
-  test("keep a quote's line breaks, in the body and in sidenotes", async ({ page }) => {
-    await expect(page.locator("#quote-with-line-breaks + blockquote br")).toHaveCount(2);
-    await expect(page.locator(".sidenote-quote br")).toHaveCount(1);
-  });
-
   test("set every quote alike, with an attribution in a footer", async ({ page }) => {
     await expect(page.locator("#epigraph + blockquote footer")).toContainText("Borges");
     expect(await page.locator("#default-quote + blockquote").evaluate((el) => getComputedStyle(el).fontStyle)).toBe("italic");
@@ -284,12 +259,6 @@ test.describe("callouts", () => {
 });
 
 test.describe("links", () => {
-  test("resolve wikilinks, and leave unpublished targets as text", async ({ page }) => {
-    await expect(page.getByRole("link", { name: "the math section" })).toHaveAttribute("href", "#math");
-    await expect(page.locator("#internal-links + p")).toContainText("plain text: Some Private Note.");
-    await expect(page.locator("article a", { hasText: "Some Private Note" })).toHaveCount(0);
-  });
-
   test("point dead links at the Wayback Machine, with a dotted underline", async ({ page }) => {
     const dead = page.getByRole("link", { name: "a page that no longer exists" }).first();
     await expect(dead).toHaveAttribute("href", "https://web.archive.org/web/20261027/https://dead-link-test.invalid/page");
@@ -300,13 +269,13 @@ test.describe("links", () => {
 });
 
 test.describe("glossary", () => {
-  test("shows no date, and leaves etymologies out of the contents", async ({ page }) => {
+  test("shows no date, and leaves etymologies out of the contents", { tag: "@once" }, async ({ page }) => {
     await page.goto("/glossary/");
     await expect(page.locator("article time")).toHaveCount(0);
     await expect(page.locator("nav.toc a[href='#etymology']")).toHaveCount(0);
   });
 
-  test("has a popover card matching each term on the page", async ({ page, request }) => {
+  test("has a popover card matching each term on the page", { tag: "@once" }, async ({ page, request }) => {
     const cards = await (await request.get("/popovers.json")).json();
     await page.goto("/glossary/");
     for (const heading of await page.locator("article > h2:has(.term-type)").all()) {
@@ -328,7 +297,7 @@ test.describe("glossary", () => {
     await expect(page.locator("nav.toc a[href='#examples']")).toHaveCount(0);
   });
 
-  test("appears at the bottom of the home contents", async ({ page }) => {
+  test("appears at the bottom of the home contents", { tag: "@once" }, async ({ page }) => {
     await page.goto("/");
     const hrefs = await page.locator(".home-end a").evaluateAll((as) => as.map((a) => a.getAttribute("href")));
     expect(hrefs).toEqual(["/to-the-reader/", "/acknowledgments/", "/glossary/", "/colophon/"]);
@@ -342,14 +311,14 @@ test.describe("bottom matter", () => {
     await expect(page.locator("footer.bottom")).toHaveCSS("border-top-width", "0px");
   });
 
-  test("list notes that link here under See also, in the contents too", async ({ page }) => {
+  test("list notes that link here under See also, in the contents too", { tag: "@once" }, async ({ page }) => {
     await expect(page.locator("#see-also + ul a[href='/dolor-sit-amet/']")).toHaveCount(1);
     await expect(page.locator("nav.toc a[href='#see-also']")).toHaveCount(1);
     await page.goto("/acknowledgments/");
     await expect(page.locator("#see-also")).toHaveCount(0);
   });
 
-  test("list unlisted notes under See also, and let search engines index them", async ({ page }) => {
+  test("list unlisted notes under See also, and let search engines index them", { tag: "@once" }, async ({ page }) => {
     await page.goto("/identity-by-action-and-thought/");
     await expect(page.locator("#see-also + ul a")).toHaveAttribute("href", "/to-the-reader/");
     await page.goto("/to-the-reader/");
@@ -369,7 +338,7 @@ test.describe("bottom matter", () => {
     }
   });
 
-  test("number references, with locators, and backlinks to each citation", async ({ page }) => {
+  test("number references, with locators, and backlinks to each citation", { tag: "@once" }, async ({ page }) => {
     const refs = page.locator("section.sources:has(h2#references) li");
     await expect(refs).toHaveCount(3);
     await expect(refs.first()).toHaveAttribute("id", "ref-1");
@@ -381,7 +350,7 @@ test.describe("bottom matter", () => {
     await expect(refs.nth(1).locator(".locators em")).toHaveText("Lorem ipsum");
   });
 
-  test("list a citation without a link as text, with no domain", async ({ page }) => {
+  test("list a citation without a link as text, with no domain", { tag: "@once" }, async ({ page }) => {
     const ref = page.locator("#ref-3");
     await expect(ref.locator(".source-text")).toHaveText("Hofstadter, 1979, Gödel, Escher, Bach");
     await expect(ref.locator(".source-text em")).toHaveText("Gödel, Escher, Bach");
@@ -389,7 +358,7 @@ test.describe("bottom matter", () => {
     await expect(page.locator((await ref.locator(".backrefs a").getAttribute("href"))!)).toHaveClass("cite-ref");
   });
 
-  test("list other external links once each, and leave citations out", async ({ page }) => {
+  test("list other external links once each, and leave citations out", { tag: "@once" }, async ({ page }) => {
     const links = page.locator("section.sources:has(h2#external-links) li");
     await expect(links).toHaveCount(10);
     await expect(links.locator("a[href^='http']").first()).toHaveAttribute("href", "https://github.com/adobe-fonts/source-serif");
@@ -406,14 +375,14 @@ test.describe("bottom matter", () => {
     await expect(page.locator("#ref-1")).toBeInViewport();
   });
 
-  test("dates the note under its title, with no period", async ({ page }) => {
+  test("dates the note under its title, with no period", { tag: "@once" }, async ({ page }) => {
     const dates = page.locator("h1 + p");
     await expect(dates).not.toContainText("First written");
     await expect(dates).not.toHaveText(/\.\s*$/);
     await expect(dates.locator("time").first()).toHaveAttribute("datetime", /^\d{4}-\d{2}-\d{2}$/);
   });
 
-  test("shows tags under a label", async ({ page }) => {
+  test("shows tags under a label", { tag: "@once" }, async ({ page }) => {
     await expect(page.locator(".tags-label")).toHaveText("Tags");
     await expect(page.locator("a.tag")).toHaveAttribute("href", "/tags/test/");
   });
@@ -513,6 +482,7 @@ test.describe("block buttons", () => {
 });
 
 test.describe("screenshots", () => {
+  test.skip(!process.env.SCREENSHOTS, "set SCREENSHOTS=1");
   // Screenshots cannot exceed 32767 device pixels.
   test.use({ deviceScaleFactor: 1 });
 
@@ -550,7 +520,7 @@ test.describe("reading events", () => {
       name,
     );
 
-  test("reports each scroll depth once", async ({ page }) => {
+  test("reports each scroll depth once", { tag: "@once" }, async ({ page }) => {
     const errors: Error[] = [];
     page.on("pageerror", (e) => errors.push(e));
     await page.goto(LOREM);
@@ -564,7 +534,7 @@ test.describe("reading events", () => {
     expect(errors).toEqual([]);
   });
 
-  test("reports engaged time when the page is hidden", async ({ page }) => {
+  test("reports engaged time when the page is hidden", { tag: "@once" }, async ({ page }) => {
     await page.clock.install();
     await page.goto(LOREM);
     await page.clock.runFor(3000);

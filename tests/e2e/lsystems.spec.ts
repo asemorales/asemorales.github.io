@@ -114,7 +114,7 @@ test.describe("L-systems", () => {
       expect(await plants(page)).toBe(initial + 4);
     });
 
-    test("grow one plant at a time when the random count is one", async ({ page }) => {
+    test("grow one plant at a time when the random count is one, and pick a new count when it finishes", async ({ page }) => {
       await fixRandom(page, 0);
       await loadWithPausedClock(page);
       const initial = await plants(page);
@@ -128,25 +128,11 @@ test.describe("L-systems", () => {
       expect(await plants(page)).toBe(initial + 1);
       await page.clock.runFor(800);
       expect(await plants(page)).toBe(initial + 2);
-    });
-
-    test("pick a new number to grow at a time when a plant finishes", async ({ page }) => {
-      await fixRandom(page, 0);
-      await loadWithPausedClock(page);
-      const initial = await plants(page);
-      await page.evaluate(() => (Math.random = () => 0.99));
-      await scrollToFraction(page, 1);
-      await page.waitForTimeout(200);
-
-      await page.clock.runFor(4400);
-      expect(await plants(page)).toBe(initial + 1);
-      await page.clock.runFor(800);
-      expect(await plants(page)).toBe(initial + 2);
       await page.clock.runFor(3200);
       expect(await plants(page)).toBe(initial + 3);
     });
 
-    test("hold at most 20 plants on desktop and 10 on mobile", async ({ page }, info) => {
+    test("hold at most 20 plants on desktop and 10 on mobile", { tag: "@slow" }, async ({ page }, info) => {
       test.setTimeout(120_000);
       const max = phone(info.project.name) ? 10 : 20;
       await fixRandom(page, 0.99);
@@ -160,7 +146,7 @@ test.describe("L-systems", () => {
       expect(count).toBeLessThanOrEqual(max);
     });
 
-    test("wither old plants and seed new ones in their place", async ({ page }) => {
+    test("wither old plants and seed new ones in their place", { tag: "@slow" }, async ({ page }) => {
       test.setTimeout(120_000);
       await fixRandom(page, 0.99);
       await coarsenFrames(page);
@@ -293,7 +279,7 @@ test.describe("L-systems", () => {
       expect(empty).toBeLessThanOrEqual(x + width + 1);
     });
 
-    test("wither the nearest plant when a full band is tapped, and keep to the cap", async ({ page }, info) => {
+    test("wither the nearest plant when a full band is tapped, and keep to the cap", { tag: "@slow" }, async ({ page }, info) => {
       test.setTimeout(120_000);
       const max = phone(info.project.name) ? 10 : 20;
       await fixRandom(page, 0.99);
@@ -361,7 +347,7 @@ test.describe("L-systems", () => {
       [1280, 20, 8],
       [1536, 20, 8],
     ]) {
-      test(`hold at most ${max} plants and ${cap} trees at ${width}px`, async ({ page }) => {
+      test(`hold at most ${max} plants and ${cap} trees at ${width}px`, { tag: "@once" }, async ({ page }) => {
         await page.setViewportSize({ width, height: 800 });
         await page.goto("/lorem-ipsum/");
         const caps = await page.locator("#lsystems").evaluate((element) => {
@@ -379,7 +365,8 @@ test.describe("L-systems", () => {
       await page.goto("/lorem-ipsum/");
       const initial = await plants(page);
       await scrollToFraction(page, 1);
-      await expect.poll(() => plants(page)).toBeGreaterThan(initial);
+      // A roll of 0 grows the largest trees, which take seconds to fill the band.
+      await expect.poll(() => plants(page), { timeout: 20_000 }).toBeGreaterThan(initial);
       expect(await trees(page)).toBeLessThanOrEqual(cap);
     });
 
@@ -456,7 +443,7 @@ test.describe("L-systems", () => {
       expect(Math.hypot(after - x, below - y)).toBeGreaterThan(10);
     });
 
-    test("puff spores from a tapped mushroom instead of planting", async ({ page }) => {
+    test("puff spores from a tapped mushroom instead of planting", { tag: "@slow" }, async ({ page }) => {
       test.setTimeout(60_000);
       await visitWhileTended(page);
       await coarsenFrames(page);

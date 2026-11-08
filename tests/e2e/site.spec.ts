@@ -22,7 +22,7 @@ test.describe("pages", () => {
       expect(results.violations).toEqual([]);
     });
 
-    test(`${path} has a social image`, async ({ page, request }) => {
+    test(`${path} has a social image`, { tag: "@once" }, async ({ page, request }) => {
       await page.goto(path);
       const url = new URL((await page.locator('meta[property="og:image"]').getAttribute("content")) ?? "");
       await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute("content", url.href);
@@ -32,14 +32,14 @@ test.describe("pages", () => {
     });
   }
 
-  test("notes get their own social image", async ({ page }) => {
+  test("notes get their own social image", { tag: "@once" }, async ({ page }) => {
     await page.goto("/lorem-ipsum/");
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/lorem-ipsum\/og\.png$/);
   });
 });
 
 test.describe("lorem ipsum page", () => {
-  test("is built from the vault, listed, and linked only from the colophon", async ({ page, request }) => {
+  test("is built from the vault, listed, and linked only from the colophon", { tag: "@once" }, async ({ page, request }) => {
     await page.goto("/lorem-ipsum/");
     await expect(page.locator("h1")).toHaveText("Lorem Ipsum");
     await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
@@ -56,7 +56,7 @@ test.describe("lorem ipsum page", () => {
     expect(sitemap).toContain("acknowledgments");
   });
 
-  test("sets body text and headings in Source Serif 4", async ({ page }) => {
+  test("sets body text and headings in Source Serif 4", { tag: "@once" }, async ({ page }) => {
     await page.goto("/lorem-ipsum/");
     const family = (sel: string) =>
       page
@@ -167,7 +167,7 @@ test.describe("homepage", () => {
 });
 
 test.describe("feed", () => {
-  test("is valid Atom, advertised on every page, and leaves unlisted notes out", async ({ page, request }) => {
+  test("is valid Atom, advertised on every page, and leaves unlisted notes out", { tag: "@once" }, async ({ page, request }) => {
     const res = await request.get("/feed.xml");
     expect(res.headers()["content-type"]).toContain("xml");
     const xml = await res.text();
