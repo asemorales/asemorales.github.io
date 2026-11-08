@@ -6,7 +6,7 @@ import Reading from "../components/Reading.astro";
 import Base from "../layouts/Base.astro";
 import { day } from "../lib/date.js";
 import { GLOSSARY } from "../lib/glossary.js";
-import { backlinksTo, sourceLists } from "../lib/notes";
+import { seeAlso as seeAlsoFor, sourceLists } from "../lib/notes";
 import { description } from "../lib/summary.js";
 
 export async function getStaticPaths() {
@@ -19,7 +19,7 @@ const { title, tags } = note.data;
 const { Content, remarkPluginFrontmatter } = await render(note);
 const written = day(note.data.date);
 const updated = day(note.data.updated);
-const backlinks = await backlinksTo(note);
+const seeAlso = await seeAlsoFor(note);
 const lists = await sourceLists(remarkPluginFrontmatter);
 ---
 
@@ -49,7 +49,7 @@ const lists = await sourceLists(remarkPluginFrontmatter);
       </p>
     )}
     <Content />
-    <NoteFooter backlinks={backlinks} lists={lists} tags={tags} />
+    <NoteFooter seeAlso={seeAlso} lists={lists} tags={tags} />
   </article>
   <NoteTools />
   <Reading />

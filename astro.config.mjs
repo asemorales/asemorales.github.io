@@ -23,7 +23,7 @@ import { rehypeTidy } from "./src/lib/rehype-tidy.js";
 import { remarkFootnoteQuotes } from "./src/lib/remark-footnote-quotes.js";
 import { SITE_URL as site } from "./src/lib/site.js";
 import { slugify } from "./src/lib/slug.js";
-import { linkTargets, remarkWikilinks } from "./src/lib/wikilinks.js";
+import { notesWithSeeAlso, remarkWikilinks } from "./src/lib/wikilinks.js";
 import bierstadtDark from "./src/styles/shiki/bierstadt-dark.json" with { type: "json" };
 import bierstadtLight from "./src/styles/shiki/bierstadt-light.json" with { type: "json" };
 
@@ -33,7 +33,7 @@ const notes = fs
   .filter((f) => f.endsWith(".md"))
   .map((f) => ({ slug: f.replace(/\.md$/, ""), ...matter(fs.readFileSync(path.join(notesDir, f), "utf8")) }));
 const listedTags = new Set(notes.filter((n) => !n.data.unlisted).flatMap((n) => n.data.tags.map(slugify)));
-const backlinked = notes.flatMap((n) => linkTargets(n.content).filter((t) => t !== n.slug));
+const seeAlso = notesWithSeeAlso(notes.map((n) => ({ id: n.slug, body: n.content })));
 const testPages = new Set(notes.filter((n) => n.data.tags.includes("test")).map((n) => `${site}/${n.slug}/`));
 const inSitemap = (page) => {
   if (testPages.has(page)) return false;
@@ -65,7 +65,7 @@ export default defineConfig({
         rehypeInlineMarks,
         rehypeBibliography,
         rehypeGlossary,
-        [rehypeSections, { backlinked }],
+        [rehypeSections, { seeAlso }],
         [rehypeDeadLinks, { status: linkStatus }],
       ],
     }),

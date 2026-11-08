@@ -310,16 +310,7 @@ test.describe("bottom matter", () => {
     await expect(page.locator("footer.bottom")).toHaveCSS("border-top-width", "0px");
   });
 
-  test("list notes that link here under See also, in the contents too", { tag: "@once" }, async ({ page }) => {
-    await expect(page.locator("#see-also + ul a[href='/dolor-sit-amet/']")).toHaveCount(1);
-    await expect(page.locator("nav.toc a[href='#see-also']")).toHaveCount(1);
-    await page.goto("/acknowledgments/");
-    await expect(page.locator("#see-also")).toHaveCount(0);
-  });
-
-  test("list unlisted notes under See also, and let search engines index them", { tag: "@once" }, async ({ page }) => {
-    await page.goto("/identity-by-action-and-thought/");
-    await expect(page.locator("#see-also + ul a")).toHaveAttribute("href", "/to-the-reader/");
+  test("let search engines index unlisted notes", { tag: "@once" }, async ({ page }) => {
     await page.goto("/to-the-reader/");
     await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
   });

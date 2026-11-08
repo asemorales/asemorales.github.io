@@ -607,18 +607,13 @@
   .toc summary {
     @apply cursor-pointer transition-colors hover:text-link-hover;
   }
-  .note .sources summary,
-  .note .bottom h2 + ul {
-    @apply mt-2;
-  }
   .note .sources summary {
-    @apply text-dim;
+    @apply mt-2 text-dim;
   }
   .note .sources :is(ol, ul) {
     @apply mt-2;
   }
-  .note .sources li + li,
-  .note .bottom h2 + ul > li + li {
+  .note .sources li + li {
     @apply mt-2;
   }
   .note .sources li:target {

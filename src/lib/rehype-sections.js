@@ -12,8 +12,8 @@ const OPEN_WHEN_WIDE = `{
   wide.addEventListener("change", sync);
 }`;
 
-export function rehypeSections({ backlinked = [] } = {}) {
-  const linked = new Set(backlinked);
+export function rehypeSections({ seeAlso = [] } = {}) {
+  const linked = new Set(seeAlso);
   return (tree, file) => {
     const slugger = headingSlugger();
     const headings = [];

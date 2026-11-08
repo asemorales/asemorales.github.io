@@ -291,7 +291,7 @@ describe("rehypeSections", () => {
       stem: "here",
       data: { astro: { frontmatter: { references: [{ url: "https://a.org" }], externalLinks: [{ url: "https://b.org" }] } } },
     };
-    rehypeSections({ backlinked: ["here"] })(tree, file);
+    rehypeSections({ seeAlso: ["here"] })(tree, file);
     expect(file.data.astro.frontmatter.toc).toContain(
       '<li><a href="#only">Only</a></li><li><a href="#see-also">See also</a></li><li><a href="#references">References</a></li><li><a href="#external-links">External links</a></li>',
     );

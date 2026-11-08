@@ -12,6 +12,29 @@ export function linkTargets(markdown) {
   return [...out];
 }
 
+export function seeAlsoLists(note, notes) {
+  const others = notes.filter((n) => n.id !== note.id).sort((a, b) => a.data.title.localeCompare(b.data.title));
+  const targets = linkTargets(note.body ?? "");
+  return [
+    {
+      count: (n) => (n === 1 ? "1 link to another note" : `${n} links to other notes`),
+      notes: others.filter((n) => targets.includes(n.id)),
+    },
+    {
+      count: (n) => (n === 1 ? "1 note that links here" : `${n} notes that link here`),
+      notes: others.filter((n) => linkTargets(n.body ?? "").includes(note.id)),
+    },
+  ].filter((l) => l.notes.length > 0);
+}
+
+export function notesWithSeeAlso(notes) {
+  const ids = new Set(notes.map((n) => n.id));
+  return notes.flatMap((n) => {
+    const targets = linkTargets(n.body).filter((t) => t !== n.id && ids.has(t));
+    return targets.length > 0 ? [n.id, ...targets] : [];
+  });
+}
+
 export function remarkWikilinks({ slugs = [] } = {}) {
   const known = new Set(slugs);
   return (tree) => {

@@ -3,14 +3,12 @@ import type { CollectionEntry } from "astro:content";
 import cards from "../data/cards.json";
 import type { Source } from "../types";
 import { sourceEntry } from "./sources.js";
-import { linkTargets } from "./wikilinks.js";
+import { seeAlsoLists } from "./wikilinks.js";
 
 type Frontmatter = Awaited<ReturnType<typeof render>>["remarkPluginFrontmatter"];
 
-export async function backlinksTo(note: CollectionEntry<"notes">) {
-  return (await getCollection("notes", (n) => n.id !== note.id))
-    .filter((n) => linkTargets(n.body ?? "").includes(note.id))
-    .sort((a, b) => a.data.title.localeCompare(b.data.title));
+export async function seeAlso(note: CollectionEntry<"notes">) {
+  return seeAlsoLists(note, await getCollection("notes")) as { count: (n: number) => string; notes: CollectionEntry<"notes">[] }[];
 }
 
 export async function sourceLists(frontmatter: Frontmatter) {
