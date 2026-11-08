@@ -23,7 +23,6 @@ All visual changes must follow `docs/DESIGN.md`.
 - Show every new feature on the lorem ipsum page in the vault.
 - In the Lorem Ipsum page, each paragraph must start with a sentence about what that paragraph is testing.
 - Test every feature at phone and wide widths. Test each width with JS and without JS.
-- Stop `astro dev` before `npm run check`, since Playwright reuses that server.
 
 ## Cleanup
 

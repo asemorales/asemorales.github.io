@@ -7,7 +7,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : "list",
-  use: { baseURL: "http://localhost:4321", trace: "retain-on-failure" },
+  use: { baseURL: "http://localhost:4322", trace: "retain-on-failure" },
   projects: [
     { name: "wide-js-chromium", use: { ...devices["Desktop Chrome"], ...wide } },
     { name: "wide-js-firefox", use: { ...devices["Desktop Firefox"], ...wide }, grepInvert: /@once|@slow/ },
@@ -16,8 +16,8 @@ export default defineConfig({
     { name: "phone-nojs", use: { ...devices["iPhone 15"], javaScriptEnabled: false }, grepInvert: /@once/ },
   ],
   webServer: {
-    command: "npx astro preview --port 4321 --ignore-lock",
-    url: "http://localhost:4321",
+    command: "npx astro preview --port 4322 --ignore-lock",
+    url: "http://localhost:4322",
     reuseExistingServer: !process.env.CI,
   },
 });
