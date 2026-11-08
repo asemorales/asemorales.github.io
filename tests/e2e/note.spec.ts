@@ -25,6 +25,13 @@ test.describe("layout and type", () => {
     expect(b.x + b.width).toBeLessThanOrEqual(column.x + column.width + 1);
   });
 
+  test("center the home link below the note", async ({ page }) => {
+    const column = await box(page.locator("article.note"));
+    const link = await box(page.locator(".note-home a"));
+    expect(Math.abs(link.x + link.width / 2 - (column.x + column.width / 2))).toBeLessThanOrEqual(1);
+    expect(link.y).toBeGreaterThanOrEqual(column.y + column.height);
+  });
+
   test("draw the separator as three asterisks", async ({ page }) => {
     const hr = page.locator("article hr").first();
     expect(await hr.evaluate((el) => getComputedStyle(el, "::after").content)).toContain("*");

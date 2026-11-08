@@ -51,6 +51,13 @@ const lists = await sourceLists(remarkPluginFrontmatter);
     <Content />
     <NoteFooter seeAlso={seeAlso} lists={lists} tags={tags} />
   </article>
+  <div class="note-home column -mt-12 -mb-6 print:hidden">
+    <hr class="ornament" />
+    <a href="/">
+      <span class="icon icon-home" aria-hidden="true"></span>
+      Back to Home
+    </a>
+  </div>
   <NoteTools />
   <Reading />
 </Base>

@@ -392,10 +392,12 @@
     rotate: -90deg;
   }
   .toc summary,
-  .site-nav > :is(a, button) {
+  .site-nav > :is(a, button),
+  .note-home a {
     @apply flex w-fit items-center gap-2 caps;
   }
-  .site-nav > :is(a, button) {
+  .site-nav > :is(a, button),
+  .note-home a {
     @apply mb-1 text-dim no-underline hover:text-link-hover hover:underline;
   }
   .page {
@@ -761,6 +763,9 @@
   }
   .home-contact .home-feed {
     @apply flex min-w-0 items-center gap-2 border border-frame px-3 py-1 text-dim focus-within:text-ink focus-within:outline focus-within:outline-frame hover:text-ink;
+  }
+  .note-home a {
+    @apply mx-auto text-base leading-normal min-[1200px]:text-base sm:text-lg;
   }
   .home-feed[title],
   .home-feed[title] input {
