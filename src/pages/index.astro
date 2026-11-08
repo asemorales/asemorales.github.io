@@ -5,7 +5,7 @@ import Logo from "../components/Logo.astro";
 import NoteRow from "../components/NoteRow.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import Base from "../layouts/Base.astro";
-import { CONTACT, NAME } from "../lib/site.js";
+import { NAME, SITE_URL } from "../lib/site.js";
 import { slugify } from "../lib/slug.js";
 import { description } from "../lib/summary.js";
 
@@ -23,6 +23,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
 
 <Base title={NAME} description={description(introduction.body ?? "", NAME)} wide preloadItalic>
   <link slot="head" rel="preload" href="/fonts/dm-mono.woff2" as="font" type="font/woff2" crossorigin />
+  <link slot="head" rel="me" href="https://mathstodon.xyz/@ase" />
   <div class="column">
     <header class="home-title">
       <Logo class="" />
@@ -93,14 +94,13 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
     <footer class="home-footer">
       <hr class="ornament" />
       <ul class="home-contact">
-        {CONTACT.map((c) => (
-          <li>
-            <a href={c.href} rel={c.rel} title={c.name}>
-              <span class={`icon icon-${c.icon}`} aria-hidden="true"></span>
-              <span class="sr-only">{c.name}</span>
-            </a>
-          </li>
-        ))}
+        <li class="home-feed">
+          <span class="icon icon-rss" aria-hidden="true"></span>
+          <label for="feed-url" class="sr-only">
+            Atom feed URL
+          </label>
+          <input id="feed-url" type="text" readonly value={`${SITE_URL}/feed.xml`} />
+        </li>
         <li class="home-theme">
           <ThemeToggle iconOnly />
         </li>
@@ -108,3 +108,17 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
     </footer>
   </div>
 </Base>
+
+<script>
+  import { copier } from "../client/copier";
+
+  const field = document.querySelector<HTMLElement>(".home-feed");
+  if (field && navigator.clipboard) {
+    const input = field.querySelector("input")!;
+    field.title = "Click to copy feed URL";
+    copier(field, field.querySelector(".icon")!, "rss", () => input.value);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") field.click();
+    });
+  }
+</script>

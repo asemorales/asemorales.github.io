@@ -1,3 +1,5 @@
+import { copier, setIcon } from "./copier";
+
 function tools(block: HTMLElement) {
   let bar = block.querySelector<HTMLElement>(":scope > .block-tools");
   if (!bar) {
@@ -6,10 +8,6 @@ function tools(block: HTMLElement) {
     block.append(bar);
   }
   return bar;
-}
-
-function setIcon(el: Element, name: string) {
-  el.className = el.className.replace(/\bicon-\S+/, `icon-${name}`);
 }
 
 function button(block: HTMLElement, icon: string, title: string) {
@@ -23,26 +21,6 @@ function button(block: HTMLElement, icon: string, title: string) {
   b.append(i);
   tools(block).append(b);
   return b;
-}
-
-function copier(target: HTMLElement, icon: Element, rest: string, getText: () => string) {
-  let timer: number | undefined;
-  target.addEventListener("click", async (e) => {
-    e.preventDefault();
-    let ok = true;
-    try {
-      await navigator.clipboard.writeText(getText());
-    } catch {
-      ok = false;
-    }
-    setIcon(icon, ok ? "check" : "x");
-    target.dataset.copied = ok ? "true" : "false";
-    clearTimeout(timer);
-    timer = window.setTimeout(() => {
-      setIcon(icon, rest);
-      delete target.dataset.copied;
-    }, 1500);
-  });
 }
 
 function addCopy(block: HTMLElement) {

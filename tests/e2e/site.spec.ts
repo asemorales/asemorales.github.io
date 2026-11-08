@@ -183,6 +183,22 @@ test.describe("media modes", () => {
 });
 
 test.describe("feed", () => {
+  test("the home field shows the URL and copies it on click", async ({ page, context, javaScriptEnabled, browserName }) => {
+    await page.goto("/");
+    const field = page.locator(".home-feed");
+    await expect(field.getByRole("textbox", { name: "Atom feed URL" })).toHaveValue("https://asemorales.com/feed.xml");
+    await expect(field.locator(".icon-rss")).toBeVisible();
+    await expect(page.locator('head link[rel="me"]')).toHaveAttribute("href", "https://mathstodon.xyz/@ase");
+    if (javaScriptEnabled === false) return await expect(field).not.toHaveAttribute("title");
+    await expect(field).toHaveAttribute("title", "Click to copy feed URL");
+    if (browserName !== "chromium") return;
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+    await field.click();
+    await expect(field).toHaveAttribute("data-copied", "true");
+    await expect(field.locator(".icon-check")).toBeVisible();
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe("https://asemorales.com/feed.xml");
+  });
+
   test("is valid Atom, is advertised on every page, and omits unlisted notes", { tag: "@once" }, async ({ page, request }) => {
     const res = await request.get("/feed.xml");
     expect(res.headers()["content-type"]).toContain("xml");
