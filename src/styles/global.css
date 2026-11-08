@@ -414,12 +414,21 @@
       @apply absolute inset-y-0 left-0 z-10 mb-0;
       width: var(--rail);
     }
+    article.note {
+      anchor-name: --note;
+    }
+    .rail:has(+ main .note) {
+      bottom: anchor(--note bottom);
+    }
     .rail > div {
-      @apply sticky top-6 flex max-h-[calc(100vh-3rem)] flex-col;
+      @apply sticky top-6 flex max-h-[min(100vh-3rem,100%)] flex-col;
     }
     .site-nav,
     .toc {
       @apply text-base;
+    }
+    .toc {
+      @apply flex min-h-0 flex-col;
     }
     .toc details {
       @apply min-h-0 overflow-y-auto;

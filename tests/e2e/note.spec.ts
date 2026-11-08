@@ -153,6 +153,11 @@ test.describe("sections", () => {
     expect((await box(home)).x).toBe((await box(toc)).x);
     await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
     await expect.poll(async () => (await box(toc)).y - ((await box(home)).y + (await box(home)).height)).toBeGreaterThanOrEqual(0);
+    const bottom = async (selector: string) => {
+      const rect = await box(page.locator(selector));
+      return rect.y + rect.height;
+    };
+    expect(await bottom(".rail > div")).toBeLessThanOrEqual((await bottom(".note .tags")) + 1);
     await home.click();
     await expect(page).toHaveURL(/\/$/);
   });
