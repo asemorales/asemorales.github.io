@@ -497,6 +497,12 @@
     "meta": ["Wikipedia"],
     "text": "The zone of proximal development (ZPD) is a concept in educational psychology that represents the space between what a learner is capable of doing unsupported and what the learner cannot do even with support. It is the range where the learner is able to perform, but only with support from a teacher or a peer with more knowledge or expertise."
   },
+  "https://eric.ed.gov/?id=ED432314": {
+    "kind": "page",
+    "title": "ERIC - ED432314 - Learning Is about Making Connections. The Cross Papers Number 3., 1999-Jun",
+    "meta": [],
+    "text": ""
+  },
   "https://example.com": {
     "kind": "page",
     "title": "Example Domain",

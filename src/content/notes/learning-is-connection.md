@@ -20,4 +20,4 @@ This makes a good case for [[tech-to-automate-input|using technology to automate
 
 [^2]: While this section only discusses neural connections, additional types of connections (cognitive, social, and experiential) contribute to learning[^cite-cross-lamc].
 
-[^cite-cross-lamc]: [Cross, 1999, Learning is About Making Connections](https://diva.sfsu.edu/bundles/preview/555971?token=488FlZDzqM)
+[^cite-cross-lamc]: [Cross, 1999, Learning is About Making Connections](https://eric.ed.gov/?id=ED432314)
