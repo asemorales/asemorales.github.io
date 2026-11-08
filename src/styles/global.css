@@ -120,7 +120,7 @@
   }
 
   a {
-    @apply text-ink underline decoration-1 underline-offset-6 hover:text-link-hover active:text-link-hover;
+    @apply text-ink underline decoration-[0.5px] underline-offset-6 hover:text-link-hover active:text-link-hover;
   }
   a.dead {
     @apply decoration-dotted hover:text-link-dead-hover active:text-link-dead-hover;
@@ -337,8 +337,19 @@
   .note ol {
     @apply list-decimal pl-6;
   }
+  :is(.note, .prose-page) ul:not(.tags ul) > li::marker {
+    color: transparent;
+  }
+  :is(.note, .prose-page) ul:not(.tags ul) > li::before {
+    @apply absolute text-dim;
+    content: "*" / "";
+    translate: -1rem 0.32em;
+  }
+  .note li::marker {
+    @apply text-dim;
+  }
   .note ol > li::marker {
-    @apply text-dim tabular-nums;
+    @apply tabular-nums;
   }
   .note code {
     @apply font-mono text-[0.9em] break-words;
@@ -361,6 +372,9 @@
   .note th,
   .note td {
     @apply border-b border-rule px-2 py-1 text-left;
+  }
+  .note th {
+    @apply font-normal text-dim;
   }
 
   .note hr,
@@ -459,7 +473,7 @@
   }
 
   .note blockquote {
-    @apply mx-6 my-10 italic;
+    @apply my-10 mr-6 ml-12 italic sm:ml-20;
   }
   .note .sidenote-quote {
     @apply italic;
@@ -658,7 +672,7 @@
     @apply ml-0.5 text-[0.75em] font-semibold italic;
   }
   .note .tags {
-    @apply flex flex-wrap items-center gap-2 font-mono text-sm;
+    @apply clear-right flex flex-wrap items-center gap-2 font-mono text-sm;
   }
   .note .tags-label {
     @apply inline-flex items-center gap-1.5 text-dim;
@@ -698,7 +712,7 @@
     font-size: var(--mark);
   }
   .wordmark {
-    @apply font-mono;
+    @apply font-mono text-dim;
   }
   .wordmark .m {
     margin: 0 0.05em;
@@ -754,6 +768,11 @@
   }
   .home-notes li {
     @apply flex items-baseline gap-2;
+  }
+  .home-notes li::before {
+    @apply shrink-0 text-dim;
+    content: "*" / "bullet";
+    translate: 0 0.32em;
   }
   .home-notes .leader {
     @apply h-[0.25em] min-w-6 flex-1;
@@ -829,8 +848,7 @@
   .link-popover:popover-open {
     @apply flex flex-col;
   }
-  .link-popover p + p,
-  .link-popover .popover-body {
+  .link-popover p + p {
     @apply mt-1;
   }
   .popover-meta,
@@ -844,7 +862,7 @@
     @apply font-semibold;
   }
   .popover-body {
-    @apply max-h-48 min-h-0 overflow-hidden;
+    @apply mt-2 max-h-48 min-h-0 overflow-hidden;
   }
   .popover-body.clipped {
     mask-image: linear-gradient(to bottom, black 70%, transparent);
@@ -909,8 +927,7 @@
   .drawer-content .popover-body {
     @apply max-h-none;
   }
-  .drawer-content p + p,
-  .drawer-content .popover-body {
+  .drawer-content p + p {
     @apply mt-1;
   }
   .drawer-content .popover-body p + p {
