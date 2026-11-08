@@ -43,7 +43,7 @@ Wildlife is generated based on how often I wrote or updated a note in the past 3
 
 ## Source code and miscellaneous
 
-For a list of all site elements, see the [[lorem-ipsum|feature test]]. Source code is available on [GitHub](https://github.com/asemorales/asemorales.github.io) under AGPL 3.0.
+Source code is available on [GitHub](https://github.com/asemorales/asemorales.github.io) under AGPL 3.0.
 
 [^1]: If the maximum allowed plants for your window size has already been reached, or if the plant would lack light to grow, an existing plant will wither to accommodate the new plant.
 

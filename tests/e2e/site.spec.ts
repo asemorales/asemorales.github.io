@@ -39,20 +39,18 @@ test.describe("pages", () => {
 });
 
 test.describe("lorem ipsum page", () => {
-  test("is built from the vault, listed, and linked only from the colophon", { tag: "@once" }, async ({ page, request }) => {
+  test("is built from the vault and kept private", { tag: "@once" }, async ({ page, request }) => {
     await page.goto("/lorem-ipsum/");
     await expect(page.locator("h1")).toHaveText("Lorem Ipsum");
-    await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
     await expect(page.locator("article")).not.toContainText("Obsidian comments like this one");
 
     await page.goto("/");
     await expect(page.locator('.home-notes a[href="/lorem-ipsum/"]')).toHaveCount(0);
     await expect(page.locator(".home-title p")).toHaveCount(0);
 
-    await page.goto("/colophon/");
-    await expect(page.locator('article a[href="/lorem-ipsum/"]')).toHaveText("feature test");
     const sitemap = await (await request.get("/sitemap-0.xml")).text();
-    expect(sitemap).toContain("lorem-ipsum");
+    expect(sitemap).not.toContain("lorem-ipsum");
     expect(sitemap).toContain("acknowledgments");
   });
 
@@ -201,5 +199,6 @@ test.describe("feed", () => {
     }, xml);
     expect(parsed).toEqual({ error: null, root: "http://www.w3.org/2005/Atom", self: "https://asemorales.com/feed.xml" });
     expect(xml).not.toContain("acknowledgments");
+    expect(xml).not.toContain("lorem-ipsum");
   });
 });

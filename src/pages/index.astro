@@ -9,10 +9,7 @@ import { CONTACT, NAME } from "../lib/site.js";
 import { slugify } from "../lib/slug.js";
 import { description } from "../lib/summary.js";
 
-// Feature-test notes are listed but kept off the index; the colophon links them.
-const notes = (await getCollection("notes", (n) => !n.data.unlisted && !n.data.tags.includes("test"))).sort((a, b) =>
-  a.data.title.localeCompare(b.data.title),
-);
+const notes = (await getCollection("notes", (n) => !n.data.unlisted)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const groups = Map.groupBy(notes, (n) => n.data.tags[0]);
 const order = ["logic", "complexity", "cognition", "computation"];
 const rank = (tag: string) => (order.includes(tag) ? order.indexOf(tag) : order.length);

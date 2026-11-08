@@ -27,6 +27,7 @@ const lists = await sourceLists(remarkPluginFrontmatter);
   title={title}
   description={description(note.body ?? "", title)}
   image={`/${note.id}/og.png`}
+  noindex={tags.includes("test")}
   article={{ published: written, updated, tags }}
   wide
   preloadItalic>

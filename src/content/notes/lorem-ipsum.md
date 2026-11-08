@@ -3,6 +3,7 @@ title: "Lorem Ipsum"
 date: 2026-10-26
 updated: 2026-11-08
 tags: ["test"]
+unlisted: true
 ---
 
 This page contains dummy text used to test the design features of this site.

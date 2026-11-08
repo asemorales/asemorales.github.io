@@ -17,7 +17,7 @@
     "lint:links": "docker run --rm -v \"$PWD/dist:/dist:ro\" lycheeverse/lychee:0.24.2 --offline --no-progress --root-dir /dist --index-files index.html /dist",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "lighthouse": "lhci autorun --config=lighthouserc.cjs",
+    "lighthouse": "lhci autorun --config=lighthouserc.cjs && lhci autorun --config=lighthouserc.cjs --collect.settings.preset=desktop",
     "check": "npm run lint && npm run test && npm run build && npm run lint:html && npm run lint:links && npm run test:e2e",
     "typos": "python3 scripts/build-typos.py",
     "lint:prose": "vale docs AGENTS.md README.md NOTICE.md src scripts tests/unit tests/e2e *.mjs *.js *.cjs *.ts"

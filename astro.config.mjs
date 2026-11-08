@@ -34,7 +34,9 @@ const notes = fs
   .map((f) => ({ slug: f.replace(/\.md$/, ""), ...matter(fs.readFileSync(path.join(notesDir, f), "utf8")) }));
 const listedTags = new Set(notes.filter((n) => !n.data.unlisted).flatMap((n) => n.data.tags.map(slugify)));
 const backlinked = notes.flatMap((n) => linkTargets(n.content).filter((t) => t !== n.slug));
+const testPages = new Set(notes.filter((n) => n.data.tags.includes("test")).map((n) => `${site}/${n.slug}/`));
 const inSitemap = (page) => {
+  if (testPages.has(page)) return false;
   const tag = page.match(/\/tags\/([^/]+)\/$/);
   return !tag || listedTags.has(tag[1]);
 };
