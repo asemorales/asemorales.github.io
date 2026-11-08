@@ -465,24 +465,6 @@ test.describe("L-systems", () => {
         .toBeGreaterThan(10);
     });
 
-    test("puff spores from a tapped mushroom instead of planting", { tag: "@slow" }, async ({ page }) => {
-      test.setTimeout(60_000);
-      await visitWhileTended(page);
-      await coarsenFrames(page);
-      await page.reload();
-      await scrollToFraction(page, 1);
-      await page.waitForTimeout(200);
-      const mushroom = page.locator('#lsystems .wildlife path[d^="M-.9"]').first();
-      for (let tries = 0; tries < 12 && !(await mushroom.count()); tries++) await page.clock.runFor(5000);
-      await page.clock.runFor(3000);
-      const [x] = await mushroom.evaluate(spot);
-      const box = (await page.locator("#lsystems").boundingBox())!;
-      const before = await plants(page);
-      await page.mouse.click(box.x + x, box.y + box.height - 3);
-      expect(await plants(page)).toBe(before);
-      expect(await page.locator('#lsystems .wildlife path[d="M0 0h.01"]').count()).toBeGreaterThan(0);
-    });
-
     test("hold wildlife still under reduced motion", async ({ page }) => {
       await page.emulateMedia({ reducedMotion: "reduce" });
       await visitWhileTended(page);

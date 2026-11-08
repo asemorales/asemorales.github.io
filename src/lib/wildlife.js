@@ -32,7 +32,6 @@ const MOTES = {
   petal: { d: PETAL, fall: 16, catch: 0.8, sway: 10, life: 25, sow: 0 },
   seed: { d: DOT, fall: 28, catch: 0.5, sway: 4, life: 25, sow: 0.35, width: 1.4 },
   fluff: { d: FLUFF, fall: 5, catch: 1.5, sway: 6, life: 40, sow: 0.3, kinds: [DANDELION] },
-  spore: { d: DOT, fall: -6, catch: 0.4, sway: 3, life: 2.5, sow: 0, width: 1 },
 };
 
 export const ORDER = [
@@ -625,12 +624,6 @@ export function inhabit(layer, { width, height, visitors, garden, standing, sow,
     },
     leave() {
       pointer.here = false;
-    },
-    click(x, y) {
-      const shroom = shrooms.find((shroom) => Math.abs(shroom.x - x) < 7 && y > ground - 12);
-      if (!shroom) return false;
-      for (let i = 0; i < 6; i++) mote("spore", shroom.x + (Math.random() - 0.5) * 6, ground - 5 * shroom.size, (Math.random() - 0.5) * 10, -8);
-      return true;
     },
     fall(plant) {
       if (plant.puff && !plant.blown) blow(plant);

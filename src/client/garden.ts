@@ -145,10 +145,9 @@ export function grow(root: HTMLElement) {
     return matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
-  function plantAt({ clientX, clientY }: MouseEvent) {
-    const { left, top } = root.getBoundingClientRect();
+  function plantAt({ clientX }: MouseEvent) {
+    const { left } = root.getBoundingClientRect();
     const x = clientX - left;
-    if (!calm() && wildlife.click(x, clientY - top)) return;
     const nearest = free.reduce((best, spot, index) => (Math.abs(spot - x) < Math.abs(free[best] - x) ? index : best), 0);
     const crowding = standing.reduce<Plant | null>(
       (best, plant) => (!best || Math.abs(plant.base - x) < Math.abs(best.base - x) ? plant : best),
