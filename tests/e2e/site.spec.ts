@@ -75,7 +75,7 @@ test.describe("theme without JS", () => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.goto("/lorem-ipsum/");
     expect(await background(page)).toBe(DARK);
-    await expect(page.locator(".room-toggle:visible")).toBeHidden();
+    await expect(page.locator(".theme-toggle:visible")).toBeHidden();
     await page.emulateMedia({ colorScheme: "light" });
     expect(await background(page)).toBe(LIGHT);
   });
@@ -87,7 +87,7 @@ test.describe("theme with JS", () => {
   test("cycles auto, light, and dark", async ({ page }) => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.goto("/lorem-ipsum/");
-    const toggle = page.locator(".room-toggle:visible");
+    const toggle = page.locator(".theme-toggle:visible");
     await expect(toggle).toBeVisible();
     await expect(toggle).toContainText("auto");
     expect(await background(page)).toBe(DARK);
@@ -102,24 +102,24 @@ test.describe("theme with JS", () => {
 
     await toggle.click();
     await expect(toggle).toContainText("auto");
-    expect(await page.evaluate(() => localStorage.getItem("room"))).toBeNull();
+    expect(await page.evaluate(() => localStorage.getItem("theme"))).toBeNull();
   });
 
-  test("applies a saved room before first paint", async ({ page }) => {
+  test("applies a saved theme before first paint", async ({ page }) => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.goto("/lorem-ipsum/");
-    await page.evaluate(() => localStorage.setItem("room", "light"));
+    await page.evaluate(() => localStorage.setItem("theme", "light"));
     await page.addInitScript(() => {
       new MutationObserver((_, observer) => {
         if (!document.body) return;
-        (window as unknown as { firstRoom?: string }).firstRoom = document.documentElement.dataset.room;
+        (window as unknown as { firstTheme?: string }).firstTheme = document.documentElement.dataset.theme;
         observer.disconnect();
       }).observe(document, { childList: true, subtree: true });
     });
     await page.reload();
-    expect(await page.evaluate(() => (window as unknown as { firstRoom?: string }).firstRoom)).toBe("light");
+    expect(await page.evaluate(() => (window as unknown as { firstTheme?: string }).firstTheme)).toBe("light");
     expect(await background(page)).toBe(LIGHT);
-    await expect(page.locator(".room-toggle:visible")).toContainText("light");
+    await expect(page.locator(".theme-toggle:visible")).toContainText("light");
   });
 });
 

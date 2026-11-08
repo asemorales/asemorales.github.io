@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import LSystems from "../components/LSystems.astro";
 import Popovers from "../components/Popovers.astro";
-import RoomToggle from "../components/RoomToggle.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 interface Props {
   title: string;
@@ -48,8 +48,8 @@ const fullTitle = home ? title : `${title} | Ase Morales`;
 
     <script is:inline>
       try {
-        const room = localStorage.getItem("room");
-        if (room === "light" || room === "dark") document.documentElement.dataset.room = room;
+        const theme = localStorage.getItem("theme");
+        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
       } catch {}
     </script>
 
@@ -64,8 +64,8 @@ const fullTitle = home ? title : `${title} | Ase Morales`;
     )}
     <noscript>
       <style is:inline>
-        .room-toggle,
-        .home-room {
+        .theme-toggle,
+        .home-theme {
           display: none !important;
         }
       </style>
@@ -80,7 +80,7 @@ const fullTitle = home ? title : `${title} | Ase Morales`;
             <span class="icon icon-home" aria-hidden="true"></span>
             Home
           </a>
-          <RoomToggle />
+          <ThemeToggle />
         </nav>
       )}
       <slot />

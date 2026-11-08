@@ -72,7 +72,7 @@ test.describe("sections", () => {
   test("aligns the home, theme, and contents icons and labels", async ({ page, javaScriptEnabled }) => {
     test.skip(javaScriptEnabled === false, "the theme toggle needs JS");
     const home = await box(page.locator(".toc-home .icon"));
-    const toggle = page.locator("nav.toc .room-toggle");
+    const toggle = page.locator("nav.toc .theme-toggle");
     await expect(toggle).toHaveText(/Toggle theme/);
     const sun = await box(toggle.locator(".icon:visible"));
     const homeText = await page.locator(".toc-home").evaluate((a) => {
@@ -486,18 +486,18 @@ test.describe("screenshots", () => {
   // Screenshots cannot exceed 32767 device pixels.
   test.use({ deviceScaleFactor: 1 });
 
-  for (const room of ["light", "dark"] as const) {
-    test(`${room} room`, async ({ page }, info) => {
-      await page.emulateMedia({ colorScheme: room });
+  for (const theme of ["light", "dark"] as const) {
+    test(`${theme} theme`, async ({ page }, info) => {
+      await page.emulateMedia({ colorScheme: theme });
       await page.goto(LOREM);
-      await page.screenshot({ path: info.outputPath(`lorem-${room}.png`), fullPage: true });
+      await page.screenshot({ path: info.outputPath(`lorem-${theme}.png`), fullPage: true });
     });
   }
 
   test("print", async ({ page, browserName }, info) => {
     test.skip(browserName !== "chromium" || !wide(info.project.name) || info.project.name.includes("nojs"), "Chromium, wide, with JS");
     await page.emulateMedia({ media: "print" });
-    await expect(page.locator("nav.toc .room-toggle")).toBeHidden();
+    await expect(page.locator("nav.toc .theme-toggle")).toBeHidden();
     await page.pdf({ path: info.outputPath("lorem.pdf") });
     await page.screenshot({ path: info.outputPath("lorem-print.png"), fullPage: true });
   });

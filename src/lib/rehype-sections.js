@@ -59,8 +59,8 @@ function toc(headings, back) {
   return el("nav", { className: ["toc"], ariaLabel: "Contents" }, [
     el("div", {}, [
       el("a", { href: "/", className: ["toc-home"] }, [icon("home"), txt("Home")]),
-      // Must match src/components/RoomToggle.astro.
-      el("button", { type: "button", className: ["room-toggle"] }, [
+      // Must match src/components/ThemeToggle.astro.
+      el("button", { type: "button", className: ["theme-toggle"] }, [
         icon("sun"),
         icon("moon"),
         el("span", {}, [txt("Toggle theme")]),

@@ -40,10 +40,10 @@
   --link-hover: light-dark(#3a6588, #9dbad3);
   --link-dead-hover: light-dark(#aa4a2b, #e08a6b);
 }
-:root[data-room="light"] {
+:root[data-theme="light"] {
   color-scheme: light;
 }
-:root[data-room="dark"] {
+:root[data-theme="dark"] {
   color-scheme: dark;
 }
 
@@ -155,21 +155,21 @@
     @apply inline-block size-[1em] shrink-0 bg-current align-[-0.125em];
     mask: var(--icon) center / contain no-repeat;
   }
-  .room-toggle {
+  .theme-toggle {
     @apply cursor-pointer text-dim hover:text-ink;
   }
-  .room-toggle .icon-moon,
-  :root[data-room="dark"] .room-toggle .icon-sun {
+  .theme-toggle .icon-moon,
+  :root[data-theme="dark"] .theme-toggle .icon-sun {
     display: none;
   }
-  :root[data-room="dark"] .room-toggle .icon-moon {
+  :root[data-theme="dark"] .theme-toggle .icon-moon {
     display: inline-block;
   }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-room]) .room-toggle .icon-sun {
+    :root:not([data-theme]) .theme-toggle .icon-sun {
       display: none;
     }
-    :root:not([data-room]) .room-toggle .icon-moon {
+    :root:not([data-theme]) .theme-toggle .icon-moon {
       display: inline-block;
     }
   }
@@ -375,22 +375,22 @@
   }
   .note .toc summary,
   .note .toc-home,
-  .note .toc .room-toggle,
+  .note .toc .theme-toggle,
   .site-nav > :is(a, button) {
     @apply flex w-fit items-center gap-2;
     font-variant-caps: all-small-caps;
     letter-spacing: 0.04em;
   }
   .note .toc-home,
-  .note .toc .room-toggle,
+  .note .toc .theme-toggle,
   .site-nav > :is(a, button) {
     @apply mb-1;
   }
-  .note .toc .room-toggle,
+  .note .toc .theme-toggle,
   .site-nav > :is(a, button) {
     @apply no-underline hover:text-link-hover hover:underline;
   }
-  .note .toc .room-toggle,
+  .note .toc .theme-toggle,
   .site-nav > :is(a, button) {
     @apply text-dim;
   }
@@ -755,7 +755,7 @@
   .home-contact a {
     @apply text-dim no-underline hover:text-ink;
   }
-  .home-contact .home-room {
+  .home-contact .home-theme {
     @apply border-l border-rule;
     padding-left: var(--contact-gap);
   }
@@ -920,8 +920,8 @@
   html {
     background-image: none;
   }
-  .room-toggle,
-  .home-room,
+  .theme-toggle,
+  .home-theme,
   #lsystems,
   .search-toggle,
   .home-search,

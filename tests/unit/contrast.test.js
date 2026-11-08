@@ -16,12 +16,12 @@ const contrast = (a, b) => {
   return (hi + 0.05) / (lo + 0.05);
 };
 
-describe("room contrast", () => {
-  it.each(["ink", "dim", "link", "link-dead", "link-hover", "link-dead-hover"])("has %s at 4.5:1 or more on the page in both rooms", (name) => {
-    for (const room of [0, 1]) expect(contrast(tokens[name][room], tokens.page[room])).toBeGreaterThanOrEqual(4.5);
+describe("theme contrast", () => {
+  it.each(["ink", "dim", "link", "link-dead", "link-hover", "link-dead-hover"])("has %s at 4.5:1 or more on the page in both themes", (name) => {
+    for (const theme of [0, 1]) expect(contrast(tokens[name][theme], tokens.page[theme])).toBeGreaterThanOrEqual(4.5);
   });
 
   it("has dim text at 4.5:1 or more on code blocks and the contents box", () => {
-    for (const room of [0, 1]) expect(contrast(tokens.dim[room], tokens.code[room])).toBeGreaterThanOrEqual(4.5);
+    for (const theme of [0, 1]) expect(contrast(tokens.dim[theme], tokens.code[theme])).toBeGreaterThanOrEqual(4.5);
   });
 });

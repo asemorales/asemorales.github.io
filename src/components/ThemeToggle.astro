@@ -1,0 +1,46 @@
+---
+interface Props {
+  iconOnly?: boolean;
+}
+
+const { iconOnly = false } = Astro.props;
+---
+
+<button type="button" class="theme-toggle">
+  <span class="icon icon-sun" aria-hidden="true"></span>
+  <span class="icon icon-moon" aria-hidden="true"></span>
+  <span class:list={{ "sr-only": iconOnly }}>Toggle theme</span>
+  <span class="sr-only" aria-live="polite">
+    (<span data-label>auto</span>)
+  </span>
+</button>
+
+<script>
+  const THEMES = ["auto", "light", "dark"] as const;
+  type Theme = (typeof THEMES)[number];
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".theme-toggle");
+  const root = document.documentElement;
+
+  const current = (): Theme => (root.dataset.theme === "light" || root.dataset.theme === "dark" ? root.dataset.theme : "auto");
+
+  function show(theme: Theme) {
+    for (const button of buttons) {
+      button.querySelector("[data-label]")!.textContent = theme;
+      button.title = `Theme: ${theme}`;
+    }
+  }
+
+  function apply(theme: Theme) {
+    if (theme === "auto") delete root.dataset.theme;
+    else root.dataset.theme = theme;
+    show(theme);
+    try {
+      if (theme === "auto") localStorage.removeItem("theme");
+      else localStorage.setItem("theme", theme);
+    } catch {}
+  }
+
+  show(current());
+  for (const button of buttons) button.addEventListener("click", () => apply(THEMES[(THEMES.indexOf(current()) + 1) % THEMES.length]));
+</script>
