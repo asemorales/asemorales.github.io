@@ -59,8 +59,7 @@ test.describe("sections", () => {
   });
 
   test("link home above the contents, matching the contents header", async ({ page }) => {
-    const home = page.locator(".toc-home");
-    await expect(page.locator(".site-home")).toBeHidden();
+    const home = page.locator(".site-home");
     const summary = page.locator("nav.toc summary");
     expect((await box(home)).y).toBeLessThan((await box(summary)).y);
     const style = (l: Locator) => l.evaluate((el) => ({ caps: getComputedStyle(el).fontVariantCaps, color: getComputedStyle(el).color }));
@@ -71,11 +70,11 @@ test.describe("sections", () => {
 
   test("aligns the home, theme, and contents icons and labels", async ({ page, javaScriptEnabled }) => {
     test.skip(javaScriptEnabled === false, "the theme toggle needs JS");
-    const home = await box(page.locator(".toc-home .icon"));
-    const toggle = page.locator("nav.toc .theme-toggle");
+    const home = await box(page.locator(".site-home .icon"));
+    const toggle = page.locator(".site-nav .theme-toggle");
     await expect(toggle).toHaveText(/Toggle theme/);
     const sun = await box(toggle.locator(".icon:visible"));
-    const homeText = await page.locator(".toc-home").evaluate((a) => {
+    const homeText = await page.locator(".site-home").evaluate((a) => {
       const range = document.createRange();
       range.selectNodeContents(a.lastChild!);
       return range.getBoundingClientRect().x;
@@ -94,7 +93,7 @@ test.describe("sections", () => {
     expect(toggleText).toBeCloseTo(homeText, 1);
     expect(arrow.x + arrow.width + arrow.gap).toBeCloseTo(homeText, 1);
     const y = (await box(toggle)).y;
-    expect((await box(page.locator(".toc-home"))).y).toBeLessThan(y);
+    expect((await box(page.locator(".site-home"))).y).toBeLessThan(y);
     expect(y).toBeLessThan((await box(page.locator("nav.toc summary"))).y);
   });
 
@@ -130,7 +129,7 @@ test.describe("sections", () => {
 
   test("align the title with the top of the contents rail on wide screens", async ({ page }) => {
     test.skip((page.viewportSize()?.width ?? 0) < 1200, "1200px and up");
-    expect((await box(page.locator("nav.toc"))).y).toBe((await box(page.locator("article.note h1"))).y);
+    expect((await box(page.locator(".rail > div"))).y).toBe((await box(page.locator("article.note h1"))).y);
   });
 
   test("put the contents in a sticky rail left of the column on wide screens", async ({ page }) => {
@@ -140,7 +139,7 @@ test.describe("sections", () => {
     expect((await box(toc)).x + (await box(toc)).width).toBeLessThan(column.x);
     await page.locator("#headings").scrollIntoViewIfNeeded();
     await expect(toc).toBeInViewport();
-    const home = page.locator(".toc-home");
+    const home = page.locator(".site-home");
     await expect(home).toBeInViewport();
     expect((await box(home)).x).toBe((await box(toc)).x);
     await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
@@ -497,7 +496,7 @@ test.describe("screenshots", () => {
   test("print", async ({ page, browserName }, info) => {
     test.skip(browserName !== "chromium" || !wide(info.project.name) || info.project.name.includes("nojs"), "Chromium, wide, with JS");
     await page.emulateMedia({ media: "print" });
-    await expect(page.locator("nav.toc .theme-toggle")).toBeHidden();
+    await expect(page.locator(".site-nav .theme-toggle")).toBeHidden();
     await page.pdf({ path: info.outputPath("lorem.pdf") });
     await page.screenshot({ path: info.outputPath("lorem-print.png"), fullPage: true });
   });

@@ -25,10 +25,11 @@
 :root {
   color-scheme: light dark;
 
+  --rail: 13rem;
+
   --page: light-dark(#f2ecdf, #191612);
   --code: light-dark(#f9f5ee, #25211c);
   --hover: light-dark(#e3dbc9, #3a342d);
-  --tag-hover: light-dark(#f9f5ee, #3a342d);
   --rule: light-dark(#ddd4c1, #4d463e);
   --frame: light-dark(#c9bfab, #615950);
   --mid: light-dark(#9a9183, #81786d);
@@ -51,7 +52,6 @@
   --color-page: var(--page);
   --color-code: var(--code);
   --color-hover: var(--hover);
-  --color-tag-hover: var(--tag-hover);
   --color-rule: var(--rule);
   --color-frame: var(--frame);
   --color-mid: var(--mid);
@@ -67,6 +67,11 @@
 @theme {
   --font-serif: "Source Serif 4", ui-serif, Georgia, serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
+}
+
+@utility caps {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.04em;
 }
 
 @layer base {
@@ -249,9 +254,6 @@
   .column {
     --gap: 2.5rem;
     --lead: 0rem;
-    --rail: 13rem;
-  }
-  .column {
     --measure: 50rem;
     --margin: clamp(12rem, 100cqw - var(--lead) - var(--measure) - var(--gap), 24rem);
     @apply relative max-w-[40em] text-lg leading-[1.7] sm:text-xl;
@@ -312,9 +314,7 @@
     @apply text-[0.8em] font-normal text-dim italic;
   }
   .definition-label {
-    @apply text-base font-normal text-dim not-italic;
-    font-variant-caps: all-small-caps;
-    letter-spacing: 0.04em;
+    @apply text-base font-normal caps text-dim not-italic;
   }
 
   .note ul {
@@ -355,80 +355,67 @@
     content: "*\2003*\2003*";
   }
 
-  .note .toc {
+  .toc {
     @apply w-fit max-w-full text-lg leading-normal text-dim;
   }
-  .note .toc summary {
+  .toc summary {
     @apply cursor-pointer list-none font-semibold;
   }
-  .note .toc summary::-webkit-details-marker {
+  .toc summary::-webkit-details-marker {
     display: none;
   }
-  .note .toc summary::before {
+  .toc summary::before {
     @apply size-[1em] shrink-0 bg-current;
+    forced-color-adjust: preserve-parent-color;
     content: "";
     mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M5 8h14l-7 10z'/></svg>") center / contain
       no-repeat;
   }
-  .note .toc details:not([open]) > summary::before {
+  .toc details:not([open]) > summary::before {
     rotate: -90deg;
   }
-  .note .toc summary,
-  .note .toc-home,
-  .note .toc .theme-toggle,
+  .toc summary,
   .site-nav > :is(a, button) {
-    @apply flex w-fit items-center gap-2;
-    font-variant-caps: all-small-caps;
-    letter-spacing: 0.04em;
+    @apply flex w-fit items-center gap-2 caps;
   }
-  .note .toc-home,
-  .note .toc .theme-toggle,
   .site-nav > :is(a, button) {
-    @apply mb-1;
+    @apply mb-1 text-dim no-underline hover:text-link-hover hover:underline;
   }
-  .note .toc .theme-toggle,
-  .site-nav > :is(a, button) {
-    @apply no-underline hover:text-link-hover hover:underline;
+  .page {
+    @apply relative;
   }
-  .note .toc .theme-toggle,
-  .site-nav > :is(a, button) {
-    @apply text-dim;
+  .rail {
+    @apply mt-22 mb-4;
   }
   .site-nav {
-    @apply mb-4 text-lg leading-normal;
-  }
-  body:has(.toc-home) .site-nav {
-    @apply hidden;
+    @apply text-lg leading-normal;
   }
   @media (width >= 1200px) {
-    .site-nav {
-      @apply sticky top-6 mb-0 h-0 text-base;
-    }
-    .note > .toc + h1 {
-      @apply mt-0;
-    }
-    .note .toc {
-      @apply absolute inset-y-0 mt-0 text-base;
-      left: calc(-1 * var(--lead));
+    .rail {
+      @apply absolute inset-y-0 left-0 z-10 mb-0;
       width: var(--rail);
     }
-    .note .toc > div {
+    .rail > div {
       @apply sticky top-6 flex max-h-[calc(100vh-3rem)] flex-col;
     }
-    .note .toc details {
+    .site-nav,
+    .toc {
+      @apply text-base;
+    }
+    .toc details {
       @apply min-h-0 overflow-y-auto;
     }
   }
-  .note .toc ol {
+  .toc ol {
     @apply list-none pl-0;
   }
-  .note .toc ol ol {
+  .toc ol ol {
     @apply pl-6;
   }
-  .note .toc li {
+  .toc li {
     @apply mt-1;
   }
-  .note .toc a {
+  .toc a {
     @apply text-dim no-underline hover:text-link-hover hover:underline;
   }
 
@@ -605,7 +592,8 @@
   .note .bottom h2 {
     @apply mt-0;
   }
-  .note summary {
+  .note summary,
+  .toc summary {
     @apply cursor-pointer transition-colors hover:text-link-hover;
   }
   .note .sources summary,
@@ -623,7 +611,7 @@
     @apply mt-2;
   }
   .note .sources li:target {
-    @apply bg-tag-hover;
+    @apply bg-code;
   }
   .note .sources .domain,
   .note .sources .backrefs {
@@ -648,7 +636,7 @@
     @apply inline-block border border-frame px-1.5 font-mono text-ink no-underline;
   }
   a.tag {
-    @apply hover:bg-tag-hover;
+    @apply hover:bg-code;
   }
   .tag-title {
     @apply flex items-center gap-3 text-3xl font-normal;
@@ -781,9 +769,7 @@
     @apply m-0 border-0 p-0 text-xl italic;
   }
   .epigraph figcaption {
-    @apply mt-2 leading-snug text-balance text-dim;
-    font-variant-caps: all-small-caps;
-    letter-spacing: 0.04em;
+    @apply mt-2 leading-snug caps text-balance text-dim;
   }
 
   .link-popover {
@@ -834,8 +820,6 @@
 
   .link-drawer {
     @apply fixed inset-x-0 top-auto bottom-0 m-0 max-h-[75vh] w-full max-w-none flex-col border-t border-frame bg-code p-0 text-base leading-normal text-ink;
-  }
-  .link-drawer {
     translate: 0 100%;
     transition:
       translate 0.25s ease-in-out,
@@ -927,8 +911,7 @@
   .home-search,
   .block-tools,
   .margin-toggle,
-  .toc,
-  .site-nav {
+  .rail {
     display: none !important;
   }
   .note {

@@ -73,18 +73,25 @@ const fullTitle = home ? title : `${title} | Ase Morales`;
   </head>
 
   <body class:list={["mx-auto flex min-h-dvh flex-col px-4 py-6 sm:px-8", wide ? "max-w-[96rem]" : "max-w-6xl"]}>
-    <main class="mt-22 mb-12 @container">
+    <div class="page">
       {!home && (
-        <nav class="site-nav" aria-label="Site">
-          <a href="/" class="site-home">
-            <span class="icon icon-home" aria-hidden="true"></span>
-            Home
-          </a>
-          <ThemeToggle />
-        </nav>
+        <div class="rail">
+          <div>
+            <nav class="site-nav" aria-label="Site">
+              <a href="/" class="site-home">
+                <span class="icon icon-home" aria-hidden="true"></span>
+                Home
+              </a>
+              <ThemeToggle />
+            </nav>
+            <slot name="rail" />
+          </div>
+        </div>
       )}
-      <slot />
-    </main>
+      <main class:list={["mb-12 @container", home ? "mt-22" : "min-[1200px]:mt-22"]}>
+        <slot />
+      </main>
+    </div>
     <LSystems />
     <Popovers />
   </body>

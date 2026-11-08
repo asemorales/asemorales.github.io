@@ -25,8 +25,8 @@ const lists = await sourceLists(remarkPluginFrontmatter);
 ---
 
 <Base title={note.data.title} description={description} image={`/${note.id}/og.png`} wide preloadItalic>
+  <Fragment slot="rail" set:html={remarkPluginFrontmatter.toc} />
   <article class="note column">
-    <Fragment set:html={remarkPluginFrontmatter.toc} />
     <h1 class="text-4xl">{note.data.title}</h1>
     {note.id !== GLOSSARY && (
       <p class="flex flex-wrap divide-x divide-rule font-mono text-sm text-dim *:px-2 *:first:pl-0 *:last:pr-0">

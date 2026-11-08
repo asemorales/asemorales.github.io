@@ -94,7 +94,7 @@
     openTimer = window.setTimeout(() => open(a), delay);
   }
 
-  const SKIP = ".toc, .site-home, .anchor, .sidenote-ref, .backrefs, .link-popover, mjx-container";
+  const SKIP = ".anchor, .sidenote-ref, .backrefs, .link-popover, mjx-container";
   function linkFrom(target: EventTarget | null, tapped = false) {
     const a = (target as Element | null)?.closest?.<HTMLAnchorElement>("main a[href]");
     return a && !a.closest(SKIP) && !(tapped && a.closest(".cite-ref")) ? a : null;
