@@ -47,7 +47,7 @@ Sites that do not clearly display their feed URLs typically have hidden links th
 
 ### Large language models
 
-Useful techniques with [Large language models](https://en.wikipedia.org/wiki/Large_language_model) (LLMs):
+Useful techniques with [large language models](https://en.wikipedia.org/wiki/Large_language_model) (LLMs):
 
 **Use LLMs as feed readers with recommender systems.** Set up recurring jobs/scheduled tasks to send you a weekly email or thread of updates that:
 - are from credible or well-evidenced sources that you don't already know about (i.e. it must be outside the feeds or accounts you normally read from)

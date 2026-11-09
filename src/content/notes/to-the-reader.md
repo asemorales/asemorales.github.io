@@ -6,7 +6,7 @@ tags: ["paratext"]
 unlisted: true
 ---
 
-> [!quote] Michel de Montaigne, *[Essays](https://en.wikipedia.org/wiki/Essays_%28Montaigne%29)*
+> [!quote] Michel de Montaigne, *[Essays](https://en.wikipedia.org/wiki/Essays_%28Montaigne%29)*[^7]
 > I myself am the subject of my book: it is not reasonable that you should employ your leisure on a topic so frivolous and so vain.
 
 In a word, this site is an autobiography. It is an experiment in creating [living documentation](https://en.wikipedia.org/wiki/Living_document) of [[glossary#entelechy (noun)|entelechy]][^6] within myself.
@@ -39,3 +39,7 @@ If any part of these writings are lacking context, or difficult to understand, o
 [^5]: [[identity-by-action-and-thought|Why do we define ourselves by what we do, rather than what we think?]]
 
 [^6]: I could have described this as an experiment in self-improvement, or self-actualization, or transformation, but that would be imprecise. Many present-day definitions of self-improvement and self-actualization seem to have an underlying assumption that the current self is insufficient, hence the need for self-improvement. This is closer to Aristotle's definition of *kinesis* rather than *entelechia*. I use entelechy in the sense that it not only describes change, but also self-completeness in every possible state. If I were to define entelechy against self-actualization, it would be more akin to this: I am in the process of self-actualization, and simultaneously I am complete at every moment: before, toward, and during self-actualization.
+
+[^7]: "Essays" is etymologically rooted in the French *essais* (attempts), referring to experimentation and an attempt to put ideas into writing[^cite-eb-essay]. It is in this sense that I describe my own writing.
+
+[^cite-eb-essay]: [Encyclopedia Britannica, Essay](https://www.britannica.com/art/essay)

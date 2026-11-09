@@ -12,11 +12,11 @@ This page includes details on the making of this site.
 
 ## Tools
 
-Set in [Source Serif 4](https://github.com/adobe-fonts/source-serif) and [DM Mono](https://github.com/googlefonts/dm-mono). Content is written in [Obsidian](https://obsidian.md/), built with [Astro](https://astro.build/), and styled with [Tailwind CSS](https://tailwindcss.com/). Math is rendered with [MathJax](https://www.mathjax.org/) and code is highlighted with [Shiki](https://shiki.style/). The site is hosted on [GitHub Pages](https://pages.github.com/) with analytics from [Umami](https://umami.is/).
+Set in [Source Serif 4](https://github.com/adobe-fonts/source-serif) and [DM Mono](https://github.com/googlefonts/dm-mono). Pages are built with [Astro](https://astro.build/) and styled with [Tailwind CSS](https://tailwindcss.com/). Math is rendered with [MathJax](https://www.mathjax.org/) and code is highlighted with [Shiki](https://shiki.style/). This site is hosted on [GitHub Pages](https://pages.github.com/) with analytics from [Umami](https://umami.is/).
 
 ## Workflow
 
-I write in Obsidian and use [Obsidian Sync](https://obsidian.md/sync) across my devices[^3]. I dedicate a folder for content to be published, which includes attachments, notes, and annotations for popovers on external links. I then run a custom `npm run` command to pull content from my vault to my site.
+I write in [Obsidian](https://obsidian.md/) and use [Obsidian Sync](https://obsidian.md/sync) across my devices. I dedicate a folder for content to be published, which includes attachments, notes, and annotations for popovers on external links. I then run a custom `npm run` command to pull content from my vault to my site.
 
 Styled components in notes, such as quotes, epigraphs, definitions, figure captions, and status boxes are written as callouts in Obsidian, then rendered by the site depending on the type of callout. Math and code blocks are rendered as is. Footnotes are rendered as either citations (if the footnote starts with `cite-`) or sidenotes (for all other cases).
 
@@ -48,5 +48,3 @@ Source code is available on [GitHub](https://github.com/asemorales/asemorales.gi
 [^1]: If the maximum allowed plants for your window size has already been reached, or if the plant would lack light to grow, an existing plant will wither to accommodate the new plant.
 
 [^2]: And literal [digital gardens](https://www.eastgate.com/garden/Enter.html) :)
-
-[^3]: So I can be lazy and write on a phone in bed :)
