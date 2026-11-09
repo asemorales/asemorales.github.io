@@ -19,7 +19,7 @@ Hence, I am trying a new approach, from which this website was born. Writings he
 
 Any narrative I give in an "About the Author" page is a distilled mental model I have about myself at my current state. That narrative would be both inaccurate (for my mental model of myself is biased) and incomplete (for in describing only my current state I deprive you of the opportunity to observe the complexity that arises from across my current and past states). Instead of handing you my self-model through some limited narrative, I invite you to create your own narrative, your own mental model of me, from my writing. This entire site is "About the Author."
 
-## A Writer's Apology
+## An Apology
 
 > [!quote] G. H. Hardy, *[A Mathematician's Apology](https://en.wikipedia.org/wiki/A_Mathematician's_Apology)*
 > I have never done anything ‘useful’. No discovery of mine has made, or is likely to make, directly or indirectly, for good or ill, the least difference to the amenity of the world. [...] I have just one chance of escaping a verdict of complete triviality, that I may be judged to have created something worth creating.
