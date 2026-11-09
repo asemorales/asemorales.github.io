@@ -53,7 +53,7 @@ Useful techniques with [Large language models](https://en.wikipedia.org/wiki/Lar
 - are from credible or well-evidenced sources that you don't already know about (i.e. it must be outside the feeds or accounts you normally read from)
 - include new findings/news that opposes your current beliefs or opposes the dominant paradigm in your field
 - include pre-existing foundational work in your field that you may need to read or review based on [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition)
-- are adjacent to what you're currently working on or reading lately (applies if you use LLMs to work frequently enough such that it has memory of you, or if it is connected to your reader applications via [model context protocol](https://en.wikipedia.org/wiki/Model_Context_Protocol))
+- are adjacent to what you've recently been reading or working on (applies if you use LLMs to work frequently enough such that it has memory of you, or if it is connected to your reader applications via [model context protocol](https://en.wikipedia.org/wiki/Model_Context_Protocol))
 - meet your criteria for the kinds of content you want to see (provide the LLM a list of specific criteria)
 
 **Use LLMs to build habits.** If you frequently use LLMs and are actively trying to build a habit, set the system prompt to incorporate that habit. A few examples:
