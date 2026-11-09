@@ -12,28 +12,24 @@ export async function seeAlso(note: CollectionEntry<"notes">) {
 }
 
 export async function sourceLists(frontmatter: Frontmatter) {
-  const annotations = new Map((await getCollection("annotations")).map((a) => [a.data.url, a]));
-  const withAnnotations = (sources: Source[] = [], cited = false) =>
-    Promise.all(
-      sources.map(async (s) => {
-        if (!s.url) return { ...s, domain: null, Annotation: null };
-        const card = (cards as Record<string, { meta?: string[]; text?: string }>)[s.url];
-        const { text, domain, annotation } = sourceEntry({ ...s, url: s.url, card, annotation: annotations.get(s.url), cited });
-        return { ...s, text, domain, Annotation: annotation ? (await render(annotation)).Content : null };
-      }),
-    );
+  const entries = (sources: Source[] = [], cited = false) =>
+    sources.map((s) => {
+      if (!s.url) return { ...s, domain: null };
+      const card = (cards as Record<string, { meta?: string[]; text?: string }>)[s.url];
+      return { ...s, ...sourceEntry({ ...s, url: s.url, card, cited }) };
+    });
   return [
     {
       id: "references",
       title: "References",
       count: (n: number) => (n === 1 ? "1 reference" : `${n} references`),
-      entries: await withAnnotations(frontmatter.references as Source[], true),
+      entries: entries(frontmatter.references as Source[], true),
     },
     {
       id: "external-links",
       title: "External links",
       count: (n: number) => (n === 1 ? "1 link" : `${n} links`),
-      entries: await withAnnotations(frontmatter.externalLinks as Source[]),
+      entries: entries(frontmatter.externalLinks as Source[]),
     },
   ].filter((l) => l.entries.length > 0);
 }

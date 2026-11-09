@@ -11,7 +11,7 @@ unlisted: true
 
 In a word, this site is an autobiography. It is an experiment in creating [living documentation](https://en.wikipedia.org/wiki/Living_document) of [[glossary#entelechy (noun)|entelechy]][^6] within myself.
 
-By that, I mean to say that I am a [computationally irreducible](https://en.wikipedia.org/wiki/Computational_irreducibility) [complex system](https://en.wikipedia.org/wiki/Complex_system). At any given moment, I am simultaneously in a certain state, and unfolding towards future possible states[^1] within the [[glossary#adjacent possible (noun)|adjacent possible]]. I am unable to predict my future states, although I am guilty for having had the intellectual arrogance to try and do so for much of my life. I am guilty of planning rather than experimenting.
+By that, I mean to say that I am a [computationally irreducible](https://en.wikipedia.org/wiki/Computational_irreducibility) [complex system](https://en.wikipedia.org/wiki/Complex_system). At any given moment, I am simultaneously in a certain state, and unfolding towards future possible states within the [[glossary#adjacent possible (noun)|adjacent possible]]. I am unable to predict my future states, although I am guilty for having had the intellectual arrogance to try and do so for much of my life. I am guilty of planning rather than experimenting.
 
 Hence, I am trying a new approach, from which this website was born. Writings herein are an experiment in documenting who I am by articulating my current ideas and allowing them to unfold. I am my ideas, and thus it follows that [[the evolution of ideas are biographies]][^5]. Hence, this site is an autobiography.
 
@@ -25,9 +25,6 @@ Any narrative I give in an "About the Author" page is a distilled mental model I
 > I have never done anything ‘useful’. No discovery of mine has made, or is likely to make, directly or indirectly, for good or ill, the least difference to the amenity of the world. [...] I have just one chance of escaping a verdict of complete triviality, that I may be judged to have created something worth creating.
 
 If any part of these writings are lacking context, or difficult to understand, or so on, I apologize in advance. I write in whatever manner is natural to me, and little effort has been made to translate my writing for a general public. I write primarily for myself[^2] as an exercise in rigor to develop my thoughts, for [[rigor develops precision]]. Although I do not write for a general public, I require of myself a certain degree of quality and correctness before I publish, mainly as a motivating factor for me to develop my ideas and express them precisely. My writing is also a memory aid for when my future self will forget me, for writing is an extension of memory[^3]. Put briefly: my writing is an entirely selfish[^4] endeavor, and I apologize to you, my reader, for any inconvenience I will inevitably have caused.
-
-[^1]: > [!quote] Buckminster Fuller, *[I Seem to be a Verb](https://openlibrary.org/books/OL21115131M/I_seem_to_be_a_verb._--.)*
-> I live on Earth at present, and I don't know what I am. I know that I am not a category. I am not a thing—a noun. I seem to be a verb, an evolutionary process—an integral function of the universe.
 
 [^2]: > [!quote] Oscar Wilde, *[The Soul of Man Under Socialism](https://en.wikipedia.org/wiki/The_Soul_of_Man_Under_Socialism)*
 > The moment that an artist takes notice of what other people want, and tries to supply the demand, he ceases to be an artist, and becomes a dull or an amusing craftsman, an honest or a dishonest tradesman. He has no further claim to be considered as an artist.

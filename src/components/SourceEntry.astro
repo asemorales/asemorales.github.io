@@ -1,5 +1,4 @@
 ---
-import type { render } from "astro:content";
 import linkStatus from "../data/links-status.json";
 import { archived } from "../lib/dead-links.js";
 import { letter } from "../lib/rehype-sidenotes.js";
@@ -10,10 +9,9 @@ interface Props {
   refs: string[];
   locators?: string[];
   domain: string | null;
-  Annotation: Awaited<ReturnType<typeof render>>["Content"] | null;
 }
 
-const { url, text, refs, locators = [], domain, Annotation } = Astro.props;
+const { url, text, refs, locators = [], domain } = Astro.props;
 const dead = url ? archived(url, linkStatus) : null;
 ---
 
@@ -48,8 +46,3 @@ const dead = url ? archived(url, linkStatus) : null;
   </>
 )}{" "}
 {domain && <span class="domain">({domain})</span>}
-{Annotation && (
-  <div class="annotation">
-    <Annotation />
-  </div>
-)}

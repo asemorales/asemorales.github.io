@@ -473,7 +473,8 @@
   }
 
   .note blockquote {
-    @apply my-10 mr-6 ml-12 italic sm:ml-20;
+    --quote-inset: --spacing(6);
+    @apply my-10 mr-(--quote-inset) ml-12 italic sm:ml-20;
   }
   .note .sidenote-quote {
     @apply italic;
@@ -481,8 +482,12 @@
   .note blockquote footer,
   .note .sidenote-attribution,
   .popover-epigraph footer {
-    @apply mt-2 block text-right text-[0.95em] not-italic;
+    @apply mt-2 block text-right text-[0.95em] text-dim not-italic;
     font-variant-caps: small-caps;
+  }
+  :where(.note blockquote footer) a:not(:where(.sidenote a)),
+  :where(.note .sidenote-attribution) a {
+    @apply text-dim hover:text-link-hover active:text-link-hover;
   }
 
   .note :is(.status, .definition) {
@@ -505,20 +510,36 @@
   .note .sidenote-ref,
   .note .cite-ref {
     @apply static align-super text-[0.65em] leading-none;
+    font-variant-caps: normal;
   }
   .note .sidenote-ref a,
   .note .cite-ref a {
     @apply no-underline hover:underline;
   }
+  .note .sidenote-number,
+  .note .sidenote-mark {
+    @apply text-dim;
+  }
+  .note .sidenote-ref a,
+  .note .cite-ref a {
+    @apply text-dim hover:text-link-hover active:text-link-hover;
+  }
   .note .margin-toggle {
     @apply sr-only;
   }
   .note .sidenote {
-    @apply hidden text-left text-base leading-normal text-ink;
+    @apply hidden text-left text-base leading-normal text-ink not-italic;
+    font-variant-caps: normal;
     hyphens: manual;
   }
   .note .sidenote-mark {
     @apply align-super text-[0.75em] leading-none;
+  }
+  .note .sidenote-mark::before {
+    content: "[";
+  }
+  .note .sidenote-mark::after {
+    content: "]";
   }
   .note .sidenote-block + .sidenote-block {
     @apply mt-2 block;
@@ -561,7 +582,7 @@
     .note .sidenote {
       @apply relative float-right clear-right mb-4 block;
       width: var(--margin);
-      margin-right: calc(-1 * (var(--gap) + var(--margin)));
+      margin-right: calc(-1 * (var(--gap) + var(--margin) + var(--quote-inset, 0px)));
     }
   }
 
@@ -991,7 +1012,7 @@
   .note .sidenote {
     @apply relative float-right clear-right block;
     width: var(--margin);
-    margin-right: calc(-1 * (var(--gap) + var(--margin)));
+    margin-right: calc(-1 * (var(--gap) + var(--margin) + var(--quote-inset, 0px)));
   }
   .note a[href^="http"]::after {
     content: " (" attr(href) ")";

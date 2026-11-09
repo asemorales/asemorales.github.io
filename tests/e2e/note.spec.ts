@@ -368,7 +368,6 @@ test.describe("bottom matter", () => {
     await expect(links.locator("a[href^='http']").first()).toHaveAttribute("href", "https://github.com/adobe-fonts/source-serif");
     await expect(links.locator("a[href*='doi.org/10.1112']")).toHaveCount(0);
     await expect(links.locator("a[href='https://gwern.net/design']")).toHaveCount(1);
-    await expect(links.locator(".annotation")).toHaveCount(0);
     const back = links.first().locator(".backrefs a");
     await expect(page.locator((await back.getAttribute("href"))!)).toHaveAttribute("href", "https://github.com/adobe-fonts/source-serif");
   });

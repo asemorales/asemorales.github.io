@@ -8,7 +8,6 @@ describe("sourceEntry", () => {
     expect(sourceEntry({ url: "https://doi.org/x", text: "T", card, cited: true })).toEqual({
       text: "Turing, 1937, Paper",
       domain: "doi.org",
-      annotation: null,
     });
   });
 
@@ -16,15 +15,7 @@ describe("sourceEntry", () => {
     expect(sourceEntry({ url: "https://www.x.org/p", text: "T", cited: true }).text).toBe("T");
   });
 
-  it("show a reference's annotation", () => {
-    const entry = sourceEntry({ url: "https://doi.org/x", text: "T", card, annotation: "Mine.", cited: true });
-    expect(entry).toMatchObject({ annotation: "Mine." });
-  });
-
-  it("show nothing below an external link", () => {
-    const link = { url: "https://www.x.org/p", text: "T", card, cited: false };
-    const bare = { text: "T", domain: "x.org", annotation: null };
-    expect(sourceEntry({ ...link, annotation: "Mine." })).toEqual(bare);
-    expect(sourceEntry(link)).toEqual(bare);
+  it("keep an external link's own text", () => {
+    expect(sourceEntry({ url: "https://www.x.org/p", text: "T", card, cited: false })).toEqual({ text: "T", domain: "x.org" });
   });
 });

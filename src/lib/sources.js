@@ -7,10 +7,9 @@ function referenceName(card) {
   return card?.meta?.length ? card.meta.join(", ") : null;
 }
 
-export function sourceEntry({ url, text, card, annotation, cited }) {
+export function sourceEntry({ url, text, card, cited }) {
   return {
     text: (cited && referenceName(card)) || text,
     domain: domain(url),
-    annotation: cited ? (annotation ?? null) : null,
   };
 }
