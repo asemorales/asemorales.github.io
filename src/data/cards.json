@@ -191,6 +191,12 @@
     "meta": ["Wikipedia"],
     "text": "In numerical analysis, computational physics, and simulation, discretization error is the error resulting from the fact that a function of a continuous variable is represented in the computer by a finite number of evaluations, for example, on a lattice. Discretization error can usually be reduced by using a more finely spaced lattice, with an increased computational cost."
   },
+  "https://en.wikipedia.org/wiki/Don't_repeat_yourself": {
+    "kind": "wikipedia",
+    "title": "Don't repeat yourself",
+    "meta": ["Wikipedia"],
+    "text": "\"Don't repeat yourself\" (DRY) is a principle of software development aimed at reducing repetition of information which is likely to change, replacing it with abstractions that are less likely to change, or using data normalization which avoids redundancy in the first place."
+  },
   "https://en.wikipedia.org/wiki/Downward_causation": {
     "kind": "wikipedia",
     "title": "Downward causation",
@@ -238,6 +244,12 @@
     "title": "Fiscal year",
     "meta": ["Wikipedia"],
     "text": "A fiscal year is a one-year time interval whose beginning and end may be shifted with respect to the calendar year . In the Northern Hemisphere, the most common shifted fiscal year is July to the next June, but other practices exist, such as April to the next March. For countries in the Southern Hemisphere, the fiscal year normally coincides with the calendar year, January to December."
+  },
+  "https://en.wikipedia.org/wiki/Flow_%28psychology%29": {
+    "kind": "wikipedia",
+    "title": "Flow (psychology)",
+    "meta": ["Wikipedia"],
+    "text": "Flow in positive psychology, also known colloquially as being \"in the zone\" or focused, is the mental state in which a person performing some activity is fully immersed in a feeling of energized focus, full involvement, and enjoyment in the process of the activity. In essence, flow is characterized by the complete absorption in what one does, and a resulting transformation in one's sense of time."
   },
   "https://en.wikipedia.org/wiki/Fluid_and_crystallized_intelligence": {
     "kind": "wikipedia",
@@ -305,6 +317,12 @@
     "meta": ["Wikipedia"],
     "text": "Inquiry education is a student-centered method of education focused on asking questions. Students are encouraged to ask questions which are meaningful to them, and which do not necessarily have easy answers; teachers are encouraged to avoid giving answers when this is possible, and in any case to avoid giving direct answers in favor of asking more questions."
   },
+  "https://en.wikipedia.org/wiki/KISS_principle": {
+    "kind": "wikipedia",
+    "title": "KISS principle",
+    "meta": ["Wikipedia"],
+    "text": "KISS is a design principle first noted by the U.S. Navy in 1960. First seen partly in American English by at least 1938, KISS implies that simplicity should be a design goal. The phrase has been associated with aircraft engineer Kelly Johnson. The term \"KISS principle\" was in popular use by 1970."
+  },
   "https://en.wikipedia.org/wiki/Kuramoto_model": {
     "kind": "wikipedia",
     "title": "Kuramoto model",
@@ -322,6 +340,12 @@
     "title": "Langton's ant",
     "meta": ["Wikipedia"],
     "text": "Langton's ant is a two-dimensional Turing machine with a very simple set of rules but complex emergent behavior. It was invented by Chris Langton in 1986 and runs on a square lattice of black and white cells. The idea has been generalized in several different ways, such as turmites which add more colors and more states."
+  },
+  "https://en.wikipedia.org/wiki/Large_language_model": {
+    "kind": "wikipedia",
+    "title": "Large language model",
+    "meta": ["Wikipedia"],
+    "text": "A large language model (LLM) is a machine learning model trained on a vast amount of text for natural language processing tasks, especially language generation. LLMs can typically generate, summarize, translate, and analyze text in many contexts. They are the basis for many modern chatbots, such as ChatGPT, Claude, Vibe, Gemini, Grok, Qwen and DeepSeek."
   },
   "https://en.wikipedia.org/wiki/Link_rot": {
     "kind": "wikipedia",
@@ -353,11 +377,23 @@
     "meta": ["Wikipedia"],
     "text": "Mercury is a major god in Roman religion and mythology, being one of the 12 Dii Consentes within the ancient Roman pantheon. He is the god of boundaries, commerce, communication, eloquence, financial gain, languages, luck, thieves, travelers, and trickery; he is also the guide of souls to the underworld."
   },
+  "https://en.wikipedia.org/wiki/Model_Context_Protocol": {
+    "kind": "wikipedia",
+    "title": "Model Context Protocol",
+    "meta": ["Wikipedia"],
+    "text": "The Model Context Protocol (MCP) is an open standard and open-source framework introduced by Anthropic in November 2024 to standardize the way artificial intelligence (AI) systems like large language models (LLMs) integrate and share data with external tools, systems, and data sources. MCP provides a standardized interface for reading files, executing functions, and handling contextual prompts."
+  },
   "https://en.wikipedia.org/wiki/Moravec's_paradox": {
     "kind": "wikipedia",
     "title": "Moravec's paradox",
     "meta": ["Wikipedia"],
     "text": "Moravec's paradox is the observation that, as Hans Moravec wrote in 1988, \"it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility\"."
+  },
+  "https://en.wikipedia.org/wiki/Neurodiversity": {
+    "kind": "wikipedia",
+    "title": "Neurodiversity",
+    "meta": ["Wikipedia"],
+    "text": "The neurodiversity paradigm is a framework for understanding human brain function that considers the diversity within sensory processing, motor abilities, social comfort, cognition, and focus as neurobiological differences. This diversity falls on a spectrum of neurocognitive differences."
   },
   "https://en.wikipedia.org/wiki/News_aggregator": {
     "kind": "wikipedia",
@@ -430,6 +466,24 @@
     "title": "Separation of concerns",
     "meta": ["Wikipedia"],
     "text": "Separation of concerns (SoC) is a design principle in computer science and software engineering; it holds that a complex problem should be divided into distinct concerns — aspects or issues — that can be analyzed, addressed or managed individually, even when they belong to the same system. This allows focusing on one issue at a time, reducing cognitive load and complexity."
+  },
+  "https://en.wikipedia.org/wiki/Spaced_repetition": {
+    "kind": "wikipedia",
+    "title": "Spaced repetition",
+    "meta": ["Wikipedia"],
+    "text": "Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently, while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect. The use of spaced repetition has been proven to increase the rate of learning."
+  },
+  "https://en.wikipedia.org/wiki/Stack_Exchange": {
+    "kind": "wikipedia",
+    "title": "Stack Exchange",
+    "meta": ["Wikipedia"],
+    "text": "Stack Exchange is a network of question-and-answer (Q&A) websites on topics in diverse fields, each site covering a specific topic, where questions, answers, and users are subject to a reputation award process. The reputation system allows the sites to be self-moderating."
+  },
+  "https://en.wikipedia.org/wiki/Straw_man#Steelmanning": {
+    "kind": "wikipedia",
+    "title": "Straw man",
+    "meta": ["Wikipedia"],
+    "text": "A straw man fallacy is the informal fallacy of refuting an argument different from the one actually under discussion, while not recognizing or acknowledging the distinction. One who engages in this fallacy is said to be \"attacking a straw man\"."
   },
   "https://en.wikipedia.org/wiki/Stuart_Kauffman": {
     "kind": "wikipedia",
