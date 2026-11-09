@@ -100,6 +100,9 @@
     "submitted": "2026-11-08",
     "job": "spn2-34b8d451f7e5731ae35d6559baf1186659fd0e58"
   },
+  "https://en.wikipedia.org/wiki/Don't_repeat_yourself": {
+    "submitted": "2026-11-09"
+  },
   "https://en.wikipedia.org/wiki/Downward_causation": {
     "submitted": "2026-11-06",
     "job": "spn2-3a53dc36aa9e26fa9e2d79e86a8bbb91606ab2d7"
@@ -125,6 +128,9 @@
   },
   "https://en.wikipedia.org/wiki/Fiscal_year": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Flow_%28psychology%29": {
+    "submitted": "2026-11-09"
   },
   "https://en.wikipedia.org/wiki/Fluid_and_crystallized_intelligence": {
     "submitted": "2026-11-06"
@@ -161,6 +167,9 @@
     "submitted": "2026-11-08",
     "job": "spn2-a222a5f4acdb20a39364cb4ee406437177c46916"
   },
+  "https://en.wikipedia.org/wiki/KISS_principle": {
+    "submitted": "2026-11-09"
+  },
   "https://en.wikipedia.org/wiki/Kuramoto_model": {
     "submitted": "2026-11-06",
     "job": "spn2-a5630471303b91b305bf2f9ad5d4350342a4b3e9"
@@ -171,6 +180,9 @@
   "https://en.wikipedia.org/wiki/Langton's_ant": {
     "submitted": "2026-11-06",
     "job": "spn2-043a37b84503d17c60c25adc12f442b3916ff562"
+  },
+  "https://en.wikipedia.org/wiki/Large_language_model": {
+    "submitted": "2026-11-09"
   },
   "https://en.wikipedia.org/wiki/Link_rot": {
     "submitted": "2026-11-06"
@@ -188,9 +200,15 @@
   "https://en.wikipedia.org/wiki/Mercury_(mythology)": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Model_Context_Protocol": {
+    "submitted": "2026-11-09"
+  },
   "https://en.wikipedia.org/wiki/Moravec's_paradox": {
     "submitted": "2026-11-06",
     "job": "spn2-3d0dee8002740d4bc6c1e26300a655af14176633"
+  },
+  "https://en.wikipedia.org/wiki/Neurodiversity": {
+    "submitted": "2026-11-09"
   },
   "https://en.wikipedia.org/wiki/News_aggregator": {
     "submitted": "2026-11-06"
@@ -229,6 +247,15 @@
   },
   "https://en.wikipedia.org/wiki/Separation_of_concerns": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Spaced_repetition": {
+    "submitted": "2026-11-09"
+  },
+  "https://en.wikipedia.org/wiki/Stack_Exchange": {
+    "submitted": "2026-11-09"
+  },
+  "https://en.wikipedia.org/wiki/Straw_man#Steelmanning": {
+    "submitted": "2026-11-09"
   },
   "https://en.wikipedia.org/wiki/Stuart_Kauffman": {
     "submitted": "2026-11-06"
