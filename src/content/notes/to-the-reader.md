@@ -42,4 +42,4 @@ If any part of these writings are lacking context, or difficult to understand, o
 
 [^7]: "Essays" is etymologically rooted in the French *essais* (attempts), referring to experimentation and an attempt to put ideas into writing[^cite-eb-essay]. It is in this sense that I describe my own writing.
 
-[^cite-eb-essay]: [Encyclopedia Britannica, Essay](https://www.britannica.com/art/essay)
+[^cite-eb-essay]: [Encyclopædia Britannica, Essay](https://www.britannica.com/art/essay)
