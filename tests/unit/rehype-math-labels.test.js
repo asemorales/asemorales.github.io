@@ -25,4 +25,14 @@ describe("rehypeMathLabels", () => {
     expect(container.children[0].properties).toEqual({});
     expect(link.properties["aria-label"]).toBe("\\eqref{x}");
   });
+
+  it("records the width of wide math so CSS can shrink it", () => {
+    const file = { data: {} };
+    rehypeMathSource()({ type: "root", children: [math("a"), math("b"), math("c")] }, file);
+    const narrow = el("mjx-container", {}, [el("svg", { width: "5ex" })]);
+    const wide = el("mjx-container", {}, [el("svg", { width: "25.5ex" })]);
+    const full = el("mjx-container", { display: "true", width: "full", style: "min-width: 30ex;" }, [el("svg", { width: "100%" })]);
+    rehypeMathLabels()({ type: "root", children: [narrow, wide, full] }, file);
+    expect([narrow, wide, full].map((n) => n.properties.style)).toEqual([undefined, "--w:25.5;", "min-width: 30ex;--w:30;"]);
+  });
 });

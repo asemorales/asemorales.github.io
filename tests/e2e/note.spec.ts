@@ -174,6 +174,15 @@ test.describe("sidenotes", () => {
     for (let i = 1; i < boxes.length; i++) expect(boxes[i].y).toBeGreaterThanOrEqual(boxes[i - 1].y + boxes[i - 1].height);
     const ref = await box(page.locator("#snref-short"));
     expect(Math.abs(boxes[0].y - ref.y)).toBeLessThan(ref.height * 2);
+    const trapped = await notes.evaluateAll(
+      (els) =>
+        els.filter((n) => {
+          for (let a = n.parentElement; a && !a.matches(".note"); a = a.parentElement)
+            if (getComputedStyle(a).containerType !== "normal") return true;
+          return false;
+        }).length,
+    );
+    expect(trapped).toBe(0);
   });
 
   test("open and close on tap on phones", async ({ page }, info) => {

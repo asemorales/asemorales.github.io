@@ -2,6 +2,7 @@ import { classes, el, isElement, text, walk } from "./hast.js";
 import { resetMathTags, texToMathml } from "./math.js";
 
 const MATH = ["language-math", "math-inline", "math-display"];
+const MIN_SHRINK = 20;
 
 export function rehypeMathSource() {
   return (tree, file) => {
@@ -28,6 +29,10 @@ export function rehypeMathLabels() {
       if (!svg || !source) return true;
       const display = node.properties.display === "true";
       if (display) node.properties.dataTex = source;
+      const width = parseFloat(
+        String(display && node.properties.width === "full" ? node.properties.style : svg.properties.width).match(/([\d.]+)ex/)?.[1],
+      );
+      if (width > MIN_SHRINK) node.properties.style = `${String(node.properties.style ?? "").replace(/;?\s*$/, ";")}--w:${width};`.replace(/^;/, "");
       const links = [];
       walk(svg, (n) => n.tagName === "a" && links.push(n));
       if (links.length === 0) {

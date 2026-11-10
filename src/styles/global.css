@@ -172,6 +172,18 @@
     fill: var(--ink);
     stroke: var(--ink);
   }
+  /* Containment would trap sidenote floats inside their paragraph. */
+  .note :is(p, li:not(.tags li)):not(:has(.sidenote)),
+  .note :is(figcaption, .sidenote, .math-block) {
+    container-type: inline-size;
+  }
+  /* 0.5 bounds Source Serif 4's x-height in em; 4.25rem matches the mr-17 tag gutter. */
+  mjx-container[jax="SVG"][style*="--w"] {
+    font-size: min(1em, 100cqi / (var(--w) * 0.5));
+  }
+  mjx-container[jax="SVG"][width="full"][style*="--w"] {
+    font-size: min(1em, (100cqi - 4.25rem) / (var(--w) * 0.5));
+  }
   mjx-container[jax="SVG"][display="true"] {
     @apply my-4 block overflow-x-auto overflow-y-hidden text-center;
   }
