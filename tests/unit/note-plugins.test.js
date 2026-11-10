@@ -344,6 +344,15 @@ describe("rehypeBlocks", () => {
     expect(lead.properties.className).toEqual(marked ? ["lead-in"] : undefined);
   });
 
+  it("keeps inline math on one line with the text that touches it, splitting only the math off a highlight", () => {
+    const math = () => el("mjx-container", { display: "false" }, []);
+    const tree = root(p("a (", math(), "), b ", el("mark", {}, [txt("c "), math()]), "-class d ", el("mjx-container", { display: "true" }, []), "."));
+    rehypeInlineMarks()(tree);
+    expect(toHtml(tree)).toBe(
+      '<p>a <span class="nowrap">(<mjx-container display="false"></mjx-container>),</span> b <mark>c </mark><span class="nowrap"><mark><mjx-container display="false"></mjx-container></mark>-class</span> d <mjx-container display="true"></mjx-container>.</p>',
+    );
+  });
+
   it("does not change bold later in a paragraph", () => {
     const later = el("strong", {}, [txt("Later.")]);
     rehypeBlocks()(root(p("Opening. ", later)));

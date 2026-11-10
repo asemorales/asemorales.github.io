@@ -130,6 +130,10 @@
     @apply decoration-dotted hover:text-link-dead-hover active:text-link-dead-hover;
   }
 
+  .nowrap {
+    @apply whitespace-nowrap;
+  }
+
   mark {
     @apply border-b border-mark-edge bg-mark text-ink;
     box-decoration-break: clone;
