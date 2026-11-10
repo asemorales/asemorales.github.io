@@ -19,6 +19,10 @@ Incomprehensibilities, electroencephalographically, counterrevolutionaries, pneu
 
 **This paragraph tests an opening segment without small caps**, which is rendered as bold text.
 
+This paragraph tests highlights: ==a highlight that spans *italics*, `code`, and $x^2$==. Highlights are demarcated by pairs of == around text in Obsidian notes.
+
+This paragraph tests a block ID using [[#^lorem-block|a link to this paragraph]]. ^lorem-block
+
 ### Lists
 
 - An unordered item.
@@ -27,8 +31,10 @@ Incomprehensibilities, electroencephalographically, counterrevolutionaries, pneu
   - Another nested item with a longer line of text that wraps onto a second line on narrow screens.
 - A final item.
 
+This paragraph tests block IDs on list items, which [[#^lorem-item|a link to the second item]] targets.
+
 1. Here’s an itemized list of thirty years of disagreements
-2. Sweet Jesus
+2. Sweet Jesus ^lorem-item
    - Hey, I have not been shy
    - I am just a guy in the public eye
 3. Trying to do my best for our republic
@@ -47,6 +53,14 @@ Incomprehensibilities, electroencephalographically, counterrevolutionaries, pneu
 > [!figure]
 > ![Flowchart of citations among the foundational papers of complexity science](./images/fp-citation-flow-chart.webp)
 > Krakauer, D. C. (Ed.). (2024). *Foundational Papers in Complexity Science* (Vols. 1–4). SFI Press.
+
+This paragraph tests a block ID on a figure targeted with [[#^lorem-svg|this link]].
+
+> [!figure]
+> ![Three shaded boxes joined by lines, a dark circle, and a dashed rule](./images/lorem-ipsum-grays.svg)
+> SVG figure with grays mapped to the current site theme.
+
+^lorem-svg
 
 > [!wide-figure]
 > ![The School of Athens, a fresco by Raffaello Sanzio da Urbino](./images/the-school-of-athens-by-raffaello-sanzio-da-urbino.jpg)

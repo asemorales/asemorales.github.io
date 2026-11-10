@@ -24,7 +24,7 @@ Styled components in notes, such as quotes, epigraphs, definitions, figure capti
 
 To account for [linkrot](https://en.wikipedia.org/wiki/Link_rot), [CI](https://en.wikipedia.org/wiki/Continuous_integration) is configured to archive new external links through the [Wayback Machine](https://web.archive.org/) and substitute dead links with archived copies.
 
-## Digital garden
+## L-system garden
 
 >[!quote]Fernando Pessoa, *[The Book of Disquiet](https://en.wikipedia.org/wiki/The_Book_of_Disquiet)*
 >Since we cannot extract beauty from life, let us at least extract beauty from our inability to extract beauty from life. Let us make of our failure a victory, something proud and positive, complete with pillars, majesty and spiritual aquiescence.
@@ -39,9 +39,16 @@ The algorithms for the L-systems here are taken from [The Algorithmic Beauty of 
 - Hover to rustle plants
 - Tap to grow new plants[^1]
 
-Wildlife is generated based on how often I wrote or updated a note in the past 30 days, where each note is one visitor. This includes fireflies whose behavior syncs based on the [Kuromato model](https://en.wikipedia.org/wiki/Kuramoto_model), snails, birds, spiders, and caterpillars that transform into butterflies.
+Wildlife is generated based on how often I wrote or updated a note in the past 30 days. This includes fireflies whose behavior syncs based on the [Kuromato model](https://en.wikipedia.org/wiki/Kuramoto_model), snails, birds, spiders, and caterpillars that transform into butterflies.
 
-## Source code and miscellaneous
+## Note graph
+
+The graph on the homepage is inspired by the graph view in Obsidian, which displays notes and links between them. Notes are arranged by date of creation, with the earliest notes at the topmost and latest at the bottom. A few details:
+- Layout is computed at build time (to render on browsers without JavaScript)
+- Zoom with touchscreen gestures, `Ctrl+scroll`, or the `+` and `-` buttons on hover
+- Display popovers and highlight note in contents on node hover
+
+## Source code
 
 Source code is available on [GitHub](https://github.com/asemorales/asemorales.github.io) under AGPL 3.0.
 

@@ -47,11 +47,29 @@
     "meta": ["Bennett", "2024", "arXiv"],
     "text": "Are biological self-organising systems more ``intelligent'' than artificial intelligence (AI)? If so, why? I address this question using a mathematical framework that defines intelligence in terms of adaptability. Systems are modelled as stacks of abstraction layers (\\emph{Stack Theory}) and compared by how effectively they delegate agentic control down their stacks."
   },
+  "https://arxiv.org/abs/2611.06641": {
+    "kind": "arxiv",
+    "title": "The Logic of Emergence",
+    "meta": ["Wolpert, Krakauer", "2026", "arXiv"],
+    "text": "``Emergence'' refers to the fact that different mathematical languages and theories seem to be required to describe scientific theories that operate at different spatial and temporal scales. Highly circumscribed, special cases of emergence have been investigated using many different formal tools, including coarse-graining (over space and / or time), renormalization, dimension reduction, broken…"
+  },
   "https://astro.build/": {
     "kind": "page",
     "title": "Astro",
     "meta": [],
     "text": "Astro powers the world's fastest marketing sites, blogs, e-commerce websites, and more."
+  },
+  "https://comdig.cssociety.org/": {
+    "kind": "page",
+    "title": "Complexity Digest – Networking the complexity community since 1999",
+    "meta": [],
+    "text": "“Emergence” refers to the fact that different mathematical languages and theories seem to be required to describe scientific theories that operate at different spatial and temporal scales. Highly circumscribed, special cases of emergence have been investigated using many different formal tools, including coarse-graining (over space and / or time), renormalization, dimension reduction, broken…"
+  },
+  "https://creativecommons.org/licenses/by-nc-sa/4.0/": {
+    "kind": "page",
+    "title": "Deed - Attribution-NonCommercial-ShareAlike 4.0 International - Creative Commons",
+    "meta": [],
+    "text": "You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation."
   },
   "https://doi.org/10.1007%2Fs13194-012-0056-8": {
     "kind": "doi",
@@ -113,6 +131,12 @@
     "meta": ["Wikipedia"],
     "text": "The Analects, also known as the Sayings of Confucius, is an ancient Chinese philosophical text composed of sayings and ideas attributed to Confucius and his contemporaries, traditionally believed to have been compiled by his followers."
   },
+  "https://en.wikipedia.org/wiki/ArXiv": {
+    "kind": "wikipedia",
+    "title": "ArXiv",
+    "meta": ["Wikipedia"],
+    "text": "arXiv is an independent, open-access repository of electronic preprints and postprints approved for posting after moderation, but not peer reviewed. It consists of scientific papers in the fields of mathematics, physics, astronomy, electrical engineering, computer science, quantitative biology, statistics, mathematical finance, and economics, which can be accessed online."
+  },
   "https://en.wikipedia.org/wiki/Assembly_language": {
     "kind": "wikipedia",
     "title": "Assembly language",
@@ -131,6 +155,12 @@
     "meta": ["Wikipedia"],
     "text": "C++ is a high-level, general-purpose programming language created by Danish computer scientist Bjarne Stroustrup. First released in 1985 as an extension of the C programming language, adding object-oriented (OOP) functionality and later expanding significantly with the addition of functional programming features."
   },
+  "https://en.wikipedia.org/wiki/Causal_model": {
+    "kind": "wikipedia",
+    "title": "Causal model",
+    "meta": ["Wikipedia"],
+    "text": "In metaphysics and statistics, a causal model is a conceptual model that represents the causal mechanisms of a system. Causal models often employ formal causal notation, such as structural equation modeling or causal directed acyclic graphs (DAGs), to describe relationships among variables and to guide inference."
+  },
   "https://en.wikipedia.org/wiki/Cellular_automaton": {
     "kind": "wikipedia",
     "title": "Cellular automaton",
@@ -143,11 +173,35 @@
     "meta": ["Wikipedia"],
     "text": "A citation is a reference to a source. More precisely, a citation is an abbreviated alphanumeric expression embedded in the body of an intellectual work that denotes an entry in the bibliographic references section of the work, for the purpose of acknowledging the relevance of the works of others to the topic of discussion at the spot where the citation appears."
   },
+  "https://en.wikipedia.org/wiki/Classical_mechanics": {
+    "kind": "wikipedia",
+    "title": "Classical mechanics",
+    "meta": ["Wikipedia"],
+    "text": "In physics, classical mechanics is a theory that describes the effect of forces on the motion of macroscopic objects and bulk matter, without considering quantum effects, and often without incorporating relativistic effects either."
+  },
+  "https://en.wikipedia.org/wiki/Coarse-grained_modeling": {
+    "kind": "wikipedia",
+    "title": "Coarse-grained modeling",
+    "meta": ["Wikipedia"],
+    "text": "Coarse-grained modeling, coarse-grained models, aim at simulating the behaviour of complex systems using their coarse-grained (simplified) representation. Coarse-grained models are widely used for molecular modeling of biomolecules at various granularity levels."
+  },
   "https://en.wikipedia.org/wiki/Cold_start_%28recommender_systems%29": {
     "kind": "wikipedia",
     "title": "Cold start (recommender systems)",
     "meta": ["Wikipedia"],
     "text": "Cold start is a potential problem in computer-based information systems which involves a degree of automated data modelling. Specifically, it concerns the issue that the system cannot draw any inferences for users or items about which it has not yet gathered sufficient information."
+  },
+  "https://en.wikipedia.org/wiki/Collective_behavior": {
+    "kind": "wikipedia",
+    "title": "Collective behavior",
+    "meta": ["Wikipedia"],
+    "text": "Collective behavior constitutes social processes and events which do not reflect existing social structure, but which emerge in a \"spontaneous\" way. More broadly, it can include the behavior of cells, social animals like birds and fish, and insects including ants."
+  },
+  "https://en.wikipedia.org/wiki/Commensurability_(philosophy_of_science)": {
+    "kind": "wikipedia",
+    "title": "Commensurability (philosophy of science)",
+    "meta": ["Wikipedia"],
+    "text": "Commensurability is a concept in the philosophy of science whereby scientific theories are said to be \"commensurable\" if scientists can discuss the theories using a shared nomenclature that allows direct comparison of them to determine which one is more valid or useful."
   },
   "https://en.wikipedia.org/wiki/Complex_system": {
     "kind": "wikipedia",
@@ -167,17 +221,47 @@
     "meta": ["Wikipedia"],
     "text": "Computational irreducibility suggests certain computational processes cannot be simplified and the only way to determine the outcome of a process is to go through each step of its computation. It is one of the main ideas proposed by Stephen Wolfram in his 2002 book A New Kind of Science, although the concept goes back to studies from the 1980s."
   },
+  "https://en.wikipedia.org/wiki/Condensed_matter_physics": {
+    "kind": "wikipedia",
+    "title": "Condensed matter physics",
+    "meta": ["Wikipedia"],
+    "text": "Condensed matter physics is the field of physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases, that arise from electromagnetic forces between atoms and electrons. More generally, the subject deals with condensed phases of matter: systems of many constituents with strong interactions among them."
+  },
   "https://en.wikipedia.org/wiki/Continuous_integration": {
     "kind": "wikipedia",
     "title": "Continuous integration",
     "meta": ["Wikipedia"],
     "text": "Continuous integration (CI) is the practice of integrating source code changes frequently and ensuring that the integrated codebase is in a workable state. Typically, developers merge changes to an integration branch, and an automated system builds and tests the software system. Often, the automated process runs on each commit or runs on a schedule such as once a day."
   },
+  "https://en.wikipedia.org/wiki/Continuum_limit": {
+    "kind": "wikipedia",
+    "title": "Continuum limit",
+    "meta": ["Wikipedia"],
+    "text": "In mathematical physics and mathematics, the continuum limit or scaling limit of a lattice model characterizes its behaviour in the limit as the lattice spacing goes to zero. It is often useful to use lattice models to approximate real-world processes, such as Brownian motion."
+  },
+  "https://en.wikipedia.org/wiki/Critical_phenomena": {
+    "kind": "wikipedia",
+    "title": "Critical phenomena",
+    "meta": ["Wikipedia"],
+    "text": "In physics, critical phenomena is the collective name associated with the physics of critical points. Most of them stem from the divergence of the correlation length, but also the dynamics slows down. Critical phenomena include scaling relations among different quantities, power-law divergences of some quantities described by critical exponents, universality, fractal behaviour, and ergodicity…"
+  },
+  "https://en.wikipedia.org/wiki/Crystal_structure": {
+    "kind": "wikipedia",
+    "title": "Crystal structure",
+    "meta": ["Wikipedia"],
+    "text": "In crystallography, crystal structure is a description of the ordered arrangement of atoms, ions, or molecules in a crystalline material. Ordered structures occur from the intrinsic nature of constituent particles to form symmetric patterns that repeat along the principal directions of three-dimensional space in matter."
+  },
   "https://en.wikipedia.org/wiki/De_facto_and_de_jure": {
     "kind": "wikipedia",
     "title": "De facto and de jure",
     "meta": ["Wikipedia"],
     "text": "De facto and de jure are contrasting concepts, with de facto being used to refer to the actual existence of a state of affairs, and de jure being used to refer to the legal existence of something even if it is not represented in reality. These terms are particularly used in the context of law and governance."
+  },
+  "https://en.wikipedia.org/wiki/Dimensionality_reduction": {
+    "kind": "wikipedia",
+    "title": "Dimensionality reduction",
+    "meta": ["Wikipedia"],
+    "text": "Dimensionality reduction, or dimension reduction, is the transformation of data from a high-dimensional space into a low-dimensional space so that the low-dimensional representation retains some meaningful properties of the original data, ideally close to its intrinsic dimension."
   },
   "https://en.wikipedia.org/wiki/Discretization": {
     "kind": "wikipedia",
@@ -221,11 +305,23 @@
     "meta": ["Wikipedia"],
     "text": "In philosophy, systems theory, science, and art, emergence occurs when a complex entity has properties or behaviors that its components do not have on their own, and emerge only when they interact in a wider whole."
   },
+  "https://en.wikipedia.org/wiki/Epistemology": {
+    "kind": "wikipedia",
+    "title": "Epistemology",
+    "meta": ["Wikipedia"],
+    "text": "Epistemology is the branch of philosophy that examines the nature, origin, and limits of knowledge. Also called the theory of knowledge, it explores different types of knowledge, such as propositional knowledge about facts, practical knowledge in the form of skills, and knowledge by acquaintance as a familiarity through experience."
+  },
   "https://en.wikipedia.org/wiki/Essays_%28Montaigne%29": {
     "kind": "wikipedia",
     "title": "Essays (Montaigne)",
     "meta": ["Wikipedia"],
     "text": "The Essays of Michel de Montaigne are contained in three books and 107 chapters of varying length. They were originally written in Middle French and published in the Kingdom of France. Montaigne's stated design in writing, publishing and revising the Essays over the period from approximately 1570 to 1592 was to record \"some traits of my character and of my humours.\" The Essays were first…"
+  },
+  "https://en.wikipedia.org/wiki/Explanatory_gap": {
+    "kind": "wikipedia",
+    "title": "Explanatory gap",
+    "meta": ["Wikipedia"],
+    "text": "In the philosophy of mind, the explanatory gap is the difficulty that physicalist philosophies have in explaining how physical properties give rise to the way things feel subjectively when they are experienced. It is a term introduced by philosopher Joseph Levine."
   },
   "https://en.wikipedia.org/wiki/Exploration%E2%80%93exploitation_dilemma": {
     "kind": "wikipedia",
@@ -238,6 +334,12 @@
     "title": "Fields Medal",
     "meta": ["Wikipedia"],
     "text": "The Fields Medal is a prize awarded to two, three, or four mathematicians under 40 years of age at the International Congress of Mathematicians (ICM) of the International Mathematical Union (IMU), a convention which takes place every four years. The name of the award honors the Canadian mathematician John Charles Fields."
+  },
+  "https://en.wikipedia.org/wiki/First-order_logic": {
+    "kind": "wikipedia",
+    "title": "First-order logic",
+    "meta": ["Wikipedia"],
+    "text": "In mathematics, philosophy, linguistics, and computer science, first-order logic (FOL), also called predicate logic, predicate calculus, or quantificational logic, is a type of formal system. First-order logic uses quantified variables over non-logical objects, and allows the use of sentences that contain variables."
   },
   "https://en.wikipedia.org/wiki/Fiscal_year": {
     "kind": "wikipedia",
@@ -275,6 +377,18 @@
     "meta": ["Wikipedia"],
     "text": "Gregor Johann Mendel was an Austrian biologist, meteorologist, mathematician, Augustinian friar and abbot of St. Thomas' Abbey in Brno (Brünn), Margraviate of Moravia. Mendel was born in a German-speaking family in the Silesian part of the Austrian Empire and gained posthumous recognition as the founder of the modern science of genetics."
   },
+  "https://en.wikipedia.org/wiki/Ground_state": {
+    "kind": "wikipedia",
+    "title": "Ground state",
+    "meta": ["Wikipedia"],
+    "text": "The ground state of a quantum-mechanical system is its stationary state of lowest energy; the energy of the ground state is known as the zero-point energy of the system. An excited state is any state with energy greater than the ground state. In quantum field theory, the ground state is usually called the vacuum."
+  },
+  "https://en.wikipedia.org/wiki/Gutenberg%E2%80%93Richter_law": {
+    "kind": "wikipedia",
+    "title": "Gutenberg–Richter law",
+    "meta": ["Wikipedia"],
+    "text": "In seismology, the Gutenberg–Richter law expresses the relationship between the magnitude and total number of earthquakes in any given region and time period of at least that magnitude."
+  },
   "https://en.wikipedia.org/wiki/H-index": {
     "kind": "wikipedia",
     "title": "H-index",
@@ -287,11 +401,29 @@
     "meta": ["Wikipedia"],
     "text": "In computability theory, the halting problem is the decision problem of, given an arbitrary computer program and an input, determining whether said program will eventually finish running and halt, or will continue to run forever."
   },
+  "https://en.wikipedia.org/wiki/Hamiltonian_(quantum_mechanics)": {
+    "kind": "wikipedia",
+    "title": "Hamiltonian (quantum mechanics)",
+    "meta": ["Wikipedia"],
+    "text": "In quantum mechanics, the Hamiltonian of a system is an operator corresponding to the total energy of that system, including both kinetic energy and potential energy. Its spectrum, the system's energy spectrum or its set of energy eigenvalues, is the set of possible outcomes obtainable from a measurement of the system's total energy."
+  },
+  "https://en.wikipedia.org/wiki/Hamiltonian_mechanics": {
+    "kind": "wikipedia",
+    "title": "Hamiltonian mechanics",
+    "meta": ["Wikipedia"],
+    "text": "In physics, Hamiltonian mechanics is a reformulation of Lagrangian mechanics that emerged in 1833. Introduced by Sir William Rowan Hamilton, Hamiltonian mechanics replaces (generalized) velocities used in Lagrangian mechanics with (generalized) momenta. Both theories provide interpretations of classical mechanics and describe the same physical phenomena."
+  },
   "https://en.wikipedia.org/wiki/Hard_problem_of_consciousness": {
     "kind": "wikipedia",
     "title": "Hard problem of consciousness",
     "meta": ["Wikipedia"],
     "text": "In philosophy of mind, the hard problem of consciousness is to explain how and why organisms have qualia, phenomenal consciousness, or subjective experience. It is contrasted with the \"easy problems\" of explaining why and how physical systems give rise to the ability to discriminate, to integrate information, and to perform behavioural functions such as watching, listening, speaking, and so…"
+  },
+  "https://en.wikipedia.org/wiki/Hardy%E2%80%93Weinberg_principle": {
+    "kind": "wikipedia",
+    "title": "Hardy–Weinberg principle",
+    "meta": ["Wikipedia"],
+    "text": "In population genetics, the Hardy–Weinberg principle, also known as the Hardy–Weinberg equilibrium, model, theorem, or law, states that allele and genotype frequencies in a population will remain constant from generation to generation in the absence of other evolutionary influences."
   },
   "https://en.wikipedia.org/wiki/Homophily": {
     "kind": "wikipedia",
@@ -311,17 +443,47 @@
     "meta": ["Wikipedia"],
     "text": "Ignaz Philipp Semmelweis was a Hungarian medical doctor and scientist of German descent who was an early pioneer of antiseptic procedures, known as the \"saviour of mothers\". Postpartum infection, also known as puerperal fever or childbed fever, was common in the 19th century, and often fatal."
   },
+  "https://en.wikipedia.org/wiki/Information_theory": {
+    "kind": "wikipedia",
+    "title": "Information theory",
+    "meta": ["Wikipedia"],
+    "text": "Information theory is the mathematical study of the quantification, storage, and communication of a particular type of mathematically defined information. The field was established and formalized by Claude Shannon in the 1940s, though early contributions were made in the 1920s through the works of Harry Nyquist and Ralph Hartley."
+  },
   "https://en.wikipedia.org/wiki/Inquiry_education": {
     "kind": "wikipedia",
     "title": "Inquiry education",
     "meta": ["Wikipedia"],
     "text": "Inquiry education is a student-centered method of education focused on asking questions. Students are encouraged to ask questions which are meaningful to them, and which do not necessarily have easy answers; teachers are encouraged to avoid giving answers when this is possible, and in any case to avoid giving direct answers in favor of asking more questions."
   },
+  "https://en.wikipedia.org/wiki/Intertheoretic_reduction": {
+    "kind": "wikipedia",
+    "title": "Intertheoretic reduction",
+    "meta": ["Wikipedia"],
+    "text": "In philosophy of science, intertheoretic reduction occurs when a reducing theory makes predictions that perfectly or almost perfectly match the predictions of a reduced theory, while the reducing theory explains or predicts a wider range of phenomena under more general conditions. Special relativity, for example, can be reduced to Newtonian mechanics for speeds far less than c."
+  },
+  "https://en.wikipedia.org/wiki/Ising_model": {
+    "kind": "wikipedia",
+    "title": "Ising model",
+    "meta": ["Wikipedia"],
+    "text": "The Ising model, named after the physicists Ernst Ising and Wilhelm Lenz, is a mathematical model of ferromagnetism in statistical mechanics. The model consists of discrete variables that represent magnetic dipole moments of atomic \"spins\" that can be in one of two states. The spins are arranged in a graph, usually a lattice, allowing each spin to interact with its neighbors."
+  },
+  "https://en.wikipedia.org/wiki/Joint_probability_distribution": {
+    "kind": "wikipedia",
+    "title": "Joint probability distribution",
+    "meta": ["Wikipedia"],
+    "text": "Given random variables, that are defined on the same probability space, the joint probability distribution or multivariate probability distribution for is a probability distribution that gives the probability that each of falls in any particular range or discrete set of values specified for that variable."
+  },
   "https://en.wikipedia.org/wiki/KISS_principle": {
     "kind": "wikipedia",
     "title": "KISS principle",
     "meta": ["Wikipedia"],
     "text": "KISS is a design principle first noted by the U.S. Navy in 1960. First seen partly in American English by at least 1938, KISS implies that simplicity should be a design goal. The phrase has been associated with aircraft engineer Kelly Johnson. The term \"KISS principle\" was in popular use by 1970."
+  },
+  "https://en.wikipedia.org/wiki/Knowledge_argument": {
+    "kind": "wikipedia",
+    "title": "Knowledge argument",
+    "meta": ["Wikipedia"],
+    "text": "In philosophy of mind, the knowledge argument is a thought experiment proposed by Frank Jackson in his article \"Epiphenomenal Qualia\" (1982), and extended in \"What Mary Didn't Know\" (1986)."
   },
   "https://en.wikipedia.org/wiki/Kuramoto_model": {
     "kind": "wikipedia",
@@ -359,6 +521,12 @@
     "meta": ["Wikipedia"],
     "text": "A living document, also known as an evergreen document or dynamic document, is a document that is continually edited and updated. An example of a living document is an article in Wikipedia, an online encyclopedia that permits anyone to freely edit its articles; this is in contrast to \"dead\" or \"static\" documents, such as an article in a single edition of the Encyclopædia Britannica."
   },
+  "https://en.wikipedia.org/wiki/Logical_conjunction": {
+    "kind": "wikipedia",
+    "title": "Logical conjunction",
+    "meta": ["Wikipedia"],
+    "text": "In logic, mathematics and linguistics, and is the truth-functional operator of conjunction or logical conjunction. The logical connective of this operator is typically represented as or or (prefix) or or in which is the most modern and widely used."
+  },
   "https://en.wikipedia.org/wiki/Mastodon_%28social_network%29": {
     "kind": "wikipedia",
     "title": "Mastodon (social network)",
@@ -371,11 +539,23 @@
     "meta": ["Wikipedia"],
     "text": "The Matthew effect, sometimes called the Matthew principle or cumulative advantage, is the tendency of individuals to accrue social or economic success in proportion to their initial level of popularity, friends, wealth, and natural advantages. It is sometimes summarized by the adage or platitude \"the rich get richer and the poor get poorer\"."
   },
+  "https://en.wikipedia.org/wiki/Mendelian_inheritance": {
+    "kind": "wikipedia",
+    "title": "Mendelian inheritance",
+    "meta": ["Wikipedia"],
+    "text": "Mendelian inheritance is a type of biological inheritance following the principles originally proposed by Gregor Mendel in 1865 and 1866, re-discovered in 1900 by Hugo de Vries and Carl Correns, and later popularized by William Bateson. The defining characteristic of Mendelian inheritance is its heavy association with a singular gene. Mendel's theories on genetics were initially controversial."
+  },
   "https://en.wikipedia.org/wiki/Mercury_(mythology)": {
     "kind": "wikipedia",
     "title": "Mercury (mythology)",
     "meta": ["Wikipedia"],
     "text": "Mercury is a major god in Roman religion and mythology, being one of the 12 Dii Consentes within the ancient Roman pantheon. He is the god of boundaries, commerce, communication, eloquence, financial gain, languages, luck, thieves, travelers, and trickery; he is also the guide of souls to the underworld."
+  },
+  "https://en.wikipedia.org/wiki/Microstate_(statistical_mechanics)#:~:text=a%20macrostate%20of%20a%20system,given%20analysis": {
+    "kind": "wikipedia",
+    "title": "Microstate (statistical mechanics)",
+    "meta": ["Wikipedia"],
+    "text": "In statistical mechanics, a microstate is a specific configuration of a system that describes the precise positions and momenta of all the individual particles or components that make up the system. Each microstate has a certain probability of occurring during the course of the system's thermal fluctuations. In a quantum system, a microstate is a pure state, which is specified by a wave function."
   },
   "https://en.wikipedia.org/wiki/Model_Context_Protocol": {
     "kind": "wikipedia",
@@ -383,11 +563,23 @@
     "meta": ["Wikipedia"],
     "text": "The Model Context Protocol (MCP) is an open standard and open-source framework introduced by Anthropic in November 2024 to standardize the way artificial intelligence (AI) systems like large language models (LLMs) integrate and share data with external tools, systems, and data sources. MCP provides a standardized interface for reading files, executing functions, and handling contextual prompts."
   },
+  "https://en.wikipedia.org/wiki/Model_theory": {
+    "kind": "wikipedia",
+    "title": "Model theory",
+    "meta": ["Wikipedia"],
+    "text": "In mathematical logic, model theory is the study of the relationship between formal theories and their models. The aspects investigated include the number and size of models of a theory, the relationship of different models to each other, and their interaction with the formal language itself."
+  },
   "https://en.wikipedia.org/wiki/Moravec's_paradox": {
     "kind": "wikipedia",
     "title": "Moravec's paradox",
     "meta": ["Wikipedia"],
     "text": "Moravec's paradox is the observation that, as Hans Moravec wrote in 1988, \"it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility\"."
+  },
+  "https://en.wikipedia.org/wiki/Multiple_realizability": {
+    "kind": "wikipedia",
+    "title": "Multiple realizability",
+    "meta": ["Wikipedia"],
+    "text": "In the philosophy of mind, multiple realizability is the thesis that the same mental property, state, or event can be implemented by different physical properties, states, or events."
   },
   "https://en.wikipedia.org/wiki/Neurodiversity": {
     "kind": "wikipedia",
@@ -407,17 +599,35 @@
     "meta": ["Wikipedia"],
     "text": "The Nobel Prizes are awards administered by the Nobel Foundation and granted in accordance with the principle of \"for the greatest benefit to humankind\". The prizes were first awarded in 1901, marking the fifth anniversary of Alfred Nobel's death. The original Nobel Prizes covered five fields: physics, chemistry, physiology or medicine, literature, and peace, specified in Nobel's will."
   },
+  "https://en.wikipedia.org/wiki/Ontology": {
+    "kind": "wikipedia",
+    "title": "Ontology",
+    "meta": ["Wikipedia"],
+    "text": "Ontology is the philosophical study of being. It is traditionally understood as the subdiscipline of metaphysics focused on the most general features of reality. As one of the most fundamental concepts, being encompasses all of reality and every entity within it."
+  },
   "https://en.wikipedia.org/wiki/Ozymandias": {
     "kind": "wikipedia",
     "title": "Ozymandias",
     "meta": ["Wikipedia"],
     "text": "\"Ozymandias\" is a sonnet written by the English Romantic poet Percy Bysshe Shelley, first published in the 11 January 1818 issue of The Examiner of London."
   },
+  "https://en.wikipedia.org/wiki/Partially_ordered_set": {
+    "kind": "wikipedia",
+    "title": "Partially ordered set",
+    "meta": ["Wikipedia"],
+    "text": "In mathematics, especially order theory, a partial order on a set is an arrangement such that, for certain pairs of elements, one precedes the other. The word partial is used to indicate that not every pair of elements needs to be comparable; that is, there may be pairs for which neither element precedes the other. Partial orders thus generalize total orders, in which every pair is comparable."
+  },
   "https://en.wikipedia.org/wiki/Pens%C3%A9es": {
     "kind": "wikipedia",
     "title": "Pensées",
     "meta": ["Wikipedia"],
     "text": "The Pensées (Thoughts) is a collection of fragments written by the French 17th-century philosopher and mathematician Blaise Pascal. Pascal's religious conversion led him into a life of asceticism, and the Pensées was in many ways his life's work. It represented Pascal's defense of the Christian religion, and the concept of \"Pascal's wager\" stems from a portion of this work."
+  },
+  "https://en.wikipedia.org/wiki/Phase_transition": {
+    "kind": "wikipedia",
+    "title": "Phase transition",
+    "meta": ["Wikipedia"],
+    "text": "In physics, chemistry and biology, a phase transition is the physical process of transition between one state of a medium and another. Commonly the term is used to refer to changes among the basic states of matter: solid, liquid, and gas, and in rare cases, plasma. A phase of a thermodynamic system and the states of matter have uniform physical properties."
   },
   "https://en.wikipedia.org/wiki/Price_signal": {
     "kind": "wikipedia",
@@ -430,6 +640,18 @@
     "title": "Principal investigator",
     "meta": ["Wikipedia"],
     "text": "In many countries, the term principal investigator (PI) refers to the holder of an independent grant and the lead researcher for the grant project, usually in the sciences, such as a laboratory study or a clinical trial. The phrase is also often used as a synonym for \"head of the laboratory\" or \"research group leader\"."
+  },
+  "https://en.wikipedia.org/wiki/Property_dualism": {
+    "kind": "wikipedia",
+    "title": "Property dualism",
+    "meta": ["Wikipedia"],
+    "text": "Property dualism describes a category of positions in the philosophy of mind which hold that, although the world is composed of just one kind of substance—the physical kind—there exist two distinct kinds of properties: physical properties and mental properties."
+  },
+  "https://en.wikipedia.org/wiki/Quantum_electrodynamics": {
+    "kind": "wikipedia",
+    "title": "Quantum electrodynamics",
+    "meta": ["Wikipedia"],
+    "text": "In particle physics, quantum electrodynamics (QED) is the relativistic quantum field theory of electrodynamics. It describes how light and matter interact. QED mathematically describes all phenomena involving electrically charged particles interacting by exchange of photons, and represents the quantum counterpart of classical electromagnetism giving a complete account of matter and light…"
   },
   "https://en.wikipedia.org/wiki/Rational_analysis": {
     "kind": "wikipedia",
@@ -455,11 +677,41 @@
     "meta": ["Wikipedia"],
     "text": "In machine learning and optimal control, reinforcement learning (RL) is concerned with how an intelligent agent should take actions in a dynamic environment in order to maximize a reward signal. Reinforcement learning is one of the three basic machine learning paradigms, alongside supervised learning and unsupervised learning."
   },
+  "https://en.wikipedia.org/wiki/Renormalization": {
+    "kind": "wikipedia",
+    "title": "Renormalization",
+    "meta": ["Wikipedia"],
+    "text": "Renormalization is a collection of techniques in quantum field theory, statistical field theory, and the theory of self-similar geometric structures, that are used to treat infinities arising in calculated quantities by altering values of these quantities to compensate for effects of their self-interactions."
+  },
+  "https://en.wikipedia.org/wiki/Renormalization_group": {
+    "kind": "wikipedia",
+    "title": "Renormalization group",
+    "meta": ["Wikipedia"],
+    "text": "In theoretical physics, the renormalization group (RG) is a mathematical tool that allows systematic investigation into the changes in a physical system as it is viewed at different scales. The scales of the system typically describe the interactions of the objects; they may be variable (\"running\") couplings which measure the strength of various forces, mass parameters, or the size of the system."
+  },
   "https://en.wikipedia.org/wiki/Research_assistant": {
     "kind": "wikipedia",
     "title": "Research assistant",
     "meta": ["Wikipedia"],
     "text": "A research assistant (RA) is a researcher employed, often on a temporary contract, by a university, research institute, or privately held organization to provide assistance in academic or private research endeavors. Research assistants work under the supervision of a principal investigator or supervisor and typically do not bear direct responsibility for the final outcomes of the research."
+  },
+  "https://en.wikipedia.org/wiki/Rotational_symmetry": {
+    "kind": "wikipedia",
+    "title": "Rotational symmetry",
+    "meta": ["Wikipedia"],
+    "text": "Rotational symmetry, also known as radial symmetry in geometry, is the property a shape has when it looks the same after some rotation by a partial turn. An object's degree of rotational symmetry is the number of distinct orientations in which it looks exactly the same for each rotation."
+  },
+  "https://en.wikipedia.org/wiki/Scale_invariance": {
+    "kind": "wikipedia",
+    "title": "Scale invariance",
+    "meta": ["Wikipedia"],
+    "text": "In physics, mathematics and statistics, scale invariance is a feature of objects or laws that do not change if scales of length, energy, or other variables, are multiplied by a common factor, and thus represent a universality."
+  },
+  "https://en.wikipedia.org/wiki/Self-organized_criticality": {
+    "kind": "wikipedia",
+    "title": "Self-organized criticality",
+    "meta": ["Wikipedia"],
+    "text": "Self-organized criticality (SOC) is a property of dynamical systems that have a critical point as an attractor. Their macroscopic behavior thus displays the spatial or temporal scale-invariance characteristic of the critical point of a phase transition, but without the need to tune control parameters to a precise value, because the system, effectively, tunes itself as it evolves towards…"
   },
   "https://en.wikipedia.org/wiki/Separation_of_concerns": {
     "kind": "wikipedia",
@@ -472,6 +724,18 @@
     "title": "Spaced repetition",
     "meta": ["Wikipedia"],
     "text": "Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently, while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect. The use of spaced repetition has been proven to increase the rate of learning."
+  },
+  "https://en.wikipedia.org/wiki/Special_sciences": {
+    "kind": "wikipedia",
+    "title": "Special sciences",
+    "meta": ["Wikipedia"],
+    "text": "In the philosophy of science, the special sciences are all sciences other than fundamental physics, including, for example, chemistry, biology, and neuroscience. The distinction reflects a view that \"all events which fall under the laws of any science are physical events and hence fall under the laws of physics\"."
+  },
+  "https://en.wikipedia.org/wiki/Spontaneous_symmetry_breaking": {
+    "kind": "wikipedia",
+    "title": "Spontaneous symmetry breaking",
+    "meta": ["Wikipedia"],
+    "text": "Spontaneous symmetry breaking (SSB) is a spontaneous process of symmetry breaking, by which a physical system in a symmetric state spontaneously ends up in an asymmetric state. In particular, it can describe systems where the equations of motion or the Lagrangian obey symmetries, but the lowest-energy vacuum solutions or ground states do not exhibit that same symmetry."
   },
   "https://en.wikipedia.org/wiki/Stack_Exchange": {
     "kind": "wikipedia",
@@ -490,6 +754,12 @@
     "title": "Stuart Kauffman",
     "meta": ["Wikipedia"],
     "text": "Stuart Alan Kauffman is an American medical doctor, theoretical biologist, and complex systems researcher who studies the origin of life on Earth. He was a professor at the University of Chicago, University of Pennsylvania, and University of Calgary. He is currently emeritus professor of biochemistry at the University of Pennsylvania and affiliate faculty at the Institute for Systems Biology."
+  },
+  "https://en.wikipedia.org/wiki/Symmetry_breaking": {
+    "kind": "wikipedia",
+    "title": "Symmetry breaking",
+    "meta": ["Wikipedia"],
+    "text": "In physics, symmetry breaking is a phenomenon where a disordered but symmetric state collapses into an ordered, but less symmetric state. This collapse is often one of many possible bifurcations that a particle can take as it approaches a lower energy state. Due to the many possibilities, an observer may assume the result of the collapse to be arbitrary."
   },
   "https://en.wikipedia.org/wiki/Technological_unemployment": {
     "kind": "wikipedia",
@@ -532,6 +802,12 @@
     "title": "The purpose of a system is what it does",
     "meta": ["Wikipedia"],
     "text": "The purpose of a system is what it does (POSIWID) is a heuristic in systems thinking coined by the British management consultant Stafford Beer, who stated that there is \"no point in claiming that the purpose of a system is to do what it constantly fails to do\"."
+  },
+  "https://en.wikipedia.org/wiki/Thermodynamic_limit": {
+    "kind": "wikipedia",
+    "title": "Thermodynamic limit",
+    "meta": ["Wikipedia"],
+    "text": "In statistical mechanics, the thermodynamic limit or macroscopic limit, of a system is the limit for a large number N of particles where the volume V is taken to grow in proportion with the number of particles. The thermodynamic limit is defined as the limit of a system with a large volume, with the particle density held fixed:"
   },
   "https://en.wikipedia.org/wiki/Turing_Award": {
     "kind": "wikipedia",
@@ -682,6 +958,12 @@
     "title": "The Elements of Typographic Style Applied to the Web – a practical guide to web typography",
     "meta": [],
     "text": ""
+  },
+  "https://www.britannica.com/art/essay": {
+    "kind": "page",
+    "title": "Essay | Definition, Types, Examples, & Facts | Britannica",
+    "meta": [],
+    "text": "Our editors will review what you’ve submitted and determine whether to revise the article."
   },
   "https://www.cambridge.org/highereducation/books/situated-learning/6915ABD21C8E4619F750A4D4ACA616CD": {
     "kind": "page",
