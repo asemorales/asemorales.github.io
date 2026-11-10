@@ -1,5 +1,6 @@
 export const SITE_URL = "https://asemorales.com";
 export const NAME = "Ase Morales";
+export const HANDLE = "asemorales";
 export const SUBTITLE = "Notes on logic, complexity, and cognition.";
 
 // Must match the tokens in src/styles/global.css.

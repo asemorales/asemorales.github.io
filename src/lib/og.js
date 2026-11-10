@@ -3,7 +3,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 import satori from "satori";
-import { COLORS } from "./site.js";
+import { COLORS, HANDLE } from "./site.js";
 
 export const WIDTH = 1200;
 export const HEIGHT = 630;
@@ -79,7 +79,7 @@ function layout({ title, home }) {
           : [
               { type: "img", props: { src: LOGO, width: 138, height: 100, style: { marginRight: 14 } } },
               h("div", { display: "block", lineClamp: 2, fontSize: titleSize, fontWeight: 600, lineHeight: 1.15 }, title),
-              h("div", { display: "flex", fontFamily: "DM Mono", fontSize: 26, color: DIM }, wordmark("asemorales", 26)),
+              h("div", { display: "flex", fontFamily: "DM Mono", fontSize: 26, color: DIM }, wordmark(HANDLE, 26)),
             ],
       ),
     ],
