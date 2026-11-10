@@ -1,4 +1,8 @@
 import { toHtml } from "hast-util-to-html";
+import rehypeStringify from "rehype-stringify";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import { unified } from "unified";
 import { describe, expect, it } from "vitest";
 import { archived, rehypeDeadLinks } from "../../src/lib/dead-links.js";
 import { rehypeGlossary } from "../../src/lib/glossary.js";
@@ -10,6 +14,8 @@ import { rehypeCallouts } from "../../src/lib/rehype-callouts.js";
 import { rehypeFigures } from "../../src/lib/rehype-figures.js";
 import { rehypeSections } from "../../src/lib/rehype-sections.js";
 import { letter, rehypeSidenotes } from "../../src/lib/rehype-sidenotes.js";
+import { remarkBlockIds } from "../../src/lib/remark-block-ids.js";
+import { remarkHighlights } from "../../src/lib/remark-highlights.js";
 import { linkTargets, remarkWikilinks } from "../../src/lib/wikilinks.js";
 
 const root = (...children) => ({ type: "root", children });
@@ -42,6 +48,12 @@ describe("rehypeGlossary", () => {
 });
 
 describe("rehypeCallouts", () => {
+  it("keeps a block ID set on the quote", () => {
+    const tree = root(el("blockquote", { id: "fig-1" }, [p("[!figure]\n", el("img", { src: "a.svg", alt: "A" }), "\nCaption.")]));
+    rehypeCallouts()(tree);
+    expect(tree.children[0].properties.id).toBe("fig-1");
+  });
+
   it("turns [!status] into a box and drops the marker", () => {
     const tree = root(quote(p("[!status]\nDraft.")));
     rehypeCallouts()(tree);
@@ -406,6 +418,10 @@ describe("wikilinks", () => {
     ).toEqual(["#references-1", "#external-links-1", "#see-also-1"]);
   });
 
+  it("links block IDs to the ids remarkBlockIds sets", () => {
+    expect(run("[[#^def-3-1|Definition 3.1]]")[0].url).toBe("#def-3-1");
+  });
+
   it("lists link targets outside code", () => {
     expect(linkTargets("[[A]] [[B#x|y]] [[#Self]] `[[C]]`\n```\n[[D]]\n```\n![[img.png]]")).toEqual(["a", "b"]);
   });
@@ -428,5 +444,31 @@ describe("rehypeDeadLinks", () => {
   it("finds no archived copy for live or unknown links", () => {
     expect(archived("https://flaky.org", status)).toBeNull();
     expect(archived("https://new.org", status)).toBeNull();
+  });
+});
+
+const markdown = (md) =>
+  String(unified().use(remarkParse).use(remarkHighlights).use(remarkBlockIds).use(remarkRehype).use(rehypeStringify).processSync(md)).replace(
+    /\n/g,
+    "",
+  );
+
+describe("remarkHighlights", () => {
+  it("marks text between == pairs, across inline markup", () => {
+    expect(markdown("a ==b *c* d== e ==f==")).toBe("<p>a <mark>b <em>c</em> d</mark> e <mark>f</mark></p>");
+  });
+
+  it("keeps an unpaired == and code as text", () => {
+    expect(markdown("a == b `==c==`")).toBe("<p>a == b <code>==c==</code></p>");
+  });
+});
+
+describe("remarkBlockIds", () => {
+  it("moves a trailing ^id onto its paragraph or list item", () => {
+    expect(markdown("Text. ^Def-1\n\n1. Item ^item-1\n2. Other")).toBe('<p id="def-1">Text.</p><ol><li id="item-1">Item</li><li>Other</li></ol>');
+  });
+
+  it("gives a ^id on its own line to the block above", () => {
+    expect(markdown("- a\n- b\n\n^list")).toBe('<ul id="list"><li>a</li><li>b</li></ul>');
   });
 });

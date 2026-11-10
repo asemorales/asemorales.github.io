@@ -9,7 +9,9 @@ import { classes, el, isElement, text, txt, walk } from "./hast.js";
 import { isProofTree, mathImageName, resetMathTags, texToMathml } from "./math.js";
 import { rehypeCallouts } from "./rehype-callouts.js";
 import { rehypeFigures } from "./rehype-figures.js";
+import { remarkBlockIds } from "./remark-block-ids.js";
 import { remarkFootnoteQuotes } from "./remark-footnote-quotes.js";
+import { remarkHighlights } from "./remark-highlights.js";
 import { remarkWikilinks } from "./wikilinks.js";
 
 function rehypeFeedMath({ site }) {
@@ -78,6 +80,8 @@ export async function feedHtml(markdown, { slug, slugs, site, status = {}, image
     .use(remarkFootnoteQuotes)
     .use(remarkMath)
     .use(remarkWikilinks, { slugs })
+    .use(remarkHighlights)
+    .use(remarkBlockIds)
     .use(remarkRehype)
     .use(rehypeFeedMath, { site })
     .use(rehypeCallouts)

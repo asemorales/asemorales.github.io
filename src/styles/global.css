@@ -40,6 +40,8 @@
   --link-dead: light-dark(#b04a2a, #d0704f);
   --link-hover: light-dark(#3a6588, #9dbad3);
   --link-dead-hover: light-dark(#aa4a2b, #e08a6b);
+  --mark: light-dark(#ccbd9a, #53452c);
+  --mark-edge: light-dark(#85651b, #d9b46a);
 }
 :root[data-theme="light"] {
   color-scheme: light;
@@ -90,6 +92,8 @@
   --color-link-dead: var(--link-dead);
   --color-link-hover: var(--link-hover);
   --color-link-dead-hover: var(--link-dead-hover);
+  --color-mark: var(--mark);
+  --color-mark-edge: var(--mark-edge);
 }
 
 @theme {
@@ -124,6 +128,12 @@
   }
   a.dead {
     @apply decoration-dotted hover:text-link-dead-hover active:text-link-dead-hover;
+  }
+
+  mark {
+    @apply border-b border-mark-edge bg-mark text-ink;
+    box-decoration-break: clone;
+    print-color-adjust: exact;
   }
 
   ::selection {

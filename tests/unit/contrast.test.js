@@ -21,6 +21,10 @@ describe("theme contrast", () => {
     for (const theme of [0, 1]) expect(contrast(tokens[name][theme], tokens.page[theme])).toBeGreaterThanOrEqual(4.5);
   });
 
+  it("has ink at 4.5:1 or more on highlights", () => {
+    for (const theme of [0, 1]) expect(contrast(tokens.ink[theme], tokens.mark[theme])).toBeGreaterThanOrEqual(4.5);
+  });
+
   it("has dim text at 4.5:1 or more on code blocks and the contents box", () => {
     for (const theme of [0, 1]) expect(contrast(tokens.dim[theme], tokens.code[theme])).toBeGreaterThanOrEqual(4.5);
   });

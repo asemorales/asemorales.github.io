@@ -20,7 +20,9 @@ import { rehypeMathLabels, rehypeMathSource } from "./src/lib/rehype-math-labels
 import { rehypeSections } from "./src/lib/rehype-sections.js";
 import { rehypeSidenotes } from "./src/lib/rehype-sidenotes.js";
 import { rehypeTidy } from "./src/lib/rehype-tidy.js";
+import { remarkBlockIds } from "./src/lib/remark-block-ids.js";
 import { remarkFootnoteQuotes } from "./src/lib/remark-footnote-quotes.js";
+import { remarkHighlights } from "./src/lib/remark-highlights.js";
 import { SITE_URL as site } from "./src/lib/site.js";
 import { slugify } from "./src/lib/slug.js";
 import { notesWithSeeAlso, remarkWikilinks } from "./src/lib/wikilinks.js";
@@ -52,7 +54,7 @@ export default defineConfig({
   image: { layout: "constrained" },
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkFootnoteQuotes, remarkMath, [remarkWikilinks, { slugs: notes.map((n) => n.slug) }]],
+      remarkPlugins: [remarkFootnoteQuotes, remarkMath, [remarkWikilinks, { slugs: notes.map((n) => n.slug) }], remarkHighlights, remarkBlockIds],
       rehypePlugins: [
         rehypeMathSource,
         [rehypeMathjax, { tex: { tags: "ams" } }],

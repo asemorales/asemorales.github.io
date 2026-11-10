@@ -13,8 +13,13 @@ function transform(node) {
   node.children = node.children.map((child) => {
     if (!isElement(child)) return child;
     transform(child);
-    return isElement(child, "blockquote") ? callout(child) : child;
+    return isElement(child, "blockquote") ? keepId(child, callout(child)) : child;
   });
+}
+
+function keepId(quote, out) {
+  if (quote.properties.id) out.properties = { ...out.properties, id: quote.properties.id };
+  return out;
 }
 
 function callout(quote) {
