@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import NoteRow from "../../components/NoteRow.astro";
 import Base from "../../layouts/Base.astro";
 import { slugify } from "../../lib/slug.js";
 
@@ -27,9 +28,7 @@ const { tag, listed } = Astro.props;
     {listed.length ? (
       <ul>
         {listed.map((n) => (
-          <li>
-            <a href={`/${n.id}/`}>{n.data.title}</a>
-          </li>
+          <NoteRow note={n} />
         ))}
       </ul>
     ) : (

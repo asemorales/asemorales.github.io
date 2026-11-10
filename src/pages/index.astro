@@ -1,17 +1,17 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
 import HomeSearch from "../components/HomeSearch.astro";
-import Logo from "../components/Logo.astro";
+import HomeTopic from "../components/HomeTopic.astro";
+import NoteGraph from "../components/NoteGraph.astro";
 import NoteRow from "../components/NoteRow.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import Base from "../layouts/Base.astro";
 import { NAME, SITE_URL } from "../lib/site.js";
-import { slugify } from "../lib/slug.js";
 import { description } from "../lib/summary.js";
 
 const notes = (await getCollection("notes", (n) => !n.data.unlisted)).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const groups = Map.groupBy(notes, (n) => n.data.tags[0]);
-const order = ["logic", "complexity", "cognition", "computation"];
+const order = ["logic", "complexity", "cognition", "computability"];
 const rank = (tag: string) => (order.includes(tag) ? order.indexOf(tag) : order.length);
 const tags = [...groups.keys()].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
 const introduction = (await getEntry("introduction", "introduction"))!;
@@ -25,56 +25,44 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
   <link slot="head" rel="preload" href="/fonts/dm-mono.woff2" as="font" type="font/woff2" crossorigin />
   <link slot="head" rel="me" href="https://mathstodon.xyz/@ase" />
   <div class="column">
-    <header class="home-title">
-      <Logo class="" />
-      <h1 id="page-title">
-        <span class="sr-only">{NAME}</span>
-        <span class="wordmark" aria-hidden="true">
-          ase<span class="m">m</span>orales
-        </span>
+    <header class="home-head">
+      <h1 id="page-title" class="home-title">
+        ase<span class="m">m</span>orales
       </h1>
+      <section id="introduction" class="home-intro prose-page" aria-label="Introduction">
+        <Introduction />
+      </section>
     </header>
-
-    <section id="introduction" class="home-intro prose-page" aria-label="Introduction">
-      <Introduction />
-    </section>
     <hr class="ornament" />
 
     {notes.length + backMatter.length > 0 && (
       <>
         <HomeSearch />
         <nav class="home-notes" aria-labelledby="contents">
-          {tags.map((tag) => (
-            <section aria-labelledby={`tag-${slugify(tag)}`}>
-              <h3 id={`tag-${slugify(tag)}`} class="smcp">
-                <a href={`/tags/${slugify(tag)}/`}>{tag}</a>
-              </h3>
-              <ul>
-                {groups.get(tag)!.map((n) => (
+          <div class="home-list">
+            {tags.map((tag) => (
+              <HomeTopic tag={tag} notes={groups.get(tag)!} />
+            ))}
+            {backMatter.length > 0 && (
+              <ul class="home-end">
+                {backMatter.map((n) => (
                   <NoteRow note={n} />
                 ))}
               </ul>
-            </section>
-          ))}
-          {backMatter.length > 0 && (
-            <ul class="home-end">
-              {backMatter.map((n) => (
-                <NoteRow note={n} />
-              ))}
-            </ul>
-          )}
-          <div class="home-empty" hidden>
-            <svg viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" aria-hidden="true">
-              <path d="M60 7l5 5-5 5-5-5z" fill="currentColor" stroke="none"></path>
-              <g id="flourish-half">
-                <path d="M68 12c10 0 14 7 21 6 5-1 5-8 0-8-3 0-4 4-1 5"></path>
-                <path d="M89 18c8-1 14-6 23-6"></path>
-              </g>
-              <use href="#flourish-half" transform="translate(120 0) scale(-1 1)"></use>
-            </svg>
-            <p>
-              No notes match <q></q>.
-            </p>
+            )}
+            <div class="home-empty" hidden>
+              <svg viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" aria-hidden="true">
+                <path d="M60 7l5 5-5 5-5-5z" fill="currentColor" stroke="none"></path>
+                <g id="flourish-half">
+                  <path d="M68 12c10 0 14 7 21 6 5-1 5-8 0-8-3 0-4 4-1 5"></path>
+                  <path d="M89 18c8-1 14-6 23-6"></path>
+                </g>
+                <use href="#flourish-half" transform="translate(120 0) scale(-1 1)"></use>
+              </svg>
+              <p>
+                No notes match <q></q>.
+              </p>
+            </div>
           </div>
         </nav>
       </>
@@ -88,7 +76,9 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
           evolutionary process—an integral function of the universe.
         </p>
       </blockquote>
-      <figcaption>Buckminster Fuller, I Seem to be a Verb</figcaption>
+      <figcaption>
+        Buckminster Fuller, <span class="epigraph-work">I Seem to be a Verb</span>
+      </figcaption>
     </figure>
 
     <footer class="home-footer">
@@ -106,6 +96,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
         </li>
       </ul>
     </footer>
+    <NoteGraph notes={notes.map((n) => ({ id: n.id, title: n.data.title, date: n.data.date, body: n.body }))} />
   </div>
 </Base>
 

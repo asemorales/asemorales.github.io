@@ -12,7 +12,6 @@ const minutes = Math.max(1, Math.round(body.split(/\s+/).filter(Boolean).length 
 ---
 
 <li data-search={[note.data.title, ...summary(body), ...note.data.tags].join(" ")}>
-  <a href={`/${note.id}/`}>{note.data.title}</a>
-  <span class="leader" aria-hidden="true"></span>
   <span class="minutes">{minutes} min</span>
+  <a href={`/${note.id}/`}>{note.data.title}</a>
 </li>

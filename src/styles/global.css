@@ -415,23 +415,23 @@
   .toc {
     @apply w-fit max-w-full text-base leading-normal text-dim sm:text-lg;
   }
-  .toc summary {
+  :is(.toc, .home-list) summary {
     @apply cursor-pointer list-none font-semibold;
   }
-  .toc summary::-webkit-details-marker {
+  :is(.toc, .home-list) summary::-webkit-details-marker {
     display: none;
   }
-  .toc summary::before {
+  :is(.toc, .home-list) summary::before {
     @apply size-[1em] shrink-0 bg-current;
     forced-color-adjust: preserve-parent-color;
     content: "";
     mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M5 8h14l-7 10z'/></svg>") center / contain
       no-repeat;
   }
-  .toc details:not([open]) > summary::before {
+  :is(.toc, .home-list) details:not([open]) > summary::before {
     rotate: -90deg;
   }
-  .toc summary,
+  :is(.toc, .home-list) summary,
   .site-nav > :is(a, button),
   .note-home a {
     @apply flex w-fit items-center gap-2 caps;
@@ -625,13 +625,13 @@
   .note .math-block:has(> mjx-container[width="full"]) > mjx-container {
     @apply mr-17;
   }
-  .note .block-tools {
+  :is(.note, .note-graph) .block-tools {
     @apply absolute top-1.5 right-1.5 z-10 flex gap-1 opacity-0 transition-opacity;
   }
-  .note :is(.code-block, .math-block):is(:hover, :has(:focus-visible), .show) > .block-tools {
+  :is(.note :is(.code-block, .math-block), .note-graph):is(:hover, :has(:focus-visible), .show) .block-tools {
     @apply opacity-100;
   }
-  .note .block-tools button {
+  :is(.note, .note-graph) .block-tools button {
     @apply flex cursor-pointer items-center border border-frame bg-page p-1.5 text-sm leading-none text-dim hover:text-ink;
   }
   .note .block-tools button[data-copied] {
@@ -694,7 +694,7 @@
     @apply mt-0;
   }
   .note summary,
-  .toc summary {
+  :is(.toc, .home-list) summary {
     @apply cursor-pointer transition-colors hover:text-link-hover;
   }
   .note .sources summary {
@@ -741,28 +741,10 @@
     @apply text-dim;
   }
 
-  /* Logo and wordmark keep the OG card's 140:48 ratio (src/lib/og.js). */
   .home-title {
-    @apply mt-4 flex flex-col items-center gap-5 text-center sm:mt-10;
-    --mark: 1.5rem;
+    @apply mt-4 mb-0 font-mono text-2xl font-normal text-dim sm:mt-10 sm:text-3xl;
   }
-  @media (width >= 40rem) {
-    .home-title {
-      --mark: 1.875rem;
-    }
-  }
-  .home-title svg {
-    height: calc(var(--mark) * 140 / 48);
-    translate: -10% 0;
-  }
-  .home-title h1 {
-    @apply leading-tight font-normal;
-    font-size: var(--mark);
-  }
-  .wordmark {
-    @apply font-mono text-dim;
-  }
-  .wordmark .m {
+  .home-title .m {
     margin: 0 0.05em;
   }
 
@@ -770,7 +752,7 @@
     @apply flex items-baseline gap-3;
   }
   .home-contents h2 {
-    @apply mt-0 text-xl sm:text-2xl;
+    @apply mt-0 text-xl font-normal;
   }
   .search-toggle {
     @apply cursor-pointer text-xl text-dim hover:text-ink;
@@ -814,24 +796,15 @@
   .listing ul {
     @apply mt-2 space-y-1.5 text-base leading-snug sm:text-lg;
   }
-  .home-notes li {
-    @apply flex items-baseline gap-2;
+  :is(.home-notes, .listing) li:not([hidden]) {
+    @apply flex items-baseline gap-3;
   }
-  .home-notes li::before {
-    @apply shrink-0 text-dim;
-    content: "*" / "bullet";
-    translate: 0 0.32em;
-  }
-  .home-notes .leader {
-    @apply h-[0.25em] min-w-6 flex-1;
-    background: radial-gradient(circle, var(--mid) 0.06em, transparent 0.08em) bottom left / 0.5em 0.25em repeat-x;
-  }
-  .home-notes .minutes {
-    @apply shrink-0 text-dim;
+  .minutes {
+    @apply w-[6ch] shrink-0 font-mono text-sm whitespace-nowrap text-dim lining-nums tabular-nums;
   }
 
   .home-intro {
-    @apply mt-14;
+    @apply mt-3;
   }
   .home-footer {
     @apply mt-14 mb-20;
@@ -864,8 +837,27 @@
   .home-feed input {
     @apply w-[31ch] min-w-0 border-0 bg-transparent p-0 font-mono text-sm text-current outline-none max-sm:text-xs;
   }
-  .home-intro + .ornament {
-    @apply mt-14 mb-4;
+  .home-head + .ornament {
+    @apply mb-4;
+  }
+  @media (width >= 1200px) {
+    .home-head {
+      @apply absolute top-0;
+      left: calc(-1 * var(--lead));
+      width: var(--rail);
+    }
+    .home-title {
+      @apply mt-0 text-2xl;
+    }
+    .home-intro {
+      @apply text-base leading-normal text-dim;
+    }
+    .home-head + .ornament {
+      display: none;
+    }
+    .home-contents {
+      @apply mt-10;
+    }
   }
   .home-empty {
     @apply mt-32 mb-12 flex flex-col items-center gap-3 text-center text-dim;
@@ -879,6 +871,144 @@
   .home-notes .home-end {
     @apply mt-10;
   }
+  .home-list summary {
+    @apply mt-1.5 text-base font-normal text-dim sm:text-lg;
+  }
+  .home-list summary[hidden] {
+    display: none;
+  }
+  .home-list li.lit,
+  .home-list details:not([open]):has(li.lit) > summary {
+    @apply bg-hover outline outline-offset-4 outline-transparent;
+    box-shadow: 0 0 0 0.25rem var(--hover);
+  }
+
+  .note-graph {
+    @apply relative;
+  }
+  @media (width >= 760px) {
+    .home-list {
+      anchor-name: --contents;
+    }
+    .note-graph {
+      @apply absolute top-0 mt-0;
+      left: calc(100% + var(--gap));
+      width: var(--margin);
+      bottom: anchor(--contents bottom);
+    }
+    .graph-pin {
+      @apply sticky top-6;
+    }
+  }
+  .graph-view {
+    @apply aspect-2/1 overflow-auto;
+  }
+  @media (width >= 760px) {
+    .graph-view {
+      @apply aspect-auto;
+      height: clamp(16rem, var(--count) * 2rem, 100svh - 6rem);
+    }
+  }
+  .graph-canvas {
+    --k: 1;
+    @apply relative;
+    width: calc(100% * var(--k));
+    height: calc(100% * var(--k));
+  }
+  .graph-plot {
+    @apply absolute inset-3;
+    container-type: inline-size;
+  }
+  .graph-plot svg {
+    @apply absolute size-full overflow-visible;
+  }
+  .graph-plot path {
+    @apply fill-none stroke-mid;
+    vector-effect: non-scaling-stroke;
+  }
+  /* The 1.5rem box and lane pitch meet the 24px target size of WCAG 2.2. */
+  .graph-plot a {
+    @apply absolute grid size-6 place-items-center text-mid no-underline;
+    left: calc(var(--x) * 100%);
+    top: calc(var(--y) * 100%);
+    translate: -50% -50%;
+  }
+  /* Borders stay visible in forced colors mode, unlike backgrounds. */
+  .graph-plot a::before {
+    @apply rounded-full outline-offset-2;
+    content: "";
+    border: calc(2.5px + min(var(--degree), 4) * 0.5px) solid currentColor;
+  }
+  .graph-plot a span {
+    @apply pointer-events-none absolute bottom-1/2 left-full hidden truncate pb-1 text-sm leading-none text-dim;
+    max-width: calc((1 - var(--x)) * 100cqw - 0.75rem);
+  }
+  .graph-plot a.left span {
+    @apply right-full left-auto;
+    max-width: calc(var(--x) * 100cqw - 0.75rem);
+  }
+  .note-graph[data-labels] a span {
+    @apply block;
+  }
+  .graph-plot a:is(:hover, .lit) {
+    @apply text-ink;
+  }
+  .graph-plot a:is(:hover, .lit)::before {
+    @apply outline outline-current;
+  }
+  .graph-plot a.near {
+    @apply text-dim;
+  }
+  .note-graph.focused path:not(.lit) {
+    @apply stroke-rule;
+  }
+  .graph-plot path.lit {
+    @apply stroke-ink stroke-[1.5];
+  }
+  .graph-plot .out {
+    @apply opacity-25;
+  }
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    .note-graph:not([data-ready]) .graph-plot {
+      @apply opacity-0;
+    }
+  }
+  .note-graph[data-entering] .graph-view {
+    @apply overflow-hidden;
+  }
+  .note-graph[data-entering] .graph-plot a {
+    animation: graph-node var(--time) cubic-bezier(0.65, 0, 0.35, 1) var(--wait) both;
+  }
+  .note-graph[data-entering] .graph-plot path {
+    animation: graph-line 600ms ease-in-out var(--wait) both;
+  }
+  @keyframes graph-node {
+    from {
+      opacity: 0;
+      translate: calc(-50% + var(--dx)) calc(-50% + var(--dy));
+    }
+  }
+  @keyframes graph-line {
+    from {
+      opacity: 0;
+    }
+  }
+  .note-graph .block-tools {
+    @apply static mt-1 justify-end;
+  }
+  .note-graph .block-tools button {
+    @apply w-7 justify-center font-mono disabled:cursor-default disabled:text-mid;
+  }
+  @media (hover: none) {
+    .note-graph .block-tools {
+      @apply opacity-100;
+    }
+  }
+  @media (scripting: none) {
+    .note-graph .block-tools {
+      display: none;
+    }
+  }
   .epigraph {
     @apply mx-auto mt-14 max-w-[28em] text-center;
   }
@@ -887,6 +1017,11 @@
   }
   .epigraph figcaption {
     @apply mt-2 leading-snug caps text-balance text-dim;
+  }
+  @media (width < 760px) {
+    .epigraph-work {
+      @apply block;
+    }
   }
 
   .link-popover {
@@ -932,6 +1067,9 @@
   }
   .popover-more {
     @apply mt-2 self-start text-sm;
+  }
+  .link-popover .popover-more {
+    @apply text-dim hover:text-link-hover active:text-link-hover;
   }
 
   .link-drawer {
@@ -1030,6 +1168,12 @@
   .rail {
     display: none !important;
   }
+  .graph-view {
+    @apply h-auto overflow-visible;
+  }
+  .graph-canvas {
+    --k: 1 !important;
+  }
   .note {
     --gap: 1.5rem;
     --margin: 13rem;
@@ -1053,11 +1197,11 @@
   .note .anchor {
     @apply hidden;
   }
-  .note details::details-content {
+  :is(.note, .home-list) details::details-content {
     content-visibility: visible;
     display: contents;
   }
-  .note details > summary {
+  :is(.note, .home-list) details > summary {
     @apply list-none;
   }
 }

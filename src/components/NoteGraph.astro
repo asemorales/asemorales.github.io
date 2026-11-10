@@ -1,0 +1,208 @@
+---
+import { noteGraph } from "../lib/graph.js";
+
+interface Props {
+  notes: { id: string; title: string; date: Date; body?: string }[];
+}
+
+const { nodes, edges } = noteGraph(Astro.props.notes);
+const titles = new Map(nodes.map((n) => [n.id, n.title]));
+const list = new Intl.ListFormat("en");
+const label = (n: (typeof nodes)[number]) =>
+  n.links.length ? `${n.title}, linked with ${list.format(n.links.map((id) => titles.get(id)!))}` : n.title;
+---
+
+{nodes.length > 0 && (
+  <figure class="note-graph" aria-label="Graph of links between notes, from the earliest note to the latest" style={`--count:${nodes.length}`}>
+    <div class="graph-pin">
+      <div class="graph-view">
+        <div class="graph-canvas">
+          <div class="graph-plot">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              {edges.map((e) => (
+                <path d={e.d} data-a={e.a} data-b={e.b} />
+              ))}
+            </svg>
+            {nodes.map((n) => (
+              <a
+                href={`/${n.id}/`}
+                class:list={{ left: n.left }}
+                aria-label={label(n)}
+                title={n.title}
+                data-id={n.id}
+                data-links={n.links.join(" ")}
+                style={`--x:${n.x.toFixed(4)};--y:${n.y.toFixed(4)};--degree:${n.links.length}`}>
+                <span>{n.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="block-tools">
+        <button type="button" data-zoom="out" aria-label="Zoom out" title="Zoom out" disabled>
+          −
+        </button>
+        <button type="button" data-zoom="in" aria-label="Zoom in" title="Zoom in">
+          +
+        </button>
+      </div>
+    </div>
+  </figure>
+)}
+
+<script>
+  const root = document.querySelector<HTMLElement>(".note-graph");
+  const nav = document.querySelector<HTMLElement>(".home-notes");
+  const still = matchMedia("(prefers-reduced-motion: reduce)");
+  if (root && nav) {
+    const MAX = 4;
+    const STEP = 1.5;
+    const LABELS = 2;
+    const view = root.querySelector<HTMLElement>(".graph-view")!;
+    const canvas = root.querySelector<HTMLElement>(".graph-canvas")!;
+    const zoomOut = root.querySelector<HTMLButtonElement>("[data-zoom=out]")!;
+    const zoomIn = root.querySelector<HTMLButtonElement>("[data-zoom=in]")!;
+    const nodes = [...root.querySelectorAll<HTMLAnchorElement>("a")];
+    const paths = [...root.querySelectorAll<SVGPathElement>("path")];
+    const byId = new Map(nodes.map((n) => [n.dataset.id!, n]));
+    const rows = new Map<string, HTMLElement>();
+    for (const a of nav.querySelectorAll<HTMLAnchorElement>("section li > a")) rows.set(a.pathname.slice(1, -1), a.parentElement!);
+
+    let pinned: string | null = null;
+    function light(id = pinned) {
+      const near = id ? byId.get(id)!.dataset.links!.split(" ") : [];
+      root!.classList.toggle("focused", !!id);
+      for (const n of nodes) {
+        n.classList.toggle("lit", n.dataset.id === id);
+        n.classList.toggle("near", near.includes(n.dataset.id!));
+      }
+      for (const p of paths) p.classList.toggle("lit", p.dataset.a === id || p.dataset.b === id);
+      for (const [key, row] of rows) row.classList.toggle("lit", key === id);
+    }
+    function idOf(target: EventTarget | null) {
+      const el = (target as Element | null)?.closest?.(".note-graph a, section li");
+      const id = (el?.matches("a") ? (el as HTMLAnchorElement) : el?.querySelector("a"))?.pathname.slice(1, -1);
+      return id && byId.has(id) ? id : null;
+    }
+    for (const el of [root, nav]) {
+      el.addEventListener("pointerover", (e) => light(idOf(e.target) ?? pinned));
+      el.addEventListener("pointerleave", () => light());
+      el.addEventListener("focusin", (e) => light(idOf(e.target) ?? pinned));
+      el.addEventListener("focusout", () => light());
+    }
+    document.addEventListener("click", (e) => {
+      pinned = idOf(e.target);
+      light();
+    });
+
+    document.addEventListener("notes:filter", () => {
+      const out = (id: string) => rows.get(id)?.hidden === true;
+      for (const n of nodes) n.classList.toggle("out", out(n.dataset.id!));
+      for (const p of paths) p.classList.toggle("out", out(p.dataset.a!) || out(p.dataset.b!));
+    });
+
+    let k = 1;
+    let goal = 1;
+    let frame = 0;
+    function zoom(to: number, x = view.clientWidth / 2, y = view.clientHeight / 2) {
+      goal = Math.min(MAX, Math.max(1, to));
+      zoomOut.disabled = goal === 1;
+      zoomIn.disabled = goal === MAX;
+      const left = (view.scrollLeft + x) / k;
+      const top = (view.scrollTop + y) / k;
+      let last = performance.now();
+      const tick = (now: number) => {
+        const gap = goal - k;
+        k = still.matches || Math.abs(gap) < 0.002 ? goal : k + gap * (1 - Math.exp((last - now) / 90));
+        last = now;
+        canvas.style.setProperty("--k", String(k));
+        root!.toggleAttribute("data-labels", k >= LABELS);
+        view.scrollLeft = left * k - x;
+        view.scrollTop = top * k - y;
+        frame = k === goal ? 0 : requestAnimationFrame(tick);
+      };
+      cancelAnimationFrame(frame);
+      tick(last);
+    }
+    zoomOut.addEventListener("click", () => zoom(goal / STEP));
+    zoomIn.addEventListener("click", () => zoom(goal * STEP));
+    view.addEventListener(
+      "wheel",
+      (e) => {
+        // Trackpad pinches arrive as wheel events with ctrlKey set.
+        if (!e.ctrlKey && !e.metaKey) return;
+        e.preventDefault();
+        const r = view.getBoundingClientRect();
+        zoom(goal * Math.exp(-e.deltaY / 200), e.clientX - r.left, e.clientY - r.top);
+      },
+      { passive: false },
+    );
+
+    let grab: { x: number; y: number } | null = null;
+    let dragged = false;
+    view.addEventListener("pointerdown", (e) => {
+      dragged = false;
+      if (e.pointerType === "mouse" && e.button === 0) grab = { x: e.clientX + view.scrollLeft, y: e.clientY + view.scrollTop };
+    });
+    view.addEventListener("pointermove", (e) => {
+      if (!grab || !e.buttons) return (grab = null);
+      const left = grab.x - e.clientX;
+      const top = grab.y - e.clientY;
+      dragged ||= Math.abs(left - view.scrollLeft) + Math.abs(top - view.scrollTop) > 4;
+      if (dragged) view.scrollTo(left, top);
+    });
+    view.addEventListener("dragstart", (e) => e.preventDefault());
+    view.addEventListener(
+      "click",
+      (e) => {
+        if (!dragged) return;
+        e.preventDefault();
+        e.stopPropagation();
+      },
+      true,
+    );
+
+    root.ariaLabel += ". Arrow keys move between notes.";
+    nodes.forEach((n, i) => {
+      n.removeAttribute("title");
+      n.tabIndex = i ? -1 : 0;
+    });
+    root.addEventListener("keydown", (e) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      const from = document.activeElement as HTMLAnchorElement;
+      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (step && nodes.includes(from)) {
+        const to = nodes[(nodes.indexOf(from) + step + nodes.length) % nodes.length];
+        from.tabIndex = -1;
+        to.tabIndex = 0;
+        to.focus();
+      } else if (e.key === "+" || e.key === "=") zoom(goal * STEP);
+      else if (e.key === "-") zoom(goal / STEP);
+      else if (e.key === "0") zoom(1);
+      else return;
+      e.preventDefault();
+    });
+
+    const box = view.getBoundingClientRect();
+    if (!still.matches && box.bottom > 0 && box.top < innerHeight) {
+      const between = (from: number, to: number) => from + Math.random() * (to - from);
+      let settled = 0;
+      for (const n of nodes) {
+        const turn = Math.atan2(+n.style.getPropertyValue("--y") - 0.5, +n.style.getPropertyValue("--x") - 0.5) + between(-0.8, 0.8);
+        const far = between(2, 7);
+        const wait = between(0, 350);
+        const time = between(700, 1200);
+        settled = Math.max(settled, wait + time);
+        n.style.setProperty("--dx", `${Math.cos(turn) * far}rem`);
+        n.style.setProperty("--dy", `${Math.sin(turn) * far}rem`);
+        n.style.setProperty("--wait", `${wait}ms`);
+        n.style.setProperty("--time", `${time}ms`);
+      }
+      for (const p of paths) p.style.setProperty("--wait", `${settled - 150 + between(0, 400)}ms`);
+      root.toggleAttribute("data-entering", true);
+      const moves = root.getAnimations({ subtree: true }).map((a) => a.finished);
+      Promise.allSettled(moves).then(() => root.toggleAttribute("data-entering", false));
+    }
+    root.toggleAttribute("data-ready", true);
+  }
+</script>

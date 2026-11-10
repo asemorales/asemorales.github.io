@@ -27,14 +27,25 @@
     const blank = document.querySelector<HTMLElement>(".home-empty")!;
     const items = [...document.querySelectorAll<HTMLElement>(".home-notes li")];
     const sections = [...document.querySelectorAll<HTMLElement>(".home-notes section")];
+    const more = [...document.querySelectorAll<HTMLDetailsElement>(".home-notes details")];
+    let opened: HTMLDetailsElement[] | null = null;
     const filter = () => {
       const matches = matcher(input.value);
       for (const li of items) li.hidden = !matches(li.dataset.search ?? "");
       for (const s of sections) s.hidden = !s.querySelector("li:not([hidden])");
+      const searching = input.value.trim() !== "";
+      if (searching) opened ??= more.filter((d) => d.open);
+      for (const d of more) {
+        d.open = searching || (opened?.includes(d) ?? d.open);
+        d.hidden = !d.querySelector("li:not([hidden])");
+        d.querySelector("summary")!.hidden = searching;
+      }
+      if (!searching) opened = null;
       const found = items.some((li) => !li.hidden);
       blank.hidden = found;
       empty.textContent = found ? "" : "No notes match.";
       blank.querySelector("q")!.textContent = input.value.trim();
+      document.dispatchEvent(new Event("notes:filter"));
     };
     const place = () => {
       const r = toggle.getBoundingClientRect();

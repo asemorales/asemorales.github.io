@@ -124,7 +124,7 @@ test.describe("theme with JS", () => {
 test.describe("homepage", () => {
   test("filters the notes as you type, and shows them all without JS", async ({ page, javaScriptEnabled }) => {
     await page.goto("/");
-    const items = page.locator(".home-notes li");
+    const items = page.locator(".home-notes :not(details) > ul > li");
     test.skip((await items.count()) === 0, "needs a listed note");
     const toggle = page.getByRole("button", { name: "Search" });
     if (javaScriptEnabled === false) {
@@ -145,6 +145,38 @@ test.describe("homepage", () => {
     await expect(page.locator("#search")).toBeHidden();
     await expect(items.first()).toBeVisible();
     await expect(page.locator(".home-empty")).toBeHidden();
+  });
+
+  test("graphs the notes, lights a note's row, and zooms", async ({ page, javaScriptEnabled }, info) => {
+    await page.goto("/");
+    const graph = page.getByRole("figure", { name: /^Graph of links between notes/ });
+    const nodes = graph.getByRole("link");
+    test.skip((await nodes.count()) === 0, "needs a listed note");
+    await expect(nodes).toHaveCount(await page.locator(".home-notes section li").count());
+    const zoomIn = graph.getByRole("button", { name: "Zoom in" });
+    if (javaScriptEnabled === false) return await expect(zoomIn).toBeHidden();
+
+    const node = nodes.first();
+    const row = page.locator(`.home-notes section li:has(a[href="${await node.getAttribute("href")}"])`);
+    await node.focus();
+    await expect(row).toHaveClass(/lit/);
+    await expect(node).toHaveClass(/lit/);
+    if (info.project.name.startsWith("wide")) {
+      await node.hover();
+      await expect(page.locator("#link-popover .popover-title")).toHaveText((await row.locator("a").textContent())!);
+    }
+    await page.locator("#contents").click();
+    await expect(row).not.toHaveClass(/lit/);
+
+    const canvas = graph.locator(".graph-canvas");
+    const { width } = (await canvas.boundingBox())!;
+    await zoomIn.click();
+    await zoomIn.click();
+    const zoomed = async () => (await canvas.boundingBox())!.width;
+    await expect.poll(zoomed).toBeGreaterThan(width * 2);
+    await expect(graph).toHaveAttribute("data-labels");
+    await page.keyboard.press("0");
+    await expect.poll(zoomed).toBeCloseTo(width, 0);
   });
 
   test("links home once on every page but home", async ({ page }) => {

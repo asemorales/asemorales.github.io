@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { slugify } from "../lib/slug.js";
+import NoteRow from "./NoteRow.astro";
+
+interface Props {
+  tag: string;
+  notes: CollectionEntry<"notes">[];
+}
+
+const SHOWN = 5;
+const { tag, notes } = Astro.props;
+const id = `tag-${slugify(tag)}`;
+const more = notes.slice(SHOWN);
+---
+
+<section aria-labelledby={id}>
+  <h3 id={id} class="smcp">
+    <a href={`/tags/${slugify(tag)}/`}>{tag}</a>
+  </h3>
+  <ul>
+    {notes.slice(0, SHOWN).map((n) => (
+      <NoteRow note={n} />
+    ))}
+  </ul>
+  {more.length > 0 && (
+    <details>
+      <summary>See {more.length} more</summary>
+      <ul>
+        {more.map((n) => (
+          <NoteRow note={n} />
+        ))}
+      </ul>
+    </details>
+  )}
+</section>

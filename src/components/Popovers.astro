@@ -42,9 +42,10 @@
     const r = a.getClientRects()[0] ?? a.getBoundingClientRect();
     const w = el.offsetWidth;
     const h = el.offsetHeight;
-    const left = Math.min(Math.max(8, r.left), innerWidth - w - 8);
+    const beside = a.closest(".note-graph") && r.left - w - 6 >= 8;
+    const left = beside ? r.left - w - 6 : Math.min(Math.max(8, r.left), innerWidth - w - 8);
     const above = r.top - h - 6;
-    const top = above >= 8 ? above : r.bottom + 6;
+    const top = beside ? Math.max(8, Math.min(r.top, innerHeight - h - 8)) : above >= 8 ? above : r.bottom + 6;
     el.style.left = `${left}px`;
     el.style.top = `${top}px`;
   }
