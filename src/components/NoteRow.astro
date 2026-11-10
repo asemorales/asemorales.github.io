@@ -9,9 +9,16 @@ interface Props {
 const { note } = Astro.props;
 const body = note.body ?? "";
 const minutes = Math.max(1, Math.round(body.split(/\s+/).filter(Boolean).length / 230));
+const hours = Math.round(minutes / 60);
+const [count, short, long] = minutes < 60 ? [minutes, "min", "minute"] : [hours, "hrs", "hour"];
+const shown = `${String(count).padStart(2, "0")} ${short}`;
+const spoken = `${count} ${long}${count === 1 ? "" : "s"}`;
 ---
 
 <li data-search={[note.data.title, ...summary(body), ...note.data.tags].join(" ")}>
-  <span class="minutes">{minutes} min</span>
+  <span class="minutes">
+    <span aria-hidden="true">{shown}</span>
+    <span class="sr-only">{spoken}</span>
+  </span>
   <a href={`/${note.id}/`}>{note.data.title}</a>
 </li>
