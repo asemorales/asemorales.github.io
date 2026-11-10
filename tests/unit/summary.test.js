@@ -24,6 +24,10 @@ describe("summary", () => {
     expect(summary("Let $\\varphi_e$ be *the* $e$-th function.")).toEqual(["Let $\\varphi_e$ be the $e$-th function."]);
   });
 
+  it("ends a paragraph at a quote with no blank line before it", () => {
+    expect(summary("It said:\n> [!quote]\n> Quoted.")).toEqual(["It said:"]);
+  });
+
   it("is empty when the note opens with a heading", () => {
     expect(summary("## Heading\n\nText.")).toEqual([]);
   });

@@ -1,5 +1,6 @@
 export const EPIGRAPH = /^>\s*\[!(?:quote|epigraph)\][+-]?[ \t]*(.*)\n((?:>.*(?:\n|$))+)/i;
 const DESCRIPTION = 160;
+const INTERRUPT = /^\s*(>|#{1,6}\s|`{3}|~{3}|[-*+]\s|\$\$)/;
 
 export function lead(markdown) {
   const body = markdown.trim();
@@ -16,8 +17,10 @@ export function summary(markdown, { paragraphs = Infinity } = {}) {
   const source = markdown.trim();
   for (const block of source.split(/\n\s*\n/)) {
     if (/^\s*([#>|`~$+-]|\*\s|\d+\.\s|!\[|<|%%)/.test(block)) break;
-    out.push(plain(block));
-    if (out.length >= paragraphs) break;
+    const lines = block.split("\n");
+    const end = lines.findIndex((line) => INTERRUPT.test(line));
+    out.push(plain(lines.slice(0, end < 0 ? undefined : end).join("\n")));
+    if (end >= 0 || out.length >= paragraphs) break;
   }
   return out;
 }
