@@ -569,7 +569,7 @@
   .note .sidenote-list > .sidenote-block::before {
     content: "• ";
   }
-  .note :is(.sidenote-number, .sidenote-ref, .sidenote, mjx-container, figure > img, figcaption).highlighted {
+  .note :is(.sidenote-number, .sidenote-ref, .sidenote, mjx-container, figure > img, figure > svg, figcaption).highlighted {
     @apply bg-hover outline-1 outline-frame;
     outline-offset: var(--pad, 3px);
     box-shadow: 0 0 0 var(--pad, 3px) var(--hover);
@@ -631,13 +631,14 @@
   .note figure {
     @apply my-8;
   }
-  .note figure img {
+  .note figure img,
+  .note figure > svg {
     @apply h-auto w-full;
   }
   .note figcaption {
     @apply mt-7 text-base leading-normal text-ink;
   }
-  .note figure > img {
+  .note figure > :is(img, svg) {
     --pad: 12px;
   }
   .note .wide {

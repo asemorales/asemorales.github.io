@@ -22,7 +22,7 @@ function sidenote(target: EventTarget | null) {
 }
 function figure(target: EventTarget | null) {
   const caption = (target as Element | null)?.closest?.(".note figcaption");
-  return caption ? [caption, ...caption.parentElement!.querySelectorAll(":scope > img")] : null;
+  return caption ? [caption, ...caption.parentElement!.querySelectorAll(":scope > :is(img, svg)")] : null;
 }
 const group = (target: EventTarget | null) => sidenote(target) ?? equation(target) ?? figure(target);
 function highlight(els: Element[] | null, on: boolean) {

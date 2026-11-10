@@ -14,6 +14,7 @@ import { rehypeCallouts } from "../../src/lib/rehype-callouts.js";
 import { rehypeFigures } from "../../src/lib/rehype-figures.js";
 import { rehypeSections } from "../../src/lib/rehype-sections.js";
 import { letter, rehypeSidenotes } from "../../src/lib/rehype-sidenotes.js";
+import { inlineSvg } from "../../src/lib/rehype-svg-figures.js";
 import { remarkBlockIds } from "../../src/lib/remark-block-ids.js";
 import { remarkHighlights } from "../../src/lib/remark-highlights.js";
 import { linkTargets, remarkWikilinks } from "../../src/lib/wikilinks.js";
@@ -470,5 +471,16 @@ describe("remarkBlockIds", () => {
 
   it("gives a ^id on its own line to the block above", () => {
     expect(markdown("- a\n- b\n\n^list")).toBe('<ul id="list"><li>a</li><li>b</li></ul>');
+  });
+});
+
+describe("inlineSvg", () => {
+  const svg =
+    '<?xml version="1.0"?><svg width="10pt" height="5pt" viewBox="0 0 10 5"><rect fill="#fff"/><defs><path id="a" fill="#222"/></defs><use href="#a" stroke="#ff0000" clip-path="url(#a)"/></svg>';
+
+  it("scopes ids, labels the figure, maps grays onto the theme, and clears white", () => {
+    expect(inlineSvg(svg, "svg-x", 'A "B"')).toBe(
+      '<svg id="svg-x" role="img" aria-label="A &quot;B&quot;" viewBox="0 0 10 5"><style>#svg-x [fill="#fff"]{fill:transparent}#svg-x [fill="#222"]{fill:color-mix(in srgb,var(--ink) 87%,var(--page))}</style><rect fill="#fff"/><defs><path id="svg-x-a" fill="#222"/></defs><use href="#svg-x-a" stroke="#ff0000" clip-path="url(#svg-x-a)"/></svg>',
+    );
   });
 });

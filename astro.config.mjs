@@ -19,6 +19,7 @@ import { rehypeInlineMarks } from "./src/lib/rehype-inline-marks.js";
 import { rehypeMathLabels, rehypeMathSource } from "./src/lib/rehype-math-labels.js";
 import { rehypeSections } from "./src/lib/rehype-sections.js";
 import { rehypeSidenotes } from "./src/lib/rehype-sidenotes.js";
+import { rehypeSvgFigures } from "./src/lib/rehype-svg-figures.js";
 import { rehypeTidy } from "./src/lib/rehype-tidy.js";
 import { remarkBlockIds } from "./src/lib/remark-block-ids.js";
 import { remarkFootnoteQuotes } from "./src/lib/remark-footnote-quotes.js";
@@ -62,6 +63,7 @@ export default defineConfig({
         rehypeTidy,
         rehypeCallouts,
         rehypeFigures,
+        rehypeSvgFigures,
         rehypeSidenotes,
         rehypeBlocks,
         rehypeInlineMarks,
