@@ -143,6 +143,15 @@ $$
 
 Equation $\eqref{eq:halting}$ defines the diagonal halting set.
 
+This paragraph tests line breaks in inline math: on a phone, the expansion $(x + y)^n = x^n + n x^{n-1} y + \binom{n}{2} x^{n-2} y^2 + \cdots + y^n$ wraps at an operator, while short math such as $n + 1$ stays whole. The equation below tests line breaks in display math, which on a phone splits into lines instead of shrinking.
+
+$$
+\begin{equation}
+(x + y)^n = x^n + n x^{n-1} y + \binom{n}{2} x^{n-2} y^2 + \cdots + y^n
+\label{eq:binomial}
+\end{equation}
+$$
+
 $$
 \begin{prooftree}
 \AxiomC{$\Gamma \vdash A$}

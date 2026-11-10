@@ -5,7 +5,6 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import matter from "gray-matter";
-import rehypeMathjax from "rehype-mathjax/svg";
 import remarkMath from "remark-math";
 import { day } from "./src/lib/date.js";
 import linkStatus from "./src/data/links-status.json" with { type: "json" };
@@ -16,7 +15,7 @@ import { rehypeBlocks } from "./src/lib/rehype-blocks.js";
 import { rehypeCallouts } from "./src/lib/rehype-callouts.js";
 import { rehypeFigures } from "./src/lib/rehype-figures.js";
 import { rehypeInlineMarks } from "./src/lib/rehype-inline-marks.js";
-import { rehypeMathLabels, rehypeMathSource } from "./src/lib/rehype-math-labels.js";
+import { rehypeMath } from "./src/lib/rehype-math.js";
 import { rehypeSections } from "./src/lib/rehype-sections.js";
 import { rehypeSidenotes } from "./src/lib/rehype-sidenotes.js";
 import { rehypeSvgFigures } from "./src/lib/rehype-svg-figures.js";
@@ -57,9 +56,7 @@ export default defineConfig({
     processor: unified({
       remarkPlugins: [remarkFootnoteQuotes, remarkMath, [remarkWikilinks, { slugs: notes.map((n) => n.slug) }], remarkHighlights, remarkBlockIds],
       rehypePlugins: [
-        rehypeMathSource,
-        [rehypeMathjax, { tex: { tags: "ams" } }],
-        rehypeMathLabels,
+        rehypeMath,
         rehypeTidy,
         rehypeCallouts,
         rehypeFigures,

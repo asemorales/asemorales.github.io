@@ -168,6 +168,46 @@
     min-height: 1px;
     min-width: 1px;
   }
+  /* Inline line breaks, copied from the styles of @mathjax/src/js/output/svg/Wrappers/math.js and zero.js. */
+  @font-face {
+    font-family: MJX-ZERO;
+    src: url(data:application/x-font-woff;charset=utf-8;base64,T1RUTwAJAIAAAwAQQ0ZGIGnFMZkAAARQAAAAlE9TLzJpUWOBAAABAAAAAGBjbWFwAAwAUwAABAQAAAAsaGVhZCFRvpAAAACcAAAANmhoZWEC8AD9AAAA1AAAACRobXR4A+gAAAAABOQAAAAIbWF4cAACUAAAAAD4AAAABm5hbWVNb8+2AAABYAAAAqNwb3N0AAMAAAAABDAAAAAgAAEAAAABAABVWOu4Xw889QADA+gAAAAA3ym+2AAAAADfKb7YAAAAAAPoAAAAAAADAAIAAAAAAAAAAQAAAu79EgAAA+gAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAIAAFAAAAIAAAADA+gB9AAFAAACigK7AAAAjAKKArsAAAHfADEBAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABYWFhYAEAAIAAgAu79EgAAAu4C7gAAAAEAAAAAAXcAAAAgACAAAAAAACIBngABAAAAAAAAAAEAQQABAAAAAAABAAsAAAABAAAAAAACAAcAIQABAAAAAAADABUAxgABAAAAAAAEABMANgABAAAAAAAFAAsApQABAAAAAAAGABIAbwABAAAAAAAHAAEAQQABAAAAAAAIAAEAQQABAAAAAAAJAAEAQQABAAAAAAAKAAEAQQABAAAAAAALAAEAQQABAAAAAAAMAAEAQQABAAAAAAANAAEAQQABAAAAAAAOAAEAQQABAAAAAAAQAAsAAAABAAAAAAARAAcAIQADAAEECQAAAAIAXwADAAEECQABABYACwADAAEECQACAA4AKAADAAEECQADACoA2wADAAEECQAEACYASQADAAEECQAFABYAsAADAAEECQAGACQAgQADAAEECQAHAAIAXwADAAEECQAIAAIAXwADAAEECQAJAAIAXwADAAEECQAKAAIAXwADAAEECQALAAIAXwADAAEECQAMAAIAXwADAAEECQANAAIAXwADAAEECQAOAAIAXwADAAEECQAQABYACwADAAEECQARAA4AKG1qeC1sbS16ZXJvAG0AagB4AC0AbABtAC0AegBlAHIAb1JlZ3VsYXIAUgBlAGcAdQBsAGEAcm1qeC1sbS16ZXJvIFJlZ3VsYXIAbQBqAHgALQBsAG0ALQB6AGUAcgBvACAAUgBlAGcAdQBsAGEAcm1qeC1sbS16ZXJvUmVndWxhcgBtAGoAeAAtAGwAbQAtAHoAZQByAG8AUgBlAGcAdQBsAGEAclZlcnNpb24gMC4xAFYAZQByAHMAaQBvAG4AIAAwAC4AMSA6bWp4LWxtLXplcm8gUmVndWxhcgAgADoAbQBqAHgALQBsAG0ALQB6AGUAcgBvACAAUgBlAGcAdQBsAGEAcgAAAAABAAMAAQAAAAwABAAgAAAABAAEAAEAAAAg//8AAAAg////4QABAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAEAQABAQETbWp4LWxtLXplcm9SZWd1bGFyAAEBASf4GwD4HAL4HQP4HgSLi/mC+nwFHQAAAIYPHQAAAIkRix0AAACUEgAFAQEMHyoxNlZlcnNpb24gMC4xbWp4LWxtLXplcm8gUmVndWxhcm1qeC1sbS16ZXJvUmVndWxhcnNwYWNlAAAAAYsAAgEBAwaLDvp8DgAAAAAD6AAA)
+      format("woff");
+  }
+  mjx-container[jax="SVG"] mjx-break {
+    white-space: normal;
+    line-height: 0;
+    clip-path: rect(0 0 0 0);
+    font-family: MJX-ZERO !important;
+  }
+  mjx-break[size="0"] {
+    letter-spacing: -0.999em;
+  }
+  mjx-break[size="1"] {
+    letter-spacing: -0.889em;
+  }
+  mjx-break[size="2"] {
+    letter-spacing: -0.833em;
+  }
+  mjx-break[size="3"] {
+    letter-spacing: -0.778em;
+  }
+  mjx-break[size="4"] {
+    letter-spacing: -0.722em;
+  }
+  mjx-break[size="5"] {
+    letter-spacing: -0.667em;
+  }
+  mjx-break[newline]::before {
+    white-space: pre;
+    content: "\A";
+  }
+  mjx-break[prebreak] {
+    letter-spacing: -0.999em;
+  }
+  mjx-break[newline] + svg[width="0.054ex"] {
+    margin-right: -1px;
+  }
   mjx-container[jax="SVG"] > svg a {
     fill: var(--ink);
     stroke: var(--ink);
@@ -178,11 +218,25 @@
     container-type: inline-size;
   }
   /* 0.5 bounds Source Serif 4's x-height in em; 4.25rem matches the mr-17 tag gutter. */
-  mjx-container[jax="SVG"][style*="--w"] {
+  mjx-container[jax="SVG"][style*="--w:"] {
     font-size: min(1em, 100cqi / (var(--w) * 0.5));
   }
-  mjx-container[jax="SVG"][width="full"][style*="--w"] {
+  mjx-container[jax="SVG"][width="full"][style*="--w:"] {
     font-size: min(1em, (100cqi - 4.25rem) / (var(--w) * 0.5));
+  }
+  /* A 0 font-size collapses whichever of the wide and narrow SVGs is not shown, since all its sizes are in ex. */
+  mjx-container[jax="SVG"][style*="--wide"] {
+    --room: calc(100cqi - var(--wide) * 0.5em);
+  }
+  mjx-container[jax="SVG"][width="full"][style*="--wide"] {
+    --room: calc(100cqi - 4.25rem - var(--wide) * 0.5em);
+  }
+  mjx-container[jax="SVG"][style*="--wide"] > svg {
+    font-size: clamp(0px, var(--room) * 1000, 1em);
+    max-width: 1000em;
+  }
+  mjx-container[jax="SVG"][style*="--wide"] > svg[data-narrow] {
+    font-size: clamp(0px, var(--room) * -1000, 1em);
   }
   mjx-container[jax="SVG"][display="true"] {
     @apply my-4 block overflow-x-auto overflow-y-hidden text-center;

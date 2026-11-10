@@ -100,7 +100,7 @@ describe("popover cards", () => {
 describe("paragraphHtml", () => {
   it("escapes text and draws inline math as SVG", () => {
     const html = paragraphHtml("a < b, and $x^2$ too");
-    expect(html).toMatch(/^a &lt; b, and <mjx-container[^>]*jax="SVG"[^>]*><svg[^>]*aria-label="x\^2"/);
+    expect(html).toMatch(/^a &lt; b, and <mjx-container[^>]*jax="SVG"[^>]*aria-label="x\^2"[^>]*><svg[^>]*aria-hidden="true"/);
     expect(html).toMatch(/<\/mjx-container> too$/);
   });
 });

@@ -446,6 +446,15 @@ test.describe("block buttons", () => {
     await expect(block.locator("mjx-container")).toBeVisible();
   });
 
+  test("show wide display math whole on wide screens and line-broken on phones", async ({ page }, info) => {
+    const math = page.locator("mjx-container[style*='--wide']").first();
+    const shown = await math.evaluate((m) =>
+      [...m.querySelectorAll(":scope > svg")].filter((s) => s.getBoundingClientRect().width > 1).map((s) => s.hasAttribute("data-narrow")),
+    );
+    expect(shown).toEqual([!wide(info.project.name)]);
+    expect(await math.evaluate((m) => m.scrollWidth <= m.clientWidth)).toBe(true);
+  });
+
   test("highlight an equation with its references on hover, and after a click until the next click elsewhere", async ({
     page,
     javaScriptEnabled,

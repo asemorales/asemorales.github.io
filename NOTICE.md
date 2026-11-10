@@ -20,6 +20,10 @@ They were converted into Vale rules, filtered, and edited. The sources are these
 
 `styles/proselint/` comes from [errata-ai/proselint](https://github.com/errata-ai/proselint) under the BSD 3-Clause license.
 
+## Apache 2.0
+
+The `mjx-break` styles and the MJX-ZERO font in `src/styles/global.css` come from [MathJax](https://github.com/mathjax/MathJax-src) under the Apache License 2.0.
+
 ## MIT
 
 The MIT license below covers `.vale.ini`, `scripts/build-typos.py`, and `styles/asemorales/NotContrast.yml`.
