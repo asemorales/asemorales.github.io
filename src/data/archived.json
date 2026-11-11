@@ -15,12 +15,23 @@
     "submitted": "2026-11-05",
     "job": "spn2-0fac835745519183213a7829b1092cc93a8634ef"
   },
+  "https://arxiv.org/abs/2611.06641": {
+    "submitted": "2026-11-11",
+    "job": "spn2-c31035ca43e189519819721a1cef7874ad4ea16c"
+  },
   "https://astro.build/": {
     "submitted": "2026-11-06"
+  },
+  "https://comdig.cssociety.org/": {
+    "submitted": "2026-11-11",
+    "job": "spn2-57993bf7753846926b06c4b141225f70747de160"
   },
   "https://consc.net/papers/emergence.pdf": {
     "submitted": "2026-11-05",
     "job": "spn2-be0948dac346d29e4f9bd9d9e97767a3eefcfe91"
+  },
+  "https://creativecommons.org/licenses/by-nc-sa/4.0/": {
+    "submitted": "2026-11-11"
   },
   "https://doi.org/10.1007%2Fs13194-012-0056-8": {
     "submitted": "2026-11-05",
@@ -56,6 +67,9 @@
   "https://en.wikipedia.org/wiki/Analects": {
     "submitted": "2026-11-08"
   },
+  "https://en.wikipedia.org/wiki/ArXiv": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/Assembly_language": {
     "submitted": "2026-11-06"
   },
@@ -66,6 +80,9 @@
   "https://en.wikipedia.org/wiki/C++": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Causal_model": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/Cellular_automaton": {
     "submitted": "2026-11-06"
   },
@@ -73,8 +90,22 @@
     "submitted": "2026-11-06",
     "job": "spn2-072e849d81ff97160d9e41eacec3abc509f00a8a"
   },
+  "https://en.wikipedia.org/wiki/Classical_mechanics": {
+    "submitted": "2026-11-11"
+  },
+  "https://en.wikipedia.org/wiki/Coarse-grained_modeling": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/Cold_start_%28recommender_systems%29": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Collective_behavior": {
+    "submitted": "2026-11-11",
+    "job": "spn2-b8aba02a720ba994084078430064ef72fafc1133"
+  },
+  "https://en.wikipedia.org/wiki/Commensurability_(philosophy_of_science)": {
+    "submitted": "2026-11-11",
+    "job": "spn2-cd5120d6b5344f73196a62094ea5c7cbb7630e6d"
   },
   "https://en.wikipedia.org/wiki/Complex_system": {
     "submitted": "2026-11-06",
@@ -87,11 +118,28 @@
     "submitted": "2026-11-06",
     "job": "spn2-f2220a46f4a69d8d9a00a7f0e703fe8d89842d9c"
   },
+  "https://en.wikipedia.org/wiki/Condensed_matter_physics": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/Continuous_integration": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Continuum_limit": {
+    "submitted": "2026-11-11",
+    "job": "spn2-a36c7aa71b8d130a1e3270de787c874c79407700"
+  },
+  "https://en.wikipedia.org/wiki/Critical_phenomena": {
+    "submitted": "2026-11-11",
+    "job": "spn2-2dde7cb49d279c1fcd7392b1463cec40ac5562d2"
+  },
+  "https://en.wikipedia.org/wiki/Crystal_structure": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/De_facto_and_de_jure": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Dimensionality_reduction": {
+    "submitted": "2026-11-11"
   },
   "https://en.wikipedia.org/wiki/Discretization": {
     "submitted": "2026-11-08"
@@ -117,14 +165,23 @@
   "https://en.wikipedia.org/wiki/Emergence": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Epistemology": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/Essays_%28Montaigne%29": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Explanatory_gap": {
+    "submitted": "2026-11-11"
   },
   "https://en.wikipedia.org/wiki/Exploration%E2%80%93exploitation_dilemma": {
     "submitted": "2026-11-08"
   },
   "https://en.wikipedia.org/wiki/Fields_Medal": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/First-order_logic": {
+    "submitted": "2026-11-11"
   },
   "https://en.wikipedia.org/wiki/Fiscal_year": {
     "submitted": "2026-11-06"
@@ -144,14 +201,30 @@
   "https://en.wikipedia.org/wiki/Gregor_Mendel": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Ground_state": {
+    "submitted": "2026-11-11"
+  },
+  "https://en.wikipedia.org/wiki/Gutenberg%E2%80%93Richter_law": {
+    "submitted": "2026-11-11",
+    "job": "spn2-17e33feb2afaee8d7c1f5a18529a265d657fa95e"
+  },
   "https://en.wikipedia.org/wiki/H-index": {
     "submitted": "2026-11-06"
   },
   "https://en.wikipedia.org/wiki/Halting_problem": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Hamiltonian_(quantum_mechanics)": {
+    "submitted": "2026-11-11"
+  },
+  "https://en.wikipedia.org/wiki/Hamiltonian_mechanics": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/Hard_problem_of_consciousness": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Hardy%E2%80%93Weinberg_principle": {
+    "submitted": "2026-11-11"
   },
   "https://en.wikipedia.org/wiki/Homophily": {
     "submitted": "2026-11-08"
@@ -163,12 +236,28 @@
   "https://en.wikipedia.org/wiki/Ignaz_Semmelweis": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Information_theory": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/Inquiry_education": {
     "submitted": "2026-11-08",
     "job": "spn2-a222a5f4acdb20a39364cb4ee406437177c46916"
   },
+  "https://en.wikipedia.org/wiki/Intertheoretic_reduction": {
+    "submitted": "2026-11-11",
+    "job": "spn2-25b171c5d0938cec406e589b317a8a544f0b04e5"
+  },
+  "https://en.wikipedia.org/wiki/Ising_model": {
+    "submitted": "2026-11-11"
+  },
+  "https://en.wikipedia.org/wiki/Joint_probability_distribution": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/KISS_principle": {
     "submitted": "2026-11-09"
+  },
+  "https://en.wikipedia.org/wiki/Knowledge_argument": {
+    "submitted": "2026-11-11"
   },
   "https://en.wikipedia.org/wiki/Kuramoto_model": {
     "submitted": "2026-11-06",
@@ -191,21 +280,38 @@
     "submitted": "2026-11-06",
     "job": "spn2-924a2db439b8e18556c9e4eb7fdf2ff110ef800d"
   },
+  "https://en.wikipedia.org/wiki/Logical_conjunction": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/Mastodon_%28social_network%29": {
     "submitted": "2026-11-06"
   },
   "https://en.wikipedia.org/wiki/Matthew_effect": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Mendelian_inheritance": {
+    "submitted": "2026-11-11"
+  },
   "https://en.wikipedia.org/wiki/Mercury_(mythology)": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Microstate_(statistical_mechanics)#:~:text=a%20macrostate%20of%20a%20system,given%20analysis": {
+    "submitted": "2026-11-11",
+    "job": "spn2-f4dcd8d1342561648ffb18d9166753b4c0c3748b"
   },
   "https://en.wikipedia.org/wiki/Model_Context_Protocol": {
     "submitted": "2026-11-09"
   },
+  "https://en.wikipedia.org/wiki/Model_theory": {
+    "submitted": "2026-11-11",
+    "job": "spn2-3377f9dc94236e022853b9300b2d634d259c25ba"
+  },
   "https://en.wikipedia.org/wiki/Moravec's_paradox": {
     "submitted": "2026-11-06",
     "job": "spn2-3d0dee8002740d4bc6c1e26300a655af14176633"
+  },
+  "https://en.wikipedia.org/wiki/Multiple_realizability": {
+    "submitted": "2026-11-11"
   },
   "https://en.wikipedia.org/wiki/Neurodiversity": {
     "submitted": "2026-11-09"
