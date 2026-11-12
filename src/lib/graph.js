@@ -13,6 +13,42 @@ function curve(a, b) {
 const LANES = 8;
 const PULL = 0.5;
 const SCATTER = { x: 0.4, y: 0.25 };
+const SLOTS = LANES * 2;
+const REACH = 4;
+const TETHER = 6;
+
+const gap = (a, b) => Math.hypot(a.x - b.x, a.y - b.y) * LANES;
+
+function sourcesOf(sorted) {
+  const sources = new Map();
+  for (const n of sorted) {
+    for (const s of n.sources ?? []) {
+      if (!sources.has(s.url)) sources.set(s.url, { ...s, id: `:${sources.size}`, links: [] });
+      const { links } = sources.get(s.url);
+      if (!links.includes(n.id)) links.push(n.id);
+    }
+  }
+  return [...sources.values()];
+}
+
+function settle(source, from, taken, pitch) {
+  const middle = from.reduce((sum, n) => sum + n.y, 0) / from.length;
+  let best = null;
+  for (let row = -2 * REACH; row <= 2 * REACH; row++) {
+    for (let slot = 0; slot < SLOTS; slot++) {
+      const spot = { x: (slot + 0.5) / SLOTS, y: middle + (row * pitch) / 2 };
+      if (spot.y < 0 || spot.y > 1) continue;
+      const cost = taken.reduce(
+        (sum, other) => sum + 1 / (gap(spot, other) ** 2 + 0.01),
+        from.reduce((sum, n) => sum + TETHER * gap(spot, n), 0),
+      );
+      if (!best || cost < best.cost) best = { ...spot, cost };
+    }
+  }
+  const x = best.x + (scatter(source.url, 1) * SCATTER.x) / SLOTS;
+  const y = Math.min(1, Math.max(0, best.y + (scatter(source.url, 2) * SCATTER.y * pitch) / 2));
+  return { ...source, x, y, left: x > 0.5 };
+}
 
 function scatter(id, salt) {
   let h = salt;
@@ -73,13 +109,23 @@ export function noteGraph(notes) {
   const nodes = sorted.map((n, i) => {
     const x = (lane.get(n.id) + 0.5 + scatter(n.id, 1) * SCATTER.x) / LANES;
     const y = Math.min(1, Math.max(0, t(i) + scatter(n.id, 2) * SCATTER.y * pitch));
-    return { id: n.id, title: n.title, x, y, links: linked(n.id), left: x > 0.5 };
+    return { id: n.id, title: n.title, x, y, links: linked(n.id), sources: [], left: x > 0.5 };
+  });
+  const at = new Map(nodes.map((n) => [n.id, n]));
+  const taken = [...nodes];
+  const externals = sourcesOf(sorted).map((source) => {
+    const from = source.links.map((id) => at.get(id));
+    const node = settle(source, from, taken, pitch);
+    taken.push(node);
+    for (const n of from) n.sources.push(node.id);
+    return node;
   });
   const edges = nodes.flatMap((a, i) =>
     nodes
       .slice(i + 1)
       .filter((b) => a.links.includes(b.id))
-      .map((b) => ({ a: a.id, b: b.id, d: curve(a, b) })),
+      .map((b) => ({ a: a.id, b: b.id, d: curve(a, b), external: false })),
   );
-  return { nodes, edges };
+  for (const e of externals) for (const id of e.links) edges.push({ a: id, b: e.id, d: curve(at.get(id), e), external: true });
+  return { nodes, externals, edges };
 }

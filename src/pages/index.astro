@@ -5,7 +5,11 @@ import HomeTopic from "../components/HomeTopic.astro";
 import NoteGraph from "../components/NoteGraph.astro";
 import NoteRow from "../components/NoteRow.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import cards from "../data/cards.json";
+import linkStatus from "../data/links-status.json";
 import Base from "../layouts/Base.astro";
+import { archived } from "../lib/dead-links.js";
+import { linkedSources } from "../lib/notes";
 import { NAME, SITE_URL } from "../lib/site.js";
 import { description } from "../lib/summary.js";
 
@@ -16,6 +20,20 @@ const rank = (tag: string) => (order.includes(tag) ? order.indexOf(tag) : order.
 const tags = [...groups.keys()].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
 const introduction = (await getEntry("introduction", "introduction"))!;
 const { Content: Introduction } = await render(introduction);
+const annotated = new Map((await getCollection("annotations")).map((a) => [a.data.url, a.data.title]));
+const graphed = await Promise.all(
+  notes.map(async (n) => ({
+    id: n.id,
+    title: n.data.title,
+    date: n.data.date,
+    body: n.body,
+    sources: (await linkedSources(n)).map(({ url, text }) => ({
+      url,
+      href: archived(url, linkStatus)?.href ?? url,
+      title: annotated.get(url) || (cards as Record<string, { title?: string }>)[url]?.title || text,
+    })),
+  })),
+);
 const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glossary", "colophon"].map((id) => getEntry("notes", id)))).filter(
   (n) => n !== undefined,
 );
@@ -96,7 +114,7 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
         </li>
       </ul>
     </footer>
-    <NoteGraph notes={notes.map((n) => ({ id: n.id, title: n.data.title, date: n.data.date, body: n.body }))} />
+    <NoteGraph notes={graphed} />
   </div>
 </Base>
 

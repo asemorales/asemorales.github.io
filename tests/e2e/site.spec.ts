@@ -150,7 +150,7 @@ test.describe("homepage", () => {
   test("graphs the notes, lights a note's row, and zooms", async ({ page, javaScriptEnabled }, info) => {
     await page.goto("/");
     const graph = page.getByRole("figure", { name: /^Graph of links between notes/ });
-    const nodes = graph.getByRole("link");
+    const nodes = graph.locator("a:not(.external)");
     test.skip((await nodes.count()) === 0, "needs a listed note");
     await expect(nodes).toHaveCount(await page.locator(".home-notes section li").count());
     const zoomIn = graph.getByRole("button", { name: "Zoom in" });
@@ -167,6 +167,14 @@ test.describe("homepage", () => {
     }
     await page.locator("#contents").click();
     await expect(row).not.toHaveClass(/lit/);
+
+    const externals = graph.getByRole("button", { name: "Show external links" });
+    if (await externals.count()) {
+      await expect(graph.locator("a.external:visible")).toHaveCount(0);
+      await externals.click();
+      await expect(externals).toHaveAttribute("aria-pressed", "true");
+      await expect(graph.locator("a.external").first()).toBeVisible();
+    }
 
     const canvas = graph.locator(".graph-canvas");
     const { width } = (await canvas.boundingBox())!;

@@ -33,3 +33,8 @@ export async function sourceLists(frontmatter: Frontmatter) {
     },
   ].filter((l) => l.entries.length > 0);
 }
+
+export async function linkedSources(note: CollectionEntry<"notes">) {
+  const { remarkPluginFrontmatter: fm } = await render(note);
+  return [...((fm.references ?? []) as Source[]), ...((fm.externalLinks ?? []) as Source[])].flatMap(({ url, text }) => (url ? [{ url, text }] : []));
+}

@@ -980,7 +980,7 @@
   }
   /* The 1.5rem box and lane pitch meet the 24px target size of WCAG 2.2. */
   .graph-plot a {
-    @apply absolute grid size-6 place-items-center text-mid no-underline;
+    @apply absolute grid size-6 place-items-center text-dim no-underline;
     left: calc(var(--x) * 100%);
     top: calc(var(--y) * 100%);
     translate: -50% -50%;
@@ -999,7 +999,19 @@
     @apply right-full left-auto;
     max-width: calc(var(--x) * 100cqw - 0.75rem);
   }
-  .note-graph[data-labels] a span {
+  .graph-plot a.external {
+    @apply size-4 text-mid;
+  }
+  .graph-plot a.external::before {
+    @apply size-1.5 border-[1.5px];
+  }
+  .graph-plot path.external {
+    @apply stroke-rule;
+  }
+  .note-graph:not([data-external]) .external {
+    display: none;
+  }
+  .note-graph[data-labels] a:is(:not(.external), :hover, .lit, .near) span {
     @apply block;
   }
   .graph-plot a:is(:hover, .lit) {
@@ -1009,7 +1021,7 @@
     @apply outline outline-current;
   }
   .graph-plot a.near {
-    @apply text-dim;
+    @apply text-ink;
   }
   .note-graph.focused path:not(.lit) {
     @apply stroke-rule;
@@ -1050,6 +1062,9 @@
   }
   .note-graph .block-tools button {
     @apply w-7 justify-center font-mono disabled:cursor-default disabled:text-mid;
+  }
+  .note-graph .block-tools button[aria-pressed="true"] {
+    @apply bg-hover text-ink;
   }
   @media (hover: none) {
     .note-graph .block-tools {
