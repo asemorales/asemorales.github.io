@@ -133,6 +133,8 @@ A section of this note: [[#Typography|Lorem Ipsum > Typography]]. An alias: [[#M
 
 This paragraph tests popovers on glossary terms. Lorem ipsum [[glossary#entelechy (noun)|entelechy]]. An alias: [[glossary#entelechy (noun)|entelechia]].
 
+This paragraph tests a link to the library page, which shelves book covers by status, filters them by a search, and by dropdowns of tags and types, and shelves the suggested next reads with the reasons for each one folded under its title: [Library](/library/).
+
 ### External links
 
 - A GitHub repository: [asemorales/bierstadt](https://github.com/asemorales/bierstadt).
@@ -235,6 +237,13 @@ npm run sync && git push
 > This quote tests that each source line keeps its own line.
 > Lorem ipsum dolor sit amet,
 > consectetur adipiscing elit.
+
+### Quote with indentation
+
+> This quote tests that indented lines and repeated spaces keep their spacing.
+>     Lorem ipsum dolor sit amet,
+>         consectetur   adipiscing   elit,
+>     *sed do* eiusmod tempor.
 
 ### Epigraph
 

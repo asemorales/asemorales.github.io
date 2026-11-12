@@ -16,9 +16,11 @@ Set in [Source Serif 4](https://github.com/adobe-fonts/source-serif) and [DM Mon
 
 ## Workflow
 
-I write in [Obsidian](https://obsidian.md/) and use [Obsidian Sync](https://obsidian.md/sync) across my devices. I dedicate a folder for content to be published, which includes attachments, notes, and annotations for popovers on external links. I then run a custom `npm run` command to pull content from my vault to my site.
+I write in [Obsidian](https://obsidian.md/) and use [Obsidian Sync](https://obsidian.md/sync) across my devices. I loosely follow [Steph Ango's](https://stephango.com/) [method for using Obsidian](https://stephango.com/vault), with several modifications based on my own preferences and for compatibility with this site.
 
-Styled components in notes, such as quotes, epigraphs, definitions, figure captions, and status boxes are written as callouts in Obsidian, then rendered by the site depending on the type of callout. Math and code blocks are rendered as is. Footnotes are rendered as either citations (if the footnote starts with `cite-`) or sidenotes (for all other cases).
+I dedicate a folder for content to be published, which includes attachments, notes, and annotations for popovers on external links. I then run a custom `npm run sync` command to pull content from my vault to this site.
+
+Styled components in notes, such as quotes, epigraphs, definitions, figure captions, and status boxes are written as callouts in Obsidian, then rendered by the site depending on the type of callout. Math and code blocks are rendered as is. Footnotes are rendered as either citations (if the footnote starts with `cite-`) or sidenotes (for all other cases). Highlights are rendered with pairs of == around text.
 
 ## Archiving external links
 
@@ -48,10 +50,33 @@ The graph on the homepage is inspired by the graph view in Obsidian, which displ
 - Zoom with touchscreen gestures, `Ctrl+scroll`, or the `+` and `-` buttons on hover
 - Display popovers and highlight note in contents on node hover
 
-## Source code
+## Library
 
-Source code is available on [GitHub](https://github.com/asemorales/asemorales.github.io) under AGPL 3.0.
+Items in the [[published/paratext/library|library]] are pulled from my [Goodreads](https://www.goodreads.com/)[^3] and [Readwise Reader](https://readwise.io/read) accounts. The status and tags of each item are stored in a note in my Obsidian vault. Book covers and descriptions are from [Open Library](https://openlibrary.org/). When missing, I try to add the details to Open Library rather than falling back to Google Books or other APIs as a way to enforce a system that includes open source contributions in my day-to-day life.
+
+The algorithm for suggesting what I should read next is based on the following criteria. In descending priority:
+1. Order of prerequisites
+2. Spaced repetition
+3. Interleaving topics with recently finished books
+4. Non-interference with topics of books currently being read
+5. Genre alternates between fiction and non-fiction
+6. Books for which I have physical copies are spaced out to avoid digital fatigue
+
+The library was created with a few goals:
+1. Avoid [collector's fallacy](https://zettelkasten.de/posts/collectors-fallacy/) by forcing me to catch up on my backlog of saved items
+2. Centralize my collection across my Goodreads, Readwise, Substack, and physical library
+3. Force myself to use a system that makes open source contributions part of my writing/reading routine[^4]
+
+## Miscellaneous
+
+Source code is available on [GitHub](https://github.com/asemorales/asemorales.github.io) under AGPL 3.0. My personal writing is available under CC BY-SA 4.0.
+
+For a full list of this site's features, see [[lorem-ipsum|this page]].
 
 [^1]: If the maximum allowed plants for your window size has already been reached, or if the plant would lack light to grow, an existing plant will wither to accommodate the new plant.
 
 [^2]: And literal [digital gardens](https://www.eastgate.com/garden/Enter.html) :)
+
+[^3]: I find that the recommender system for books on Open Library/Internet Archive seems to be better suited for historical, niche, and technical books compared to that of Goodreads. Goodreads tends to lean towards popular books and thus recommendations seem to be more weighted by popularity, which is a disadvantage when seeking technical material.
+
+[^4]: There is a common adage that open source is driven by spite. Hence, I've decided I should take my frustration of missing book covers and descriptions to fuel open source. Others also do this by being angry at people or apps on the Internet, but I think that's too stressful for me. The Internet is a stressful place.

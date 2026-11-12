@@ -905,11 +905,23 @@
     "meta": [],
     "text": "The simple and secure way to sync your notes across any device and OS."
   },
+  "https://openlibrary.org/": {
+    "kind": "page",
+    "title": "Welcome to Open Library | Open Library",
+    "meta": [],
+    "text": "Millions of books available through Controlled Digital Lending"
+  },
   "https://pages.github.com/": {
     "kind": "page",
     "title": "GitHub Pages | Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.",
     "meta": [],
     "text": "Head over to GitHub and create a new public repository named username.github.io, where username is your username (or organization name) on GitHub."
+  },
+  "https://readwise.io/read": {
+    "kind": "page",
+    "title": "Readwise Reader | The first read-it-later app built for power readers.",
+    "meta": [],
+    "text": "Save everything to one place, highlight like a pro, and replace several apps with Reader."
   },
   "https://shiki.style/": {
     "kind": "page",
@@ -922,6 +934,12 @@
     "title": "Steph Ango",
     "meta": [],
     "text": ""
+  },
+  "https://stephango.com/vault": {
+    "kind": "page",
+    "title": "How I use Obsidian · Steph Ango",
+    "meta": [],
+    "text": "I use Obsidian to think, take notes, write essays, and publish this site. This is my bottom-up approach to note-taking and organizing things I am interested in. It embraces chaos and laziness to create emergent structure."
   },
   "https://supermemo.guru/wiki/Incremental_writing": {
     "kind": "page",
@@ -983,6 +1001,12 @@
     "meta": [],
     "text": "Into the Garden Beyond the Navigation Problem The Limits of Structure Gardens and Paths The Virtue of Irregularity Gates and Signposts Statuary and Follies: Punctuating the Reader Experience Planning Pathways Seven Lessons from Gardening"
   },
+  "https://www.goodreads.com/": {
+    "kind": "page",
+    "title": "Goodreads | Meet your next favorite book",
+    "meta": [],
+    "text": "Gain access to a massive audience of book lovers. Goodreads is a great place to promote your books."
+  },
   "https://www.lesswrong.com/posts/jinzzbPHshif8nmnw/do-not-conquer-what-you-cannot-defend": {
     "kind": "page",
     "title": "Do not conquer what you cannot defend — LessWrong",
@@ -1006,5 +1030,11 @@
     "title": "SFI Press",
     "meta": [],
     "text": "The contemporary global economy exhibits unprecedented structural complexity—characterized by nonlinear dynamics, adaptive behaviors, and emergent properties. Understanding these phenomena requires theoretical frameworks capable of addressing complexity, path dependence, and evolutionary processes."
+  },
+  "https://zettelkasten.de/posts/collectors-fallacy/": {
+    "kind": "page",
+    "title": "The Collector’s Fallacy • Zettelkasten Method",
+    "meta": [],
+    "text": "There’s a tendency in all of us to gather useful stuff and feel good about it. To collect is a reward in itself. As knowledge workers, we’re inclined to look for the next groundbreaking thought, for intellectual stimulation: we pile up promising books and articles, and we store half the internet as bookmarks, just so we get the feeling of being on the cutting edge."
   }
 }
