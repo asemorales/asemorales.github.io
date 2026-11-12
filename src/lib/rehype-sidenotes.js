@@ -76,7 +76,7 @@ export function letter(i) {
 function inline(children) {
   const out = [];
   for (const child of children) {
-    if (child.type === "text" && !child.value.trim()) continue;
+    if (child.type === "text" && !/[^ \t\n]/.test(child.value)) continue;
     if (isElement(child) && child.properties?.dataFootnoteBackref !== undefined) continue;
     if (isElement(child) && BLOCKS.has(child.tagName)) {
       const inner = inline(child.children);

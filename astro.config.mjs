@@ -22,6 +22,7 @@ import { rehypeSvgFigures } from "./src/lib/rehype-svg-figures.js";
 import { rehypeTidy } from "./src/lib/rehype-tidy.js";
 import { remarkBlockIds } from "./src/lib/remark-block-ids.js";
 import { remarkFootnoteQuotes } from "./src/lib/remark-footnote-quotes.js";
+import { remarkQuoteSpacing } from "./src/lib/remark-quote-spacing.js";
 import { remarkHighlights } from "./src/lib/remark-highlights.js";
 import { SITE_URL as site } from "./src/lib/site.js";
 import { slugify } from "./src/lib/slug.js";
@@ -54,7 +55,14 @@ export default defineConfig({
   image: { layout: "constrained" },
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkFootnoteQuotes, remarkMath, [remarkWikilinks, { slugs: notes.map((n) => n.slug) }], remarkHighlights, remarkBlockIds],
+      remarkPlugins: [
+        remarkQuoteSpacing,
+        remarkFootnoteQuotes,
+        remarkMath,
+        [remarkWikilinks, { slugs: notes.map((n) => n.slug) }],
+        remarkHighlights,
+        remarkBlockIds,
+      ],
       rehypePlugins: [
         rehypeMath,
         rehypeTidy,

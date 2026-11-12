@@ -11,6 +11,7 @@ import { rehypeCallouts } from "./rehype-callouts.js";
 import { rehypeFigures } from "./rehype-figures.js";
 import { remarkBlockIds } from "./remark-block-ids.js";
 import { remarkFootnoteQuotes } from "./remark-footnote-quotes.js";
+import { remarkQuoteSpacing } from "./remark-quote-spacing.js";
 import { remarkHighlights } from "./remark-highlights.js";
 import { remarkWikilinks } from "./wikilinks.js";
 
@@ -77,6 +78,7 @@ export async function feedHtml(markdown, { slug, slugs, site, status = {}, image
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkQuoteSpacing)
     .use(remarkFootnoteQuotes)
     .use(remarkMath)
     .use(remarkWikilinks, { slugs })

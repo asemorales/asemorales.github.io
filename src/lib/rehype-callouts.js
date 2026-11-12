@@ -68,7 +68,7 @@ function parse(quote) {
     rest[i] = txt(node.value.slice(nl + 1));
     break;
   }
-  const inline = rest.slice(i).filter((n) => n.type !== "text" || n.value.trim());
+  const inline = rest.slice(i).filter((n) => n.type !== "text" || /[^ \t\n]/.test(n.value));
   const body = [...(inline.length ? [{ ...first, children: inline }] : []), ...blocks.slice(1)];
   return { type: match[1].toLowerCase(), title: trim(title), body };
 }

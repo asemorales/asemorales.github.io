@@ -27,6 +27,12 @@ describe("feed HTML", () => {
     expect(body).toContain("Separate.");
   });
 
+  it("keeps a quote's indentation and repeated spaces", async () => {
+    const html = await render("> [!quote] Poet\n> One\n>     two   three\n>   *four*\n\nText.[^a]\n\n[^a]: > Five\n    >  six");
+    expect(html).toContain("<p>One<br>\n\u00a0\u00a0\u00a0\u00a0two\u00a0\u00a0 three<br>\n\u00a0\u00a0<em>four</em></p>");
+    expect(html).toContain("<p>Five<br>\n\u00a0six</p>");
+  });
+
   it("writes math as MathML, and proof trees as images with their TeX", async () => {
     const tree = "\\begin{prooftree}\\AxiomC{A}\\UnaryInfC{B}\\end{prooftree}";
     const html = await render(`Let $x^2$ be.\n\n$$\n${tree}\n$$`);
