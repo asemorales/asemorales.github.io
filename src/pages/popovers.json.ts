@@ -1,9 +1,13 @@
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
+import books from "../data/books.json";
 import cards from "../data/cards.json";
+import library from "../data/library.json";
 import linkStatus from "../data/links-status.json";
 import { archived } from "../lib/dead-links.js";
 import { GLOSSARY } from "../lib/glossary.js";
-import type { CardText, Source } from "../types";
+import { bookCards, shelve } from "../lib/library.js";
+import { linkedSources } from "../lib/notes";
+import type { CardText } from "../types";
 import { headingCards, linkCard, noteCard, paragraphHtml, termCards } from "../lib/popovers.js";
 
 function renderText(card: CardText) {
@@ -21,9 +25,8 @@ export async function GET() {
     out[`/${note.id}/`] = noteCard(note.data.title, body);
     const sections = { ...headingCards(body), ...(note.id === GLOSSARY ? termCards(body) : {}) };
     for (const [id, card] of Object.entries(sections)) out[`/${note.id}/#${id}`] = card;
-    const { remarkPluginFrontmatter: fm } = await render(note);
-    for (const { url, text } of [...((fm.references ?? []) as Source[]), ...((fm.externalLinks ?? []) as Source[])]) {
-      if (!url || out[url]) continue;
+    for (const { url, text } of await linkedSources(note)) {
+      if (out[url]) continue;
       const dead = archived(url, linkStatus);
       const card = linkCard({
         url,
@@ -37,5 +40,6 @@ export async function GET() {
     }
   }
   (Object.values(out) as CardText[]).forEach(renderText);
+  Object.assign(out, bookCards(shelve(books, library)));
   return new Response(JSON.stringify(out), { headers: { "Content-Type": "application/json" } });
 }

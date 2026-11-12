@@ -13,6 +13,7 @@ export interface Card extends CardText {
   title: string;
   type?: string;
   meta?: string[];
+  tags?: string[];
   dead?: string;
   href?: string;
 }

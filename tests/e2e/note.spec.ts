@@ -321,7 +321,7 @@ test.describe("glossary", () => {
   test("appears at the bottom of the home contents", { tag: "@once" }, async ({ page }) => {
     await page.goto("/");
     const hrefs = await page.locator(".home-end a").evaluateAll((as) => as.map((a) => a.getAttribute("href")));
-    expect(hrefs).toEqual(["/to-the-reader/", "/acknowledgments/", "/glossary/", "/colophon/"]);
+    expect(hrefs).toEqual(["/to-the-reader/", "/acknowledgments/", "/glossary/", "/colophon/", "/library/"]);
   });
 });
 

@@ -1,0 +1,235 @@
+---
+import { getEntry, render } from "astro:content";
+import Book from "../components/Book.astro";
+import books from "../data/books.json";
+import library from "../data/library.json";
+import Base from "../layouts/Base.astro";
+import { day } from "../lib/date.js";
+import { description } from "../lib/summary.js";
+import { shelve, STATUS_LABEL, STATUSES, suggest, TYPE_LABEL, TYPES } from "../lib/library.js";
+import { OPEN_WHEN_WIDE } from "../lib/rehype-sections.js";
+
+interface Shelved {
+  url: string;
+  cover?: string;
+  title: string;
+  author: string;
+  site: string;
+  private: boolean;
+  status: string;
+  type: string;
+  tags: string[];
+  finished: string | null;
+}
+interface Suggestion {
+  book: Shelved;
+  parts: { name: string; why: string }[];
+}
+
+const SUGGESTIONS = 5;
+const introduction = await getEntry("library", "library");
+const Introduction = introduction && (await render(introduction)).Content;
+const all = (shelve(books, library) as Shelved[]).sort((a, b) => a.title.localeCompare(b.title));
+const byStatus = Map.groupBy(all, (b) => b.status);
+const read = (byStatus.get("read") ?? []).sort((a, b) => (b.finished ?? "").localeCompare(a.finished ?? ""));
+const last = read.find((b) => b.finished);
+const picks = (suggest(all, day(new Date())) as Suggestion[]).slice(0, SUGGESTIONS);
+const count = (status: string) => byStatus.get(status)?.length ?? 0;
+const tags = [...new Set(all.flatMap((b) => b.tags))].sort();
+const filterable = (book: Shelved) => ({
+  "data-search": [book.title, book.author].join(" "),
+  "data-tags": book.tags.join(" "),
+  "data-type": book.type,
+});
+---
+
+<Base title="Library" description={description(introduction?.body ?? "", "Books I am reading, have read, and plan to read.")} wide>
+  <nav slot="rail" class="toc" aria-label="Contents">
+    <details open>
+      <summary>Contents</summary>
+      <ol>
+        {picks.length > 0 && (
+          <li>
+            <a href="#next">Suggested next reads</a>
+          </li>
+        )}
+        {STATUSES.filter(count).map((status) => (
+          <li>
+            <a href={`#status-${status}`}>{STATUS_LABEL[status as keyof typeof STATUS_LABEL]}</a>
+          </li>
+        ))}
+      </ol>
+    </details>
+    <script is:inline set:html={OPEN_WHEN_WIDE} />
+  </nav>
+  <div class="library">
+    <div class="column">
+      <h1 id="page-title" class="mb-6 text-2xl sm:text-4xl">
+        Library
+      </h1>
+      {Introduction && (
+        <section class="prose-page" aria-label="Introduction">
+          <Introduction />
+        </section>
+      )}
+      {!all.length && <p class="text-dim">No books are shelved yet.</p>}
+    </div>
+
+    <div class="library-wide">
+      {all.length > 0 && (
+        <search class="library-search">
+          <label for="library-search" class="sr-only">
+            Search the library
+          </label>
+          <input id="library-search" type="search" placeholder="Search by title or author" autocomplete="off" spellcheck="false" />
+          <details class="library-filter library-tags">
+            <summary>
+              Tags <span class="count" />
+            </summary>
+            <fieldset>
+              <legend class="sr-only">Show only the items that have every checked tag</legend>
+              {tags.map((tag) => (
+                <label>
+                  <input type="checkbox" value={tag} autocomplete="off" /> {tag}
+                </label>
+              ))}
+            </fieldset>
+          </details>
+          <details class="library-filter library-type">
+            <summary>
+              Type <span class="count" />
+            </summary>
+            <fieldset>
+              <legend class="sr-only">Show only the items of one type</legend>
+              <label>
+                <input type="radio" name="type" value="" autocomplete="off" checked /> all
+              </label>
+              {TYPES.map((type) => (
+                <label>
+                  <input type="radio" name="type" value={type} autocomplete="off" /> {TYPE_LABEL[type as keyof typeof TYPE_LABEL].toLowerCase()}
+                </label>
+              ))}
+            </fieldset>
+          </details>
+          <p class="library-empty" role="status" />
+        </search>
+      )}
+      {picks.length > 0 && (
+        <section aria-labelledby="next">
+          <h2 id="next">Suggested next reads</h2>
+          <ul class="shelf">
+            {picks.map(({ book }) => (
+              <li {...filterable(book)}>
+                <Book book={book} />
+              </li>
+            ))}
+          </ul>
+          <ol class="library-why">
+            {picks.map(({ book, parts }, i) => (
+              <li value={i + 1} {...filterable(book)}>
+                <details name="why">
+                  <summary>{[book.title, book.author].filter(Boolean).join(" by ")}</summary>
+                  <dl>
+                    {parts.map((part) => (
+                      <div>
+                        <dt>{part.name}</dt>
+                        <dd>{part.why}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </details>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+      {STATUSES.filter(count).map((status) => (
+        <section aria-labelledby={`status-${status}`}>
+          <h2 id={`status-${status}`}>
+            {STATUS_LABEL[status as keyof typeof STATUS_LABEL]} <span class="count">{count(status)}</span>
+          </h2>
+          <ul class="shelf">
+            {byStatus.get(status)!.map((book) => (
+              <li {...filterable(book)}>
+                <Book book={book} finished={book === last} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { matcher } from "../lib/search.js";
+
+  const input = document.querySelector<HTMLInputElement>("#library-search");
+  if (input) {
+    const empty = document.querySelector<HTMLElement>(".library-empty")!;
+    const dropdowns = [...document.querySelectorAll<HTMLDetailsElement>(".library-filter")];
+    const [tagCount, typeCount] = dropdowns.map((d) => d.querySelector<HTMLElement>(".count")!);
+    const boxes = [...document.querySelectorAll<HTMLInputElement>(".library-tags input")];
+    const types = [...document.querySelectorAll<HTMLInputElement>(".library-type input")];
+    const sections = [...document.querySelectorAll<HTMLElement>(".library-wide section")].map((section) => ({
+      section,
+      count: section.querySelector<HTMLElement>(".count"),
+      items: [...section.querySelectorAll<HTMLElement>("li[data-search]")],
+    }));
+    const filter = () => {
+      const matches = matcher(input.value);
+      const tags = boxes.filter((box) => box.checked).map((box) => box.value);
+      const type = types.find((radio) => radio.checked)?.value ?? "";
+      tagCount.textContent = tags.length ? String(tags.length) : "";
+      typeCount.textContent = type ? "1" : "";
+      let found = 0;
+      for (const { section, count, items } of sections) {
+        for (const li of items) {
+          const own = (li.dataset.tags ?? "").split(" ");
+          const ofType = !type || li.dataset.type === type;
+          li.hidden = !matches(li.dataset.search ?? "") || !ofType || !tags.every((tag) => own.includes(tag));
+        }
+        const shown = section.querySelectorAll(".shelf li:not([hidden])").length;
+        if (count) count.textContent = String(shown);
+        section.hidden = !shown;
+        found += shown;
+      }
+      empty.textContent = found ? "" : "No items match.";
+    };
+    input.addEventListener("input", filter);
+    for (const d of dropdowns) d.addEventListener("change", filter);
+    document.addEventListener("click", (event) => {
+      for (const d of dropdowns) if (!d.contains(event.target as Node)) d.open = false;
+    });
+    filter();
+  }
+</script>
+
+<script>
+  const SPARKS = 14;
+  const last = document.querySelector<HTMLElement>("[data-finished]");
+  if (last && matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    try {
+      const seen = localStorage.getItem("library-finished");
+      localStorage.setItem("library-finished", last.dataset.finished!);
+      if (seen && seen !== last.dataset.finished) {
+        new IntersectionObserver((entries, observer) => {
+          if (!entries[0].isIntersecting) return;
+          observer.disconnect();
+          for (let i = 0; i < SPARKS; i++) {
+            const spark = document.createElement("span");
+            const angle = (i / SPARKS) * 2 * Math.PI;
+            const reach = 3 + Math.random() * 3;
+            spark.className = "spark";
+            spark.ariaHidden = "true";
+            spark.textContent = "✦";
+            spark.style.setProperty("--dx", `${Math.cos(angle) * reach}rem`);
+            spark.style.setProperty("--dy", `${Math.sin(angle) * reach}rem`);
+            spark.addEventListener("animationend", () => spark.remove());
+            last.append(spark);
+          }
+        }).observe(last);
+      }
+    } catch {}
+  }
+</script>

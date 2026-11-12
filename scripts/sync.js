@@ -4,12 +4,16 @@ import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { day } from "../src/lib/date.js";
 import { GLOSSARY, glossaryEntries, parseTerm } from "../src/lib/glossary.js";
+import { parseLibrary } from "../src/lib/library.js";
 import { classify, notesByLink } from "../src/lib/links.js";
 import { slugify } from "../src/lib/slug.js";
 import { CODE, WIKILINK } from "../src/lib/wikilinks.js";
 
 const IMAGE = /\.(png|jpe?g|gif|webp|avif|svg)$/i;
 const INTRODUCTION = "paratext/introduction.md";
+const LIBRARY = "paratext/library.md";
+const COVERS = "paratext/covers";
+const COVER = /\.(png|jpe?g|webp)$/i;
 const NOTE_KEYS = new Set(["title", "date", "last_updated", "tags", "unlisted"]);
 const SKIP_DIRS = new Set([".git", ".obsidian", ".trash", "node_modules"]);
 const IGNORED_WIKILINKS = new Set(["some private note"]);
@@ -235,7 +239,44 @@ async function writeContent({ vault, out, notes, annotations, sources, introduct
   }
 }
 
-export async function sync({ vault, out = "src/content" }) {
+async function readLibrary(file, problems) {
+  const { entries, problems: found } = parseLibrary(await fs.readFile(file, "utf8"));
+  problems.push(...found.map((p) => `${LIBRARY}: ${p}`));
+  return entries;
+}
+
+/** Gives each item the cover whose file name starts its title, the longest name first. */
+async function ownCovers(dir, entries, problems) {
+  const name = (file) => slugify(path.parse(file).name);
+  const files = (await fs.readdir(dir).catch(() => [])).filter((f) => COVER.test(f)).sort((a, b) => name(a).length - name(b).length);
+  for (const file of files) {
+    const matches = Object.values(entries).filter((entry) => slugify(entry.title).startsWith(name(file)));
+    if (!matches.length) problems.push(`${COVERS}/${file}: no library title starts with "${name(file)}".`);
+    for (const entry of matches) entry.cover = file;
+  }
+  return files;
+}
+
+async function writeLibrary(file, entries, report) {
+  const previous = await fs.readFile(file, "utf8").then(JSON.parse, () => null);
+  const today = day(new Date());
+  const library = {};
+  for (const [id, { title, ...entry }] of Object.entries(entries)) {
+    const before = previous?.[id];
+    if (entry.status === "read" && before) {
+      entry.finished ??= before.finished ?? (before.status === "read" ? undefined : today);
+      if (before.status !== "read") report.finished.push({ title, year: entry.finished.slice(0, 4) });
+    }
+    library[id] = entry;
+  }
+  for (const book of report.finished) {
+    book.count = Object.values(library).filter((e) => e.finished?.startsWith(book.year)).length;
+  }
+  await fs.mkdir(path.dirname(file), { recursive: true });
+  await fs.writeFile(file, JSON.stringify(library, null, 2) + "\n");
+}
+
+export async function sync({ vault, out = "src/content", data = "src/data", covers = "src/assets/covers" }) {
   const published = path.join(vault, "published");
   try {
     await fs.access(published);
@@ -246,20 +287,30 @@ export async function sync({ vault, out = "src/content" }) {
   const files = (await walk(published)).filter((f) => f.endsWith(".md"));
   const isAnnotation = (f) => path.relative(published, f).split(path.sep)[0] === "annotations";
   const introductionFile = path.join(published, INTRODUCTION);
-  const noteFiles = files.filter((f) => !isAnnotation(f) && f !== introductionFile);
+  const libraryFile = path.join(published, LIBRARY);
+  const noteFiles = files.filter((f) => !isAnnotation(f) && f !== introductionFile && f !== libraryFile);
 
   const problems = [];
-  const report = { notes: [], annotations: [], images: [], unresolved: [] };
+  const report = { notes: [], annotations: [], images: [], unresolved: [], finished: [] };
   const { notes, images } = await readNotes(vault, noteFiles, problems);
   checkGlossary(notes, problems);
   resolveWikilinks(notes, report);
   const annotations = await readAnnotations(vault, files.filter(isAnnotation), problems);
   const sources = await resolveImages(vault, images, problems);
+  const library = files.includes(libraryFile) ? await readLibrary(libraryFile, problems) : null;
+  const coverFiles = library ? await ownCovers(path.join(published, COVERS), library, problems) : [];
   if (problems.length) throw new SyncError(problems);
 
   reportLinks(notes, annotations, report);
   const introduction = files.includes(introductionFile) ? introductionFile : null;
   await writeContent({ vault, out, notes, annotations, sources, introduction }, report);
+  if (library) {
+    await writeLibrary(path.join(data, "library.json"), library, report);
+    if (coverFiles.length) await fs.mkdir(covers, { recursive: true });
+    for (const file of coverFiles) await fs.copyFile(path.join(published, COVERS, file), path.join(covers, file));
+    const description = (await fs.readFile(libraryFile, "utf8")).split(/^#{1,6}\s/m)[0].trim();
+    await fs.writeFile(path.join(out, path.basename(LIBRARY)), description + "\n");
+  }
   return report;
 }
 
@@ -267,6 +318,7 @@ function printReport(report) {
   console.log(`Synced ${report.notes.length} note(s) and ${report.annotations.length} annotation(s).`);
   for (const n of report.notes) console.log(`  ${n.url}`);
   for (const i of report.images) console.log(`  image ${i.from} -> ${i.to}`);
+  for (const book of report.finished) console.log(`\n★ You finished "${book.title}". That makes ${book.count} finished in ${book.year}.`);
   if (report.unresolved.length) {
     console.log(`\nThese wikilinks point outside published/ and will render as plain text:`);
     for (const u of report.unresolved) console.log(`  ${u.note}: [[${u.target}]]`);

@@ -22,4 +22,8 @@ const introduction = defineCollection({
   loader: glob({ pattern: "introduction.md", base: "./src/content" }),
 });
 
-export const collections = { notes, annotations, introduction };
+const library = defineCollection({
+  loader: glob({ pattern: "library.md", base: "./src/content" }),
+});
+
+export const collections = { notes, annotations, introduction, library };

@@ -1,0 +1,32 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+interface Props {
+  book: { url: string; title: string; author: string; cover?: string; site: string; private: boolean; tags: string[] };
+  finished?: boolean;
+}
+
+const HEIGHT = 288;
+const DIR = "../assets/covers/";
+const covers = import.meta.glob<{ default: ImageMetadata }>("../assets/covers/*.{jpg,jpeg,png,webp}", { eager: true });
+const { book, finished = false } = Astro.props;
+const cover = (covers[DIR + book.cover] ?? covers[`${DIR}${book.cover}.jpg`])?.default;
+const Tag = book.private ? "span" : "a";
+---
+
+<Tag href={book.private ? undefined : book.url} class="book" data-finished={finished ? book.title : undefined}>
+  {cover ? (
+    <Image
+      src={cover}
+      height={HEIGHT}
+      width={Math.round((HEIGHT * cover.width) / cover.height)}
+      alt={[book.title, book.author].filter(Boolean).join(" by ")}
+      loading="lazy"
+    />
+  ) : (
+    <span class="book-blank">
+      {book.site && <span class="book-site">{book.site}</span>}
+      {book.title}
+    </span>
+  )}
+</Tag>

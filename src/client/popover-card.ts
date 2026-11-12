@@ -36,6 +36,10 @@ export function fill(el: HTMLElement, card: Card, a: HTMLAnchorElement, more = t
     meta.className = "popover-meta *:not-first:ml-2 *:not-first:border-l *:not-first:border-rule *:not-first:pl-2";
     for (const part of card.meta) add(meta, "span", "", part);
   }
+  if (card.tags?.length) {
+    const tags = add(el, "p", "popover-tags", "");
+    for (const tag of card.tags) add(tags, "span", "tag", tag);
+  }
   const body = document.createElement("div");
   body.className = "popover-body";
   addText(body, card);

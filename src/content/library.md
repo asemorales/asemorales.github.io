@@ -1,0 +1,1 @@
+A digital library I created as a tool to avoid [collector's fallacy](https://zettelkasten.de/posts/collectors-fallacy/) and recommend what I should read next based on: order of prerequisites, spaced repetition, interleaving, non-interference, genre, and whether I have a physical copy ready on hand.

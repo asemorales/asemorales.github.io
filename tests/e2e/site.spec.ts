@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-const PAGES = ["/", "/lorem-ipsum/", "/tags/test/", "/404.html"];
+const PAGES = ["/", "/lorem-ipsum/", "/library/", "/tags/test/", "/404.html"];
 const LIGHT = "rgb(242, 236, 223)";
 const DARK = "rgb(25, 22, 18)";
 
@@ -35,6 +35,54 @@ test.describe("pages", () => {
   test("notes get their own social image", { tag: "@once" }, async ({ page }) => {
     await page.goto("/lorem-ipsum/");
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /\/lorem-ipsum\/og\.png$/);
+  });
+});
+
+test.describe("library", () => {
+  test("lists its sections in the contents and lets the shelves run past the text column", async ({ page, viewport }) => {
+    await page.goto("/library/");
+    const links = page.locator("nav.toc a");
+    expect(await links.count()).toBeGreaterThan(0);
+    for (const href of await links.evaluateAll((all) => all.map((a) => a.getAttribute("href")))) {
+      await expect(page.locator(`h2${href}`)).toBeVisible();
+    }
+    await expect(page.locator('main [href^="https://read.readwise.io"]')).toHaveCount(0);
+    const why = page.locator(".library-why details").first();
+    await expect(why.locator("dl")).toBeHidden();
+    await why.locator("summary").click({ position: { x: 2, y: 8 } });
+    await expect(why.locator("dt").first()).toBeVisible();
+    if (viewport!.width < 1200) return;
+    const right = (sel: string) => page.locator(sel).evaluate((el) => el.getBoundingClientRect().right);
+    expect(await right(".library-wide")).toBeGreaterThan((await right(".library .column")) + 100);
+  });
+
+  test("filters the shelves by a search, tags, and type", async ({ page, javaScriptEnabled }) => {
+    await page.goto("/library/");
+    const input = page.locator("#library-search");
+    if (!javaScriptEnabled) return expect(input).toBeHidden();
+    const items = page.locator(".shelf li:visible");
+    const all = await items.count();
+    const words = await page.locator(".shelf li").first().getAttribute("data-search");
+    await input.fill(words!);
+    expect(await items.count()).toBeLessThan(all);
+    await expect(items.first()).toBeVisible();
+    await input.fill("");
+    await page.locator(".library-tags summary").click();
+    const box = page.locator(".library-tags input").first();
+    await box.check();
+    const tag = await box.getAttribute("value");
+    expect(await items.count()).toBeLessThan(all);
+    for (const tags of await items.evaluateAll((lis) => lis.map((li) => li.getAttribute("data-tags")!))) expect(tags.split(" ")).toContain(tag);
+    await box.uncheck();
+    await page.locator("h1").click();
+    await expect(box).toBeHidden();
+    await page.locator(".library-type summary").click();
+    await page.locator('.library-type input[value="book"]').check();
+    expect(await items.evaluateAll((lis) => lis.every((li) => li.getAttribute("data-type") === "book"))).toBe(true);
+    await page.locator('.library-type input[value=""]').check();
+    await input.fill("zzzzqqqq");
+    await expect(items).toHaveCount(0);
+    await expect(page.locator(".library-empty")).toHaveText("No items match.");
   });
 });
 

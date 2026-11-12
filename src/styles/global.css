@@ -467,23 +467,23 @@
   .toc {
     @apply w-fit max-w-full text-base leading-normal text-dim sm:text-lg;
   }
-  :is(.toc, .home-list) summary {
+  :is(.toc, .home-list, .library-filter) summary {
     @apply cursor-pointer list-none font-semibold;
   }
-  :is(.toc, .home-list) summary::-webkit-details-marker {
+  :is(.toc, .home-list, .library-filter) summary::-webkit-details-marker {
     display: none;
   }
-  :is(.toc, .home-list) summary::before {
+  :is(.toc, .home-list, .library-filter) summary::before {
     @apply size-[1em] shrink-0 bg-current;
     forced-color-adjust: preserve-parent-color;
     content: "";
     mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M5 8h14l-7 10z'/></svg>") center / contain
       no-repeat;
   }
-  :is(.toc, .home-list) details:not([open]) > summary::before {
+  :is(.toc, .home-list, .library-filter) details:not([open]) > summary::before {
     rotate: -90deg;
   }
-  :is(.toc, .home-list) summary,
+  :is(.toc, .home-list, .library-filter) summary,
   .site-nav > :is(a, button),
   .note-home a {
     @apply flex w-fit items-center gap-2 caps;
@@ -746,7 +746,7 @@
     @apply mt-0;
   }
   .note summary,
-  :is(.toc, .home-list) summary {
+  :is(.toc, .home-list, .library-filter) summary {
     @apply cursor-pointer transition-colors hover:text-link-hover;
   }
   .note .sources summary {
@@ -822,14 +822,14 @@
     left: min(var(--left), calc(100vw - var(--width) - 0.5rem));
     width: var(--width);
   }
-  .home-search input {
+  :is(.home-search, .library-search) input[type="search"] {
     @apply w-full border border-frame bg-transparent px-3 py-2 text-lg text-ink placeholder:text-dim placeholder:italic;
   }
-  .home-search input:focus-visible {
+  :is(.home-search, .library-search) input[type="search"]:focus-visible {
     @apply outline-offset-0 outline-frame;
   }
   /* Swap WebKit's blue clear button for the theme's own x. */
-  .home-search input::-webkit-search-cancel-button {
+  :is(.home-search, .library-search) input::-webkit-search-cancel-button {
     @apply size-4 cursor-pointer appearance-none bg-dim hover:bg-ink;
     mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M18 6 6 18M6 6l12 12'/></svg>")
       center / contain no-repeat;
@@ -1108,6 +1108,9 @@
   .popover-dead {
     @apply text-link-dead;
   }
+  .popover-tags {
+    @apply flex flex-wrap gap-1.5 text-sm;
+  }
   .popover-title {
     @apply font-semibold;
   }
@@ -1199,6 +1202,108 @@
     }
   }
 
+  .library h2 {
+    @apply mt-10 mb-3 flex items-baseline gap-3 text-xl sm:text-2xl;
+  }
+  .library .count {
+    @apply font-mono text-sm font-normal text-dim lining-nums;
+  }
+  @media (width >= 1200px) {
+    .library-wide {
+      margin-left: calc(var(--rail) + 2.5rem);
+    }
+  }
+  .library-search {
+    @apply relative mt-10 flex flex-wrap items-center gap-x-4 gap-y-2;
+  }
+  .library-search > input {
+    @apply max-w-88 min-w-0 flex-1;
+  }
+  .library-filter summary {
+    @apply border border-frame px-3 py-2 text-lg text-dim;
+  }
+  .library-filter fieldset {
+    @apply absolute top-full left-0 z-10 mt-1 max-h-[60vh] w-full max-w-[40em] overflow-y-auto border border-frame bg-code p-4 font-mono text-sm shadow-lg;
+    columns: 11rem;
+  }
+  .library-filter label {
+    @apply flex cursor-pointer items-center gap-2 py-0.5 text-ink hover:text-link-hover;
+    break-inside: avoid;
+  }
+  .library-filter input {
+    accent-color: var(--ink);
+  }
+  @media (scripting: none) {
+    .library-search {
+      display: none;
+    }
+  }
+  .library-empty {
+    @apply w-full text-base text-dim empty:hidden;
+  }
+  .spark {
+    @apply pointer-events-none absolute top-1/2 left-1/2 text-dim;
+    animation: spark 1.2s ease-out forwards;
+  }
+  @keyframes spark {
+    to {
+      opacity: 0;
+      transform: translate(var(--dx), var(--dy)) rotate(180deg);
+    }
+  }
+  .library-why {
+    @apply max-w-[40em];
+  }
+  .library-why summary {
+    @apply cursor-pointer;
+  }
+  .library-why dl {
+    @apply my-2 grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1 text-base leading-snug text-dim;
+  }
+  .library-why dl > div {
+    display: contents;
+  }
+  .library-why dt {
+    @apply caps;
+  }
+  .library ol {
+    @apply mt-3 list-decimal pl-6 text-base leading-normal sm:text-lg;
+  }
+  .book {
+    --book: 8rem;
+    @apply relative block shrink-0 no-underline;
+  }
+  .book img,
+  .book-blank {
+    height: var(--book);
+    @apply w-auto max-w-none border border-frame;
+  }
+  .book-blank {
+    @apply line-clamp-[8] w-24 p-1.5 text-xs leading-tight;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+  .book-site {
+    @apply mb-1 block font-mono text-[0.625rem] text-dim;
+  }
+  a.book:is(:hover, :focus-visible) :is(img, .book-blank) {
+    @apply border-ink;
+  }
+  .shelf {
+    --row: 9.25rem;
+    --board: 3px;
+    @apply flex list-none flex-wrap gap-x-2 px-2;
+    background: repeating-linear-gradient(transparent 0 calc(var(--row) - var(--board)), var(--frame) calc(var(--row) - var(--board)) var(--row));
+  }
+  .shelf li[hidden] {
+    display: none;
+  }
+  .shelf li:not([hidden]) {
+    height: var(--row);
+    padding-bottom: var(--board);
+    @apply flex items-end;
+  }
+
   .prose-page h2 {
     @apply mt-10 mb-3 text-xl sm:text-2xl;
   }
@@ -1232,6 +1337,7 @@
   .home-search,
   .block-tools,
   .margin-toggle,
+  .library-search,
   .rail {
     display: none !important;
   }
@@ -1264,11 +1370,11 @@
   .note .anchor {
     @apply hidden;
   }
-  :is(.note, .home-list) details::details-content {
+  :is(.note, .home-list, .library-why) details::details-content {
     content-visibility: visible;
     display: contents;
   }
-  :is(.note, .home-list) details > summary {
+  :is(.note, .home-list, .library-why) details > summary {
     @apply list-none;
   }
 }

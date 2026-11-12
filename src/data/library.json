@@ -1,0 +1,2461 @@
+{
+  "https://www.goodreads.com/book/show/236997": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["language", "linguistics"]
+  },
+  "https://www.goodreads.com/book/show/2649": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["writing", "rhetoric", "classic"]
+  },
+  "https://www.goodreads.com/book/show/319790": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "writing"]
+  },
+  "https://www.goodreads.com/book/show/426504": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "short-stories"]
+  },
+  "https://www.goodreads.com/book/show/346074": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "metaphysics"]
+  },
+  "https://www.goodreads.com/book/show/51704589": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "metaphysics"]
+  },
+  "https://www.goodreads.com/book/show/416118": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["education", "math-education"]
+  },
+  "https://www.goodreads.com/book/show/139852": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["education", "math-education"]
+  },
+  "https://www.goodreads.com/book/show/6966800": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["writing"]
+  },
+  "https://www.goodreads.com/book/show/325863": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-science", "politics"]
+  },
+  "https://www.goodreads.com/book/show/5550": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["physics", "biography", "letters"]
+  },
+  "https://www.goodreads.com/book/show/803547": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "games"]
+  },
+  "https://www.goodreads.com/book/show/17119270": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["history", "ethics"]
+  },
+  "https://www.goodreads.com/book/show/30735": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["essays", "philosophy", "classic"]
+  },
+  "https://www.goodreads.com/book/show/44735": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["design", "typography"]
+  },
+  "https://www.goodreads.com/book/show/6335297": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["politics", "inequality"]
+  },
+  "https://www.goodreads.com/book/show/45974": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "essays"]
+  },
+  "https://www.goodreads.com/book/show/1609457": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["essays", "notebooks"]
+  },
+  "https://www.goodreads.com/book/show/51456721": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "proof", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/244440825": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "logic"]
+  },
+  "https://www.goodreads.com/book/show/1229612": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "problem-solving"]
+  },
+  "https://www.goodreads.com/book/show/1454428": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "psychology", "creativity"]
+  },
+  "https://www.goodreads.com/book/show/3043127": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["computer-science", "complexity", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/88279": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "aesthetics"]
+  },
+  "https://www.goodreads.com/book/show/11232": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "ethics"]
+  },
+  "https://www.goodreads.com/book/show/967329": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/42970131": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "computer-science", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/112247": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["computer-science", "algorithms", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/585556": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "number-theory", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/208290": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["logic", "math", "history"]
+  },
+  "https://www.goodreads.com/book/show/187041": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "problem-solving"]
+  },
+  "https://www.goodreads.com/book/show/17879327": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "geometry", "classic"]
+  },
+  "https://www.goodreads.com/book/show/584620": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math"]
+  },
+  "https://www.goodreads.com/book/show/192221": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "problem-solving"]
+  },
+  "https://www.goodreads.com/book/show/309768": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "linear-algebra", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/668035": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "puzzles"]
+  },
+  "https://www.goodreads.com/book/show/194769": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["logic", "puzzles"]
+  },
+  "https://www.goodreads.com/book/show/513951": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "problem-solving"]
+  },
+  "https://www.goodreads.com/book/show/593458": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "problem-solving"]
+  },
+  "https://www.goodreads.com/book/show/6220915": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "proof", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/739735": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "proof", "logic", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/1471873": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "reference"]
+  },
+  "https://www.goodreads.com/book/show/42289622": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/493576": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["logic", "puzzles"]
+  },
+  "https://www.goodreads.com/book/show/71991": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["logic", "math", "classic"]
+  },
+  "https://www.goodreads.com/book/show/805679": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "calculus", "math-education"]
+  },
+  "https://www.goodreads.com/book/show/18763655": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "analysis", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/3524850": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "reference"]
+  },
+  "https://www.goodreads.com/book/show/2165": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/12625589": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["computer-science", "history"]
+  },
+  "https://www.goodreads.com/book/show/924075": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["design", "essays"]
+  },
+  "https://www.goodreads.com/book/show/231363343": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "games"]
+  },
+  "https://www.goodreads.com/book/show/2063725": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "dynamical-systems", "complexity", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/5438364": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-mind", "consciousness"]
+  },
+  "https://www.goodreads.com/book/show/203327": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "metaphysics"]
+  },
+  "https://www.goodreads.com/book/show/4996537": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "group-theory", "puzzles"]
+  },
+  "https://www.goodreads.com/book/show/205087542": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["biology", "complexity", "philosophy-of-science"]
+  },
+  "https://www.goodreads.com/book/show/551475": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "metaphysics", "computer-science"]
+  },
+  "https://www.goodreads.com/book/show/682239": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "problem-solving"]
+  },
+  "https://www.goodreads.com/book/show/2872282": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "problem-solving"]
+  },
+  "https://www.goodreads.com/book/show/24186666": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["education", "psychology"]
+  },
+  "https://www.goodreads.com/book/show/36325702": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "cognitive-science"]
+  },
+  "https://www.goodreads.com/book/show/36319077": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["education", "economics"]
+  },
+  "https://www.goodreads.com/book/show/1293306": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "game-theory", "games"]
+  },
+  "https://www.goodreads.com/book/show/19201121": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["complexity", "biology", "evolution"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/27645880": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "ethics", "metaphysics", "classic"]
+  },
+  "https://www.goodreads.com/book/show/13082435": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction"]
+  },
+  "https://www.goodreads.com/book/show/153426": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction"]
+  },
+  "https://www.goodreads.com/book/show/50403455": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["biology", "philosophy-of-mind", "evolution"]
+  },
+  "https://www.goodreads.com/book/show/144960": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-mind", "consciousness"]
+  },
+  "https://www.goodreads.com/book/show/483055": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["game-theory", "economics", "math"]
+  },
+  "https://www.goodreads.com/book/show/189989": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "games"]
+  },
+  "https://www.goodreads.com/book/show/2318793": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["game-theory", "biology", "probability"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/48484": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "sci-fi", "consciousness"]
+  },
+  "https://www.goodreads.com/book/show/195468043": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["essays", "notebooks"]
+  },
+  "https://www.goodreads.com/book/show/164515": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["language", "history", "media"]
+  },
+  "https://www.goodreads.com/book/show/13835819": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "motivation", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/214441": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "geometry", "classic"]
+  },
+  "https://www.goodreads.com/book/show/200128457": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "psychology", "intuition"]
+  },
+  "https://www.goodreads.com/book/show/43726520": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["physics", "science", "memoir"]
+  },
+  "https://www.goodreads.com/book/show/3791158": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "sci-fi", "short-stories"]
+  },
+  "https://www.goodreads.com/book/show/325130": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["biology", "evolution", "math"]
+  },
+  "https://www.goodreads.com/book/show/247721011": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["sociology", "game-theory"]
+  },
+  "https://www.goodreads.com/book/show/92307": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "metaphysics", "phenomenology"]
+  },
+  "https://www.goodreads.com/book/show/54493401": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "sci-fi"]
+  },
+  "https://www.goodreads.com/book/show/72638": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "decision-making", "intuition"]
+  },
+  "https://www.goodreads.com/book/show/666175": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "therapy"]
+  },
+  "https://www.goodreads.com/book/show/20821304": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "motivation"]
+  },
+  "https://www.goodreads.com/book/show/226649": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["economics", "behavioral-economics"]
+  },
+  "https://www.goodreads.com/book/show/35957157": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["decision-making", "probability"]
+  },
+  "https://www.goodreads.com/book/show/395284": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["rationality", "philosophy", "decision-making"]
+  },
+  "https://www.goodreads.com/book/show/199798096": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["statistics", "probability"]
+  },
+  "https://www.goodreads.com/book/show/633240": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["problem-solving", "computer-science", "algorithms"]
+  },
+  "https://www.goodreads.com/book/show/125822": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "rationality", "decision-making"]
+  },
+  "https://www.goodreads.com/book/show/26530355": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["economics", "behavioral-economics"]
+  },
+  "https://www.goodreads.com/book/show/12152671": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "rationality"]
+  },
+  "https://www.goodreads.com/book/show/6251150": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "rationality", "intelligence"]
+  },
+  "https://www.goodreads.com/book/show/29100194": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "ethics"]
+  },
+  "https://www.goodreads.com/book/show/698866": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["politics", "economics", "rationality"]
+  },
+  "https://www.goodreads.com/book/show/2716864": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["economics", "rationality"]
+  },
+  "https://www.goodreads.com/book/show/125966": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "decision-making", "behavioral-economics"]
+  },
+  "https://www.goodreads.com/book/show/1081221": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "attention"]
+  },
+  "https://www.goodreads.com/book/show/55339408": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "decision-making"]
+  },
+  "https://www.goodreads.com/book/show/720043": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["statistics", "rationality"]
+  },
+  "https://www.goodreads.com/book/show/786562": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "rationality", "decision-making"]
+  },
+  "https://www.goodreads.com/book/show/2908260": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "rationality"]
+  },
+  "https://www.goodreads.com/book/show/786564": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["probability", "history", "philosophy-of-science"]
+  },
+  "https://www.goodreads.com/book/show/23616290": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "rationality", "decision-making"]
+  },
+  "https://www.goodreads.com/book/show/1059002": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "rationality", "cognitive-science"]
+  },
+  "https://www.goodreads.com/book/show/27310470": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "rationality"]
+  },
+  "https://www.goodreads.com/book/show/984890": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["anthropology", "rationality", "religion"]
+  },
+  "https://www.goodreads.com/book/show/506501": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-science", "rationality"]
+  },
+  "https://www.goodreads.com/book/show/7888001": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["economics", "decision-making"]
+  },
+  "https://www.goodreads.com/book/show/2363867": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "rationality", "reference"]
+  },
+  "https://www.goodreads.com/book/show/87436": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["history", "essays", "philosophy"]
+  },
+  "https://www.goodreads.com/book/show/340960": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "epistemology", "classic"]
+  },
+  "https://www.goodreads.com/book/show/235993017": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "self-help"]
+  },
+  "https://www.goodreads.com/book/show/626933": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "therapy", "self-help"]
+  },
+  "https://www.goodreads.com/book/show/173476110": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-science", "consciousness"]
+  },
+  "https://www.goodreads.com/book/show/3392960": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "therapy"]
+  },
+  "https://www.goodreads.com/book/show/233411578": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "psychology"]
+  },
+  "https://www.goodreads.com/book/show/20186": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["politics", "sociology", "history"]
+  },
+  "https://www.goodreads.com/book/show/53398570": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["anthropology", "economics", "history"]
+  },
+  "https://www.goodreads.com/book/show/54140556": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["technology", "sociology", "software"]
+  },
+  "https://www.goodreads.com/book/show/50247448": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["rationality", "self-help"]
+  },
+  "https://www.goodreads.com/book/show/20821371": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["writing", "language"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/13543093": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["history", "psychology"]
+  },
+  "https://www.goodreads.com/book/show/835623": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "cognitive-science"]
+  },
+  "https://www.goodreads.com/book/show/5752": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "evolution"]
+  },
+  "https://www.goodreads.com/book/show/35696171": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["history", "progress"]
+  },
+  "https://www.goodreads.com/book/show/36064445": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["probability", "ethics", "essays"]
+  },
+  "https://www.goodreads.com/book/show/38315": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["probability", "economics", "essays"]
+  },
+  "https://www.goodreads.com/book/show/13530973": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["probability", "essays"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/242472": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["probability", "economics", "essays"]
+  },
+  "https://www.goodreads.com/book/show/123471": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-mind", "consciousness"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/40277241": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["physics", "science"]
+  },
+  "https://www.goodreads.com/book/show/51291": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["statistics"]
+  },
+  "https://www.goodreads.com/book/show/818063": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "calculus", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/6763725": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["politics", "philosophy", "economics"]
+  },
+  "https://www.goodreads.com/book/show/40604388": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "sci-fi"]
+  },
+  "https://www.goodreads.com/book/show/185160": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["economics", "history"]
+  },
+  "https://www.goodreads.com/book/show/6405310": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "cognitive-science", "evolution"]
+  },
+  "https://www.goodreads.com/book/show/239775146": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction"]
+  },
+  "https://www.goodreads.com/book/show/436982": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/82120": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["economics", "history", "biography"]
+  },
+  "https://www.goodreads.com/book/show/61539": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-science", "history"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/43708884": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "self-help"]
+  },
+  "https://www.goodreads.com/book/show/73945": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "classic"]
+  },
+  "https://www.goodreads.com/book/show/80369": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "history", "sociology"]
+  },
+  "https://www.goodreads.com/book/show/127613189": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "ethics"]
+  },
+  "https://www.goodreads.com/book/show/18505792": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "fantasy"]
+  },
+  "https://www.goodreads.com/book/show/629": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "memoir"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/5755": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["language", "linguistics", "cognitive-science"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/61535": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["biology", "evolution"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/10327296": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["design", "data-visualization", "complexity"]
+  },
+  "https://www.goodreads.com/book/show/62315566": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["economics", "technology", "history"]
+  },
+  "https://www.goodreads.com/book/show/173961": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["economics", "ethics", "politics"]
+  },
+  "https://www.goodreads.com/book/show/6968772": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["neuroscience", "philosophy"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/11468377": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "decision-making", "rationality"]
+  },
+  "https://www.goodreads.com/book/show/148030": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "optimization", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/222589612": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["complexity", "paper"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/219315027": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["complexity", "paper"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/211947646": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["complexity", "paper"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/605045": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["complexity", "ai", "biology"]
+  },
+  "https://www.goodreads.com/book/show/5241622": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["ai", "game-theory", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/359437": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["ai", "robotics", "probability", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/243436": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["cognitive-science", "philosophy-of-mind"]
+  },
+  "https://www.goodreads.com/book/show/739791": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["ai", "machine-learning", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/24072897": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["ai", "machine-learning", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/16043523": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["computer-science", "machine-learning", "evolution"]
+  },
+  "https://www.goodreads.com/book/show/9410434": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["computer-science", "algorithms", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/24113": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-mind", "math", "logic"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/155253": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["economics", "decision-making", "sociology"]
+  },
+  "https://www.goodreads.com/book/show/676046": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["design", "ai", "complexity"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/75697496": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["physics", "complexity", "memoir"]
+  },
+  "https://www.goodreads.com/book/show/783285": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["physics", "complexity"]
+  },
+  "https://www.goodreads.com/book/show/1231713": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "history"]
+  },
+  "https://www.goodreads.com/book/show/530415": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["science", "research", "learning"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/333397": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "problem-solving"]
+  },
+  "https://www.goodreads.com/book/show/23461426": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["writing", "research"]
+  },
+  "https://www.goodreads.com/book/show/202104095": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "physics", "history"]
+  },
+  "https://www.goodreads.com/book/show/36204378": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["statistics", "causality"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/721564": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["logic"]
+  },
+  "https://www.goodreads.com/book/show/31670196": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["complexity", "biology"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/61358638": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["politics", "inequality", "sociology"]
+  },
+  "https://www.goodreads.com/book/show/22463": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["biology", "evolution", "classic"]
+  },
+  "https://www.goodreads.com/book/show/24280": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/194746": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/30474": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["politics", "economics", "classic"]
+  },
+  "https://www.goodreads.com/book/show/11991": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "philosophy"]
+  },
+  "https://www.goodreads.com/book/show/51496": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/11297": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction"]
+  },
+  "https://www.goodreads.com/book/show/117833": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/17245": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/44767458": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "sci-fi"]
+  },
+  "https://www.goodreads.com/book/show/5907": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["fiction", "fantasy"]
+  },
+  "https://www.goodreads.com/book/show/23692271": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["history", "anthropology"]
+  },
+  "https://github.com/open-spaced-repetition/awesome-fsrs/wiki/Spaced-Repetition-Algorithm:-A-Three%E2%80%90Day-Journey-from-Novice-to-Expert": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["learning", "spaced-repetition", "software"]
+  },
+  "https://projecteuclid.org/journals/notre-dame-journal-of-formal-logic/volume-18/issue-3/A-reassessment-of-George-Booles-theory-of-logic/10.1305/ndjfl/1093888009.pdf": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["logic", "history", "paper"]
+  },
+  "https://teredu.substack.com/p/math-20-does-not-exist": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math-education", "education"]
+  },
+  "https://www.adorableandharmless.com/p/college-english-majors-cant-read": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["education", "language"]
+  },
+  "https://amplesa.substack.com/p/why-biology-wasnt-made-to-last": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["biology", "evolution"]
+  },
+  "https://www.dwarkesh.com/p/annus-mirabilis": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["science", "history", "creativity"]
+  },
+  "https://ncetm.org.uk/teaching-for-mastery/mastery-explained/five-big-ideas-in-teaching-for-mastery/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math-education", "education", "homeschool"]
+  },
+  "https://ncetm.org.uk/teaching-for-mastery/mastery-materials/primary-mastery-professional-development/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math-education", "education", "homeschool"]
+  },
+  "https://eprints.leedsbeckett.ac.uk/id/eprint/8079/1/UnderstandingTheOutcomesOfTheChinaEnglandMathematicsTeacherExchangePV-JAIN.pdf": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["math-education", "education", "paper", "homeschool"]
+  },
+  "https://read.readwise.io/read/01m6xvnvf8wrrb5ads3pcw19f6": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["learning", "education"]
+  },
+  "https://www.nature.com/articles/s41562-017-0273-4": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["sociology", "decision-making", "paper"]
+  },
+  "https://read.readwise.io/read/01m6vxd85zaq47mdkb4zkkcqv9": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["probability", "philosophy", "classic"]
+  },
+  "https://read.readwise.io/read/01m6v6sakrnt03fhne5bsbsm45": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-science", "politics"]
+  },
+  "https://api.pageplace.de/preview/DT0400.9780198033356_A23605541/preview-9780198033356_A23605541.pdf": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy-of-science", "politics"]
+  },
+  "https://link.springer.com/article/10.1007/s11127-015-0291-6": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["economics", "paper"]
+  },
+  "https://newscience.substack.com/p/scientific-styles": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["writing", "research", "science"]
+  },
+  "https://thegeneralpartnership.substack.com/p/the-best-companies-will-stop-making": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["technology", "software", "economics"]
+  },
+  "https://adam.rochussen.xyz/p/phds-are-easy": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["research", "education"]
+  },
+  "https://www.drvinayprasad.com/p/terrence-tao-does-not-understand": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["medicine", "ai"]
+  },
+  "https://thereader.mitpress.mit.edu/from-linux-to-wikipedia-how-volunteers-build-the-internet/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["technology", "sociology", "software"]
+  },
+  "https://chrislakin.blog/p/spaced-repetition-for-teaching-two": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["learning", "spaced-repetition", "education"]
+  },
+  "https://read.readwise.io/read/01m6jxn0qy4xgxmw02g76vyky1": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["cognitive-science", "rationality", "paper"]
+  },
+  "https://terrytao.wordpress.com/2026/11/01/mathematics-has-changed-lets-act-like-it/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "ai"]
+  },
+  "https://proofsandprompts.com/2026/11/02/what-does-ai-do-for-olympiad-students/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math-education", "ai"]
+  },
+  "https://www.conspicuouscognition.com/p/how-ai-will-reshape-public-opinion": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "politics", "sociology"]
+  },
+  "https://houdanait.substack.com/p/what-becomes-valuable-when-intelligence": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "economics"]
+  },
+  "https://sfiscience.substack.com/p/the-cannibalistic-allometry-of-the": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["complexity", "economics", "technology"]
+  },
+  "https://sfiscience.substack.com/p/sizing-up-the-ghosts-in-the-machines": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["complexity", "ai"]
+  },
+  "https://read.readwise.io/read/01m6evpaa90zk13m883d675nv2": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["philosophy-of-mind", "philosophy", "paper"]
+  },
+  "https://zkaiser.substack.com/p/on-the-bullshit-of-teaching-students": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "education", "ethics"]
+  },
+  "https://walterveit.substack.com/p/model-pluralism": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["philosophy-of-science"]
+  },
+  "https://x.com/illscience/status/2076714595994206358/?a=-Az_bsKHcjUBUBSZZw8&s=09&rw_tt_thread=True": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "technology"]
+  },
+  "https://josephheath.substack.com/p/reproducing-civilization": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["sociology", "philosophy"]
+  },
+  "https://www.newyorker.com/magazine/2026/10/26/computer-chips-are-the-most-magnificent-things-weve-ever-made": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["technology", "computer-science"]
+  },
+  "https://apoorvapanidapu.substack.com/p/a-new-consciousness-of-mathematics": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "philosophy"]
+  },
+  "https://bsubercaseaux.github.io/blog/2023/packingchromatic/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "research", "computer-science"]
+  },
+  "https://arxiv.org/pdf/2610.29162": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["ai", "language", "paper"]
+  },
+  "https://www.markusde.ca/pages/noslop.html": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "writing"]
+  },
+  "https://curiositylabwithcole.substack.com/p/so-you-want-to-study-mathematics": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "math-education"]
+  },
+  "https://arnaudbertrand.substack.com/p/whats-left-for-us-after-ai-chinas": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "philosophy"]
+  },
+  "https://x.com/doristsao/status/2111859732806074812/?rw_tt_thread=True": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["neuroscience", "research"]
+  },
+  "https://bigthinkmedia.substack.com/p/china-is-mass-producing-slop-at-a": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "technology"]
+  },
+  "https://www.robinsloan.com/notes/home-cooked-app/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["software", "essays"]
+  },
+  "https://ojs.lib.unideb.hu/tmcs/article/view/10991": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["math-education", "computer-science", "paper"]
+  },
+  "https://econpapers.repec.org/bookchap/sprsprchp/978-3-658-41061-2_5f7.htm": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math-education", "problem-solving", "paper"]
+  },
+  "https://ojs.lib.unideb.hu/tmcs/article/view/10963": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["math-education", "problem-solving", "paper"]
+  },
+  "https://logicmatters.net/tyl/pdfs/LogicStudyGuide.pdf": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["logic", "math"]
+  },
+  "https://comdig.cssociety.org/2026/10/05/patience-is-a-virtue-how-nature-achieves-group-navigation-with-minimal-cooperativity/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["complexity", "biology"]
+  },
+  "https://universitytime.home.blog/wp-content/uploads/2020/04/jerrold-e.-marsden-anthony-tromba-vector-calculus.pdf": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "calculus", "textbook"]
+  },
+  "https://www.softouch.on.ca/kb/data/Art%20and%20Craft%20of%20Problem%20Solving%203E%20%28The%29.pdf": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["math", "problem-solving"]
+  },
+  "https://www.educationprogress.org/p/whats-happening-to-the-world-of-math": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math-education", "ai"]
+  },
+  "https://www.cambridge.org/core/journals/science-in-context/article/abs/otto-toeplitzs-1927-paper-on-the-genetic-method-in-the-teaching-of-mathematics/F4E7C617306D1A90BAC835E6C1C7C530": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["math-education", "history", "paper"]
+  },
+  "https://cmsa.fas.harvard.edu/media/2026/09/Summit-on-PhD-Math-Education-in-the-Age-of-AI.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math-education", "ai"]
+  },
+  "https://proofsandprompts.com/2026/09/24/all-the-math-we-will-not-see/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "ai"]
+  },
+  "https://cel.hal.science/inria-00001173v5/document": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["paper"]
+  },
+  "https://arxiv.org/pdf/2609.20759": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["physics", "complexity", "paper"]
+  },
+  "https://terrytao.wordpress.com/2026/09/18/if-math-is-more-than-proof-we-need-to-better-celebrate-the-rest-of-it/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "philosophy"]
+  },
+  "https://ourworldindatabrief.substack.com/p/2026-08-21": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["economics", "data"]
+  },
+  "https://www.nature.com/articles/s41562-026-02541-1": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["neuroscience", "psychology", "paper"]
+  },
+  "https://www.bu.edu/teaching-writing/files/2020/03/Sentence-Clarity-Script.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["writing"]
+  },
+  "https://dl.acm.org/doi/10.1145/1670412.1670413": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["computer-science", "logic", "paper"]
+  },
+  "https://www.groundbrkr.com/p/the-second-derivative-why-no-one": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "economics"]
+  },
+  "https://nabeelqu.substack.com/p/understanding": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["learning", "rationality"]
+  },
+  "https://www.thealgorithmicbridge.com/p/the-actual-reason-why-google-fell": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "technology"]
+  },
+  "https://kirwinhampshire.substack.com/p/the-dark-night-of-mathematics": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "essays"]
+  },
+  "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7121546": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["consciousness", "paper"]
+  },
+  "https://forklightning.substack.com/p/efficient-social-learning-is-the": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "learning", "sociology"]
+  },
+  "https://philpapers.org/archive/chatmo-32.pdf": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["philosophy", "paper"]
+  },
+  "https://blog.cosmos-institute.org/p/philosopher-builder-summer-reads": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["philosophy", "reading-list"]
+  },
+  "https://www.jstor.org/stable/2306078": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["math", "logic", "paper"]
+  },
+  "https://nabeelqu.substack.com/p/principles": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["rationality", "self-help"]
+  },
+  "https://fugitivemargins.substack.com/p/the-end-of-elsewhere": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["essays"]
+  },
+  "https://blog.cosmos-institute.org/p/can-ai-make-scientific-breakthroughs": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "science", "research"]
+  },
+  "https://arxiv.org/pdf/2606.25363": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["math", "ai", "paper"]
+  },
+  "https://www.sciencedirect.com/science/article/abs/pii/S1476945X17300326": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["complexity", "biology", "paper"]
+  },
+  "https://arxiv.org/abs/1705.03322": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["complexity", "math", "paper"]
+  },
+  "https://youtube.com/live/Ysh6RBAZB7k?si=_p5RpvVJpRbWvMAZ": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["complexity", "neuroscience"]
+  },
+  "https://comdig.cssociety.org/2026/06/21/the-physics-of-news-rumors-and-opinions-2/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["complexity", "sociology", "physics"]
+  },
+  "https://samuelrinko.substack.com/p/how-to-manage-multiple-interests": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["self-help", "learning"]
+  },
+  "https://kaguura.substack.com/p/the-mathematical-reason-most-people": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["probability", "self-help"]
+  },
+  "https://stephanieshen.substack.com/p/the-illusion-of-understanding": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["learning", "psychology"]
+  },
+  "https://julianrdcosta.substack.com/p/any-realizable-implementation-of": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["computer-science", "ai"]
+  },
+  "https://theinfinitesimal.substack.com/p/thoughts-on-ai-in-academia": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "research"]
+  },
+  "https://erictopol.substack.com/p/the-paradox-of-medical-ai-implementation": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["medicine", "ai"]
+  },
+  "https://arxiv.org/pdf/2509.15998": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["math", "philosophy", "paper"]
+  },
+  "https://www.conspicuouscognition.com/p/speaking-truth-to-power-is-bad-epistemology": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["epistemology", "politics"]
+  },
+  "https://www.scienceofexplanation.com/p/the-moment-the-mind-became-measurable": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["psychology", "history"]
+  },
+  "https://mitgenerationai.substack.com/p/how-is-this-time-different": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "economics"]
+  },
+  "https://www.construction-physics.com/p/how-long-do-we-wait-for-new-inventions": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["technology", "history", "progress"]
+  },
+  "https://mitgenerationai.substack.com/p/humans-in-the-loop": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "economics"]
+  },
+  "https://pmresearcher.substack.com/p/why-systems-thinking-must-come-before": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["complexity", "systems-thinking"]
+  },
+  "https://blog.cosmos-institute.org/p/the-five-philosophical-disagreements": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "philosophy"]
+  },
+  "https://www.reviewertoo.com/paper-roundup-december-2025/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["science", "paper"]
+  },
+  "https://arxiv.org/pdf/2512.19156": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["physics", "computer-science", "paper"]
+  },
+  "https://forum.effectivealtruism.org/posts/L6ZmggEJw8ri4KB8X/my-highly-personal-skepticism-braindump-on-existential-risk": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "effective-altruism"]
+  },
+  "https://asteriskmag.com/issues/11/why-are-there-so-many-rationalist-cults": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["rationality", "sociology"]
+  },
+  "https://strangecosmos.substack.com/p/the-sad-decline-of-effective-altruism": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["effective-altruism"]
+  },
+  "https://iopscience.iop.org/article/10.1088/2632-072X/ad9cdc": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["complexity", "paper"]
+  },
+  "https://substack.com/@bigthinkmedia/note/p-195273678?r=6i332e": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["psychology", "trauma"]
+  },
+  "https://bigthink.com/mind-behavior/consciousness-may-be-more-than-the-brains-output-it-may-be-an-input-too/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["consciousness", "neuroscience"]
+  },
+  "https://www.scientificamerican.com/blog/observations/unknown-unknowns-the-problem-of-hypocognition/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["psychology", "epistemology"]
+  },
+  "https://arxiv.org/pdf/2604.11482": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["consciousness", "neuroscience", "paper"]
+  },
+  "https://www.lesswrong.com/posts/xG9Y2Mct7uZyt98yb/annoyingly-principled-people-and-what-befalls-them": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["rationality", "ethics"]
+  },
+  "https://www.lesswrong.com/posts/pkFazhcTErMw7TFtT/the-sin-of-underconfidence": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["rationality"]
+  },
+  "https://www.lesswrong.com/posts/tscc3e5eujrsEeFN4/well-kept-gardens-die-by-pacifism": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["rationality", "sociology"]
+  },
+  "https://www.lesswrong.com/posts/WTeHYgBSXTZPqtpxB/moloch-games": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["game-theory", "rationality"]
+  },
+  "https://www.lesswrong.com/posts/jinzzbPHshif8nmnw/do-not-conquer-what-you-cannot-defend": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["rationality"]
+  },
+  "https://www.lesswrong.com/posts/qqEndN5Cuzbat9fyx/pythia": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "rationality"]
+  },
+  "https://onhumans.substack.com/p/4-the-harmful-delusion-of-a-singular": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["philosophy-of-mind", "psychology"]
+  },
+  "https://onlinelibrary.wiley.com/doi/epdf/10.3982/ECTA18580": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["economics", "technology", "paper"]
+  },
+  "https://www.digitalistpapers.com/vol2/autorthompson": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "economics"]
+  },
+  "https://markmanson.substack.com/p/intellectuals-are-fcking-idiots": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["epistemology", "essays"]
+  },
+  "https://forecastingresearch.substack.com/p/forecasting-the-economic-effects-of-ai": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "economics"]
+  },
+  "https://davidbessis.substack.com/p/the-fall-of-the-theorem-economy": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "ai"]
+  },
+  "https://blog.cosmos-institute.org/p/when-decentralization-fails": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["politics", "technology"]
+  },
+  "https://bigthinkmedia.substack.com/p/everything-you-eat-is-sunlight-scientists": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["physics", "technology"]
+  },
+  "https://future.com/podcasts/network-effects-increasing-returns-trends/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["technology", "economics"]
+  },
+  "https://blog.cosmos-institute.org/p/you-are-not-a-function": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "philosophy"]
+  },
+  "https://philpapers.org/archive/CARNTE-2.pdf": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["philosophy", "neuroscience", "ethics"]
+  },
+  "https://arxiv.org/pdf/2603.20639": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["ai", "paper"]
+  },
+  "https://monoskop.org/images/3/35/Tarde_Gabriel_The_Laws_of_Imitation.pdf": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["sociology", "classic"]
+  },
+  "https://www.nytimes.com/2015/07/26/magazine/the-singular-mind-of-terry-tao.html": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "biography"]
+  },
+  "https://bigthinkmedia.substack.com/p/a-ptsd-researcher-explains-mdma-assisted": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["psychology", "therapy", "trauma"]
+  },
+  "https://arxiv.org/pdf/1608.08225": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["machine-learning", "physics", "paper"]
+  },
+  "https://jtpeterson.substack.com/p/there-is-no-system-2": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["psychology", "cognitive-science"]
+  },
+  "https://blog.jakesaunders.dev/is-anybody-else-bored-of-talking-about-ai/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "essays"]
+  },
+  "https://www.quantamagazine.org/are-strings-still-our-best-hope-for-a-theory-of-everything-20260323/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["physics"]
+  },
+  "https://composio.dev/content/openclaw-security-and-vulnerabilities": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["ai", "software"]
+  },
+  "https://www.youtube.com/watch?v=ldxFjLJ3rVY": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "art"]
+  },
+  "https://www.lesswrong.com/posts/F2hdPavQFyjcAyAGB/noticing-a-teacher-s-password-pattern": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["learning", "rationality"]
+  },
+  "https://onepercentrule.substack.com/p/the-bishop-who-hated-infinitesimals": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "history", "philosophy"]
+  },
+  "https://neilbarton.net/wp-content/uploads/2022/01/week_04_konstanz.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["math", "history", "philosophy"]
+  },
+  "https://pmc.ncbi.nlm.nih.gov/articles/PMC9880183/": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["paper"]
+  },
+  "https://academic.oup.com/pnasnexus/article/5/2/pgag010/8429832": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["complexity", "emergence", "paper"]
+  },
+  "https://forum.effectivealtruism.org/posts/KfPeEd7oMSeFWnKji/how-much-peace-can-a-dollar-buy": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["effective-altruism", "economics"]
+  },
+  "https://bigthinkmedia.substack.com/p/the-body-keeps-the-score-author-on-a74": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["psychology", "trauma"]
+  },
+  "https://centerhealthyminds.org/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["psychology", "therapy"]
+  },
+  "https://en.wikipedia.org/wiki/Ethnomethodology": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["sociology"]
+  },
+  "https://en.wikipedia.org/wiki/Sousveillance": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["sociology", "technology"]
+  },
+  "https://en.wikipedia.org/wiki/Quantified_self": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["technology", "self-help"]
+  },
+  "https://freethoughtblogs.com/atrivialknot/2020/08/19/effective-altruism-an-outsider-perspective/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["effective-altruism"]
+  },
+  "https://rootsofprogress.notion.site/Resources-on-Progress-Studies-182847fba3784db297d719b0831ca429": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["progress", "reading-list"]
+  },
+  "https://rootsofprogress.org/manifesto/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["progress", "technology"]
+  },
+  "https://www.cambridge.org/core/books/cambridge-history-of-nineteenthcentury-political-thought/from-jeremy-benthams-radical-philosophy-to-j-s-mills-philosophic-radicalism/F7B0B53C264DF11578C18C8EAC88C6BF": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["philosophy", "ethics", "history"]
+  },
+  "https://forum.effectivealtruism.org/topics/communities-adjacent-to-effective-altruism": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["effective-altruism"]
+  },
+  "https://en.wikipedia.org/wiki/The_Good_Judgment_Project": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["decision-making", "probability"]
+  },
+  "https://books.google.com/books/about/The_ABCs_of_Human_Behavior.html?id=yU3_HwXNoYEC#v=onepage&q&f=false": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "therapy"]
+  },
+  "https://arxiv.org/pdf/2602.18203": {
+    "status": "to-read",
+    "type": "article",
+    "tags": ["biology", "complexity", "paper"]
+  },
+  "https://books.google.com/books/about/Favorite_Counseling_and_Therapy_Homework.html?id=U8CLAgAAQBAJ#v=onepage&q&f=false": {
+    "status": "to-read",
+    "type": "book",
+    "tags": ["psychology", "therapy"]
+  },
+  "https://www.nobelprize.org/prizes/physics/2006/mather/1394344-2006-physics-laureates-interview-transcript/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["physics"]
+  },
+  "https://bigthink.com/13-8/simulation-hypothesis-escapism/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["philosophy", "physics"]
+  },
+  "https://bigthinkmedia.substack.com/p/the-key-problem-with-the-brain-in": {
+    "status": "to-read",
+    "type": "website",
+    "tags": ["philosophy-of-mind", "consciousness"]
+  },
+  "https://www.goodreads.com/book/show/18007564": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "sci-fi"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/54961012": {
+    "status": "read",
+    "type": "book",
+    "tags": ["philosophy", "essays"]
+  },
+  "https://www.goodreads.com/book/show/79681": {
+    "status": "read",
+    "type": "book",
+    "tags": ["education"]
+  },
+  "https://www.goodreads.com/book/show/17746": {
+    "status": "read",
+    "type": "book",
+    "tags": ["design", "data-visualization"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/17744": {
+    "status": "read",
+    "type": "book",
+    "tags": ["design", "data-visualization"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/50131136": {
+    "status": "read",
+    "type": "book",
+    "tags": ["ai", "politics"],
+    "finished": "2026-10-31"
+  },
+  "https://www.goodreads.com/book/show/5597902": {
+    "status": "read",
+    "type": "book",
+    "tags": ["complexity"],
+    "owned": true,
+    "finished": "2026-10-31"
+  },
+  "https://www.goodreads.com/book/show/21516948": {
+    "status": "read",
+    "type": "book",
+    "tags": ["physics", "math", "essays"],
+    "finished": "2026-10-31"
+  },
+  "https://www.goodreads.com/book/show/7219947": {
+    "status": "read",
+    "type": "book",
+    "tags": ["psychology", "therapy"],
+    "finished": "2026-10-31"
+  },
+  "https://www.goodreads.com/book/show/449407": {
+    "status": "read",
+    "type": "book",
+    "tags": ["philosophy", "religion", "classic"],
+    "finished": "2026-10-31"
+  },
+  "https://www.goodreads.com/book/show/35566234": {
+    "status": "read",
+    "type": "book",
+    "tags": ["rationality", "self-help"],
+    "finished": "2026-10-31"
+  },
+  "https://www.goodreads.com/book/show/91760": {
+    "status": "read",
+    "type": "book",
+    "tags": ["art", "memoir"]
+  },
+  "https://www.goodreads.com/book/show/108986": {
+    "status": "read",
+    "type": "book",
+    "tags": ["computer-science", "algorithms", "textbook"]
+  },
+  "https://www.goodreads.com/book/show/154060": {
+    "status": "read",
+    "type": "book",
+    "tags": ["math", "essays", "memoir"]
+  },
+  "https://www.goodreads.com/book/show/19068": {
+    "status": "read",
+    "type": "book",
+    "tags": ["philosophy", "ethics", "classic"]
+  },
+  "https://www.goodreads.com/book/show/211743976": {
+    "status": "read",
+    "type": "book",
+    "tags": ["complexity", "paper", "favorites"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/400716": {
+    "status": "read",
+    "type": "book",
+    "tags": ["computer-science", "logic", "textbook"],
+    "owned": true,
+    "finished": "2026-09-24"
+  },
+  "https://www.goodreads.com/book/show/2612": {
+    "status": "read",
+    "type": "book",
+    "tags": ["sociology", "psychology"]
+  },
+  "https://www.goodreads.com/book/show/11989": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "philosophy"]
+  },
+  "https://www.goodreads.com/book/show/19380": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic", "philosophy"]
+  },
+  "https://www.goodreads.com/book/show/10534": {
+    "status": "read",
+    "type": "book",
+    "tags": ["history", "politics", "classic"]
+  },
+  "https://www.goodreads.com/book/show/99152": {
+    "status": "read",
+    "type": "book",
+    "tags": ["memoir", "classic"]
+  },
+  "https://www.goodreads.com/book/show/14743": {
+    "status": "read",
+    "type": "book",
+    "tags": ["religion", "philosophy"]
+  },
+  "https://www.goodreads.com/book/show/13079982": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "sci-fi"]
+  },
+  "https://www.goodreads.com/book/show/7144": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/46170": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/4808763": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "sci-fi", "short-stories"]
+  },
+  "https://www.goodreads.com/book/show/50485582": {
+    "status": "read",
+    "type": "book",
+    "tags": ["effective-altruism", "ethics"],
+    "owned": true
+  },
+  "https://www.goodreads.com/book/show/170448": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic", "politics"]
+  },
+  "https://www.goodreads.com/book/show/8906588": {
+    "status": "read",
+    "type": "book",
+    "tags": ["economics", "inequality"]
+  },
+  "https://www.goodreads.com/book/show/30289": {
+    "status": "read",
+    "type": "book",
+    "tags": ["philosophy", "politics", "classic"]
+  },
+  "https://www.goodreads.com/book/show/91950": {
+    "status": "read",
+    "type": "book",
+    "tags": ["philosophy", "essays"]
+  },
+  "https://www.goodreads.com/book/show/485894": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/49552": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "philosophy"]
+  },
+  "https://www.goodreads.com/book/show/6514": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction"]
+  },
+  "https://www.goodreads.com/book/show/157993": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/320": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/7624": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic"]
+  },
+  "https://www.goodreads.com/book/show/61439040": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic", "politics"]
+  },
+  "https://www.goodreads.com/book/show/40121378": {
+    "status": "read",
+    "type": "book",
+    "tags": ["self-help", "psychology"]
+  },
+  "https://violetagordeljevic.substack.com/p/everyone-wants-a-child-like-eileen": {
+    "status": "read",
+    "type": "website",
+    "tags": ["education", "sociology"],
+    "finished": "2026-11-07"
+  },
+  "https://read.readwise.io/read/01m6nnepcnxf287m3f1cfqhd40": {
+    "status": "read",
+    "type": "article",
+    "tags": ["complexity", "philosophy-of-science", "paper"],
+    "finished": "2026-11-05"
+  },
+  "https://philosophy.as.uky.edu/sites/default/files/The%20Absurd%20-%20Thomas%20Nagel.pdf": {
+    "status": "read",
+    "type": "article",
+    "tags": ["philosophy", "essays"],
+    "finished": "2026-11-03"
+  },
+  "https://arxiv.org/pdf/2606.31877v1": {
+    "status": "read",
+    "type": "article",
+    "tags": ["logic", "paper"],
+    "finished": "2026-11-02"
+  },
+  "https://read.readwise.io/read/01m6enbf1hhp8defwbn107gbec": {
+    "status": "read",
+    "type": "article",
+    "tags": ["emergence", "philosophy", "paper"],
+    "finished": "2026-11-02"
+  },
+  "https://admiralcloudberg.medium.com/dining-with-death-the-2001-avjet-aspen-crash-608e0056d244": {
+    "status": "read",
+    "type": "website",
+    "tags": ["engineering", "history"],
+    "finished": "2026-11-02"
+  },
+  "https://algorithmicbotany.org/papers/abop/abop.lowquality.pdf": {
+    "status": "read",
+    "type": "book",
+    "tags": ["biology", "math", "computer-science"],
+    "finished": "2026-10-30"
+  },
+  "https://terrytao.wordpress.com/2026/10/21/mathematics-is-a-subject-for-the-young/": {
+    "status": "read",
+    "type": "website",
+    "tags": ["math", "essays"],
+    "finished": "2026-10-26"
+  },
+  "https://terrytao.wordpress.com/2026/10/15/why-are-we-even-doing-all-this/": {
+    "status": "read",
+    "type": "website",
+    "tags": ["math", "essays", "favorite"],
+    "finished": "2026-10-17"
+  },
+  "https://read.readwise.io/read/01m3qwz8z2gw7yw505nbd5f3f8": {
+    "status": "read",
+    "type": "article",
+    "tags": ["math", "classic", "paper"],
+    "finished": "2026-09-30"
+  },
+  "https://read.readwise.io/read/01m3kf2pz5sjvs1bfz7d5tprah": {
+    "status": "read",
+    "type": "book",
+    "tags": ["math", "essays", "memoir"],
+    "finished": "2026-09-28"
+  },
+  "https://people.inf.ethz.ch/fukudak/lect/mssemi/presentation/09_PatrickSchnider.pdf": {
+    "status": "read",
+    "type": "website",
+    "tags": ["math", "logic", "computer-science"],
+    "finished": "2026-09-25"
+  },
+  "https://mathstodon.xyz/@tao/117237320796901560": {
+    "status": "read",
+    "type": "website",
+    "tags": ["math"],
+    "finished": "2026-09-10"
+  },
+  "https://arxiv.org/pdf/2608.16753": {
+    "status": "read",
+    "type": "article",
+    "tags": ["math", "ai", "paper"],
+    "finished": "2026-08-20"
+  },
+  "https://arxiv.org/pdf/2607.24136": {
+    "status": "read",
+    "type": "article",
+    "tags": ["math", "learning", "favorite"],
+    "finished": "2026-07-29"
+  },
+  "https://open.substack.com/pub/cosmosinstitute/p/philosopher-builder-summer-reads": {
+    "status": "read",
+    "type": "website",
+    "tags": ["philosophy", "reading-list"],
+    "finished": "2026-07-15"
+  },
+  "https://francisheylighen.substack.com/p/the-hard-problem-of-consciousness": {
+    "status": "read",
+    "type": "website",
+    "tags": ["consciousness", "philosophy-of-mind"],
+    "finished": "2026-07-11"
+  },
+  "https://www.mdpi.com/1099-4300/27/2/140": {
+    "status": "read",
+    "type": "article",
+    "tags": ["consciousness", "paper"],
+    "finished": "2026-07-11"
+  },
+  "https://people.math.harvard.edu/~jjchen/docs/Group%20Theory%20and%20the%20Rubik's%20Cube.pdf": {
+    "status": "read",
+    "type": "article",
+    "tags": ["math", "group-theory", "puzzles"],
+    "finished": "2026-07-09"
+  },
+  "https://meresophistry.substack.com/p/firm-reading-in-an-era-of-ai-delirium": {
+    "status": "read",
+    "type": "website",
+    "tags": ["ai", "language"],
+    "finished": "2026-05-26"
+  },
+  "https://domelian.substack.com/p/read-this-before-your-next-long-project": {
+    "status": "read",
+    "type": "website",
+    "tags": ["self-help", "research"],
+    "finished": "2026-05-25"
+  },
+  "https://carlhendrick.substack.com/p/the-death-of-the-university-degree": {
+    "status": "read",
+    "type": "website",
+    "tags": ["education"],
+    "finished": "2026-05-25"
+  },
+  "https://stefanbauschard.substack.com/p/institutionalized-education-as-cognitive": {
+    "status": "read",
+    "type": "website",
+    "tags": ["education", "learning", "favorite"],
+    "finished": "2026-05-25"
+  },
+  "https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/why-i-write/": {
+    "status": "read",
+    "type": "website",
+    "tags": ["writing", "politics", "essays"],
+    "finished": "2026-05-19"
+  },
+  "https://jamilzaki.substack.com/p/you-dont-need-to-write-for-anyone": {
+    "status": "read",
+    "type": "website",
+    "tags": ["writing"],
+    "finished": "2026-05-18"
+  },
+  "https://open.substack.com/pub/astralcodexten/p/the-sigmoids-wont-save-you": {
+    "status": "read",
+    "type": "website",
+    "tags": ["ai", "progress"],
+    "finished": "2026-05-16"
+  },
+  "https://blog.cosmos-institute.org/p/authors-vs-characters-the-new-class": {
+    "status": "read",
+    "type": "website",
+    "tags": ["ai", "philosophy"],
+    "finished": "2026-05-16"
+  },
+  "https://indevelopmentmag.com/exporters-without-borders-why-you-should-start-a-company-instead-of-working-in-aid/": {
+    "status": "read",
+    "type": "website",
+    "tags": ["economics"],
+    "finished": "2026-05-14"
+  },
+  "https://www.noemamag.com/emergence-is-not-engineering": {
+    "status": "read",
+    "type": "website",
+    "tags": ["emergence", "complexity", "biology"],
+    "finished": "2026-05-04"
+  },
+  "https://amateurcriticism.substack.com/p/the-kind-of-short-stories-people": {
+    "status": "read",
+    "type": "website",
+    "tags": ["fiction", "writing"],
+    "finished": "2026-04-26"
+  },
+  "https://www.tkm.kit.edu/downloads/TKM1_2011_more_is_different_PWA.pdf": {
+    "status": "read",
+    "type": "article",
+    "tags": ["emergence", "complexity", "physics", "paper", "sfi"],
+    "finished": "2026-11-02"
+  },
+  "https://sfiscience.substack.com/p/the-biophysics-of-paradigm-change": {
+    "status": "read",
+    "type": "website",
+    "tags": ["complexity", "philosophy-of-science"],
+    "finished": "2026-04-23"
+  },
+  "https://www.persuasion.community/p/the-strange-ways-people-actand-how": {
+    "status": "read",
+    "type": "website",
+    "tags": ["evolution", "psychology"],
+    "finished": "2026-04-21"
+  },
+  "https://arxiv.org/pdf/2604.09911": {
+    "status": "read",
+    "type": "article",
+    "tags": ["ai", "complexity", "paper"],
+    "finished": "2026-04-20"
+  },
+  "https://sfiscience.substack.com/p/the-problem-of-translation-and-semantic": {
+    "status": "read",
+    "type": "website",
+    "tags": ["complexity", "language"],
+    "finished": "2026-04-20"
+  },
+  "https://bigthinkmedia.substack.com/p/3-philosophical-debates-from-the": {
+    "status": "read",
+    "type": "website",
+    "tags": ["philosophy", "neuroscience"],
+    "finished": "2026-04-20"
+  },
+  "https://sfiscience.substack.com/p/games-of-truth": {
+    "status": "read",
+    "type": "website",
+    "tags": ["complexity", "epistemology"],
+    "finished": "2026-04-20"
+  },
+  "https://samuelalbanie.com/files/SIGBOVIK23-LLMs_are_Efficient_Publication_Scoopers.pdf": {
+    "status": "read",
+    "type": "article",
+    "tags": ["ai", "research", "paper"],
+    "finished": "2026-04-19"
+  },
+  "https://samkriss.substack.com/p/reading-is-magic": {
+    "status": "read",
+    "type": "website",
+    "tags": ["writing", "language"],
+    "finished": "2026-04-19"
+  },
+  "https://www.quantamagazine.org/june-huh-high-school-dropout-wins-the-fields-medal-20220705/#:~:text=This%20preference%20for%20routine%20%E2%80%94,together%20to%20make%20a%20blanket.": {
+    "status": "read",
+    "type": "website",
+    "tags": ["math", "biography"],
+    "finished": "2026-04-14"
+  },
+  "https://www.butthistime.com/p/how-to-become-a-mathematical-genius": {
+    "status": "read",
+    "type": "website",
+    "tags": ["math", "learning"],
+    "finished": "2026-04-14"
+  },
+  "https://extendedbrain.substack.com/p/the-wiki-that-writes-itself": {
+    "status": "read",
+    "type": "website",
+    "tags": ["ai", "software", "learning"],
+    "finished": "2026-04-10"
+  },
+  "https://open.substack.com/pub/bigthinkmedia/p/the-resilience-paradox-when-pushing": {
+    "status": "read",
+    "type": "website",
+    "tags": ["psychology", "self-help"],
+    "finished": "2026-04-10"
+  },
+  "https://www.lesswrong.com/posts/a9zfyHymPYY58D8hx/socrates-is-mortal": {
+    "status": "read",
+    "type": "website",
+    "tags": ["logic", "rationality"],
+    "finished": "2026-03-27"
+  },
+  "https://www.dwarkesh.com/p/terence-tao": {
+    "status": "read",
+    "type": "website",
+    "tags": ["math", "history", "science"],
+    "finished": "2026-03-21"
+  },
+  "https://www.math.uchicago.edu/~may/VIGRE/VIGRE2009/REUPapers/Provenza.pdf": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["math", "group-theory", "puzzles"]
+  },
+  "https://arxiv.org/pdf/2611.06641": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["emergence", "complexity", "paper"]
+  },
+  "https://arxiv.org/html/2609.15369v3": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["ai", "paper"]
+  },
+  "https://gwern.net/suzanne-delage#the-story": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["fiction", "writing"]
+  },
+  "https://arxiv.org/pdf/quant-ph/9908043": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["physics", "computer-science", "paper"]
+  },
+  "https://read.readwise.io/read/01m6v4nx79dgy1hgkaxs6n6y8k": {
+    "status": "reading",
+    "type": "book",
+    "tags": ["physics", "biography", "letters"]
+  },
+  "https://www.scrummanager.com/files/nato1968e.pdf": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["software", "computer-science", "history"]
+  },
+  "https://read.readwise.io/read/01m6hfrx2801s3hes63aq0p4kr": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["economics", "essays", "classic"]
+  },
+  "https://read.readwise.io/read/01m6hatxmr25qn6qven5y08m39": {
+    "status": "reading",
+    "type": "book",
+    "tags": ["complexity", "philosophy"]
+  },
+  "https://read.readwise.io/read/01m6haefry0nzpzj4fe4q07qwk": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["complexity", "systems-thinking", "paper"]
+  },
+  "https://read.readwise.io/read/01m6h48vx1mb9mvcm3jg5abtm7": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["emergence", "philosophy", "paper"]
+  },
+  "https://arxiv.org/pdf/0809.0151": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["paper"]
+  },
+  "https://read.readwise.io/read/01m6ev5h2jpgwvjwy5wp82a6v1": {
+    "status": "reading",
+    "type": "book",
+    "tags": ["philosophy-of-mind", "consciousness"]
+  },
+  "https://thoughtforms.life/wp-content/uploads/2026/10/add-to-Substack-post.pdf": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["writing", "research"]
+  },
+  "https://read.readwise.io/read/01m6b2ppwv0pj0ssn13tcxxqps": {
+    "status": "reading",
+    "type": "book",
+    "tags": ["essays", "philosophy", "classic"]
+  },
+  "https://jaalonso.github.io/vestigium/en/posts/2026/10/26-weekly_reads/": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["math", "logic", "reading-list"]
+  },
+  "https://github.com/joeattueyi/cours-analyse": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["math", "analysis", "textbook"]
+  },
+  "https://read.readwise.io/read/01m3h00gagh0yzvcyq35qdf3by": {
+    "status": "reading",
+    "type": "book",
+    "tags": ["philosophy", "ethics", "classic"]
+  },
+  "https://isa-afp.org/browser_info/current/AFP/DPDA_Complement_HU/outline.pdf": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["computer-science", "logic", "paper"]
+  },
+  "https://read.readwise.io/read/01m3a5rxb5dpsx3bncyeehw1ft": {
+    "status": "reading",
+    "type": "book",
+    "tags": ["sociology", "statistics", "classic", "human-patterns"]
+  },
+  "https://arxiv.org/pdf/math/9404236": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["math", "philosophy", "essays"]
+  },
+  "https://read.readwise.io/read/01m09vrn52e3vj88njxwv2tsp6": {
+    "status": "reading",
+    "type": "book",
+    "tags": ["logic", "math", "textbook"]
+  },
+  "https://www.ams.org/journals/notices/202607/noti3373/noti3373.html": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["math", "ai"]
+  },
+  "https://read.readwise.io/read/01kzk732m261htv1a69jfzt4wr": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["philosophy", "phenomenology", "paper"]
+  },
+  "https://read.readwise.io/read/01kz5sdz0gz5mh5nx64h59ktca": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["ai", "paper"]
+  },
+  "https://read.readwise.io/read/01kyvbfty2ahq9wbm958ex7kyq": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["computer-science", "philosophy", "logic", "paper"]
+  },
+  "https://www.science.org/doi/10.1126/science.aej4257": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["science", "research", "paper"]
+  },
+  "https://minutes.substack.com/p/on-grindslop": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["ai", "essays"]
+  },
+  "https://www2.math.uu.se/~thulin/mm/breiman.pdf": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["statistics", "machine-learning", "paper"]
+  },
+  "https://oecs.mit.edu/pub/64sucmct/release/1": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["cognitive-science", "philosophy-of-mind", "language"]
+  },
+  "https://read.readwise.io/read/01kxker8jap6s044h9ag3rhx0r": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["philosophy", "politics", "sociology", "paper"]
+  },
+  "https://arxiv.org/pdf/2601.03220": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["machine-learning", "computer-science", "paper"]
+  },
+  "https://static1.squarespace.com/static/5f29a430a2b6a34680879cc0/t/6a06392b70af613cf631f5d0/1778792747560/rsta.2024.0533.pdf": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["ai", "cognitive-science", "paper"]
+  },
+  "https://aleximas.substack.com/p/what-will-be-scarce": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["ai", "economics"]
+  },
+  "https://thedigitaldelusion.substack.com/p/the-problem-with-alpha-schools-part": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["education", "ai"]
+  },
+  "https://en.wikisource.org/wiki/Blaise_Pascal/Thoughts/Section_2": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["philosophy", "religion", "classic"]
+  },
+  "https://en.wikipedia.org/wiki/Galen": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["medicine", "history"]
+  },
+  "https://arxiv.org/pdf/1902.03928": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["physics", "paper"]
+  },
+  "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/JudgementAndChoice.MappingBoundedRationality.DKahneman2003.pdf": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["psychology", "decision-making", "paper"]
+  },
+  "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0020124": {
+    "status": "reading",
+    "type": "article",
+    "tags": ["statistics", "science", "research", "paper"]
+  },
+  "https://davidoks.blog/p/why-the-atm-didnt-kill-bank-teller": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["economics", "technology"]
+  },
+  "https://forum.effectivealtruism.org/posts/q2TfTirvspCTH2vbZ/the-best-cause-will-disappoint-you-an-intro-to-the": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["effective-altruism", "decision-making"]
+  }
+}

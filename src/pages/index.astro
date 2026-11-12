@@ -66,6 +66,10 @@ const backMatter = (await Promise.all(["to-the-reader", "acknowledgments", "glos
                 {backMatter.map((n) => (
                   <NoteRow note={n} />
                 ))}
+                <li data-search="Library books reading">
+                  <span class="minutes" />
+                  <a href="/library/">Library</a>
+                </li>
               </ul>
             )}
             <div class="home-empty" hidden>

@@ -4,7 +4,7 @@ import { headingSlugger } from "./headings.js";
 
 const LEVELS = { h2: 0, h3: 1, h4: 2 };
 // Width must match the contents rail in src/styles/global.css.
-const OPEN_WHEN_WIDE = `{
+export const OPEN_WHEN_WIDE = `{
   const details = document.currentScript.previousElementSibling;
   const wide = matchMedia("(width >= 1200px)");
   const sync = () => (details.open = wide.matches);
