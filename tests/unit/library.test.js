@@ -343,11 +343,11 @@ describe("shelve", () => {
     expect(c).toMatchObject({ site: "", private: true });
   });
 
-  it("makes a popover card with the author, venue, status, tags, and escaped description, except for a Reader link", () => {
+  it("makes a popover card with the author, venue, status, tags, and escaped description", () => {
     const cards = bookCards(shelve(books, { [`${URL}/OL1W`]: { status: "to-read", tags: ["logic", "math"] }, ...listed }));
     expect(cards[`${URL}/OL1W`]).toEqual({ title: "A", meta: ["X", "To read"], tags: ["logic", "math"], paragraphs: ["&lt;i&gt;d&lt;/i&gt;"] });
     expect(cards["https://www.example.org/b"].meta).toEqual(["Y", "J, 2020", "Read"]);
-    expect(cards[READER]).toBeUndefined();
+    expect(cards[READER]).toEqual({ title: "C", meta: ["Read"], paragraphs: [] });
   });
 });
 

@@ -30,7 +30,12 @@ const author = book.author === book.siteName ? "" : names.length > 2 ? `${names[
 const Tag = book.private ? "span" : "a";
 ---
 
-<Tag href={book.private ? undefined : book.url} class="book" data-finished={finished ? book.title : undefined}>
+<Tag
+  href={book.private ? undefined : book.url}
+  data-card={book.private ? book.url : undefined}
+  tabindex={book.private ? 0 : undefined}
+  class="book"
+  data-finished={finished ? book.title : undefined}>
   {cover ? (
     <Image
       src={cover}

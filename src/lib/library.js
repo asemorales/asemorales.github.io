@@ -138,17 +138,15 @@ export function shelve(books, library) {
 /** Popover cards keyed by book URL, with paragraphs as HTML. */
 export function bookCards(shelved) {
   return Object.fromEntries(
-    shelved
-      .filter((b) => !b.private)
-      .map((b) => [
-        new URL(b.url).href,
-        {
-          title: b.title,
-          meta: [b.author, [b.venue, b.year].filter(Boolean).join(", "), STATUS_LABEL[b.status]].filter(Boolean),
-          ...(b.tags.length && { tags: b.tags }),
-          paragraphs: b.description ? [escapeText(b.description)] : [],
-        },
-      ]),
+    shelved.map((b) => [
+      new URL(b.url).href,
+      {
+        title: b.title,
+        meta: [b.author, [b.venue, b.year].filter(Boolean).join(", "), STATUS_LABEL[b.status]].filter(Boolean),
+        ...(b.tags.length && { tags: b.tags }),
+        paragraphs: b.description ? [escapeText(b.description)] : [],
+      },
+    ]),
   );
 }
 

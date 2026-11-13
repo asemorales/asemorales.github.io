@@ -23,7 +23,7 @@ function addText(body: HTMLElement, { epigraph, paragraphs }: Pick<Card, "epigra
   }
 }
 
-export function fill(el: HTMLElement, card: Card, a: HTMLAnchorElement, more = true) {
+export function fill(el: HTMLElement, card: Card, a: HTMLElement, more = true) {
   el.replaceChildren();
   if (card.dead) add(el, "p", "popover-dead", card.dead);
   const title = add(el, "p", "popover-title", card.title);
@@ -48,7 +48,8 @@ export function fill(el: HTMLElement, card: Card, a: HTMLAnchorElement, more = t
     addText(body, section);
   }
   if (body.hasChildNodes()) el.append(body);
-  const href = card.href ?? a.href;
+  const href = card.href ?? (a instanceof HTMLAnchorElement ? a.href : "");
+  if (!href) return;
   const internal = new URL(href, location.href).origin === location.origin;
   if (more && (!internal || body.hasChildNodes())) {
     const more = add(el, "a", "popover-more", internal ? "Read more" : "Go to site") as HTMLAnchorElement;

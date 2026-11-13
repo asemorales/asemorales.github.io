@@ -10,7 +10,7 @@
   const LINGER = 200;
   let data: Promise<Record<string, Card>> | null = null;
   let pop: HTMLElement | null = null;
-  let current: HTMLAnchorElement | null = null;
+  let current: HTMLElement | null = null;
   let openTimer: number | undefined;
   let closeTimer: number | undefined;
 
@@ -19,7 +19,8 @@
       .then((r) => (r.ok ? r.json() : {}))
       .catch(() => ({})));
 
-  function key(a: HTMLAnchorElement) {
+  function key(a: HTMLElement) {
+    if (!(a instanceof HTMLAnchorElement)) return a.dataset.card!;
     const url = new URL(a.href, location.href);
     if (url.origin !== location.origin) return url.href;
     return url.hash ? `${url.pathname}${decodeURIComponent(url.hash)}` : url.pathname;
@@ -38,7 +39,7 @@
     return pop;
   }
 
-  function place(el: HTMLElement, a: HTMLAnchorElement) {
+  function place(el: HTMLElement, a: HTMLElement) {
     const r = a.getClientRects()[0] ?? a.getBoundingClientRect();
     const w = el.offsetWidth;
     const h = el.offsetHeight;
@@ -61,9 +62,9 @@
     return { title: card?.title ?? source.textContent!.trim(), meta, paragraphs: card?.paragraphs ?? [], href: source.href };
   }
 
-  async function open(a: HTMLAnchorElement) {
+  async function open(a: HTMLElement) {
     const data = await load();
-    const card = a.closest(".cite-ref") ? citation(a, data) : data[key(a)];
+    const card = a.closest(".cite-ref") ? citation(a as HTMLAnchorElement, data) : data[key(a)];
     if (!card || current !== a) return;
     const el = element();
     fill(el, card, a);
@@ -87,7 +88,7 @@
     closeTimer = window.setTimeout(close, LINGER);
   }
 
-  function start(a: HTMLAnchorElement, delay: number) {
+  function start(a: HTMLElement, delay: number) {
     if (a === current) return clearTimeout(closeTimer);
     close();
     current = a;
@@ -97,7 +98,7 @@
 
   const SKIP = ".anchor, .sidenote-ref, .backrefs, .link-popover, mjx-container";
   function linkFrom(target: EventTarget | null, tapped = false) {
-    const a = (target as Element | null)?.closest?.<HTMLAnchorElement>("main a[href]");
+    const a = (target as Element | null)?.closest?.<HTMLElement>("main a[href], main [data-card]");
     return a && !a.closest(SKIP) && !(tapped && a.closest(".cite-ref")) ? a : null;
   }
 
@@ -135,7 +136,7 @@
     return (drawer = d);
   }
 
-  function openDrawer(a: HTMLAnchorElement, card: Card) {
+  function openDrawer(a: HTMLElement, card: Card) {
     const d = drawerElement();
     const content = document.createElement("div");
     content.className = "drawer-content";
@@ -146,14 +147,21 @@
     close.setAttribute("aria-label", "Close preview");
     close.innerHTML = '<span class="icon icon-x" aria-hidden="true"></span>';
     close.addEventListener("click", () => d.close());
-    const go = document.createElement("a");
-    go.className = "drawer-go";
-    go.href = a.href;
-    const url = new URL(a.href, location.href);
-    go.textContent =
-      url.origin === location.origin ? (url.hash && url.pathname === location.pathname ? "Go to section" : "Read note") : `Open ${domain(url.href)}`;
-    go.addEventListener("click", () => d.close());
-    d.replaceChildren(close, content, go);
+    d.replaceChildren(close, content);
+    if (a instanceof HTMLAnchorElement) {
+      const go = document.createElement("a");
+      go.className = "drawer-go";
+      go.href = a.href;
+      const url = new URL(a.href, location.href);
+      go.textContent =
+        url.origin === location.origin
+          ? url.hash && url.pathname === location.pathname
+            ? "Go to section"
+            : "Read note"
+          : `Open ${domain(url.href)}`;
+      go.addEventListener("click", () => d.close());
+      d.append(go);
+    }
     d.showModal();
     d.focus();
     content.scrollTop = 0;
@@ -175,7 +183,7 @@
     e.preventDefault();
     const card = (await load())[key(a)];
     if (card) openDrawer(a, card);
-    else location.href = a.href;
+    else if (a instanceof HTMLAnchorElement) location.href = a.href;
   });
 
   document.addEventListener("keydown", (e) => {
