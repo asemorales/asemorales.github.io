@@ -4721,18 +4721,6 @@
     "cover": "74af836afc4caa28",
     "source": "Readwise"
   },
-  "https://mathstodon.xyz/@tao/117237320796901560": {
-    "url": "https://mathstodon.xyz/@tao/117237320796901560",
-    "title": "mathstodon.xyz:",
-    "author": "Mathstodon",
-    "siteName": "Mathstodon",
-    "description": "Mathstodon.xyz is a Mastodon server for people interested in math. It has LaTeX support for easy math writing. The server has about 3,800 active users and is run by Christian Lawson-Perfect.",
-    "image": null,
-    "shelf": "read",
-    "added": "2026-09-10",
-    "read": "2026-09-24",
-    "source": "Readwise"
-  },
   "https://ourworldindatabrief.substack.com/p/2026-08-21": {
     "url": "https://ourworldindatabrief.substack.com/p/2026-08-21",
     "title": "Peak population, child labor, drivers of deforestation, air conditioning, and more",
@@ -6652,6 +6640,18 @@
     "added": "2026-03-17",
     "read": null,
     "cover": "b0ba64b8c31c6aa0",
+    "source": "Readwise"
+  },
+  "https://mathstodon.xyz/@tao/113479000564381543": {
+    "url": "https://mathstodon.xyz/@tao/113479000564381543",
+    "title": "Terence Tao: \"Many decisions in life involve…\"",
+    "author": "Mathstodon",
+    "siteName": "Mathstodon",
+    "description": "Terence Tao discusses how decisions often involve balancing risk and reward. He explains that in uncertain times, taking bold actions may be more rational, as no option can guarantee safety. Tao emphasizes that understanding simplified models can help clarify complex decision-making.",
+    "image": null,
+    "shelf": "read",
+    "added": "2024-11-14",
+    "read": "2026-03-19",
     "source": "Readwise"
   }
 }
