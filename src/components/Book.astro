@@ -17,7 +17,7 @@ interface Props {
   finished?: boolean;
 }
 
-const HEIGHT = 288;
+const HEIGHT = 128;
 const FAVICON = 12;
 const DIR = "../assets/covers/";
 const covers = import.meta.glob<{ default: ImageMetadata }>("../assets/covers/*.{jpg,jpeg,png,webp}", { eager: true });
@@ -41,6 +41,7 @@ const Tag = book.private ? "span" : "a";
       src={cover}
       height={HEIGHT}
       width={Math.round((HEIGHT * cover.width) / cover.height)}
+      densities={[1, 2]}
       alt={[book.title, book.author].filter(Boolean).join(" by ")}
       loading="lazy"
     />
