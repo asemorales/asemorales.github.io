@@ -50,24 +50,31 @@ test.describe("sections", () => {
     }
   });
 
-  test("collapse the contents on phones with JS, and open them otherwise", async ({ page, javaScriptEnabled }, info) => {
-    const details = page.locator("nav.toc details");
-    if (info.project.name === "phone-js") {
-      await expect(details).not.toHaveAttribute("open");
-      await expect(page.locator("nav.toc li a").first()).toBeHidden();
-      await page.locator("nav.toc summary").click();
-      await expect(page.locator("nav.toc li a").first()).toBeVisible();
-    } else {
-      await expect(details).toHaveAttribute("open", "");
+  test("open the contents in a drawer from the top bar on phones, and in the sidenav on wide screens", async ({ page, javaScriptEnabled }, info) => {
+    const first = page.locator("nav.toc li a").first();
+    if (wide(info.project.name)) {
+      await expect(page.locator(".contents-toggle")).toBeHidden();
+      await expect(first).toBeVisible();
+      return;
     }
-    if (javaScriptEnabled === false) return;
-    await page.setViewportSize({ width: 1440, height: 900 });
-    await expect(details).toHaveAttribute("open", "");
-    await page.setViewportSize({ width: 390, height: 844 });
-    await expect(details).not.toHaveAttribute("open");
+    await expect(first).toBeHidden();
+    await page.locator(".contents-toggle").click();
+    await expect(first).toBeVisible();
+    await expect(page.locator("nav.toc summary")).toBeHidden();
+    if (javaScriptEnabled) {
+      await page.locator("nav.toc a[href='#math']").click();
+      await expect(first).toBeHidden();
+      await expect(page.locator("#math")).toBeInViewport();
+      const bar = await box(page.locator(".site-nav"));
+      expect((await box(page.locator("#math"))).y).toBeGreaterThanOrEqual(bar.y + bar.height);
+    } else {
+      await page.locator("#contents .drawer-close").click();
+      await expect(first).toBeHidden();
+    }
   });
 
-  test("link home above the contents, matching the contents header", async ({ page }) => {
+  test("link home above the contents, matching the contents header", async ({ page }, info) => {
+    test.skip(!wide(info.project.name), "wide screens only");
     const home = page.locator(".site-home");
     const summary = page.locator("nav.toc summary");
     expect((await box(home)).y).toBeLessThan((await box(summary)).y);
@@ -77,8 +84,8 @@ test.describe("sections", () => {
     expect((await style(page.locator("nav.toc li a").first())).caps).toBe("normal");
   });
 
-  test("align the home, theme, and contents icons and labels", async ({ page, javaScriptEnabled }) => {
-    test.skip(javaScriptEnabled === false, "the theme toggle needs JS");
+  test("align the home, theme, and contents icons and labels", async ({ page, javaScriptEnabled }, info) => {
+    test.skip(javaScriptEnabled === false || !wide(info.project.name), "wide screens with JS");
     const home = await box(page.locator(".site-home .icon"));
     const toggle = page.locator(".site-nav .theme-toggle");
     await expect(toggle).toHaveText(/Toggle theme/);
@@ -107,7 +114,7 @@ test.describe("sections", () => {
   });
 
   test("contents entries jump to their headings", async ({ page }, info) => {
-    if (info.project.name === "phone-js") await page.locator("nav.toc summary").click();
+    if (!wide(info.project.name)) await page.locator(".contents-toggle").click();
     await page.locator("nav.toc a[href='#headings']").click();
     await expect(page).toHaveURL(/#headings$/);
     await expect(page.locator("#headings")).toBeInViewport();
@@ -127,21 +134,40 @@ test.describe("sections", () => {
     expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/\/lorem-ipsum\/#math$/);
   });
 
-  test("put the contents above the title on narrow screens, in the same color as the wide rail", async ({ page }) => {
+  test("pin the home, theme, and contents icons in a bar above the title on narrow screens", async ({ page }) => {
     test.skip((page.viewportSize()?.width ?? 0) >= 1200, "below 1200px");
-    const toc = await box(page.locator("nav.toc"));
-    expect(toc.y + toc.height).toBeLessThanOrEqual((await box(page.locator("article.note h1"))).y);
-    const dim = await page.locator("nav.toc").evaluate((el) => getComputedStyle(el).color);
+    const bar = page.locator(".site-nav");
+    expect((await box(bar)).y + (await box(bar)).height).toBeLessThanOrEqual((await box(page.locator("article.note h1"))).y);
+    for (const label of await bar.locator(".label:visible").all()) expect((await box(label)).width).toBeLessThanOrEqual(1);
+    await page.locator("#headings").scrollIntoViewIfNeeded();
+    await expect(bar).toBeInViewport();
     await page.goto("/404/");
-    await expect(page.locator(".site-home")).toHaveCSS("color", dim);
+    await expect(page.locator(".site-home")).toBeVisible();
+    await expect(page.locator(".contents-toggle")).toHaveCount(0);
   });
 
-  test("align the title with the top of the contents rail on wide screens", async ({ page }) => {
+  test("fill reading progress along the bottom of the top bar on narrow screens, and across the top on wide screens", async ({ page }, info) => {
+    test.skip(!(await page.evaluate(() => CSS.supports("animation-timeline: scroll()"))), "needs scroll-driven animations");
+    const [shown, hidden] = wide(info.project.name) ? [".page-progress", ".nav-progress"] : [".nav-progress", ".page-progress"];
+    await expect(page.locator(hidden)).toBeHidden();
+    const progress = () => page.locator(shown).evaluate((el) => parseFloat(getComputedStyle(el).scale));
+    expect(await progress()).toBeCloseTo(0, 2);
+    await page.evaluate(() => scrollTo(0, (document.documentElement.scrollHeight - innerHeight) / 2));
+    await expect.poll(progress).toBeCloseTo(0.5, 1);
+    if (!wide(info.project.name)) {
+      const [line, bar] = [await box(page.locator(shown)), await box(page.locator(".site-nav"))];
+      expect(line.y + line.height).toBeCloseTo(bar.y + bar.height, 0);
+    }
+    await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight));
+    await expect.poll(progress).toBeCloseTo(1, 2);
+  });
+
+  test("align the title with the top of the sidenav on wide screens", async ({ page }) => {
     test.skip((page.viewportSize()?.width ?? 0) < 1200, "1200px and up");
-    expect((await box(page.locator(".rail > div"))).y).toBe((await box(page.locator("article.note h1"))).y);
+    expect((await box(page.locator(".sidenav > div"))).y).toBe((await box(page.locator("article.note h1"))).y);
   });
 
-  test("put the contents in a sticky rail left of the column on wide screens", async ({ page }) => {
+  test("put the contents in a sticky sidenav left of the column on wide screens", async ({ page }) => {
     test.skip((page.viewportSize()?.width ?? 0) < 1200, "1200px and up");
     const column = await box(page.locator("article.note h1"));
     const toc = page.locator("nav.toc details");
@@ -157,7 +183,7 @@ test.describe("sections", () => {
       const rect = await box(page.locator(selector));
       return rect.y + rect.height;
     };
-    expect(await bottom(".rail > div")).toBeLessThanOrEqual((await bottom(".note .tags")) + 1);
+    expect(await bottom(".sidenav > div")).toBeLessThanOrEqual((await bottom(".note .tags")) + 1);
     await home.click();
     await expect(page).toHaveURL(/\/$/);
   });

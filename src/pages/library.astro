@@ -7,7 +7,6 @@ import Base from "../layouts/Base.astro";
 import { day } from "../lib/date.js";
 import { description } from "../lib/summary.js";
 import { itemCount, shelve, STATUS_LABEL, STATUSES, suggest, TYPE_LABEL, TYPES } from "../lib/library.js";
-import { OPEN_WHEN_WIDE } from "../lib/rehype-sections.js";
 
 interface Shelved {
   url: string;
@@ -44,7 +43,7 @@ const filterable = (book: Shelved) => ({
 ---
 
 <Base title="Library" description={description(introduction?.body ?? "", "Books I am reading, have read, and plan to read.")} wide>
-  <nav slot="rail" class="toc" aria-label="Contents">
+  <nav slot="sidenav" class="toc" aria-label="Contents">
     <details open>
       <summary>Contents</summary>
       <ol>
@@ -60,7 +59,6 @@ const filterable = (book: Shelved) => ({
         ))}
       </ol>
     </details>
-    <script is:inline set:html={OPEN_WHEN_WIDE} />
   </nav>
   <div class="library">
     <div class="column">

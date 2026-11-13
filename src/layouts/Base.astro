@@ -19,6 +19,7 @@ const { title, description, noindex = false, wide = false, preloadItalic = false
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const imageUrl = new URL(image, Astro.site);
 const home = Astro.url.pathname === "/";
+const contents = Astro.slots.has("sidenav") && (await Astro.slots.render("sidenav")).trim();
 const fullTitle = home ? title : `${title} | ${NAME}`;
 const jsonLd =
   article &&
@@ -101,18 +102,32 @@ const jsonLd =
     <a href="#page-title" class="skip-link">
       Skip to content
     </a>
+    {!home && <div class="page-progress" aria-hidden="true" />}
     <div class="page">
       {!home && (
-        <div class="rail">
+        <div class="sidenav">
           <div>
             <nav class="site-nav" aria-label="Site">
               <a href="/" class="site-home">
                 <span class="icon icon-home" aria-hidden="true"></span>
-                Home
+                <span class="label">Home</span>
               </a>
               <ThemeToggle />
+              {contents && (
+                <button type="button" class="contents-toggle" popovertarget="contents" aria-label="Contents">
+                  <span class="icon icon-list" aria-hidden="true"></span>
+                </button>
+              )}
+              <span class="nav-progress" aria-hidden="true"></span>
             </nav>
-            <slot name="rail" />
+            {contents && (
+              <div id="contents" class="contents-drawer" popover>
+                <button type="button" class="drawer-close" popovertarget="contents" popovertargetaction="hide" aria-label="Close contents">
+                  <span class="icon icon-x" aria-hidden="true"></span>
+                </button>
+                <Fragment set:html={contents} />
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -122,5 +137,11 @@ const jsonLd =
     </div>
     <LSystems />
     <Popovers />
+    <script>
+      const drawer = document.getElementById("contents");
+      drawer?.addEventListener("click", (e) => {
+        if ((e.target as Element).closest("a") && drawer.matches(":popover-open")) drawer.hidePopover();
+      });
+    </script>
   </body>
 </html>

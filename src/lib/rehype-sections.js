@@ -3,14 +3,6 @@ import { el, isElement, text, txt } from "./hast.js";
 import { headingSlugger } from "./headings.js";
 
 const LEVELS = { h2: 0, h3: 1, h4: 2 };
-// Width must match the contents rail in src/styles/global.css.
-export const OPEN_WHEN_WIDE = `{
-  const details = document.currentScript.previousElementSibling;
-  const wide = matchMedia("(width >= 1200px)");
-  const sync = () => (details.open = wide.matches);
-  sync();
-  wide.addEventListener("change", sync);
-}`;
 
 export function rehypeSections({ seeAlso = [] } = {}) {
   const linked = new Set(seeAlso);
@@ -56,10 +48,7 @@ function toc(headings, back) {
     addItem(stack.at(-1), [el("a", { href: `#${h.id}` }, h.title)]);
   }
   for (const b of back) addItem(root, [el("a", { href: `#${b.id}` }, [txt(b.title)])]);
-  return el("nav", { className: ["toc"], ariaLabel: "Contents" }, [
-    el("details", { open: true }, [el("summary", {}, [txt("Contents")]), root]),
-    el("script", {}, [txt(OPEN_WHEN_WIDE)]),
-  ]);
+  return el("nav", { className: ["toc"], ariaLabel: "Contents" }, [el("details", { open: true }, [el("summary", {}, [txt("Contents")]), root])]);
 }
 
 function addItem(ol, children) {

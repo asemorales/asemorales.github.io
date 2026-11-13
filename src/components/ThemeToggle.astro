@@ -9,7 +9,7 @@ const { iconOnly = false } = Astro.props;
 <button type="button" class="theme-toggle">
   <span class="icon icon-sun" aria-hidden="true"></span>
   <span class="icon icon-moon" aria-hidden="true"></span>
-  <span class:list={{ "sr-only": iconOnly }}>Toggle theme</span>
+  <span class:list={["label", { "sr-only": iconOnly }]}>Toggle theme</span>
   <span class="sr-only" aria-live="polite">
     (<span data-label>auto</span>)
   </span>

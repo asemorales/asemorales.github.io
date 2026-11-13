@@ -25,7 +25,8 @@
 :root {
   color-scheme: light dark;
 
-  --rail: 13rem;
+  --sidenav: 13rem;
+  --grain: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 
   --page: light-dark(#f2ecdf, #191612);
   --code: light-dark(#f9f5ee, #25211c);
@@ -109,7 +110,7 @@
 @layer base {
   html {
     @apply scroll-pt-6 bg-page font-serif text-ink;
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-image: var(--grain);
     font-variant-numeric: oldstyle-nums proportional-nums;
     hanging-punctuation: first last;
     -webkit-font-smoothing: antialiased;
@@ -301,6 +302,9 @@
   .icon-moon {
     --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z'/></svg>");
   }
+  .icon-list {
+    --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 5h.01M3 12h.01M3 19h.01M8 5h13M8 12h13M8 19h13'/></svg>");
+  }
   .icon-copy {
     --icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='14' height='14' x='8' y='8' rx='2'/><path d='M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2'/></svg>");
   }
@@ -361,7 +365,7 @@
   }
   @media (width >= 1200px) {
     .column {
-      --lead: calc(var(--rail) + var(--gap));
+      --lead: calc(var(--sidenav) + var(--gap));
     }
   }
   .note {
@@ -497,29 +501,85 @@
   .page {
     @apply relative;
   }
-  .rail {
-    @apply mt-22 mb-4;
-  }
-  @media (width < 760px) {
-    .rail {
-      @apply mt-0;
-    }
-  }
   .site-nav {
     @apply text-base leading-normal sm:text-lg;
   }
+  :is(.nav-progress, .page-progress) {
+    @apply pointer-events-none hidden h-0.5 origin-left bg-dim;
+    scale: 0 1;
+    animation-name: progress;
+    animation-timing-function: linear;
+    animation-timeline: scroll(root);
+  }
+  @keyframes progress {
+    to {
+      scale: 1 1;
+    }
+  }
+  .nav-progress {
+    @apply absolute -inset-x-px -bottom-px;
+  }
+  .page-progress {
+    @apply fixed inset-x-0 top-0 z-30;
+  }
+  @media (width < 1200px) {
+    html:has(.site-nav) {
+      scroll-padding-top: 5.5rem;
+    }
+    .sidenav {
+      @apply sticky top-0 z-20 -mx-4 mb-4 px-4 py-2 sm:-mx-8 sm:px-8;
+      background: var(--page) var(--grain);
+    }
+    .site-nav {
+      @apply relative flex items-center border border-rule;
+    }
+    .site-nav > :is(a, button) {
+      @apply mb-0 size-11 cursor-pointer justify-center text-xl hover:no-underline;
+    }
+    .site-home {
+      @apply mr-auto;
+    }
+    .site-nav .label {
+      @apply sr-only;
+    }
+    @supports (animation-timeline: scroll()) {
+      .nav-progress {
+        @apply block;
+      }
+    }
+    .contents-drawer summary {
+      @apply hidden;
+    }
+    .contents-drawer .toc {
+      @apply min-h-0 w-full max-w-none overflow-y-auto pt-5 pr-12 pb-5 pl-5;
+    }
+    .contents-drawer .toc li {
+      @apply mt-2;
+    }
+  }
   @media (width >= 1200px) {
-    .rail {
-      @apply absolute inset-y-0 left-0 z-10 mb-0;
-      width: var(--rail);
+    .sidenav {
+      @apply absolute inset-y-0 left-0 z-10 mt-22;
+      width: var(--sidenav);
+    }
+    .contents-drawer {
+      display: contents;
+    }
+    :is(.contents-toggle, .contents-drawer > .drawer-close) {
+      @apply hidden;
+    }
+    @supports (animation-timeline: scroll()) {
+      .page-progress {
+        @apply block;
+      }
     }
     article.note {
       anchor-name: --note;
     }
-    .rail:has(+ main .note) {
+    .sidenav:has(+ main .note) {
       bottom: anchor(--note bottom);
     }
-    .rail > div {
+    .sidenav > div {
       @apply sticky top-6 flex max-h-[min(100vh-3rem,100%)] flex-col;
     }
     .site-nav,
@@ -898,7 +958,7 @@
     .home-head {
       @apply absolute top-0;
       left: calc(-1 * var(--lead));
-      width: var(--rail);
+      width: var(--sidenav);
     }
     .home-title {
       @apply mt-0 text-2xl;
@@ -1144,38 +1204,43 @@
     @apply text-dim hover:text-link-hover active:text-link-hover;
   }
 
-  .link-drawer {
+  :is(.link-drawer, .contents-drawer) {
+    --away: 0 100%;
     @apply fixed inset-x-0 top-auto bottom-0 m-0 max-h-[75vh] w-full max-w-none flex-col border-t border-frame bg-code p-0 text-base leading-normal text-ink;
-    translate: 0 100%;
+    translate: var(--away);
     transition:
       translate 0.25s ease-in-out,
       display 0.25s allow-discrete,
       overlay 0.25s allow-discrete;
   }
-  .link-drawer[open] {
+  .contents-drawer {
+    --away: 100% 0;
+    @apply inset-y-0 right-0 left-auto h-dvh max-h-none w-[min(20rem,85vw)] border-t-0 border-l;
+  }
+  :is(.link-drawer[open], .contents-drawer:popover-open) {
     @apply flex;
     translate: 0 0;
   }
   @starting-style {
-    .link-drawer[open] {
-      translate: 0 100%;
+    :is(.link-drawer[open], .contents-drawer:popover-open) {
+      translate: var(--away);
     }
   }
-  .link-drawer:focus {
+  :is(.link-drawer, .contents-drawer):focus {
     @apply outline-none;
   }
-  .link-drawer::backdrop {
+  :is(.link-drawer, .contents-drawer)::backdrop {
     background: rgb(0 0 0 / 0);
     transition:
       background 0.25s ease-in-out,
       display 0.25s allow-discrete,
       overlay 0.25s allow-discrete;
   }
-  .link-drawer[open]::backdrop {
+  :is(.link-drawer[open], .contents-drawer:popover-open)::backdrop {
     background: rgb(0 0 0 / 0.4);
   }
   @starting-style {
-    .link-drawer[open]::backdrop {
+    :is(.link-drawer[open], .contents-drawer:popover-open)::backdrop {
       background: rgb(0 0 0 / 0);
     }
   }
@@ -1198,8 +1263,8 @@
     @apply mx-5 mt-2 mb-5 block border border-frame bg-page px-4 py-2.5 text-center no-underline hover:bg-hover hover:text-ink active:bg-hover active:text-ink;
   }
   @media (prefers-reduced-motion: reduce) {
-    .link-drawer,
-    .link-drawer::backdrop {
+    :is(.link-drawer, .contents-drawer),
+    :is(.link-drawer, .contents-drawer)::backdrop {
       transition: none;
     }
   }
@@ -1212,7 +1277,7 @@
   }
   @media (width >= 1200px) {
     .library-wide {
-      margin-left: calc(var(--rail) + 2.5rem);
+      margin-left: calc(var(--sidenav) + 2.5rem);
     }
   }
   .library-search {
@@ -1384,13 +1449,14 @@
   }
   .theme-toggle,
   .home-theme,
+  .page-progress,
   #lsystems,
   .search-toggle,
   .home-search,
   .block-tools,
   .margin-toggle,
   .library-search,
-  .rail {
+  .sidenav {
     display: none !important;
   }
   .graph-view {
