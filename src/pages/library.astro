@@ -90,7 +90,7 @@ const filterable = (book: Shelved) => ({
               <legend class="sr-only">Show only the items that have every checked tag</legend>
               {tags.map((tag) => (
                 <label>
-                  <input type="checkbox" value={tag} autocomplete="off" /> {tag}
+                  <input type="checkbox" value={tag} /> {tag}
                 </label>
               ))}
             </fieldset>
@@ -102,11 +102,11 @@ const filterable = (book: Shelved) => ({
             <fieldset>
               <legend class="sr-only">Show only the items of one type</legend>
               <label>
-                <input type="radio" name="type" value="" autocomplete="off" checked /> all
+                <input type="radio" name="type" value="" checked /> all
               </label>
               {TYPES.map((type) => (
                 <label>
-                  <input type="radio" name="type" value={type} autocomplete="off" /> {TYPE_LABEL[type as keyof typeof TYPE_LABEL].toLowerCase()}
+                  <input type="radio" name="type" value={type} /> {TYPE_LABEL[type as keyof typeof TYPE_LABEL].toLowerCase()}
                 </label>
               ))}
             </fieldset>
