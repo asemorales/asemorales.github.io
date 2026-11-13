@@ -3,6 +3,7 @@ import { escapeText } from "entities";
 export const STATUSES = ["reading", "to-read", "read"];
 export const STATUS_LABEL = { reading: "Currently reading", "to-read": "To read", read: "Read" };
 export const bookUrl = (id) => `https://www.goodreads.com/book/show/${id}`;
+export const itemCount = (n) => `(${n} ${n === 1 ? "item" : "items"})`;
 
 const DAY = 864e5;
 const FIRST_INTERVAL = 30;

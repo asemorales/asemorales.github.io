@@ -6,7 +6,7 @@ import library from "../data/library.json";
 import Base from "../layouts/Base.astro";
 import { day } from "../lib/date.js";
 import { description } from "../lib/summary.js";
-import { shelve, STATUS_LABEL, STATUSES, suggest, TYPE_LABEL, TYPES } from "../lib/library.js";
+import { itemCount, shelve, STATUS_LABEL, STATUSES, suggest, TYPE_LABEL, TYPES } from "../lib/library.js";
 import { OPEN_WHEN_WIDE } from "../lib/rehype-sections.js";
 
 interface Shelved {
@@ -50,7 +50,7 @@ const filterable = (book: Shelved) => ({
       <ol>
         {picks.length > 0 && (
           <li>
-            <a href="#next">Suggested next reads</a>
+            <a href="#next">Next to read</a>
           </li>
         )}
         {STATUSES.filter(count).map((status) => (
@@ -83,9 +83,7 @@ const filterable = (book: Shelved) => ({
           </label>
           <input id="library-search" type="search" placeholder="Search by title or author" autocomplete="off" spellcheck="false" />
           <details class="library-filter library-tags">
-            <summary>
-              Tags <span class="count" />
-            </summary>
+            <summary>Tags</summary>
             <fieldset>
               <legend class="sr-only">Show only the items that have every checked tag</legend>
               {tags.map((tag) => (
@@ -96,9 +94,7 @@ const filterable = (book: Shelved) => ({
             </fieldset>
           </details>
           <details class="library-filter library-type">
-            <summary>
-              Type <span class="count" />
-            </summary>
+            <summary>Type</summary>
             <fieldset>
               <legend class="sr-only">Show only the items of one type</legend>
               <label>
@@ -116,7 +112,7 @@ const filterable = (book: Shelved) => ({
       )}
       {picks.length > 0 && (
         <section aria-labelledby="next">
-          <h2 id="next">Suggested next reads</h2>
+          <h2 id="next">Next to read</h2>
           <ul class="shelf">
             {picks.map(({ book }) => (
               <li {...filterable(book)}>
@@ -128,7 +124,10 @@ const filterable = (book: Shelved) => ({
             {picks.map(({ book, parts }, i) => (
               <li value={i + 1} {...filterable(book)}>
                 <details name="why">
-                  <summary>{[book.title, book.author].filter(Boolean).join(" by ")}</summary>
+                  <summary>
+                    <cite>{book.title}</cite>
+                    {book.author && ` by ${book.author}`}
+                  </summary>
                   <dl>
                     {parts.map((part) => (
                       <div>
@@ -146,7 +145,7 @@ const filterable = (book: Shelved) => ({
       {STATUSES.filter(count).map((status) => (
         <section aria-labelledby={`status-${status}`}>
           <h2 id={`status-${status}`}>
-            {STATUS_LABEL[status as keyof typeof STATUS_LABEL]} <span class="count">{count(status)}</span>
+            {STATUS_LABEL[status as keyof typeof STATUS_LABEL]} <span class="count">{itemCount(count(status))}</span>
           </h2>
           <ul class="shelf">
             {byStatus.get(status)!.map((book) => (
@@ -162,13 +161,13 @@ const filterable = (book: Shelved) => ({
 </Base>
 
 <script>
+  import { itemCount } from "../lib/library.js";
   import { matcher } from "../lib/search.js";
 
   const input = document.querySelector<HTMLInputElement>("#library-search");
   if (input) {
     const empty = document.querySelector<HTMLElement>(".library-empty")!;
     const dropdowns = [...document.querySelectorAll<HTMLDetailsElement>(".library-filter")];
-    const [tagCount, typeCount] = dropdowns.map((d) => d.querySelector<HTMLElement>(".count")!);
     const boxes = [...document.querySelectorAll<HTMLInputElement>(".library-tags input")];
     const types = [...document.querySelectorAll<HTMLInputElement>(".library-type input")];
     const sections = [...document.querySelectorAll<HTMLElement>(".library-wide section")].map((section) => ({
@@ -180,8 +179,6 @@ const filterable = (book: Shelved) => ({
       const matches = matcher(input.value);
       const tags = boxes.filter((box) => box.checked).map((box) => box.value);
       const type = types.find((radio) => radio.checked)?.value ?? "";
-      tagCount.textContent = tags.length ? String(tags.length) : "";
-      typeCount.textContent = type ? "1" : "";
       let found = 0;
       for (const { section, count, items } of sections) {
         for (const li of items) {
@@ -190,7 +187,7 @@ const filterable = (book: Shelved) => ({
           li.hidden = !matches(li.dataset.search ?? "") || !ofType || !tags.every((tag) => own.includes(tag));
         }
         const shown = section.querySelectorAll(".shelf li:not([hidden])").length;
-        if (count) count.textContent = String(shown);
+        if (count) count.textContent = itemCount(shown);
         section.hidden = !shown;
         found += shown;
       }

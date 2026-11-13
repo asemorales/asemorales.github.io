@@ -499,7 +499,7 @@
     @apply mt-22 mb-4;
   }
   @media (width < 760px) {
-    .rail:has(+ main .note) {
+    .rail {
       @apply mt-0;
     }
   }
@@ -1217,10 +1217,10 @@
     @apply relative mt-10 flex flex-wrap items-center gap-x-4 gap-y-2;
   }
   .library-search > input {
-    @apply max-w-88 min-w-0 flex-1;
+    @apply max-w-88 min-w-0 flex-1 max-sm:max-w-none max-sm:basis-full;
   }
   .library-filter summary {
-    @apply border border-frame px-3 py-2 text-lg text-dim;
+    @apply border border-frame px-3 py-2 text-lg text-dim max-sm:px-2 max-sm:py-1 max-sm:text-sm;
   }
   .library-filter fieldset {
     @apply absolute top-full left-0 z-10 mt-1 max-h-[60vh] w-full max-w-[40em] overflow-y-auto border border-frame bg-code p-4 font-mono text-sm shadow-lg;

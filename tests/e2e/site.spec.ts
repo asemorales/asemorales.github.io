@@ -66,6 +66,7 @@ test.describe("library", () => {
     await input.fill(words!);
     expect(await items.count()).toBeLessThan(all);
     await expect(items.first()).toBeVisible();
+    await expect(page.locator(".library h2 .count:visible").first()).toHaveText(/^\(\d+ items?\)$/);
     await input.fill("");
     await page.locator(".library-tags summary").click();
     const box = page.locator(".library-tags input").first();
