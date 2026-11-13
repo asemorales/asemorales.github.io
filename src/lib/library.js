@@ -2,7 +2,8 @@ import { escapeText } from "entities";
 
 export const STATUSES = ["reading", "to-read", "read"];
 export const STATUS_LABEL = { reading: "Currently reading", "to-read": "To read", read: "Read" };
-export const bookUrl = (id) => `https://www.goodreads.com/book/show/${id}`;
+export const bookUrl = (id) => `https://openlibrary.org/works/${id}`;
+export const SOURCES = ["Open Library", "Readwise", "Goodreads"];
 export const itemCount = (n) => `(${n} ${n === 1 ? "item" : "items"})`;
 
 const DAY = 864e5;
@@ -14,13 +15,13 @@ const FICTION = "fiction";
 const LINK = /\[.*?\]\((https?:\/\/[^)\s]+)\)/g;
 const TITLE = /^\[(.*)\]\((https?:\/\/[^)\s]+)\)$/;
 const FLAGS = ["skip", "owned"];
-const HEADER = ["Title", "Author", "Type", "Tags"];
+const HEADER = ["Title", "Author", "Type", "Source", "Tags"];
 const HEADINGS = STATUSES.map((s) => `"${STATUS_LABEL[s]}"`).join(", ");
 const PRIVATE = /^https:\/\/read\.readwise\.io\//;
 
-/** Key of a library item: its link, with a Goodreads book link cut down to the book's ID. */
+/** Key of a library item: its link, with an Open Library work link cut down to the work's ID. */
 export function linkKey(url) {
-  const book = url.match(/^https?:\/\/(?:www\.)?goodreads\.com\/book\/show\/(\d+)/);
+  const book = url.match(/^https?:\/\/(?:www\.)?openlibrary\.org\/works\/(OL\d+W)/);
   return book ? bookUrl(book[1]) : url.replace(/\(/g, "%28").replace(/\)/g, "%29");
 }
 
@@ -38,7 +39,8 @@ export function typeOf(url) {
   return ARTICLE.test(new URL(url).hostname) ? "article" : "website";
 }
 
-export const siteOf = (url) => (url.startsWith(bookUrl("")) || isPrivate(url) ? "" : new URL(url).hostname.replace(/^www\./, ""));
+export const faviconOf = (site) => (site.endsWith(".substack.com") ? "substack.com" : site);
+export const siteOf = (url, type) => (type === "book" || isPrivate(url) ? "" : new URL(url).hostname.replace(/^www\./, ""));
 
 /** Status named by a heading line, null for any other heading, undefined for other lines. */
 export function statusOf(line) {
@@ -56,7 +58,16 @@ const cells = (line) =>
 const row = (values) => `| ${values.map((value) => value.replace(/\|/g, "\\|")).join(" | ")} |`;
 
 export const TABLE_HEAD = [row(HEADER), row(HEADER.map(() => "---"))];
-export const libraryRow = (book) => row([`[${book.title}](${book.url})`, book.author, TYPE_LABEL[typeOf(book.url)], ""]);
+export const libraryRow = (book, [, , type = TYPE_LABEL[typeOf(book.url)], , ...tags] = []) =>
+  row([`[${book.title}](${book.url})`, book.author, type, book.source, ...(tags.length ? tags : [""])]);
+
+/** Key and cells of a table row that links an item, or null for any other line. */
+export function parseRow(line) {
+  if (!line.trim().startsWith("|")) return null;
+  const values = cells(line);
+  const m = values[0].match(TITLE);
+  return m && { key: linkKey(m[2]), values };
+}
 
 export function parseLibrary(markdown) {
   const entries = {};
@@ -70,13 +81,16 @@ export function parseLibrary(markdown) {
       return;
     }
     if (!line.trim().startsWith("|")) return;
-    const [first, , kind = "", ...others] = cells(line);
+    const [first, , kind = "", source = "", ...others] = cells(line);
     if (first === HEADER[0] || /^:?-+:?$/.test(first)) return;
     const m = first.match(TITLE);
     if (!m) return problems.push(`line ${i + 1}: the first cell of a row must look like "[Title](https://example.com)".`);
     if (!status) return problems.push(`line ${i + 1}: the row must come after one of the headings ${HEADINGS}.`);
     const type = TYPES.find((t) => TYPE_LABEL[t].toLowerCase() === kind.toLowerCase());
     if (!type) return problems.push(`line ${i + 1}: the type must be one of ${TYPES.map((t) => `"${TYPE_LABEL[t]}"`).join(", ")}.`);
+    if (!SOURCES.some((s) => s.toLowerCase() === source.toLowerCase())) {
+      return problems.push(`line ${i + 1}: the source must be one of ${SOURCES.map((s) => `"${s}"`).join(", ")}.`);
+    }
     const marks = others.join(" ");
     const after = [...marks.matchAll(LINK)].map((link) => linkKey(link[1]));
     const rest = marks.replace(LINK, "");
@@ -101,7 +115,7 @@ export function shelve(books, library) {
     return {
       url,
       cover: entry.cover ?? book.cover,
-      site: siteOf(url),
+      site: siteOf(url, entry.type),
       private: isPrivate(url),
       title: book.title,
       author: book.author,

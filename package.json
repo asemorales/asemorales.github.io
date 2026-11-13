@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "sync": "node --env-file-if-exists=.env scripts/books.js && node --env-file-if-exists=.env scripts/sync.js && node scripts/build-cards.js && prettier --write --log-level warn src/data/cards.json src/data/books.json src/data/library.json && markdownlint-cli2 --fix",
+    "sync": "node --env-file-if-exists=.env scripts/sync.js && node scripts/build-cards.js && prettier --write --log-level warn src/data/cards.json src/data/library.json && markdownlint-cli2 --fix",
+    "sync:library": "node --env-file-if-exists=.env scripts/books.js",
     "cards": "node scripts/build-cards.js",
     "archive": "node scripts/archive-links.js",
     "fonts": "sh scripts/fonts.sh",
@@ -63,6 +64,7 @@
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^1.1.2",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "sharp": "^0.35.5",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.1",
     "vitest": "^5.0.5"
