@@ -322,17 +322,33 @@
   "https://en.wikipedia.org/wiki/Nobel_Prize": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Ontology": {
+    "submitted": "2026-11-13"
+  },
   "https://en.wikipedia.org/wiki/Ozymandias": {
     "submitted": "2026-11-06"
   },
+  "https://en.wikipedia.org/wiki/Partially_ordered_set": {
+    "submitted": "2026-11-13"
+  },
   "https://en.wikipedia.org/wiki/Pens%C3%A9es": {
     "submitted": "2026-11-08"
+  },
+  "https://en.wikipedia.org/wiki/Phase_transition": {
+    "submitted": "2026-11-13"
   },
   "https://en.wikipedia.org/wiki/Price_signal": {
     "submitted": "2026-11-06"
   },
   "https://en.wikipedia.org/wiki/Principal_investigator": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Property_dualism": {
+    "submitted": "2026-11-13",
+    "job": "spn2-25a86b9f959570a9f13b2c3cc64b1abd2cf8a129"
+  },
+  "https://en.wikipedia.org/wiki/Quantum_electrodynamics": {
+    "submitted": "2026-11-13"
   },
   "https://en.wikipedia.org/wiki/Rational_analysis": {
     "submitted": "2026-11-06",
@@ -348,14 +364,38 @@
   "https://en.wikipedia.org/wiki/Reinforcement_learning": {
     "submitted": "2026-11-08"
   },
+  "https://en.wikipedia.org/wiki/Renormalization": {
+    "submitted": "2026-11-13"
+  },
+  "https://en.wikipedia.org/wiki/Renormalization_group": {
+    "submitted": "2026-11-13"
+  },
   "https://en.wikipedia.org/wiki/Research_assistant": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Rotational_symmetry": {
+    "submitted": "2026-11-13"
+  },
+  "https://en.wikipedia.org/wiki/Scale_invariance": {
+    "submitted": "2026-11-13",
+    "job": "spn2-304833b945ecf4f6de0ce97c5e414d594bedc5fc"
+  },
+  "https://en.wikipedia.org/wiki/Self-organized_criticality": {
+    "submitted": "2026-11-13",
+    "job": "spn2-325e360c2e129bc295950cf89afab79b28d04be7"
   },
   "https://en.wikipedia.org/wiki/Separation_of_concerns": {
     "submitted": "2026-11-06"
   },
   "https://en.wikipedia.org/wiki/Spaced_repetition": {
     "submitted": "2026-11-09"
+  },
+  "https://en.wikipedia.org/wiki/Special_sciences": {
+    "submitted": "2026-11-13",
+    "job": "spn2-6ce8dc3488a8aa12764d32f29af4adc41c12c646"
+  },
+  "https://en.wikipedia.org/wiki/Spontaneous_symmetry_breaking": {
+    "submitted": "2026-11-13"
   },
   "https://en.wikipedia.org/wiki/Stack_Exchange": {
     "submitted": "2026-11-09"
@@ -365,6 +405,10 @@
   },
   "https://en.wikipedia.org/wiki/Stuart_Kauffman": {
     "submitted": "2026-11-06"
+  },
+  "https://en.wikipedia.org/wiki/Symmetry_breaking": {
+    "submitted": "2026-11-13",
+    "job": "spn2-7bfef4e88438a5952aa3a60036eaaa2a08cb16e1"
   },
   "https://en.wikipedia.org/wiki/Technological_unemployment": {
     "submitted": "2026-11-06",
@@ -393,6 +437,9 @@
   "https://en.wikipedia.org/wiki/The_Soul_of_Man_Under_Socialism": {
     "submitted": "2026-11-06",
     "job": "spn2-07104a870958a134330e730ce67e37518d012d04"
+  },
+  "https://en.wikipedia.org/wiki/Thermodynamic_limit": {
+    "submitted": "2026-11-13"
   },
   "https://en.wikipedia.org/wiki/Turing_Award": {
     "submitted": "2026-11-06"
@@ -454,12 +501,18 @@
   "https://obsidian.md/sync": {
     "submitted": "2026-11-06"
   },
+  "https://openlibrary.org/": {
+    "submitted": "2026-11-13"
+  },
   "https://openlibrary.org/books/OL21115131M/I_seem_to_be_a_verb._--.": {
     "submitted": "2026-11-06",
     "job": "spn2-48871ac1bc6bb2a3df8fefa02205ec0bd1839148"
   },
   "https://pages.github.com/": {
     "submitted": "2026-11-06"
+  },
+  "https://readwise.io/read": {
+    "submitted": "2026-11-13"
   },
   "https://repo.darmajaya.ac.id/3794/1/Adaptation%20in%20Natural%20and%20Artificial%20Systems_%20An%20Introductory%20Analysis%20with%20Applications%20to%20Biology,%20Control,%20and%20Artificial%20Intelligence%20(A%20Bradford%20Book)%20(%20PDFDrive%20).pdf": {
     "submitted": "2026-11-06"
@@ -469,6 +522,9 @@
   },
   "https://stephango.com/": {
     "submitted": "2026-11-06"
+  },
+  "https://stephango.com/vault": {
+    "submitted": "2026-11-13"
   },
   "https://supermemo.guru/wiki/Incremental_writing": {
     "submitted": "2026-11-08",
@@ -491,6 +547,9 @@
     "submitted": "2026-11-06",
     "job": "spn2-b41ed04dd1be32e3cbab69e1e571cec334e9fcf2"
   },
+  "https://www.britannica.com/art/essay": {
+    "submitted": "2026-11-13"
+  },
   "https://www.cambridge.org/highereducation/books/situated-learning/6915ABD21C8E4619F750A4D4ACA616CD": {
     "submitted": "2026-11-06"
   },
@@ -500,6 +559,9 @@
   "https://www.eastgate.com/garden/Enter.html": {
     "submitted": "2026-11-06",
     "job": "spn2-168eaec6d51f7eee45fbe46e15e20eb00ba56968"
+  },
+  "https://www.goodreads.com/": {
+    "submitted": "2026-11-13"
   },
   "https://www.lesswrong.com/posts/jinzzbPHshif8nmnw/do-not-conquer-what-you-cannot-defend": {
     "submitted": "2026-11-06"
@@ -517,5 +579,9 @@
   "https://www.unife.it/economia/lm.economia/insegnamenti/economia-applicata-avanzata/mat-did/frattini/ff4-arthur1989.pdf": {
     "submitted": "2026-11-06",
     "job": "spn2-7b6633d01c68f5498761723d040a3c7e5e50ae25"
+  },
+  "https://zettelkasten.de/posts/collectors-fallacy/": {
+    "submitted": "2026-11-13",
+    "job": "spn2-4cc7995806935dbae4d168d213cf895c9d603f91"
   }
 }
