@@ -44,8 +44,6 @@ const IMAGE_HEIGHT = 400;
 const IMAGE_WIDEST = 4 / 3;
 const SYNCED = ["Open Library", "Readwise"];
 
-let verbose = false;
-const say = (line) => verbose && console.log(line);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const text = (value) => (value ?? "").replace(/\s+/g, " ").trim();
 
@@ -236,7 +234,7 @@ async function request(url, headers = {}) {
   for (let attempt = 1; ; attempt++) {
     await sleep(PAUSE);
     const res = await fetch(url, { headers: { "User-Agent": AGENT, ...headers }, signal: AbortSignal.timeout(TIMEOUT) }).catch((e) => e);
-    say(`  GET ${url}: ${status(res)}`);
+    console.log(`  GET ${url}: ${status(res)}`);
     if (!isDown(res) || attempt === TRIES) return res;
     await sleep(RETRY_PAUSE);
   }
@@ -297,7 +295,7 @@ async function lookUpPapers(items, cached) {
     let paper = known || (id?.arxiv && preprints[id.arxiv]);
     if (!paper && id?.doi) paper = await json(`${CROSSREF}${encodeURIComponent(id.doi)}`).then((work) => work && parseCrossref(work));
     if (paper && !known) looked++;
-    if (id && !paper) say(`  No paper found for ${item.url}`);
+    if (id && !paper) console.log(`  No paper found for ${item.url}`);
     papers.push({ ...item, ...filled(paper) });
   }
   console.log(`Looked up ${looked} paper(s) on arXiv and Crossref.`);
@@ -372,7 +370,7 @@ async function fetchSiteNames(hosts) {
     const res = await request(`https://${host}/`);
     if (res instanceof Error || isDown(res)) continue;
     names[host] = res.ok ? parseSiteName(await res.text()) : "";
-    say(`  Site name of ${host}: ${names[host] || "none"}`);
+    console.log(`  Site name of ${host}: ${names[host] || "none"}`);
   }
   await fs.writeFile(SITES, JSON.stringify(Object.fromEntries(Object.entries(names).sort()), null, 2) + "\n");
   return names;
@@ -389,7 +387,7 @@ async function lookUp(book, { edition, cover: logged }) {
   const cover = [found?.covers?.[0], logged, work?.covers?.[0]].find((id) => id > 0);
   const image = cover && !(await hasCover(book)) && (await request(`https://covers.openlibrary.org/b/id/${cover}-L.jpg`));
   if (image?.ok) await fs.writeFile(coverFile(book), Buffer.from(await image.arrayBuffer()));
-  say(`  Looked up "${book.title}": ${description ? "found" : "no"} description, ${cover ? "found" : "no"} cover.`);
+  console.log(`  Looked up "${book.title}": ${description ? "found" : "no"} description, ${cover ? "found" : "no"} cover.`);
   return description;
 }
 
@@ -400,7 +398,7 @@ async function openLibrary(user, cached, save) {
   const data = {};
   let looked = 0;
   for (const { lookup, ...book } of books) {
-    say(`  Open Library, ${STATUS_LABEL[book.shelf]}: ${[book.title, book.author].filter(Boolean).join(" by ")}`);
+    console.log(`  Open Library, ${STATUS_LABEL[book.shelf]}: ${[book.title, book.author].filter(Boolean).join(" by ")}`);
     const known = cached[book.url];
     let description = known?.description;
     if (!description || !(await hasCover(book))) {
@@ -419,7 +417,6 @@ async function openLibrary(user, cached, save) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  verbose = process.argv.includes("--log-verbose");
   const vault = process.env.VAULT && path.resolve(process.env.VAULT.replace(/^~(?=$|\/)/, process.env.HOME));
   if (!vault) {
     console.log("Skipped the library, because VAULT is not set.");
@@ -456,7 +453,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       })
       .then(
         (documents) => {
-          for (const d of documents) say(`  Readwise, ${STATUS_LABEL[d.shelf]}: ${d.title}`);
+          for (const d of documents) console.log(`  Readwise, ${STATUS_LABEL[d.shelf]}: ${d.title}`);
           console.log(`Read ${documents.length} document(s) tagged ${READER_TAG} from Readwise.`);
           replace("Readwise", Object.fromEntries(documents.map((d) => [d.url, { ...d, source: "Readwise" }])));
         },

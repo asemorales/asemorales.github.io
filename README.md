@@ -55,7 +55,7 @@ Add a `## word (type)` heading to `published/paratext/glossary.md`. Write the de
 
 ## Library
 
-The [library page](https://asemorales.com/library/) shelves books from the Open Library reading log, and papers and articles from Readwise Reader. Run `npm run sync:library` to pull both, then run `npm run sync` to publish the vault. To print each item, each request, and the state of each site, run `npm run sync:library -- --log-verbose`.
+The [library page](https://asemorales.com/library/) shelves books from the Open Library reading log, and papers and articles from Readwise Reader. Run `npm run sync:library` to pull both, then run `npm run sync` to publish the vault.
 
 Before it pulls from a site, sync checks that the site is up. When the site is down after two checks, or when it refuses the request, sync skips the site and keeps its cached items.
 
