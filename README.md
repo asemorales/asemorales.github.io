@@ -57,9 +57,11 @@ Add a `## word (type)` heading to `published/paratext/glossary.md`. Write the de
 
 The [library page](https://asemorales.com/library/) shelves books from the Open Library reading log, and papers and articles from Readwise Reader. Run `npm run sync:library` to pull both, then run `npm run sync` to publish the vault.
 
+Sync looks up covers, descriptions, papers, and favicons only for items that are not in its cache yet. For a cached item, sync updates only the status. Run `npm run sync:library -- --refresh` to look up every item again.
+
 Before it pulls from a site, sync checks that the site is up. When the site is down after two checks, or when it refuses the request, sync skips the site and keeps its cached items.
 
-For Open Library, set `OPEN_LIBRARY_USER` in `.env` to the username in the link to your [My Books](https://openlibrary.org/account/books) page. The reading log must be public. Sync maps the shelves "Want to Read", "Currently Reading", and "Already Read" to the three statuses. Sync looks up each new book's cover and description on Open Library. On every run, sync asks again about each book that still lacks either one.
+For Open Library, set `OPEN_LIBRARY_USER` in `.env` to the username in the link to your [My Books](https://openlibrary.org/account/books) page, and set `OPEN_LIBRARY_CONTACT` to your email. Sync sends the email in its User-Agent, as Open Library [asks of frequent clients](https://openlibrary.org/developers/api). The reading log must be public. Sync maps the shelves "Want to Read", "Currently Reading", and "Already Read" to the three statuses. Sync looks up each new book's cover and description on Open Library.
 
 For Readwise, add an [access token](https://readwise.io/access_token) to `.env` as `READWISE_TOKEN`. Sync pulls only the Reader documents tagged `dani`. An archived or fully read document counts as read, and a partly read document counts as being read. A document without a public source shows on the page without a link. When the link of a paper holds an arXiv ID or a DOI, sync takes its title, authors, journal, and year from arXiv or Crossref.
 

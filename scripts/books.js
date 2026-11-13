@@ -32,7 +32,8 @@ const ARXIV = "https://export.arxiv.org/api/query";
 const CROSSREF = "https://api.crossref.org/works/";
 const FAVICON = "https://www.google.com/s2/favicons?sz=32&domain=";
 const PAPER_FIELDS = ["title", "author", "venue", "year"];
-const AGENT = "library-sync";
+const AGENT = "asemorales.github.io";
+const IDENTIFIED = { "User-Agent": `${AGENT} (${process.env.OPEN_LIBRARY_CONTACT})` };
 const PAGE = 100;
 const PAUSE = 350;
 const TRIES = 2;
@@ -259,7 +260,7 @@ async function fetchShelves(user) {
   const books = [];
   for (const [name, shelf] of Object.entries(SHELVES)) {
     for (let page = 1; ; page++) {
-      const found = await json(`${OPEN_LIBRARY}/people/${user}/books/${name}.json?limit=${PAGE}&page=${page}`);
+      const found = await json(`${OPEN_LIBRARY}/people/${user}/books/${name}.json?limit=${PAGE}&page=${page}`, IDENTIFIED);
       if (!found) throw new Error(`Open Library failed on page ${page} of ${name}`);
       books.push(...parseShelf(found.reading_log_entries, shelf));
       if (found.reading_log_entries.length < PAGE) break;
@@ -282,19 +283,19 @@ async function fetchReader(token) {
 
 const filled = (paper) => Object.fromEntries(PAPER_FIELDS.filter((field) => paper?.[field]).map((field) => [field, paper[field]]));
 
-/** Readwise items with the title, authors, venue, and year of each paper that has an arXiv ID or a DOI. A paper in the cache keeps its fields. */
-async function lookUpPapers(items, cached) {
-  const ids = items.map((item) => ({ item, id: paperId(item.url), known: cached[item.url]?.venue && cached[item.url] }));
-  const arxiv = ids.filter(({ id, known }) => id?.arxiv && !known).map(({ id }) => id.arxiv);
+/** Readwise items with the title, authors, venue, and year of each new paper that has an arXiv ID or a DOI. */
+async function lookUpPapers(items, isNew) {
+  const ids = items.map((item) => ({ item, id: isNew(item.url) && paperId(item.url) }));
+  const arxiv = ids.filter(({ id }) => id?.arxiv).map(({ id }) => id.arxiv);
   const res = arxiv.length ? await request(`${ARXIV}?id_list=${arxiv.join(",")}&max_results=${arxiv.length}`) : null;
   const preprints = res?.ok ? parseArxiv(await res.text()) : {};
   if (res && !res.ok) console.warn(`arXiv failed (${status(res)}), so sync looks up its papers next time.`);
   let looked = 0;
   const papers = [];
-  for (const { item, id, known } of ids) {
-    let paper = known || (id?.arxiv && preprints[id.arxiv]);
+  for (const { item, id } of ids) {
+    let paper = id?.arxiv && preprints[id.arxiv];
     if (!paper && id?.doi) paper = await json(`${CROSSREF}${encodeURIComponent(id.doi)}`).then((work) => work && parseCrossref(work));
-    if (paper && !known) looked++;
+    if (paper) looked++;
     if (id && !paper) console.log(`  No paper found for ${item.url}`);
     papers.push({ ...item, ...filled(paper) });
   }
@@ -308,13 +309,13 @@ const exists = (file) =>
     () => false,
   );
 
-/** Saves the favicon of each host that lacks one. */
-async function fetchFavicons(hosts) {
+/** Saves the favicon of each host that lacks one, or of every host on a refresh. */
+async function fetchFavicons(hosts, refresh) {
   await fs.mkdir(FAVICONS, { recursive: true });
   let saved = 0;
   for (const host of hosts) {
     const file = path.join(FAVICONS, `${host}.png`);
-    if (await exists(file)) continue;
+    if (!refresh && (await exists(file))) continue;
     const res = await request(`${FAVICON}${host}`);
     if (!res.ok) continue;
     await fs.writeFile(file, Buffer.from(await res.arrayBuffer()));
@@ -329,23 +330,17 @@ export function imageSize({ width, height }) {
   return { width: Math.round(Math.min(width / height, IMAGE_WIDEST) * h), height: h };
 }
 
-async function readerCovers(documents, cached) {
+async function readerCovers(documents, isNew, refresh) {
   let saved = 0;
   for (const d of documents) {
-    if (!d.image) continue;
+    if (!d.image || !isNew(d.url)) continue;
     const cover = createHash("sha1").update(d.url).digest("hex").slice(0, 16);
     const file = path.join(COVERS, `${cover}.jpg`);
-    if (await exists(file)) {
-      d.cover = cover;
-      continue;
-    }
-    if (cached[d.url]?.image === d.image) continue;
+    if (await exists(file)) d.cover = cover;
+    if (d.cover && !refresh) continue;
     const res = await request(d.image);
     const body = res.ok && (await res.arrayBuffer().catch(() => null));
-    if (!body?.byteLength) {
-      d.image = null;
-      continue;
-    }
+    if (!body?.byteLength) continue;
     const image = sharp(Buffer.from(body), { failOn: "none" });
     const size = imageSize(await image.metadata().catch(() => ({ width: 0, height: 0 })));
     if (!size) continue;
@@ -380,19 +375,19 @@ const coverFile = (book) => path.join(COVERS, `${book.cover}.jpg`);
 const hasCover = (book) => exists(coverFile(book));
 
 /** Description of a book, after its cover is saved. */
-async function lookUp(book, { edition, cover: logged }) {
-  const found = edition ? await json(`${OPEN_LIBRARY}${edition}.json`) : null;
-  const work = describe(found?.description) ? null : await json(`${book.url}.json`);
+async function lookUp(book, { edition, cover: logged }, refresh) {
+  const found = edition ? await json(`${OPEN_LIBRARY}${edition}.json`, IDENTIFIED) : null;
+  const work = describe(found?.description) ? null : await json(`${book.url}.json`, IDENTIFIED);
   const description = describe(found?.description) || describe(work?.description);
   const cover = [found?.covers?.[0], logged, work?.covers?.[0]].find((id) => id > 0);
-  const image = cover && !(await hasCover(book)) && (await request(`https://covers.openlibrary.org/b/id/${cover}-L.jpg`));
+  const image = cover && (refresh || !(await hasCover(book))) && (await request(`https://covers.openlibrary.org/b/id/${cover}-L.jpg`, IDENTIFIED));
   if (image?.ok) await fs.writeFile(coverFile(book), Buffer.from(await image.arrayBuffer()));
   console.log(`  Looked up "${book.title}": ${description ? "found" : "no"} description, ${cover ? "found" : "no"} cover.`);
   return description;
 }
 
-/** Books from Open Library. A cached book keeps its title, author, and dates. Each book that lacks a description or a cover is looked up again. */
-async function openLibrary(user, cached, save) {
+/** Books from Open Library. A cached book keeps its title, author, description, and dates. Only new books are looked up, or every book on a refresh. */
+async function openLibrary(user, cached, save, refresh) {
   const books = await fetchShelves(user);
   await fs.mkdir(COVERS, { recursive: true });
   const data = {};
@@ -401,8 +396,8 @@ async function openLibrary(user, cached, save) {
     console.log(`  Open Library, ${STATUS_LABEL[book.shelf]}: ${[book.title, book.author].filter(Boolean).join(" by ")}`);
     const known = cached[book.url];
     let description = known?.description;
-    if (!description || !(await hasCover(book))) {
-      const found = await lookUp(book, lookup).catch((e) => console.warn(`  Lookup failed for "${book.title}": ${e.message}`));
+    if (!known || refresh) {
+      const found = await lookUp(book, lookup, refresh).catch((e) => console.warn(`  Lookup failed for "${book.title}": ${e.message}`));
       description = found ?? description;
       if (found !== undefined && ++looked % 25 === 0) {
         console.log(`  Looked up ${looked} book(s).`);
@@ -422,7 +417,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.log("Skipped the library, because VAULT is not set.");
     process.exit(0);
   }
+  const refresh = process.argv.includes("--refresh");
   const cached = JSON.parse(await fs.readFile(BOOKS, "utf8").catch(() => "{}"));
+  const isNew = (url) => refresh || !cached[url];
   const write = (data) => fs.writeFile(BOOKS, JSON.stringify(data, null, 2) + "\n");
   let data = { ...cached };
   const fetched = [];
@@ -432,9 +429,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   };
 
   const user = process.env.OPEN_LIBRARY_USER;
-  if (!user) console.log("Kept the cached Open Library books. To pull them, set OPEN_LIBRARY_USER in .env.");
-  else if (await check("Open Library", `${OPEN_LIBRARY}/people/${user}/books/currently-reading.json?limit=1`)) {
-    await openLibrary(user, cached, (books) => write({ ...cached, ...books })).then(
+  if (!user || !process.env.OPEN_LIBRARY_CONTACT)
+    console.log("Kept the cached Open Library books. To pull them, set OPEN_LIBRARY_USER and OPEN_LIBRARY_CONTACT in .env.");
+  else if (await check("Open Library", `${OPEN_LIBRARY}/people/${user}/books/currently-reading.json?limit=1`, IDENTIFIED)) {
+    await openLibrary(user, cached, (books) => write({ ...cached, ...books }), refresh).then(
       (books) => replace("Open Library", books),
       (e) => console.warn(`${e.message}, so sync kept the cached Open Library books.`),
     );
@@ -445,10 +443,16 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   if (!token) console.log("Kept the cached Readwise documents. To pull them, set READWISE_TOKEN in .env.");
   else if (await check("Readwise", `${READWISE}/api/v2/auth/`, auth)) {
     await fetchReader(token)
-      .then((documents) => lookUpPapers(documents, cached))
+      .then((documents) =>
+        documents.map((d) => {
+          const known = !isNew(d.url) && cached[d.url];
+          return known ? { ...known, shelf: d.shelf, read: known.shelf === d.shelf ? known.read : d.read } : d;
+        }),
+      )
+      .then((documents) => lookUpPapers(documents, isNew))
       .then(async (documents) => {
         await fs.mkdir(COVERS, { recursive: true });
-        await readerCovers(documents, cached);
+        await readerCovers(documents, isNew, refresh);
         return documents;
       })
       .then(
@@ -474,7 +478,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const listed = parseLibrary(after).entries;
   const host = (item) => siteOf(item.url, "website");
   const websites = items.filter((item) => listed[item.url]?.type === "website" && host(item));
-  await fetchFavicons(new Set(websites.map((item) => faviconOf(host(item)))));
+  await fetchFavicons(new Set(websites.filter((item) => isNew(item.url)).map((item) => faviconOf(host(item)))), refresh);
   const names = await fetchSiteNames(new Set(websites.filter((item) => !item.siteName).map(host)));
   for (const item of websites) if (!item.siteName && names[host(item)]) data[item.url].siteName = names[host(item)];
   await write(data);
