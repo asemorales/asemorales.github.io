@@ -379,7 +379,8 @@
   "https://openlibrary.org/works/OL16701837W": {
     "status": "to-read",
     "type": "book",
-    "tags": ["psychology", "motivation", "textbook"]
+    "tags": ["psychology", "motivation", "textbook"],
+    "owned": true
   },
   "https://openlibrary.org/works/OL10454085W": {
     "status": "to-read",
@@ -1279,11 +1280,6 @@
     "type": "article",
     "tags": ["philosophy", "paper"]
   },
-  "https://blog.cosmos-institute.org/p/philosopher-builder-summer-reads": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["philosophy", "reading-list"]
-  },
   "https://www.jstor.org/stable/2306078": {
     "status": "to-read",
     "type": "article",
@@ -1707,152 +1703,182 @@
   "https://openlibrary.org/works/OL17803541W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL872932W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL18144383W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL27699181W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL37568651W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL5832683W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL1966484W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL3923600W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL14909099W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL4468929W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL4288868W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL15899W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL8003172W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL4300551W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL3907582W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL1976706W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL15838690W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL93641W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL792952W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL4325174W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL19994659W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL16532648W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL3466926W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL21222489W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL15835908W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL3265980W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL2463712W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL20180149W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL487019W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL4981641W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL2463054W": {
     "status": "to-read",
@@ -1862,62 +1888,74 @@
   "https://openlibrary.org/works/OL15743097W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL3252234W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL3190937W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL3368926W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL272388W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL27812526W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL4440692W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL4187432W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL32328103W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL24390864W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL1784164W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL276558W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL46259W": {
     "status": "to-read",
@@ -1962,6 +2000,21 @@
   "https://openlibrary.org/works/OL46301917W": {
     "status": "to-read",
     "type": "book",
+    "tags": []
+  },
+  "https://arxiv.org/pdf/2610.28912": {
+    "status": "to-read",
+    "type": "article",
+    "tags": []
+  },
+  "https://arxiv.org/pdf/2610.30433": {
+    "status": "to-read",
+    "type": "article",
+    "tags": []
+  },
+  "https://blog.cosmos-institute.org/p/you-cant-speedrun-yourself": {
+    "status": "to-read",
+    "type": "website",
     "tags": []
   },
   "https://openlibrary.org/works/OL17091839W": {
@@ -2241,12 +2294,6 @@
     "tags": ["math", "logic", "computer-science"],
     "finished": "2026-09-25"
   },
-  "https://mathstodon.xyz/@tao/117237320796901560": {
-    "status": "read",
-    "type": "website",
-    "tags": ["math"],
-    "finished": "2026-09-10"
-  },
   "https://arxiv.org/pdf/2608.16753": {
     "status": "read",
     "type": "article",
@@ -2258,12 +2305,6 @@
     "type": "article",
     "tags": ["math", "learning", "favorite"],
     "finished": "2026-07-29"
-  },
-  "https://open.substack.com/pub/cosmosinstitute/p/philosopher-builder-summer-reads": {
-    "status": "read",
-    "type": "website",
-    "tags": ["philosophy", "reading-list"],
-    "finished": "2026-07-15"
   },
   "https://francisheylighen.substack.com/p/the-hard-problem-of-consciousness": {
     "status": "read",
@@ -2415,12 +2456,6 @@
     "tags": ["math", "learning"],
     "finished": "2026-04-14"
   },
-  "https://extendedbrain.substack.com/p/the-wiki-that-writes-itself": {
-    "status": "read",
-    "type": "website",
-    "tags": ["ai", "software", "learning"],
-    "finished": "2026-04-10"
-  },
   "https://open.substack.com/pub/bigthinkmedia/p/the-resilience-paradox-when-pushing": {
     "status": "read",
     "type": "website",
@@ -2492,12 +2527,14 @@
   "https://openlibrary.org/works/OL17491992W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL76837W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL93227W": {
     "status": "read",
@@ -2507,52 +2544,62 @@
   "https://openlibrary.org/works/OL17713267W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL23959209W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL8928012W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL3737036W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL21690394W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL19764617W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL16568759W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL17141552W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL20638197W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL27138977W": {
     "status": "read",
     "type": "book",
-    "tags": []
+    "tags": [],
+    "owned": true
   },
   "https://openlibrary.org/works/OL15391515W": {
     "status": "read",
@@ -2590,12 +2637,6 @@
     "tags": ["fiction", "classic"],
     "finished": "2026-11-13"
   },
-  "https://arxiv.org/html/2609.15369v3": {
-    "status": "read",
-    "type": "article",
-    "tags": ["ai", "paper"],
-    "finished": "2026-11-13"
-  },
   "https://gwern.net/suzanne-delage#the-story": {
     "status": "read",
     "type": "website",
@@ -2618,6 +2659,23 @@
     "status": "read",
     "type": "website",
     "tags": ["philosophy", "religion", "classic"],
+    "finished": "2026-11-13"
+  },
+  "https://mathstodon.xyz/@tao/113479000564381543": {
+    "status": "read",
+    "type": "website",
+    "tags": []
+  },
+  "https://aleximas.substack.com/p/what-will-be-scarce": {
+    "status": "read",
+    "type": "website",
+    "tags": ["ai", "economics"],
+    "finished": "2026-11-13"
+  },
+  "https://en.wikipedia.org/wiki/Galen": {
+    "status": "read",
+    "type": "website",
+    "tags": ["medicine", "history"],
     "finished": "2026-11-13"
   },
   "https://www.math.uchicago.edu/~may/VIGRE/VIGRE2009/REUPapers/Provenza.pdf": {
@@ -2679,11 +2737,6 @@
     "status": "reading",
     "type": "book",
     "tags": ["essays", "philosophy", "classic"]
-  },
-  "https://jaalonso.github.io/vestigium/en/posts/2026/10/26-weekly_reads/": {
-    "status": "reading",
-    "type": "website",
-    "tags": ["math", "logic", "reading-list"]
   },
   "https://github.com/joeattueyi/cours-analyse": {
     "status": "reading",
@@ -2765,20 +2818,10 @@
     "type": "article",
     "tags": ["ai", "cognitive-science", "paper"]
   },
-  "https://aleximas.substack.com/p/what-will-be-scarce": {
-    "status": "reading",
-    "type": "website",
-    "tags": ["ai", "economics"]
-  },
   "https://thedigitaldelusion.substack.com/p/the-problem-with-alpha-schools-part": {
     "status": "reading",
     "type": "website",
     "tags": ["education", "ai"]
-  },
-  "https://en.wikipedia.org/wiki/Galen": {
-    "status": "reading",
-    "type": "website",
-    "tags": ["medicine", "history"]
   },
   "https://arxiv.org/pdf/1902.03928": {
     "status": "reading",

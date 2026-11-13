@@ -3535,6 +3535,36 @@
     "description": "Six days ago, astronaut Mark Watney became one of the first people to walk on Mars. Now he's sure he'll be the first person to die there. After a dust storm nearly kills him and forces his crew to evacuate the planet while thinking him dead, Mark finds himself stranded on Mars' surface, completely alone. with no way to signal Earth that he's alive.",
     "source": "Open Library"
   },
+  "https://arxiv.org/pdf/2610.28912": {
+    "url": "https://arxiv.org/pdf/2610.28912",
+    "title": "Simply Logical -- The First Three Decades",
+    "author": "Peter Flach, Kacper Sokol, Jan Wielemaker",
+    "siteName": "",
+    "description": "The paper traces the evolution of *Simply Logical* from a printed book to interactive online lessons. Tools such as SWISH let learners run and explore Prolog code in a browser. The authors see browser-based Prolog as a promising future for teaching and learning.",
+    "image": "https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/519915948/faIzAtxw8lQ87z_ATpIWyQswfXBCVuX9Mp48MnA9tVE-cove_1nPp59T.png",
+    "shelf": "to-read",
+    "added": "2026-11-13",
+    "read": null,
+    "venue": "arXiv",
+    "year": "2026",
+    "cover": "9b256b509d74348b",
+    "source": "Readwise"
+  },
+  "https://arxiv.org/pdf/2610.30433": {
+    "url": "https://arxiv.org/pdf/2610.30433",
+    "title": "Reflections on Trusting Lean",
+    "author": "Lorenzo Bresolin, Marcello Mamino",
+    "siteName": "",
+    "description": "Lean is a tool for checking mathematical proofs. The authors discuss when its checks can be trusted and what risks remain. They encourage careful use and review of Lean’s foundations.",
+    "image": "https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/519915479/hqxZgMtVwt48rWmhhiDcZaePln6EIzshQzbStv4Ykqw-cove_0EN9kMK.png",
+    "shelf": "to-read",
+    "added": "2026-11-13",
+    "read": null,
+    "venue": "arXiv",
+    "year": "2026",
+    "cover": "f418fde84843f093",
+    "source": "Readwise"
+  },
   "https://daiwz.net/course/logic/books/AMIL2edn.pdf": {
     "url": "https://daiwz.net/course/logic/books/AMIL2edn.pdf",
     "title": "A Mathematical Introduction To Logic",
@@ -3665,20 +3695,6 @@
     "added": "2026-11-09",
     "read": null,
     "cover": "0089a0bd9107bfdc",
-    "source": "Readwise"
-  },
-  "https://arxiv.org/html/2609.15369v3": {
-    "url": "https://arxiv.org/html/2609.15369v3",
-    "title": "SlopShape: Identifying AI-Generated Commercial Web Content",
-    "author": "Jochen Madler",
-    "siteName": "",
-    "description": "AI-written commercial blog posts have a distinct structural pattern, not just a distinctive choice of words. The study’s structure-based detector identified AI posts with 97% accuracy, even after they were reworded. Human posts also varied more in structure, while AI posts tended to follow similar patterns.",
-    "image": null,
-    "shelf": "read",
-    "added": "2026-11-09",
-    "read": "2026-11-13",
-    "venue": "arXiv",
-    "year": "2026",
     "source": "Readwise"
   },
   "https://ncetm.org.uk/teaching-for-mastery/mastery-explained/five-big-ideas-in-teaching-for-mastery/": {
@@ -4321,18 +4337,6 @@
     "read": "2026-10-26",
     "source": "Readwise"
   },
-  "https://jaalonso.github.io/vestigium/en/posts/2026/10/26-weekly_reads/": {
-    "url": "https://jaalonso.github.io/vestigium/en/posts/2026/10/26-weekly_reads/",
-    "title": "Weekly reads: Oct 19 – Oct 25, 2026",
-    "author": "José A. Alonso",
-    "siteName": "Exercitium",
-    "description": "This week’s reads focus on how AI may shape the future of mathematics. They also cover Lean 4 formal proofs, logic programming, and new challenges. The author shares reviews and Lean 4 challenges in English and Spanish.",
-    "image": "https://jaalonso.github.io/vestigium/images/vestigium.jpg",
-    "shelf": "reading",
-    "added": "2026-10-26",
-    "read": null,
-    "source": "Readwise"
-  },
   "https://arxiv.org/pdf/2610.29162": {
     "url": "https://arxiv.org/pdf/2610.29162",
     "title": "Why is AI-generated language so hard to understand?",
@@ -4409,6 +4413,19 @@
     "shelf": "read",
     "added": "2026-10-17",
     "read": "2026-10-17",
+    "source": "Readwise"
+  },
+  "https://blog.cosmos-institute.org/p/you-cant-speedrun-yourself": {
+    "url": "https://blog.cosmos-institute.org/p/you-cant-speedrun-yourself",
+    "title": "You Can’t Speedrun Yourself",
+    "author": "Cosmos Institute",
+    "siteName": "Cosmos Institute",
+    "description": "AI can save time, but it may also remove the effort that builds skill and judgment. The work itself often gives an activity meaning and helps people grow. We should be careful not to replace it unless we know people can learn those abilities another way.",
+    "image": "https://substackcdn.com/image/fetch/$s_!aV9W!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc4ce2148-cf11-4b90-933a-970f53489db8_1920x1684.png",
+    "shelf": "to-read",
+    "added": "2026-10-16",
+    "read": null,
+    "cover": "a0dc51855728abca",
     "source": "Readwise"
   },
   "https://bigthinkmedia.substack.com/p/china-is-mass-producing-slop-at-a": {
@@ -5014,19 +5031,6 @@
     "read": null,
     "source": "Readwise"
   },
-  "https://blog.cosmos-institute.org/p/philosopher-builder-summer-reads": {
-    "url": "https://blog.cosmos-institute.org/p/philosopher-builder-summer-reads",
-    "title": "Philosopher-Builder Summer Reads 2026",
-    "author": "Cosmos Institute",
-    "siteName": "Cosmos Institute",
-    "description": "Ten thinkers share summer book picks that explore philosophy, technology, and human life. The books cover topics like AI, consciousness, economics, and the meaning of freedom. Readers are invited to reflect and add their own recommendations.",
-    "image": "https://substackcdn.com/image/fetch/$s_!CJaU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e49068c-7e38-4ffd-a6b9-6397d8412f6e_2666x2118.png",
-    "shelf": "to-read",
-    "added": "2026-07-15",
-    "read": null,
-    "cover": "e23a1c1fe225f75f",
-    "source": "Readwise"
-  },
   "https://read.readwise.io/read/01kxker8jap6s044h9ag3rhx0r": {
     "url": "https://read.readwise.io/read/01kxker8jap6s044h9ag3rhx0r",
     "title": "On The Scalability Of Cooperative Structures: Remarks On G. A. Cohen, Why Not Socialism?",
@@ -5038,19 +5042,6 @@
     "added": "2026-07-15",
     "read": null,
     "cover": "28b997ffb104ac0e",
-    "source": "Readwise"
-  },
-  "https://open.substack.com/pub/cosmosinstitute/p/philosopher-builder-summer-reads": {
-    "url": "https://open.substack.com/pub/cosmosinstitute/p/philosopher-builder-summer-reads",
-    "title": "Philosopher-Builder Summer Reads 2026",
-    "author": "Cosmos Institute",
-    "siteName": "Substack",
-    "description": "Recommendations from Rebecca Lowe, Eli Dourado, Henry Shevlin, Ben Bariach, Mat Dryhurst and others in the Cosmos network",
-    "image": "https://substackcdn.com/image/fetch/$s_!6BiA!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16b57d47-19b3-4aac-9fbc-ccec75c8cc40_1896x1308.png",
-    "shelf": "read",
-    "added": "2026-07-15",
-    "read": "2026-07-15",
-    "cover": "9654b6307f622d42",
     "source": "Readwise"
   },
   "https://www.jstor.org/stable/2306078": {
@@ -5801,9 +5792,9 @@
     "siteName": "Ghosts of Electricity",
     "description": "Advanced AI will make many goods very cheap by automating production. As a result, people will spend more on services and products where humans add unique value. This shift will create new jobs in sectors that rely on human skills and relationships.",
     "image": "https://substackcdn.com/image/fetch/$s_!_Aw4!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8ed4075f-b3cd-42a2-8d0b-02b4946e213e_2338x1122.png",
-    "shelf": "reading",
+    "shelf": "read",
     "added": "2026-04-26",
-    "read": null,
+    "read": "2026-11-13",
     "cover": "66c653ed8837359c",
     "source": "Readwise"
   },
@@ -6152,23 +6143,10 @@
     "siteName": "Wikipedia",
     "description": "Galen, a Greek physician and philosopher, greatly influenced the development of various scientific fields in the Roman Empire. His ideas dominated Western medical science for over 1,300 years before being challenged by later anatomists like Andreas Vesalius. Galen's works on anatomy and medicine were widely studied in medieval universities and had a lasting impact on medical education.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Galenus.jpg",
-    "shelf": "reading",
-    "added": "2026-04-10",
-    "read": null,
-    "cover": "10c5d7f9428a2cab",
-    "source": "Readwise"
-  },
-  "https://extendedbrain.substack.com/p/the-wiki-that-writes-itself": {
-    "url": "https://extendedbrain.substack.com/p/the-wiki-that-writes-itself",
-    "title": "The Wiki That Writes Itself",
-    "author": "Extended_Brain",
-    "siteName": "Extended_Brain",
-    "description": "Andrej Karpathy created a self-updating wiki that uses AI to organize and connect knowledge automatically. This system helps writers build a detailed map of ideas faster than reading alone. While useful, true understanding and original thought still come from the writer’s own work.",
-    "image": "https://substackcdn.com/image/fetch/$s_!MSmq!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4e2487b9-a965-475b-b2a4-6edd7e91bfd8_1376x768.png",
     "shelf": "read",
     "added": "2026-04-10",
-    "read": "2026-04-10",
-    "cover": "1802f9dee292fd25",
+    "read": "2026-11-13",
+    "cover": "10c5d7f9428a2cab",
     "source": "Readwise"
   },
   "https://open.substack.com/pub/bigthinkmedia/p/the-resilience-paradox-when-pushing": {
