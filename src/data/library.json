@@ -330,11 +330,6 @@
     "type": "book",
     "tags": ["philosophy", "ethics", "metaphysics", "classic"]
   },
-  "https://openlibrary.org/works/OL46010566W": {
-    "status": "to-read",
-    "type": "book",
-    "tags": ["fiction"]
-  },
   "https://openlibrary.org/works/OL1002138W": {
     "status": "to-read",
     "type": "book",
@@ -919,11 +914,6 @@
     "type": "book",
     "tags": ["fiction", "philosophy"]
   },
-  "https://openlibrary.org/works/OL24156W": {
-    "status": "to-read",
-    "type": "book",
-    "tags": ["fiction", "classic"]
-  },
   "https://openlibrary.org/works/OL2625457W": {
     "status": "to-read",
     "type": "book",
@@ -1163,11 +1153,6 @@
     "status": "to-read",
     "type": "website",
     "tags": ["ai", "technology"]
-  },
-  "https://www.robinsloan.com/notes/home-cooked-app/": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["software", "essays"]
   },
   "https://ojs.lib.unideb.hu/tmcs/article/view/10991": {
     "status": "to-read",
@@ -1934,6 +1919,51 @@
     "type": "book",
     "tags": []
   },
+  "https://openlibrary.org/works/OL46259W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL46401W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL17267881W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL46125W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL46241W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL46395W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL1002156W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://read.readwise.io/read/01m76anejr925pykpp19ne06kh": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL46301917W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
   "https://openlibrary.org/works/OL17091839W": {
     "status": "read",
     "type": "book",
@@ -2007,11 +2037,6 @@
     "status": "read",
     "type": "book",
     "tags": ["math", "essays", "memoir"]
-  },
-  "https://openlibrary.org/works/OL8273964W": {
-    "status": "read",
-    "type": "book",
-    "tags": ["philosophy", "ethics", "classic"]
   },
   "https://openlibrary.org/works/OL37935703W": {
     "status": "read",
@@ -2529,6 +2554,72 @@
     "type": "book",
     "tags": []
   },
+  "https://openlibrary.org/works/OL15391515W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL61982W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL10432709W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL66554W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL41593929W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL53908W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL24156W": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "classic"],
+    "finished": "2026-11-13"
+  },
+  "https://arxiv.org/html/2609.15369v3": {
+    "status": "read",
+    "type": "article",
+    "tags": ["ai", "paper"],
+    "finished": "2026-11-13"
+  },
+  "https://gwern.net/suzanne-delage#the-story": {
+    "status": "read",
+    "type": "website",
+    "tags": ["fiction", "writing"],
+    "finished": "2026-11-13"
+  },
+  "https://www.robinsloan.com/notes/home-cooked-app/": {
+    "status": "read",
+    "type": "website",
+    "tags": ["software", "essays"],
+    "finished": "2026-11-13"
+  },
+  "https://minutes.substack.com/p/on-grindslop": {
+    "status": "read",
+    "type": "website",
+    "tags": ["ai", "essays"],
+    "finished": "2026-11-13"
+  },
+  "https://en.wikisource.org/wiki/Blaise_Pascal/Thoughts/Section_2": {
+    "status": "read",
+    "type": "website",
+    "tags": ["philosophy", "religion", "classic"],
+    "finished": "2026-11-13"
+  },
   "https://www.math.uchicago.edu/~may/VIGRE/VIGRE2009/REUPapers/Provenza.pdf": {
     "status": "reading",
     "type": "article",
@@ -2538,16 +2629,6 @@
     "status": "reading",
     "type": "article",
     "tags": ["emergence", "complexity", "paper"]
-  },
-  "https://arxiv.org/html/2609.15369v3": {
-    "status": "reading",
-    "type": "article",
-    "tags": ["ai", "paper"]
-  },
-  "https://gwern.net/suzanne-delage#the-story": {
-    "status": "reading",
-    "type": "website",
-    "tags": ["fiction", "writing"]
   },
   "https://arxiv.org/pdf/quant-ph/9908043": {
     "status": "reading",
@@ -2593,11 +2674,6 @@
     "status": "reading",
     "type": "book",
     "tags": ["philosophy-of-mind", "consciousness"]
-  },
-  "https://thoughtforms.life/wp-content/uploads/2026/10/add-to-Substack-post.pdf": {
-    "status": "reading",
-    "type": "website",
-    "tags": ["writing", "research"]
   },
   "https://read.readwise.io/read/01m6b2ppwv0pj0ssn13tcxxqps": {
     "status": "reading",
@@ -2664,11 +2740,6 @@
     "type": "article",
     "tags": ["science", "research", "paper"]
   },
-  "https://minutes.substack.com/p/on-grindslop": {
-    "status": "reading",
-    "type": "website",
-    "tags": ["ai", "essays"]
-  },
   "https://www2.math.uu.se/~thulin/mm/breiman.pdf": {
     "status": "reading",
     "type": "article",
@@ -2703,11 +2774,6 @@
     "status": "reading",
     "type": "website",
     "tags": ["education", "ai"]
-  },
-  "https://en.wikisource.org/wiki/Blaise_Pascal/Thoughts/Section_2": {
-    "status": "reading",
-    "type": "website",
-    "tags": ["philosophy", "religion", "classic"]
   },
   "https://en.wikipedia.org/wiki/Galen": {
     "status": "reading",

@@ -52,7 +52,7 @@ The graph on the homepage is inspired by the graph view in Obsidian, which displ
 
 ## Library
 
-Items in the [[published/paratext/library|library]] are pulled from my [Goodreads](https://www.goodreads.com/)[^3] and [Readwise Reader](https://readwise.io/read) accounts. The status and tags of each item are stored in a note in my Obsidian vault. Book covers and descriptions are from [Open Library](https://openlibrary.org/). When missing, I try to add the details to Open Library rather than falling back to Google Books or other APIs as a way to enforce a system that includes open source contributions in my day-to-day life.
+Items in the [[published/paratext/library|library]] are pulled from my [Open Library](https://openlibrary.org/)[^3] and [Readwise Reader](https://readwise.io/read) accounts. The status and tags of each item are stored in a note in my Obsidian vault. Book covers and descriptions are from Open Library. When missing, I try to add the details to Open Library rather than falling back to Google Books or other APIs as a way to enforce a system that includes open source contributions in my day-to-day life.
 
 The algorithm for suggesting what I should read next is based on the following criteria. In descending priority:
 1. Order of prerequisites
@@ -64,7 +64,7 @@ The algorithm for suggesting what I should read next is based on the following c
 
 The library was created with a few goals:
 1. Avoid [collector's fallacy](https://zettelkasten.de/posts/collectors-fallacy/) by forcing me to catch up on my backlog of saved items
-2. Centralize my collection across my Goodreads, Readwise, Substack, and physical library
+2. Centralize my collection across my Open Library, Readwise, Substack, and physical library
 3. Force myself to use a system that makes open source contributions part of my writing/reading routine[^4]
 
 ## Miscellaneous
@@ -77,6 +77,6 @@ For a full list of this site's features, see [[lorem-ipsum|this page]].
 
 [^2]: And literal [digital gardens](https://www.eastgate.com/garden/Enter.html) :)
 
-[^3]: I find that the recommender system for books on Open Library/Internet Archive seems to be better suited for historical, niche, and technical books compared to that of Goodreads. Goodreads tends to lean towards popular books and thus recommendations seem to be more weighted by popularity, which is a disadvantage when seeking technical material.
+[^3]: I previously used Goodreads to keep track of my reading list, before eventually migrating my library to Open Library. I find that the recommender system for books on Open Library/Internet Archive seems to be better suited for historical, niche, and technical books compared to that of Goodreads. Goodreads tends to lean towards popular books and fiction, and thus recommendations seem to be more weighted by popularity, which is a disadvantage when seeking technical material. The Goodreads API to pull from a user's library has also been deprecated.
 
 [^4]: There is a common adage that open source is driven by spite. Hence, I've decided I should take my frustration of missing book covers and descriptions to fuel open source. Others also do this by being angry at people or apps on the Internet, but I think that's too stressful for me. The Internet is a stressful place.

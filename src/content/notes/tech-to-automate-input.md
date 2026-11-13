@@ -18,7 +18,7 @@ The rest of this page is about how to automate the first two with technology.
 
 For most people, the quantity of one's consumption is largely not a problem. If anything, it tends to be excessive to the point of detriment, and often needs to be limited to the extent that you are able to engage deeply where needed. Due to the internet's democratization of knowledge, abundance of short-form content, and recommender systems built into content and social media platforms, the act of consuming ideas from other people is systematically ingrained into the internet's culture[^7]. The primary bottleneck to the quantity of what you consume is your own ability to do so.
 
-## Use systems to control the quality of what you consume
+## Use systems to control the quality of what you consume[^9]
 
 ### Recommender systems on content platforms
 
@@ -74,3 +74,6 @@ Useful techniques with [large language models](https://en.wikipedia.org/wiki/Lar
 [^7]: [Culturally default behaviors fill spare time with others’ ideas](https://notes.andymatuschak.org/zMmH3GBLKotdP4t1sdSvEQJ)
 
 [^8]: See [[learning-is-connection|learning is the act of making connections]]
+
+[^9]: > [!quote]Will Manidis, [On Grindslop](https://minutes.substack.com/p/on-grindslop)
+    >In a world in which automation will collapse the cost of everything to basically zero, the only question that matters is what do you actually want. What do you consume. What do you put in your body. What you put in your heart. This is the only constraint left and it’s a constraint placed squarely on your character and your own sense of what’s beautiful and worthwhile.
