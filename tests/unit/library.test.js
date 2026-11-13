@@ -297,7 +297,17 @@ describe("shelve", () => {
   const READER = "https://read.readwise.io/read/abc";
   const books = {
     [`${URL}/OL1W`]: { cover: "1", title: "A", author: "X", description: "<i>d</i>", shelf: "to-read", added: "2026-01-01", read: null },
-    [`https://www.example.org/b`]: { title: "B", author: "Y", description: "", shelf: "read", added: "2026-01-01", read: "2026-02-02" },
+    [`https://www.example.org/b`]: {
+      title: "B",
+      author: "Y",
+      venue: "J",
+      siteName: "Bee",
+      year: "2020",
+      description: "",
+      shelf: "read",
+      added: "2026-01-01",
+      read: "2026-02-02",
+    },
     [READER]: { title: "C", author: "", description: "", shelf: "read", added: "2026-01-01", read: null },
   };
 
@@ -320,13 +330,23 @@ describe("shelve", () => {
       owned: false,
       after: [],
     });
-    expect(b).toMatchObject({ status: "read", tags: [], finished: "2026-02-02", site: "example.org", private: false });
+    expect(b).toMatchObject({
+      status: "read",
+      tags: [],
+      finished: "2026-02-02",
+      site: "example.org",
+      private: false,
+      venue: "J",
+      year: "2020",
+      siteName: "Bee",
+    });
     expect(c).toMatchObject({ site: "", private: true });
   });
 
-  it("makes a popover card with the author, status, tags, and escaped description, except for a Reader link", () => {
+  it("makes a popover card with the author, venue, status, tags, and escaped description, except for a Reader link", () => {
     const cards = bookCards(shelve(books, { [`${URL}/OL1W`]: { status: "to-read", tags: ["logic", "math"] }, ...listed }));
     expect(cards[`${URL}/OL1W`]).toEqual({ title: "A", meta: ["X", "To read"], tags: ["logic", "math"], paragraphs: ["&lt;i&gt;d&lt;/i&gt;"] });
+    expect(cards["https://www.example.org/b"].meta).toEqual(["Y", "J, 2020", "Read"]);
     expect(cards[READER]).toBeUndefined();
   });
 });

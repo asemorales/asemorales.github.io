@@ -1,16 +1,32 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import { faviconOf } from "../lib/library.js";
 interface Props {
-  book: { url: string; title: string; author: string; cover?: string; site: string; private: boolean; tags: string[] };
+  book: {
+    url: string;
+    title: string;
+    author: string;
+    cover?: string;
+    site: string;
+    siteName?: string;
+    private: boolean;
+    type: string;
+    tags: string[];
+  };
   finished?: boolean;
 }
 
 const HEIGHT = 288;
+const FAVICON = 12;
 const DIR = "../assets/covers/";
 const covers = import.meta.glob<{ default: ImageMetadata }>("../assets/covers/*.{jpg,jpeg,png,webp}", { eager: true });
+const favicons = import.meta.glob<{ default: ImageMetadata }>("../assets/favicons/*.png", { eager: true });
 const { book, finished = false } = Astro.props;
 const cover = (covers[DIR + book.cover] ?? covers[`${DIR}${book.cover}.jpg`])?.default;
+const favicon = favicons[`../assets/favicons/${faviconOf(book.site)}.png`]?.default;
+const names = book.author.split(", ");
+const author = book.author === book.siteName ? "" : names.length > 2 ? `${names[0]} et al.` : book.author;
 const Tag = book.private ? "span" : "a";
 ---
 
@@ -23,10 +39,27 @@ const Tag = book.private ? "span" : "a";
       alt={[book.title, book.author].filter(Boolean).join(" by ")}
       loading="lazy"
     />
+  ) : book.type === "article" ? (
+    <span class="book-paper">
+      <span class="book-title">{book.title}</span>
+      {author && <span class="book-author">{author}</span>}
+    </span>
+  ) : book.type === "website" ? (
+    <span class="book-screen">
+      {book.site && (
+        <span class="book-bar">
+          {favicon && <Image src={favicon} width={FAVICON} height={FAVICON} densities={[1, 2]} alt="" loading="lazy" />}
+          {book.siteName ? <span class="book-name">{book.siteName}</span> : <span class="book-site">{book.site}</span>}
+        </span>
+      )}
+      <span class="book-title">{book.title}</span>
+      {author && <span class="book-author">{author}</span>}
+    </span>
   ) : (
     <span class="book-blank">
       {book.site && <span class="book-site">{book.site}</span>}
-      {book.title}
+      <span class="book-title">{book.title}</span>
+      {author && <span class="book-author">{author}</span>}
     </span>
   )}
 </Tag>

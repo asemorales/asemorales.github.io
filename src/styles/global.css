@@ -29,6 +29,7 @@
 
   --page: light-dark(#f2ecdf, #191612);
   --code: light-dark(#f9f5ee, #25211c);
+  --card: light-dark(#f9f5ee, #100d0a);
   --hover: light-dark(#e3dbc9, #3a342d);
   --rule: light-dark(#ddd4c1, #4d463e);
   --frame: light-dark(#c9bfab, #615950);
@@ -80,6 +81,7 @@
 @theme inline {
   --color-page: var(--page);
   --color-code: var(--code);
+  --color-card: var(--card);
   --color-hover: var(--hover);
   --color-rule: var(--rule);
   --color-frame: var(--frame);
@@ -1273,20 +1275,70 @@
     --book: 8rem;
     @apply relative block shrink-0 no-underline;
   }
-  .book img,
-  .book-blank {
+  .book > img,
+  .book-blank,
+  .book-paper,
+  .book-screen {
     height: var(--book);
     @apply w-auto max-w-none border border-frame;
   }
-  .book-blank {
-    @apply line-clamp-[8] w-24 p-1.5 text-xs leading-tight;
+  .book-blank,
+  .book-paper,
+  .book-screen {
+    @apply bg-card text-xs leading-tight;
     hyphens: auto;
     overflow-wrap: break-word;
+  }
+  .book-blank {
+    @apply w-24;
   }
   .book-site {
     @apply mb-1 block font-mono text-[0.625rem] text-dim;
   }
-  a.book:is(:hover, :focus-visible) :is(img, .book-blank) {
+  .book-blank,
+  .book-paper,
+  .book-screen {
+    @apply flex flex-col overflow-hidden;
+  }
+  .book-author {
+    @apply line-clamp-2 shrink-0 text-[0.625rem] text-dim;
+  }
+  .book-paper {
+    width: calc(var(--book) / 1.414);
+  }
+  .book-blank,
+  .book-paper {
+    @apply items-center p-1.5 text-center;
+  }
+  :is(.book-blank, .book-paper) > * {
+    @apply max-w-full;
+  }
+  :is(.book-blank, .book-paper) .book-title {
+    @apply mt-1.5 mb-1 line-clamp-4 shrink-0;
+  }
+  .book-screen {
+    height: calc(var(--book) * 0.75);
+    width: calc(var(--book) * 1.125);
+  }
+  .book-bar {
+    @apply flex shrink-0 items-center gap-1 px-1.5 pt-1.5;
+  }
+  .book-bar img {
+    @apply h-3 w-3 shrink-0 border-0;
+  }
+  .book-bar .book-site {
+    @apply mb-0 truncate;
+  }
+  .book-name {
+    @apply truncate text-[0.625rem] text-dim;
+  }
+  .book-screen .book-title {
+    @apply mx-1.5 mt-1 line-clamp-3 shrink-0;
+  }
+  .book-screen .book-author {
+    @apply mx-1.5 mt-auto mb-1.5 line-clamp-1;
+  }
+  a.book:is(:hover, :focus-visible) :is(img, .book-blank, .book-paper, .book-screen) {
     @apply border-ink;
   }
   .shelf {
