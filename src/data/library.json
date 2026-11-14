@@ -706,11 +706,6 @@
     "tags": ["philosophy-of-science", "history"],
     "owned": true
   },
-  "https://openlibrary.org/works/OL21208765W": {
-    "status": "to-read",
-    "type": "book",
-    "tags": ["fiction", "self-help"]
-  },
   "https://openlibrary.org/works/OL51948W": {
     "status": "to-read",
     "type": "book",
@@ -1100,11 +1095,6 @@
     "type": "website",
     "tags": ["philosophy-of-science"]
   },
-  "https://x.com/illscience/status/2076714595994206358/?a=-Az_bsKHcjUBUBSZZw8&s=09&rw_tt_thread=True": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["ai", "technology"]
-  },
   "https://josephheath.substack.com/p/reproducing-civilization": {
     "status": "to-read",
     "type": "website",
@@ -1144,11 +1134,6 @@
     "status": "to-read",
     "type": "website",
     "tags": ["ai", "philosophy"]
-  },
-  "https://x.com/doristsao/status/2111859732806074812/?rw_tt_thread=True": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["neuroscience", "research"]
   },
   "https://bigthinkmedia.substack.com/p/china-is-mass-producing-slop-at-a": {
     "status": "to-read",
@@ -1580,11 +1565,6 @@
     "type": "website",
     "tags": ["math", "art"]
   },
-  "https://www.lesswrong.com/posts/F2hdPavQFyjcAyAGB/noticing-a-teacher-s-password-pattern": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["learning", "rationality"]
-  },
   "https://onepercentrule.substack.com/p/the-bishop-who-hated-infinitesimals": {
     "status": "to-read",
     "type": "website",
@@ -1640,11 +1620,6 @@
     "type": "website",
     "tags": ["effective-altruism"]
   },
-  "https://rootsofprogress.notion.site/Resources-on-Progress-Studies-182847fba3784db297d719b0831ca429": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["progress", "reading-list"]
-  },
   "https://rootsofprogress.org/manifesto/": {
     "status": "to-read",
     "type": "website",
@@ -1674,11 +1649,6 @@
     "status": "to-read",
     "type": "article",
     "tags": ["biology", "complexity", "paper"]
-  },
-  "https://books.google.com/books/about/Favorite_Counseling_and_Therapy_Homework.html?id=U8CLAgAAQBAJ#v=onepage&q&f=false": {
-    "status": "to-read",
-    "type": "book",
-    "tags": ["psychology", "therapy"]
   },
   "https://www.nobelprize.org/prizes/physics/2006/mather/1394344-2006-physics-laureates-interview-transcript/": {
     "status": "to-read",
@@ -2013,6 +1983,101 @@
     "tags": []
   },
   "https://blog.cosmos-institute.org/p/you-cant-speedrun-yourself": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL45181199W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL8328377W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL17838612W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL25190572W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL675783W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL64365W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://goodscienceproject.org/articles/a-progress-studies-history-of-early-mit-part-1-training-the-engineers-who-built-the-country/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://worksinprogress.co/issue/were-classical-statues-painted-horribly/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://worksinprogress.co/issue/the-maintenance-race/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://worksinprogress.co/issue/how-mathematics-built-the-modern-world/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://jackdevanney.substack.com/p/shipyard-production-of-nuclear-power": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://www.rachellaudan.com/wp-content/uploads/2007/12/plea-for-culinary-modernism.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://slatestarcodex.com/2018/11/26/is-science-slowing-down-2/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://medium.com/@antonhowes/is-innovation-in-human-nature-48c2578e27ba": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://deirdremccloskey.org/docs/pdf/ScandinavianEHR2016.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://www.theatlantic.com/business/archive/2016/11/progress-isnt-natural-mokyr/507740/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://ourworldindata.org/a-history-of-global-living-conditions": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://worksinprogress.co/issue/the-housing-theory-of-everything/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://worksinprogress.co/issue/the-beauty-of-concrete/": {
     "status": "to-read",
     "type": "website",
     "tags": []
@@ -2678,6 +2743,71 @@
     "tags": ["medicine", "history"],
     "finished": "2026-11-13"
   },
+  "https://openlibrary.org/works/OL45361W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL1069300W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL3277054W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL468431W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL18941W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL20715162W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL21208765W": {
+    "status": "read",
+    "type": "book",
+    "tags": ["fiction", "self-help"],
+    "finished": "2026-11-14"
+  },
+  "https://x.com/illscience/status/2076714595994206358/?a=-Az_bsKHcjUBUBSZZw8&s=09&rw_tt_thread=True": {
+    "status": "read",
+    "type": "website",
+    "tags": ["ai", "technology"],
+    "finished": "2026-11-14"
+  },
+  "https://x.com/doristsao/status/2111859732806074812/?rw_tt_thread=True": {
+    "status": "read",
+    "type": "website",
+    "tags": ["neuroscience", "research"],
+    "finished": "2026-11-14"
+  },
+  "https://thedigitaldelusion.substack.com/p/the-problem-with-alpha-schools-part": {
+    "status": "read",
+    "type": "website",
+    "tags": ["education", "ai"],
+    "finished": "2026-11-14"
+  },
+  "https://arxiv.org/pdf/1902.03928": {
+    "status": "read",
+    "type": "article",
+    "tags": ["physics", "paper"],
+    "finished": "2026-11-14"
+  },
+  "https://read.readwise.io/read/01hr1w6w37kmj38mmcefb1cb4c": {
+    "status": "read",
+    "type": "website",
+    "tags": []
+  },
   "https://www.math.uchicago.edu/~may/VIGRE/VIGRE2009/REUPapers/Provenza.pdf": {
     "status": "reading",
     "type": "article",
@@ -2818,16 +2948,6 @@
     "type": "article",
     "tags": ["ai", "cognitive-science", "paper"]
   },
-  "https://thedigitaldelusion.substack.com/p/the-problem-with-alpha-schools-part": {
-    "status": "reading",
-    "type": "website",
-    "tags": ["education", "ai"]
-  },
-  "https://arxiv.org/pdf/1902.03928": {
-    "status": "reading",
-    "type": "article",
-    "tags": ["physics", "paper"]
-  },
   "https://faculty.sites.iastate.edu/tesfatsi/archive/tesfatsi/JudgementAndChoice.MappingBoundedRationality.DKahneman2003.pdf": {
     "status": "reading",
     "type": "article",
@@ -2856,6 +2976,11 @@
   "https://openlibrary.org/works/OL3056824W": {
     "status": "reading",
     "type": "book",
+    "tags": []
+  },
+  "https://read.readwise.io/read/01m7cdcff446mbb3h0tmjeyn6x": {
+    "status": "reading",
+    "type": "website",
     "tags": []
   }
 }
