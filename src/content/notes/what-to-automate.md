@@ -1,7 +1,7 @@
 ---
 title: "Automate everything that distracts you from being human"
 date: 2026-11-04
-updated: 2026-11-04
+updated: 2026-11-15
 tags: ["technology"]
 ---
 
@@ -39,7 +39,13 @@ While the idea of social programs to ease people through technological adoption 
 >[!quote]Alex Imas, *[What will be scarce?](https://aleximas.substack.com/p/what-will-be-scarce?utm_campaign=post-expanded-share&utm_medium=web)*
 >When AI automates commodity production, prices in that sector fall. That raises real income. If the goods and services people want more of as they get richer lie disproportionately in the relational sector, demand shifts in that direction. Baumol’s cost disease then amplifies the result: if the relational sector remains harder to automate, it becomes relatively more expensive and absorbs a growing share of total expenditure.
 
- My speculation is that the history of automation proceeds from manual labor (production) -> manual labor (quality assurance) -> intellectual labor (production)[^4] -> intellectual labor (verification) -> labor that requires [embodied intelligence](https://en.wikipedia.org/wiki/Embodied_agent) and/or solving [Moravec’s paradox](https://en.wikipedia.org/wiki/Moravec's_paradox). If so, what remains is coordination and connection. Both of these require understanding of human behavior, which is understood through human experience, and thus is uniquely difficult to displace[^5]. That is, the relational sectors of childcare, healthcare, education, leadership, therapy, and so on.
+ My speculation is that the history of automation proceeds from manual labor (production) -> manual labor (quality assurance) -> intellectual labor (production)[^4] -> intellectual labor (verification) -> labor that requires [embodied intelligence](https://en.wikipedia.org/wiki/Embodied_agent) and/or solving [Moravec’s paradox](https://en.wikipedia.org/wiki/Moravec's_paradox). If so, what remains is coordination and connection. Both of these require understanding of human behavior, which is understood through human experience, and thus is uniquely difficult to displace[^5].
+
+ Thus, for occupations in the relational sector, we expect an increase in the demand and wages for existing occupations in the relational sector. As of writing, those occupations would include childcare, healthcare, education, leadership, psychotherapy, and so on.
+
+We also expect to see a decrease in the demand for hitherto highly valued occupations centered solely around intellectual output that may next be automated. The clearest example of the former is software engineering: once considered a high-demand and highly earning job prospect, we expect to see demand and wages decline as automation becomes more and more capable of such tasks, and for the existing occupation to transform towards operation of systems that automate the creation of software. These occupations are not likely to disappear entirely, but rather decline in demand and change in nature, in much the same manner that the creation of handmade goods has moved towards operation of tooling and machinery, with the status of purely handmade and unique goods relegated to an artisanal good available mostly to those with higher purchasing power.
+
+Conversely, we also expect the creation of new occupations in the relational sector, or those in the social sciences and humanities, which were occupations that were hitherto not considered high-earning occupations outside law and academe. Philosophy, for example, had thus far not been considered a promising career prospect insofar that occupations are limited only to writing or teaching philosophy to students in the academe, who then go on to teach more philosophy. Yet around 2025 onwards, new jobs have opened up in industry AI labs for philosophers to shape the development of automated systems. While these labs are clearly not representative of the state of the global job economy (quite the opposite, given that AI labs are concentrated in the Silicon Valley and are a very small share of global jobs), they are organizations that are highly malleable to change given the relative lack of institutional lag compared to other organizations, and with the capital and influence to take directions that others may follow suit as they adopt new technologies.
 
 [^1]: >[!quote]John Maynard Keynes, *[Economic Possibilities for Our Grandchildren](http://www.econ.yale.edu/smith/econ116a/keynes1.pdf)*
     Thus for the first time since his creation man will be faced with his real, his permanent problem—how to use his freedom from pressing economic cares, how to occupy the leisure, which science and compound interest will have won for him, to live wisely and agreeably and well.
