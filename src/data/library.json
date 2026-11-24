@@ -950,26 +950,6 @@
     "type": "article",
     "tags": ["logic", "history", "paper"]
   },
-  "https://teredu.substack.com/p/math-20-does-not-exist": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["math-education", "education"]
-  },
-  "https://www.adorableandharmless.com/p/college-english-majors-cant-read": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["education", "language"]
-  },
-  "https://amplesa.substack.com/p/why-biology-wasnt-made-to-last": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["biology", "evolution"]
-  },
-  "https://www.dwarkesh.com/p/annus-mirabilis": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["science", "history", "creativity"]
-  },
   "https://ncetm.org.uk/teaching-for-mastery/mastery-explained/five-big-ideas-in-teaching-for-mastery/": {
     "status": "to-read",
     "type": "website",
@@ -1630,11 +1610,6 @@
     "type": "book",
     "tags": ["philosophy", "ethics", "history"]
   },
-  "https://forum.effectivealtruism.org/topics/communities-adjacent-to-effective-altruism": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["effective-altruism"]
-  },
   "https://en.wikipedia.org/wiki/The_Good_Judgment_Project": {
     "status": "to-read",
     "type": "website",
@@ -2078,6 +2053,111 @@
     "tags": []
   },
   "https://worksinprogress.co/issue/the-beauty-of-concrete/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL20966130W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL12494344W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL14868510W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL13294327W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL17892614W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL16063526W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL104863W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL444807W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL9330234W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL1907509W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL16116943W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL17357767W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL12381092W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://apenwarr.ca/log/20211229-the-gift-of-its-your-problem-now": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://amplesa.substack.com/p/ai-for-bio-doesnt-need-more-data": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://sumizdat.com/homepage/verity.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://royalsocietypublishing.org/rsos/article/3/9/160384/56494/The-natural-selection-of-bad-scienceThe-Natural?ref=reviewertoo.com": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL19671501W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://economics.mit.edu/sites/default/files/publications/the%20polarization%20of%20us%20labor%202006.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://slate.com/business/2013/01/the-myth-of-technological-unemployment.html": {
     "status": "to-read",
     "type": "website",
     "tags": []
@@ -2785,12 +2865,6 @@
     "tags": ["ai", "technology"],
     "finished": "2026-11-14"
   },
-  "https://x.com/doristsao/status/2111859732806074812/?rw_tt_thread=True": {
-    "status": "read",
-    "type": "website",
-    "tags": ["neuroscience", "research"],
-    "finished": "2026-11-14"
-  },
   "https://thedigitaldelusion.substack.com/p/the-problem-with-alpha-schools-part": {
     "status": "read",
     "type": "website",
@@ -2803,7 +2877,47 @@
     "tags": ["physics", "paper"],
     "finished": "2026-11-14"
   },
-  "https://read.readwise.io/read/01hr1w6w37kmj38mmcefb1cb4c": {
+  "https://openlibrary.org/works/OL5735363W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://teredu.substack.com/p/math-20-does-not-exist": {
+    "status": "read",
+    "type": "website",
+    "tags": ["math-education", "education"],
+    "finished": "2026-11-24"
+  },
+  "https://www.adorableandharmless.com/p/college-english-majors-cant-read": {
+    "status": "read",
+    "type": "website",
+    "tags": ["education", "language"],
+    "finished": "2026-11-24"
+  },
+  "https://amplesa.substack.com/p/why-biology-wasnt-made-to-last": {
+    "status": "read",
+    "type": "website",
+    "tags": ["biology", "evolution"],
+    "finished": "2026-11-24"
+  },
+  "https://www.dwarkesh.com/p/annus-mirabilis": {
+    "status": "read",
+    "type": "website",
+    "tags": ["science", "history", "creativity"],
+    "finished": "2026-11-24"
+  },
+  "https://read.readwise.io/read/01m71fp5g8zxnymxy8d99fkvct": {
+    "status": "read",
+    "type": "website",
+    "tags": []
+  },
+  "https://davidoks.blog/p/why-the-atm-didnt-kill-bank-teller": {
+    "status": "read",
+    "type": "website",
+    "tags": ["economics", "technology"],
+    "finished": "2026-11-24"
+  },
+  "https://slimemoldtimemold.com/2022/02/17/charter-houses/": {
     "status": "read",
     "type": "website",
     "tags": []
@@ -2958,11 +3072,6 @@
     "type": "article",
     "tags": ["statistics", "science", "research", "paper"]
   },
-  "https://davidoks.blog/p/why-the-atm-didnt-kill-bank-teller": {
-    "status": "reading",
-    "type": "website",
-    "tags": ["economics", "technology"]
-  },
   "https://forum.effectivealtruism.org/posts/q2TfTirvspCTH2vbZ/the-best-cause-will-disappoint-you-an-intro-to-the": {
     "status": "reading",
     "type": "website",
@@ -2971,16 +3080,21 @@
   "https://daiwz.net/course/logic/books/AMIL2edn.pdf": {
     "status": "reading",
     "type": "website",
-    "tags": []
+    "tags": ["mathematics", "logic", "computer-science", "computability"]
   },
   "https://openlibrary.org/works/OL3056824W": {
     "status": "reading",
     "type": "book",
-    "tags": []
+    "tags": ["philosophy", "ethics"]
   },
   "https://read.readwise.io/read/01m7cdcff446mbb3h0tmjeyn6x": {
     "status": "reading",
     "type": "website",
-    "tags": []
+    "tags": ["therapy"]
+  },
+  "https://blog.landeconomics.org/p/is-land-supply-fixed-part-1-the-netherlands": {
+    "status": "reading",
+    "type": "website",
+    "tags": ["economics"]
   }
 }
