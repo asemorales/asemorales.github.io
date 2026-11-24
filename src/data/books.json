@@ -202,6 +202,17 @@
     "description": "",
     "source": "Open Library"
   },
+  "https://openlibrary.org/works/OL19671501W": {
+    "url": "https://openlibrary.org/works/OL19671501W",
+    "cover": "OL19671501W",
+    "title": "Learning by doing",
+    "author": "James Bessen",
+    "shelf": "to-read",
+    "added": "2026-11-23",
+    "read": null,
+    "description": "",
+    "source": "Open Library"
+  },
   "https://openlibrary.org/works/OL20966130W": {
     "url": "https://openlibrary.org/works/OL20966130W",
     "cover": "OL20966130W",
@@ -3821,6 +3832,32 @@
     "description": "Six days ago, astronaut Mark Watney became one of the first people to walk on Mars. Now he's sure he'll be the first person to die there. After a dust storm nearly kills him and forces his crew to evacuate the planet while thinking him dead, Mark finds himself stranded on Mars' surface, completely alone. with no way to signal Earth that he's alive.",
     "source": "Open Library"
   },
+  "https://economics.mit.edu/sites/default/files/publications/the%20polarization%20of%20us%20labor%202006.pdf": {
+    "url": "https://economics.mit.edu/sites/default/files/publications/the%20polarization%20of%20us%20labor%202006.pdf",
+    "title": "The Polarization of the U.S. Labor Market",
+    "author": "David H. Autor, Lawrence F. Katz, Melissa S. Kearney",
+    "siteName": "",
+    "description": "The U.S. labor market has become polarized, with job growth increasing in high- and low-skill areas but declining in middle-skill jobs. This change is linked to technology, especially computerization, which favors abstract and manual tasks while reducing routine jobs. As a result, wage inequality has grown, especially between high-wage and low-wage workers.",
+    "image": "https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/431370670/pdDuo6hsDFN4x58gr_LY4yD6QwZw9RLoWzhhKMpy1y0-cove_qJEDGFS.png",
+    "shelf": "to-read",
+    "added": "2026-11-23",
+    "read": null,
+    "cover": "ad69ffca50d62abb",
+    "source": "Readwise"
+  },
+  "https://slate.com/business/2013/01/the-myth-of-technological-unemployment.html": {
+    "url": "https://slate.com/business/2013/01/the-myth-of-technological-unemployment.html",
+    "title": "The Myth of Technological Unemployment",
+    "author": "Matthew Yglesias",
+    "siteName": "Slate Magazine",
+    "description": "Machines have replaced workers for centuries, but they also raise incomes and create more leisure over time. In the short term, job losses and fewer work hours mostly reflect changes in demand and the business cycle.",
+    "image": "https://compote.slate.com/images/c4c7137e-1c8a-4843-ad39-2e5fc88d5d58.png?width=1560",
+    "shelf": "to-read",
+    "added": "2026-11-23",
+    "read": null,
+    "cover": "0d301dacf67fd667",
+    "source": "Readwise"
+  },
   "https://apenwarr.ca/log/20211229-the-gift-of-its-your-problem-now": {
     "url": "https://apenwarr.ca/log/20211229-the-gift-of-its-your-problem-now",
     "title": "The Gift of It's Your Problem Now",
@@ -3840,7 +3877,7 @@
     "siteName": "Progress and Poverty",
     "description": "The Netherlands can create usable land by reclaiming areas covered by water. The author argues this improves existing locations rather than creating new land. To encourage reclamation without giving owners permanent tax breaks, private projects should get temporary exemptions, while publicly funded land should generally remain public.",
     "image": "https://substackcdn.com/image/fetch/$s_!pJcT!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff1080ad1-074f-4208-b326-1f6378b2cee2_6770x4024.png",
-    "shelf": "to-read",
+    "shelf": "reading",
     "added": "2026-11-22",
     "read": null,
     "cover": "0d814e53e247ff71",
@@ -4169,6 +4206,19 @@
     "read": null,
     "venue": "arXiv",
     "year": "2026",
+    "source": "Readwise"
+  },
+  "https://read.readwise.io/read/01m71fp5g8zxnymxy8d99fkvct": {
+    "url": "https://read.readwise.io/read/01m71fp5g8zxnymxy8d99fkvct",
+    "title": "Logic and Poetry",
+    "author": "Michael Macnamara, Wietske Kistner",
+    "siteName": "",
+    "description": "The article explores whether poems can be translated into symbolic logic. This process can reveal patterns and deepen understanding, but it cannot capture every poetic quality. Logic is an extra way to read a poem, not a replacement for literary analysis.",
+    "image": "https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/518248587/jqRzQxnLzV9nJqhASpBHB4WbnIRZXF1qQJOcpP-qj_E-cove_jHWUBcR.png",
+    "shelf": "read",
+    "added": "2026-11-10",
+    "read": "2026-11-12",
+    "cover": "f73798fe2981daf8",
     "source": "Readwise"
   },
   "https://www.adorableandharmless.com/p/college-english-majors-cant-read": {
@@ -6726,9 +6776,9 @@
     "siteName": "David Oks",
     "description": "ATMs made bank branches cheaper and increased the number of tellers by creating new tasks for them. However, smartphones like the iPhone enabled mobile banking, which greatly reduced the need for physical tellers. This shift changed how banking works and led to a real decline in bank teller jobs.",
     "image": "https://substackcdn.com/image/fetch/$s_!fJgh!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff030282b-ee45-446b-b58e-fd8789922d73_2048x1385.jpeg",
-    "shelf": "reading",
+    "shelf": "read",
     "added": "2026-03-28",
-    "read": null,
+    "read": "2026-11-23",
     "cover": "6181028c1daf64a9",
     "source": "Readwise"
   },
@@ -7091,9 +7141,9 @@
     "siteName": "SLIME MOLD TIME MOLD",
     "description": "Charter houses are big homes that can support groups of young people by providing free rent and a small stipend, allowing them to focus on their passions. They can serve various purposes, like mentoring or fostering creativity, and can be set up with minimal rules.",
     "image": "https://slimemoldtimemold.com/wp-content/uploads/2022/02/x-men_x-men_evolution-1.jpg",
-    "shelf": "reading",
+    "shelf": "read",
     "added": "2026-11-22",
-    "read": null,
+    "read": "2026-11-23",
     "cover": "97a22e074fddf454",
     "source": "Readwise"
   },
