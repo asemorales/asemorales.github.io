@@ -202,6 +202,17 @@
     "description": "",
     "source": "Open Library"
   },
+  "https://openlibrary.org/works/OL514629W": {
+    "url": "https://openlibrary.org/works/OL514629W",
+    "cover": "OL514629W",
+    "title": "\"Surely You're Joking, Mr. Feynman\"",
+    "author": "Richard Phillips Feynman",
+    "shelf": "to-read",
+    "added": "2026-11-24",
+    "read": null,
+    "description": "The biography of the physicist and Nobel prize winner Richard P. Feynman - a collection of short stories, chapters told to and written down by Ralph Leighton. Feynman tells of his childhood and youth and goes into his adult life, both personally and professionally.",
+    "source": "Open Library"
+  },
   "https://openlibrary.org/works/OL1215287W": {
     "url": "https://openlibrary.org/works/OL1215287W",
     "cover": "OL1215287W",
@@ -3964,6 +3975,31 @@
     "description": "Six days ago, astronaut Mark Watney became one of the first people to walk on Mars. Now he's sure he'll be the first person to die there. After a dust storm nearly kills him and forces his crew to evacuate the planet while thinking him dead, Mark finds himself stranded on Mars' surface, completely alone. with no way to signal Earth that he's alive.",
     "source": "Open Library"
   },
+  "https://gwern.net/doc/science/1986-hamming#footnotes": {
+    "url": "https://gwern.net/doc/science/1986-hamming#footnotes",
+    "title": "You And Your Research",
+    "author": "Richard W. Hamming",
+    "siteName": "Gwern.net",
+    "description": "Great scientists work hard and focus deeply on important problems. They turn challenges into opportunities by changing their approach. Success comes from long effort, emotional commitment, and building on others’ work.",
+    "image": "https://gwern.net/doc/science/1598-richardhamming-leydoig-ieeehistorycenter-profilephoto-ethw.jpg",
+    "shelf": "reading",
+    "added": "2026-11-24",
+    "read": null,
+    "cover": "b04eabfe7d86595a",
+    "source": "Readwise"
+  },
+  "https://www.lesswrong.com/posts/DG5ziWvEyaxRoWNYG/the-measurement-problem-of-consciousness": {
+    "url": "https://www.lesswrong.com/posts/DG5ziWvEyaxRoWNYG/the-measurement-problem-of-consciousness",
+    "title": "The Measurement Problem of Consciousness",
+    "author": "Walter Veit",
+    "siteName": "LessWrong",
+    "description": "Measuring consciousness is difficult because it is subjective and cannot be observed directly. Tests developed with humans may not work for animals or machines. The author urges researchers to improve and compare these tests rather than abandon the effort.",
+    "image": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico",
+    "shelf": "to-read",
+    "added": "2026-11-24",
+    "read": null,
+    "source": "Readwise"
+  },
   "https://cdn.uclouvain.be/public/Exports%20reddot/cr-cridis/documents/sen_on_TCR_rational_fools.pdf": {
     "url": "https://cdn.uclouvain.be/public/Exports%20reddot/cr-cridis/documents/sen_on_TCR_rational_fools.pdf",
     "title": "sen on TCR rational fools",
@@ -3996,7 +4032,7 @@
     "siteName": "Homepage",
     "description": "The article discusses the concept of utilitarianism and its objective to maximize the sum-total of utility irrespective of distribution. It examines the nature of utilitarian equality and its dependence on the size of marginal utility.",
     "image": "https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/38200545/Rx7k9b1afzCeIWPRay4c8GfOp8G-40yw69fDJAgx9QI-cover_Kv1pbhT.png",
-    "shelf": "to-read",
+    "shelf": "reading",
     "added": "2026-11-24",
     "read": null,
     "cover": "b4e00782f54a3df2",
