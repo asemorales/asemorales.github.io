@@ -1430,11 +1430,6 @@
     "type": "website",
     "tags": ["game-theory", "rationality"]
   },
-  "https://www.lesswrong.com/posts/jinzzbPHshif8nmnw/do-not-conquer-what-you-cannot-defend": {
-    "status": "to-read",
-    "type": "website",
-    "tags": ["rationality"]
-  },
   "https://www.lesswrong.com/posts/qqEndN5Cuzbat9fyx/pythia": {
     "status": "to-read",
     "type": "website",
@@ -1643,162 +1638,162 @@
   "https://openlibrary.org/works/OL2632134W": {
     "status": "to-read",
     "type": "book",
-    "tags": []
+    "tags": ["fiction", "mathematics"]
   },
   "https://openlibrary.org/works/OL17803541W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["leadership"],
     "owned": true
   },
   "https://openlibrary.org/works/OL872932W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["fiction", "buddhism"],
     "owned": true
   },
   "https://openlibrary.org/works/OL18144383W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["leadership"],
     "owned": true
   },
   "https://openlibrary.org/works/OL27699181W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["entrepreneurship"],
     "owned": true
   },
   "https://openlibrary.org/works/OL37568651W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["business", "cybernetics"],
     "owned": true
   },
   "https://openlibrary.org/works/OL5832683W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["politics", "electronics"],
     "owned": true
   },
   "https://openlibrary.org/works/OL1966484W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["genetics", "evolution"],
     "owned": true
   },
   "https://openlibrary.org/works/OL3923600W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["architecture", "aesthetics"],
     "owned": true
   },
   "https://openlibrary.org/works/OL14909099W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["history", "finance", "economics"],
     "owned": true
   },
   "https://openlibrary.org/works/OL4468929W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["cybernetics", "engineering"],
     "owned": true
   },
   "https://openlibrary.org/works/OL4288868W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["biography"],
     "owned": true
   },
   "https://openlibrary.org/works/OL15899W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["emergence", "complexity"],
     "owned": true
   },
   "https://openlibrary.org/works/OL8003172W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["emergence", "complexity"],
     "owned": true
   },
   "https://openlibrary.org/works/OL4300551W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["history", "complexity"],
     "owned": true
   },
   "https://openlibrary.org/works/OL3907582W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["emergence", "complexity"],
     "owned": true
   },
   "https://openlibrary.org/works/OL1976706W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["extraterrestrial"],
     "owned": true
   },
   "https://openlibrary.org/works/OL15838690W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["biology", "science", "computational-biology", "physics"],
     "owned": true
   },
   "https://openlibrary.org/works/OL93641W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["urban-planning", "history"],
     "owned": true
   },
   "https://openlibrary.org/works/OL792952W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["finance", "economics"],
     "owned": true
   },
   "https://openlibrary.org/works/OL4325174W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["science", "philosophy-of-science", "fallibilism"],
     "owned": true
   },
   "https://openlibrary.org/works/OL19994659W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["science", "networks"],
     "owned": true
   },
   "https://openlibrary.org/works/OL16532648W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["history", "philippines"],
     "owned": true
   },
   "https://openlibrary.org/works/OL3466926W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["science", "technology", "evolution"],
     "owned": true
   },
   "https://openlibrary.org/works/OL21222489W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["history", "philippines"],
     "owned": true
   },
   "https://openlibrary.org/works/OL15835908W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["technology", "utopia"],
     "owned": true
   },
   "https://openlibrary.org/works/OL3265980W": {
     "status": "to-read",
     "type": "book",
-    "tags": [],
+    "tags": ["complexity"],
     "owned": true
   },
   "https://openlibrary.org/works/OL2463712W": {
@@ -2157,7 +2152,112 @@
     "type": "website",
     "tags": []
   },
-  "https://slate.com/business/2013/01/the-myth-of-technological-unemployment.html": {
+  "https://openlibrary.org/works/OL1215287W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL15337224W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL98174W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL1230600W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL21904396W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL1836772W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL767941W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL20846709W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL25217149W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://cdn.uclouvain.be/public/Exports%20reddot/cr-cridis/documents/sen_on_TCR_rational_fools.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://www.csc2.ncsu.edu/faculty/mpsingh/local/Social/f24/wrap/readings/Amartya-Sen-Nobel-AER-1999.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://www.reviewertoo.com/ai-is-turning-math-into-a-science/?ref=reviewer-too-newsletter": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://blog.dshr.org/2026/07/distilling-moat.html#more": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://blog.dshr.org/2026/09/eatingthe-seed-corn.html": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://blog.dshr.org/2026/10/the-underpants-gnomes-step-2.html#more": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://www.philosophyandlaw.org/Class%20Readings/GeneralSocialScience/Rational%20Fools_%20A%20Critique%20of%20the%20Behavioral%20Foundations%20of%20Economic%20Theory.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://www.researchgate.net/profile/David-Wolpert/publication/2755783_The_Lack_of_A_Priori_Distinctions_Between_Learning_Algorithms/links/54242c890cf238c6ea6e973c/The-Lack-of-A-Priori-Distinctions-Between-Learning-Algorithms.pdf": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://d1wqtxts1xzle7.cloudfront.net/79126750/AdamAPV19_Appr_and_Opt_IC_Demetriou__20PM_Pardalos_eds_Chapter_5_pp57-82_Springer_Nature_Switzerland_2019-libre.pdf?1642684681=&response-content-disposition=inline%3B+filename%3DNo_Free_Lunch_Theorem_A_Review.pdf&Expires=1795498206&Signature=e7nKTQqhre8A8ibuOr3ung04otVLA3g5P2mA5hebc3vu3UT8j~bBBbrbvFRzGOwpM0WBXRXRqPqLwCU~MgK3Tg3rRrEY5-PZnjASITKtBhqV8CPY0eNwF4tQx3z5lSqzOmntT27TA1s1XIIXsNFCcBaQfAcMlIjYJF2sweZppQHEOwdyH3HLqfoa5vfo6i4q3KMKea5l~XIw9x4kiJ851SrTUqXsnZl8gJ59QjiF0R6szxAj8N7Iz0C58uvDNYyTEdpShtSs9X0MLS6p8z6IoBywPrZ5pgiUfN7UK5KqCfqM0YslZOl1oeAm-Cfv4AqXkv0uGa0voXjlKZDflwugxA__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://www.science.org/doi/10.1126/sciadv.aeh0773?referrer=https%3A%2F%2Fcomdig.cssociety.org%2F": {
+    "status": "to-read",
+    "type": "website",
+    "tags": []
+  },
+  "https://arxiv.org/pdf/2611.25325": {
+    "status": "to-read",
+    "type": "article",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL514629W": {
+    "status": "to-read",
+    "type": "book",
+    "tags": []
+  },
+  "https://www.lesswrong.com/posts/DG5ziWvEyaxRoWNYG/the-measurement-problem-of-consciousness": {
     "status": "to-read",
     "type": "website",
     "tags": []
@@ -2922,6 +3022,53 @@
     "type": "website",
     "tags": []
   },
+  "https://openlibrary.org/works/OL9211903W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL98169W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL3171083W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://www.lesswrong.com/posts/jinzzbPHshif8nmnw/do-not-conquer-what-you-cannot-defend": {
+    "status": "read",
+    "type": "website",
+    "tags": ["rationality"],
+    "finished": "2026-11-25"
+  },
+  "https://www.lesswrong.com/posts/2TPph4EGZ6trEbtku/explainers-shoot-high-aim-low": {
+    "status": "read",
+    "type": "website",
+    "tags": []
+  },
+  "https://gwern.net/doc/science/1986-hamming#footnotes": {
+    "status": "read",
+    "type": "website",
+    "tags": []
+  },
+  "https://slate.com/business/2013/01/the-myth-of-technological-unemployment.html": {
+    "status": "read",
+    "type": "website",
+    "tags": [],
+    "finished": "2026-11-25"
+  },
+  "https://openlibrary.org/works/OL1968368W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
+  "https://openlibrary.org/works/OL1063267W": {
+    "status": "read",
+    "type": "book",
+    "tags": []
+  },
   "https://www.math.uchicago.edu/~may/VIGRE/VIGRE2009/REUPapers/Provenza.pdf": {
     "status": "reading",
     "type": "article",
@@ -3096,5 +3243,15 @@
     "status": "reading",
     "type": "website",
     "tags": ["economics"]
+  },
+  "https://en.wikipedia.org/wiki/Capability_approach": {
+    "status": "reading",
+    "type": "website",
+    "tags": []
+  },
+  "https://ophi.org.uk/sites/default/files/Sen-1979_Equality-of-What.pdf": {
+    "status": "reading",
+    "type": "website",
+    "tags": []
   }
 }
