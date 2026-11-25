@@ -3975,6 +3975,18 @@
     "description": "Six days ago, astronaut Mark Watney became one of the first people to walk on Mars. Now he's sure he'll be the first person to die there. After a dust storm nearly kills him and forces his crew to evacuate the planet while thinking him dead, Mark finds himself stranded on Mars' surface, completely alone. with no way to signal Earth that he's alive.",
     "source": "Open Library"
   },
+  "https://www.lesswrong.com/posts/2TPph4EGZ6trEbtku/explainers-shoot-high-aim-low": {
+    "url": "https://www.lesswrong.com/posts/2TPph4EGZ6trEbtku/explainers-shoot-high-aim-low",
+    "title": "Explainers Shoot High. Aim Low!",
+    "author": "Eliezer Yudkowsky",
+    "siteName": "LessWrong",
+    "description": "Explainers often underestimate the effort needed to explain things properly. Aiming for a lower level of understanding can lead to greater impact and popularity. It's better to aim lower with explanations to effectively reach your audience.",
+    "image": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1654295382/new_mississippi_river_fjdmww.jpg",
+    "shelf": "read",
+    "added": "2026-11-24",
+    "read": "2026-11-24",
+    "source": "Readwise"
+  },
   "https://gwern.net/doc/science/1986-hamming#footnotes": {
     "url": "https://gwern.net/doc/science/1986-hamming#footnotes",
     "title": "You And Your Research",
@@ -3982,9 +3994,9 @@
     "siteName": "Gwern.net",
     "description": "Great scientists work hard and focus deeply on important problems. They turn challenges into opportunities by changing their approach. Success comes from long effort, emotional commitment, and building on others’ work.",
     "image": "https://gwern.net/doc/science/1598-richardhamming-leydoig-ieeehistorycenter-profilephoto-ethw.jpg",
-    "shelf": "reading",
+    "shelf": "read",
     "added": "2026-11-24",
-    "read": null,
+    "read": "2026-11-24",
     "cover": "b04eabfe7d86595a",
     "source": "Readwise"
   },
@@ -4189,9 +4201,9 @@
     "siteName": "Slate Magazine",
     "description": "Machines have replaced workers for centuries, but they also raise incomes and create more leisure over time. In the short term, job losses and fewer work hours mostly reflect changes in demand and the business cycle.",
     "image": "https://compote.slate.com/images/c4c7137e-1c8a-4843-ad39-2e5fc88d5d58.png?width=1560",
-    "shelf": "to-read",
+    "shelf": "read",
     "added": "2026-11-23",
-    "read": null,
+    "read": "2026-11-24",
     "cover": "0d301dacf67fd667",
     "source": "Readwise"
   },
